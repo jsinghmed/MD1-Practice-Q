@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MSK Summative</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1117; --panel:#161b22; --card:#11161d; --choice:#1a2029; --choice-h:#202733;
+  --line:#2a313c; --line2:#353d4a; --text:#e6edf3; --muted:#8b949e; --dim:#6e7681;
+  --blue:#58a6ff; --blue-btn:#5aa2f7; --blue-bg:#16263d;
+  --green:#3fb950; --green-tile:#4caf50; --green-bg:#12261a;
+  --red:#f85149; --red-tile:#e5534b; --red-bg:#2d1517;
+  --mark:#f2cc60; --flag:#d29922;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:15px;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;cursor:pointer}
+.app{display:grid;grid-template-columns:260px 70px 1fr;height:100vh}
+
+/* sidebar */
+.side{background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;min-height:0}
+.brand{padding:22px 18px 18px;border-bottom:1px solid var(--line)}
+.brand h1{margin:0;font-size:20px;font-weight:800;letter-spacing:-.2px}
+.brand p{margin:6px 0 0;color:var(--muted);font-size:13.5px}
+.chap-h{padding:18px 9px 8px;color:var(--muted);font-size:11.5px;letter-spacing:1.4px;font-weight:600}
+.chaps{flex:1;overflow:auto;padding:0 9px}
+.chap{width:100%;display:flex;justify-content:space-between;align-items:center;background:none;border:1px solid transparent;border-radius:6px;padding:10px 12px;margin-bottom:3px;text-align:left;font-size:15px}
+.chap:hover{background:#1c222b}
+.chap .n{color:var(--muted);font-size:13px}
+.chap.on{background:var(--blue-bg);border-color:#2f5d99;color:var(--blue)}
+.chap.on .n{color:var(--blue)}
+.side-foot{border-top:1px solid var(--line);padding:14px 16px;color:var(--muted);font-size:12.5px;line-height:1.55}
+.side-foot b{color:var(--text);font-weight:600}
+
+/* question rail */
+.rail{background:var(--panel);border-right:1px solid var(--line);overflow:auto;padding:14px 0 24px;display:flex;flex-direction:column;align-items:center;gap:7px}
+.rail-h{color:var(--muted);font-size:11px;letter-spacing:1.4px;font-weight:600;margin-bottom:4px}
+.tile{position:relative;width:44px;height:30px;border-radius:5px;border:1px solid var(--line2);background:transparent;font-size:13px;font-weight:600;color:var(--muted);flex:none}
+.tile:hover{border-color:var(--muted)}
+.tile.ok{background:var(--green-tile);border-color:var(--green-tile);color:#0b2410}
+.tile.bad{background:var(--red-tile);border-color:var(--red-tile);color:#fff}
+.tile.cur{outline:2px solid var(--blue);outline-offset:2px}
+.tile.flag::after{content:"";position:absolute;top:-3px;right:-3px;width:8px;height:8px;border-radius:50%;background:var(--flag);border:2px solid var(--panel)}
+
+/* main */
+.main{overflow:auto;padding:26px 36px 60px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.top h2{margin:0;font-size:26px;font-weight:800;letter-spacing:-.3px}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.btn{background:transparent;border:1px solid var(--line2);border-radius:6px;padding:7px 13px;font-size:13.5px;color:var(--text);display:inline-flex;align-items:center;gap:6px}
+.btn:hover{background:#1c222b}
+.btn.on{background:var(--blue-bg);border-color:#2f5d99;color:var(--blue)}
+.stats{margin:14px 0 20px;color:var(--muted);font-size:15px}
+.stats b{color:var(--text)} .stats .g{color:var(--green)} .stats .r{color:var(--red)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:24px 26px;max-width:1100px}
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.qmeta{color:var(--muted);font-weight:600;font-size:14.5px}
+.qmeta b{color:var(--text)}
+.qtools{display:flex;gap:7px}
+.qtools .btn{padding:5px 11px;font-size:13px}
+.qtools .btn.flagged{color:var(--flag);border-color:#6b4f10}
+.stem{font-size:16.5px;line-height:1.75;margin:0 0 18px}
+.stem p{margin:0 0 10px}
+.stem p:last-child{margin-bottom:0}
+.stem img.qimg{margin-top:12px}
+.eh p{margin:0 0 8px;line-height:1.7;font-size:15.5px}
+.stem mark{background:var(--mark);color:#1a1300;border-radius:2px;padding:0 1px}
+.stem.hl-mode{cursor:text}
+.stem.er-mode mark{cursor:pointer;outline:1px dashed #000}
+.qimg{display:block;max-width:100%;max-height:440px;border-radius:6px;border:1px solid var(--line);margin:4px 0 20px;background:#fff;cursor:zoom-in}
+.choices{display:flex;flex-direction:column;gap:9px}
+.ch{display:flex;align-items:center;gap:14px;background:var(--choice);border:1px solid var(--line2);border-radius:7px;padding:11px 14px;cursor:pointer;user-select:none}
+.ch:hover{background:var(--choice-h)}
+.ch .L{flex:none;width:30px;height:30px;border-radius:50%;border:1px solid var(--line2);display:grid;place-items:center;font-size:13px;font-weight:600;color:var(--muted)}
+.ch .T{flex:1;font-size:15.5px;line-height:1.45}
+.ch .x{flex:none;background:none;border:none;color:var(--dim);font-size:18px;padding:2px 6px;border-radius:4px;line-height:1}
+.ch .x:hover{color:var(--text);background:#2a313c}
+.ch.sel{border-color:var(--blue);background:var(--blue-bg)} .ch.sel .L{background:var(--blue);border-color:var(--blue);color:#081324}
+.ch.struck .T{text-decoration:line-through;color:var(--dim)}
+.ch.done{cursor:default}
+.ch.right{border-color:var(--green);background:var(--green-bg)} .ch.right .L{background:var(--green);border-color:var(--green);color:#06210c}
+.ch.wrong{border-color:var(--red);background:var(--red-bg)} .ch.wrong .L{background:var(--red);border-color:var(--red);color:#fff}
+.ch .tag{font-size:12px;font-weight:600;padding:2px 8px;border-radius:10px}
+.ch.right .tag{color:var(--green);background:#0d2b16} .ch.wrong .tag{color:var(--red);background:#3a1416}
+.nav{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.nbtn{border:1px solid var(--line2);background:transparent;border-radius:7px;padding:10px 22px;font-weight:600;font-size:15px}
+.nbtn:hover:not(:disabled){background:#1c222b}
+.nbtn:disabled{opacity:.4;cursor:default}
+.nbtn.primary{background:var(--blue-btn);border-color:var(--blue-btn);color:#06152b}
+.nbtn.primary:hover:not(:disabled){background:#79b5fa}
+.nbtn.okb{border-color:var(--green);color:var(--green)} .nbtn.badb{border-color:var(--red);color:var(--red)}
+
+/* reveal answer box */
+.reveal-ans{margin-top:4px;padding:14px 16px;border-radius:7px;border:1px solid var(--green);background:var(--green-bg);font-size:17px;font-weight:700;color:var(--green)}
+
+/* explanation */
+.exp{margin-top:22px;border-top:1px solid var(--line);padding-top:20px}
+.verdict{font-weight:700;font-size:16px;margin-bottom:6px}
+.verdict.g{color:var(--green)} .verdict.r{color:var(--red)}
+.exp h4{margin:18px 0 8px;font-size:12px;letter-spacing:1.3px;color:var(--muted);text-transform:uppercase}
+.exp p{margin:0;line-height:1.7;font-size:15.5px}
+.exp p.pre{white-space:pre-line}
+.chap.all{font-weight:600}
+.chap.sub{font-style:italic;color:var(--muted)}
+.badge{display:inline-block;margin-left:6px;font-size:11.5px;font-weight:600;color:#d2a8ff;border:1px solid #5a3d8a;background:#211830;border-radius:10px;padding:1px 8px;vertical-align:1px}
+.srcnote{margin-top:14px;color:var(--muted);font-size:13.5px;font-style:italic}
+.why{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.why li{display:flex;gap:10px;line-height:1.55;font-size:15px;padding:9px 12px;border-radius:6px;background:#141a22;border:1px solid var(--line)}
+.why li .k{flex:none;font-weight:700;width:18px}
+.why li.c{border-color:#235c33} .why li.c .k{color:var(--green)}
+.why li.n .k{color:var(--red)}
+.why li .ct{color:var(--text);font-weight:600}
+.why li .wt{color:#c9d1d9}
+.keynote{margin-top:16px;padding:10px 13px;border-left:3px solid var(--flag);background:#221b0c;color:#e3c27a;font-size:14px;line-height:1.55;border-radius:0 6px 6px 0}
+.eimgs{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
+.eimgs img{max-height:260px;max-width:100%;border-radius:6px;border:1px solid var(--line);background:#fff;cursor:zoom-in}
+
+/* notes */
+.notes{margin-top:22px}
+.notes .nh{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;margin-bottom:10px;gap:10px;flex-wrap:wrap}
+.notes .nh b{letter-spacing:1.4px;font-size:12.5px}
+.notes textarea{width:100%;min-height:110px;background:var(--choice);border:1px solid var(--line2);border-radius:7px;color:var(--text);padding:12px 14px;font:inherit;font-size:15px;resize:vertical}
+.notes textarea:focus{outline:none;border-color:var(--blue)}
+
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;place-items:center;z-index:50;cursor:zoom-out;padding:20px}
+.lightbox.on{display:grid}
+.lightbox img{max-width:96vw;max-height:92vh;border-radius:6px;background:#fff}
+.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#30363d;color:var(--text);padding:9px 16px;border-radius:7px;font-size:13.5px;opacity:0;transition:opacity .2s;pointer-events:none;z-index:60}
+.toast.on{opacity:1}
+.menu-btn{display:none}
+
+@media (max-width:900px){
+  .app{grid-template-columns:1fr;grid-template-rows:auto auto 1fr;height:auto;min-height:100vh}
+  .side{display:none;border-right:none;border-bottom:1px solid var(--line)}
+  .side.open{display:flex}
+  .side-foot{display:none}
+  .rail{flex-direction:row;overflow-x:auto;overflow-y:hidden;padding:10px 16px;border-right:none;border-bottom:1px solid var(--line);align-items:center}
+  .rail-h{display:none}
+  .main{padding:18px 16px 50px;overflow:visible}
+  .menu-btn{display:inline-flex}
+  .top h2{font-size:21px}
+  .card{padding:18px 16px}
+  .stem{font-size:15.5px}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side" id="side">
+    <div class="brand"><h1>MSK Summative</h1><p>Histology · Physiology · Biochemistry · Anatomy</p></div>
+    <div class="chaps" id="chaps"></div>
+    <div class="side-foot">Your answers, highlights, flags &amp; notes are saved automatically in this browser. Reset chapter never erases highlights, flags or notes.<br><b>Keys:</b> ← → move · A–F pick · Enter submit</div>
+  </aside>
+  <nav class="rail" id="rail"></nav>
+  <main class="main">
+    <div class="top">
+      <h2 id="ctitle"></h2>
+      <div class="tools">
+        <button class="btn menu-btn" id="menuBtn">☰ Chapters</button>
+        <button class="btn" id="scrambleBtn">⇄ Scramble Choices</button>
+        <button class="btn" id="clearHlBtn">✎ Clear Highlights</button>
+        <button class="btn" id="resetBtn">↻ Reset chapter</button>
+      </div>
+    </div>
+    <div class="stats" id="stats"></div>
+    <section class="card" id="card"></section>
+    <section class="card notes">
+      <div class="nh"><b>MY NOTES</b><span>saved automatically · kept through resets</span></div>
+      <textarea id="note" placeholder="Write a note for this question..."></textarea>
+    </section>
+  </main>
+</div>
+<div class="lightbox" id="lightbox"><img alt=""></div>
+<div class="toast" id="toast"></div>
+
+<script src="questions.js"></script>
+<script src="physiology.js"></script>
+<script src="biochemistry.js"></script>
+<script src="anatomy.js"></script>
+<script>
+(function(){
+const SECTIONS = [
+  {name:"Histology", all:"All Histology", prefix:"q", topics:window.TOPICS, qs:window.QUESTIONS},
+  {name:"MSK Physiology", all:"All Physiology", prefix:"p", topics:window.PHYSIO_TOPICS, qs:window.PHYSIO_QUESTIONS},
+  {name:"Biochemistry", all:"All Biochemistry", prefix:"b", topics:window.BCHM_TOPICS, qs:window.BCHM_QUESTIONS,
+   extra:[{name:"From the Document", f:q=>q.src==="doc"}, {name:"Blueprint Practice (new)", f:q=>q.src==="new"}]},
+  {name:"Anatomy (BRS)", all:"All Anatomy", prefix:"a", topics:window.ANAT_TOPICS, qs:window.ANAT_QUESTIONS,
+   extra:[{name:"All Upper Limb", f:q=>q.limb==="Upper Limb"}, {name:"All Lower Limb", f:q=>q.limb==="Lower Limb"}]}
+].filter(s=>s.qs && s.qs.length);
+const Q = [], CHAPTERS = [];
+SECTIONS.forEach(sec=>{
+  const qs = sec.qs.map((q,i)=>Object.assign({id:sec.prefix+(i+1), sec:sec.name}, q));
+  Q.push(...qs);
+  CHAPTERS.push({name:sec.all, sec:sec.name, head:true, ids:qs.map(q=>q.id)});
+  sec.topics.forEach(t=>{ const ids=qs.filter(q=>q.t===t).map(q=>q.id); if(ids.length) CHAPTERS.push({name:t, sec:sec.name, ids}); });
+  (sec.extra||[]).forEach(x=>{ const ids=qs.filter(x.f).map(q=>q.id); if(ids.length) CHAPTERS.push({name:x.name, sec:sec.name, ids, sub:true}); });
+});
+const byId = Object.fromEntries(Q.map(q=>[q.id,q]));
+const LET = "ABCDEFGH";
+
+// ---------- storage ----------
+const KEY = "msk-summative-v1";
+let S = {};
+try { S = JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e) { S = {}; }
+S.ans ??= {}; S.sel ??= {}; S.strike ??= {}; S.flag ??= {}; S.notes ??= {}; S.hl ??= {}; S.order ??= {}; S.scr ??= {}; S.pos ??= {};
+S.chap ??= 0;
+function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){} }
+
+let chapIdx = Math.min(S.chap, CHAPTERS.length-1);
+let mode = null; // "hl" | "er" | null
+
+const $ = id => document.getElementById(id);
+const chap = () => CHAPTERS[chapIdx];
+const pos = () => Math.min(S.pos[chapIdx] || 0, chap().ids.length-1);
+const curQ = () => byId[chap().ids[pos()]];
+
+function toast(t){ const el=$("toast"); el.textContent=t; el.classList.add("on"); clearTimeout(toast._t); toast._t=setTimeout(()=>el.classList.remove("on"),1600); }
+function esc(s){ return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
+
+// status: "ok" | "bad" | null
+function status(q){
+  const a = S.ans[q.id];
+  if (a === undefined) return null;
+  if (q.type === "reveal") return a === "ok" ? "ok" : a === "bad" ? "bad" : null;
+  return a === q.a ? "ok" : "bad";
+}
+function answered(q){ return q.type==="reveal" ? (S.ans[q.id]==="ok"||S.ans[q.id]==="bad") : S.ans[q.id]!==undefined; }
+
+// display order of choices (array of original indices)
+function order(q){
+  const n = q.c.length, base = [...Array(n).keys()];
+  if (q.ns || !S.scr[chapIdx]) return base;
+  let o = S.order[q.id];
+  if (!o || o.length !== n) {
+    o = base.slice();
+    for (let i=n-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [o[i],o[j]]=[o[j],o[i]]; }
+    S.order[q.id] = o; save();
+  }
+  return o;
+}
+
+// ---------- render ----------
+function renderChaps(){
+  $("chaps").innerHTML = CHAPTERS.map((c,i)=>
+    (c.head?`<div class="chap-h">${esc(c.sec.toUpperCase())}</div>`:"") +
+    `<button class="chap ${i===chapIdx?"on":""} ${c.head?"all":""} ${c.sub?"sub":""}" data-i="${i}"><span>${esc(c.name)}</span><span class="n">${c.ids.length}</span></button>`).join("");
+}
+function renderRail(){
+  const p = pos();
+  $("rail").innerHTML = `<div class="rail-h">QS</div>` + chap().ids.map((id,i)=>{
+    const q = byId[id], st = status(q);
+    return `<button class="tile ${st||""} ${i===p?"cur":""} ${S.flag[id]?"flag":""}" data-i="${i}" title="Question ${i+1}">${i+1}</button>`;
+  }).join("");
+  const cur = $("rail").querySelector(".cur");
+  if (cur) cur.scrollIntoView({block:"nearest", inline:"nearest"});
+}
+function renderStats(){
+  const qs = chap().ids.map(id=>byId[id]);
+  const done = qs.filter(answered), ok = done.filter(q=>status(q)==="ok").length, bad = done.length-ok;
+  const pct = done.length ? Math.round(ok*100/done.length) : 0;
+  $("stats").innerHTML = `<b>${done.length}</b> / ${qs.length} answered · <span class="g">${ok} correct</span> · <span class="r">${bad} incorrect</span> · ${pct}%`;
+  $("ctitle").textContent = chap().head ? chap().sec : chap().sec + " · " + chap().name;
+  $("scrambleBtn").classList.toggle("on", !!S.scr[chapIdx]);
+}
+
+function renderCard(){
+  const q = curQ(), p = pos(), n = chap().ids.length;
+  const isReveal = q.type === "reveal";
+  const done = answered(q);
+  const stemHTML = S.hl[q.id] || (q.html ? q.s : esc(q.s));
+  let h = `<div class="qhead">
+      <div class="qmeta">Question <b>${p+1}</b> of ${n} &nbsp;·&nbsp; ${esc(q.sec)} &nbsp;·&nbsp; ${esc(q.t)}${q.src==="new"?' <span class="badge">Blueprint practice</span>':""}</div>
+      <div class="qtools">
+        <button class="btn ${mode==="hl"?"on":""}" id="hlBtn">✎ Highlight</button>
+        <button class="btn ${mode==="er"?"on":""}" id="erBtn">⌫ Eraser</button>
+        <button class="btn ${S.flag[q.id]?"flagged":""}" id="flagBtn">⚑ ${S.flag[q.id]?"Flagged":"Flag"}</button>
+      </div></div>
+    <div class="stem ${mode==="hl"?"hl-mode":""} ${mode==="er"?"er-mode":""}" id="stem">${stemHTML}</div>`;
+  if (q.img) h += `<img class="qimg zoom" src="${q.img}" alt="Image for question ${p+1}">`;
+
+  if (!isReveal) {
+    const o = order(q), sel = S.sel[q.id], ans = S.ans[q.id], st = S.strike[q.id] || {};
+    h += `<div class="choices">` + o.map((oi,k)=>{
+      let cls = "ch", tag = "";
+      if (done) {
+        cls += " done";
+        if (oi === q.a) { cls += " right"; tag = `<span class="tag">Correct</span>`; }
+        else if (oi === ans) { cls += " wrong"; tag = `<span class="tag">Your answer</span>`; }
+      } else if (sel === oi) cls += " sel";
+      if (st[oi]) cls += " struck";
+      return `<div class="${cls}" data-oi="${oi}"><span class="L">${LET[k]}</span><span class="T">${esc(q.c[oi])}</span>${tag}<button class="x" data-strike="${oi}" title="Cross out">✕</button></div>`;
+    }).join("") + `</div>`;
+    h += `<div class="nav">
+      <button class="nbtn" id="prevBtn" ${p===0?"disabled":""}>← Previous</button>
+      <button class="nbtn primary" id="submitBtn" ${done||sel===undefined?"disabled":""}>Submit</button>
+      <button class="nbtn" id="nextBtn" ${p===n-1?"disabled":""}>Next →</button></div>`;
+    if (done) h += explanation(q, o);
+  } else {
+    const shown = S.ans[q.id] !== undefined;
+    if (shown) h += `<div class="reveal-ans">${esc(q.ans)}</div>`;
+    h += `<div class="nav">
+      <button class="nbtn" id="prevBtn" ${p===0?"disabled":""}>← Previous</button>
+      ${shown
+        ? `<button class="nbtn okb" id="gotBtn">✓ I got it</button><button class="nbtn badb" id="missBtn">✕ I missed it</button>`
+        : `<button class="nbtn primary" id="showBtn">Show answer</button>`}
+      <button class="nbtn" id="nextBtn" ${p===n-1?"disabled":""}>Next →</button></div>`;
+    if (shown) h += explanation(q, null);
+  }
+  $("card").innerHTML = h;
+  $("note").value = S.notes[q.id] || "";
+}
+
+function explanation(q, o){
+  let h = `<div class="exp">`;
+  if (o) {
+    const right = S.ans[q.id] === q.a;
+    const letter = LET[o.indexOf(q.a)];
+    h += `<div class="verdict ${right?"g":"r"}">${right?"Correct.":"Incorrect."} The answer is ${letter}. ${esc(q.c[q.a].trim())}</div>`;
+  } else {
+    const m = S.ans[q.id];
+    h += `<div class="verdict ${m==="bad"?"r":"g"}">Answer: ${esc(q.ans)}</div>`;
+  }
+  if (q.eh) h += `<h4>Explanation</h4><div class="eh">${q.eh}</div>`;
+  if (q.ref) h += `<div class="srcnote">Source: ${esc(q.ref)}</div>`;
+  if (q.se) h += `<h4>Explanation from the slides</h4><p class="pre">${esc(q.se)}</p>`;
+  if (q.e) h += `<h4>${q.se ? "More detail" : "Why it's correct"}</h4><p class="pre">${esc(q.e)}</p>`;
+  const imgs = (q.eimg||[]).concat((q.fig||[]).map(f=>`img/physio/${f}.jpg`));
+  if (imgs.length) h += `<h4>${q.fig ? "Figures from the slides" : "Figure"}</h4><div class="eimgs">${imgs.map(s=>`<img class="zoom" src="${s}" alt="" loading="lazy">`).join("")}</div>`;
+  if (o && q.w && q.w.length) {
+    h += `<h4>Choice by choice</h4><ul class="why">` + o.map((oi,k)=>
+      `<li class="${oi===q.a?"c":"n"}"><span class="k">${LET[k]}</span><span><span class="ct">${esc(q.c[oi].trim())}</span> — <span class="wt">${esc(q.w[oi])}</span></span></li>`).join("") + `</ul>`;
+  } else if (!o && q.w && q.w.length) {
+    h += `<h4>How to tell it apart</h4><ul class="why">` + q.w.map(t=>`<li class="n"><span class="k">•</span><span class="wt">${esc(t)}</span></li>`).join("") + `</ul>`;
+  }
+  if (q.key) h += `<div class="keynote">${esc(q.key)}</div>`;
+  if (q.src==="doc" && !q.given && !q.key) h += `<div class="srcnote">The document doesn't give an answer for this question; the answer here is supplied.</div>`;
+  if (q.src==="new") h += `<div class="srcnote">Written for this site from the exam blueprint — not in the document.</div>`;
+  return h + `</div>`;
+}
+
+function renderAll(){ renderChaps(); renderRail(); renderStats(); renderCard(); }
+
+// ---------- actions ----------
+function go(i){
+  const n = chap().ids.length; if (i<0||i>=n) return;
+  S.pos[chapIdx] = i; save(); renderRail(); renderCard();
+  document.querySelector(".main").scrollTo({top:0, behavior:"smooth"}); window.scrollTo({top:0});
+}
+function pick(oi){
+  const q = curQ(); if (q.type==="reveal" || answered(q)) return;
+  S.sel[q.id] = oi; save(); renderCard();
+}
+function submit(){
+  const q = curQ(); if (q.type==="reveal" || answered(q) || S.sel[q.id]===undefined) return;
+  S.ans[q.id] = S.sel[q.id]; save(); renderRail(); renderStats(); renderCard();
+}
+function saveStem(){
+  const q = curQ(), el = $("stem"); if (!el) return;
+  if (el.querySelector("mark")) S.hl[q.id] = el.innerHTML; else delete S.hl[q.id];
+  save();
+}
+function highlightSelection(){
+  const el = $("stem"), sel = window.getSelection();
+  if (!el || !sel.rangeCount || sel.isCollapsed) return false;
+  const r = sel.getRangeAt(0);
+  if (!el.contains(r.commonAncestorContainer)) return false;
+  const m = document.createElement("mark");
+  m.appendChild(r.extractContents());
+  r.insertNode(m);
+  // flatten nested marks
+  m.querySelectorAll("mark").forEach(x=>x.replaceWith(...x.childNodes));
+  sel.removeAllRanges(); el.normalize(); saveStem(); return true;
+}
+
+document.addEventListener("click", e=>{
+  const t = e.target;
+  const chapB = t.closest(".chap");
+  if (chapB) { chapIdx = +chapB.dataset.i; S.chap = chapIdx; save(); $("side").classList.remove("open"); renderAll(); return; }
+  const tile = t.closest(".tile"); if (tile) { go(+tile.dataset.i); return; }
+  const strike = t.closest("[data-strike]");
+  if (strike) { e.stopPropagation(); const q=curQ(), oi=+strike.dataset.strike; (S.strike[q.id] ??= {}); S.strike[q.id][oi] = !S.strike[q.id][oi]; save(); renderCard(); return; }
+  const ch = t.closest(".ch"); if (ch) { pick(+ch.dataset.oi); return; }
+  const z = t.closest(".zoom"); if (z) { $("lightbox").querySelector("img").src = z.src; $("lightbox").classList.add("on"); return; }
+  if (t.closest("#lightbox")) { $("lightbox").classList.remove("on"); return; }
+  if (t.closest("#prevBtn")) return go(pos()-1);
+  if (t.closest("#nextBtn")) return go(pos()+1);
+  if (t.closest("#submitBtn")) return submit();
+  if (t.closest("#showBtn")) { S.ans[curQ().id] = "shown"; save(); renderCard(); return; }
+  if (t.closest("#gotBtn")) { S.ans[curQ().id] = "ok"; save(); renderRail(); renderStats(); renderCard(); return; }
+  if (t.closest("#missBtn")) { S.ans[curQ().id] = "bad"; save(); renderRail(); renderStats(); renderCard(); return; }
+  if (t.closest("#flagBtn")) { const id=curQ().id; S.flag[id]=!S.flag[id]; if(!S.flag[id]) delete S.flag[id]; save(); renderRail(); renderCard(); return; }
+  if (t.closest("#hlBtn")) { if (highlightSelection()) { renderCard(); return; } mode = mode==="hl"?null:"hl"; renderCard(); return; }
+  if (t.closest("#erBtn")) { mode = mode==="er"?null:"er"; renderCard(); return; }
+  const mk = t.closest("#stem mark");
+  if (mk && mode==="er") { mk.replaceWith(...mk.childNodes); $("stem").normalize(); saveStem(); return; }
+  if (t.closest("#menuBtn")) { $("side").classList.toggle("open"); return; }
+  if (t.closest("#scrambleBtn")) {
+    S.scr[chapIdx] = !S.scr[chapIdx];
+    if (S.scr[chapIdx]) chap().ids.forEach(id=>delete S.order[id]);
+    save(); renderStats(); renderCard(); toast(S.scr[chapIdx] ? "Choices scrambled" : "Original choice order"); return;
+  }
+  if (t.closest("#clearHlBtn")) { chap().ids.forEach(id=>delete S.hl[id]); save(); renderCard(); toast("Highlights cleared for this chapter"); return; }
+  if (t.closest("#resetBtn")) {
+    if (!confirm("Reset all answers in “"+chap().name+"”? Highlights, flags and notes are kept.")) return;
+    chap().ids.forEach(id=>{ delete S.ans[id]; delete S.sel[id]; delete S.strike[id]; delete S.order[id]; });
+    S.pos[chapIdx] = 0; save(); renderAll(); toast("Chapter reset"); return;
+  }
+});
+document.addEventListener("mouseup", e=>{
+  if (mode==="hl" && e.target.closest && e.target.closest("#stem")) highlightSelection();
+});
+$("note").addEventListener("input", e=>{
+  const id = curQ().id; if (e.target.value.trim()) S.notes[id]=e.target.value; else delete S.notes[id]; save();
+});
+document.addEventListener("keydown", e=>{
+  if (e.target.matches("textarea,input")) return;
+  if (e.key==="Escape") { $("lightbox").classList.remove("on"); return; }
+  if (e.key==="ArrowLeft") return go(pos()-1);
+  if (e.key==="ArrowRight") return go(pos()+1);
+  const q = curQ();
+  if (e.key==="Enter") {
+    if (q.type==="reveal") { if (S.ans[q.id]===undefined) { S.ans[q.id]="shown"; save(); renderCard(); } return; }
+    return submit();
+  }
+  const k = e.key.toUpperCase();
+  if (q.type!=="reveal" && k.length===1 && LET.indexOf(k)>=0) {
+    const o = order(q), idx = LET.indexOf(k);
+    if (idx < o.length) pick(o[idx]);
+  }
+});
+
+renderAll();
+})();
+</script>
+</body>
+</html>
