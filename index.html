@@ -392,14 +392,15 @@ table.rt tr.click:hover td{background:var(--hover)}
 <div class="lightbox" id="lightbox"><img alt=""></div>
 <div class="toast" id="toast"></div>
 
-<script src="images.js?v=12"></script>
-<script src="questions.js?v=12"></script>
-<script src="histology-review.js?v=12"></script>
-<script src="physiology.js?v=12"></script>
-<script src="physiology-review.js?v=12"></script>
-<script src="biochemistry.js?v=12"></script>
-<script src="anatomy.js?v=12"></script>
-<script src="embryology.js?v=12"></script>
+<script src="images.js?v=13"></script>
+<script src="questions.js?v=13"></script>
+<script src="histology-review.js?v=13"></script>
+<script src="physiology.js?v=13"></script>
+<script src="physiology-review.js?v=13"></script>
+<script src="biochemistry.js?v=13"></script>
+<script src="anatomy.js?v=13"></script>
+<script src="embryology.js?v=13"></script>
+<script src="fbs-physiology.js?v=13"></script>
 <script>
 (function(){
 // =====================================================================
@@ -421,7 +422,9 @@ const SECTIONS = [
    extra:[{name:"From the Document", f:q=>q.src==="doc"}, {name:"Blueprint Practice (new)", f:q=>q.src==="new"}]},
   {course:"msk", name:"Anatomy (BRS)", all:"All Anatomy", prefix:"a", topics:window.ANAT_TOPICS, qs:window.ANAT_QUESTIONS,
    extra:[{name:"All Upper Limb", f:q=>q.limb==="Upper Limb"}, {name:"All Lower Limb", f:q=>q.limb==="Lower Limb"}]},
-  {course:"msk", name:"MSK Embryology", all:"All Embryology", prefix:"e", topics:window.EMB_TOPICS, qs:window.EMB_QUESTIONS}
+  {course:"msk", name:"MSK Embryology", all:"All Embryology", prefix:"e", topics:window.EMB_TOPICS, qs:window.EMB_QUESTIONS},
+  {course:"fbs", name:"FBS Physiology", all:"All FBS Physiology", prefix:"fp", topics:window.FBS_PHYS_TOPICS, qs:window.FBS_PHYS_QUESTIONS,
+   extra:[{name:"FBS Review 1", f:q=>q.src==="r1"}, {name:"Class Review Qs", f:q=>q.src==="cls"}, {name:"RMP & AP Questions", f:q=>q.src==="rmp"}]}
 ].filter(s=>s.qs && s.qs.length);
 
 const Q = [], STATIC = [];
@@ -1103,10 +1106,20 @@ function submit(){
   if (s !== S) S.ans[q.id] = s.sel[q.id];
   save(); renderChaps(); renderRail(); renderStats(); renderCard();
 }
+// FBS images live in their own file and only download the first time an FBS figure is shown.
+let fbsImgState = 0; // 0 = not requested, 1 = loading, 2 = done
+function loadFbsImgs(){
+  if (fbsImgState) return; fbsImgState = 1;
+  const sc = document.createElement("script"); sc.src = "images-fbs.js?v=13";
+  sc.onload = ()=>{ fbsImgState = 2; fixImgs(document); };
+  sc.onerror = ()=>{ fbsImgState = 0; };
+  document.head.appendChild(sc);
+}
 function fixImgs(root){
   root.querySelectorAll("img").forEach(i=>{
     const k=(i.dataset.k||i.getAttribute("src")||"").replace(/^\.\//,"");
     if (window.IMG && IMG[k]) { i.dataset.k=k; i.src=IMG[k]; }
+    else if (/^fp-/.test(k)) { i.dataset.k=k; loadFbsImgs(); }
   });
 }
 function saveStem(){
