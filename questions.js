@@ -36,7 +36,7 @@ window.QUESTIONS = [
 {
   t: "Junctions & Cytoskeleton",
   s: `A 23-year-old woman, gravida 2, para 1, comes to the labor and delivery unit at 39 weeks gestation with abdominal discomfort and regular contractions. The patient had an uncomplicated first pregnancy that resulted in a spontaneous vaginal delivery at full term 3 years ago, and the current pregnancy has been uncomplicated. She takes a prenatal vitamin daily and no other medications. In response to increasing estrogen levels, the myometrial cells start to express genes that encode connexin-43 and the oxytocin receptor. These molecular changes would result in increased formation of which of the following?`,
-  c: ["adherens junction", "desmosomes", "gap junction", "hemidesomsomes", "Tight junction"],
+  c: ["Adherens junction", "Desmosomes", "Gap junction", "Hemidesmosomes", "Tight junction"],
   a: 2,
   eimg: ["h02-junction-table.jpg"],
   e: `Connexins (here connexin-43) are the building blocks of gap junctions: six connexins form a connexon, and connexons in neighbouring cells dock to form a channel. Near term, estrogen up-regulates connexin-43 so myometrial cells become electrically coupled, allowing contractions to spread and synchronize across the uterus during labor.`,
@@ -50,8 +50,8 @@ window.QUESTIONS = [
 },
 {
   t: "Junctions & Cytoskeleton",
-  s: `A 68-year-old man with a history of Parkinson disease is hospitalized for pneumonia and sepsis. The patient is treated with intravenous (IV) fluids and antibiotics.He is also started on an infusion of IV dopamine for hemodynamic support. Although the manifestations of Parkinson disease are attributed to dopaminergic neuron degeneration in the substantia nigra : IV dopamine does not improve this patient's Parkinson symptoms. Which of the following cell structures accounts for this lack of responsiveness?`,
-  c: ["gap junction", "Tight junction", "fenestrate", "Desmosomes", "Hemidesmosomes"],
+  s: `A 68-year-old man with a history of Parkinson disease is hospitalized for pneumonia and sepsis. The patient is treated with intravenous (IV) fluids and antibiotics. He is also started on an infusion of IV dopamine for hemodynamic support. Although the manifestations of Parkinson disease are attributed to dopaminergic neuron degeneration in the substantia nigra, IV dopamine does not improve this patient's Parkinson symptoms. Which of the following cell structures accounts for this lack of responsiveness?`,
+  c: ["Gap junction", "Tight junction", "Fenestrations", "Desmosomes", "Hemidesmosomes"],
   a: 1,
   eimg: ["h03-cell-junctions.jpg"],
   e: `Dopamine cannot cross the blood–brain barrier. The barrier is formed mainly by continuous tight junctions (zonulae occludentes) between brain capillary endothelial cells, which block paracellular passage of polar molecules. This is why Parkinson disease is treated with levodopa, which crosses the barrier on an amino acid transporter and is then converted to dopamine in the brain.`,
@@ -65,8 +65,8 @@ window.QUESTIONS = [
 },
 {
   t: "Bone & Cartilage",
-  s: `A 3-year-old girl is brought to her pediatrician for a well child checkup. She has met all of the appropriate developmental milestones. Her height corresponds to the GO 1 " percentile. Osteoblasts near the growth plates of her long bones secrete matrix material, and when they become trapped in the ossified matrix^ they become known as osteocytes. These osteocytes remain connected to each other by`,
-  c: ["gap junction", "Tight junction", "fenestrate", "Desmosomes", "Hemidesmosomes"],
+  s: `A 3-year-old girl is brought to her pediatrician for a well-child checkup. She has met all of the appropriate developmental milestones. Her height corresponds to the 60th percentile. Osteoblasts near the growth plates of her long bones secrete matrix material, and when they become trapped in the ossified matrix, they become known as osteocytes. These osteocytes remain connected to each other by which of the following?`,
+  c: ["Gap junction", "Tight junction", "Fenestrations", "Desmosomes", "Hemidesmosomes"],
   a: 0,
   eimg: ["h04-osteocytes.jpg"],
   e: `Osteocytes sit in lacunae and send long cytoplasmic processes through tiny channels (canaliculi). Where the processes of neighbouring osteocytes touch, they are joined by gap junctions. This network lets ions, nutrients and signals pass from cell to cell and lets osteocytes sense mechanical load and coordinate remodeling.`,
@@ -80,7 +80,7 @@ window.QUESTIONS = [
 },
 {
   t: "Connective Tissue & ECM",
-  s: `The type of collagen is seen in tendon?`,
+  s: `Which type of collagen is seen in tendon?`,
   c: ["Type I", "Type II", "Type III", "Type IV", "Type VII"],
   a: 0,
   eimg: ["h05-collagen-scar.jpg", "h05-collagen-table.jpg"],
@@ -95,9 +95,9 @@ window.QUESTIONS = [
 },
 {
   t: "Skin",
-  s: `A 44-year-old woman comes to the clinic because she has noticed changes in a mole on her neck. Physical examination shows a pigmented lesion with uneven borders, measuring about 1.5 cm wide. The patient says that the mole has doubled in size over the past 3 months. She noticed that it began to bleed after she got out of the shower 2 weeks ago. An excisional biopsy is done, its melanoma  and the slide is shown here. Which of the following is the embryologic origin of the melanocytes?`,
+  s: `A 44-year-old woman comes to the clinic because she has noticed changes in a mole on her neck. Physical examination shows a pigmented lesion with uneven borders, measuring about 1.5 cm wide. The patient says that the mole has doubled in size over the past 3 months. She noticed that it began to bleed after she got out of the shower 2 weeks ago. An excisional biopsy is done; it is melanoma, and the slide is shown here. Which of the following is the embryologic origin of the melanocytes?`,
   img: "q06-melanoma.jpg",
-  c: ["Neural crest cell", "mesoderm", "endoderm", "ectoderm", "notochord"],
+  c: ["Neural crest cell", "Mesoderm", "Endoderm", "Ectoderm", "Notochord"],
   a: 0,
   e: `Melanocytes are derived from neural crest cells, which migrate into the stratum basale during development. They make melanin in melanosomes and transfer the granules to neighbouring keratinocytes through their dendritic processes. Melanoma is the malignant tumor of melanocytes.`,
   w: [
@@ -110,8 +110,8 @@ window.QUESTIONS = [
 },
 {
   t: "Bone & Cartilage",
-  s: `A 24 year old man fall off from the motor cycle and injures his knee. He does not seek medical help immediately but after 10days presents with swelling, redness and limitation of knee movement. The process that now causing the patient's typical due to the destroy of cartilage, because of which of the following reasons?`,
-  c: ["cartilage contain collagen", "cartilage contain chondroitin sulphate", "cartilage is not innervated", "cartilage is Avascular", "cartilage tends to calcify"],
+  s: `A 24-year-old man falls off a motorcycle and injures his knee. He does not seek medical help immediately, but after 10 days he presents with swelling, redness and limitation of knee movement. The process now affecting the patient is typically due to the destruction of cartilage, because of which of the following reasons?`,
+  c: ["Cartilage contains collagen", "Cartilage contains chondroitin sulphate", "Cartilage is not innervated", "Cartilage is avascular", "Cartilage tends to calcify"],
   a: 3,
   e: `Cartilage has no blood vessels. Chondrocytes get their nutrients by slow diffusion through the matrix (from the perichondrium or, for articular cartilage, from synovial fluid). Without a blood supply, inflammatory and repair cells and new tissue cannot easily reach an injury, so damaged cartilage heals poorly and tends to break down.`,
   w: [
@@ -124,8 +124,8 @@ window.QUESTIONS = [
 },
 {
   t: "Bone & Cartilage",
-  s: `A 5 Year old boy is falls off and fracture his humerus.he is taken to the emergency room, where the physician can set the bone. Which of the following is responsible for producing majority of the new bone for uniting the two fragments?`,
-  c: ["periosteum", "cartilage", "marrow", "compact bone", "Cancellous bone"],
+  s: `A 5-year-old boy falls and fractures his humerus. He is taken to the emergency room, where the physician sets the bone. Which of the following is responsible for producing the majority of the new bone uniting the two fragments?`,
+  c: ["Periosteum", "Cartilage", "Marrow", "Compact bone", "Cancellous bone"],
   a: 0,
   e: `The inner (cambium/osteogenic) layer of the periosteum contains osteoprogenitor cells. After a fracture they proliferate and differentiate into osteoblasts and chondroblasts, forming the callus that bridges the fragments; the endosteum adds a smaller contribution. Children have a thick, very active periosteum, which is why their fractures heal quickly.`,
   w: [
@@ -138,8 +138,8 @@ window.QUESTIONS = [
 },
 {
   t: "Muscle",
-  s: `During contraction which of the following maintains it uncontracted length?`,
-  c: ["A band", "I band", "sacromere", "myofibril", "myofiber"],
+  s: `During contraction, which of the following maintains its uncontracted length?`,
+  c: ["A band", "I band", "Sarcomere", "Myofibril", "Myofiber"],
   a: 0,
   e: `By the sliding filament model, filaments don't shorten — thin filaments slide over thick filaments toward the M line. The A band equals the length of the thick (myosin) filaments, so it stays the same length. The I band and H zone shrink, Z lines move closer together, and the sarcomere, myofibril and whole fiber shorten.`,
   w: [
@@ -152,8 +152,8 @@ window.QUESTIONS = [
 },
 {
   t: "Junctions & Cytoskeleton",
-  s: `A 34 year old woman and her 36 years old husband come to the physician because of concerns about having children's. The wife tells the physicians that she has had regular menstrual cycles since age 13. The husband recalls a long history of sinus infections, cold and ear infections. Laboratory studies show no abnormality of the woman's reproductive tract or the man's sperm count. A deficiency in which of the following is most likely responsible for this couples difficulty in conceiving?`,
-  c: ["Desmin", "Dynein", "Kinesin", "Alpha- nectin", "titin"],
+  s: `A 34-year-old woman and her 36-year-old husband come to the physician because of concerns about having children. The wife tells the physician that she has had regular menstrual cycles since age 13. The husband recalls a long history of sinus infections, colds and ear infections. Laboratory studies show no abnormality of the woman's reproductive tract or the man's sperm count. A deficiency in which of the following is most likely responsible for this couple's difficulty in conceiving?`,
+  c: ["Desmin", "Dynein", "Kinesin", "Alpha-nexin", "Titin"],
   a: 1,
   e: `Recurrent sinus and ear infections plus infertility with a normal sperm count suggests primary ciliary dyskinesia (Kartagener syndrome if situs inversus is present). Defective axonemal dynein arms leave cilia and sperm flagella immotile: mucus isn't cleared from the airways, and sperm are present but can't swim.`,
   w: [
@@ -166,8 +166,8 @@ window.QUESTIONS = [
 },
 {
   t: "Muscle",
-  s: `A 42-year-old man complains of fatigue and weakness of the muscles in her face, eyes, and tongue. Clinical tests indicates the presence of circulating antibodies to acetylcholine receptors. A possible diagnosis is based on symptoms?`,
-  c: ["Myasthenia gravis", "Demyelinating disease", "Amyotrophic lateral disease", "Duchenne muscular dystrophy"],
+  s: `A 42-year-old man complains of fatigue and weakness of the muscles in his face, eyes, and tongue. Clinical tests indicate the presence of circulating antibodies to acetylcholine receptors. Based on the symptoms, what is the most likely diagnosis?`,
+  c: ["Myasthenia gravis", "Demyelinating disease", "Amyotrophic lateral sclerosis", "Duchenne muscular dystrophy"],
   a: 0,
   e: `Myasthenia gravis is an autoimmune disease in which antibodies block and destroy nicotinic acetylcholine receptors on the motor end plate. Fewer working receptors means fatigable weakness that typically starts in eye, face and bulbar muscles (ptosis, diplopia, trouble chewing or speaking) and worsens with use.`,
   w: [
@@ -179,8 +179,8 @@ window.QUESTIONS = [
 },
 {
   t: "Bone & Cartilage",
-  s: `During prenatal development of bone ,which of the area, were consists of osteoid matrix and degenerationg chondrocytes ?`,
-  c: ["Primary centre ", "Secondary centre ", "Epiphysis ", "Epiphyseal plate"],
+  s: `During prenatal development of bone, which of the following areas consists of osteoid matrix and degenerating chondrocytes?`,
+  c: ["Primary centre", "Secondary centre", "Epiphysis", "Epiphyseal plate"],
   a: 0,
   e: `In endochondral ossification the primary ossification center forms in the diaphysis before birth. Chondrocytes there hypertrophy, calcify their matrix and die; a periosteal bud brings in vessels and osteoprogenitor cells, and osteoblasts lay osteoid on the calcified cartilage remnants. So this center contains both osteoid and degenerating chondrocytes during prenatal development.`,
   w: [
@@ -192,8 +192,8 @@ window.QUESTIONS = [
 },
 {
   t: "Junctions & Cytoskeleton",
-  s: `Which of the following anchor or the basal cell of epithelium to basal lamina `,
-  c: ["Hemidesomosomes ", "Desomosomes", "Tight junction ", "Collagen fibres"],
+  s: `Which of the following anchors the basal cells of the epithelium to the basal lamina?`,
+  c: ["Hemidesmosomes", "Desmosomes", "Tight junction", "Collagen fibres"],
   a: 0,
   e: `Hemidesmosomes are cell-to-matrix junctions on the basal surface. Integrins (α6β4) and type XVII collagen (BP180) in the membrane bind laminin in the basal lamina, while plectin and BP230 connect them inside the cell to keratin intermediate filaments. Autoantibodies against them cause bullous pemphigoid.`,
   w: [
@@ -205,8 +205,8 @@ window.QUESTIONS = [
 },
 {
   t: "Bone & Cartilage",
-  s: `A 13-years old boy is suffering from weakness of bones and joints in his legs. After the medical tests ,its found that weakened bones are due to  reduced osteiod and lack of mineralization .which of the following structure is responsible for this process ?`,
-  c: ["Osteoclast", "Oseoblast", "Osteocyte ", "Mast cell", "Lack of blood supply "],
+  s: `A 13-year-old boy is suffering from weakness of the bones and joints in his legs. After medical tests, it is found that the weakened bones are due to reduced osteoid and lack of mineralization. Which of the following structures is responsible for this process?`,
+  c: ["Osteoclast", "Osteoblast", "Osteocyte", "Mast cell", "Lack of blood supply"],
   a: 1,
   e: `Osteoblasts make osteoid (type I collagen plus matrix proteins) and start its mineralization by releasing matrix vesicles and alkaline phosphatase. Reduced osteoid and failure to mineralize therefore point to the osteoblast (as in rickets/osteomalacia from low vitamin D, calcium or phosphate).`,
   w: [
@@ -219,8 +219,8 @@ window.QUESTIONS = [
 },
 {
   t: "Junctions & Cytoskeleton",
-  s: `Kartegener syndrome is an genetic order caused by cilliary disfunction due to `,
-  c: ["Defect in dynein ", "Defect in kinein ", "Defect in titin ", "Defect in nexin"],
+  s: `Kartagener syndrome is a genetic disorder caused by ciliary dysfunction due to which of the following?`,
+  c: ["Defect in dynein", "Defect in kinesin", "Defect in titin", "Defect in nexin"],
   a: 0,
   e: `Kartagener syndrome (primary ciliary dyskinesia with situs inversus) is caused by defective dynein arms on the outer microtubule doublets of the axoneme. Without dynein's ATP-driven sliding, cilia and flagella can't beat: chronic sinusitis, bronchiectasis, male infertility, and situs inversus (embryonic nodal cilia can't set left–right asymmetry).`,
   w: [
@@ -245,8 +245,8 @@ window.QUESTIONS = [
 },
 {
   t: "Skin",
-  s: `A 6mm punch biopsy of normal appearing epidermis reveals stellar cells that contain intracytoplasmic granules having the shape of a tennis racquet. These cells demonstrate some myeloid surface markers and can interact closely with T lymphocytes. The cells described above are best referred to as which of the following?`,
-  c: ["Langerhans cell", "Melanocytes", "kuffer cell", "Mesengial cell", "merkel cell"],
+  s: `A 6-mm punch biopsy of normal-appearing epidermis reveals stellate cells that contain intracytoplasmic granules having the shape of a tennis racquet. These cells demonstrate some myeloid surface markers and can interact closely with T lymphocytes. The cells described above are best referred to as which of the following?`,
+  c: ["Langerhans cell", "Melanocytes", "Kupffer cell", "Mesangial cell", "Merkel cell"],
   a: 0,
   e: `Langerhans cells are star-shaped (dendritic) antigen-presenting cells in the stratum spinosum. They come from bone-marrow (myeloid) precursors, express CD1a and langerin, and contain Birbeck granules that look like tennis rackets on EM. They capture antigen and migrate to lymph nodes to present it to T cells.`,
   w: [
@@ -259,8 +259,8 @@ window.QUESTIONS = [
 },
 {
   t: "Junctions & Cytoskeleton",
-  s: `it is determined that the causative organism of this patient's condition remains in a latent state in the neuronal cell bodies of sensory ganglia. Upon reactivation, the virus is transported through the nerve axon to the skin. Which of the following proteins is most likely involved in the transport process leading to disease recurrence?`,
-  c: ["dynein", "kinesin", "lamin ", "Selectin", "spectrin"],
+  s: `It is determined that the causative organism of this patient's condition remains in a latent state in the neuronal cell bodies of sensory ganglia. Upon reactivation, the virus is transported through the nerve axon to the skin. Which of the following proteins is most likely involved in the transport process leading to disease recurrence?`,
+  c: ["Dynein", "Kinesin", "Lamin", "Selectin", "Spectrin"],
   a: 1,
   e: `Herpesviruses (HSV, VZV) lie latent in sensory ganglion cell bodies. On reactivation they travel from the cell body down the axon to the skin — anterograde transport toward the microtubule plus end, which is carried out by kinesin. (Dynein carries them the other way, retrograde from skin to ganglion, during the initial infection.)`,
   w: [
@@ -273,7 +273,7 @@ window.QUESTIONS = [
 },
 {
   t: "Connective Tissue & ECM",
-  s: `Osteogensis imperfecta is defect in `,
+  s: `Osteogenesis imperfecta is a defect in which of the following?`,
   c: ["Collagen type 1", "Collagen type 2", "Collagen type 3", "Collagen type 4"],
   a: 0,
   e: `Osteogenesis imperfecta is usually caused by mutations in COL1A1 or COL1A2, which code for type I collagen. Because type I collagen is the main protein of bone, sclera, dentin and ligaments, patients have brittle bones with multiple fractures, blue sclerae, dental problems and hearing loss.`,
@@ -286,8 +286,8 @@ window.QUESTIONS = [
 },
 {
   t: "Bone & Cartilage",
-  s: `Which of the following articular cartilage is dependent on synovial fluid for this nutrients and vascular supply ?`,
-  c: ["Lateral meniscus ", "Sutures ", "Acromoclavicular joint", "Veterbral joints"],
+  s: `Which of the following articular cartilages is dependent on synovial fluid for its nutrients and vascular supply?`,
+  c: ["Lateral meniscus", "Sutures", "Acromioclavicular joint", "Vertebral joints"],
   a: 0,
   e: `The menisci of the knee are fibrocartilage pads inside a synovial joint. Only their outer rim gets blood vessels from the capsule; the inner portion is avascular and relies on synovial fluid for nutrition — one reason meniscal tears in the inner zone heal poorly.`,
   w: [
@@ -337,7 +337,7 @@ window.QUESTIONS = [
 {
   t: "Bone & Cartilage",
   s: `Which one of the following statements is characteristic of osteocytes?`,
-  c: ["They communicate via gap junctions be- tween their processes.", "They contain large amounts of rough en- doplasmic reticulum (RER).", "They are immature bone cells.", "They are housed as isogenous groups in lacunae."],
+  c: ["They communicate via gap junctions between their processes.", "They contain large amounts of rough endoplasmic reticulum (RER).", "They are immature bone cells.", "They are housed as isogenous groups in lacunae."],
   a: 0,
   e: `Osteocytes are mature bone cells, each alone in its lacuna, with processes running through canaliculi. Gap junctions between the processes of neighbouring osteocytes let them exchange ions and signals and coordinate responses to mechanical load.`,
   w: [
@@ -387,8 +387,8 @@ window.QUESTIONS = [
 },
 {
   t: "Junctions & Cytoskeleton",
-  s: `A 58 year old women presents to the physician with painful oral ulcers. Physical examinations shows buccal and palatine erosions. biopsy is performed. The results shows intraepidermal band of antibodies directed against which of the following antigens?`,
-  c: ["Collagen", "Connexin", "Desmogelin", "Occuldin", "intergins"],
+  s: `A 58-year-old woman presents to the physician with painful oral ulcers. Physical examination shows buccal and palatine erosions. A biopsy is performed. The results show an intraepidermal band of antibodies directed against which of the following antigens?`,
+  c: ["Collagen", "Connexin", "Desmoglein", "Occludin", "Integrins"],
   a: 2,
   e: `This is pemphigus vulgaris: IgG autoantibodies against desmoglein (3, and often 1), the cadherin of desmosomes. Keratinocytes lose their attachments to each other (acantholysis), producing fragile intraepidermal blisters and painful oral erosions. Immunofluorescence shows a net-like pattern between epidermal cells.`,
   w: [
@@ -401,8 +401,8 @@ window.QUESTIONS = [
 },
 {
   t: "Junctions & Cytoskeleton",
-  s: `A neonatal develops life threatening diarrhea on her second day of born. Extensive studies shows microvillus atrophy. Lack of which of the following protein would be likely to affect the microvilli?`,
-  c: ["dynein", "kinesin", "actin", "myosin", "spectrin"],
+  s: `A neonate develops life-threatening diarrhea on her second day of life. Extensive studies show microvillus atrophy. Lack of which of the following proteins would be likely to affect the microvilli?`,
+  c: ["Dynein", "Kinesin", "Actin", "Myosin", "Spectrin"],
   a: 2,
   eimg: ["q29-microvillus.jpg"],
   e: `Each microvillus is supported by a core bundle of parallel actin filaments, cross-linked by villin and fimbrin and anchored below in the terminal web. Without actin there is no core, so microvilli can't form or be maintained, and the brush border's absorptive surface is lost — causing severe diarrhea.`,
@@ -428,8 +428,8 @@ window.QUESTIONS = [
 },
 {
   t: "Connective Tissue & ECM",
-  s: `Which of the following structures forms the adhesion of basal cell to basal lamina  `,
-  c: ["Laminin ", "Glycoaminoglycans ", "Glycoprotein ", "Collagen type 1"],
+  s: `Which of the following structures forms the adhesion of the basal cell to the basal lamina?`,
+  c: ["Laminin", "Glycosaminoglycans", "Glycoprotein", "Collagen type 1"],
   a: 0,
   e: `Laminin is the key adhesive glycoprotein of the basal lamina (lamina lucida). It binds integrins on the basal surface of epithelial cells and also binds type IV collagen and perlecan, linking the cell to the basal lamina.`,
   w: [
@@ -481,7 +481,7 @@ window.QUESTIONS = [
 {
   type: "reveal",
   t: "Slide Identification",
-  s: `Identify the slide ?`,
+  s: `Identify the slide`,
   img: "q35-slide.jpg",
   ans: "Hyaline cartilage",
   e: `Hyaline cartilage: a smooth, glassy, pale basophilic matrix with no visible fibers. Chondrocytes sit in lacunae, often in isogenous groups of 2–4 cells, surrounded by a darker territorial matrix. A perichondrium covers the surface (except on articular cartilage).`,
@@ -505,8 +505,8 @@ window.QUESTIONS = [
 },
 {
   t: "Bone & Cartilage",
-  s: `A 49-year-old woman presents with pain in the left leg that worsens on weight bearing. An x-ray shows demineralization, and a decalcified. EDTA treated biopsy shows reduction in bone quantity. The patient had undergone menopause at age 45 without estrogen replacement. She reports long-standing diarrhea. In addition, laboratory tests show low levels of 1, 25-hydroxyvitamin D, calcium, and phosphorus and elevated alkaline phosphatase. A second bone biopsy, which was not decalcified, shows uncalcified osteoid on all the bone surfaces. On the basis of these data, your diagnosis would be which of the following?`,
-  c: ["Osteomalacia", "Osteoporosis", "Scurvy", "Pagets disease"],
+  s: `A 49-year-old woman presents with pain in the left leg that worsens on weight bearing. An x-ray shows demineralization, and a decalcified, EDTA-treated biopsy shows reduction in bone quantity. The patient had undergone menopause at age 45 without estrogen replacement. She reports long-standing diarrhea. In addition, laboratory tests show low levels of 1,25-dihydroxyvitamin D, calcium, and phosphorus and elevated alkaline phosphatase. A second bone biopsy, which was not decalcified, shows uncalcified osteoid on all the bone surfaces. On the basis of these data, your diagnosis would be which of the following?`,
+  c: ["Osteomalacia", "Osteoporosis", "Scurvy", "Paget disease"],
   a: 0,
   key: `Your slide key lists "Osteoporosis". The findings in the stem point to osteomalacia, so that is marked correct here — check with your instructor which answer they expect.`,
   e: `The deciding clue is the undecalcified biopsy showing unmineralized osteoid on all bone surfaces — the hallmark of osteomalacia. Chronic diarrhea (malabsorption) explains the low vitamin D, calcium and phosphate, and elevated alkaline phosphatase reflects increased osteoblast activity. Early menopause could also reduce bone mass, but osteoporosis does not produce widespread unmineralized osteoid or abnormal calcium, phosphate and vitamin D levels.`,
@@ -533,7 +533,7 @@ window.QUESTIONS = [
 {
   t: "Junctions & Cytoskeleton",
   s: `Which one of the following statements about the gap junction is true?`,
-  c: ["It extends as a zone around the apical perimeter of adjacent cells.", "It possesses dense plaques composed in part of desmoplakins.", "It permits the passage of ions from one cell to an adjacent cell.", "Its adhesion is dependent upon calcium ions.", "It possesses transmembrane linker glyco- proteins."],
+  c: ["It extends as a zone around the apical perimeter of adjacent cells.", "It possesses dense plaques composed in part of desmoplakins.", "It permits the passage of ions from one cell to an adjacent cell.", "Its adhesion is dependent upon calcium ions.", "It possesses transmembrane linker glycoproteins."],
   a: 2,
   e: `Gap junctions are clusters of channels (connexons, each made of six connexins) that connect the cytoplasm of neighbouring cells. Ions and small molecules (up to ~1 kDa, e.g. cAMP) pass directly from cell to cell, giving electrical and metabolic coupling — as in cardiac muscle, smooth muscle and osteocytes.`,
   w: [
@@ -561,7 +561,7 @@ window.QUESTIONS = [
 {
   t: "Junctions & Cytoskeleton",
   s: `The modified structures at the border of the epithelium shown below are immotile in a 25-year-old patient. Which of the following would be a consequence of the lack of motility?`,
-  c: ["Defect in dynein ", "Defect in kinein ", "Defect in titin ", "Defect in nexin"],
+  c: ["Defect in dynein", "Defect in kinesin", "Defect in titin", "Defect in nexin"],
   a: 0,
   key: "The slide doesn't show an answer for this question; the answer here is supplied.",
   e: `Motile structures on the apical border of an epithelium are cilia. Immotile cilia are classically due to a defect in the axonemal dynein arms (primary ciliary dyskinesia / Kartagener syndrome), leading to recurrent sinusitis and bronchiectasis, male infertility and sometimes situs inversus.`,
@@ -588,8 +588,8 @@ window.QUESTIONS = [
 },
 {
   t: "Muscle",
-  s: `During muscle contraction ,which of the following structure is shorten ?`,
-  c: ["A-band", "Sacromere", "M-line", "Myosin", "actin"],
+  s: `During muscle contraction, which of the following structures shortens?`,
+  c: ["A band", "Sarcomere", "M line", "Myosin", "Actin"],
   a: 1,
   key: "The slide doesn't show an answer for this question; the answer here is supplied.",
   e: `As actin slides past myosin toward the M line, the Z lines are pulled closer together, so the sarcomere shortens (along with the I band and H zone). The filaments themselves don't change length.`,
@@ -603,8 +603,8 @@ window.QUESTIONS = [
 },
 {
   t: "Muscle",
-  s: `Apart from actin and tropomysin ,which is the other protein to see in thin fliament of skeletal muscle ?`,
-  c: ["Troponin ", "Calmoldlin", "Myosin", "Calcium "],
+  s: `Apart from actin and tropomyosin, which other protein is seen in the thin filament of skeletal muscle?`,
+  c: ["Troponin", "Calmodulin", "Myosin", "Calcium"],
   a: 0,
   key: "The slide doesn't show an answer for this question; the answer here is supplied. The figures are from the 'Myofilaments' slide in the deck.",
   eimg: ["q44-thin-filament-a.png", "q44-thin-filament-b.png"],
@@ -618,7 +618,7 @@ window.QUESTIONS = [
 },
 {
   t: "Muscle",
-  s: `In smooth muscle,Which is same as troponin c in skeletal muscle?`,
+  s: `In smooth muscle, which protein plays the same role as troponin C in skeletal muscle?`,
   c: ["Calmodulin", "Tropomyosin", "Myosin light chain kinase", "Troponin I", "Caldesmon"],
   a: 0,
   key: "The slide gives only the question and the answer (calmodulin); the other choices were added so it works as multiple choice.",
@@ -647,7 +647,7 @@ window.QUESTIONS = [
 },
 {
   t: "Muscle",
-  s: `Which fiber type is make up fast-twitch muscle?`,
+  s: `Which fiber type makes up fast-twitch muscle?`,
   c: ["Red fibers", "White fibers", "Intermediate fibers", "All of the above", "None of the above"],
   a: 1, ns: true,
   e: `White (type II, fast-twitch) fibers are larger, have fewer mitochondria and little myoglobin, store glycogen and rely on anaerobic glycolysis. They contract quickly and powerfully but fatigue fast — for bursts of power.`,
@@ -661,7 +661,7 @@ window.QUESTIONS = [
 },
 {
   t: "Muscle",
-  s: `What is line that bisects the dark band in muscle?`,
+  s: `What is the line that bisects the dark band in muscle?`,
   c: ["A band", "I band", "Z line", "H band", "M line"],
   a: 3, ns: true,
   key: "Answer per the slide key. Note: the H band (H zone) is the pale zone across the middle of the A band, and the M line runs down the middle of the H band — so if a question asks for the line in the very center, it's the M line.",
@@ -676,8 +676,8 @@ window.QUESTIONS = [
 },
 {
   t: "Muscle",
-  s: `What type of muscle is composed of spindle shaped cells?`,
-  c: ["Skeletal muscle", "Cardiac muscle", "Smooth muscle", "Both \"a\" and \"b\"", "\"a\" \"b\" and \"c\""],
+  s: `What type of muscle is composed of spindle-shaped cells?`,
+  c: ["Skeletal muscle", "Cardiac muscle", "Smooth muscle", "Both A and B", "A, B and C"],
   a: 2, ns: true,
   e: `Smooth muscle cells are spindle-shaped (fusiform) — thick in the middle and tapered at the ends — with a single central nucleus and no striations.`,
   w: [
@@ -733,7 +733,7 @@ window.QUESTIONS = [
 {
   t: "Muscle",
   s: `What type of muscle has intercalated discs?`,
-  c: ["Skeletal muscle", "Cardiac muscle", "Smooth muscle", "Both \"a\" and \"b\"", "\"a\" \"b\" and \"c\""],
+  c: ["Skeletal muscle", "Cardiac muscle", "Smooth muscle", "Both A and B", "A, B and C"],
   a: 1, ns: true,
   e: `Intercalated discs are specialized junctions between cardiac muscle cells. They contain fascia adherens and desmosomes (holding cells together) and gap junctions (letting the electrical impulse spread so the heart contracts as a unit).`,
   w: [
@@ -760,7 +760,7 @@ window.QUESTIONS = [
 },
 {
   t: "Skin",
-  s: `Which layer of the epidermis has cells which have keratohyaline granules?`,
+  s: `Which layer of the epidermis has cells that contain keratohyaline granules?`,
   c: ["Stratum basale", "Stratum spinosum", "Stratum granulosum", "Stratum lucidum", "Stratum corneum"],
   a: 2,
   key: "The slide doesn't show an answer for this question; the answer here is supplied.",
@@ -790,7 +790,7 @@ window.QUESTIONS = [
 },
 {
   t: "Skin",
-  s: `What is the half moon shaped white area on a nail called?`,
+  s: `What is the half-moon-shaped white area on a nail called?`,
   c: ["Lunula", "Eponychium", "Matrix", "Nail bed", "Root"],
   a: 0,
   key: "The slide doesn't show an answer for this question; the answer here is supplied.",
@@ -806,7 +806,7 @@ window.QUESTIONS = [
 {
   t: "Skin",
   s: `Which of the following is the most abundant sensory receptor of the skin?`,
-  c: ["Free nerve endings", "Ruffini's corpuscles", "Pacinian corpuscles", "Krause's end bulbs", "Meissner's corpuscle"],
+  c: ["Free nerve endings", "Ruffini's corpuscles", "Pacinian corpuscles", "Krause's end bulbs", "Meissner's corpuscles"],
   a: 0,
   key: "The slide doesn't show an answer for this question; the answer here is supplied.",
   e: `Free nerve endings are the most numerous sensory receptors in skin. They reach into the epidermis and detect pain, temperature, itch and crude touch.`,
@@ -836,7 +836,7 @@ window.QUESTIONS = [
 {
   t: "Skin",
   s: `Which of the following is found in the hair follicle?`,
-  c: ["Pigment epithelium", "Muller's cells", "Huxley's layer", "Horizontal cells", "Cones"],
+  c: ["Pigment epithelium", "Müller cells", "Huxley's layer", "Horizontal cells", "Cones"],
   a: 2,
   key: "The slide doesn't show an answer for this question; the answer here is supplied.",
   e: `The inner root sheath of a hair follicle has three layers: Henle's layer (outer), Huxley's layer (middle) and the cuticle of the inner root sheath. All the other choices are parts of the retina.`,
@@ -864,7 +864,7 @@ window.QUESTIONS = [
 },
 {
   t: "Skin",
-  s: `Which of the following is NOT a function of skin`,
+  s: `Which of the following is NOT a function of skin?`,
   c: ["Vitamin D production", "Protection from water loss", "Sensory reception", "Heat regulation", "All are functions of skin"],
   a: 4, ns: true,
   key: "The slide doesn't show an answer for this question; the answer here is supplied.",
