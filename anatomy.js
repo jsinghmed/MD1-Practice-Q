@@ -262,7 +262,7 @@ window.ANAT_QUESTIONS = [
   "t": "Shoulder, Back and Scapular Region",
   "limb": "Upper Limb",
   "html": true,
-  "s": "<p><em>An 11-year-old boy falls down the stairs. A physician examines a radiograph of the boy’s shoulder region (see figure).</em></p><p>If the structure indicated by the letter A is calcified, which of the following muscles is most likely paralyzed?</p><img class=\"qimg zoom\" src=\"img/anatomy/a001.jpg\" alt=\"Figure\">",
+  "s": "<p><em>An 11-year-old boy falls down the stairs. A physician examines a radiograph of the boy’s shoulder region (see figure).</em></p><p>If the structure indicated by the letter A is calcified, which of the following muscles is most likely paralyzed?</p><img class=\"qimg zoom\" src=\"./a001.jpg\" alt=\"Figure\">",
   "c": [
    "Deltoid",
    "Teres major",
@@ -278,7 +278,7 @@ window.ANAT_QUESTIONS = [
   "t": "Shoulder, Back and Scapular Region",
   "limb": "Upper Limb",
   "html": true,
-  "s": "<p><em>An 11-year-old boy falls down the stairs. A physician examines a radiograph of the boy’s shoulder region (see figure).</em></p><p>If the structure indicated by the letter B is fractured, which of the following structures is most likely injured?</p><img class=\"qimg zoom\" src=\"img/anatomy/a002.jpg\" alt=\"Figure\">",
+  "s": "<p><em>An 11-year-old boy falls down the stairs. A physician examines a radiograph of the boy’s shoulder region (see figure).</em></p><p>If the structure indicated by the letter B is fractured, which of the following structures is most likely injured?</p><img class=\"qimg zoom\" src=\"./a002.jpg\" alt=\"Figure\">",
   "c": [
    "Musculocutaneous nerve",
    "Radial nerve",
@@ -342,7 +342,7 @@ window.ANAT_QUESTIONS = [
   "t": "Arm, Forearm and Elbow",
   "limb": "Upper Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered site or structure in the radiograph of the elbow joint (see figure) and its associated structures to match the following descriptions.</em></p><p>Destruction of this area would most likely cause weakness of supination and flexion of the forearm.</p><img class=\"qimg zoom\" src=\"img/anatomy/a003.jpg\" alt=\"Figure\">",
+  "s": "<p><em>Choose the appropriate lettered site or structure in the radiograph of the elbow joint (see figure) and its associated structures to match the following descriptions.</em></p><p>Destruction of this area would most likely cause weakness of supination and flexion of the forearm.</p><img class=\"qimg zoom\" src=\"./a003.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -359,7 +359,7 @@ window.ANAT_QUESTIONS = [
   "t": "Arm, Forearm and Elbow",
   "limb": "Upper Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered site or structure in the radiograph of the elbow joint (see figure) and its associated structures to match the following descriptions.</em></p><p>Destruction of this area would most likely cause weakness of pronation of the forearm and flexion of the wrist joints.</p><img class=\"qimg zoom\" src=\"img/anatomy/a004.jpg\" alt=\"Figure\">",
+  "s": "<p><em>Choose the appropriate lettered site or structure in the radiograph of the elbow joint (see figure) and its associated structures to match the following descriptions.</em></p><p>Destruction of this area would most likely cause weakness of pronation of the forearm and flexion of the wrist joints.</p><img class=\"qimg zoom\" src=\"./a004.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -376,7 +376,7 @@ window.ANAT_QUESTIONS = [
   "t": "Arm, Forearm and Elbow",
   "limb": "Upper Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered site or structure in the radiograph of the elbow joint (see figure) and its associated structures to match the following descriptions.</em></p><p>A lesion of the radial nerve would most likely cause paralysis of muscles that are attached to this area.</p><img class=\"qimg zoom\" src=\"img/anatomy/a005.jpg\" alt=\"Figure\">",
+  "s": "<p><em>Choose the appropriate lettered site or structure in the radiograph of the elbow joint (see figure) and its associated structures to match the following descriptions.</em></p><p>A lesion of the radial nerve would most likely cause paralysis of muscles that are attached to this area.</p><img class=\"qimg zoom\" src=\"./a005.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -521,7 +521,7 @@ window.ANAT_QUESTIONS = [
   "t": "Hand and Wrist",
   "limb": "Upper Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered structure in the radiograph of the bones of the hand (see figure).</em></p><p>Which bone articulates with the radius and triquetrum?</p><img class=\"qimg zoom\" src=\"img/anatomy/a006.jpg\" alt=\"Figure\">",
+  "s": "<p><em>Choose the appropriate lettered structure in the radiograph of the bones of the hand (see figure).</em></p><p>Which bone articulates with the radius and triquetrum?</p><img class=\"qimg zoom\" src=\"./a006.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -537,7 +537,7 @@ window.ANAT_QUESTIONS = [
   "t": "Hand and Wrist",
   "limb": "Upper Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered structure in the radiograph of the bones of the hand (see figure).</em></p><p>Fracture of which bone may cause paralysis of the flexor digiti minimi and opponens digiti minimi muscles?</p><img class=\"qimg zoom\" src=\"img/anatomy/a007.jpg\" alt=\"Figure\">",
+  "s": "<p><em>Choose the appropriate lettered structure in the radiograph of the bones of the hand (see figure).</em></p><p>Fracture of which bone may cause paralysis of the flexor digiti minimi and opponens digiti minimi muscles?</p><img class=\"qimg zoom\" src=\"./a007.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -553,7 +553,7 @@ window.ANAT_QUESTIONS = [
   "t": "Hand and Wrist",
   "limb": "Upper Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered structure in the radiograph of the bones of the hand (see figure).</em></p><p>Which is the site of attachment of the muscles that form the thenar eminence?</p><img class=\"qimg zoom\" src=\"img/anatomy/a008.jpg\" alt=\"Figure\">",
+  "s": "<p><em>Choose the appropriate lettered structure in the radiograph of the bones of the hand (see figure).</em></p><p>Which is the site of attachment of the muscles that form the thenar eminence?</p><img class=\"qimg zoom\" src=\"./a008.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -569,7 +569,7 @@ window.ANAT_QUESTIONS = [
   "t": "Hand and Wrist",
   "limb": "Upper Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered structure in the radiograph of the bones of the hand (see figure).</em></p><p>Which is the site of tendinous attachment of the flexor digitorum superficialis?</p><img class=\"qimg zoom\" src=\"img/anatomy/a009.jpg\" alt=\"Figure\">",
+  "s": "<p><em>Choose the appropriate lettered structure in the radiograph of the bones of the hand (see figure).</em></p><p>Which is the site of tendinous attachment of the flexor digitorum superficialis?</p><img class=\"qimg zoom\" src=\"./a009.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -585,7 +585,7 @@ window.ANAT_QUESTIONS = [
   "t": "Hand and Wrist",
   "limb": "Upper Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered structure in the radiograph of the bones of the hand (see figure).</em></p><p>Fracture of which bone may cause a deep tenderness in the anatomic snuffbox?</p><img class=\"qimg zoom\" src=\"img/anatomy/a010.jpg\" alt=\"Figure\">",
+  "s": "<p><em>Choose the appropriate lettered structure in the radiograph of the bones of the hand (see figure).</em></p><p>Fracture of which bone may cause a deep tenderness in the anatomic snuffbox?</p><img class=\"qimg zoom\" src=\"./a010.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -745,7 +745,7 @@ window.ANAT_QUESTIONS = [
   "t": "Hand and Wrist",
   "limb": "Upper Limb",
   "html": true,
-  "s": "<p>Destruction of the structure indicated by the letter E most likely causes weakness of which of the following muscles?</p><img class=\"qimg zoom\" src=\"img/anatomy/a011.jpg\" alt=\"Figure\">",
+  "s": "<p>Destruction of the structure indicated by the letter E most likely causes weakness of which of the following muscles?</p><img class=\"qimg zoom\" src=\"./a011.jpg\" alt=\"Figure\">",
   "c": [
    "Flexor carpi radialis",
    "Palmaris longus",
@@ -761,7 +761,7 @@ window.ANAT_QUESTIONS = [
   "t": "Hand and Wrist",
   "limb": "Upper Limb",
   "html": true,
-  "s": "<p>If the floor of the anatomic snuffbox and origin of the abductor pollicis brevis are damaged, which of the following bones is most likely to be involved?</p><img class=\"qimg zoom\" src=\"img/anatomy/a012.jpg\" alt=\"Figure\">",
+  "s": "<p>If the floor of the anatomic snuffbox and origin of the abductor pollicis brevis are damaged, which of the following bones is most likely to be involved?</p><img class=\"qimg zoom\" src=\"./a012.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -777,7 +777,7 @@ window.ANAT_QUESTIONS = [
   "t": "Hand and Wrist",
   "limb": "Upper Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered site or structure in this transverse magnetic resonance imaging through the middle of the palm of a woman’s right hand (see figure) that matches the following descriptions.</em></p><p>The patient is unable to abduct her middle finger because of paralysis of this structure.</p><img class=\"qimg zoom\" src=\"img/anatomy/a013.jpg\" alt=\"Figure\">",
+  "s": "<p><em>Choose the appropriate lettered site or structure in this transverse magnetic resonance imaging through the middle of the palm of a woman’s right hand (see figure) that matches the following descriptions.</em></p><p>The patient is unable to abduct her middle finger because of paralysis of this structure.</p><img class=\"qimg zoom\" src=\"./a013.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -796,7 +796,7 @@ window.ANAT_QUESTIONS = [
   "t": "Hand and Wrist",
   "limb": "Upper Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered site or structure in this transverse magnetic resonance imaging through the middle of the palm of a woman’s right hand (see figure) that matches the following descriptions.</em></p><p>A lesion of the median nerve causes paralysis of this structure.</p><img class=\"qimg zoom\" src=\"img/anatomy/a014.jpg\" alt=\"Figure\">",
+  "s": "<p><em>Choose the appropriate lettered site or structure in this transverse magnetic resonance imaging through the middle of the palm of a woman’s right hand (see figure) that matches the following descriptions.</em></p><p>A lesion of the median nerve causes paralysis of this structure.</p><img class=\"qimg zoom\" src=\"./a014.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -815,7 +815,7 @@ window.ANAT_QUESTIONS = [
   "t": "Hand and Wrist",
   "limb": "Upper Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered site or structure in this transverse magnetic resonance imaging through the middle of the palm of a woman’s right hand (see figure) that matches the following descriptions.</em></p><p>The patient is unable to adduct her little finger because of paralysis of this structure.</p><img class=\"qimg zoom\" src=\"img/anatomy/a015.jpg\" alt=\"Figure\">",
+  "s": "<p><em>Choose the appropriate lettered site or structure in this transverse magnetic resonance imaging through the middle of the palm of a woman’s right hand (see figure) that matches the following descriptions.</em></p><p>The patient is unable to adduct her little finger because of paralysis of this structure.</p><img class=\"qimg zoom\" src=\"./a015.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -834,7 +834,7 @@ window.ANAT_QUESTIONS = [
   "t": "Hand and Wrist",
   "limb": "Upper Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered site or structure in this transverse magnetic resonance imaging through the middle of the palm of a woman’s right hand (see figure) that matches the following descriptions.</em></p><p>Atrophy of this structure impairs extension of both the metacarpophalangeal and interphalangeal joints.</p><img class=\"qimg zoom\" src=\"img/anatomy/a016.jpg\" alt=\"Figure\">",
+  "s": "<p><em>Choose the appropriate lettered site or structure in this transverse magnetic resonance imaging through the middle of the palm of a woman’s right hand (see figure) that matches the following descriptions.</em></p><p>Atrophy of this structure impairs extension of both the metacarpophalangeal and interphalangeal joints.</p><img class=\"qimg zoom\" src=\"./a016.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -1685,7 +1685,7 @@ window.ANAT_QUESTIONS = [
   "t": "Gluteal Region and Hip Joint",
   "limb": "Lower Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered structure in the CT scan of the female pelvis (see figure).</em></p><p>When the lesser trochanter is fractured, which structure is paralyzed?</p><img class=\"qimg zoom\" src=\"img/anatomy/a017.jpg\" alt=\"Figure\">",
+  "s": "<p><em>Choose the appropriate lettered structure in the CT scan of the female pelvis (see figure).</em></p><p>When the lesser trochanter is fractured, which structure is paralyzed?</p><img class=\"qimg zoom\" src=\"./a017.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -1861,7 +1861,7 @@ window.ANAT_QUESTIONS = [
   "t": "Gluteal Region and Hip Joint",
   "limb": "Lower Limb",
   "html": true,
-  "s": "<p>Which structure in this radiograph may be fractured, resulting in loss of the chief flexor of the thigh?</p><img class=\"qimg zoom\" src=\"img/anatomy/a018.jpg\" alt=\"Figure\">",
+  "s": "<p>Which structure in this radiograph may be fractured, resulting in loss of the chief flexor of the thigh?</p><img class=\"qimg zoom\" src=\"./a018.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -1877,7 +1877,7 @@ window.ANAT_QUESTIONS = [
   "t": "Gluteal Region and Hip Joint",
   "limb": "Lower Limb",
   "html": true,
-  "s": "<p>Fracture of which structure may destroy the site of insertion of the muscle that can rotate the thigh laterally and its tendon that passes through the lesser sciatic foramen?</p><img class=\"qimg zoom\" src=\"img/anatomy/a019.jpg\" alt=\"Figure\">",
+  "s": "<p>Fracture of which structure may destroy the site of insertion of the muscle that can rotate the thigh laterally and its tendon that passes through the lesser sciatic foramen?</p><img class=\"qimg zoom\" src=\"./a019.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -1893,7 +1893,7 @@ window.ANAT_QUESTIONS = [
   "t": "Gluteal Region and Hip Joint",
   "limb": "Lower Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered site or structure in the radiograph of the hip and pelvis (see figure) to match the following descriptions.</em></p><p>Which fractured structure is likely to cause paralysis of the adductor magnus?</p><img class=\"qimg zoom\" src=\"img/anatomy/a020.jpg\" alt=\"Figure\">",
+  "s": "<p><em>Choose the appropriate lettered site or structure in the radiograph of the hip and pelvis (see figure) to match the following descriptions.</em></p><p>Which fractured structure is likely to cause paralysis of the adductor magnus?</p><img class=\"qimg zoom\" src=\"./a020.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -1909,7 +1909,7 @@ window.ANAT_QUESTIONS = [
   "t": "Gluteal Region and Hip Joint",
   "limb": "Lower Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered site or structure in the radiograph of the hip and pelvis (see figure) to match the following descriptions.</em></p><p>Which structure becomes necrotic after the medial femoral circumflex artery is severed?</p><img class=\"qimg zoom\" src=\"img/anatomy/a021.jpg\" alt=\"Figure\">",
+  "s": "<p><em>Choose the appropriate lettered site or structure in the radiograph of the hip and pelvis (see figure) to match the following descriptions.</em></p><p>Which structure becomes necrotic after the medial femoral circumflex artery is severed?</p><img class=\"qimg zoom\" src=\"./a021.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -2149,7 +2149,7 @@ window.ANAT_QUESTIONS = [
   "t": "Knee Joint and Popliteal Fossa",
   "limb": "Lower Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered site or structure in the following radiographs of the knee joint (see figure) to match the following descriptions.</em></p><p>Rupture of the tendon superior to this structure would most likely cause an inability to extend the knee joint.</p><img class=\"qimg zoom\" src=\"img/anatomy/a022.jpg\" alt=\"Figure\">",
+  "s": "<p><em>Choose the appropriate lettered site or structure in the following radiographs of the knee joint (see figure) to match the following descriptions.</em></p><p>Rupture of the tendon superior to this structure would most likely cause an inability to extend the knee joint.</p><img class=\"qimg zoom\" src=\"./a022.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -2165,7 +2165,7 @@ window.ANAT_QUESTIONS = [
   "t": "Knee Joint and Popliteal Fossa",
   "limb": "Lower Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered site or structure in the following radiographs of the knee joint (see figure) to match the following descriptions.</em></p><p>Fracture of this structure would most likely cause weakness in adduction, flexion, and extension of the thigh.</p><img class=\"qimg zoom\" src=\"img/anatomy/a023.jpg\" alt=\"Figure\">",
+  "s": "<p><em>Choose the appropriate lettered site or structure in the following radiographs of the knee joint (see figure) to match the following descriptions.</em></p><p>Fracture of this structure would most likely cause weakness in adduction, flexion, and extension of the thigh.</p><img class=\"qimg zoom\" src=\"./a023.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -2181,7 +2181,7 @@ window.ANAT_QUESTIONS = [
   "t": "Knee Joint and Popliteal Fossa",
   "limb": "Lower Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered site or structure in the following radiographs of the knee joint (see figure) to match the following descriptions.</em></p><p>A knife penetrating through this point would most likely cause muscle ischemia in the anterior compartment of the leg.</p><img class=\"qimg zoom\" src=\"img/anatomy/a024.jpg\" alt=\"Figure\">",
+  "s": "<p><em>Choose the appropriate lettered site or structure in the following radiographs of the knee joint (see figure) to match the following descriptions.</em></p><p>A knife penetrating through this point would most likely cause muscle ischemia in the anterior compartment of the leg.</p><img class=\"qimg zoom\" src=\"./a024.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -2197,7 +2197,7 @@ window.ANAT_QUESTIONS = [
   "t": "Knee Joint and Popliteal Fossa",
   "limb": "Lower Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered site or structure in the following radiographs of the knee joint (see figure) to match the following descriptions.</em></p><p>Fracture of this structure would most likely cause a lesion of the common peroneal nerve, resulting in paralysis of the muscles in the anterior and lateral compartments of the leg.</p><img class=\"qimg zoom\" src=\"img/anatomy/a025.jpg\" alt=\"Figure\">",
+  "s": "<p><em>Choose the appropriate lettered site or structure in the following radiographs of the knee joint (see figure) to match the following descriptions.</em></p><p>Fracture of this structure would most likely cause a lesion of the common peroneal nerve, resulting in paralysis of the muscles in the anterior and lateral compartments of the leg.</p><img class=\"qimg zoom\" src=\"./a025.jpg\" alt=\"Figure\">",
   "c": [
    "Structure A",
    "Structure B",
@@ -2453,7 +2453,7 @@ window.ANAT_QUESTIONS = [
   "t": "Ankle and Foot",
   "limb": "Lower Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered site or structure in the following radiograph of the ankle and foot (see figure) to match the following descriptions.</em></p><p>The flexor hallucis longus tendon is damaged in a groove on the posterior surface of a tarsal bone.</p><img class=\"qimg zoom\" src=\"img/anatomy/a026.jpg\" alt=\"Figure\"><p>Which bone in the radiograph is likely fractured?</p>",
+  "s": "<p><em>Choose the appropriate lettered site or structure in the following radiograph of the ankle and foot (see figure) to match the following descriptions.</em></p><p>The flexor hallucis longus tendon is damaged in a groove on the posterior surface of a tarsal bone.</p><img class=\"qimg zoom\" src=\"./a026.jpg\" alt=\"Figure\"><p>Which bone in the radiograph is likely fractured?</p>",
   "c": [
    "Structure A",
    "Structure B",
@@ -2469,7 +2469,7 @@ window.ANAT_QUESTIONS = [
   "t": "Ankle and Foot",
   "limb": "Lower Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered site or structure in the following radiograph of the ankle and foot (see figure) to match the following descriptions.</em></p><p>The tibialis anterior and peroneus longus muscles are weakened.</p><img class=\"qimg zoom\" src=\"img/anatomy/a027.jpg\" alt=\"Figure\"><p>Which bone in the radiograph is most likely fractured?</p>",
+  "s": "<p><em>Choose the appropriate lettered site or structure in the following radiograph of the ankle and foot (see figure) to match the following descriptions.</em></p><p>The tibialis anterior and peroneus longus muscles are weakened.</p><img class=\"qimg zoom\" src=\"./a027.jpg\" alt=\"Figure\"><p>Which bone in the radiograph is most likely fractured?</p>",
   "c": [
    "Structure A",
    "Structure B",
@@ -2485,7 +2485,7 @@ window.ANAT_QUESTIONS = [
   "t": "Ankle and Foot",
   "limb": "Lower Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered site or structure in the following radiograph of the ankle and foot (see figure) to match the following descriptions.</em></p><p>The medial longitudinal arch of the foot is flattened because the spring ligament is torn.</p><img class=\"qimg zoom\" src=\"img/anatomy/a028.jpg\" alt=\"Figure\"><p>Which bone in the radiograph is most likely fractured?</p>",
+  "s": "<p><em>Choose the appropriate lettered site or structure in the following radiograph of the ankle and foot (see figure) to match the following descriptions.</em></p><p>The medial longitudinal arch of the foot is flattened because the spring ligament is torn.</p><img class=\"qimg zoom\" src=\"./a028.jpg\" alt=\"Figure\"><p>Which bone in the radiograph is most likely fractured?</p>",
   "c": [
    "Structure A",
    "Structure B",
@@ -2501,7 +2501,7 @@ window.ANAT_QUESTIONS = [
   "t": "Ankle and Foot",
   "limb": "Lower Limb",
   "html": true,
-  "s": "<p><em>Choose the appropriate lettered site or structure in the following radiograph of the ankle and foot (see figure) to match the following descriptions.</em></p><p>The peroneus longus muscle tendon is damaged in a groove of a tarsal bone by fracture.</p><img class=\"qimg zoom\" src=\"img/anatomy/a029.jpg\" alt=\"Figure\"><p>Which bone in the radiograph is most likely fractured?</p>",
+  "s": "<p><em>Choose the appropriate lettered site or structure in the following radiograph of the ankle and foot (see figure) to match the following descriptions.</em></p><p>The peroneus longus muscle tendon is damaged in a groove of a tarsal bone by fracture.</p><img class=\"qimg zoom\" src=\"./a029.jpg\" alt=\"Figure\"><p>Which bone in the radiograph is most likely fractured?</p>",
   "c": [
    "Structure A",
    "Structure B",

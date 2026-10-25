@@ -19,7 +19,7 @@ window.QUESTIONS = [
 {
   t: "Muscle",
   s: `A researcher is investigating the structure of the sarcomere using skeletal muscle obtained from an experimental animal. He develops monoclonal antibodies directed against a specific skeletal muscle protein and finds that these antibodies disrupt the binding of actin to structural support elements within the sarcomere. Electron microscopy of the sarcomere is shown in the image below. Which of the following labeled regions do these antibodies most likely bind?`,
-  img: "img/q01-sarcomere.jpg",
+  img: "q01-sarcomere.jpg",
   c: ["A", "B", "C", "D", "E", "F"],
   a: 0, ns: true,
   e: `Label A is the Z line (Z disc). Thin (actin) filaments are anchored at the Z line by α-actinin (with help from proteins such as CapZ and nebulin), and a sarcomere runs from one Z line to the next. An antibody that stops actin from binding its structural support would therefore target a Z-line protein such as α-actinin. The free ends of the actin filaments project toward the middle of the sarcomere, where they overlap with myosin during contraction.`,
@@ -91,7 +91,7 @@ window.QUESTIONS = [
 {
   t: "Skin",
   s: `A 44-year-old woman comes to the clinic because she has noticed changes in a mole on her neck. Physical examination shows a pigmented lesion with uneven borders, measuring about 1.5 cm wide. The patient says that the mole has doubled in size over the past 3 months. She noticed that it began to bleed after she got out of the shower 2 weeks ago. An excisional biopsy is done, its melanoma  and the slide is shown here. Which of the following is the embryologic origin of the melanocytes?`,
-  img: "img/q06-melanoma.jpg",
+  img: "q06-melanoma.jpg",
   c: ["Neural crest cell", "mesoderm", "endoderm", "ectoderm", "notochord"],
   a: 0,
   e: `Melanocytes are derived from neural crest cells, which migrate into the stratum basale during development. They make melanin in melanosomes and transfer the granules to neighbouring keratinocytes through their dendritic processes. Melanoma is the malignant tumor of melanocytes.`,
@@ -309,7 +309,7 @@ window.QUESTIONS = [
   type: "reveal",
   t: "Slide Identification",
   s: `Identify the slide`,
-  img: "img/q22-slide.jpg",
+  img: "q22-slide.jpg",
   ans: "Skeletal muscle (L.S)",
   e: `Longitudinal section of skeletal muscle: long, unbranched, cylindrical fibers of uniform width with cross-striations, and many flattened nuclei pushed to the periphery just under the sarcolemma. Thin strands of endomysium separate the fibers.`,
   w: [
@@ -321,7 +321,7 @@ window.QUESTIONS = [
   type: "reveal",
   t: "Slide Identification",
   s: `Identify the slide`,
-  img: "img/q23-slide.jpg",
+  img: "q23-slide.jpg",
   ans: "Cardiac muscle",
   e: `Cardiac muscle: striated fibers that branch and join, each with one (sometimes two) centrally placed oval nuclei, often with a pale perinuclear zone. The dark transverse lines crossing the fibers are intercalated discs, the junctions between cardiac cells.`,
   w: [
@@ -359,7 +359,7 @@ window.QUESTIONS = [
   type: "reveal",
   t: "Slide Identification",
   s: `Identify the slide`,
-  img: "img/q26-slide.jpg",
+  img: "q26-slide.jpg",
   ans: "Dense regular connective tissue",
   e: `Dense regular connective tissue (e.g. tendon): thick bundles of type I collagen running parallel in one direction, often with a wavy "crimp", and rows of flattened, elongated fibroblast (tendinocyte) nuclei squeezed between the bundles. Very little ground substance or cells.`,
   w: [
@@ -399,7 +399,7 @@ window.QUESTIONS = [
   s: `A neonatal develops life threatening diarrhea on her second day of born. Extensive studies shows microvillus atrophy. Lack of which of the following protein would be likely to affect the microvilli?`,
   c: ["dynein", "kinesin", "actin", "myosin", "spectrin"],
   a: 2,
-  eimg: ["img/q29-microvillus.jpg"],
+  eimg: ["q29-microvillus.jpg"],
   e: `Each microvillus is supported by a core bundle of parallel actin filaments, cross-linked by villin and fimbrin and anchored below in the terminal web. Without actin there is no core, so microvilli can't form or be maintained, and the brush border's absorptive surface is lost — causing severe diarrhea.`,
   w: [
     "Dynein is a microtubule motor (cilia, retrograde transport). Microvilli contain no microtubules.",
@@ -413,7 +413,7 @@ window.QUESTIONS = [
   type: "reveal",
   t: "Slide Identification",
   s: `Identify the slide`,
-  img: "img/q30-slide.jpg",
+  img: "q30-slide.jpg",
   ans: "Compact bone (T.S)",
   e: `Ground section of compact bone in transverse section: osteons (Haversian systems), each with a central Haversian canal surrounded by concentric lamellae. Dark lacunae arranged in rings hold osteocytes, and fine radiating canaliculi connect them.`,
   w: [
@@ -438,7 +438,7 @@ window.QUESTIONS = [
   type: "reveal",
   t: "Slide Identification",
   s: `Identify the slide`,
-  img: "img/q32-slide.jpg",
+  img: "q32-slide.jpg",
   ans: "Thick skin",
   e: `Thick skin (palms and soles): a very thick stratum corneum, a stratum lucidum, prominent epidermal ridges interlocking with dermal papillae, and no hair follicles or sebaceous glands. Sweat glands are numerous.`,
   w: [
@@ -477,7 +477,7 @@ window.QUESTIONS = [
   type: "reveal",
   t: "Slide Identification",
   s: `Identify the slide ?`,
-  img: "img/q35-slide.jpg",
+  img: "q35-slide.jpg",
   ans: "Hyaline cartilage",
   e: `Hyaline cartilage: a smooth, glassy, pale basophilic matrix with no visible fibers. Chondrocytes sit in lacunae, often in isogenous groups of 2–4 cells, surrounded by a darker territorial matrix. A perichondrium covers the surface (except on articular cartilage).`,
   w: [
@@ -602,7 +602,7 @@ window.QUESTIONS = [
   c: ["Troponin ", "Calmoldlin", "Myosin", "Calcium "],
   a: 0,
   key: "The slide doesn't show an answer for this question; the answer here is supplied. The figures are from the 'Myofilaments' slide in the deck.",
-  eimg: ["img/q44-thin-filament-a.png", "img/q44-thin-filament-b.png"],
+  eimg: ["q44-thin-filament-a.png", "q44-thin-filament-b.png"],
   e: `The thin filament is F-actin, tropomyosin, and the troponin complex: TnT (binds tropomyosin), TnI (inhibits actin–myosin binding) and TnC (binds Ca²⁺). When calcium binds TnC, the complex shifts tropomyosin and exposes the myosin-binding sites on actin.`,
   w: [
     "Correct — troponin is the third thin filament protein.",

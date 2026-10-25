@@ -12,7 +12,7 @@ Features: pick an answer and **Submit** to see why the correct answer is right a
 ## Put it on GitHub Pages
 
 1. Create a new repository on GitHub (e.g. `msk-summative`).
-2. Upload everything in this folder (`index.html`, `questions.js`, `physiology.js`, `biochemistry.js`, `anatomy.js`, the `img` folder, this README) to the repository root.
+2. upload every file in this folder (there are no subfolders) to the repository root.
 3. In the repo go to **Settings → Pages**, set **Source** to *Deploy from a branch*, branch **main**, folder **/ (root)**, and save.
 4. After a minute the site is live at `https://<your-username>.github.io/msk-summative/`.
 
