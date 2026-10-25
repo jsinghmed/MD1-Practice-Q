@@ -123,10 +123,15 @@ button{font:inherit;color:inherit;cursor:pointer}
 .stem mark.hl-p,.sw.hl-p{background:#ffb8dc}
 .stem mark.hl-o,.sw.hl-o{background:#ffc98f}
 .sw.hl-y{background:var(--mark)}
-.hlgroup{display:inline-flex;align-items:center;gap:6px}
-.sws{display:inline-flex;gap:4px;align-items:center}
-.sw{width:18px;height:18px;border-radius:50%;border:2px solid transparent;padding:0;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(0,0,0,.25)}
-.sw.on{border-color:var(--text)}
+.split{display:inline-flex}
+.split #hlBtn{border-top-right-radius:0;border-bottom-right-radius:0;display:inline-flex;align-items:center;gap:6px}
+.split .caret{border-top-left-radius:0;border-bottom-left-radius:0;margin-left:-1px;padding-left:7px!important;padding-right:7px!important}
+.sw{display:inline-block;width:12px;height:12px;border-radius:50%;flex:none;box-shadow:inset 0 0 0 1px rgba(0,0,0,.3)}
+.hlmenu .pop{display:none;left:0;right:auto;min-width:200px}
+.hlmenu.open .pop{display:block}
+.hlpop .mi{gap:10px}
+.hlpop .sw{width:16px;height:16px}
+.hlhint{font-size:12px;color:var(--muted);padding:4px 11px 6px;line-height:1.4}
 .qimg{display:block;max-width:100%;max-height:440px;border-radius:6px;border:1px solid var(--line);margin:4px 0 20px;background:#fff;cursor:zoom-in}
 .choices{display:flex;flex-direction:column;gap:9px}
 .ch{display:flex;align-items:center;gap:14px;background:var(--choice);border:1px solid var(--line2);border-radius:7px;padding:11px 14px;cursor:pointer;user-select:none}
@@ -423,17 +428,17 @@ table.rt tr.click:hover td{background:var(--hover)}
 <div class="lightbox" id="lightbox"><img alt=""></div>
 <div class="toast" id="toast"></div>
 
-<script src="images.js?v=18"></script>
-<script src="questions.js?v=18"></script>
-<script src="histology-review.js?v=18"></script>
-<script src="physiology.js?v=18"></script>
-<script src="physiology-review.js?v=18"></script>
-<script src="biochemistry.js?v=18"></script>
-<script src="anatomy.js?v=18"></script>
-<script src="embryology.js?v=18"></script>
-<script src="fbs-physiology.js?v=18"></script>
-<script src="fbs-anki.js?v=18"></script>
-<script src="crs-embryology.js?v=18"></script>
+<script src="images.js?v=19"></script>
+<script src="questions.js?v=19"></script>
+<script src="histology-review.js?v=19"></script>
+<script src="physiology.js?v=19"></script>
+<script src="physiology-review.js?v=19"></script>
+<script src="biochemistry.js?v=19"></script>
+<script src="anatomy.js?v=19"></script>
+<script src="embryology.js?v=19"></script>
+<script src="fbs-physiology.js?v=19"></script>
+<script src="fbs-anki.js?v=19"></script>
+<script src="crs-embryology.js?v=19"></script>
 <script>
 (function(){
 // =====================================================================
@@ -793,7 +798,9 @@ function renderCard(){
   let h = `<div class="qhead">
       <div class="qmeta">Question <b>${p+1}</b> of ${n} &nbsp;·&nbsp; ${esc(secLabel(q, chap()))} &nbsp;·&nbsp; ${esc(q.t)}${srcBadge(q)}</div>
       <div class="qtools">
-        <span class="hlgroup"><button class="btn ${mode==="hl"?"on":""}" id="hlBtn" title="Select text to highlight it. Highlight an already-highlighted part to erase it. Click a highlight to remove it.">✎ Highlight</button><span class="sws">${HL_COLORS.map(c=>`<button class="sw hl-${c.k} ${hlColor===c.k?"on":""}" data-hlc="${c.k}" title="${c.name} highlighter" aria-label="${c.name} highlighter"></button>`).join("")}</span></span>
+        <span class="menu hlmenu" id="hlMenu"><span class="split"><button class="btn ${mode==="hl"?"on":""}" id="hlBtn" title="Select text to highlight it. Highlight an already-highlighted part to erase it. Click a highlight to remove it."><span class="sw hl-${hlColor}"></span>Highlight</button><button class="btn caret ${mode==="hl"?"on":""}" id="hlCaret" title="Highlighter color" aria-label="Choose highlighter color">▾</button></span>
+          <div class="pop hlpop"><div class="mi-h">HIGHLIGHTER COLOR</div>${HL_COLORS.map(c=>`<button class="mi" data-hlc="${c.k}"><span class="sw hl-${c.k}"></span>${c.name}<span class="ck" style="margin-left:auto">${hlColor===c.k?"✓":""}</span></button>`).join("")}
+          <div class="mi-sep"></div><div class="hlhint">Highlight a highlighted part again to erase it. Tap a highlight to remove it.</div></div></span>
         <button class="btn ${S.flag[q.id]?"flagged":""}" id="flagBtn">⚑ ${S.flag[q.id]?"Flagged":"Flag"}</button>
         <button class="btn" id="resetQBtn" title="Clear your answer for this question only" ${hasProgress(q)&&!tDone?"":"disabled"}>↺ Reset question</button>
       </div></div>
@@ -1218,7 +1225,7 @@ const LAZY_IMGS = [{re:/^fp-/, file:"images-fbs.js"}, {re:/^ce-/, file:"images-c
 const lazyState = {}; // file -> 1 loading, 2 done
 function loadLazyImgs(file){
   if (lazyState[file]) return; lazyState[file] = 1;
-  const sc = document.createElement("script"); sc.src = file+"?v=18";
+  const sc = document.createElement("script"); sc.src = file+"?v=19";
   sc.onload = ()=>{ lazyState[file] = 2; fixImgs(document); };
   sc.onerror = ()=>{ delete lazyState[file]; };
   document.head.appendChild(sc);
@@ -1404,6 +1411,8 @@ document.addEventListener("click", e=>{
   }
   if (t.closest("#flagBtn")) { const id=curQ().id; S.flag[id]=!S.flag[id]; if(!S.flag[id]) delete S.flag[id]; save(); renderChaps(); renderRail(); renderCard(); return; }
   if (t.closest("#hlBtn")) { if (highlightSelection()) { renderCard(); return; } mode = mode==="hl"?null:"hl"; renderCard(); return; }
+  if (t.closest("#hlCaret")) { $("hlMenu").classList.toggle("open"); return; }
+  if ($("hlMenu") && $("hlMenu").classList.contains("open") && !t.closest("#hlMenu")) $("hlMenu").classList.remove("open");
   const swb = t.closest("[data-hlc]");
   if (swb) {
     hlColor = swb.dataset.hlc; try { localStorage.setItem("msk-hlcolor", hlColor); } catch(e) {}
@@ -1472,6 +1481,7 @@ $("searchIn").addEventListener("input", e=>{
 });
 $("searchIn").addEventListener("keydown", e=>{ if (e.key==="Escape") { $("searchClr").click(); e.target.blur(); } });
 
+document.addEventListener("mousedown", e=>{ if (e.target.closest && e.target.closest("#hlMenu")) e.preventDefault(); });
 document.addEventListener("mouseup", e=>{
   if (!(view==="quiz" && mode==="hl" && e.target.closest && e.target.closest("#stem"))) return;
   const sel = window.getSelection();
@@ -1483,6 +1493,7 @@ $("note").addEventListener("input", e=>{
   const id = curQ().id; if (e.target.value.trim()) S.notes[id]=e.target.value; else delete S.notes[id]; save();
 });
 document.addEventListener("keydown", e=>{
+  if (e.key==="Escape" && $("hlMenu") && $("hlMenu").classList.contains("open")) { $("hlMenu").classList.remove("open"); return; }
   if (e.target.matches("textarea,input,select")) return;
   if (e.key==="Escape") {
     if ($("lightbox").classList.contains("on")) { $("lightbox").classList.remove("on"); return; }
