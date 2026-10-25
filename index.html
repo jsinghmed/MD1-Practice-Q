@@ -475,6 +475,7 @@ let reportTest = null;
 let mode = null;            // highlight tool: "hl" | "er" | null
 let paused = false;
 let searchTerm = "";
+let searchRet = null;       // where you were before searching: {view, key, pos, report}
 let showAllTests = false;
 let openMenu = null;        // "opts" | "text" | null
 let focusOn = false;
@@ -566,7 +567,36 @@ function order(q, s, scr){
   return o;
 }
 function secOf(key){ const m = String(key||"").match(/^(\w+):/); return m && SEC_BY_PFX[m[1]] ? m[1] : null; }
+function inSearch(){ const c = getChap(S.cur); return view==="search" || (view==="quiz" && c && c.kind==="search"); }
+function rememberSpot(){
+  if (inSearch()) return;          // already searching — keep the original spot
+  searchRet = {view, key:S.cur, pos: S.cur ? S.pos[S.cur] : undefined, report: reportTest};
+}
+function backLabel(){
+  const r = searchRet;
+  if (!r || r.view==="home") return "Home";
+  if (r.view==="builder") return "Build a test";
+  if (r.view==="notes") return "My notes";
+  if (r.view==="report") { const t = S.tests.find(x=>x.id===r.report); return t ? t.name+" report" : "Score report"; }
+  const c = getChap(r.key);
+  if (!c) return "Home";
+  const title = c.kind==="static" ? (c.head ? c.sec : c.name) : c.title;
+  return title + " · Q" + (Math.min(r.pos||0, c.ids.length-1)+1);
+}
+function leaveSearch(){
+  clearTimeout(searchT);
+  $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = "";
+  const r = searchRet; searchRet = null;
+  if (r && r.view==="quiz" && getChap(r.key)) {
+    S.cur = r.key; S.curBy[S.course] = r.key; if (r.pos !== undefined) S.pos[r.key] = r.pos;
+    view = "quiz";
+  } else if (r && r.view==="report" && S.tests.find(x=>x.id===r.report)) { view = "report"; reportTest = r.report; }
+  else if (r && ["builder","notes","home"].includes(r.view)) view = r.view;
+  else view = "home";
+  save(); renderAll(); $("main").scrollTo({top:0});
+}
 function openChapter(key, at){
+  if (key !== "search") searchRet = null;
   S.cur = key; S.curBy[S.course] = key; if (at !== undefined) S.pos[key] = at;
   if (secOf(key)) S.openSec = secOf(key);
   view = "quiz"; paused = false; save();
@@ -660,6 +690,7 @@ function renderTools(){
     if (!focusOn) h += `<div class="menu"><button class="btn ${openMenu==="opts"?"on":""}" data-menu="opts">Options ▾</button>${openMenu==="opts"?`<div class="pop">
       <button class="mi" id="clearHlBtn"><span class="ck"></span>Clear highlights</button></div>`:""}</div>`;
   } else if (!focusOn) {
+    if (c.kind==="search") h += `<button class="btn" id="searchBack" title="Leave search and go back (Esc)">← Back to ${esc(backLabel())}</button>`;
     h += `<div class="menu"><button class="btn ${openMenu==="opts"?"on":""}" data-menu="opts">Chapter options ▾</button>${openMenu==="opts"?`<div class="pop">
       <button class="mi" id="scrambleBtn"><span class="ck">${scrOn()?"✓":""}</span>Scramble choices</button>
       <button class="mi" id="clearHlBtn"><span class="ck"></span>Clear highlights</button>
@@ -1020,7 +1051,7 @@ function snippet(txt, i, len){
 function renderSearch(){
   const term = searchTerm.trim();
   const res = searchQs(term);
-  let h = `<div class="page"><h2>Search ${esc(course().name)}</h2><p class="sub"><b>${res.length}</b> ${esc(course().name)} question${res.length===1?"":"s"} mention “${esc(term)}”${res.length?" — click one to open it, or study them all as a set.":"."}</p>`;
+  let h = `<div class="page"><div class="ptools" style="margin-bottom:12px"><button class="btn" id="searchBack">← Back to ${esc(backLabel())}</button></div><h2>Search ${esc(course().name)}</h2><p class="sub"><b>${res.length}</b> ${esc(course().name)} question${res.length===1?"":"s"} mention “${esc(term)}”${res.length?" — click one to open it, or study them all as a set.":"."}</p>`;
   if (res.length) h += `<div class="ptools"><button class="btn primary" data-sopen="0">Study these ${res.length} questions →</button></div>`;
   h += `<div class="sres">` + res.slice(0,300).map((r,i)=>{
     const stt = status(r.q,S);
@@ -1120,7 +1151,7 @@ function switchCourse(id){
   S.cur = S.curBy[id] || (firstChap() ? firstChap().key : null);
   S.openSec = secOf(S.cur) || (courseSecs()[0] ? courseSecs()[0].prefix : null);
   view = "home"; focusOn = false; paused = false; showAllTests = false; openMenu = null;
-  clearTimeout(searchT); $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = "";
+  clearTimeout(searchT); $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = ""; searchRet = null;
   save(); $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0});
   toast(COURSE_BY_ID[id].name + (COURSE_BY_ID[id].items.length ? "" : " — no questions yet"));
 }
@@ -1160,7 +1191,11 @@ document.addEventListener("click", e=>{
   if (t.closest("#buildBtn")) { view = "builder"; $("side").classList.remove("open"); renderAll(); return; }
   if (t.closest("#notesBtn")) { view = "notes"; $("side").classList.remove("open"); renderAll(); return; }
   if (t.closest("#themeBtn")) { setTheme(document.documentElement.getAttribute("data-theme")==="light" ? "dark" : "light"); return; }
-  if (t.closest("#searchClr")) { clearTimeout(searchT); $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = ""; if (view==="search") { view = "quiz"; renderAll(); } return; }
+  if (t.closest("#searchClr") || t.closest("#searchBack")) {
+    if (inSearch()) leaveSearch();
+    else { clearTimeout(searchT); $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = ""; }
+    return;
+  }
   if (t.closest("#menuBtn")) { $("side").classList.toggle("open"); return; }
 
   // pages
@@ -1259,8 +1294,8 @@ $("searchIn").addEventListener("input", e=>{
   clearTimeout(searchT);
   searchT = setTimeout(()=>{
     searchTerm = v;
-    if (v.trim().length >= 2) { view = "search"; renderAll(); }
-    else if (view==="search") { view = "quiz"; renderAll(); }
+    if (v.trim().length >= 2) { rememberSpot(); view = "search"; renderAll(); }
+    else if (!v.trim() && view==="search") leaveSearch();
   }, 220);
 });
 $("searchIn").addEventListener("keydown", e=>{ if (e.key==="Escape") { $("searchClr").click(); e.target.blur(); } });
@@ -1277,6 +1312,7 @@ document.addEventListener("keydown", e=>{
     if ($("lightbox").classList.contains("on")) { $("lightbox").classList.remove("on"); return; }
     if (openMenu) { openMenu = null; renderTools(); return; }
     if (focusOn) { setFocus(false); return; }
+    if (inSearch()) { leaveSearch(); return; }
     return;
   }
   if (view !== "quiz" || (timedActive() && paused)) return;
