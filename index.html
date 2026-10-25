@@ -246,6 +246,18 @@ table.rt tr.click:hover td{background:var(--hover)}
 .toast.on{opacity:1}
 [hidden]{display:none!important}
 
+/* course tabs */
+.ctabs{display:flex;gap:4px;padding:0 12px 12px}
+.ctab{flex:1;background:transparent;border:1px solid var(--line2);border-radius:8px;padding:8px 4px;font-size:14px;font-weight:700;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:1px}
+.ctab small{font-size:10.5px;font-weight:600;color:var(--dim)}
+.ctab:hover{background:var(--hover);color:var(--text)}
+.ctab.on{background:var(--blue-bg);border-color:var(--blue-line);color:var(--blue)}
+.ctab.on small{color:var(--blue)}
+.noq{color:var(--muted);font-size:13.5px;line-height:1.55;padding:6px 12px 12px}
+.emptybox{background:var(--card);border:1px dashed var(--line2);border-radius:12px;padding:36px 28px;text-align:center;margin-top:6px}
+.emptybox h3{margin:0 0 8px;font-size:19px}
+.emptybox p{margin:0 auto;color:var(--muted);max-width:560px;line-height:1.6}
+
 /* sidebar: home + collapsible sections */
 .brand{cursor:pointer}
 .chap.home{font-weight:600;margin-top:10px}
@@ -342,11 +354,12 @@ table.rt tr.click:hover td{background:var(--hover)}
 <body>
 <div class="app" id="app">
   <aside class="side" id="side">
-    <div class="brand" id="brandHome" title="Home"><h1>MSK Summative</h1><p>Histology · Physiology · Biochemistry · Anatomy · Embryology</p></div>
+    <div class="brand" id="brandHome" title="Home"><h1 id="brandTitle">MSK Summative</h1><p id="brandSub"></p></div>
+    <div class="ctabs" id="ctabs"></div>
     <div class="stools">
       <div class="search" id="searchWrap">
         <svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
-        <input id="searchIn" type="search" placeholder="Search all questions…" autocomplete="off">
+        <input id="searchIn" type="search" placeholder="Search questions…" autocomplete="off">
         <button class="clr" id="searchClr" title="Clear search">✕</button>
       </div>
       <div class="srow">
@@ -392,26 +405,36 @@ table.rt tr.click:hover td{background:var(--hover)}
 // =====================================================================
 // Data
 // =====================================================================
+// ---- Courses (summatives). To add one, add it here, then give its sections course:"<id>". ----
+// Each section's prefix must be unique across the whole site (it's part of every saved question ID).
+const COURSES = [
+  {id:"fbs", name:"FBS", full:"Foundations of Basic Sciences"},
+  {id:"msk", name:"MSK", full:"Musculoskeletal"},
+  {id:"crs", name:"CRS", full:"CRS"}
+];
 const SECTIONS = [
-  {name:"Histology", all:"All Histology", prefix:"q", topics:window.TOPICS, qs:window.QUESTIONS,
+  {course:"msk", name:"Histology", all:"All Histology", prefix:"q", topics:window.TOPICS, qs:window.QUESTIONS,
    extra:[{name:"Review Slides Practice (new)", f:q=>q.src==="rev"}]},
-  {name:"MSK Physiology", all:"All Physiology", prefix:"p", topics:window.PHYSIO_TOPICS, qs:window.PHYSIO_QUESTIONS,
+  {course:"msk", name:"MSK Physiology", all:"All Physiology", prefix:"p", topics:window.PHYSIO_TOPICS, qs:window.PHYSIO_QUESTIONS,
    extra:[{name:"MSK Review 3 (skeletal)", f:q=>q.src==="rev3"}, {name:"MSK Review 4 (smooth)", f:q=>q.src==="rev4"}]},
-  {name:"Biochemistry", all:"All Biochemistry", prefix:"b", topics:window.BCHM_TOPICS, qs:window.BCHM_QUESTIONS,
+  {course:"msk", name:"Biochemistry", all:"All Biochemistry", prefix:"b", topics:window.BCHM_TOPICS, qs:window.BCHM_QUESTIONS,
    extra:[{name:"From the Document", f:q=>q.src==="doc"}, {name:"Blueprint Practice (new)", f:q=>q.src==="new"}]},
-  {name:"Anatomy (BRS)", all:"All Anatomy", prefix:"a", topics:window.ANAT_TOPICS, qs:window.ANAT_QUESTIONS,
+  {course:"msk", name:"Anatomy (BRS)", all:"All Anatomy", prefix:"a", topics:window.ANAT_TOPICS, qs:window.ANAT_QUESTIONS,
    extra:[{name:"All Upper Limb", f:q=>q.limb==="Upper Limb"}, {name:"All Lower Limb", f:q=>q.limb==="Lower Limb"}]},
-  {name:"MSK Embryology", all:"All Embryology", prefix:"e", topics:window.EMB_TOPICS, qs:window.EMB_QUESTIONS}
+  {course:"msk", name:"MSK Embryology", all:"All Embryology", prefix:"e", topics:window.EMB_TOPICS, qs:window.EMB_QUESTIONS}
 ].filter(s=>s.qs && s.qs.length);
 
 const Q = [], STATIC = [];
 SECTIONS.forEach(sec=>{
-  const qs = sec.qs.map((q,i)=>Object.assign({id:sec.prefix+(i+1), sec:sec.name, pfx:sec.prefix, num:i+1}, q));
+  const co = sec.course;
+  const qs = sec.qs.map((q,i)=>Object.assign({id:sec.prefix+(i+1), sec:sec.name, pfx:sec.prefix, num:i+1, course:co}, q));
   sec.items = qs; Q.push(...qs);
-  STATIC.push({key:sec.prefix+":all", name:sec.all, sec:sec.name, pfx:sec.prefix, head:true, ids:qs.map(q=>q.id), kind:"static"});
-  sec.topics.forEach(t=>{ const ids=qs.filter(q=>q.t===t).map(q=>q.id); if(ids.length) STATIC.push({key:sec.prefix+":t:"+t, name:t, sec:sec.name, pfx:sec.prefix, ids, kind:"static"}); });
-  (sec.extra||[]).forEach(x=>{ const ids=qs.filter(x.f).map(q=>q.id); if(ids.length) STATIC.push({key:sec.prefix+":x:"+x.name, name:x.name, sec:sec.name, pfx:sec.prefix, ids, sub:true, kind:"static"}); });
+  STATIC.push({key:sec.prefix+":all", name:sec.all, sec:sec.name, pfx:sec.prefix, course:co, head:true, ids:qs.map(q=>q.id), kind:"static"});
+  sec.topics.forEach(t=>{ const ids=qs.filter(q=>q.t===t).map(q=>q.id); if(ids.length) STATIC.push({key:sec.prefix+":t:"+t, name:t, sec:sec.name, pfx:sec.prefix, course:co, ids, kind:"static"}); });
+  (sec.extra||[]).forEach(x=>{ const ids=qs.filter(x.f).map(q=>q.id); if(ids.length) STATIC.push({key:sec.prefix+":x:"+x.name, name:x.name, sec:sec.name, pfx:sec.prefix, course:co, ids, sub:true, kind:"static"}); });
 });
+const COURSE_BY_ID = Object.fromEntries(COURSES.map(c=>[c.id,c]));
+COURSES.forEach(c=>{ c.sections = SECTIONS.filter(s=>s.course===c.id); c.items = Q.filter(q=>q.course===c.id); });
 const STATIC_BY_KEY = Object.fromEntries(STATIC.map(c=>[c.key,c]));
 const SEC_BY_PFX = Object.fromEntries(SECTIONS.map(s=>[s.prefix,s]));
 const byId = Object.fromEntries(Q.map(q=>[q.id,q]));
@@ -434,7 +457,17 @@ if (S.v !== 2) {
   S.cur = (typeof S.chap === "number" && STATIC[S.chap]) ? STATIC[S.chap].key : STATIC[0].key;
   delete S.chap; S.v = 2;
 }
-let saveT = 0;
+if (S.v === 2) {
+  // single-course version → courses: everything so far belongs to MSK; "all sections" review lists become MSK's
+  const fix = k => String(k).replace(/^all:rv:/, "msk:rv:");
+  const move = o => Object.fromEntries(Object.entries(o||{}).map(([k,v])=>[fix(k),v]));
+  S.pos = move(S.pos); S.scr = move(S.scr); S.snap = move(S.snap);
+  if (S.cur) S.cur = fix(S.cur);
+  S.tests.forEach(t=>{ t.course ??= "msk"; });
+  S.course = "msk"; S.curBy = {msk: S.cur};
+  S.v = 3;
+}
+S.course = COURSE_BY_ID[S.course] ? S.course : "msk"; S.curBy ??= {};
 function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){ toast("Couldn't save — browser storage is full or blocked"); } }
 
 let view = "home";          // home | quiz | builder | notes | search | report
@@ -472,8 +505,12 @@ const REVIEW = [
   {k:"un",   label:"Unanswered", icon:"○", f:q=>!answered(q,S)}
 ];
 const REVIEW_BY_K = Object.fromEntries(REVIEW.map(r=>[r.k,r]));
-function scopeQs(scope){ return scope==="all" ? Q : (SEC_BY_PFX[scope] ? SEC_BY_PFX[scope].items : []); }
-function scopeName(scope){ return scope==="all" ? "All sections" : SEC_BY_PFX[scope].name; }
+function course(){ return COURSE_BY_ID[S.course]; }
+function courseQ(){ return course().items; }
+function courseSecs(){ return course().sections; }
+function courseTests(){ return S.tests.filter(t=>(t.course||"msk")===S.course); }
+function scopeQs(scope){ return COURSE_BY_ID[scope] ? COURSE_BY_ID[scope].items : (SEC_BY_PFX[scope] ? SEC_BY_PFX[scope].items : []); }
+function scopeName(scope){ return COURSE_BY_ID[scope] ? "All "+COURSE_BY_ID[scope].name : SEC_BY_PFX[scope].name; }
 
 // =====================================================================
 // Chapters: static, review (snapshot), search (snapshot), tests
@@ -482,7 +519,7 @@ function getChap(key){
   if (!key) return null;
   if (STATIC_BY_KEY[key]) return STATIC_BY_KEY[key];
   let m = key.match(/^(\w+):rv:(\w+)$/);
-  if (m && REVIEW_BY_K[m[2]] && (m[1]==="all" || SEC_BY_PFX[m[1]])) {
+  if (m && REVIEW_BY_K[m[2]] && (COURSE_BY_ID[m[1]] || SEC_BY_PFX[m[1]])) {
     const r = REVIEW_BY_K[m[2]];
     const ids = (S.snap[key] || scopeQs(m[1]).filter(r.f).map(q=>q.id)).filter(id=>byId[id]);
     return {key, kind:"review", name:r.label+" only", sec:scopeName(m[1]), title:scopeName(m[1])+" · "+r.label+" only", ids};
@@ -499,13 +536,23 @@ function getChap(key){
   return null;
 }
 function prepTest(t){ t.ans ??= {}; t.sel ??= {}; t.strike ??= {}; t.order ??= {}; }
-function chap(){ return getChap(S.cur) || STATIC[0]; }
-function store(){ return chap().test || S; }
-function timedActive(){ const t = chap().test; return !!(t && t.mode==="timed" && !t.finished); }
-function timedDone(){ const t = chap().test; return !!(t && t.mode==="timed" && t.finished); }
-function scrOn(){ const c = chap(); return c.test ? !!c.test.scr : !!S.scr[c.key]; }
-function pos(){ const c = chap(); return Math.max(0, Math.min(S.pos[c.key] || 0, c.ids.length-1)); }
-function curQ(){ const c = chap(); return byId[c.ids[pos()]]; }
+function chapCourse(c){
+  if (!c) return null;
+  if (c.course) return c.course;
+  if (c.test) return c.test.course || "msk";
+  const m = c.key.match(/^(\w+):rv:/);
+  if (m) return COURSE_BY_ID[m[1]] ? m[1] : (SEC_BY_PFX[m[1]] ? SEC_BY_PFX[m[1]].course : null);
+  if (c.key==="search") return S.searchCourse || S.course;
+  return null;
+}
+function firstChap(){ return STATIC.find(c=>c.course===S.course) || null; }
+function chap(){ const c = getChap(S.cur); return (c && chapCourse(c)===S.course) ? c : firstChap(); }
+function store(){ const c = chap(); return (c && c.test) || S; }
+function timedActive(){ const c = chap(), t = c && c.test; return !!(t && t.mode==="timed" && !t.finished); }
+function timedDone(){ const c = chap(), t = c && c.test; return !!(t && t.mode==="timed" && t.finished); }
+function scrOn(){ const c = chap(); return !c ? false : c.test ? !!c.test.scr : !!S.scr[c.key]; }
+function pos(){ const c = chap(); return !c ? 0 : Math.max(0, Math.min(S.pos[c.key] || 0, c.ids.length-1)); }
+function curQ(){ const c = chap(); return c ? byId[c.ids[pos()]] : null; }
 function hasProgress(q){
   const s = store(), id = q.id, st = s.strike[id];
   return s.ans[id]!==undefined || s.sel[id]!==undefined || !!(st && Object.values(st).some(Boolean));
@@ -520,7 +567,7 @@ function order(q, s, scr){
 }
 function secOf(key){ const m = String(key||"").match(/^(\w+):/); return m && SEC_BY_PFX[m[1]] ? m[1] : null; }
 function openChapter(key, at){
-  S.cur = key; if (at !== undefined) S.pos[key] = at;
+  S.cur = key; S.curBy[S.course] = key; if (at !== undefined) S.pos[key] = at;
   if (secOf(key)) S.openSec = secOf(key);
   view = "quiz"; paused = false; save();
   $("side").classList.remove("open"); renderAll();
@@ -559,8 +606,8 @@ function chapBtn(c){
 }
 function renderChaps(){
   let h = `<button class="chap home ${view==="home"?"on":""}" id="homeBtn"><span>⌂ Home</span></button>`;
-  if (S.tests.length) {
-    const list = S.tests.slice().reverse(), shown = showAllTests ? list : list.slice(0,3);
+  if (courseTests().length) {
+    const list = courseTests().slice().reverse(), shown = showAllTests ? list : list.slice(0,3);
     h += `<div class="chap-h">MY TESTS</div>`;
     h += shown.map(t=>{
       const key = "test:"+t.id, on = S.cur===key && (view==="quiz" || (view==="report" && reportTest===t.id));
@@ -568,14 +615,19 @@ function renderChaps(){
     }).join("");
     if (list.length > 3) h += `<button class="more" id="moreTests">${showAllTests ? "Show fewer" : "See all "+list.length+" tests"}</button>`;
   }
-  h += `<div class="chap-h">SECTIONS</div>`;
-  SECTIONS.forEach(sec=>{
+  h += `<div class="chap-h">${esc(course().name)} SECTIONS</div>`;
+  if (!courseSecs().length) h += `<div class="noq">No questions added to ${esc(course().name)} yet.</div>`;
+  courseSecs().forEach(sec=>{
     const open = S.openSec===sec.prefix, st = secStats(sec);
     h += `<div class="sec ${open?"open":""}"><button class="sec-h" data-sec="${sec.prefix}" aria-expanded="${open}"><span class="chev">▶</span><span class="nm">${esc(sec.name)}</span><span class="n">${st.done}/${st.n}</span></button>`;
     if (open) h += `<div class="secbar"><i style="width:${Math.round(st.done*100/st.n)}%"></i></div><div class="sec-b">` + rvChips(sec.prefix) + STATIC.filter(c=>c.pfx===sec.prefix).map(chapBtn).join("") + `</div>`;
     h += `</div>`;
   });
   $("chaps").innerHTML = h;
+  $("ctabs").innerHTML = COURSES.map(c=>`<button class="ctab ${c.id===S.course?"on":""}" data-course="${c.id}" title="${esc(c.full)}">${esc(c.name)}<small>${c.items.length ? c.items.length+" Qs" : "empty"}</small></button>`).join("");
+  $("brandTitle").textContent = course().name + " Summative";
+  $("brandSub").textContent = (course().full !== course().name ? course().full + " · " : "") + (course().items.length ? course().items.length + " questions" : "no questions yet");
+  document.title = course().name + " Summative";
   $("buildBtn").classList.toggle("on", view==="builder");
   $("notesBtn").classList.toggle("on", view==="notes");
 }
@@ -746,12 +798,18 @@ function showPage(html){
 
 // ---------- Home ----------
 function renderHome(){
-  const all = Q, done = all.filter(q=>answered(q,S)), ok = done.filter(q=>status(q,S)==="ok").length;
+  const all = courseQ(), done = all.filter(q=>answered(q,S)), ok = done.filter(q=>status(q,S)==="ok").length;
+  if (!all.length) {
+    showPage(`<div class="page"><div class="hero"><div><h2>${esc(course().name)} Summative</h2><p class="sub">${esc(course().full)}</p></div></div>
+      <div class="emptybox"><h3>No ${esc(course().name)} questions yet</h3>
+      <p>This summative is set up and ready. Once questions are added, its sections, review lists, tests, search and notes will all appear here — kept separate from your other summatives.</p></div></div>`);
+    return;
+  }
   const acc = done.length ? Math.round(ok*100/done.length) : 0;
   const inc = all.filter(REVIEW_BY_K.inc.f).length, fl = all.filter(REVIEW_BY_K.flag.f).length, un = all.length - done.length;
-  const c = getChap(S.cur), notesN = Object.values(S.notes).filter(x=>x && x.trim()).length;
+  const c = chap(), notesN = all.filter(q=>S.notes[q.id] && S.notes[q.id].trim()).length;
   let h = `<div class="page">
-    <div class="hero"><div><h2>MSK Summative</h2><p class="sub">${done.length} of ${all.length} questions answered${done.length?` · ${acc}% correct`:""}</p></div>
+    <div class="hero"><div><h2>${esc(course().name)} Summative</h2><p class="sub">${done.length} of ${all.length} questions answered${done.length?` · ${acc}% correct`:""}</p></div>
       <div class="ptools" style="margin:0"><button class="btn primary" data-act="build">＋ Build a test</button><button class="btn" data-act="notes">✎ My notes${notesN?` (${notesN})`:""}</button></div></div>`;
   if (c && c.ids.length) {
     const p = Math.min(S.pos[c.key]||0, c.ids.length-1);
@@ -760,10 +818,10 @@ function renderHome(){
       <button class="btn primary" data-go="${esc(c.key)}">Continue →</button></div>`;
   }
   h += `<div class="h3">Review across all sections</div><div class="rvbig">
-    <button data-rv="all:rv:inc"><span class="v r">${inc}</span><span class="l">✗ Incorrect questions</span></button>
-    <button data-rv="all:rv:flag"><span class="v f">${fl}</span><span class="l">⚑ Flagged questions</span></button>
-    <button data-rv="all:rv:un"><span class="v">${un}</span><span class="l">○ Unanswered questions</span></button></div>`;
-  h += `<div class="h3">Sections</div><div class="secgrid">` + SECTIONS.map(sec=>{
+    <button data-rv="${S.course}:rv:inc"><span class="v r">${inc}</span><span class="l">✗ Incorrect questions</span></button>
+    <button data-rv="${S.course}:rv:flag"><span class="v f">${fl}</span><span class="l">⚑ Flagged questions</span></button>
+    <button data-rv="${S.course}:rv:un"><span class="v">${un}</span><span class="l">○ Unanswered questions</span></button></div>`;
+  h += `<div class="h3">Sections</div><div class="secgrid">` + courseSecs().map(sec=>{
     const st = secStats(sec), acc2 = st.done ? Math.round(st.ok*100/st.done) : null;
     const incN = sec.items.filter(REVIEW_BY_K.inc.f).length;
     return `<div class="scard"><h4>${esc(sec.name)}</h4>
@@ -773,8 +831,8 @@ function renderHome(){
         ${incN?`<button class="btn" data-rv="${sec.prefix}:rv:inc">Review ${incN} incorrect</button>`:""}
         <button class="btn" data-opensec="${sec.prefix}">Topics</button></div></div>`;
   }).join("") + `</div>`;
-  if (S.tests.length) {
-    h += `<div class="h3">Recent tests</div><div class="tlist">` + S.tests.slice().reverse().slice(0,5).map(t=>
+  if (courseTests().length) {
+    h += `<div class="h3">Recent tests</div><div class="tlist">` + courseTests().slice().reverse().slice(0,5).map(t=>
       `<button class="trow" data-go="test:${t.id}"><span>${esc(t.name)}</span><span class="n">${t.mode==="timed"&&!t.finished?"⏱ in progress":t.finished?"Score "+testLabel(t):testLabel(t)+" answered"}</span></button>`).join("") + `</div>`;
   }
   showPage(h + `</div>`);
@@ -792,15 +850,16 @@ const POOLS = [
 ];
 function builderPool(poolK){
   const pf = POOLS.find(p=>p.k===(poolK||B.pool)).f;
-  return Q.filter(q=>q.type!=="reveal" && B.secs[q.pfx] && B.tops[q.pfx+"|"+q.t] && pf(q));
+  return courseQ().filter(q=>q.type!=="reveal" && B.secs[q.pfx] && B.tops[q.pfx+"|"+q.t] && pf(q));
 }
 function renderBuilder(){
+  if (!courseQ().length) { showPage(`<div class="page"><h2>Build a test</h2><div class="emptybox"><h3>No ${esc(course().name)} questions yet</h3><p>Once questions are added to ${esc(course().name)}, you can build tests from them here.</p></div></div>`); return; }
   const avail = builderPool().length;
   const nVal = Math.max(1, Math.min(B.n, avail||1));
-  let h = `<div class="page"><h2>Build a test</h2>
+  let h = `<div class="page"><h2>Build a test <span class="muted" style="font-weight:600">· ${esc(course().name)}</span></h2>
     <p class="sub">Pick what to include, how many questions, and the mode. Questions are drawn at random and shuffled. The "Identify the slide" show-answer cards aren't included because they're self-graded.</p>
     <div class="box"><h3>1 · Sections and topics</h3>`;
-  SECTIONS.forEach(s=>{
+  courseSecs().forEach(s=>{
     const allQ = s.items.filter(q=>q.type!=="reveal");
     const pf = POOLS.find(p=>p.k===B.pool).f;
     const secCount = allQ.filter(q=>B.tops[s.prefix+"|"+q.t] && pf(q)).length;
@@ -838,11 +897,11 @@ function saveBuilder(){ S.builder = B; save(); }
 function startTest(ids, opts){
   if (!ids.length) { toast("No questions match those settings"); return; }
   S.testSeq += 1;
-  const t = {id: Date.now(), name: `Test ${S.testSeq} · ${ids.length} Qs${opts.mode==="timed"?" · timed":""}`, ids, mode: opts.mode,
+  const t = {id: Date.now(), course: S.course, name: `${course().name} Test ${S.testSeq} · ${ids.length} Qs${opts.mode==="timed"?" · timed":""}`, ids, mode: opts.mode,
     per: opts.per, remaining: opts.mode==="timed" ? ids.length*opts.per : null, scr: opts.scr, created: Date.now(), finished: false,
     ans:{}, sel:{}, strike:{}, order:{}};
   S.tests.push(t);
-  while (S.tests.length > 30) { const old = S.tests.shift(); delete S.pos["test:"+old.id]; }
+  while (S.tests.length > 60) { const old = S.tests.shift(); delete S.pos["test:"+old.id]; }
   openChapter("test:"+t.id, 0);
   toast(opts.mode==="timed" ? "Timed block started — good luck" : "Test started");
 }
@@ -897,12 +956,12 @@ function finishTest(t, reason){
 
 // ---------- Notes ----------
 function renderNotes(){
-  const ids = Object.keys(S.notes).filter(id=>byId[id] && S.notes[id].trim());
-  let h = `<div class="page"><h2>My notes</h2>
+  const ids = Object.keys(S.notes).filter(id=>byId[id] && byId[id].course===S.course && S.notes[id].trim());
+  let h = `<div class="page"><h2>My ${esc(course().name)} notes</h2>
     <p class="sub">Every note you've written, grouped by section and topic. ${ids.length} note${ids.length===1?"":"s"} in total.</p>`;
   if (!ids.length) { showPage(h + `<div class="empty">No notes yet. Write one in the "My notes" box under any question and it will show up here.</div></div>`); return; }
   h += `<div class="ptools noprint"><button class="btn" id="printNotesBtn">🖨 Print</button><button class="btn" id="dlNotesBtn">⬇ Download (.txt)</button></div>`;
-  SECTIONS.forEach(s=>{
+  courseSecs().forEach(s=>{
     const mine = s.items.filter(q=>S.notes[q.id] && S.notes[q.id].trim());
     if (!mine.length) return;
     h += `<div class="nsec"><h3>${esc(s.name)} <span class="muted" style="font-size:14px;font-weight:500">· ${mine.length}</span></h3>`;
@@ -921,8 +980,8 @@ function renderNotes(){
   showPage(h + `</div>`);
 }
 function downloadNotes(){
-  let out = "MSK Summative — my notes\n" + new Date().toLocaleString() + "\n";
-  SECTIONS.forEach(s=>{
+  let out = course().name + " Summative — my notes\n" + new Date().toLocaleString() + "\n";
+  courseSecs().forEach(s=>{
     const mine = s.items.filter(q=>S.notes[q.id] && S.notes[q.id].trim());
     if (!mine.length) return;
     out += "\n\n==================== " + s.name.toUpperCase() + " ====================\n";
@@ -933,7 +992,7 @@ function downloadNotes(){
   });
   const a = document.createElement("a");
   a.href = URL.createObjectURL(new Blob([out], {type:"text/plain"}));
-  a.download = "MSK-Summative-notes.txt"; document.body.appendChild(a); a.click();
+  a.download = course().name + "-Summative-notes.txt"; document.body.appendChild(a); a.click();
   setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 500);
 }
 
@@ -945,6 +1004,7 @@ const SEARCH_IDX = Q.map(q=>({q, fields:[
 function searchQs(term){
   const t = term.toLowerCase(), res = [];
   SEARCH_IDX.forEach(x=>{
+    if (x.q.course !== S.course) return;
     for (const [where, txt] of x.fields) {
       const i = txt.toLowerCase().indexOf(t);
       if (i >= 0) { res.push({q:x.q, where, txt, i}); break; }
@@ -960,7 +1020,7 @@ function snippet(txt, i, len){
 function renderSearch(){
   const term = searchTerm.trim();
   const res = searchQs(term);
-  let h = `<div class="page"><h2>Search</h2><p class="sub"><b>${res.length}</b> question${res.length===1?"":"s"} mention “${esc(term)}”${res.length?" — click one to open it, or study them all as a set.":"."}</p>`;
+  let h = `<div class="page"><h2>Search ${esc(course().name)}</h2><p class="sub"><b>${res.length}</b> ${esc(course().name)} question${res.length===1?"":"s"} mention “${esc(term)}”${res.length?" — click one to open it, or study them all as a set.":"."}</p>`;
   if (res.length) h += `<div class="ptools"><button class="btn primary" data-sopen="0">Study these ${res.length} questions →</button></div>`;
   h += `<div class="sres">` + res.slice(0,300).map((r,i)=>{
     const stt = status(r.q,S);
@@ -976,6 +1036,7 @@ function renderSearch(){
 // Render all
 // =====================================================================
 function renderAll(){
+  if (view==="quiz" && !chap()) view = "home";
   if (view!=="quiz") focusOn = false;
   renderChaps();
   $("app").classList.toggle("focus", focusOn && view==="quiz");
@@ -1052,6 +1113,17 @@ function goKey(key){
   if (c.test && c.test.finished && c.test.mode==="timed") { S.cur = key; view = "report"; reportTest = c.test.id; save(); $("side").classList.remove("open"); renderAll(); return; }
   openChapter(key);
 }
+function switchCourse(id){
+  if (!COURSE_BY_ID[id] || id===S.course) { view = "home"; renderAll(); return; }
+  S.curBy[S.course] = S.cur;
+  S.course = id;
+  S.cur = S.curBy[id] || (firstChap() ? firstChap().key : null);
+  S.openSec = secOf(S.cur) || (courseSecs()[0] ? courseSecs()[0].prefix : null);
+  view = "home"; focusOn = false; paused = false; showAllTests = false; openMenu = null;
+  clearTimeout(searchT); $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = "";
+  save(); $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0});
+  toast(COURSE_BY_ID[id].name + (COURSE_BY_ID[id].items.length ? "" : " — no questions yet"));
+}
 function setFocus(on){ focusOn = on; openMenu = null; renderAll(); if (on) toast("Focus mode — press Esc to exit"); }
 document.addEventListener("click", e=>{
   const t = e.target;
@@ -1063,6 +1135,8 @@ document.addEventListener("click", e=>{
   const zb = t.closest("[data-zoom]");
   if (zb) { zoomV = +zb.dataset.zoom; try { localStorage.setItem("msk-zoom", zoomV); } catch(e){} renderAll(); toast("Text size: "+ZOOMS.find(z=>Math.abs(z[0]-zoomV)<.001)[1]); return; }
   if (t.closest("#focusBtn")) { setFocus(!focusOn); return; }
+  const cb = t.closest("[data-course]");
+  if (cb) { switchCourse(cb.dataset.course); return; }
   // home / sidebar
   if (t.closest("#homeBtn") || t.closest("#brandHome")) { view = "home"; focusOn = false; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); return; }
   const sh = t.closest("[data-sec]");
@@ -1086,12 +1160,12 @@ document.addEventListener("click", e=>{
   if (t.closest("#buildBtn")) { view = "builder"; $("side").classList.remove("open"); renderAll(); return; }
   if (t.closest("#notesBtn")) { view = "notes"; $("side").classList.remove("open"); renderAll(); return; }
   if (t.closest("#themeBtn")) { setTheme(document.documentElement.getAttribute("data-theme")==="light" ? "dark" : "light"); return; }
-  if (t.closest("#searchClr")) { $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = ""; if (view==="search") { view = "quiz"; renderAll(); } return; }
+  if (t.closest("#searchClr")) { clearTimeout(searchT); $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = ""; if (view==="search") { view = "quiz"; renderAll(); } return; }
   if (t.closest("#menuBtn")) { $("side").classList.toggle("open"); return; }
 
   // pages
   const sopen = t.closest("[data-sopen]");
-  if (sopen) { S.snap.search = S._lastSearch || []; S.searchQ = searchTerm.trim(); openChapter("search", +sopen.dataset.sopen); return; }
+  if (sopen) { S.snap.search = S._lastSearch || []; S.searchQ = searchTerm.trim(); S.searchCourse = S.course; openChapter("search", +sopen.dataset.sopen); return; }
   const oq = t.closest("[data-openq]"); if (oq) { openInSection(oq.dataset.openq); return; }
   if (t.closest("#printNotesBtn")) { window.print(); return; }
   if (t.closest("#dlNotesBtn")) { downloadNotes(); return; }
@@ -1106,7 +1180,7 @@ document.addEventListener("click", e=>{
     const tt = S.tests.find(x=>x.id===reportTest); if (!tt) return;
     if (!confirm("Delete “"+tt.name+"”? Your main progress isn't affected.")) return;
     S.tests = S.tests.filter(x=>x!==tt); delete S.pos["test:"+tt.id];
-    if (S.cur==="test:"+tt.id) S.cur = STATIC[0].key;
+    if (S.cur==="test:"+tt.id) S.cur = firstChap() ? firstChap().key : null;
     view = "quiz"; save(); renderAll(); toast("Test deleted"); return;
   }
   const bAll = t.closest("[data-ball]"), bNone = t.closest("[data-bnone]");
@@ -1234,7 +1308,7 @@ setInterval(()=>{
 }, 1000);
 
 themeLabel();
-if (S.openSec === undefined) S.openSec = secOf(S.cur) || SECTIONS[0].prefix;
+if (S.openSec === undefined) S.openSec = secOf(S.cur) || (courseSecs()[0] ? courseSecs()[0].prefix : null);
 save();
 renderAll();
 })();
