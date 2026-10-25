@@ -63,6 +63,9 @@ button{font:inherit;color:inherit;cursor:pointer}
 .qtools{display:flex;gap:7px}
 .qtools .btn{padding:5px 11px;font-size:13px}
 .qtools .btn.flagged{color:var(--flag);border-color:#6b4f10}
+.qtools .btn:disabled{opacity:.4;cursor:default}
+.qtools .btn:disabled:hover{background:transparent}
+.qtools{flex-wrap:wrap}
 .stem{font-size:16.5px;line-height:1.75;margin:0 0 18px}
 .stem p{margin:0 0 10px}
 .stem p:last-child{margin-bottom:0}
@@ -153,7 +156,7 @@ button{font:inherit;color:inherit;cursor:pointer}
   <aside class="side" id="side">
     <div class="brand"><h1>MSK Summative</h1><p>Histology · Physiology · Biochemistry · Anatomy · Embryology</p></div>
     <div class="chaps" id="chaps"></div>
-    <div class="side-foot">Your answers, highlights, flags &amp; notes are saved automatically in this browser. Reset chapter never erases highlights, flags or notes.<br><b>Keys:</b> ← → move · A–F pick · Enter submit</div>
+    <div class="side-foot">Your answers, highlights, flags &amp; notes are saved automatically in this browser. Reset question and Reset chapter clear answers only — never highlights, flags or notes.<br><b>Keys:</b> ← → move · A–F pick · Enter submit</div>
   </aside>
   <nav class="rail" id="rail"></nav>
   <main class="main">
@@ -177,14 +180,14 @@ button{font:inherit;color:inherit;cursor:pointer}
 <div class="lightbox" id="lightbox"><img alt=""></div>
 <div class="toast" id="toast"></div>
 
-<script src="images.js?v=10"></script>
-<script src="questions.js?v=10"></script>
-<script src="histology-review.js?v=10"></script>
-<script src="physiology.js?v=10"></script>
-<script src="physiology-review.js?v=10"></script>
-<script src="biochemistry.js?v=10"></script>
-<script src="anatomy.js?v=10"></script>
-<script src="embryology.js?v=10"></script>
+<script src="images.js?v=11"></script>
+<script src="questions.js?v=11"></script>
+<script src="histology-review.js?v=11"></script>
+<script src="physiology.js?v=11"></script>
+<script src="physiology-review.js?v=11"></script>
+<script src="biochemistry.js?v=11"></script>
+<script src="anatomy.js?v=11"></script>
+<script src="embryology.js?v=11"></script>
 <script>
 (function(){
 const SECTIONS = [
@@ -234,6 +237,10 @@ function status(q){
   if (a === undefined) return null;
   if (q.type === "reveal") return a === "ok" ? "ok" : a === "bad" ? "bad" : null;
   return a === q.a ? "ok" : "bad";
+}
+function hasProgress(q){
+  const id=q.id, st=S.strike[id];
+  return S.ans[id]!==undefined || S.sel[id]!==undefined || !!(st && Object.values(st).some(Boolean));
 }
 function answered(q){ return q.type==="reveal" ? (S.ans[q.id]==="ok"||S.ans[q.id]==="bad") : S.ans[q.id]!==undefined; }
 
@@ -285,6 +292,7 @@ function renderCard(){
         <button class="btn ${mode==="hl"?"on":""}" id="hlBtn">✎ Highlight</button>
         <button class="btn ${mode==="er"?"on":""}" id="erBtn">⌫ Eraser</button>
         <button class="btn ${S.flag[q.id]?"flagged":""}" id="flagBtn">⚑ ${S.flag[q.id]?"Flagged":"Flag"}</button>
+        <button class="btn" id="resetQBtn" title="Clear your answer for this question only" ${hasProgress(q)?"":"disabled"}>↺ Reset question</button>
       </div></div>
     <div class="stem ${mode==="hl"?"hl-mode":""} ${mode==="er"?"er-mode":""}" id="stem">${stemHTML}</div>`;
   if (q.img) h += `<img class="qimg zoom" src="${q.img}" alt="Image for question ${p+1}">`;
@@ -421,6 +429,11 @@ document.addEventListener("click", e=>{
     save(); renderStats(); renderCard(); toast(S.scr[chapIdx] ? "Choices scrambled" : "Original choice order"); return;
   }
   if (t.closest("#clearHlBtn")) { chap().ids.forEach(id=>delete S.hl[id]); save(); renderCard(); toast("Highlights cleared for this chapter"); return; }
+  if (t.closest("#resetQBtn")) {
+    const id = curQ().id; if (!hasProgress(curQ())) return;
+    delete S.ans[id]; delete S.sel[id]; delete S.strike[id]; delete S.order[id];
+    save(); renderRail(); renderStats(); renderCard(); toast("Question reset"); return;
+  }
   if (t.closest("#resetBtn")) {
     if (!confirm("Reset all answers in “"+chap().name+"”? Highlights, flags and notes are kept.")) return;
     chap().ids.forEach(id=>{ delete S.ans[id]; delete S.sel[id]; delete S.strike[id]; delete S.order[id]; });
