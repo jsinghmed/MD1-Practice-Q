@@ -177,16 +177,20 @@ button{font:inherit;color:inherit;cursor:pointer}
 <div class="lightbox" id="lightbox"><img alt=""></div>
 <div class="toast" id="toast"></div>
 
-<script src="images.js?v=6"></script>
-<script src="questions.js?v=6"></script>
-<script src="physiology.js?v=6"></script>
-<script src="biochemistry.js?v=6"></script>
-<script src="anatomy.js?v=6"></script>
+<script src="images.js?v=8"></script>
+<script src="questions.js?v=8"></script>
+<script src="histology-review.js?v=8"></script>
+<script src="physiology.js?v=8"></script>
+<script src="physiology-review.js?v=8"></script>
+<script src="biochemistry.js?v=8"></script>
+<script src="anatomy.js?v=8"></script>
 <script>
 (function(){
 const SECTIONS = [
-  {name:"Histology", all:"All Histology", prefix:"q", topics:window.TOPICS, qs:window.QUESTIONS},
-  {name:"MSK Physiology", all:"All Physiology", prefix:"p", topics:window.PHYSIO_TOPICS, qs:window.PHYSIO_QUESTIONS},
+  {name:"Histology", all:"All Histology", prefix:"q", topics:window.TOPICS, qs:window.QUESTIONS,
+   extra:[{name:"Review Slides Practice (new)", f:q=>q.src==="rev"}]},
+  {name:"MSK Physiology", all:"All Physiology", prefix:"p", topics:window.PHYSIO_TOPICS, qs:window.PHYSIO_QUESTIONS,
+   extra:[{name:"MSK Review 3 (skeletal)", f:q=>q.src==="rev3"}, {name:"MSK Review 4 (smooth)", f:q=>q.src==="rev4"}]},
   {name:"Biochemistry", all:"All Biochemistry", prefix:"b", topics:window.BCHM_TOPICS, qs:window.BCHM_QUESTIONS,
    extra:[{name:"From the Document", f:q=>q.src==="doc"}, {name:"Blueprint Practice (new)", f:q=>q.src==="new"}]},
   {name:"Anatomy (BRS)", all:"All Anatomy", prefix:"a", topics:window.ANAT_TOPICS, qs:window.ANAT_QUESTIONS,
@@ -274,7 +278,7 @@ function renderCard(){
   const done = answered(q);
   const stemHTML = S.hl[q.id] || (q.html ? q.s : esc(q.s));
   let h = `<div class="qhead">
-      <div class="qmeta">Question <b>${p+1}</b> of ${n} &nbsp;·&nbsp; ${esc(q.sec)} &nbsp;·&nbsp; ${esc(q.t)}${q.src==="new"?' <span class="badge">Blueprint practice</span>':""}</div>
+      <div class="qmeta">Question <b>${p+1}</b> of ${n} &nbsp;·&nbsp; ${esc(q.sec)} &nbsp;·&nbsp; ${esc(q.t)}${q.src==="new"?' <span class="badge">Blueprint practice</span>':""}${q.src==="rev"?' <span class="badge">Review slides</span>':""}${q.src==="rev3"?' <span class="badge">MSK Review 3</span>':""}${q.src==="rev4"?' <span class="badge">MSK Review 4</span>':""}</div>
       <div class="qtools">
         <button class="btn ${mode==="hl"?"on":""}" id="hlBtn">✎ Highlight</button>
         <button class="btn ${mode==="er"?"on":""}" id="erBtn">⌫ Eraser</button>
@@ -341,6 +345,8 @@ function explanation(q, o){
   if (q.key) h += `<div class="keynote">${esc(q.key)}</div>`;
   if (q.src==="doc" && !q.given && !q.key) h += `<div class="srcnote">The document doesn't give an answer for this question; the answer here is supplied.</div>`;
   if (q.src==="new") h += `<div class="srcnote">Written for this site from the exam blueprint — not in the document.</div>`;
+  if (q.src==="rev") h += `<div class="srcnote">Written for this site from your professor's histology review slides.</div>`;
+  if (q.src==="rev3"||q.src==="rev4") h += `<div class="srcnote">From MSK Review ${q.src==="rev3"?3:4}. The document has no answer key, so the answer and explanation were supplied for this site.</div>`;
   return h + `</div>`;
 }
 
