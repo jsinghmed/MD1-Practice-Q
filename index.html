@@ -408,6 +408,7 @@ table.rt tr.click:hover td{background:var(--hover)}
 <script src="anatomy.js?v=14"></script>
 <script src="embryology.js?v=14"></script>
 <script src="fbs-physiology.js?v=14"></script>
+<script src="crs-embryology.js?v=14"></script>
 <script>
 (function(){
 // =====================================================================
@@ -418,7 +419,7 @@ table.rt tr.click:hover td{background:var(--hover)}
 const COURSES = [
   {id:"fbs", name:"FBS", full:"Foundations of Basic Sciences"},
   {id:"msk", name:"MSK", full:"Musculoskeletal"},
-  {id:"crs", name:"CRS", full:"CRS"}
+  {id:"crs", name:"CRS", full:"Cardiovascular & Respiratory Systems"}
 ];
 const SECTIONS = [
   {course:"msk", name:"Histology", all:"All Histology", prefix:"q", topics:window.TOPICS, qs:window.QUESTIONS,
@@ -431,7 +432,8 @@ const SECTIONS = [
    extra:[{name:"All Upper Limb", f:q=>q.limb==="Upper Limb"}, {name:"All Lower Limb", f:q=>q.limb==="Lower Limb"}]},
   {course:"msk", name:"MSK Embryology", all:"All Embryology", prefix:"e", topics:window.EMB_TOPICS, qs:window.EMB_QUESTIONS},
   {course:"fbs", name:"FBS Physiology", all:"All FBS Physiology", prefix:"fp", topics:window.FBS_PHYS_TOPICS, qs:window.FBS_PHYS_QUESTIONS,
-   extra:[{name:"FBS Review 1", f:q=>q.src==="r1"}, {name:"Class Review Qs", f:q=>q.src==="cls"}, {name:"RMP & AP Questions", f:q=>q.src==="rmp"}]}
+   extra:[{name:"FBS Review 1", f:q=>q.src==="r1"}, {name:"Class Review Qs", f:q=>q.src==="cls"}, {name:"RMP & AP Questions", f:q=>q.src==="rmp"}]},
+  {course:"crs", name:"CRS Embryology", all:"All CRS Embryology", prefix:"ce", topics:window.CRS_EMB_TOPICS, qs:window.CRS_EMB_QUESTIONS}
 ].filter(s=>s.qs && s.qs.length);
 
 const Q = [], STATIC = [];
@@ -822,7 +824,7 @@ function explanation(q, o, s){
   if (q.se) h += `<h4>Explanation from the slides</h4><p class="pre">${esc(q.se)}</p>`;
   if (q.e) h += `<h4>${q.se ? "More detail" : "Why it's correct"}</h4><p class="pre">${esc(q.e)}</p>`;
   const imgs = (q.eimg||[]).concat((q.fig||[]).map(f=>`./${f}.jpg`));
-  if (imgs.length) h += `<h4>${q.fig ? "Figures from the slides" : "Figure"}</h4><div class="eimgs">${imgs.map(x=>`<img class="zoom" src="${x}" alt="" loading="lazy">`).join("")}</div>`;
+  if (imgs.length) h += `<h4>${q.fig ? (q.pfx==="ce" ? "Figures from the guide" : "Figures from the slides") : "Figure"}</h4><div class="eimgs">${imgs.map(x=>`<img class="zoom" src="${x}" alt="" loading="lazy">`).join("")}</div>`;
   if (o && q.w && q.w.length) {
     h += `<h4>Choice by choice</h4><ul class="why">` + o.map((oi,k)=>
       `<li class="${oi===q.a?"c":"n"}"><span class="k">${LET[k]}</span><span><span class="ct">${esc(q.c[oi].trim())}</span> — <span class="wt">${esc(q.w[oi])}</span></span></li>`).join("") + `</ul>`;
@@ -1142,20 +1144,21 @@ function submit(){
   if (s !== S) S.ans[q.id] = s.sel[q.id];
   save(); renderChaps(); renderRail(); renderStats(); renderCard();
 }
-// FBS images live in their own file and only download the first time an FBS figure is shown.
-let fbsImgState = 0; // 0 = not requested, 1 = loading, 2 = done
-function loadFbsImgs(){
-  if (fbsImgState) return; fbsImgState = 1;
-  const sc = document.createElement("script"); sc.src = "images-fbs.js?v=14";
-  sc.onload = ()=>{ fbsImgState = 2; fixImgs(document); };
-  sc.onerror = ()=>{ fbsImgState = 0; };
+// FBS and CRS images live in their own files and only download the first time one of their figures is shown.
+const LAZY_IMGS = [{re:/^fp-/, file:"images-fbs.js"}, {re:/^ce-/, file:"images-crs.js"}];
+const lazyState = {}; // file -> 1 loading, 2 done
+function loadLazyImgs(file){
+  if (lazyState[file]) return; lazyState[file] = 1;
+  const sc = document.createElement("script"); sc.src = file+"?v=14";
+  sc.onload = ()=>{ lazyState[file] = 2; fixImgs(document); };
+  sc.onerror = ()=>{ delete lazyState[file]; };
   document.head.appendChild(sc);
 }
 function fixImgs(root){
   root.querySelectorAll("img").forEach(i=>{
     const k=(i.dataset.k||i.getAttribute("src")||"").replace(/^\.\//,"");
     if (window.IMG && IMG[k]) { i.dataset.k=k; i.src=IMG[k]; }
-    else if (/^fp-/.test(k)) { i.dataset.k=k; loadFbsImgs(); }
+    else { const L = LAZY_IMGS.find(x=>x.re.test(k)); if (L) { i.dataset.k=k; loadLazyImgs(L.file); } }
   });
 }
 function saveStem(){
