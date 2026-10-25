@@ -246,6 +246,73 @@ table.rt tr.click:hover td{background:var(--hover)}
 .toast.on{opacity:1}
 [hidden]{display:none!important}
 
+/* sidebar: home + collapsible sections */
+.brand{cursor:pointer}
+.chap.home{font-weight:600;margin-top:10px}
+.more{background:none;border:none;color:var(--blue);font-size:12.5px;padding:4px 12px 8px;text-align:left}
+.sec{border-radius:8px;margin-bottom:3px}
+.sec-h{width:100%;display:flex;align-items:center;gap:9px;background:none;border:1px solid transparent;border-radius:7px;padding:10px 10px;text-align:left;font-size:15px;font-weight:700}
+.sec-h:hover{background:var(--hover)}
+.sec-h .chev{color:var(--muted);font-size:11px;transition:transform .15s;width:10px;flex:none}
+.sec.open .sec-h .chev{transform:rotate(90deg)}
+.sec-h .nm{flex:1}
+.sec-h .n{color:var(--muted);font-size:12px;font-weight:500}
+.sec.open{background:var(--choice);border:1px solid var(--line)}
+.sec.open .sec-h{border-radius:7px 7px 0 0}
+.sec-b{padding:2px 6px 8px}
+.sec-b .rv{padding:2px 4px 8px}
+.secbar{height:3px;border-radius:2px;background:var(--line);margin:0 10px 8px 29px;overflow:hidden}
+.secbar i{display:block;height:100%;background:var(--green)}
+
+/* menus */
+.menu{position:relative;display:inline-block}
+.pop{position:absolute;right:0;top:calc(100% + 6px);min-width:220px;background:var(--panel);border:1px solid var(--line2);border-radius:9px;box-shadow:0 10px 30px rgba(0,0,0,.35);padding:6px;z-index:40}
+.mi{display:flex;width:100%;align-items:center;gap:10px;background:none;border:none;border-radius:6px;padding:9px 11px;text-align:left;font-size:14px}
+.mi:hover{background:var(--hover)}
+.mi .ck{width:14px;color:var(--blue);font-weight:700;flex:none}
+.mi.danger{color:var(--red)}
+.mi-sep{height:1px;background:var(--line);margin:5px 4px}
+.mi-h{font-size:11px;letter-spacing:1.2px;color:var(--muted);font-weight:700;padding:6px 11px 4px}
+
+/* focus mode */
+.app.focus{grid-template-columns:1fr}
+.app.focus .side,.app.focus .rail,.app.focus #noteBox,.app.focus .mob{display:none!important}
+.app.focus .main{padding:22px 24px 60px}
+.app.focus #quizView{max-width:980px;margin:0 auto}
+.app.focus .top h2{font-size:18px;color:var(--muted);font-weight:700}
+.app.focus .stats{margin:10px 0 16px}
+
+/* home */
+.hero{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.hero h2{margin:0}
+.hero .sub{margin:4px 0 0}
+.cont{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:var(--blue-bg);border:1px solid var(--blue-line);border-radius:10px;padding:16px 20px;margin-bottom:16px}
+.cont .l{color:var(--muted);font-size:12.5px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase}
+.cont .t{font-size:17px;font-weight:700;margin-top:3px}
+.cont .t span{color:var(--muted);font-weight:500;font-size:14px}
+.rvbig{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px}
+.rvbig button{display:flex;flex-direction:column;align-items:flex-start;gap:4px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;text-align:left}
+.rvbig button:hover{border-color:var(--blue-line)}
+.rvbig .v{font-size:26px;font-weight:800}
+.rvbig .l{color:var(--muted);font-size:13px}
+.rvbig .v.r{color:var(--red)} .rvbig .v.f{color:var(--flag)}
+.h3{margin:0 0 10px;font-size:13px;letter-spacing:1.3px;text-transform:uppercase;color:var(--muted);font-weight:700}
+.secgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-bottom:24px}
+.scard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.scard h4{margin:0;font-size:16px}
+.scard .meta{display:flex;justify-content:space-between;color:var(--muted);font-size:13px}
+.scard .meta b{color:var(--text)}
+.scard .pbar{height:7px;border-radius:4px;background:var(--line);overflow:hidden;display:flex}
+.scard .pbar i{display:block;height:100%}
+.scard .pbar .ok{background:var(--green)} .scard .pbar .bad{background:var(--red-tile)}
+.scard .acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:2px}
+.scard .acts .btn{padding:5px 11px;font-size:13px}
+.tlist{display:flex;flex-direction:column;gap:6px;margin-bottom:24px}
+.trow{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;text-align:left;width:100%}
+.trow:hover{border-color:var(--blue-line)}
+.trow .n{color:var(--muted);font-size:13px}
+@media (max-width:900px){ .rvbig{grid-template-columns:1fr 1fr 1fr;gap:8px} .rvbig .v{font-size:21px} }
+
 @media (max-width:900px){
   .app,.app.norail{grid-template-columns:1fr;grid-template-rows:auto auto 1fr;height:auto;min-height:100vh}
   .side{display:none;border-right:none;border-bottom:1px solid var(--line)}
@@ -275,7 +342,7 @@ table.rt tr.click:hover td{background:var(--hover)}
 <body>
 <div class="app" id="app">
   <aside class="side" id="side">
-    <div class="brand"><h1>MSK Summative</h1><p>Histology · Physiology · Biochemistry · Anatomy · Embryology</p></div>
+    <div class="brand" id="brandHome" title="Home"><h1>MSK Summative</h1><p>Histology · Physiology · Biochemistry · Anatomy · Embryology</p></div>
     <div class="stools">
       <div class="search" id="searchWrap">
         <svg class="ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
@@ -370,11 +437,16 @@ if (S.v !== 2) {
 let saveT = 0;
 function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){ toast("Couldn't save — browser storage is full or blocked"); } }
 
-let view = "quiz";          // quiz | builder | notes | search | report
+let view = "home";          // home | quiz | builder | notes | search | report
 let reportTest = null;
 let mode = null;            // highlight tool: "hl" | "er" | null
 let paused = false;
 let searchTerm = "";
+let showAllTests = false;
+let openMenu = null;        // "opts" | "text" | null
+let focusOn = false;
+const ZOOMS = [[0.92,"Small"],[1,"Default"],[1.12,"Large"],[1.25,"Extra large"],[1.4,"Huge"]];
+let zoomV = 1; try { zoomV = +localStorage.getItem("msk-zoom") || 1; } catch(e){}
 
 const $ = id => document.getElementById(id);
 function toast(t){ const el=$("toast"); el.textContent=t; el.classList.add("on"); clearTimeout(toast._t); toast._t=setTimeout(()=>el.classList.remove("on"),1800); }
@@ -446,8 +518,10 @@ function order(q, s, scr){
   if (!o || o.length !== n) { o = shuffle(base); s.order[q.id] = o; save(); }
   return o;
 }
+function secOf(key){ const m = String(key||"").match(/^(\w+):/); return m && SEC_BY_PFX[m[1]] ? m[1] : null; }
 function openChapter(key, at){
   S.cur = key; if (at !== undefined) S.pos[key] = at;
+  if (secOf(key)) S.openSec = secOf(key);
   view = "quiz"; paused = false; save();
   $("side").classList.remove("open"); renderAll();
   $("main").scrollTo({top:0}); window.scrollTo({top:0});
@@ -476,20 +550,30 @@ function testLabel(t){
   if (t.finished) return Math.round(ok*100/Math.max(1,ids.length))+"%";
   return done+"/"+ids.length;
 }
+function secStats(sec){
+  const qs = sec.items, done = qs.filter(q=>answered(q,S)), ok = done.filter(q=>status(q,S)==="ok").length;
+  return {n:qs.length, done:done.length, ok, bad:done.length-ok};
+}
+function chapBtn(c){
+  return `<button class="chap ${S.cur===c.key&&view==="quiz"?"on":""} ${c.head?"all":""} ${c.sub?"sub":""}" data-key="${esc(c.key)}"><span>${esc(c.name)}</span><span class="n">${c.ids.length}</span></button>`;
+}
 function renderChaps(){
-  let h = `<div class="chap-h">ALL SECTIONS · REVIEW</div>` + rvChips("all");
+  let h = `<button class="chap home ${view==="home"?"on":""}" id="homeBtn"><span>⌂ Home</span></button>`;
   if (S.tests.length) {
+    const list = S.tests.slice().reverse(), shown = showAllTests ? list : list.slice(0,3);
     h += `<div class="chap-h">MY TESTS</div>`;
-    h += S.tests.slice().reverse().map(t=>{
+    h += shown.map(t=>{
       const key = "test:"+t.id, on = S.cur===key && (view==="quiz" || (view==="report" && reportTest===t.id));
-      const lab = testLabel(t);
-      return `<button class="chap sub ${on?"on":""}" data-key="${key}"><span>${esc(t.name)}</span><span class="n ${t.finished?"done":""}">${lab}</span></button>`;
+      return `<button class="chap sub ${on?"on":""}" data-key="${key}"><span>${esc(t.name)}</span><span class="n ${t.finished?"done":""}">${testLabel(t)}</span></button>`;
     }).join("");
+    if (list.length > 3) h += `<button class="more" id="moreTests">${showAllTests ? "Show fewer" : "See all "+list.length+" tests"}</button>`;
   }
-  let lastSec = null;
-  STATIC.forEach(c=>{
-    if (c.head) { h += `<div class="chap-h">${esc(c.sec.toUpperCase())}</div>` + rvChips(c.pfx); }
-    h += `<button class="chap ${S.cur===c.key&&view==="quiz"?"on":""} ${c.head?"all":""} ${c.sub?"sub":""}" data-key="${esc(c.key)}"><span>${esc(c.name)}</span><span class="n">${c.ids.length}</span></button>`;
+  h += `<div class="chap-h">SECTIONS</div>`;
+  SECTIONS.forEach(sec=>{
+    const open = S.openSec===sec.prefix, st = secStats(sec);
+    h += `<div class="sec ${open?"open":""}"><button class="sec-h" data-sec="${sec.prefix}" aria-expanded="${open}"><span class="chev">▶</span><span class="nm">${esc(sec.name)}</span><span class="n">${st.done}/${st.n}</span></button>`;
+    if (open) h += `<div class="secbar"><i style="width:${Math.round(st.done*100/st.n)}%"></i></div><div class="sec-b">` + rvChips(sec.prefix) + STATIC.filter(c=>c.pfx===sec.prefix).map(chapBtn).join("") + `</div>`;
+    h += `</div>`;
   });
   $("chaps").innerHTML = h;
   $("buildBtn").classList.toggle("on", view==="builder");
@@ -509,6 +593,10 @@ function renderRail(){
   const cur = $("rail").querySelector(".cur");
   if (cur) cur.scrollIntoView({block:"nearest", inline:"nearest"});
 }
+function textMenu(){
+  return `<div class="menu"><button class="btn ${openMenu==="text"?"on":""}" data-menu="text" title="Text size">Aa</button>${openMenu==="text"?`<div class="pop"><div class="mi-h">TEXT SIZE</div>`+
+    ZOOMS.map(([v,l])=>`<button class="mi" data-zoom="${v}"><span class="ck">${Math.abs(zoomV-v)<.001?"✓":""}</span>${l} <span class="muted" style="margin-left:auto;font-size:12.5px">${Math.round(v*100)}%</span></button>`).join("")+`</div>`:""}</div>`;
+}
 function renderTools(){
   const c = chap(), t = c.test;
   let h = "";
@@ -516,13 +604,18 @@ function renderTools(){
     h += `<button class="btn" id="pauseBtn">${paused?"▶ Resume":"⏸ Pause"}</button>`;
     h += `<button class="btn danger" id="endBtn">■ End block</button>`;
   } else if (t) {
-    h += `<button class="btn" id="reportBtn">📊 Score report</button>`;
-    h += `<button class="btn" id="clearHlBtn">✎ Clear Highlights</button>`;
-  } else {
-    h += `<button class="btn ${scrOn()?"on":""}" id="scrambleBtn">⇄ Scramble Choices</button>`;
-    h += `<button class="btn" id="clearHlBtn">✎ Clear Highlights</button>`;
-    h += `<button class="btn" id="resetBtn">↻ Reset chapter</button>`;
+    if (!focusOn) h += `<button class="btn" id="reportBtn">📊 Score report</button>`;
+    if (!focusOn) h += `<div class="menu"><button class="btn ${openMenu==="opts"?"on":""}" data-menu="opts">Options ▾</button>${openMenu==="opts"?`<div class="pop">
+      <button class="mi" id="clearHlBtn"><span class="ck"></span>Clear highlights</button></div>`:""}</div>`;
+  } else if (!focusOn) {
+    h += `<div class="menu"><button class="btn ${openMenu==="opts"?"on":""}" data-menu="opts">Chapter options ▾</button>${openMenu==="opts"?`<div class="pop">
+      <button class="mi" id="scrambleBtn"><span class="ck">${scrOn()?"✓":""}</span>Scramble choices</button>
+      <button class="mi" id="clearHlBtn"><span class="ck"></span>Clear highlights</button>
+      <div class="mi-sep"></div>
+      <button class="mi danger" id="resetBtn"><span class="ck"></span>Reset chapter</button></div>`:""}</div>`;
   }
+  h += textMenu();
+  h += focusOn ? `<button class="btn on" id="focusBtn" title="Exit focus mode (Esc)">✕ Exit focus</button>` : `<button class="btn" id="focusBtn" title="Hide everything except the question">⛶ Focus</button>`;
   $("tools").innerHTML = h;
 }
 function renderStats(){
@@ -649,6 +742,42 @@ function explanation(q, o, s){
 function showPage(html){
   $("quizView").hidden = true; $("pageView").hidden = false; $("app").classList.add("norail");
   $("pageView").innerHTML = html; fixImgs($("pageView"));
+}
+
+// ---------- Home ----------
+function renderHome(){
+  const all = Q, done = all.filter(q=>answered(q,S)), ok = done.filter(q=>status(q,S)==="ok").length;
+  const acc = done.length ? Math.round(ok*100/done.length) : 0;
+  const inc = all.filter(REVIEW_BY_K.inc.f).length, fl = all.filter(REVIEW_BY_K.flag.f).length, un = all.length - done.length;
+  const c = getChap(S.cur), notesN = Object.values(S.notes).filter(x=>x && x.trim()).length;
+  let h = `<div class="page">
+    <div class="hero"><div><h2>MSK Summative</h2><p class="sub">${done.length} of ${all.length} questions answered${done.length?` · ${acc}% correct`:""}</p></div>
+      <div class="ptools" style="margin:0"><button class="btn primary" data-act="build">＋ Build a test</button><button class="btn" data-act="notes">✎ My notes${notesN?` (${notesN})`:""}</button></div></div>`;
+  if (c && c.ids.length) {
+    const p = Math.min(S.pos[c.key]||0, c.ids.length-1);
+    h += `<div class="cont"><div><div class="l">Continue where you left off</div>
+      <div class="t">${esc(c.kind==="static" ? (c.head ? c.sec : c.sec+" · "+c.name) : c.title)} <span>· question ${p+1} of ${c.ids.length}</span></div></div>
+      <button class="btn primary" data-go="${esc(c.key)}">Continue →</button></div>`;
+  }
+  h += `<div class="h3">Review across all sections</div><div class="rvbig">
+    <button data-rv="all:rv:inc"><span class="v r">${inc}</span><span class="l">✗ Incorrect questions</span></button>
+    <button data-rv="all:rv:flag"><span class="v f">${fl}</span><span class="l">⚑ Flagged questions</span></button>
+    <button data-rv="all:rv:un"><span class="v">${un}</span><span class="l">○ Unanswered questions</span></button></div>`;
+  h += `<div class="h3">Sections</div><div class="secgrid">` + SECTIONS.map(sec=>{
+    const st = secStats(sec), acc2 = st.done ? Math.round(st.ok*100/st.done) : null;
+    const incN = sec.items.filter(REVIEW_BY_K.inc.f).length;
+    return `<div class="scard"><h4>${esc(sec.name)}</h4>
+      <div class="meta"><span><b>${st.done}</b> / ${st.n} answered</span><span>${acc2===null?"—":`<b>${acc2}%</b> correct`}</span></div>
+      <div class="pbar"><i class="ok" style="width:${st.ok*100/st.n}%"></i><i class="bad" style="width:${st.bad*100/st.n}%"></i></div>
+      <div class="acts"><button class="btn primary" data-go="${sec.prefix}:all">${st.done?"Continue":"Start"}</button>
+        ${incN?`<button class="btn" data-rv="${sec.prefix}:rv:inc">Review ${incN} incorrect</button>`:""}
+        <button class="btn" data-opensec="${sec.prefix}">Topics</button></div></div>`;
+  }).join("") + `</div>`;
+  if (S.tests.length) {
+    h += `<div class="h3">Recent tests</div><div class="tlist">` + S.tests.slice().reverse().slice(0,5).map(t=>
+      `<button class="trow" data-go="test:${t.id}"><span>${esc(t.name)}</span><span class="n">${t.mode==="timed"&&!t.finished?"⏱ in progress":t.finished?"Score "+testLabel(t):testLabel(t)+" answered"}</span></button>`).join("") + `</div>`;
+  }
+  showPage(h + `</div>`);
 }
 
 // ---------- Test builder ----------
@@ -847,8 +976,12 @@ function renderSearch(){
 // Render all
 // =====================================================================
 function renderAll(){
+  if (view!=="quiz") focusOn = false;
   renderChaps();
-  if (view==="quiz") {
+  $("app").classList.toggle("focus", focusOn && view==="quiz");
+  $("main").style.zoom = zoomV;
+  if (view==="home") renderHome();
+  else if (view==="quiz") {
     $("quizView").hidden = false; $("pageView").hidden = true; $("app").classList.remove("norail");
     renderRail(); renderTools(); renderStats(); renderCard();
   } else if (view==="builder") renderBuilder();
@@ -914,8 +1047,32 @@ function setTheme(th){
 }
 function themeLabel(){ $("themeBtn").textContent = document.documentElement.getAttribute("data-theme")==="light" ? "Dark" : "Light"; }
 
+function goKey(key){
+  const c = getChap(key); if (!c) return;
+  if (c.test && c.test.finished && c.test.mode==="timed") { S.cur = key; view = "report"; reportTest = c.test.id; save(); $("side").classList.remove("open"); renderAll(); return; }
+  openChapter(key);
+}
+function setFocus(on){ focusOn = on; openMenu = null; renderAll(); if (on) toast("Focus mode — press Esc to exit"); }
 document.addEventListener("click", e=>{
   const t = e.target;
+  // menus
+  const mb = t.closest("[data-menu]");
+  if (mb) { openMenu = openMenu===mb.dataset.menu ? null : mb.dataset.menu; renderTools(); return; }
+  if (openMenu && !t.closest(".pop")) { openMenu = null; renderTools(); }
+  if (t.closest(".pop .mi")) openMenu = null;
+  const zb = t.closest("[data-zoom]");
+  if (zb) { zoomV = +zb.dataset.zoom; try { localStorage.setItem("msk-zoom", zoomV); } catch(e){} renderAll(); toast("Text size: "+ZOOMS.find(z=>Math.abs(z[0]-zoomV)<.001)[1]); return; }
+  if (t.closest("#focusBtn")) { setFocus(!focusOn); return; }
+  // home / sidebar
+  if (t.closest("#homeBtn") || t.closest("#brandHome")) { view = "home"; focusOn = false; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); return; }
+  const sh = t.closest("[data-sec]");
+  if (sh) { S.openSec = S.openSec===sh.dataset.sec ? null : sh.dataset.sec; save(); renderChaps(); return; }
+  const os = t.closest("[data-opensec]");
+  if (os) { S.openSec = os.dataset.opensec; save(); renderChaps(); $("side").classList.add("open"); const el = document.querySelector(".sec.open"); if (el) el.scrollIntoView({block:"start", behavior:"smooth"}); return; }
+  if (t.closest("#moreTests")) { showAllTests = !showAllTests; renderChaps(); return; }
+  const gk = t.closest("[data-go]"); if (gk) { goKey(gk.dataset.go); return; }
+  const act = t.closest("[data-act]");
+  if (act) { view = act.dataset.act==="build" ? "builder" : "notes"; renderAll(); $("main").scrollTo({top:0}); return; }
   // sidebar
   const rv = t.closest("[data-rv]");
   if (rv) {
@@ -925,11 +1082,7 @@ document.addEventListener("click", e=>{
     S.snap[key] = ids; openChapter(key, 0); return;
   }
   const chapB = t.closest(".chap[data-key]");
-  if (chapB) {
-    const key = chapB.dataset.key, c = getChap(key);
-    if (c && c.test && c.test.finished && c.test.mode==="timed") { S.cur = key; view = "report"; reportTest = c.test.id; save(); $("side").classList.remove("open"); renderAll(); return; }
-    openChapter(key); return;
-  }
+  if (chapB) { goKey(chapB.dataset.key); return; }
   if (t.closest("#buildBtn")) { view = "builder"; $("side").classList.remove("open"); renderAll(); return; }
   if (t.closest("#notesBtn")) { view = "notes"; $("side").classList.remove("open"); renderAll(); return; }
   if (t.closest("#themeBtn")) { setTheme(document.documentElement.getAttribute("data-theme")==="light" ? "dark" : "light"); return; }
@@ -1046,7 +1199,12 @@ $("note").addEventListener("input", e=>{
 });
 document.addEventListener("keydown", e=>{
   if (e.target.matches("textarea,input,select")) return;
-  if (e.key==="Escape") { $("lightbox").classList.remove("on"); return; }
+  if (e.key==="Escape") {
+    if ($("lightbox").classList.contains("on")) { $("lightbox").classList.remove("on"); return; }
+    if (openMenu) { openMenu = null; renderTools(); return; }
+    if (focusOn) { setFocus(false); return; }
+    return;
+  }
   if (view !== "quiz" || (timedActive() && paused)) return;
   if (e.key==="ArrowLeft") return go(pos()-1);
   if (e.key==="ArrowRight") return go(pos()+1);
@@ -1076,6 +1234,7 @@ setInterval(()=>{
 }, 1000);
 
 themeLabel();
+if (S.openSec === undefined) S.openSec = secOf(S.cur) || SECTIONS[0].prefix;
 save();
 renderAll();
 })();
