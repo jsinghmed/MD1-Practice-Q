@@ -22,6 +22,7 @@ window.QUESTIONS = [
   img: "q01-sarcomere.jpg",
   c: ["A", "B", "C", "D", "E", "F"],
   a: 0, ns: true,
+  eimg: ["h01-sarcomere-labels.jpg"],
   e: `Label A is the Z line (Z disc). Thin (actin) filaments are anchored at the Z line by α-actinin (with help from proteins such as CapZ and nebulin), and a sarcomere runs from one Z line to the next. An antibody that stops actin from binding its structural support would therefore target a Z-line protein such as α-actinin. The free ends of the actin filaments project toward the middle of the sarcomere, where they overlap with myosin during contraction.`,
   w: [
     "Z line — the dark line where actin filaments are anchored (α-actinin).",
@@ -37,6 +38,7 @@ window.QUESTIONS = [
   s: `A 23-year-old woman, gravida 2, para 1, comes to the labor and delivery unit at 39 weeks gestation with abdominal discomfort and regular contractions. The patient had an uncomplicated first pregnancy that resulted in a spontaneous vaginal delivery at full term 3 years ago, and the current pregnancy has been uncomplicated. She takes a prenatal vitamin daily and no other medications. In response to increasing estrogen levels, the myometrial cells start to express genes that encode connexin-43 and the oxytocin receptor. These molecular changes would result in increased formation of which of the following?`,
   c: ["adherens junction", "desmosomes", "gap junction", "hemidesomsomes", "Tight junction"],
   a: 2,
+  eimg: ["h02-junction-table.jpg"],
   e: `Connexins (here connexin-43) are the building blocks of gap junctions: six connexins form a connexon, and connexons in neighbouring cells dock to form a channel. Near term, estrogen up-regulates connexin-43 so myometrial cells become electrically coupled, allowing contractions to spread and synchronize across the uterus during labor.`,
   w: [
     "Adherens junctions use cadherins linked to actin; they provide adhesion, not electrical coupling.",
@@ -51,6 +53,7 @@ window.QUESTIONS = [
   s: `A 68-year-old man with a history of Parkinson disease is hospitalized for pneumonia and sepsis. The patient is treated with intravenous (IV) fluids and antibiotics.He is also started on an infusion of IV dopamine for hemodynamic support. Although the manifestations of Parkinson disease are attributed to dopaminergic neuron degeneration in the substantia nigra : IV dopamine does not improve this patient's Parkinson symptoms. Which of the following cell structures accounts for this lack of responsiveness?`,
   c: ["gap junction", "Tight junction", "fenestrate", "Desmosomes", "Hemidesmosomes"],
   a: 1,
+  eimg: ["h03-cell-junctions.jpg"],
   e: `Dopamine cannot cross the blood–brain barrier. The barrier is formed mainly by continuous tight junctions (zonulae occludentes) between brain capillary endothelial cells, which block paracellular passage of polar molecules. This is why Parkinson disease is treated with levodopa, which crosses the barrier on an amino acid transporter and is then converted to dopamine in the brain.`,
   w: [
     "Gap junctions let ions and small molecules pass between neighbouring cells; they do not form the BBB seal.",
@@ -65,6 +68,7 @@ window.QUESTIONS = [
   s: `A 3-year-old girl is brought to her pediatrician for a well child checkup. She has met all of the appropriate developmental milestones. Her height corresponds to the GO 1 " percentile. Osteoblasts near the growth plates of her long bones secrete matrix material, and when they become trapped in the ossified matrix^ they become known as osteocytes. These osteocytes remain connected to each other by`,
   c: ["gap junction", "Tight junction", "fenestrate", "Desmosomes", "Hemidesmosomes"],
   a: 0,
+  eimg: ["h04-osteocytes.jpg"],
   e: `Osteocytes sit in lacunae and send long cytoplasmic processes through tiny channels (canaliculi). Where the processes of neighbouring osteocytes touch, they are joined by gap junctions. This network lets ions, nutrients and signals pass from cell to cell and lets osteocytes sense mechanical load and coordinate remodeling.`,
   w: [
     "Correct — osteocyte processes communicate through gap junctions inside canaliculi.",
@@ -79,7 +83,8 @@ window.QUESTIONS = [
   s: `The type of collagen is seen in tendon?`,
   c: ["Type I", "Type II", "Type III", "Type IV", "Type VII"],
   a: 0,
-  e: `Tendons are dense regular connective tissue made of tightly packed, parallel bundles of type I collagen, the strongest collagen in tension. Type I is also the main collagen of bone, dermis, ligaments, fascia and late scar.`,
+  eimg: ["h05-collagen-scar.jpg", "h05-collagen-table.jpg"],
+  e: `Tendons are dense regular connective tissue made of tightly packed, parallel bundles of type I collagen, the strongest collagen in tension. Type I is also the main collagen of bone, dermis, ligaments, fascia and late scar. The figures from your slides show a healed myocardial scar (made mostly of type I collagen — the same type as tendon) and a table of collagen types.`,
   w: [
     "Correct — tendon, bone, dermis, ligament, scar.",
     "Type II is the collagen of hyaline and elastic cartilage, the vitreous body and nucleus pulposus.",
@@ -612,12 +617,19 @@ window.QUESTIONS = [
   ]
 },
 {
-  type: "reveal",
   t: "Muscle",
   s: `In smooth muscle,Which is same as troponin c in skeletal muscle?`,
-  ans: "Calmodulin",
+  c: ["Calmodulin", "Tropomyosin", "Myosin light chain kinase", "Troponin I", "Caldesmon"],
+  a: 0,
+  key: "The slide gives only the question and the answer (calmodulin); the other choices were added so it works as multiple choice.",
   e: `Smooth muscle has no troponin. Ca²⁺ instead binds calmodulin; the Ca²⁺–calmodulin complex activates myosin light chain kinase (MLCK), which phosphorylates the regulatory myosin light chain so myosin can bind actin. So calmodulin plays the calcium-sensing role that troponin C plays in skeletal muscle.`,
-  w: []
+  w: [
+    "Correct — the Ca²⁺-binding protein of smooth muscle.",
+    "Tropomyosin is present in smooth muscle but doesn't bind Ca²⁺; in skeletal muscle it is the protein troponin moves.",
+    "MLCK is the enzyme Ca²⁺–calmodulin activates — the next step, not the Ca²⁺ sensor itself.",
+    "Troponin I is the inhibitory subunit of skeletal troponin, and smooth muscle has no troponin.",
+    "Caldesmon is a smooth muscle actin-binding regulator, but it isn't the Ca²⁺ sensor."
+  ]
 },
 {
   t: "Muscle",

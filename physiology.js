@@ -80,7 +80,7 @@ window.PHYSIO_QUESTIONS = [
     "Competitive nAChR blockade is curare (tubocurarine).",
     "Botulinum decreases release; it doesn't overstimulate."
   ],
-  fig: ["p010"]
+  fig: ["p010", "p014"]
 },
 {
   t: "Skeletal Muscle Structure & E-C Coupling",
@@ -242,7 +242,7 @@ Mutations in nebulin cause nemaline myopathy, a congenital muscle disorder chara
     "Tropomyosin regulates access to binding sites.",
     "Nebulin sets thin filament length."
   ],
-  fig: ["p060", "p062"]
+  fig: ["p060", "p062", "p061"]
 },
 {
   t: "Neuromuscular Junction",
@@ -290,7 +290,8 @@ Tetrodotoxin (TTX): Blocks Na+ channels, inhibiting action potentials and worsen
     "Correct — release is normal, receptors are blocked.",
     "More ACh release would enhance transmission, not paralyze.",
     "K⁺ channel block prolongs the presynaptic AP and increases release."
-  ]
+  ],
+  fig: ["p074"]
 },
 {
   t: "Neuromuscular Junction",
@@ -319,7 +320,8 @@ Tetrodotoxin (TTX): Blocks Na+ channels, inhibiting action potentials and worsen
     "The choline transporter recycles choline after breakdown.",
     "Vesicles store and release ACh.",
     "Ca²⁺ channels trigger release."
-  ]
+  ],
+  fig: ["p074"]
 },
 {
   t: "Contraction Mechanics",
