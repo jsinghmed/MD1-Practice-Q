@@ -175,6 +175,13 @@ button{font:inherit;color:inherit;cursor:pointer}
 .notes textarea:focus{outline:none;border-color:var(--blue)}
 
 /* pages (builder, notes, search, report) */
+.bcourses{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px}
+.bcx{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:10px;cursor:pointer;line-height:1.35}
+.bcx.on{border-color:var(--blue);background:color-mix(in srgb,var(--blue) 10%,transparent)}
+.bcx.off{opacity:.5;cursor:default}
+.bcx input{margin-top:3px}
+.bch{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:14px 0 6px}
+.bch:first-of-type{margin-top:0}
 .page{max-width:1100px}
 .page h2{margin:0 0 6px;font-size:26px;font-weight:800;letter-spacing:-.3px}
 .page .sub{color:var(--muted);margin:0 0 22px;line-height:1.55}
@@ -392,15 +399,15 @@ table.rt tr.click:hover td{background:var(--hover)}
 <div class="lightbox" id="lightbox"><img alt=""></div>
 <div class="toast" id="toast"></div>
 
-<script src="images.js?v=13"></script>
-<script src="questions.js?v=13"></script>
-<script src="histology-review.js?v=13"></script>
-<script src="physiology.js?v=13"></script>
-<script src="physiology-review.js?v=13"></script>
-<script src="biochemistry.js?v=13"></script>
-<script src="anatomy.js?v=13"></script>
-<script src="embryology.js?v=13"></script>
-<script src="fbs-physiology.js?v=13"></script>
+<script src="images.js?v=14"></script>
+<script src="questions.js?v=14"></script>
+<script src="histology-review.js?v=14"></script>
+<script src="physiology.js?v=14"></script>
+<script src="physiology-review.js?v=14"></script>
+<script src="biochemistry.js?v=14"></script>
+<script src="anatomy.js?v=14"></script>
+<script src="embryology.js?v=14"></script>
+<script src="fbs-physiology.js?v=14"></script>
 <script>
 (function(){
 // =====================================================================
@@ -512,7 +519,15 @@ const REVIEW_BY_K = Object.fromEntries(REVIEW.map(r=>[r.k,r]));
 function course(){ return COURSE_BY_ID[S.course]; }
 function courseQ(){ return course().items; }
 function courseSecs(){ return course().sections; }
-function courseTests(){ return S.tests.filter(t=>(t.course||"msk")===S.course); }
+function testCourses(t){ return t.courses && t.courses.length ? t.courses : [t.course||"msk"]; }
+function isMixed(t){ return !!t && testCourses(t).length > 1; }
+function courseTests(){ return S.tests.filter(t=>testCourses(t).includes(S.course)); }
+// In a test that mixes summatives, label each question's section with its summative (e.g. "MSK · Histology").
+function secLabel(q, t){
+  if (!isMixed(t)) return q.sec;
+  const cn = COURSE_BY_ID[q.course] ? COURSE_BY_ID[q.course].name : "";
+  return q.sec.startsWith(cn+" ") ? q.sec : cn+" · "+q.sec;
+}
 function scopeQs(scope){ return COURSE_BY_ID[scope] ? COURSE_BY_ID[scope].items : (SEC_BY_PFX[scope] ? SEC_BY_PFX[scope].items : []); }
 function scopeName(scope){ return COURSE_BY_ID[scope] ? "All "+COURSE_BY_ID[scope].name : SEC_BY_PFX[scope].name; }
 
@@ -543,7 +558,7 @@ function prepTest(t){ t.ans ??= {}; t.sel ??= {}; t.strike ??= {}; t.order ??= {
 function chapCourse(c){
   if (!c) return null;
   if (c.course) return c.course;
-  if (c.test) return c.test.course || "msk";
+  if (c.test) { const cs = testCourses(c.test); return cs.includes(S.course) ? S.course : cs[0]; }
   const m = c.key.match(/^(\w+):rv:/);
   if (m) return COURSE_BY_ID[m[1]] ? m[1] : (SEC_BY_PFX[m[1]] ? SEC_BY_PFX[m[1]].course : null);
   if (c.key==="search") return S.searchCourse || S.course;
@@ -741,7 +756,7 @@ function renderCard(){
   const done = answered(q, s) || (tDone && !isReveal);
   const stemHTML = S.hl[q.id] || (q.html ? q.s : esc(q.s));
   let h = `<div class="qhead">
-      <div class="qmeta">Question <b>${p+1}</b> of ${n} &nbsp;·&nbsp; ${esc(q.sec)} &nbsp;·&nbsp; ${esc(q.t)}${srcBadge(q)}</div>
+      <div class="qmeta">Question <b>${p+1}</b> of ${n} &nbsp;·&nbsp; ${esc(secLabel(q, chap() && chap().test))} &nbsp;·&nbsp; ${esc(q.t)}${srcBadge(q)}</div>
       <div class="qtools">
         <button class="btn ${mode==="hl"?"on":""}" id="hlBtn">✎ Highlight</button>
         <button class="btn ${mode==="er"?"on":""}" id="erBtn">⌫ Eraser</button>
@@ -873,7 +888,7 @@ function renderHome(){
 }
 
 // ---------- Test builder ----------
-let B = Object.assign({pool:"all", mode:"tutor", per:90, n:20, scr:true, secs:{}, tops:{}, open:{}}, S.builder||{});
+let B = Object.assign({pool:"all", mode:"tutor", per:90, n:20, scr:true, secs:{}, tops:{}, open:{}, cx:null}, S.builder||{});
 SECTIONS.forEach(s=>{ if (B.secs[s.prefix]===undefined) B.secs[s.prefix]=true; s.topics.forEach(t=>{ const k=s.prefix+"|"+t; if (B.tops[k]===undefined) B.tops[k]=true; }); });
 const POOLS = [
   {k:"all",   label:"All questions",               f:()=>true},
@@ -882,18 +897,30 @@ const POOLS = [
   {k:"uninc", label:"Unanswered + incorrect",      f:q=>!answered(q,S)||status(q,S)==="bad"},
   {k:"flag",  label:"Flagged only",                f:q=>!!S.flag[q.id]}
 ];
+// Which summatives the builder draws from. Defaults to the one you're in; tick others to mix them.
+function bCourses(){
+  if (!B.cx) B.cx = {[S.course]: true};
+  return COURSES.filter(c=>B.cx[c.id] && c.items.length).map(c=>c.id);
+}
 function builderPool(poolK){
-  const pf = POOLS.find(p=>p.k===(poolK||B.pool)).f;
-  return courseQ().filter(q=>q.type!=="reveal" && B.secs[q.pfx] && B.tops[q.pfx+"|"+q.t] && pf(q));
+  const pf = POOLS.find(p=>p.k===(poolK||B.pool)).f, cs = bCourses();
+  return Q.filter(q=>cs.includes(q.course) && q.type!=="reveal" && B.secs[q.pfx] && B.tops[q.pfx+"|"+q.t] && pf(q));
 }
 function renderBuilder(){
-  if (!courseQ().length) { showPage(`<div class="page"><h2>Build a test</h2><div class="emptybox"><h3>No ${esc(course().name)} questions yet</h3><p>Once questions are added to ${esc(course().name)}, you can build tests from them here.</p></div></div>`); return; }
+  const cs = bCourses(), csNames = cs.map(id=>COURSE_BY_ID[id].name).join(" + ");
   const avail = builderPool().length;
   const nVal = Math.max(1, Math.min(B.n, avail||1));
-  let h = `<div class="page"><h2>Build a test <span class="muted" style="font-weight:600">· ${esc(course().name)}</span></h2>
+  let h = `<div class="page"><h2>Build a test <span class="muted" style="font-weight:600">· ${cs.length ? esc(csNames) : "no summative selected"}</span></h2>
     <p class="sub">Pick what to include, how many questions, and the mode. Questions are drawn at random and shuffled. The "Identify the slide" show-answer cards aren't included because they're self-graded.</p>
-    <div class="box"><h3>1 · Sections and topics</h3>`;
-  courseSecs().forEach(s=>{
+    <div class="box"><h3>1 · Summatives</h3><p class="muted" style="margin:0 0 10px;font-size:13px">Tick more than one to mix them into a single test.</p><div class="bcourses">` +
+    COURSES.map(c=>{ const has = c.items.length, on = has && B.cx[c.id];
+      return `<label class="bcx ${on?"on":""} ${has?"":"off"}"><input type="checkbox" data-bcx="${c.id}" ${on?"checked":""} ${has?"":"disabled"}>
+        <span><b>${esc(c.name)}</b> <span class="muted">${esc(c.full)}</span><br><span class="cnt">${has ? c.items.filter(q=>q.type!=="reveal").length+" questions" : "no questions yet"}</span></span></label>`; }).join("") +
+    `</div></div>
+    <div class="box"><h3>2 · Sections and topics</h3>`;
+  if (!cs.length) h += `<p class="muted">Tick at least one summative above.</p>`;
+  SECTIONS.filter(s=>cs.includes(s.course)).forEach((s,i,arr)=>{
+    if (cs.length > 1 && (i===0 || arr[i-1].course!==s.course)) h += `<div class="bch">${esc(COURSE_BY_ID[s.course].name)} · ${esc(COURSE_BY_ID[s.course].full)}</div>`;
     const allQ = s.items.filter(q=>q.type!=="reveal");
     const pf = POOLS.find(p=>p.k===B.pool).f;
     const secCount = allQ.filter(q=>B.tops[s.prefix+"|"+q.t] && pf(q)).length;
@@ -908,10 +935,10 @@ function renderBuilder(){
       <div style="margin-top:6px"><button class="btn" style="padding:3px 9px;font-size:12px" data-ball="${s.prefix}">Select all</button> <button class="btn" style="padding:3px 9px;font-size:12px" data-bnone="${s.prefix}">Select none</button></div>
       </details></div>`;
   });
-  h += `</div><div class="row2"><div class="box"><h3>2 · Question pool</h3><div class="opts">` +
+  h += `</div><div class="row2"><div class="box"><h3>3 · Question pool</h3><div class="opts">` +
     POOLS.map(p=>`<label><input type="radio" name="bpool" value="${p.k}" ${B.pool===p.k?"checked":""}> ${p.label} <span class="cnt">(${builderPool(p.k).length})</span></label>`).join("") +
     `</div></div>
-    <div class="box"><h3>3 · Mode</h3><div class="opts">
+    <div class="box"><h3>4 · Mode</h3><div class="opts">
       <label><input type="radio" name="bmode" value="tutor" ${B.mode==="tutor"?"checked":""}> Tutor — see the answer and explanation after each question</label>
       <label><input type="radio" name="bmode" value="timed" ${B.mode==="timed"?"checked":""}> Timed — answers hidden until the end, then a score report</label>
     </div>
@@ -931,7 +958,11 @@ function saveBuilder(){ S.builder = B; save(); }
 function startTest(ids, opts){
   if (!ids.length) { toast("No questions match those settings"); return; }
   S.testSeq += 1;
-  const t = {id: Date.now(), course: S.course, name: `${course().name} Test ${S.testSeq} · ${ids.length} Qs${opts.mode==="timed"?" · timed":""}`, ids, mode: opts.mode,
+  const courses = COURSES.map(c=>c.id).filter(id=>ids.some(x=>byId[x] && byId[x].course===id));
+  const home = courses.includes(S.course) ? S.course : courses[0];
+  if (home !== S.course) { S.curBy[S.course] = S.cur; S.course = home; }
+  const label = courses.map(id=>COURSE_BY_ID[id].name).join(" + ");
+  const t = {id: Date.now(), course: home, courses, name: `${label} Test ${S.testSeq} · ${ids.length} Qs${opts.mode==="timed"?" · timed":""}`, ids, mode: opts.mode,
     per: opts.per, remaining: opts.mode==="timed" ? ids.length*opts.per : null, scr: opts.scr, created: Date.now(), finished: false,
     ans:{}, sel:{}, strike:{}, order:{}};
   S.tests.push(t);
@@ -950,7 +981,7 @@ function renderReport(t){
   const pct = Math.round(ok*100/Math.max(1,qs.length));
   const used = t.mode==="timed" ? (ids.length*t.per - (t.remaining||0)) : null;
   const groups = {};
-  qs.forEach(q=>{ const g = q.sec+" · "+q.t; (groups[g] ??= {ok:0,n:0}); groups[g].n++; if (status(q,t)==="ok") groups[g].ok++; });
+  qs.forEach(q=>{ const g = secLabel(q,t)+" · "+q.t; (groups[g] ??= {ok:0,n:0}); groups[g].n++; if (status(q,t)==="ok") groups[g].ok++; });
   const rows = Object.entries(groups).map(([g,v])=>({g, ...v, p: Math.round(v.ok*100/v.n)})).sort((a,b)=>a.p-b.p || b.n-a.n);
   let h = `<div class="page"><h2>${esc(t.name)}</h2>
     <p class="sub">${t.mode==="timed" ? (t.finished ? "Timed block · finished" : "Timed block · in progress") : "Tutor mode"} · created ${new Date(t.created).toLocaleString()}</p>
@@ -966,6 +997,11 @@ function renderReport(t){
       <div class="tile2"><div class="v">${na}</div><div class="l">${t.mode==="timed"?"not answered":"not yet answered"}</div></div>
       ${used!==null ? `<div class="tile2"><div class="v">${fmtTime(used)}</div><div class="l">time used · ${fmtTime(used/Math.max(1,qs.length))} per question</div></div>` : ""}
     </div>
+    ${isMixed(t) ? `<div class="box"><h3>By summative</h3><table class="rt"><thead><tr><th>Summative</th><th>Correct</th><th style="width:40%"></th></tr></thead><tbody>` +
+      testCourses(t).map(cid=>{ const cq = qs.filter(q=>q.course===cid); if (!cq.length) return "";
+        const c = cq.filter(q=>status(q,t)==="ok").length, p = Math.round(c*100/cq.length);
+        return `<tr><td>${esc(COURSE_BY_ID[cid].name)} <span class="muted">· ${esc(COURSE_BY_ID[cid].full)}</span></td><td>${c}/${cq.length} · ${p}%</td><td><div class="bar"><i class="${p<50?"low":p<75?"mid":""}" style="width:${p}%"></i></div></td></tr>`; }).join("") +
+      `</tbody></table></div>` : ""}
     <div class="box"><h3>By topic <span class="muted" style="font-weight:500">— weakest first</span></h3>
       <table class="rt"><thead><tr><th>Section · topic</th><th>Correct</th><th style="width:40%"></th></tr></thead><tbody>` +
       rows.map(r=>`<tr><td>${esc(r.g)}</td><td>${r.ok}/${r.n} · ${r.p}%</td><td><div class="bar"><i class="${r.p<50?"low":r.p<75?"mid":""}" style="width:${r.p}%"></i></div></td></tr>`).join("") +
@@ -974,7 +1010,7 @@ function renderReport(t){
       <table class="rt"><thead><tr><th>#</th><th>Section · topic</th><th>Yours</th><th>Answer</th><th>Result</th></tr></thead><tbody>` +
       qs.map((q,i)=>{
         const o = order(q, t, !!t.scr), a = t.ans[q.id], r = status(q,t);
-        return `<tr class="click" data-treview="${i}"><td>${i+1}${S.flag[q.id]?' <span style="color:var(--flag)">⚑</span>':""}</td><td>${esc(q.sec)} · ${esc(q.t)}</td>
+        return `<tr class="click" data-treview="${i}"><td>${i+1}${S.flag[q.id]?' <span style="color:var(--flag)">⚑</span>':""}</td><td>${esc(secLabel(q,t))} · ${esc(q.t)}</td>
           <td>${a===undefined?"—":LET[o.indexOf(a)]}</td><td>${LET[o.indexOf(q.a)]}</td>
           <td class="res ${r==="ok"?"ok":r==="bad"?"bad":"na"}">${r==="ok"?"✓ Correct":r==="bad"?"✗ Incorrect":"— Not answered"}</td></tr>`;
       }).join("") + `</tbody></table></div></div>`;
@@ -1110,7 +1146,7 @@ function submit(){
 let fbsImgState = 0; // 0 = not requested, 1 = loading, 2 = done
 function loadFbsImgs(){
   if (fbsImgState) return; fbsImgState = 1;
-  const sc = document.createElement("script"); sc.src = "images-fbs.js?v=13";
+  const sc = document.createElement("script"); sc.src = "images-fbs.js?v=14";
   sc.onload = ()=>{ fbsImgState = 2; fixImgs(document); };
   sc.onerror = ()=>{ fbsImgState = 0; };
   document.head.appendChild(sc);
@@ -1288,7 +1324,8 @@ document.addEventListener("click", e=>{ if (e.target.closest("#lightbox")) $("li
 document.addEventListener("change", e=>{
   if (view !== "builder") return;
   const t = e.target;
-  if (t.dataset.bsec) B.secs[t.dataset.bsec] = t.checked;
+  if (t.dataset.bcx) { bCourses(); B.cx[t.dataset.bcx] = t.checked; }
+  else if (t.dataset.bsec) B.secs[t.dataset.bsec] = t.checked;
   else if (t.dataset.btop) B.tops[t.dataset.btop] = t.checked;
   else if (t.name==="bpool") B.pool = t.value;
   else if (t.name==="bmode") B.mode = t.value;

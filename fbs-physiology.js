@@ -1300,13 +1300,13 @@ window.FBS_PHYS_QUESTIONS = [
 "60 liters"
 ],
 "a": 2,
-"e": "In an average 70-kg adult man, total body water is about 60% of body weight: 0.6 × 70 kg ≈ 42 L. Of this, about 28 L (2/3) is intracellular and 14 L (1/3) is extracellular (≈11 L interstitial + 3 L plasma).",
+"e": "Total body water is about 60% of body weight in an average adult man. 70 kg × 0.60 = 42 kg of water, and since 1 kg of water is about 1 liter, that is about 42 liters. The classic split is two-thirds inside cells (intracellular fluid, about 28 L) and one-third outside cells (extracellular fluid, about 14 L). Of the extracellular third, roughly three-quarters is interstitial fluid (around the cells) and one-quarter is plasma (about 3 L).",
 "w": [
-"21 L is only 30% of body weight — closer to the ICF of a much smaller person, not TBW.",
-"35 L (50%) is more typical of an adult woman or an older adult with more body fat.",
-"Correct — 60% × 70 kg ≈ 42 L.",
-"50 L would be about 71% of body weight, higher than a normal adult.",
-"60 L would be about 86% of body weight — impossible for TBW."
+"21 L is only 30% of body weight — far too low for any healthy adult. (Don't confuse it with the extracellular volume, which is about 14 L.)",
+"35 L is 50% of body weight — closer to an adult woman or an elderly person, who carry relatively more fat and less water.",
+"Correct — Total body water ≈ 60% of body weight → 70-kg man ≈ 42 L (≈ 28 L inside cells, ≈ 14 L outside cells).",
+"50 L is about 71% of body weight — too high for an adult; percentages that high are seen in newborns.",
+"60 L would be about 86% of body weight — not physiologically possible."
 ],
 "src": "cls"
 },
@@ -1322,13 +1322,13 @@ window.FBS_PHYS_QUESTIONS = [
 "ICF and ECF have identical ionic compositions due to rapid exchange across cell membranes."
 ],
 "a": 1,
-"e": "The ICF is rich in K⁺, Mg²⁺, phosphate (organic and inorganic) and proteins, and low in Na⁺, Cl⁻ and Ca²⁺. The ECF is the opposite: high Na⁺, Cl⁻ and HCO₃⁻, low K⁺. These differences are maintained by the cell membrane and transporters such as the Na⁺/K⁺-ATPase.",
+"e": "The fluid inside cells is dominated by potassium (about 140 mEq/L), magnesium, proteins, and organic phosphates (such as ATP). The fluid outside cells is dominated by sodium, chloride, and bicarbonate. The sodium–potassium pump keeps this separation going: it pushes 3 sodium out and brings 2 potassium in with every cycle, and cell membranes are only slightly leaky to these ions.",
 "w": [
-"Na⁺ and Cl⁻ are high in the ECF, not the ICF.",
-"Correct — K⁺, Mg²⁺, proteins and organic phosphates dominate the ICF.",
-"The ICF is slightly more acidic (pH ≈ 7.0) than the ECF (pH ≈ 7.4).",
-"Free intracellular Ca²⁺ is extremely low (~10⁻⁴ mM), far below ECF Ca²⁺.",
-"The membrane keeps the ICF and ECF ion compositions very different."
+"High sodium and chloride describes the fluid outside cells, not inside.",
+"Correct — Inside cells: potassium, magnesium, phosphates, proteins. Outside cells: sodium, chloride, bicarbonate.",
+"The inside of a cell is slightly more acidic (pH about 7.0–7.2) than the fluid outside (pH about 7.4), because cell metabolism constantly produces acid.",
+"Free calcium inside cells is kept roughly 10,000 times lower than outside, not higher. That steep gradient is what lets small calcium entries act as signals.",
+"Only water crosses cell membranes freely. Ions are held in very different concentrations by pumps and by selective membrane permeability."
 ],
 "src": "cls"
 },
@@ -1344,13 +1344,13 @@ window.FBS_PHYS_QUESTIONS = [
 "Radioactive chromium (51Cr)-labeled red blood cells"
 ],
 "a": 3,
-"e": "An ECF marker must cross capillary walls into the interstitium but must not enter cells. Inulin, mannitol, sucrose, radioactive Na⁺/Cl⁻/iothalamate and thiosulfate are used. Plasma volume uses substances that stay in the vessels (Evans blue, ¹²⁵I-albumin); TBW uses substances that enter cells (³H₂O, D₂O, antipyrine).",
+"e": "To measure a compartment, you need a marker that spreads evenly through that compartment and nowhere else. Inulin (a plant sugar polymer) passes through capillary walls into the fluid around cells, but it cannot cross cell membranes → it spreads through plasma plus interstitial fluid = the whole extracellular fluid. Other extracellular markers include radioactive sodium, radioactive chloride, iothalamate, and thiosulfate.",
 "w": [
-"Tritiated water distributes through all body water — it measures TBW.",
-"Evans blue binds plasma albumin and stays in the vessels — it measures plasma volume.",
-"Antipyrine enters cells — it measures TBW.",
-"Correct — inulin stays extracellular, so it measures ECF volume.",
-"⁵¹Cr-labeled RBCs measure red cell (and blood) volume."
+"Tritiated (radioactive) water behaves like water, so it spreads into every compartment → it measures total body water.",
+"Evans blue binds tightly to plasma albumin, which stays inside blood vessels → it measures plasma volume only.",
+"Antipyrine is fat-soluble, crosses cell membranes easily → total body water.",
+"Correct — Inulin → extracellular fluid. Tritiated water / antipyrine → total body water. Evans blue / labeled albumin → plasma. Chromium-labeled red cells → red cell volume.",
+"Labeled red blood cells stay in the circulation → they measure red cell volume (and let you calculate blood volume)."
 ],
 "src": "cls"
 },
@@ -1366,13 +1366,13 @@ window.FBS_PHYS_QUESTIONS = [
 "Hydration index"
 ],
 "a": 3,
-"e": "Osmolarity is the concentration of osmotically active particles per liter of solution (mOsm/L). Osmolality is the same per kilogram of water (mOsm/kg H₂O). Tonicity describes the effect of a solution on cell volume and depends only on non-permeant (effective) solutes.",
+"e": "Osmolarity is the number of osmotically active particles (osmoles) per liter of solution, so its unit is milliosmoles per liter (mOsm/L). The unit in the question gives it away. Osmolality, by contrast, is per kilogram of water (mOsm/kg H₂O). In body fluids the two are nearly the same number.",
 "w": [
-"Tonicity compares a solution with a cell (hypo-/iso-/hypertonic); it isn't expressed in mOsm/L.",
-"Osmotic pressure is expressed in pressure units (mm Hg), not mOsm/L.",
-"The reflection coefficient (σ) is a unitless number between 0 and 1.",
-"Correct — mOsm per liter of solution is osmolarity.",
-"Not a standard physiologic term."
+"Tonicity describes how a solution compares to a cell (hypotonic, isotonic, hypertonic) based on solutes that cannot cross the membrane — it is a comparison, not a value with a unit.",
+"Osmotic pressure is a pressure, measured in mm Hg. Each 1 mOsm/L produces about 19.3 mm Hg at body temperature.",
+"The reflection coefficient is a unitless number from 0 to 1 describing how well a membrane blocks a solute.",
+"Correct — mOsm/L = osmolarity (per liter of solution). mOsm/kg water = osmolality.",
+"\"Hydration index\" is not a standard physiology term."
 ],
 "src": "cls"
 },
@@ -1388,13 +1388,13 @@ window.FBS_PHYS_QUESTIONS = [
 "The patient's red blood cells will shrink due to water loss."
 ],
 "a": 1,
-"e": "A hypotonic infusion lowers ECF osmolarity. Water moves by osmosis toward the compartment with the higher effective osmolarity — here, into the cells — until intracellular and extracellular osmolarity are equal again. Both ECF and ICF volumes end up larger, and cells (including RBCs) swell.",
+"e": "Hypotonic fluid enters the blood → the fluid outside cells becomes more dilute → the inside of the cells is now relatively more concentrated → water moves into the cells (water always moves toward the higher solute concentration) → cells swell until the concentrations inside and outside are equal again. End result: both compartments gain volume and both end up a bit more dilute.",
 "w": [
-"Water leaves cells only when the ECF becomes hypertonic.",
-"Correct — water moves from the diluted ECF into the cells.",
-"The solution is hypotonic, not isotonic, so water does move.",
-"Infused fluid increases ECF volume and lowers its osmolarity.",
-"RBCs swell (and can lyse) in hypotonic fluid; they shrink in hypertonic fluid."
+"Water moving out of cells happens with a hypertonic infusion, not a hypotonic one.",
+"Correct — Hypotonic outside → water moves into cells → cells swell.",
+"The question says the solution is hypotonic, not isotonic, so there is a concentration difference to drive water movement.",
+"This is backwards: extracellular volume increases and its osmolarity decreases.",
+"Red cells swell (and can even burst) in hypotonic fluid; they shrink in hypertonic fluid."
 ],
 "src": "cls"
 },
@@ -1410,13 +1410,13 @@ window.FBS_PHYS_QUESTIONS = [
 "Increased interstitial fluid hydrostatic pressure."
 ],
 "a": 2,
-"e": "Na⁺ is the main determinant of ECF osmolarity, so hyponatremia makes the ECF hypotonic. Water moves into cells, causing cell swelling (intracellular edema). Brain cells are the most dangerous place for this because the skull limits expansion — causing headache, nausea, lethargy, and in severe cases seizures, coma and herniation.",
+"e": "Sodium is the main solute outside cells, so low plasma sodium = dilute extracellular fluid → water moves into cells → cells swell (intracellular edema). The brain is trapped in a rigid skull, so brain-cell swelling raises pressure inside the head → headache, nausea, lethargy, and at worse levels seizures, coma, and death. Correcting it too fast is also dangerous: it can damage the insulation around brain nerve fibers (osmotic demyelination).",
 "w": [
-"Cells shrink in hypernatremia (hypertonic ECF), not hyponatremia.",
-"Plasma colloid osmotic pressure depends on plasma proteins, not Na⁺.",
-"Correct — hypotonic ECF drives water into cells, and brain swelling causes the symptoms.",
-"Hyponatremia means osmolarity is decreased.",
-"Hyponatremia's main effect is cell swelling, not a change in interstitial pressure."
+"Cells shrink when the outside fluid is too concentrated (high sodium), not too dilute.",
+"Colloid osmotic pressure comes from plasma proteins, not sodium. If anything, diluted plasma slightly lowers it.",
+"Correct — Low sodium → dilute outside fluid → water into cells → brain swelling → headache, nausea, confusion, seizures.",
+"Osmolarity is clearly low here — sodium is the main determinant of plasma osmolarity. Total body water is often normal or increased.",
+"The problem is water moving into cells, not a buildup of pressure in the fluid around cells."
 ],
 "src": "cls"
 },
@@ -1432,13 +1432,13 @@ window.FBS_PHYS_QUESTIONS = [
 "Solid tissue matrix"
 ],
 "a": 2,
-"e": "The peritoneal cavity is a \"potential space\". Fluid in potential spaces (pleural, pericardial, peritoneal, synovial) is transcellular fluid, a specialized part of the ECF. Excess fluid there is called effusion; in the abdomen it's called ascites. In cirrhosis, portal hypertension and low albumin drive fluid into the peritoneal space.",
+"e": "Ascites is fluid in the peritoneal cavity. The peritoneal cavity is a \"potential space\" — normally just a thin film of fluid between two membrane layers. Fluid in these spaces is called transcellular fluid and counts as a small, specialized part of the extracellular fluid (others: pleural, pericardial, joint, eye, and cerebrospinal fluid). In cirrhosis, high pressure in the portal vein + low albumin (the scarred liver makes less of it) + salt retention by the kidneys → fluid leaks into the abdomen. Fluid collecting in a potential space is called an effusion.",
 "w": [
-"Ascites is extracellular, not inside cells.",
-"The fluid has left the plasma and collected in the peritoneal cavity.",
-"Correct — the peritoneal cavity is a potential space, and its fluid is transcellular ECF.",
-"Blood volume (plasma + cells) is intravascular; ascites is outside the vessels.",
-"Not a body fluid compartment."
+"The fluid is outside cells, in a body cavity.",
+"The fluid has left the blood vessels; plasma volume is often actually reduced in these patients.",
+"Correct — Ascites, pleural effusion, pericardial effusion = fluid in potential spaces = transcellular fluid (part of extracellular fluid).",
+"Blood volume = plasma + blood cells, which stay inside vessels.",
+"This is not a fluid compartment."
 ],
 "src": "cls"
 },
@@ -1454,12 +1454,12 @@ window.FBS_PHYS_QUESTIONS = [
 "Cell membranes becoming impermeable to water during fluid shifts."
 ],
 "a": 3,
-"e": "Three safety factors oppose edema: (1) low interstitial compliance while pressure is negative (~3 mm Hg), (2) the ability of lymph flow to increase 10- to 50-fold (~7 mm Hg), and (3) \"washdown\" of interstitial protein as filtration rises (~7 mm Hg). Together, capillary pressure can rise about 17 mm Hg before marked edema develops.",
+"e": "Three built-in protections stop small increases in capillary pressure from causing edema, and together they add up to about 17 mm Hg: (1) low compliance (stiffness) of the tissue space while its pressure is negative — about 3 mm Hg; (2) lymph flow can increase 10- to 50-fold to carry away extra fluid — about 7 mm Hg; (3) protein \"washdown\": extra fluid entering the tissue dilutes and flushes out tissue proteins, lowering their pull on water — about 7 mm Hg. So capillary pressure can rise roughly 17 mm Hg before obvious edema appears.",
 "w": [
-"The safety factor is LOW compliance in the negative-pressure range — small volume gains raise pressure quickly and oppose further filtration.",
-"Lymph flow INCREASES as a safety factor.",
-"Interstitial protein DECREASES (washdown), which lowers interstitial oncotic pressure.",
-"Correct — about 3 + 7 + 7 ≈ 17 mm Hg of protection.",
+"The protection comes from low compliance (the tissue is stiff while its pressure is negative, so pressure rises quickly and resists more filtration). Once pressure turns positive, compliance rises sharply and edema develops.",
+"Lymph flow increases, not decreases, as a safety factor.",
+"Tissue protein concentration decreases (washdown), which reduces the pull on water into the tissue.",
+"Correct — Safety factors against edema ≈ 17 mm Hg total: stiff tissue at negative pressure (3) + more lymph flow (7) + protein washdown (7).",
 "Cell membranes stay freely permeable to water."
 ],
 "src": "cls"
@@ -1476,13 +1476,13 @@ window.FBS_PHYS_QUESTIONS = [
 "Both plasma protein concentration and hematocrit increase due to concentration."
 ],
 "a": 1,
-"e": "Isotonic saline doesn't change ECF osmolarity, so no water shifts between ECF and ICF (isosmotic volume expansion). All the fluid stays in the ECF, so ECF volume rises, ICF is unchanged, and plasma proteins and RBCs are diluted — plasma protein concentration and hematocrit fall.",
+"e": "Isotonic saline has the same concentration as body fluid, and its sodium is kept out of cells by the pump → it stays entirely outside cells → extracellular volume goes up, osmolarity does not change → no reason for water to move → cell volume unchanged. The added fluid dilutes the blood, so plasma protein concentration and hematocrit (percent red cells) both fall. This is isosmotic volume expansion. About one-quarter of the saline stays in the plasma and three-quarters moves into the tissue spaces.",
 "w": [
-"ECF volume increases, and with no osmotic gradient the ICF doesn't change.",
-"Correct — ECF expands and dilutes plasma proteins and red cells.",
-"Isotonic fluid leaves osmolarity unchanged.",
-"With no osmotic gradient, ICF volume stays the same.",
-"Dilution lowers, not raises, both values."
+"Extracellular volume goes up, not down, and there is no water shift into cells.",
+"Correct — Isotonic saline → stays outside cells → extracellular volume up, no osmolarity change, no shift; protein and hematocrit diluted down.",
+"Isotonic fluid doesn't change osmolarity.",
+"No osmolarity change → no water leaves cells → cell volume is unchanged.",
+"Dilution lowers both, it doesn't concentrate them."
 ],
 "src": "cls"
 },
@@ -1498,13 +1498,13 @@ window.FBS_PHYS_QUESTIONS = [
 "Hydration status"
 ],
 "a": 2,
-"e": "Adipose tissue is only about 10% water, while lean tissue (muscle) is about 70–75% water. The more fat a person has, the lower their TBW as a percentage of body weight. This is why women and obese people have a lower TBW percentage (≈50%) than lean men (≈60%).",
+"e": "Fat tissue holds very little water (roughly 10–20%), while muscle is about 75% water. So the more of your weight that is fat, the lower your percent body water. This is also why women (more body fat on average) and elderly people (less muscle, more fat) have lower percent body water, and why a lean athlete has more.",
 "w": [
-"TBW% does fall with age, but mainly because fat replaces muscle; body fat is the factor the inverse relationship is defined by.",
-"Being female is linked to lower TBW% because women have more body fat; sex itself isn't a continuous inverse factor.",
-"Correct — more fat means proportionally less body water.",
-"Lean muscle mass is directly, not inversely, proportional to TBW.",
-"More hydration means more TBW."
+"Percent body water does fall with age, so this is tempting — but that fall is mostly caused by the shift from muscle to fat. Body fat is the direct, classic inverse determinant.",
+"Women do have lower percent body water, but that is explained by higher average body fat; sex is also a category, not a quantity that can be \"inversely proportional.\"",
+"Correct — More fat → less body water (%). Women and the elderly have lower percent body water because they carry relatively more fat.",
+"Muscle is water-rich, so more muscle means more body water (direct relationship).",
+"Better hydration means more body water (direct relationship)."
 ],
 "src": "cls"
 },
@@ -1520,13 +1520,13 @@ window.FBS_PHYS_QUESTIONS = [
 "It must only permeate into interstitial fluid, not plasma."
 ],
 "a": 2,
-"e": "Volume = amount injected ÷ concentration after mixing. This works only if the indicator spreads evenly through the compartment being measured and stays in it. For extracellular compartments, the indicator must not enter cells. It also must not be metabolized or excreted during mixing (or a correction is made).",
+"e": "Principle: Volume = amount of indicator injected ÷ concentration after it has mixed (minus any excreted or metabolized). For that to work, the indicator must spread evenly throughout the compartment being measured and must stay within it. Choice C expresses this: an extracellular marker like inulin must not get into cells, or it would \"see\" more volume than the extracellular space actually has. It must also not be metabolized and should be non-toxic.",
 "w": [
-"Attaching to RBCs is used only to measure red cell volume (⁵¹Cr), not as a general requirement.",
-"A metabolized indicator would disappear, giving a falsely large volume.",
-"Correct — the indicator must stay within the compartment being measured.",
-"No indicator selectively stays only in the ICF; ICF volume is calculated as TBW − ECF.",
-"An ECF indicator must enter both the plasma and the interstitium."
+"Attaching to red cells is only what you want if you're specifically measuring red cell volume (for example, chromium-51).",
+"The indicator must NOT be metabolized — if the body broke it down, the concentration would drop and the volume would be overestimated.",
+"Correct — Volume = amount injected ÷ concentration after mixing. The indicator must stay in (and spread evenly through) only the compartment being measured, and must not be metabolized.",
+"No indicator stays only inside cells. Intracellular volume can't be measured directly; it is calculated as total body water minus extracellular fluid.",
+"The indicator is injected into the blood, so it must spread through the plasma; an extracellular marker spreads into both plasma and interstitial fluid."
 ],
 "src": "cls"
 },
@@ -1542,13 +1542,13 @@ window.FBS_PHYS_QUESTIONS = [
 "1.25"
 ],
 "a": 2,
-"e": "NaCl doesn't dissociate perfectly in solution, and its ions interact with each other, so it behaves as slightly fewer particles than ideal. Its osmotic coefficient is about 0.93. So 1 mmol NaCl ≈ 2 × 0.93 ≈ 1.86 mOsm, which is why measured plasma osmolarity is a bit lower than calculated.",
+"e": "In theory each NaCl dissociates fully into 2 independent particles. In reality, the sodium and chloride ions attract each other slightly, so they don't behave as fully independent particles. The osmotic coefficient corrects for this: about 0.93 for NaCl. That means 1 mmol/L of NaCl acts like about 1.86 mOsm/L instead of 2. Using the van't Hoff relationship (π = CRT), each 1 mOsm/L produces about 19.3 mm Hg at body temperature, so plasma's total osmotic pressure is roughly 5,400–5,500 mm Hg after correction.",
 "w": [
-"Far too low — NaCl is mostly dissociated.",
-"Too low for NaCl.",
-"Correct — about 0.93.",
-"1.0 would mean ideal behavior; real NaCl falls slightly short.",
-"Coefficients above 1 aren't typical for NaCl."
+"Far too low — this would mean the ions barely act independently at all.",
+"Too low for NaCl in physiological solutions.",
+"Correct — Osmotic coefficient of NaCl ≈ 0.93; 1 mOsm/L ≈ 19.3 mm Hg of osmotic pressure.",
+"1.0 is the ideal value, assuming no ion–ion attraction; real solutions fall a little short.",
+"The coefficient for NaCl doesn't exceed 1."
 ],
 "src": "cls"
 },
@@ -1564,13 +1564,13 @@ window.FBS_PHYS_QUESTIONS = [
 "Water synthesis through carbohydrate oxidation."
 ],
 "a": 2,
-"e": "Insensible water loss is water lost without our awareness: evaporation from the respiratory tract (~300–400 mL/day) and diffusion through the skin (~300–400 mL/day), about 700 mL/day in total. It isn't regulated for water balance. Sweat, feces and urine are sensible losses.",
+"e": "\"Insensible\" means you can't feel it or consciously control it. It totals about 700 mL per day: about 300–400 mL evaporates from the airways (air you breathe out is saturated with water vapor) and about 300–400 mL diffuses through the skin — this is not sweat. Breathing cold, dry air increases respiratory loss; burns remove the skin's barrier and can increase skin loss up to tenfold.",
 "w": [
-"Sweat is a sensible (measurable, variable) loss.",
-"Fecal loss is sensible.",
-"Correct — respiratory evaporation plus skin diffusion.",
-"Urine is the main regulated (sensible) route.",
-"That is a water GAIN (metabolic water), not a loss."
+"Sweat is a sensible loss — you can see and feel it. Normally about 100 mL per day, but heavy exercise can push it to 1–2 L per hour.",
+"Feces normally carry only about 100 mL per day; diarrhea is an abnormal, sensible loss.",
+"Correct — Insensible loss ≈ 700 mL/day = breathing out water vapor + water diffusing through skin (not sweat).",
+"Urine is the main regulated route of water loss — the opposite of insensible.",
+"Burning carbohydrates makes water (about 200 mL per day of \"metabolic water\") — that is a gain, not a loss."
 ],
 "src": "cls"
 },
@@ -1586,13 +1586,13 @@ window.FBS_PHYS_QUESTIONS = [
 "Intracellular edema"
 ],
 "a": 1,
-"e": "Without ADH action, the collecting ducts can't reabsorb water, so large volumes of dilute urine are lost. Losing water raises ECF Na⁺ concentration (hypernatremia from dehydration). The hyperosmotic ECF then pulls water out of cells (hyperosmotic volume contraction).",
+"e": "Antidiuretic hormone (ADH) makes the kidney's collecting ducts permeable to water so water can be reabsorbed. Without ADH effect → collecting ducts stay watertight → large volumes of very dilute urine → the body loses pure water → the remaining sodium becomes more concentrated (high sodium) → water is pulled out of cells → cells shrink. Patients are very thirsty, and as long as they can drink enough they often keep sodium near normal.",
 "w": [
-"Hypernatremia in DI comes from water loss, not Na⁺ excess.",
-"Correct — pure water loss concentrates the ECF Na⁺.",
-"Colloid osmotic pressure doesn't determine plasma Na⁺.",
-"Water shifts the other way — from ICF to ECF.",
-"Cells shrink in hypernatremia; they don't swell."
+"The sodium goes up because water is lost, not because extra sodium is kept. (Sodium-retention hypernatremia is seen with excess aldosterone, and it is usually mild.)",
+"Correct — Diabetes insipidus → no ADH effect → pure water lost in urine → high sodium → cells shrink.",
+"Colloid osmotic pressure is from plasma proteins and isn't the mechanism here.",
+"Water shifts the other way — from inside cells to outside — because the outside becomes more concentrated.",
+"Cells shrink in high-sodium states; they swell in low-sodium states."
 ],
 "src": "cls",
 "key": "Note: the stem says the kidneys can't secrete ADH. ADH is actually made in the hypothalamus and released from the posterior pituitary — central DI is a lack of ADH, nephrogenic DI is kidneys not responding to it. The stem is kept word for word; the answer is the same either way."
@@ -1609,13 +1609,13 @@ window.FBS_PHYS_QUESTIONS = [
 "The interstitial fluid hydrostatic pressure is still in the negative range."
 ],
 "a": 2,
-"e": "When interstitial fluid pressure rises above zero (becomes positive), excess fluid collects as free fluid outside the gel. Pressing with a finger pushes this free fluid away, leaving a pit that slowly refills. Non-pitting edema happens when cells swell or interstitial fluid is clotted with fibrinogen (or in lymphedema with fibrosis).",
+"e": "Normally, fluid around cells is trapped in a gel. Once pressure in the tissue space turns positive, excess free (unbound) fluid collects. Pressing a finger into the skin pushes that free fluid away into nearby tissue → a dent (pit) that stays for several seconds until the fluid flows back. So a pit means there's free fluid in the tissue spaces. Edema that doesn't pit happens when cells themselves are swollen, or when the tissue fluid is clotted with fibrinogen and can't be pushed aside.",
 "w": [
-"Intracellular edema doesn't pit.",
-"Fibrinogen-clotted fluid can't be displaced, so it gives NON-pitting edema.",
-"Correct — free, mobile interstitial fluid is pushed aside by pressure.",
-"Pitting edema means fluid is outpacing drainage; it says nothing about lymphatics being normal.",
-"Free fluid appears once interstitial pressure rises above atmospheric (positive)."
+"Swollen cells don't pit — the water is locked inside cells.",
+"Clotted, fibrinogen-rich fluid causes non-pitting edema.",
+"Correct — Pitting = free fluid in the tissue spaces (tissue pressure has turned positive). Non-pitting = swollen cells or clotted fluid.",
+"Pitting says nothing reassuring about lymph drainage; lymph blockage can itself cause edema that pits early on.",
+"Pitting only appears once the tissue pressure has risen into the positive range."
 ],
 "src": "cls"
 },
@@ -1631,13 +1631,13 @@ window.FBS_PHYS_QUESTIONS = [
 "Blood volume can be directly measured by subtracting interstitial fluid volume from extracellular fluid volume."
 ],
 "a": 2,
-"e": "Hematocrit is the fraction of blood made up of red cells (normal ≈ 0.40 in men, 0.36 in women). Blood volume averages about 7% of body weight (~5 L), about 60% plasma and 40% red cells. Plasma has far more protein than interstitial fluid, which is the basis of plasma colloid osmotic pressure.",
+"e": "Hematocrit is the fraction of blood made up of red cells, measured by spinning blood in a tube. Normal values are about 40% in men and 36% in women. Blood volume is about 7% of body weight (about 5 L in a 70-kg adult), made up of roughly 60% plasma and 40% red cells.",
 "w": [
-"Blood volume is about 7% of body weight.",
-"Blood is about 60% plasma and 40% RBCs.",
-"Correct — hematocrit is the RBC fraction of blood.",
-"Plasma protein is much higher; capillaries are relatively impermeable to protein.",
-"ECF − interstitial fluid gives plasma volume, not blood volume, and interstitial volume is itself calculated, not measured directly."
+"Blood is about 7% of body weight, not 10%.",
+"The split is about 60% plasma and 40% red cells.",
+"Correct — Blood ≈ 7% of body weight (≈ 5 L); ≈ 60% plasma / 40% red cells; hematocrit = % red cells.",
+"Plasma has much more protein (about 7 g/dL) than interstitial fluid (about 2 g/dL), because capillary walls hold most proteins back. That protein difference is what creates plasma colloid osmotic pressure.",
+"Extracellular fluid minus interstitial fluid would equal plasma, not blood — and interstitial fluid can't be measured directly anyway; it is calculated as extracellular fluid minus plasma. Blood volume is calculated as plasma volume ÷ (1 − hematocrit)."
 ],
 "src": "cls"
 },
@@ -1653,13 +1653,13 @@ window.FBS_PHYS_QUESTIONS = [
 "The study of how genetic information is inherited and expressed."
 ],
 "a": 1,
-"e": "Guyton defines physiology as the science that seeks to explain the physical and chemical mechanisms responsible for the origin, development and progression of life. Human physiology explains how the body's parts and systems work to keep us alive.",
+"e": "Physiology asks how living things work — the physical and chemical mechanisms behind life, from how cells make energy to how the whole body keeps blood pressure steady. Human physiology focuses on how the human body's organs and systems work together to keep us alive.",
 "w": [
-"That's anatomy and histology — structure, not function.",
-"Correct — Guyton's definition of physiology.",
-"That describes pathology and clinical medicine.",
-"That describes taxonomy/phylogenetics.",
-"That describes genetics."
+"That is anatomy (gross structures) and histology (microscopic structures) — structure, not function.",
+"Correct — Anatomy = structure. Physiology = function (the physical and chemical mechanisms of life).",
+"That describes clinical pathology / medicine.",
+"That is taxonomy / phylogenetics.",
+"That is genetics."
 ],
 "src": "cls"
 },
@@ -1675,13 +1675,13 @@ window.FBS_PHYS_QUESTIONS = [
 "Extracellular fluid"
 ],
 "a": 4,
-"e": "Claude Bernard described the extracellular fluid as the milieu intérieur — the internal environment that bathes every cell. It contains the ions and nutrients cells need, and homeostasis means keeping this ECF's composition constant.",
+"e": "Claude Bernard, a 19th-century French physiologist, pointed out that the body's cells don't live in the outside world — they live bathed in the fluid outside cells. That extracellular fluid, constantly mixed by the circulation between plasma and tissue fluid, supplies every cell with oxygen, nutrients, and ions and carries away waste. Keeping it stable is the whole point of homeostasis.",
 "w": [
-"The ICF is inside cells; the internal environment surrounds them.",
-"Plasma is only part of the ECF.",
-"Interstitial fluid is the largest part of the ECF, but the term covers the whole ECF.",
-"CSF is a specialized (transcellular) fluid.",
-"Correct — the ECF is the internal environment."
+"Intracellular fluid is inside cells — it isn't the environment surrounding them.",
+"Plasma is only one part of the extracellular fluid.",
+"Interstitial fluid is also only one part of the extracellular fluid; the internal environment includes both it and plasma.",
+"Cerebrospinal fluid is a small, specialized transcellular fluid.",
+"Correct — Internal environment (milieu intérieur) = extracellular fluid."
 ],
 "src": "cls"
 },
@@ -1697,13 +1697,13 @@ window.FBS_PHYS_QUESTIONS = [
 "Growth"
 ],
 "a": 3,
-"e": "Homeostasis is maintaining nearly constant conditions in the internal environment. Sweating and vasodilation are effector responses that oppose the rise in temperature — negative feedback that keeps body temperature near its set point.",
+"e": "Homeostasis is keeping the internal environment (temperature, blood pressure, pH, glucose, oxygen, ions) relatively constant despite disturbances. Sweating and widening of skin blood vessels release heat to bring temperature back toward its set point — a textbook homeostatic, negative-feedback response.",
 "w": [
-"Metabolism is the total of the body's chemical reactions.",
-"Reproduction isn't a regulatory process.",
-"Pathophysiology is the study of how disease disrupts normal function.",
-"Correct — keeping the internal environment stable is homeostasis.",
-"Growth isn't a regulatory process."
+"Metabolism is all the chemical reactions in the body.",
+"Reproduction is producing offspring.",
+"Pathophysiology is the study of how normal function goes wrong in disease.",
+"Correct — Homeostasis = keeping the internal environment relatively constant despite changes.",
+"Growth is an increase in size or cell number."
 ],
 "src": "cls"
 },
@@ -1719,13 +1719,13 @@ window.FBS_PHYS_QUESTIONS = [
 "-10"
 ],
 "a": 2,
-"e": "Gain = correction ÷ error. Without control the variable would rise by 100; with control it rises only 20, so the correction is 20 − 100 = −80. The remaining error is +20. Gain = −80 ÷ 20 = −4. The negative sign means negative feedback.",
+"e": "Gain = correction ÷ remaining error.\n• Without control the change is +100; with control it's only +20, so the system corrected 100 − 20 = 80 units in the opposite direction → correction = −80.\n• Remaining error = +20.\n• Gain = −80 ÷ 20 = −4.\nThe negative sign means negative feedback. For comparison, the baroreceptor system has a gain of about −2, and temperature control about −33 (very powerful).",
 "w": [
-"−0.25 is the error ÷ correction (inverted).",
-"−1 would mean only half the disturbance was corrected.",
-"Correct — −80 ÷ +20 = −4.",
-"−5 is −100 ÷ 20 (uses the whole disturbance instead of the correction).",
-"Not supported by the numbers."
+"−0.25 is the ratio flipped upside down (20 ÷ 80).",
+"−1 doesn't fit the numbers.",
+"Correct — Gain = correction ÷ error. Here: −80 ÷ +20 = −4.",
+"−5 comes from dividing the uncorrected change (100) by the error (20) — you have to use the correction (80), not the full disturbance.",
+"−10 doesn't fit the numbers."
 ],
 "src": "cls"
 },
@@ -1741,13 +1741,13 @@ window.FBS_PHYS_QUESTIONS = [
 "Regulation of oxygen concentration by hemoglobin."
 ],
 "a": 2,
-"e": "In clotting, activated clotting factors activate more clotting factors (thrombin promotes more thrombin), so the process speeds up until the vessel is sealed. Other useful positive feedback: oxytocin in childbirth, action potential generation (Na⁺ channel opening), and the LH surge.",
+"e": "When a vessel tears, clotting factors are activated → thrombin forms → thrombin activates more clotting factors (including the ones that make more thrombin) → more and more clot forms until the hole is sealed, then the process stops. Other useful positive feedback loops: childbirth (stretch of the cervix → more oxytocin → stronger contractions), the upstroke of a nerve impulse (sodium entry opens more sodium channels), and the hormone surge (luteinizing hormone) that triggers ovulation.",
 "w": [
-"Insulin lowers high glucose — negative feedback.",
-"pH regulation opposes changes — negative feedback.",
-"Correct — the clotting cascade amplifies itself until the hole is plugged.",
-"Shivering corrects a fall in temperature — negative feedback.",
-"Hemoglobin acts as an O₂ buffer — a stabilizing, negative-feedback-like system."
+"High glucose → insulin → glucose falls: negative feedback.",
+"The lungs and kidneys correct pH toward normal: negative feedback.",
+"Correct — Helpful positive feedback: clotting, childbirth, nerve impulse upstroke, ovulation hormone surge.",
+"Cold → shivering → heat produced → temperature returns: negative feedback.",
+"Hemoglobin acts as an oxygen buffer that keeps tissue oxygen stable: a stabilizing (negative feedback–type) system."
 ],
 "src": "cls"
 },
@@ -1763,13 +1763,13 @@ window.FBS_PHYS_QUESTIONS = [
 "Immune system"
 ],
 "a": 3,
-"e": "The GI tract digests food and absorbs carbohydrates, fatty acids and amino acids into the ECF of the blood. The respiratory system supplies O₂ and removes CO₂, the kidneys remove wastes and regulate ions and water, and the liver processes absorbed nutrients.",
+"e": "The digestive tract breaks food down into small molecules (sugars, fatty acids, amino acids) and absorbs them across the gut lining into the blood, which carries them to every cell. The liver then processes and stores many of these nutrients.",
 "w": [
-"The lungs exchange O₂ and CO₂, not nutrients.",
-"The kidneys remove wastes and regulate ions and water.",
-"Muscles provide movement to get food, but don't absorb it.",
-"Correct — the GI tract absorbs nutrients.",
-"The immune system protects against pathogens."
+"The lungs supply oxygen and remove carbon dioxide.",
+"The kidneys remove wastes and regulate water, ions, and pH.",
+"Muscles and bones provide movement and support (which lets us get food, but they don't absorb it).",
+"Correct — Gastrointestinal tract → absorbs nutrients into the blood.",
+"The immune system defends against infection."
 ],
 "src": "cls"
 },
@@ -1785,13 +1785,13 @@ window.FBS_PHYS_QUESTIONS = [
 "Reflection coefficient"
 ],
 "a": 2,
-"e": "Osmolality = osmoles per kilogram of water (mOsm/kg H₂O). Osmolarity = osmoles per liter of solution. In dilute body fluids the two values differ by less than 1%, so they're often used interchangeably.",
+"e": "Osmolality = osmoles per kilogram of water. Osmolarity = osmoles per liter of solution. Memory trick: osmolaLity goes with kiLograms... of water. In dilute body fluids the two numbers are nearly identical, and they're often used interchangeably clinically (about 285–295).",
 "w": [
-"Osmolarity is per liter of solution, not per kg of water.",
-"Tonicity describes the effect on cell volume.",
-"Correct — per kilogram of water.",
-"Osmotic pressure is a pressure (mm Hg).",
-"The reflection coefficient is a unitless permeability measure."
+"Osmolarity is per liter of solution.",
+"Tonicity compares a solution to a cell based on non-penetrating solutes.",
+"Correct — Per kg water = osmolality; per liter solution = osmolarity.",
+"Osmotic pressure is expressed as a pressure (mm Hg).",
+"The reflection coefficient is a 0–1 number describing membrane permeability to a solute."
 ],
 "src": "cls"
 },
@@ -1807,13 +1807,13 @@ window.FBS_PHYS_QUESTIONS = [
 "Solute concentration; Diffusion"
 ],
 "a": 1,
-"e": "Water flows because of an osmotic pressure difference across the membrane. The osmotic pressure of a solution is defined as the exact pressure that would have to be applied to stop osmosis into it. Van't Hoff: π = g·C·σ·RT.",
+"e": "Water flows because of a difference in osmotic pressure between the two sides (caused by a difference in the concentration of solutes that can't cross). The osmotic pressure of a solution is defined as exactly the pressure you would need to apply to stop that water from flowing in. So: driving force = osmotic pressure difference; pressure needed to stop it = osmotic pressure.",
 "w": [
-"σ describes membrane permeability to a solute; osmolality is a concentration.",
-"Correct — the osmotic pressure difference drives flow, and the osmotic pressure is what stops it.",
-"These describe solutions, not the driving force or the stopping pressure.",
-"Hydrostatic pressure can oppose osmosis, but the defined stopping pressure is the osmotic pressure.",
-"Diffusion is solute movement, not a pressure."
+"The reflection coefficient describes how well a membrane blocks a solute, and osmolality is a concentration — neither is a force or a stopping pressure.",
+"Correct — Osmotic pressure = the pressure needed to stop osmosis; water moves because of an osmotic pressure difference.",
+"Tonicity and osmolarity describe solutions; they aren't a driving force or a pressure.",
+"Tempting, because the pressure you'd physically apply is hydrostatic — but the term the question wants for \"the pressure required to stop osmosis\" is osmotic pressure, and \"concentration gradient\" is vaguer than the osmotic pressure difference.",
+"Diffusion is movement of solute, not a pressure."
 ],
 "src": "cls"
 },
@@ -1829,13 +1829,13 @@ window.FBS_PHYS_QUESTIONS = [
 "Water will flow until solute concentrations are equal on both sides of the membrane."
 ],
 "a": 2,
-"e": "σ ranges from 0 to 1. σ = 1: the membrane is impermeable to the solute, so it's \"reflected\" and exerts its full osmotic pressure (e.g., albumin across capillaries). σ = 0: the membrane is freely permeable, so the solute exerts no effective osmotic pressure (e.g., urea across cell membranes). Values in between give partial effects.",
+"e": "The reflection coefficient (σ) runs from 0 to 1. σ = 1 → the membrane completely blocks (\"reflects\") the solute → the solute stays on its side and pulls water with its full osmotic force (example: albumin at the capillary wall is close to 1). σ = 0 → the solute crosses freely → it creates no effective osmotic pressure (example: urea across most cell membranes). Effective osmotic pressure = σ × calculated osmotic pressure.",
 "w": [
 "That describes σ = 0.",
-"With σ = 1 the solute can't cross the membrane.",
-"Correct — impermeable membrane, full osmotic effect.",
-"That describes 0 < σ < 1.",
-"The solute can't cross, so water moves until osmotic forces balance (or the opposing pressure equals π)."
+"If σ = 1, the solute can't cross.",
+"Correct — σ = 1: impermeable, full osmotic effect. σ = 0: freely permeable, no osmotic effect.",
+"That describes a σ between 0 and 1.",
+"The solute can't cross, and water movement alone won't necessarily make the concentrations equal — water moves until the osmotic pressures (or pressures overall) balance."
 ],
 "src": "cls"
 },
@@ -1851,13 +1851,13 @@ window.FBS_PHYS_QUESTIONS = [
 "There will be no net water flow between the solutions."
 ],
 "a": 3,
-"e": "Water moves by osmosis from the solution with the lower effective osmotic pressure (hypotonic, A) to the one with the higher effective osmotic pressure (hypertonic, B).",
+"e": "Lower effective osmotic pressure = more dilute = hypotonic. So A is hypotonic and B is hypertonic. Water moves from the dilute side toward the concentrated side → from A into B.",
 "w": [
-"A has the lower effective osmotic pressure, so it's hypotonic.",
-"That's the reverse direction.",
-"B has the higher effective osmotic pressure, so it's hypertonic.",
-"Correct — water flows from A (hypotonic) to B (hypertonic).",
-"Net flow happens whenever effective osmotic pressures differ."
+"A is hypotonic, not hypertonic.",
+"Backwards — water moves toward the higher osmotic pressure (B).",
+"B is hypertonic relative to A.",
+"Correct — Water moves from lower osmotic pressure (hypotonic) to higher osmotic pressure (hypertonic).",
+"A difference in effective osmotic pressure always drives net water flow."
 ],
 "src": "cls"
 },
@@ -1873,13 +1873,13 @@ window.FBS_PHYS_QUESTIONS = [
 "The concentration of glucose in the plasma."
 ],
 "a": 2,
-"e": "Water follows solute. Because Na⁺ salts (NaCl, NaHCO₃) are effectively confined to the ECF, the total amount of Na⁺ solute in the ECF sets how much water stays there. This is why ECF volume is regulated by controlling total body Na⁺ (renal Na⁺ handling, aldosterone).",
+"e": "Sodium salts (sodium chloride and sodium bicarbonate) are effectively trapped outside cells. Because water moves to keep concentrations equal, the amount of sodium outside cells decides how much water stays there. This is why the kidneys control extracellular (and blood) volume by adjusting how much sodium they keep or excrete. Key distinction: the amount of sodium in the body → volume; the concentration of sodium in plasma → water balance.",
 "w": [
-"Intracellular protein affects ICF, not ECF, volume.",
-"Water distributes according to solute, so solute content — not total water — sets how much ends up in the ECF.",
-"Correct — ECF volume is set by its Na⁺ salt content.",
-"The pump keeps Na⁺ extracellular, but the amount of ECF solute is the determinant.",
-"Glucose is a minor osmole normally."
+"Intracellular protein and potassium salts determine the volume inside cells, not outside.",
+"Total body water is split between compartments according to where the solutes are; the amount of water alone doesn't decide the extracellular share.",
+"Correct — Total body sodium (amount) determines extracellular volume; water follows sodium.",
+"The pump is what keeps sodium outside cells, but the total amount of sodium is what sets the volume.",
+"Glucose is a minor solute that normally enters cells."
 ],
 "src": "cls"
 },
@@ -1895,13 +1895,13 @@ window.FBS_PHYS_QUESTIONS = [
 "Intracellular osmolarity varies independently of extracellular osmolarity; no specific mechanism."
 ],
 "a": 2,
-"e": "Cell membranes are highly permeable to water (aquaporins), so water moves until ICF and ECF osmolarity are equal (≈ 290 mOsm/L). Any change in ECF osmolarity is quickly matched by water moving in or out of cells. Water is never actively transported.",
+"e": "Cell membranes are highly permeable to water (through water channels called aquaporins and through the membrane itself). Any concentration difference makes water move within seconds to minutes until the two sides are equal. So at steady state, osmolarity inside = outside, and it's water movement — not solute movement — that makes it so.",
 "w": [
-"There is no active transport of water, and the osmolarities are equal.",
-"They're equal; solutes don't freely cross cell membranes.",
-"Correct — free water movement equalizes the osmolarities.",
-"They are equal, but water movement — not solute pumping — equalizes them.",
-"ICF osmolarity follows the ECF closely."
+"They're equal, and water is never actively pumped — it always moves passively.",
+"They're equal.",
+"Correct — Inside = outside osmolarity at steady state, because water moves freely.",
+"They are equal, but it's water movement that equalizes them. Solute pumps set up where solutes are, not the equalizing itself.",
+"Water movement tightly links them."
 ],
 "src": "cls"
 },
