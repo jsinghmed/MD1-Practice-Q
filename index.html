@@ -238,6 +238,26 @@ input[type=checkbox],input[type=radio]{accent-color:var(--blue);width:16px;heigh
 .empty{color:var(--muted);padding:30px 0}
 
 .sres{display:flex;flex-direction:column;gap:8px}
+.chg{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:22px}
+.chg-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.chg-t{display:flex;flex-direction:column}
+.chg-t .v{font-size:24px;font-weight:700} .chg-t .l{font-size:12.5px;color:var(--muted)}
+.chg-t.g .v{color:var(--green)} .chg-t.r .v{color:var(--red)} .chg-t.m .v{color:var(--muted)}
+.chg-bar{display:flex;height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin:12px 0 8px}
+.chg-bar i{display:block;height:100%} .chg-bar .g{background:var(--green)} .chg-bar .r{background:var(--red)} .chg-bar .w{background:var(--muted)}
+.chg-msg{margin:0;font-size:14px;line-height:1.5}
+@media (max-width:640px){.chg-row{grid-template-columns:repeat(2,1fr)}}
+.vmeta{display:flex;flex-wrap:wrap;gap:6px 16px;margin:-4px 0 12px;font-size:13.5px}
+.chgnote.cw{color:var(--red)} .chgnote.wc{color:var(--green)} .chgnote.ww{color:var(--muted)}
+.ttime{color:var(--muted)}
+.qtimer{font-variant-numeric:tabular-nums}
+.qtimer.hid{opacity:.6}
+.ankirow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:18px;padding-top:14px;border-top:1px dashed var(--line2)}
+.ankirow .btn{font-size:13px;padding:6px 11px}
+.btn.ghost{background:transparent}
+.ankihelp{flex-basis:100%;font-size:13px;line-height:1.5;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.ankibox{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:22px}
+b.g{color:var(--green)} b.r{color:var(--red)}
 .hsearch,.psearch{position:relative;margin:0 0 18px}
 .hsearch input,.psearch input{width:100%;background:var(--card);border:1px solid var(--line2);border-radius:10px;color:var(--text);padding:12px 14px 12px 40px;font:inherit;font-size:15px}
 .hsearch input:focus,.psearch input:focus{outline:none;border-color:var(--blue)}
@@ -428,17 +448,17 @@ table.rt tr.click:hover td{background:var(--hover)}
 <div class="lightbox" id="lightbox"><img alt=""></div>
 <div class="toast" id="toast"></div>
 
-<script src="images.js?v=19"></script>
-<script src="questions.js?v=19"></script>
-<script src="histology-review.js?v=19"></script>
-<script src="physiology.js?v=19"></script>
-<script src="physiology-review.js?v=19"></script>
-<script src="biochemistry.js?v=19"></script>
-<script src="anatomy.js?v=19"></script>
-<script src="embryology.js?v=19"></script>
-<script src="fbs-physiology.js?v=19"></script>
-<script src="fbs-anki.js?v=19"></script>
-<script src="crs-embryology.js?v=19"></script>
+<script src="images.js?v=20"></script>
+<script src="questions.js?v=20"></script>
+<script src="histology-review.js?v=20"></script>
+<script src="physiology.js?v=20"></script>
+<script src="physiology-review.js?v=20"></script>
+<script src="biochemistry.js?v=20"></script>
+<script src="anatomy.js?v=20"></script>
+<script src="embryology.js?v=20"></script>
+<script src="fbs-physiology.js?v=20"></script>
+<script src="fbs-anki.js?v=20"></script>
+<script src="crs-embryology.js?v=20"></script>
 <script>
 (function(){
 // =====================================================================
@@ -491,6 +511,7 @@ let S = {};
 try { S = JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e) { S = {}; }
 S.ans ??= {}; S.sel ??= {}; S.strike ??= {}; S.flag ??= {}; S.notes ??= {}; S.hl ??= {}; S.order ??= {};
 S.scr ??= {}; S.pos ??= {}; S.snap ??= {}; S.tests ??= []; S.testSeq ??= 0;
+S.first ??= {}; S.chgq ??= {}; S.ac ??= []; S.qtime ??= {}; S.anki ??= [];
 if (S.v !== 2) {
   // chapter positions/scramble used to be stored by list number; move them to chapter keys
   const pos = {}, scr = {};
@@ -516,6 +537,17 @@ function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){
 let view = "home";          // home | quiz | builder | notes | search | report
 let reportTest = null;
 let mode = null;            // highlight tool: "hl" | null
+let qtHidden = false; try { qtHidden = localStorage.getItem("msk-qtimer") === "hide"; } catch(e) {}
+// Per-question stopwatch: counts while an unanswered question is on screen (pauses when the tab is hidden).
+let qtTicks = 0;
+setInterval(()=>{
+  if (view!=="quiz" || document.hidden || paused) return;
+  const c = chap(); if (!c) return;
+  const q = curQ(); if (!q || answered(q, store())) return;
+  S.qtime[q.id] = (S.qtime[q.id]||0) + 1;
+  const el = document.getElementById("qtime"); if (el) el.textContent = fmtTime(S.qtime[q.id]);
+  if (++qtTicks % 5 === 0) save();
+}, 1000);
 // Highlighter colors. Your last-used color is remembered in this browser.
 const HL_COLORS = [{k:"y",name:"Yellow"},{k:"g",name:"Green"},{k:"b",name:"Blue"},{k:"p",name:"Pink"},{k:"o",name:"Orange"}];
 let hlColor = "y";
@@ -594,7 +626,7 @@ function getChap(key){
   }
   return null;
 }
-function prepTest(t){ t.ans ??= {}; t.sel ??= {}; t.strike ??= {}; t.order ??= {}; }
+function prepTest(t){ t.ans ??= {}; t.sel ??= {}; t.strike ??= {}; t.order ??= {}; t.first ??= {}; t.chgq ??= {}; }
 function chapCourse(c){
   if (!c) return null;
   if (c.course) return c.course;
@@ -801,6 +833,7 @@ function renderCard(){
         <span class="menu hlmenu" id="hlMenu"><span class="split"><button class="btn ${mode==="hl"?"on":""}" id="hlBtn" title="Select text to highlight it. Highlight an already-highlighted part to erase it. Click a highlight to remove it."><span class="sw hl-${hlColor}"></span>Highlight</button><button class="btn caret ${mode==="hl"?"on":""}" id="hlCaret" title="Highlighter color" aria-label="Choose highlighter color">▾</button></span>
           <div class="pop hlpop"><div class="mi-h">HIGHLIGHTER COLOR</div>${HL_COLORS.map(c=>`<button class="mi" data-hlc="${c.k}"><span class="sw hl-${c.k}"></span>${c.name}<span class="ck" style="margin-left:auto">${hlColor===c.k?"✓":""}</span></button>`).join("")}
           <div class="mi-sep"></div><div class="hlhint">Highlight a highlighted part again to erase it. Tap a highlight to remove it.</div></div></span>
+        ${true ? `<button class="btn qtimer ${qtHidden?"hid":""}" id="qtimerBtn" title="${qtHidden?"Show":"Hide"} the timer for this question">⏱${qtHidden?"":` <span id="qtime">${fmtTime(S.qtime[q.id]||0)}</span>`}</button>` : ""}
         <button class="btn ${S.flag[q.id]?"flagged":""}" id="flagBtn">⚑ ${S.flag[q.id]?"Flagged":"Flag"}</button>
         <button class="btn" id="resetQBtn" title="Clear your answer for this question only" ${hasProgress(q)&&!tDone?"":"disabled"}>↺ Reset question</button>
       </div></div>
@@ -848,9 +881,76 @@ function renderCard(){
       <button class="nbtn" id="nextBtn" ${p===n-1?"disabled":""}>Next →</button></div>`;
     if (shown) h += explanation(q, null, s);
   }
+  if (!timedActive()) {
+    const inA = S.anki.includes(q.id), n2 = S.anki.length;
+    h += `<div class="ankirow">
+      <button class="btn ${inA?"on":""}" id="ankiAdd" title="${inA?"Remove this question from":"Add this question to"} your Anki export">🃏 ${inA?"✓ In Anki export — remove":"Make Anki card"}</button>
+      ${n2 ? `<button class="btn" data-ankidl="1" title="Download all your cards as one file Anki can import">⬇ Download ${n2} card${n2===1?"":"s"} for Anki</button>` : ""}
+      ${s && Object.keys(s.ans||{}).length ? `<button class="btn" id="ankiAddInc" title="Add every question you got wrong in this chapter">＋ Add all incorrect here</button>` : ""}
+      <button class="btn ghost" id="ankiHelpBtn" title="How to import">?</button>
+      <div class="ankihelp" id="ankiHelp" hidden><b>Importing into Anki:</b> click <i>Download</i>, then in Anki choose <b>File → Import</b> and pick the downloaded .txt file. Anki reads the settings from the file automatically (Basic cards, HTML on, a deck per section, tags for summative/section/topic) — just click <b>Import</b>. Re-importing later updates cards that are already there instead of duplicating them.</div>
+    </div>`;
+  }
   $("card").innerHTML = h;
   fixImgs($("card"));
   $("note").value = S.notes[q.id] || "";
+}
+
+// ---------- Anki export ----------
+function ankiHomeBox(){
+  const n = S.anki.length; if (!n) return "";
+  const per = COURSES.map(c=>[c.name, S.anki.filter(id=>byId[id] && byId[id].course===c.id).length]).filter(x=>x[1]).map(x=>x[0]+" "+x[1]).join(" · ");
+  return `<div class="h3">Anki export</div><div class="ankibox"><div><b>${n}</b> card${n===1?"":"s"} ready <span class="muted">(${per})</span><div class="muted" style="font-size:13px;margin-top:2px">In Anki: File → Import → choose the downloaded file → Import.</div></div>
+    <div class="ptools" style="margin:0"><button class="btn primary" data-ankidl="1">⬇ Download for Anki</button><button class="btn" id="ankiClear">Clear list</button></div></div>`;
+}
+function ankiField(html){ return String(html||"").replace(/\t/g," ").replace(/\r?\n/g,"<br>"); }
+function ankiImg(src){ const k = String(src||"").replace(/^\.\//,""); const u = (window.IMG && IMG[k]) || (String(src).startsWith("data:") ? src : ""); return u ? `<img src="${u}">` : ""; }
+function ankiCard(q){
+  const sec = q.sec, cn = COURSE_BY_ID[q.course].name;
+  let stem = (q.html ? q.s : esc(q.s)).replace(/<img[^>]*src="([^"]*)"[^>]*>/g, (m, src)=>ankiImg(src));
+  let front = stem + (q.img ? "<br>" + ankiImg(q.img) : "");
+  let back = "";
+  if (q.type === "reveal") back = `<b>${esc(q.ans)}</b>`;
+  else {
+    front += `<ol type="A" style="text-align:left">` + q.c.map(c=>`<li>${esc(c)}</li>`).join("") + `</ol>`;
+    back = `<b>Answer: ${LET[q.a]}. ${esc(q.c[q.a])}</b>`;
+  }
+  if (q.eh) back += `<br><br>${q.eh}`;
+  if (q.se) back += `<br><br>${esc(q.se)}`;
+  if (q.e) back += `<br><br>${esc(q.e)}`;
+  if (q.w && q.type !== "reveal") {
+    const lines = q.c.map((c,i)=>i===q.a || !q.w[i] ? "" : `<li><b>${LET[i]}.</b> ${esc(q.w[i])}</li>`).join("");
+    if (lines) back += `<br><br><i>Why the others are wrong:</i><ul style="text-align:left">${lines}</ul>`;
+  }
+  const figs = (q.eimg||[]).concat((q.fig||[]).map(f=>`./${f}.jpg`)).map(ankiImg).filter(Boolean);
+  if (figs.length) back += "<br>" + figs.join("<br>");
+  if (S.notes[q.id] && S.notes[q.id].trim()) back += `<br><br><b>My note:</b> ${esc(S.notes[q.id])}`;
+  back += `<br><br><small>${esc(cn)} · ${esc(sec)} · ${esc(q.t)}</small>`;
+  const deck = ["Summative Q-Bank", cn, sec].map(x=>x.replace(/::/g,":")).join("::");
+  const tag = x => String(x).replace(/[^A-Za-z0-9]+/g,"_").replace(/^_|_$/g,"");
+  const tags = [tag(cn), tag(cn)+"::"+tag(sec), tag(cn)+"::"+tag(sec)+"::"+tag(q.t), "qbank_"+q.id].join(" ");
+  return [ankiField(front), ankiField(back), deck, tags].join("\t");
+}
+function ensureAnkiImages(cb){
+  const need = new Set();
+  S.anki.forEach(id=>{ const q = byId[id]; if (!q) return; (q.fig||[]).forEach(f=>{ const L = LAZY_IMGS.find(x=>x.re.test(f)); if (L && !(window.IMG && IMG[f+".jpg"])) need.add(L.file); }); });
+  if (!need.size) return cb();
+  toast("Loading figures for your cards…");
+  let left = need.size;
+  need.forEach(file=>{ const sc = document.createElement("script"); sc.src = file+"?v=20"; sc.onload = sc.onerror = ()=>{ lazyState[file] = 2; if (--left === 0) cb(); }; document.head.appendChild(sc); });
+}
+function downloadAnki(){
+  const ids = S.anki.filter(id=>byId[id]);
+  if (!ids.length) { toast("No cards yet — use “Make Anki card” on a question"); return; }
+  ensureAnkiImages(()=>{
+    const head = ["#separator:tab", "#html:true", "#notetype:Basic", "#deck column:3", "#tags column:4"];
+    const txt = head.concat(ids.map(id=>ankiCard(byId[id]))).join("\n") + "\n";
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([txt], {type:"text/plain;charset=utf-8"}));
+    a.download = "anki-cards-" + new Date().toISOString().slice(0,10) + ".txt";
+    document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+    toast(`Downloaded ${ids.length} card${ids.length===1?"":"s"} — import it in Anki with File → Import`);
+  });
 }
 
 function explanation(q, o, s){
@@ -860,6 +960,14 @@ function explanation(q, o, s){
     const a = s.ans[q.id], letter = LET[o.indexOf(q.a)];
     if (a === undefined) h += `<div class="verdict m">Not answered. The answer is ${letter}. ${esc(q.c[q.a].trim())}</div>`;
     else { const right = a === q.a; h += `<div class="verdict ${right?"g":"r"}">${right?"Correct.":"Incorrect."} The answer is ${letter}. ${esc(q.c[q.a].trim())}</div>`; }
+    const ch = (s.chgq||{})[q.id], tt = S.qtime[q.id];
+    if (ch || tt) {
+      let line = "";
+      if (ch) { const [f,t2] = ch, k = f===q.a ? "cw" : t2===q.a ? "wc" : "ww";
+        line += `<span class="chgnote ${k}">You changed your answer from <b>${LET[o.indexOf(f)]}</b> to <b>${LET[o.indexOf(t2)]}</b> — ${k==="cw"?"your first answer was right":k==="wc"?"the change was right":"both were wrong"}.</span>`; }
+      if (tt) line += `<span class="ttime">⏱ ${fmtTime(tt)} on this question</span>`;
+      h += `<div class="vmeta">${line}</div>`;
+    }
   } else {
     const m = s.ans[q.id];
     h += `<div class="verdict ${m==="bad"?"r":"g"}">Answer: ${esc(q.ans)}</div>`;
@@ -918,6 +1026,8 @@ function renderHome(){
     <button data-rv="${S.course}:rv:inc"><span class="v r">${inc}</span><span class="l">✗ Incorrect questions</span></button>
     <button data-rv="${S.course}:rv:flag"><span class="v f">${fl}</span><span class="l">⚑ Flagged questions</span></button>
     <button data-rv="${S.course}:rv:un"><span class="v">${un}</span><span class="l">○ Unanswered questions</span></button></div>`;
+  h += changeBox(changeStats(q=>q.course===S.course), `Changed answers · ${esc(course().name)}`);
+  h += ankiHomeBox();
   h += `<div class="h3">Sections</div><div class="secgrid">` + courseSecs().map(sec=>{
     const st = secStats(sec), acc2 = st.done ? Math.round(st.ok*100/st.done) : null;
     const incN = sec.items.filter(REVIEW_BY_K.inc.f).length;
@@ -1050,6 +1160,9 @@ function renderReport(t){
         const c = cq.filter(q=>status(q,t)==="ok").length, p = Math.round(c*100/cq.length);
         return `<tr><td>${esc(COURSE_BY_ID[cid].name)} <span class="muted">· ${esc(COURSE_BY_ID[cid].full)}</span></td><td>${c}/${cq.length} · ${p}%</td><td><div class="bar"><i class="${p<50?"low":p<75?"mid":""}" style="width:${p}%"></i></div></td></tr>`; }).join("") +
       `</tbody></table></div>` : ""}
+    ${(()=>{ const ch = Object.entries(t.chgq||{}).filter(([id])=>byId[id]); if (!ch.length) return "";
+      const c = {wc:0,cw:0,ww:0}; ch.forEach(([id,[f,t2]])=>{ const a=byId[id].a; c[f===a?"cw":t2===a?"wc":"ww"]++; });
+      return `<div class="box"><h3>Changed answers in this block</h3><p style="margin:0">Wrong → Right <b class="g">${c.wc}</b> · Right → Wrong <b class="r">${c.cw}</b> · Wrong → Wrong <b>${c.ww}</b> — ${c.cw>c.wc?"changing cost you points here; trust your first instinct.":c.wc>c.cw?"your changes helped here.":"your changes broke even."}</p></div>`; })()}
     <div class="box"><h3>By topic <span class="muted" style="font-weight:500">— weakest first</span></h3>
       <table class="rt"><thead><tr><th>Section · topic</th><th>Correct</th><th style="width:40%"></th></tr></thead><tbody>` +
       rows.map(r=>`<tr><td>${esc(r.g)}</td><td>${r.ok}/${r.n} · ${r.p}%</td><td><div class="bar"><i class="${r.p<50?"low":r.p<75?"mid":""}" style="width:${r.p}%"></i></div></td></tr>`).join("") +
@@ -1066,7 +1179,7 @@ function renderReport(t){
 }
 function finishTest(t, reason){
   prepTest(t);
-  t.ids.forEach(id=>{ if (t.sel[id]!==undefined) { t.ans[id] = t.sel[id]; S.ans[id] = t.sel[id]; } });
+  t.ids.forEach(id=>{ if (t.sel[id]!==undefined) { t.ans[id] = t.sel[id]; S.ans[id] = t.sel[id]; if (byId[id]) logAnswerChange(byId[id], t, t.sel[id]); } });
   t.finished = true; t.remaining = Math.max(0, t.remaining||0); paused = false; save();
   view = "report"; reportTest = t.id; renderAll();
   toast(reason==="time" ? "Time's up — block ended" : "Block ended");
@@ -1209,15 +1322,54 @@ function go(i){
 }
 function pick(oi){
   const q = curQ(), s = store(); if (!q || q.type==="reveal") return;
-  if (timedActive()) { if (paused) return; s.sel[q.id] = oi; save(); renderRail(); renderStats(); renderCard(); return; }
+  s.first ??= {};
+  if (timedActive()) { if (paused) return; if (s.first[q.id]===undefined) s.first[q.id] = oi; s.sel[q.id] = oi; save(); renderRail(); renderStats(); renderCard(); return; }
   if (answered(q,s) || timedDone()) return;
+  if (s.first[q.id]===undefined) s.first[q.id] = oi;
   s.sel[q.id] = oi; save(); renderCard();
+}
+// ---------- "Changed answer" tracker ----------
+// Every submitted answer is logged as: kept (never switched), wc (wrong→right), cw (right→wrong) or ww (wrong→wrong).
+function logAnswerChange(q, s, finalOi){
+  s.first ??= {}; s.chgq ??= {};
+  const first = s.first[q.id] === undefined ? finalOi : s.first[q.id];
+  let k = "kept";
+  if (first !== finalOi) k = first === q.a ? "cw" : finalOi === q.a ? "wc" : "ww";
+  S.ac.push([q.id, k]);
+  if (k !== "kept") s.chgq[q.id] = [first, finalOi]; else delete s.chgq[q.id];
+  if (s !== S) { if (k !== "kept") S.chgq[q.id] = [first, finalOi]; else delete S.chgq[q.id]; }
+  delete s.first[q.id];
+}
+function changeStats(filter){
+  const c = {kept:0, wc:0, cw:0, ww:0};
+  S.ac.forEach(([id,k])=>{ if (byId[id] && (!filter || filter(byId[id]))) c[k]++; });
+  return c;
+}
+function changeBox(c, title){
+  const changed = c.wc + c.cw + c.ww, total = changed + c.kept;
+  if (!total) return "";
+  let msg;
+  if (!changed) msg = "You haven't changed a submitted answer yet.";
+  else if (c.cw > c.wc) msg = `Changing has cost you <b>${c.cw - c.wc}</b> more question${c.cw-c.wc===1?"":"s"} than it gained. Your first instinct is usually right — trust it unless you find a concrete reason to switch.`;
+  else if (c.wc > c.cw) msg = `Changing has gained you <b>${c.wc - c.cw}</b> more question${c.wc-c.cw===1?"":"s"} than it cost. Your second looks are paying off — keep switching when you have a real reason.`;
+  else msg = "Your changes have helped and hurt equally so far.";
+  const pct = x => total ? Math.round(x*100/total) : 0;
+  return `<div class="h3">${title}</div><div class="chg">
+    <div class="chg-row">
+      <div class="chg-t g"><span class="v">${c.wc}</span><span class="l">Wrong → Right</span></div>
+      <div class="chg-t r"><span class="v">${c.cw}</span><span class="l">Right → Wrong</span></div>
+      <div class="chg-t"><span class="v">${c.ww}</span><span class="l">Wrong → Wrong</span></div>
+      <div class="chg-t m"><span class="v">${c.kept}</span><span class="l">Kept first answer</span></div>
+    </div>
+    <div class="chg-bar" title="Of ${total} submitted answers"><i class="g" style="width:${pct(c.wc)}%"></i><i class="r" style="width:${pct(c.cw)}%"></i><i class="w" style="width:${pct(c.ww)}%"></i></div>
+    <p class="chg-msg">You changed <b>${changed}</b> of ${total} submitted answers${changed?` · ratio Right→Wrong : Wrong→Right = <b>${c.cw} : ${c.wc}</b>`:""}. ${msg}</p></div>`;
 }
 function submit(){
   const q = curQ(), s = store();
   if (!q || q.type==="reveal" || timedActive() || timedDone() || answered(q,s) || s.sel[q.id]===undefined) return;
   s.ans[q.id] = s.sel[q.id];
   if (s !== S) S.ans[q.id] = s.sel[q.id];
+  logAnswerChange(q, s, s.sel[q.id]);
   save(); renderChaps(); renderRail(); renderStats(); renderCard();
 }
 // FBS and CRS images live in their own files and only download the first time one of their figures is shown.
@@ -1225,7 +1377,7 @@ const LAZY_IMGS = [{re:/^fp-/, file:"images-fbs.js"}, {re:/^ce-/, file:"images-c
 const lazyState = {}; // file -> 1 loading, 2 done
 function loadLazyImgs(file){
   if (lazyState[file]) return; lazyState[file] = 1;
-  const sc = document.createElement("script"); sc.src = file+"?v=19";
+  const sc = document.createElement("script"); sc.src = file+"?v=20";
   sc.onload = ()=>{ lazyState[file] = 2; fixImgs(document); };
   sc.onerror = ()=>{ delete lazyState[file]; };
   document.head.appendChild(sc);
@@ -1358,6 +1510,8 @@ document.addEventListener("click", e=>{
   if (t.closest("#menuBtn")) { $("side").classList.toggle("open"); return; }
 
   // pages
+  if (t.closest("[data-ankidl]")) { downloadAnki(); return; }
+  if (t.closest("#ankiClear")) { if (!confirm("Clear all "+S.anki.length+" cards from your Anki export list?")) return; S.anki = []; save(); renderAll(); toast("Anki export list cleared"); return; }
   const sopen = t.closest("[data-sopen]");
   const ssc = t.closest("[data-sscope]");
   if (ssc) { searchScope = ssc.dataset.sscope; searchFilter = "all"; renderSearch(); return; }
@@ -1409,6 +1563,10 @@ document.addEventListener("click", e=>{
     s.ans[id] = v; if (s !== S) S.ans[id] = v;
     save(); renderChaps(); renderRail(); renderStats(); renderCard(); return;
   }
+  if (t.closest("#qtimerBtn")) { qtHidden = !qtHidden; try { localStorage.setItem("msk-qtimer", qtHidden ? "hide" : "show"); } catch(e) {} renderCard(); return; }
+  if (t.closest("#ankiAdd")) { const id = curQ().id, i = S.anki.indexOf(id); if (i>=0) { S.anki.splice(i,1); toast("Removed from your Anki export"); } else { S.anki.push(id); toast("Added — "+S.anki.length+" card"+(S.anki.length===1?"":"s")+" ready to download"); } save(); renderCard(); return; }
+  if (t.closest("#ankiHelpBtn")) { const b = document.getElementById("ankiHelp"); if (b) b.hidden = !b.hidden; return; }
+  if (t.closest("#ankiAddInc")) { const c = chap(), s = store(); let n=0; c.ids.forEach(id=>{ const q=byId[id]; if (q && status(q,s)==="bad" && !S.anki.includes(id)) { S.anki.push(id); n++; } }); save(); renderCard(); toast(n ? `Added ${n} incorrect question${n===1?"":"s"} — ${S.anki.length} ready` : "No new incorrect questions to add"); return; }
   if (t.closest("#flagBtn")) { const id=curQ().id; S.flag[id]=!S.flag[id]; if(!S.flag[id]) delete S.flag[id]; save(); renderChaps(); renderRail(); renderCard(); return; }
   if (t.closest("#hlBtn")) { if (highlightSelection()) { renderCard(); return; } mode = mode==="hl"?null:"hl"; renderCard(); return; }
   if (t.closest("#hlCaret")) { $("hlMenu").classList.toggle("open"); return; }
@@ -1427,12 +1585,13 @@ document.addEventListener("click", e=>{
   if (t.closest("#resetQBtn")) {
     const q = curQ(), s = store(); if (!hasProgress(q) || timedDone()) return;
     delete s.ans[q.id]; delete s.sel[q.id]; delete s.strike[q.id]; delete s.order[q.id];
+    if (s.first) delete s.first[q.id]; if (s.chgq) delete s.chgq[q.id]; delete S.qtime[q.id];
     save(); renderChaps(); renderRail(); renderStats(); renderCard(); toast("Question reset"); return;
   }
   if (t.closest("#resetBtn")) {
     const c = chap();
     if (!confirm("Reset all answers in “"+(c.title||c.name)+"”? Highlights, flags and notes are kept.")) return;
-    c.ids.forEach(id=>{ delete S.ans[id]; delete S.sel[id]; delete S.strike[id]; delete S.order[id]; });
+    c.ids.forEach(id=>{ delete S.ans[id]; delete S.sel[id]; delete S.strike[id]; delete S.order[id]; delete S.first[id]; delete S.chgq[id]; delete S.qtime[id]; });
     S.pos[c.key] = 0; save(); renderAll(); toast("Chapter reset"); return;
   }
 });
