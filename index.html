@@ -399,16 +399,17 @@ table.rt tr.click:hover td{background:var(--hover)}
 <div class="lightbox" id="lightbox"><img alt=""></div>
 <div class="toast" id="toast"></div>
 
-<script src="images.js?v=14"></script>
-<script src="questions.js?v=14"></script>
-<script src="histology-review.js?v=14"></script>
-<script src="physiology.js?v=14"></script>
-<script src="physiology-review.js?v=14"></script>
-<script src="biochemistry.js?v=14"></script>
-<script src="anatomy.js?v=14"></script>
-<script src="embryology.js?v=14"></script>
-<script src="fbs-physiology.js?v=14"></script>
-<script src="crs-embryology.js?v=14"></script>
+<script src="images.js?v=15"></script>
+<script src="questions.js?v=15"></script>
+<script src="histology-review.js?v=15"></script>
+<script src="physiology.js?v=15"></script>
+<script src="physiology-review.js?v=15"></script>
+<script src="biochemistry.js?v=15"></script>
+<script src="anatomy.js?v=15"></script>
+<script src="embryology.js?v=15"></script>
+<script src="fbs-physiology.js?v=15"></script>
+<script src="fbs-anki.js?v=15"></script>
+<script src="crs-embryology.js?v=15"></script>
 <script>
 (function(){
 // =====================================================================
@@ -433,6 +434,7 @@ const SECTIONS = [
   {course:"msk", name:"MSK Embryology", all:"All Embryology", prefix:"e", topics:window.EMB_TOPICS, qs:window.EMB_QUESTIONS},
   {course:"fbs", name:"FBS Physiology", all:"All FBS Physiology", prefix:"fp", topics:window.FBS_PHYS_TOPICS, qs:window.FBS_PHYS_QUESTIONS,
    extra:[{name:"FBS Review 1", f:q=>q.src==="r1"}, {name:"Class Review Qs", f:q=>q.src==="cls"}, {name:"RMP & AP Questions", f:q=>q.src==="rmp"}]},
+  {course:"fbs", name:"Anki Deck Practice Q's", all:"All Anki Deck Q's", prefix:"fa", topics:window.FBS_ANKI_TOPICS, qs:window.FBS_ANKI_QUESTIONS},
   {course:"crs", name:"CRS Embryology", all:"All CRS Embryology", prefix:"ce", topics:window.CRS_EMB_TOPICS, qs:window.CRS_EMB_QUESTIONS}
 ].filter(s=>s.qs && s.qs.length);
 
@@ -1149,7 +1151,7 @@ const LAZY_IMGS = [{re:/^fp-/, file:"images-fbs.js"}, {re:/^ce-/, file:"images-c
 const lazyState = {}; // file -> 1 loading, 2 done
 function loadLazyImgs(file){
   if (lazyState[file]) return; lazyState[file] = 1;
-  const sc = document.createElement("script"); sc.src = file+"?v=14";
+  const sc = document.createElement("script"); sc.src = file+"?v=15";
   sc.onload = ()=>{ lazyState[file] = 2; fixImgs(document); };
   sc.onerror = ()=>{ delete lazyState[file]; };
   document.head.appendChild(sc);
