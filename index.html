@@ -151,7 +151,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 <body>
 <div class="app">
   <aside class="side" id="side">
-    <div class="brand"><h1>MSK Summative</h1><p>Histology · Physiology · Biochemistry · Anatomy</p></div>
+    <div class="brand"><h1>MSK Summative</h1><p>Histology · Physiology · Biochemistry · Anatomy · Embryology</p></div>
     <div class="chaps" id="chaps"></div>
     <div class="side-foot">Your answers, highlights, flags &amp; notes are saved automatically in this browser. Reset chapter never erases highlights, flags or notes.<br><b>Keys:</b> ← → move · A–F pick · Enter submit</div>
   </aside>
@@ -177,13 +177,14 @@ button{font:inherit;color:inherit;cursor:pointer}
 <div class="lightbox" id="lightbox"><img alt=""></div>
 <div class="toast" id="toast"></div>
 
-<script src="images.js?v=8"></script>
-<script src="questions.js?v=8"></script>
-<script src="histology-review.js?v=8"></script>
-<script src="physiology.js?v=8"></script>
-<script src="physiology-review.js?v=8"></script>
-<script src="biochemistry.js?v=8"></script>
-<script src="anatomy.js?v=8"></script>
+<script src="images.js?v=9"></script>
+<script src="questions.js?v=9"></script>
+<script src="histology-review.js?v=9"></script>
+<script src="physiology.js?v=9"></script>
+<script src="physiology-review.js?v=9"></script>
+<script src="biochemistry.js?v=9"></script>
+<script src="anatomy.js?v=9"></script>
+<script src="embryology.js?v=9"></script>
 <script>
 (function(){
 const SECTIONS = [
@@ -194,7 +195,8 @@ const SECTIONS = [
   {name:"Biochemistry", all:"All Biochemistry", prefix:"b", topics:window.BCHM_TOPICS, qs:window.BCHM_QUESTIONS,
    extra:[{name:"From the Document", f:q=>q.src==="doc"}, {name:"Blueprint Practice (new)", f:q=>q.src==="new"}]},
   {name:"Anatomy (BRS)", all:"All Anatomy", prefix:"a", topics:window.ANAT_TOPICS, qs:window.ANAT_QUESTIONS,
-   extra:[{name:"All Upper Limb", f:q=>q.limb==="Upper Limb"}, {name:"All Lower Limb", f:q=>q.limb==="Lower Limb"}]}
+   extra:[{name:"All Upper Limb", f:q=>q.limb==="Upper Limb"}, {name:"All Lower Limb", f:q=>q.limb==="Lower Limb"}]},
+  {name:"MSK Embryology", all:"All Embryology", prefix:"e", topics:window.EMB_TOPICS, qs:window.EMB_QUESTIONS}
 ].filter(s=>s.qs && s.qs.length);
 const Q = [], CHAPTERS = [];
 SECTIONS.forEach(sec=>{
