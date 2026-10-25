@@ -220,6 +220,17 @@ input[type=checkbox],input[type=radio]{accent-color:var(--blue);width:16px;heigh
 .empty{color:var(--muted);padding:30px 0}
 
 .sres{display:flex;flex-direction:column;gap:8px}
+.hsearch,.psearch{position:relative;margin:0 0 18px}
+.hsearch input,.psearch input{width:100%;background:var(--card);border:1px solid var(--line2);border-radius:10px;color:var(--text);padding:12px 14px 12px 40px;font:inherit;font-size:15px}
+.hsearch input:focus,.psearch input:focus{outline:none;border-color:var(--blue)}
+.hsearch .ic,.psearch .ic{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:17px;pointer-events:none}
+.psearch{margin-bottom:10px}
+.sscope,.sfilt{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.chip2{background:var(--card);border:1px solid var(--line2);color:var(--text);border-radius:999px;padding:5px 12px;font-size:13px;cursor:pointer}
+.chip2.on{border-color:var(--blue);background:color-mix(in srgb,var(--blue) 14%,transparent);color:var(--text)}
+.chip2:disabled{opacity:.4;cursor:default}
+.chip2 b{font-weight:700;margin-left:2px}
+.cbadge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.04em;padding:1px 6px;border-radius:4px;background:color-mix(in srgb,var(--blue) 18%,transparent);color:var(--text);margin-right:2px}
 .sitem{display:block;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
 .sitem:hover{border-color:var(--blue-line)}
 .sitem .sm{color:var(--muted);font-size:12.5px;font-weight:600;margin-bottom:4px}
@@ -399,17 +410,17 @@ table.rt tr.click:hover td{background:var(--hover)}
 <div class="lightbox" id="lightbox"><img alt=""></div>
 <div class="toast" id="toast"></div>
 
-<script src="images.js?v=15"></script>
-<script src="questions.js?v=15"></script>
-<script src="histology-review.js?v=15"></script>
-<script src="physiology.js?v=15"></script>
-<script src="physiology-review.js?v=15"></script>
-<script src="biochemistry.js?v=15"></script>
-<script src="anatomy.js?v=15"></script>
-<script src="embryology.js?v=15"></script>
-<script src="fbs-physiology.js?v=15"></script>
-<script src="fbs-anki.js?v=15"></script>
-<script src="crs-embryology.js?v=15"></script>
+<script src="images.js?v=16"></script>
+<script src="questions.js?v=16"></script>
+<script src="histology-review.js?v=16"></script>
+<script src="physiology.js?v=16"></script>
+<script src="physiology-review.js?v=16"></script>
+<script src="biochemistry.js?v=16"></script>
+<script src="anatomy.js?v=16"></script>
+<script src="embryology.js?v=16"></script>
+<script src="fbs-physiology.js?v=16"></script>
+<script src="fbs-anki.js?v=16"></script>
+<script src="crs-embryology.js?v=16"></script>
 <script>
 (function(){
 // =====================================================================
@@ -489,7 +500,9 @@ let reportTest = null;
 let mode = null;            // highlight tool: "hl" | "er" | null
 let paused = false;
 let searchTerm = "";
-let searchRet = null;       // where you were before searching: {view, key, pos, report}
+let searchRet = null;
+let searchScope = "course"; // "course" = current summative only, "all" = FBS + MSK + CRS
+let searchFilter = "all";   // when scope is "all": which summative's results to show ("all" or a course id)       // where you were before searching: {view, key, pos, report}
 let showAllTests = false;
 let openMenu = null;        // "opts" | "text" | null
 let focusOn = false;
@@ -528,7 +541,8 @@ function isMixed(t){ return !!t && testCourses(t).length > 1; }
 function courseTests(){ return S.tests.filter(t=>testCourses(t).includes(S.course)); }
 // In a test that mixes summatives, label each question's section with its summative (e.g. "MSK · Histology").
 function secLabel(q, t){
-  if (!isMixed(t)) return q.sec;
+  const mixed = t && (t.kind==="search" ? S.searchCourse==="all" : isMixed(t.test || t));
+  if (!mixed) return q.sec;
   const cn = COURSE_BY_ID[q.course] ? COURSE_BY_ID[q.course].name : "";
   return q.sec.startsWith(cn+" ") ? q.sec : cn+" · "+q.sec;
 }
@@ -565,7 +579,7 @@ function chapCourse(c){
   if (c.test) { const cs = testCourses(c.test); return cs.includes(S.course) ? S.course : cs[0]; }
   const m = c.key.match(/^(\w+):rv:/);
   if (m) return COURSE_BY_ID[m[1]] ? m[1] : (SEC_BY_PFX[m[1]] ? SEC_BY_PFX[m[1]].course : null);
-  if (c.key==="search") return S.searchCourse || S.course;
+  if (c.key==="search") return (S.searchCourse==="all" || !S.searchCourse) ? S.course : S.searchCourse;
   return null;
 }
 function firstChap(){ return STATIC.find(c=>c.course===S.course) || null; }
@@ -607,7 +621,7 @@ function backLabel(){
 }
 function leaveSearch(){
   clearTimeout(searchT);
-  $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = "";
+  $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = ""; searchScope = "course"; searchFilter = "all";
   const r = searchRet; searchRet = null;
   if (r && r.view==="quiz" && getChap(r.key)) {
     S.cur = r.key; S.curBy[S.course] = r.key; if (r.pos !== undefined) S.pos[r.key] = r.pos;
@@ -760,7 +774,7 @@ function renderCard(){
   const done = answered(q, s) || (tDone && !isReveal);
   const stemHTML = S.hl[q.id] || (q.html ? q.s : esc(q.s));
   let h = `<div class="qhead">
-      <div class="qmeta">Question <b>${p+1}</b> of ${n} &nbsp;·&nbsp; ${esc(secLabel(q, chap() && chap().test))} &nbsp;·&nbsp; ${esc(q.t)}${srcBadge(q)}</div>
+      <div class="qmeta">Question <b>${p+1}</b> of ${n} &nbsp;·&nbsp; ${esc(secLabel(q, chap()))} &nbsp;·&nbsp; ${esc(q.t)}${srcBadge(q)}</div>
       <div class="qtools">
         <button class="btn ${mode==="hl"?"on":""}" id="hlBtn">✎ Highlight</button>
         <button class="btn ${mode==="er"?"on":""}" id="erBtn">⌫ Eraser</button>
@@ -850,10 +864,13 @@ function showPage(html){
 }
 
 // ---------- Home ----------
+function homeSearchBox(){
+  return `<div class="hsearch"><span class="ic">⌕</span><input id="homeSearchIn" type="search" autocomplete="off" placeholder="Search all ${Q.length} questions across FBS, MSK and CRS…"></div>`;
+}
 function renderHome(){
   const all = courseQ(), done = all.filter(q=>answered(q,S)), ok = done.filter(q=>status(q,S)==="ok").length;
   if (!all.length) {
-    showPage(`<div class="page"><div class="hero"><div><h2>${esc(course().name)} Summative</h2><p class="sub">${esc(course().full)}</p></div></div>
+    showPage(`<div class="page"><div class="hero"><div><h2>${esc(course().name)} Summative</h2><p class="sub">${esc(course().full)}</p></div></div>${homeSearchBox()}
       <div class="emptybox"><h3>No ${esc(course().name)} questions yet</h3>
       <p>This summative is set up and ready. Once questions are added, its sections, review lists, tests, search and notes will all appear here — kept separate from your other summatives.</p></div></div>`);
     return;
@@ -863,7 +880,7 @@ function renderHome(){
   const c = chap(), notesN = all.filter(q=>S.notes[q.id] && S.notes[q.id].trim()).length;
   let h = `<div class="page">
     <div class="hero"><div><h2>${esc(course().name)} Summative</h2><p class="sub">${done.length} of ${all.length} questions answered${done.length?` · ${acc}% correct`:""}</p></div>
-      <div class="ptools" style="margin:0"><button class="btn primary" data-act="build">＋ Build a test</button><button class="btn" data-act="notes">✎ My notes${notesN?` (${notesN})`:""}</button></div></div>`;
+      <div class="ptools" style="margin:0"><button class="btn primary" data-act="build">＋ Build a test</button><button class="btn" data-act="notes">✎ My notes${notesN?` (${notesN})`:""}</button></div></div>` + homeSearchBox();
   if (c && c.ids.length) {
     const p = Math.min(S.pos[c.key]||0, c.ids.length-1);
     h += `<div class="cont"><div><div class="l">Continue where you left off</div>
@@ -1075,10 +1092,10 @@ const SEARCH_IDX = Q.map(q=>({q, fields:[
   ["question", plain(q.s)], ["choices", (q.c||[]).join(" · ")], ["answer", q.ans||""],
   ["explanation", [plain(q.eh), q.se, q.e].filter(Boolean).join(" ")]
 ]}));
-function searchQs(term){
+function searchQs(term, scope){
   const t = term.toLowerCase(), res = [];
   SEARCH_IDX.forEach(x=>{
-    if (x.q.course !== S.course) return;
+    if ((scope||searchScope)!=="all" && x.q.course !== S.course) return;
     for (const [where, txt] of x.fields) {
       const i = txt.toLowerCase().indexOf(t);
       if (i >= 0) { res.push({q:x.q, where, txt, i}); break; }
@@ -1091,19 +1108,49 @@ function snippet(txt, i, len){
   const pre = (a>0?"…":"") + txt.slice(a, i), hit = txt.slice(i, i+len), post = txt.slice(i+len, b) + (b<txt.length?"…":"");
   return esc(pre) + "<mark>" + esc(hit) + "</mark>" + esc(post);
 }
-function renderSearch(){
-  const term = searchTerm.trim();
-  const res = searchQs(term);
-  let h = `<div class="page"><div class="ptools" style="margin-bottom:12px"><button class="btn" id="searchBack">← Back to ${esc(backLabel())}</button></div><h2>Search ${esc(course().name)}</h2><p class="sub"><b>${res.length}</b> ${esc(course().name)} question${res.length===1?"":"s"} mention “${esc(term)}”${res.length?" — click one to open it, or study them all as a set.":"."}</p>`;
+function searchResultsHTML(term){
+  const all = searchScope==="all";
+  const raw = term.length>=2 ? searchQs(term) : [];
+  if (all && searchFilter!=="all" && !raw.some(r=>r.q.course===searchFilter)) searchFilter = "all";
+  const res = all && searchFilter!=="all" ? raw.filter(r=>r.q.course===searchFilter) : raw;
+  S._lastSearch = res.map(r=>r.q.id);
+  if (term.length < 2) return `<p class="sub">Type at least 2 letters to search${all?" every FBS, MSK and CRS question":" "+esc(course().name)}.</p>`;
+  const where = all ? (searchFilter==="all" ? "across FBS, MSK and CRS" : "in "+COURSE_BY_ID[searchFilter].name) : "in "+esc(course().name);
+  let h = `<p class="sub"><b>${res.length}</b> question${res.length===1?"":"s"} ${where} mention “${esc(term)}”${res.length?" — click one to open it, or study them all as a set.":"."}</p>`;
+  if (all) {
+    const cnt = id => raw.filter(r=>r.q.course===id).length;
+    h += `<div class="sfilt"><button class="chip2 ${searchFilter==="all"?"on":""}" data-sfilt="all">All <b>${raw.length}</b></button>` +
+      COURSES.map(c=>`<button class="chip2 ${searchFilter===c.id?"on":""}" data-sfilt="${c.id}" ${cnt(c.id)?"":"disabled"}>${esc(c.name)} <b>${cnt(c.id)}</b></button>`).join("") + `</div>`;
+  }
   if (res.length) h += `<div class="ptools"><button class="btn primary" data-sopen="0">Study these ${res.length} questions →</button></div>`;
   h += `<div class="sres">` + res.slice(0,300).map((r,i)=>{
-    const stt = status(r.q,S);
-    return `<button class="sitem" data-sopen="${i}"><div class="sm">${esc(r.q.sec)} · ${esc(r.q.t)} · Q${r.q.num}
+    const stt = status(r.q,S), cn = COURSE_BY_ID[r.q.course].name;
+    return `<button class="sitem" data-sopen="${i}"><div class="sm">${all?`<span class="cbadge">${esc(cn)}</span> `:""}${esc(r.q.sec)} · ${esc(r.q.t)} · Q${r.q.num}
       ${stt?`<span class="st ${stt}">${stt==="ok"?"✓ correct":"✗ incorrect"}</span>`:""}</div>
       <div class="ss">${snippet(r.txt, r.i, term.length)}</div>${r.where!=="question"?`<div class="where">found in the ${r.where}</div>`:""}</button>`;
-  }).join("") + `</div>` + (res.length>300?`<p class="muted">Showing the first 300 results.</p>`:"") + `</div>`;
+  }).join("") + `</div>` + (res.length>300?`<p class="muted">Showing the first 300 results.</p>`:"");
+  return h;
+}
+function renderSearch(){
+  const term = searchTerm.trim(), all = searchScope==="all";
+  // While typing on the search page, only refresh the results so the box keeps focus.
+  if ($("pageSearchIn") && !$("pageView").hidden) {
+    $("searchTitle").textContent = all ? "Search all summatives" : "Search " + course().name;
+    $("sresWrap").innerHTML = searchResultsHTML(term);
+    document.querySelectorAll("[data-sscope]").forEach(b=>b.classList.toggle("on", b.dataset.sscope===searchScope));
+    return;
+  }
+  const h = `<div class="page"><div class="ptools" style="margin-bottom:12px"><button class="btn" id="searchBack">← Back to ${esc(backLabel())}</button></div>
+    <h2 id="searchTitle">${all ? "Search all summatives" : "Search " + esc(course().name)}</h2>
+    <div class="psearch"><span class="ic">⌕</span><input id="pageSearchIn" type="search" autocomplete="off" placeholder="Search question stems, choices and explanations…" value="${esc(searchTerm)}"></div>
+    <div class="sscope"><button class="chip2 ${!all?"on":""}" data-sscope="course">${esc(course().name)} only</button><button class="chip2 ${all?"on":""}" data-sscope="all">All summatives (FBS · MSK · CRS)</button></div>
+    <div id="sresWrap">${searchResultsHTML(term)}</div></div>`;
   showPage(h);
-  S._lastSearch = res.map(r=>r.q.id);
+  const inp = $("pageSearchIn"); inp.focus(); inp.setSelectionRange(inp.value.length, inp.value.length);
+}
+function startGlobalSearch(v){
+  searchScope = "all"; searchFilter = "all"; searchTerm = v;
+  rememberSpot(); view = "search"; renderAll();
 }
 
 // =====================================================================
@@ -1151,7 +1198,7 @@ const LAZY_IMGS = [{re:/^fp-/, file:"images-fbs.js"}, {re:/^ce-/, file:"images-c
 const lazyState = {}; // file -> 1 loading, 2 done
 function loadLazyImgs(file){
   if (lazyState[file]) return; lazyState[file] = 1;
-  const sc = document.createElement("script"); sc.src = file+"?v=15";
+  const sc = document.createElement("script"); sc.src = file+"?v=16";
   sc.onload = ()=>{ lazyState[file] = 2; fixImgs(document); };
   sc.onerror = ()=>{ delete lazyState[file]; };
   document.head.appendChild(sc);
@@ -1254,7 +1301,11 @@ document.addEventListener("click", e=>{
 
   // pages
   const sopen = t.closest("[data-sopen]");
-  if (sopen) { S.snap.search = S._lastSearch || []; S.searchQ = searchTerm.trim(); S.searchCourse = S.course; openChapter("search", +sopen.dataset.sopen); return; }
+  const ssc = t.closest("[data-sscope]");
+  if (ssc) { searchScope = ssc.dataset.sscope; searchFilter = "all"; renderSearch(); return; }
+  const sft = t.closest("[data-sfilt]");
+  if (sft && !sft.disabled) { searchFilter = sft.dataset.sfilt; renderSearch(); return; }
+  if (sopen) { S.snap.search = S._lastSearch || []; S.searchQ = searchTerm.trim(); S.searchCourse = searchScope==="all" ? "all" : S.course; openChapter("search", +sopen.dataset.sopen); return; }
   const oq = t.closest("[data-openq]"); if (oq) { openInSection(oq.dataset.openq); return; }
   if (t.closest("#printNotesBtn")) { window.print(); return; }
   if (t.closest("#dlNotesBtn")) { downloadNotes(); return; }
@@ -1344,12 +1395,25 @@ document.addEventListener("toggle", e=>{ const d = e.target; if (d.dataset && d.
 
 // search box
 let searchT = 0;
+document.addEventListener("input", e=>{
+  const id = e.target.id;
+  if (id!=="homeSearchIn" && id!=="pageSearchIn") return;
+  const v = e.target.value;
+  clearTimeout(searchT);
+  searchT = setTimeout(()=>{
+    if (id==="homeSearchIn") { if (v.trim().length >= 2) startGlobalSearch(v); return; }
+    searchTerm = v; renderSearch();
+  }, 180);
+});
+document.addEventListener("keydown", e=>{
+  if (e.key==="Escape" && (e.target.id==="pageSearchIn" || e.target.id==="homeSearchIn")) { e.target.blur(); if (inSearch()) leaveSearch(); else e.target.value=""; }
+});
 $("searchIn").addEventListener("input", e=>{
   const v = e.target.value; $("searchWrap").classList.toggle("has", !!v);
   clearTimeout(searchT);
   searchT = setTimeout(()=>{
     searchTerm = v;
-    if (v.trim().length >= 2) { rememberSpot(); view = "search"; renderAll(); }
+    if (v.trim().length >= 2) { if (!inSearch()) searchScope = "course"; rememberSpot(); view = "search"; $("pageSearchIn") && ($("pageSearchIn").value = v); renderAll(); $("searchIn").focus(); }
     else if (!v.trim() && view==="search") leaveSearch();
   }, 220);
 });
