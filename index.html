@@ -117,7 +117,16 @@ button{font:inherit;color:inherit;cursor:pointer}
 .eh p{margin:0 0 8px;line-height:1.7;font-size:15.5px}
 .stem mark{background:var(--mark);color:#1a1300;border-radius:2px;padding:0 1px}
 .stem.hl-mode{cursor:text}
-.stem.er-mode mark{cursor:pointer;outline:1px dashed #000}
+.stem.hl-mode mark{cursor:pointer}
+.stem mark.hl-g,.sw.hl-g{background:#9fe0a0}
+.stem mark.hl-b,.sw.hl-b{background:#a9d4ff}
+.stem mark.hl-p,.sw.hl-p{background:#ffb8dc}
+.stem mark.hl-o,.sw.hl-o{background:#ffc98f}
+.sw.hl-y{background:var(--mark)}
+.hlgroup{display:inline-flex;align-items:center;gap:6px}
+.sws{display:inline-flex;gap:4px;align-items:center}
+.sw{width:18px;height:18px;border-radius:50%;border:2px solid transparent;padding:0;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(0,0,0,.25)}
+.sw.on{border-color:var(--text)}
 .qimg{display:block;max-width:100%;max-height:440px;border-radius:6px;border:1px solid var(--line);margin:4px 0 20px;background:#fff;cursor:zoom-in}
 .choices{display:flex;flex-direction:column;gap:9px}
 .ch{display:flex;align-items:center;gap:14px;background:var(--choice);border:1px solid var(--line2);border-radius:7px;padding:11px 14px;cursor:pointer;user-select:none}
@@ -414,17 +423,17 @@ table.rt tr.click:hover td{background:var(--hover)}
 <div class="lightbox" id="lightbox"><img alt=""></div>
 <div class="toast" id="toast"></div>
 
-<script src="images.js?v=17"></script>
-<script src="questions.js?v=17"></script>
-<script src="histology-review.js?v=17"></script>
-<script src="physiology.js?v=17"></script>
-<script src="physiology-review.js?v=17"></script>
-<script src="biochemistry.js?v=17"></script>
-<script src="anatomy.js?v=17"></script>
-<script src="embryology.js?v=17"></script>
-<script src="fbs-physiology.js?v=17"></script>
-<script src="fbs-anki.js?v=17"></script>
-<script src="crs-embryology.js?v=17"></script>
+<script src="images.js?v=18"></script>
+<script src="questions.js?v=18"></script>
+<script src="histology-review.js?v=18"></script>
+<script src="physiology.js?v=18"></script>
+<script src="physiology-review.js?v=18"></script>
+<script src="biochemistry.js?v=18"></script>
+<script src="anatomy.js?v=18"></script>
+<script src="embryology.js?v=18"></script>
+<script src="fbs-physiology.js?v=18"></script>
+<script src="fbs-anki.js?v=18"></script>
+<script src="crs-embryology.js?v=18"></script>
 <script>
 (function(){
 // =====================================================================
@@ -501,7 +510,11 @@ function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){
 
 let view = "home";          // home | quiz | builder | notes | search | report
 let reportTest = null;
-let mode = null;            // highlight tool: "hl" | "er" | null
+let mode = null;            // highlight tool: "hl" | null
+// Highlighter colors. Your last-used color is remembered in this browser.
+const HL_COLORS = [{k:"y",name:"Yellow"},{k:"g",name:"Green"},{k:"b",name:"Blue"},{k:"p",name:"Pink"},{k:"o",name:"Orange"}];
+let hlColor = "y";
+try { const c = localStorage.getItem("msk-hlcolor"); if (HL_COLORS.some(x=>x.k===c)) hlColor = c; } catch(e) {}
 let paused = false;
 let searchTerm = "";
 let searchRet = null;
@@ -780,12 +793,11 @@ function renderCard(){
   let h = `<div class="qhead">
       <div class="qmeta">Question <b>${p+1}</b> of ${n} &nbsp;·&nbsp; ${esc(secLabel(q, chap()))} &nbsp;·&nbsp; ${esc(q.t)}${srcBadge(q)}</div>
       <div class="qtools">
-        <button class="btn ${mode==="hl"?"on":""}" id="hlBtn">✎ Highlight</button>
-        <button class="btn ${mode==="er"?"on":""}" id="erBtn">⌫ Eraser</button>
+        <span class="hlgroup"><button class="btn ${mode==="hl"?"on":""}" id="hlBtn" title="Select text to highlight it. Highlight an already-highlighted part to erase it. Click a highlight to remove it.">✎ Highlight</button><span class="sws">${HL_COLORS.map(c=>`<button class="sw hl-${c.k} ${hlColor===c.k?"on":""}" data-hlc="${c.k}" title="${c.name} highlighter" aria-label="${c.name} highlighter"></button>`).join("")}</span></span>
         <button class="btn ${S.flag[q.id]?"flagged":""}" id="flagBtn">⚑ ${S.flag[q.id]?"Flagged":"Flag"}</button>
         <button class="btn" id="resetQBtn" title="Clear your answer for this question only" ${hasProgress(q)&&!tDone?"":"disabled"}>↺ Reset question</button>
       </div></div>
-    <div class="stem ${mode==="hl"?"hl-mode":""} ${mode==="er"?"er-mode":""}" id="stem">${stemHTML}</div>`;
+    <div class="stem ${mode==="hl"?"hl-mode":""}" id="stem">${stemHTML}</div>`;
   if (q.img) h += `<img class="qimg zoom" src="${q.img}" alt="Image for question ${p+1}">`;
 
   if (!isReveal) {
@@ -1206,7 +1218,7 @@ const LAZY_IMGS = [{re:/^fp-/, file:"images-fbs.js"}, {re:/^ce-/, file:"images-c
 const lazyState = {}; // file -> 1 loading, 2 done
 function loadLazyImgs(file){
   if (lazyState[file]) return; lazyState[file] = 1;
-  const sc = document.createElement("script"); sc.src = file+"?v=17";
+  const sc = document.createElement("script"); sc.src = file+"?v=18";
   sc.onload = ()=>{ lazyState[file] = 2; fixImgs(document); };
   sc.onerror = ()=>{ delete lazyState[file]; };
   document.head.appendChild(sc);
@@ -1224,15 +1236,46 @@ function saveStem(){
   if (el.querySelector("mark")) S.hl[q.id] = c.innerHTML; else delete S.hl[q.id];
   save();
 }
+// Pull a node out of any highlight it sits inside, splitting that highlight around it.
+function liftOutOfMarks(node, root){
+  let p = node.parentElement;
+  while (p && p !== root && root.contains(p)) {
+    if (p.tagName === "MARK") {
+      const before = p.cloneNode(false), after = p.cloneNode(false);
+      while (p.firstChild && p.firstChild !== node) before.appendChild(p.firstChild);
+      p.removeChild(node);
+      while (p.firstChild) after.appendChild(p.firstChild);
+      if (before.textContent) p.parentNode.insertBefore(before, p);
+      p.parentNode.insertBefore(node, p);
+      if (after.textContent) p.parentNode.insertBefore(after, p);
+      p.remove();
+    }
+    p = node.parentElement;
+  }
+}
 function highlightSelection(){
   const el = $("stem"), sel = window.getSelection();
   if (!el || !sel.rangeCount || sel.isCollapsed) return false;
   const r = sel.getRangeAt(0);
   if (!el.contains(r.commonAncestorContainer)) return false;
+  // If everything selected is already highlighted, this acts as the eraser.
+  const tw = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+  let anyText = false, allMarked = true;
+  for (let n = tw.nextNode(); n; n = tw.nextNode()) {
+    if (!r.intersectsNode(n) || !n.textContent.trim()) continue;
+    anyText = true;
+    const mk = n.parentElement.closest("mark");
+    if (!mk || !el.contains(mk)) { allMarked = false; break; }
+  }
+  if (!anyText) { sel.removeAllRanges(); return false; }
   const m = document.createElement("mark");
   m.appendChild(r.extractContents());
   r.insertNode(m);
   m.querySelectorAll("mark").forEach(x=>x.replaceWith(...x.childNodes));
+  liftOutOfMarks(m, el);
+  if (allMarked) m.replaceWith(...m.childNodes);          // erase
+  else m.className = "hl-" + hlColor;                       // highlight in the chosen color
+  el.querySelectorAll("mark").forEach(x=>{ if (!x.textContent) x.remove(); });
   sel.removeAllRanges(); el.normalize(); saveStem(); return true;
 }
 function endBlock(){
@@ -1361,9 +1404,11 @@ document.addEventListener("click", e=>{
   }
   if (t.closest("#flagBtn")) { const id=curQ().id; S.flag[id]=!S.flag[id]; if(!S.flag[id]) delete S.flag[id]; save(); renderChaps(); renderRail(); renderCard(); return; }
   if (t.closest("#hlBtn")) { if (highlightSelection()) { renderCard(); return; } mode = mode==="hl"?null:"hl"; renderCard(); return; }
-  if (t.closest("#erBtn")) { mode = mode==="er"?null:"er"; renderCard(); return; }
-  const mk = t.closest("#stem mark");
-  if (mk && mode==="er") { mk.replaceWith(...mk.childNodes); $("stem").normalize(); saveStem(); return; }
+  const swb = t.closest("[data-hlc]");
+  if (swb) {
+    hlColor = swb.dataset.hlc; try { localStorage.setItem("msk-hlcolor", hlColor); } catch(e) {}
+    mode = "hl"; highlightSelection(); renderCard(); return;
+  }
   if (t.closest("#scrambleBtn")) {
     const key = chap().key; S.scr[key] = !S.scr[key];
     if (S.scr[key]) chap().ids.forEach(id=>delete S.order[id]);
@@ -1428,7 +1473,11 @@ $("searchIn").addEventListener("input", e=>{
 $("searchIn").addEventListener("keydown", e=>{ if (e.key==="Escape") { $("searchClr").click(); e.target.blur(); } });
 
 document.addEventListener("mouseup", e=>{
-  if (view==="quiz" && mode==="hl" && e.target.closest && e.target.closest("#stem")) highlightSelection();
+  if (!(view==="quiz" && mode==="hl" && e.target.closest && e.target.closest("#stem"))) return;
+  const sel = window.getSelection();
+  if (sel && !sel.isCollapsed) { highlightSelection(); return; }
+  const mk = e.target.closest("#stem mark");
+  if (mk) { mk.replaceWith(...mk.childNodes); $("stem").normalize(); saveStem(); }
 });
 $("note").addEventListener("input", e=>{
   const id = curQ().id; if (e.target.value.trim()) S.notes[id]=e.target.value; else delete S.notes[id]; save();
