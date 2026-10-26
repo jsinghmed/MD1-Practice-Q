@@ -1,0 +1,2896 @@
+// FBS Embryology — from the FBS1 Embryology guide. xp = point marked in red / exam question in the guide
+window.FBS_EMB_TOPICS = ["Meiosis & Chromosome Counting", "Spermatogenesis & the Male Tract", "Oogenesis & the Ovary", "Menstrual Cycle & Hormones", "Fertilization, Cleavage & Implantation", "Week 2: Bilaminar Disc, Villi & Placenta Formation", "Yolk Sac, Primitive Gut & Umbilical Cord", "Week 3: Gastrulation & Germ Layers", "Mesoderm, Body Cavities & Neurulation", "Placenta: Structure, Variants & Pathology", "Prenatal Testing, Amniotic Fluid & Twins"];
+window.FBS_EMB_QUESTIONS = [
+{
+"t": "Meiosis & Chromosome Counting",
+"s": "During which substage of prophase I do homologous chromosomes pair in a synapse and exchange genetic material (crossing over)?",
+"c": [
+"Leptotene",
+"Zygotene",
+"Diplotene",
+"Pachytene",
+"Diakinesis"
+],
+"a": 3,
+"e": "Prophase I substages: Leptotene → Zygotene → Pachytene → Diplotene (LZPD). Pachytene is the key one: homologous chromosomes are paired in a crossover synapse, exchange genetic information, and then separate.",
+"w": [
+"Leptotene is when chromosomes first condense into thin threads.",
+"Zygotene is when homologs begin to pair, before crossing over.",
+"Diplotene is when homologs start to separate, after crossing over.",
+"Pachytene = crossing over between paired homologs.",
+"Diakinesis is not part of the professor's LZPD sequence; crossing over is already complete."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Meiosis & Chromosome Counting",
+"s": "A somatic cell has just completed S phase. What are its chromosome number (n) and DNA content (c)?",
+"c": [
+"2n, 4c",
+"1n, 2c",
+"1n, 1c",
+"2n, 2c",
+"4n, 4c"
+],
+"a": 0,
+"e": "n counts chromosome sets; c counts copies of DNA. A body cell before S phase is 2n, 2c. After S phase the DNA doubles but the chromosome number doesn't — each chromosome now has two sister chromatids — so it is 2n, 4c (still 46 chromosomes).",
+"w": [
+"Replication doubles c only: 2n, 4c.",
+"1n, 2c is the cell at the end of meiosis I.",
+"1n, 1c is a mature gamete after meiosis II.",
+"2n, 2c is the cell before S phase (or a new zygote).",
+"Chromosome number doesn't double in S phase."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Meiosis & Chromosome Counting",
+"s": "A cell has just completed meiosis I in spermatogenesis. Which best describes it?",
+"c": [
+"2n, 4c",
+"4n, 4c",
+"2n, 2c",
+"1n, 1c",
+"1n, 2c"
+],
+"a": 4,
+"e": "Flow: 2n, 2c → S phase → 2n, 4c → Meiosis I (homologous pairs separate) → 1n, 2c → Meiosis II (sister chromatids separate) → four cells each 1n, 1c. Meiosis I halves n; meiosis II halves c.",
+"w": [
+"That's the cell entering meiosis I.",
+"Four 1n, 1c cells exist only after meiosis II.",
+"That's a normal diploid cell before S phase.",
+"That's after meiosis II.",
+"Meiosis I separates homologs: haploid but chromatids still doubled."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Meiosis & Chromosome Counting",
+"s": "Which statement correctly contrasts meiosis with mitosis?",
+"c": [
+"Mitosis halves the chromosome number",
+"Meiosis occurs in all somatic cells",
+"Mitosis gives two 2n, 2c cells; meiosis gives four 1n, 1c cells",
+"Both produce haploid cells",
+"Meiosis involves only one division, with no reduction in DNA"
+],
+"a": 2,
+"e": "Mitosis: 2n, 4c → one division → two identical 2n, 2c cells (no reduction). Meiosis runs two divisions without re-copying DNA, taking a diploid cell to four haploid (1n, 1c) gametes, so fertilization restores 46 chromosomes.",
+"w": [
+"Mitosis keeps the chromosome number constant.",
+"Meiosis happens only in germ cells.",
+"Mitosis: two identical diploid cells; meiosis: four haploid cells.",
+"Only meiosis produces haploid cells.",
+"Meiosis has two divisions and reduces the chromosome number."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Meiosis & Chromosome Counting",
+"s": "Where does the primordial germ cell — the ancestor of both sperm and oocytes — arise, and where does it go?",
+"c": [
+"In the neural crest; it migrates to the adrenal medulla",
+"In the wall of the yolk sac; it migrates to the developing gonads",
+"In the notochord; it migrates to the somites",
+"In the gonad; it migrates to the yolk sac",
+"In the trophoblast; it migrates to the placenta"
+],
+"a": 1,
+"e": "The primordial germ cell arises in the wall of the yolk sac and migrates to the developing gonads (future testes or ovaries) on the posterior wall of the embryo. This is true for both sexes. It then multiplies by mitosis before meiosis begins.",
+"w": [
+"Neural crest makes melanocytes and the adrenal medulla.",
+"Yolk sac wall → gonads.",
+"The notochord forms the axis; somites form bone, muscle and dermis.",
+"Reversed.",
+"The trophoblast forms the placenta, not germ cells."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Meiosis & Chromosome Counting",
+"s": "Failure of homologous chromosomes or sister chromatids to separate during meiosis, producing one gamete with an extra chromosome and one with a missing chromosome, is called what?",
+"c": [
+"Polyspermy",
+"Translocation",
+"Capacitation",
+"Nondisjunction",
+"Crossing over"
+],
+"a": 3,
+"e": "Nondisjunction: chromosomes fail to separate, giving one daughter cell an extra chromosome (fertilized → trisomy) and the other one too few (→ monosomy). The majority of spontaneous abortions are due to chromosomal abnormalities.",
+"w": [
+"Polyspermy is entry of more than one sperm.",
+"Translocation moves a segment between chromosomes.",
+"Capacitation activates sperm in the female tract.",
+"Failure to separate = nondisjunction.",
+"Crossing over is normal exchange between homologs in pachytene."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Meiosis & Chromosome Counting",
+"s": "A newborn has rocker-bottom feet, clenched hands with overlapping fingers, and a small jaw. Karyotype shows three copies of chromosome 18. What is the syndrome?",
+"c": [
+"Edwards syndrome",
+"Patau syndrome",
+"Down syndrome",
+"Turner syndrome",
+"Klinefelter syndrome"
+],
+"a": 0,
+"e": "Trisomy 21 → Down; trisomy 18 → Edwards; trisomy 13 → Patau. Keep the order 21 · 18 · 13 = Down · Edwards · Patau.",
+"w": [
+"Trisomy 18 = Edwards.",
+"Patau is trisomy 13.",
+"Down syndrome is trisomy 21.",
+"Turner is 45,X (monosomy).",
+"Klinefelter is 47,XXY."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Meiosis & Chromosome Counting",
+"s": "Which trisomy causes Patau syndrome?",
+"c": [
+"Trisomy 21",
+"Trisomy 16",
+"Trisomy X",
+"Trisomy 18",
+"Trisomy 13"
+],
+"a": 4,
+"e": "21 · 18 · 13 = Down · Edwards · Patau.",
+"w": [
+"Trisomy 21 = Down.",
+"Trisomy 16 is common in miscarriages but isn't Patau.",
+"Trisomy X is triple X syndrome.",
+"Trisomy 18 = Edwards.",
+"Trisomy 13 = Patau."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Spermatogenesis & the Male Tract",
+"s": "In the developing testis, the sex (medullary) cords that canalize become which structures, and the cords that do not canalize become what?",
+"c": [
+"Granulosa cells; ovarian follicles",
+"Vas deferens; prostate",
+"Seminiferous tubules; interstitium",
+"Leydig cells; Sertoli cells only",
+"Rete testis; epididymis"
+],
+"a": 2,
+"e": "The testis is covered by celomic epithelium that gives off sex (medullary) cords. Most canalize into seminiferous tubules (where sperm are made); the cords that don't canalize break down into the interstitial tissue between them. In the female, the cords don't canalize and become granulosa cells.",
+"w": [
+"That's the female pattern.",
+"These are downstream ducts and glands.",
+"Canalized → seminiferous tubules; non-canalized → interstitial tissue.",
+"These are cells within the tubules and interstitium.",
+"The rete testis collects from the tubules; it isn't the fate of the cords."
+],
+"src": "fen",
+"fig": [
+"fe-p04"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Spermatogenesis & the Male Tract",
+"s": "Which cells of the testis produce testosterone, and where are they located?",
+"c": [
+"Theca interna cells, between follicles",
+"Leydig cells, in the interstitial tissue",
+"Sertoli cells, on the tubule wall",
+"Granulosa cells, around the oocyte",
+"Spermatogonia, in the lumen"
+],
+"a": 1,
+"e": "Leydig cells sit in the interstitial tissue between the seminiferous tubules and make testosterone (LT — Left Trigger: Leydig = Testosterone). Sertoli cells line the tubule walls.",
+"w": [
+"Theca interna is in the ovary.",
+"Leydig = testosterone, interstitial tissue.",
+"Sertoli cells line the tubules and make MIF.",
+"Granulosa cells are in the ovary.",
+"Spermatogonia are germ cells."
+],
+"src": "fen",
+"fig": [
+"fe-p04"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Spermatogenesis & the Male Tract",
+"s": "According to the professor, which pair of functions belongs to Sertoli cells?",
+"c": [
+"Make testosterone and secrete LH into blood",
+"Produce estrogen and progesterone in puberty",
+"Form the acrosome and the midpiece",
+"Maintain the blood–testis barrier; create MIF",
+"Form the rete testis and the epididymis"
+],
+"a": 3,
+"e": "Sertoli cells sit on the walls of the seminiferous tubules ('Sertoli on the wall'); they maintain (not create) the blood–testis barrier and create MIF, which suppresses the female (Müllerian) duct system in a male embryo.\n\nProfessor vs. textbook: standard textbooks say Sertoli cells actually form the blood–testis barrier with their tight junctions; the professor's wording is 'maintain, not create' — use his wording on his exam.",
+"w": [
+"Leydig cells make testosterone; LH comes from the anterior pituitary.",
+"Those are ovarian hormones.",
+"The acrosome comes from the Golgi and the midpiece from mitochondria.",
+"Maintain BTB + create MIF.",
+"These are ducts, not cell products."
+],
+"src": "fen",
+"fig": [
+"fe-p04"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Spermatogenesis & the Male Tract",
+"s": "What is the correct order of the duct pathway that sperm travel from the testis to the outside?",
+"c": [
+"Tubules → rete testis → epididymis → vas deferens → ejaculatory duct → urethra",
+"Epididymis → tubules → rete testis → vas deferens → ejaculatory duct → urethra",
+"Tubules → epididymis → rete testis → vas deferens → ejaculatory duct → urethra",
+"Tubules → vas deferens → rete testis → epididymis → ejaculatory duct → urethra",
+"Rete testis → tubules → vas deferens → epididymis → ejaculatory duct → urethra"
+],
+"a": 0,
+"e": "Seminiferous tubules → rete testis → epididymis → vas deferens → ejaculatory duct → prostatic urethra → urethra. Fluid added along the way (testis, epididymis, seminal vesicle, prostate) makes up the seminal volume.",
+"w": [
+"This is the full correct pathway.",
+"Sperm are made in the tubules, not the epididymis.",
+"The rete testis comes before the epididymis.",
+"The epididymis comes before the vas deferens.",
+"Sperm start in the seminiferous tubules."
+],
+"src": "fen",
+"fig": [
+"fe-p05"
+],
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Spermatogenesis & the Male Tract",
+"s": "As the epididymis narrows, it continues as which structure?",
+"c": [
+"Seminal vesicle",
+"Rete testis",
+"Ejaculatory duct",
+"Prostatic urethra",
+"Vas deferens"
+],
+"a": 4,
+"e": "All seminiferous tubules drain into the rete testis, which leads into the epididymis; as the epididymis narrows it becomes the vas deferens, which carries sperm past the seminal vesicle into the ejaculatory duct and through the prostate.",
+"w": [
+"The seminal vesicle adds fluid; it isn't the continuation.",
+"The rete testis comes before the epididymis.",
+"The ejaculatory duct comes after the vas deferens.",
+"The prostatic urethra is further along.",
+"Epididymis → vas deferens."
+],
+"src": "fen",
+"fig": [
+"fe-p05"
+],
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Spermatogenesis & the Male Tract",
+"s": "How long does spermatogenesis take, and at which stage does the developing cell first become haploid?",
+"c": [
+"9 months; sperm",
+"14 days; primary spermatocyte",
+"64 days; secondary spermatocyte",
+"64 days; spermatid",
+"28 days; spermatogonium"
+],
+"a": 2,
+"e": "Spermatogenesis starts at puberty and takes 64 days: primordial germ cell (diploid) → mitosis → spermatogonium (diploid) → primary spermatocyte (diploid) → meiosis I → secondary spermatocyte (haploid) → meiosis II → spermatid → sperm.",
+"w": [
+"Spermatogenesis takes 64 days.",
+"Primary spermatocytes are diploid.",
+"64 days; haploid after meiosis I (secondary spermatocyte).",
+"The cell is already haploid before the spermatid stage.",
+"It takes 64 days, and spermatogonia are diploid."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Spermatogenesis & the Male Tract",
+"s": "During spermiogenesis, which organelles give rise to the acrosomal cap and to the energy-producing bundle of the midpiece?",
+"c": [
+"Both from the endoplasmic reticulum",
+"Acrosome from the Golgi apparatus; midpiece from mitochondria",
+"Acrosome from mitochondria; midpiece from Golgi",
+"Acrosome from lysosomes; midpiece from ribosomes",
+"Acrosome from the nucleus; midpiece from centrioles"
+],
+"a": 1,
+"e": "Only the last step — spermatid to mature sperm — reshapes the cell. The acrosomal cap (covers the head; helps penetrate the egg) comes from the Golgi apparatus. The circular bundle in the midpiece comes from mitochondria (the powerhouse drives the tail). The head encloses the nucleus.",
+"w": [
+"The ER isn't the source.",
+"Golgi → acrosome; mitochondria → midpiece.",
+"Reversed.",
+"Not the professor's answer.",
+"The nucleus is enclosed by the head; it doesn't form the acrosome."
+],
+"src": "fen",
+"fig": [
+"fe-p06"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Spermatogenesis & the Male Tract",
+"s": "Where does sperm capacitation — the final activating change that lets a sperm fertilize — take place?",
+"c": [
+"Prostate gland",
+"Seminiferous tubules",
+"Epididymis",
+"Female genital tract",
+"Vas deferens"
+],
+"a": 3,
+"e": "Two similar words, two places: maturation of sperm happens in the male (epididymis); capacitation happens in the female genital tract.",
+"w": [
+"The prostate adds fluid.",
+"Sperm are produced here, not capacitated.",
+"The epididymis is where sperm mature — not capacitation.",
+"Capacitation = female genital tract (exam question).",
+"The vas deferens transports sperm."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Spermatogenesis & the Male Tract",
+"s": "Where do sperm undergo maturation?",
+"c": [
+"Epididymis",
+"Rete testis",
+"Ejaculatory duct",
+"Female genital tract",
+"Ampulla of the tube"
+],
+"a": 0,
+"e": "Maturation of sperm happens in the male, in the epididymis. Capacitation happens in the female genital tract.",
+"w": [
+"Maturation = epididymis.",
+"The rete testis is a collecting network.",
+"The ejaculatory duct is only a passageway.",
+"That's where capacitation happens.",
+"The ampulla is where fertilization happens."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Spermatogenesis & the Male Tract",
+"s": "A semen analysis is ordered for a man being evaluated for infertility. What is the normal minimum sperm count that the professor said will be on the exam?",
+"c": [
+"About 64 million per mL",
+"About 480 per mL",
+"About 200 million per mL",
+"About 2 million per mL",
+"About 20 million per mL"
+],
+"a": 4,
+"e": "Normal sperm count is about 20 million per mL (starred: '100% will be on exam'). Under 20 million per mL = oligospermia/infertility. Normal volume 2–5 mL; semen is alkaline to neutralize the acidic female tract.",
+"w": [
+"64 is the number of days of spermatogenesis.",
+"480 is the lifetime number of ovulated oocytes.",
+"Not the professor's number.",
+"Too low.",
+"≈20 million/mL is the cutoff; below = oligospermia."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Spermatogenesis & the Male Tract",
+"s": "A semen analysis shows a volume of 3 mL with a sperm concentration of 8 million/mL. What term describes this?",
+"c": [
+"Polyspermy",
+"Aspermia",
+"Oligospermia",
+"Azoospermia",
+"Normal semen"
+],
+"a": 2,
+"e": "Oligospermia = low count (under 20 million per mL). Aspermia = no semen at all. Azoospermia = semen present but no sperm in it. ('Oligo' = few; 'a-' = without.)",
+"w": [
+"Polyspermy is entry of more than one sperm into an oocyte.",
+"Aspermia means no semen.",
+"Low count (<20 million/mL) = oligospermia.",
+"Azoospermia means no sperm in the semen.",
+"Below 20 million/mL is abnormal."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Spermatogenesis & the Male Tract",
+"s": "A man's ejaculate has normal volume, but no sperm are seen on analysis. What is this called?",
+"c": [
+"Oligospermia",
+"Azoospermia",
+"Normospermia",
+"Asthenospermia",
+"Aspermia"
+],
+"a": 1,
+"e": "Azoospermia = semen is present but contains no sperm. Aspermia = no semen at all (so no sperm either). Oligospermia = low count.",
+"w": [
+"Oligospermia means a low count, not zero.",
+"Semen present, no sperm = azoospermia.",
+"This isn't normal.",
+"That refers to poor motility.",
+"Aspermia = no semen."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Spermatogenesis & the Male Tract",
+"s": "Which statement about normal semen is correct?",
+"c": [
+"Semen is acidic to match the vaginal pH",
+"Sperm count must exceed 200 million/mL",
+"Volume 10–20 mL and acidic pH",
+"Volume 2–5 mL and alkaline pH",
+"Volume 0.5 mL and neutral pH"
+],
+"a": 3,
+"e": "Semen analysis: volume 2–5 mL (starred), count ≥ about 20 million/mL (starred), pH alkaline to neutralize the acidic female tract, plus motility and shape.",
+"w": [
+"Semen is alkaline to neutralize the acidic tract.",
+"The cutoff is about 20 million/mL.",
+"Too large and the wrong pH.",
+"2–5 mL, alkaline.",
+"Too small."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Oogenesis & the Ovary",
+"s": "A biopsy of the ovarian cortex from a 25-year-old woman is examined. What would you expect to see?",
+"c": [
+"Follicles at all developing stages at once",
+"Only primordial follicles",
+"Seminiferous tubules",
+"Only Graafian follicles",
+"No follicles; they are in the medulla"
+],
+"a": 0,
+"e": "Follicles live in the ovarian cortex; biopsy it and you see follicles at all developing stages at once (primordial, primary, secondary, Graafian, plus corpus luteum/albicans). The inner medulla is essentially empty.",
+"w": [
+"Biopsy shows follicles at every stage.",
+"All stages are present together.",
+"Tubules are in the testis.",
+"All stages, not only mature ones.",
+"Follicles are in the cortex."
+],
+"src": "fen",
+"fig": [
+"fe-p07"
+],
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Oogenesis & the Ovary",
+"s": "What is the protective glycoprotein coat around the oocyte that sperm must penetrate?",
+"c": [
+"Theca externa",
+"Decidua basalis",
+"Corona radiata",
+"Chorion laeve",
+"Zona pellucida"
+],
+"a": 4,
+"e": "The oocyte is wrapped in a glycoprotein coat, the zona pellucida, which the sperm must get through. After one sperm enters, the zona closes (block to polyspermy), and the dividing blastomeres stay inside it until the blastocyst hatches.",
+"w": [
+"The theca externa is outside the follicle.",
+"The decidua basalis is uterine lining.",
+"The corona radiata is a layer of granulosa cells, not the glycoprotein coat named here.",
+"The chorion laeve is the smooth chorion.",
+"Zona pellucida = glycoprotein coat."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Oogenesis & the Ovary",
+"s": "How is an ovarian follicle defined?",
+"c": [
+"The corpus luteum",
+"Granulosa cells alone",
+"Granulosa cells + an oocyte",
+"Theca cells + a spermatid",
+"A cavity without cells"
+],
+"a": 2,
+"e": "In the female, sex cords don't canalize; they break down into granulosa cells. Primordial germ cells embed in them, forming follicles. Follicle = granulosa cells + an oocyte; granulosa cells without an oocyte are just granulosa cells.",
+"w": [
+"The corpus luteum forms after ovulation.",
+"Without an oocyte they're just granulosa cells.",
+"Granulosa + oocyte = follicle.",
+"Spermatids are male.",
+"A follicle has cells."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Oogenesis & the Ovary",
+"s": "A follicle is described as having a single layer of cuboidal cells around the oocyte and no cavity. Which stage is it?",
+"c": [
+"Corpus luteum",
+"Primary",
+"Primordial",
+"Secondary",
+"Graafian"
+],
+"a": 1,
+"e": "Primordial = flat single layer. Primary = cuboidal single layer. Secondary = small cavity + 2 or more layers ('Secondary = Small, Second = 2'). Graafian = large cavity, many layers ('Graafian = Giant'), about to ovulate.",
+"w": [
+"The corpus luteum forms after ovulation.",
+"Cuboidal single layer = primary.",
+"Primordial cells are flat.",
+"Secondary has ≥2 layers and a small cavity.",
+"Graafian has a large cavity and many layers."
+],
+"src": "fen",
+"fig": [
+"fe-p07"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Oogenesis & the Ovary",
+"s": "A follicle has two or more layers of cells and a small cavity (antrum). Which stage is it?",
+"c": [
+"Primary",
+"Graafian",
+"Primordial",
+"Secondary",
+"Corpus albicans"
+],
+"a": 3,
+"e": "Secondary = Small cavity + 2 or more layers. Graafian = Giant cavity, many layers.",
+"w": [
+"Primary is a cuboidal single layer.",
+"Graafian has a large cavity.",
+"Primordial is a flat single layer.",
+"Small cavity + ≥2 layers = secondary.",
+"The corpus albicans is a white scar."
+],
+"src": "fen",
+"fig": [
+"fe-p07"
+],
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Oogenesis & the Ovary",
+"s": "Which follicle has a large cavity and many layers and is about to ovulate?",
+"c": [
+"Graafian",
+"Atretic",
+"Primordial",
+"Secondary",
+"Primary"
+],
+"a": 0,
+"e": "Tertiary/Graafian ('Graafian = Giant'): large cavity, many layers — mature and about to ovulate. By about day 13 only one follicle reaches this stage.",
+"w": [
+"Large cavity, many layers = Graafian.",
+"Atretic follicles degenerate.",
+"Flat single layer.",
+"Small cavity.",
+"Cuboidal single layer."
+],
+"src": "fen",
+"fig": [
+"fe-p07"
+],
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Oogenesis & the Ovary",
+"s": "Which layer of theca cells makes estrogen according to the professor?",
+"c": [
+"Zona pellucida",
+"Granulosa layer",
+"Corpus albicans",
+"Theca externa",
+"Theca interna"
+],
+"a": 4,
+"e": "Between follicles, theca cells form two layers: theca interna (inner, thicker) — makes estrogen; theca externa (outer, thinner).\n\nProfessor vs. textbook: the textbook version: theca interna makes androgens, which diffuse into granulosa cells and are converted to estrogen. For this exam, theca interna → estrogen is the answer.",
+"w": [
+"The zona pellucida is a glycoprotein coat.",
+"In the textbook version granulosa cells convert androgens to estrogen, but the professor's answer is theca interna.",
+"The corpus albicans is a scar.",
+"Theca externa is the outer, thinner layer.",
+"Theca interna → estrogen (exam answer)."
+],
+"src": "fen",
+"fig": [
+"fe-p07"
+],
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Oogenesis & the Ovary",
+"s": "When does oogenesis begin?",
+"c": [
+"At birth",
+"At menarche, with the first LH surge",
+"Fetal life, 3rd–7th month",
+"At puberty",
+"At fertilization"
+],
+"a": 2,
+"e": "Oogenesis begins in intrauterine life (during the mother's pregnancy), from about the 3rd to the 7th month — a 4-month window. Spermatogenesis, by contrast, begins at puberty.",
+"w": [
+"It's already underway before birth.",
+"Puberty only resumes meiosis in some follicles.",
+"3rd–7th month of fetal life.",
+"Spermatogenesis starts at puberty, not oogenesis.",
+"Fertilization completes meiosis II."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Oogenesis & the Ovary",
+"s": "In a newborn girl, at what stage are all of her oocytes arrested?",
+"c": [
+"Anaphase I",
+"Prophase I, as diploid primary oocytes",
+"Metaphase II, as secondary oocytes",
+"Telophase II",
+"They have not begun meiosis"
+],
+"a": 1,
+"e": "The primary oocyte enters meiosis I, gets through prophase I only, and arrests (Primary = Prophase). At birth every oocyte is a primary oocyte frozen in prophase I, still diploid. About 40,000 primary oocytes remain by puberty.",
+"w": [
+"Not the arrest point.",
+"Primary oocytes arrested in prophase I.",
+"Metaphase II arrest happens after puberty (secondary oocyte).",
+"Not the arrest point.",
+"They've already started meiosis I."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Oogenesis & the Ovary",
+"s": "At puberty, what wakes some dormant follicles so that the primary oocyte completes meiosis I?",
+"c": [
+"An LH surge",
+"Progesterone from the corpus luteum",
+"MIF from Sertoli cells",
+"An FSH surge",
+"hCG from the syncytiotrophoblast"
+],
+"a": 3,
+"e": "At puberty an FSH surge wakes some (not all) of the dormant follicles. The primary oocyte finishes meiosis I and becomes a secondary oocyte (haploid), starts meiosis II and arrests in metaphase II.",
+"w": [
+"LH triggers ovulation.",
+"Progesterone comes after ovulation.",
+"MIF is male.",
+"FSH surge awakens follicles.",
+"hCG is made in pregnancy."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Oogenesis & the Ovary",
+"s": "A secondary oocyte is released at ovulation. When does it complete meiosis II?",
+"c": [
+"Only if it is fertilized",
+"Never; it stays arrested in prophase I",
+"At the next menstruation",
+"At puberty",
+"Immediately at ovulation"
+],
+"a": 0,
+"e": "The oocyte arrests twice: in prophase I (birth → puberty) and in metaphase II (after ovulation). It completes meiosis II only if fertilization occurs; otherwise it stays arrested, travels down, and is discarded.",
+"w": [
+"Meiosis II completes only with fertilization.",
+"After puberty it's arrested in metaphase II, not prophase I.",
+"Unfertilized oocytes are discarded still arrested.",
+"Puberty resumes meiosis I.",
+"It stays arrested in metaphase II after ovulation."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Oogenesis & the Ovary",
+"s": "About how many secondary oocytes are released over a woman's reproductive life, according to the professor?",
+"c": [
+"40,000",
+"400,000",
+"40",
+"4,000",
+"480"
+],
+"a": 4,
+"e": "One per month = 12 per year, over about 40 years → 12 × 40 = 480. (About 40,000 primary oocytes remain by puberty.)",
+"w": [
+"That's the number of primary oocytes at puberty.",
+"Too many.",
+"Too few.",
+"Not the professor's figure.",
+"12 × 40 = 480."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Oogenesis & the Ovary",
+"s": "After the Graafian follicle ruptures at ovulation, which cells fill the space and form the corpus luteum, and what does it secrete?",
+"c": [
+"Leydig cells; testosterone",
+"Oogonia; FSH",
+"Granulosa cells; progesterone",
+"Theca externa cells; estrogen",
+"Syncytiotrophoblast; hCG"
+],
+"a": 2,
+"e": "Important exam point: the leftover granulosa cells fill the empty follicle, accumulate yellow pigment, and form the corpus luteum ('yellow body'), which secretes progesterone — for about 14 days if no pregnancy, or 2–3 months if pregnancy occurs.",
+"w": [
+"Leydig cells are in the testis.",
+"Oogonia are germ cells; FSH comes from the pituitary.",
+"Granulosa cells → corpus luteum → progesterone.",
+"Not the professor's answer.",
+"The syncytiotrophoblast is embryonic."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Oogenesis & the Ovary",
+"s": "How long does the corpus luteum secrete progesterone if no pregnancy occurs, and if pregnancy occurs?",
+"c": [
+"2–3 months; 14 days",
+"14 days; 2–3 months",
+"28 days; 9 months",
+"3 days; 1 month",
+"7 days; 14 days"
+],
+"a": 1,
+"e": "Without pregnancy, the corpus luteum secretes progesterone for about 14 days, then degenerates (→ corpus albicans). With pregnancy, hCG keeps it going for about 2–3 months, after which the placenta takes over.",
+"w": [
+"Reversed.",
+"14 days without pregnancy; 2–3 months with pregnancy.",
+"Not the professor's numbers.",
+"Not the professor's numbers.",
+"Too short."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Menstrual Cycle & Hormones",
+"s": "Which gland releases FSH and LH?",
+"c": [
+"Hypothalamus",
+"Ovary",
+"Adrenal cortex",
+"Anterior pituitary",
+"Posterior pituitary"
+],
+"a": 3,
+"e": "The anterior pituitary (at the base of the brain) releases FSH and LH. FSH grows follicles, which release estrogen; the LH surge triggers ovulation.",
+"w": [
+"The hypothalamus releases GnRH.",
+"The ovary makes estrogen and progesterone.",
+"The adrenal cortex makes steroids.",
+"FSH and LH come from the anterior pituitary.",
+"The posterior pituitary releases oxytocin and ADH."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Menstrual Cycle & Hormones",
+"s": "Which hormone makes the endometrium proliferate, and which maintains the thickened lining?",
+"c": [
+"Estrogen thickens; progesterone maintains",
+"hCG thickens; estrogen maintains",
+"Progesterone thickens; estrogen maintains",
+"FSH thickens; LH maintains",
+"LH thickens; FSH maintains"
+],
+"a": 0,
+"e": "Estrogen causes the thickening (first half of the cycle); progesterone, from the corpus luteum after ovulation, maintains the thickened lining (second half). When progesterone drops, the lining sheds → period. 'Estrogen builds, progesterone preserves.'",
+"w": [
+"Estrogen builds; progesterone preserves.",
+"hCG maintains the corpus luteum.",
+"Reversed.",
+"FSH and LH act on the ovary, not directly on the lining.",
+"Not the professor's answer."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Menstrual Cycle & Hormones",
+"s": "On which day of a 28-day cycle does ovulation occur, and which hormone is responsible?",
+"c": [
+"Day 1; FSH",
+"Day 28; hCG",
+"Day 7; estrogen",
+"Day 21; progesterone",
+"Day 14; LH"
+],
+"a": 4,
+"e": "Exam favorite (WILL BE ON EXAM): ovulation occurs on day 14, and LH is responsible — the LH surge triggers rupture of the Graafian follicle.",
+"w": [
+"Day 1 is the start of menstruation.",
+"Day 28 is the start of the next period.",
+"Day 7 is mid-follicular.",
+"Day 21 is the time of implantation.",
+"Day 14, LH surge."
+],
+"src": "fen",
+"fig": [
+"fe-p12"
+],
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Menstrual Cycle & Hormones",
+"s": "Days 1–14 of the menstrual cycle go by three names. Which set is correct?",
+"c": [
+"Menstrual, ischemic, secretory",
+"Ovulatory, LH, secretory",
+"Follicular, estrogenic, proliferative",
+"Follicular, progestational, secretory",
+"Luteal, progestational, secretory"
+],
+"a": 2,
+"e": "Days 1–14: follicular (FSH dominant) = estrogenic (follicles pour out estrogen) = proliferative (endometrium thickens). Days 14–28: luteal (corpus luteum) = progestational (progesterone) = secretory (glands secrete nutrients).",
+"w": [
+"Not the professor's naming.",
+"Ovulation is a single day.",
+"Days 1–14 = follicular = estrogenic = proliferative.",
+"These names are mixed from both halves.",
+"That's days 14–28."
+],
+"src": "fen",
+"fig": [
+"fe-p12"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Menstrual Cycle & Hormones",
+"s": "Days 14–28 of the cycle are called luteal, progestational and secretory. Why is it called the secretory phase?",
+"c": [
+"hCG causes the endometrial glands to shed",
+"Progesterone makes the glands secrete nutrients",
+"Estrogen makes the endometrial glands grow longer",
+"LH causes the endometrial glands to secrete milk",
+"The corpus albicans secretes mucus"
+],
+"a": 1,
+"e": "In the luteal phase the corpus luteum secretes mainly progesterone (progestational), which makes the endometrial glands secrete nutrients (secretory) — ready for implantation.",
+"w": [
+"hCG maintains the lining.",
+"Progesterone → glands secrete nutrients.",
+"Gland growth happens in the proliferative phase.",
+"Not the professor's answer.",
+"The corpus albicans is a scar."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Menstrual Cycle & Hormones",
+"s": "If fertilization does not occur, what happens to the corpus luteum around day 28?",
+"c": [
+"It migrates through the tube to the uterus",
+"It turns back into a mature Graafian follicle",
+"It secretes hCG",
+"It stops secreting and becomes the corpus albicans",
+"It becomes the corpus luteum of pregnancy"
+],
+"a": 3,
+"e": "Without fertilization, the corpus luteum (now the corpus luteum of menstruation) stops secreting around day 28, progesterone and estrogen fall, and the endometrium sheds. The spent corpus luteum turns white and becomes the corpus albicans, a fibrous scar ('albicans' = white).",
+"w": [
+"It stays in the ovary.",
+"It can't revert to a follicle.",
+"The syncytiotrophoblast makes hCG.",
+"It stops secreting → period → corpus albicans.",
+"That happens only with pregnancy (hCG)."
+],
+"src": "fen",
+"fig": [
+"fe-p07"
+],
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Menstrual Cycle & Hormones",
+"s": "What is the white fibrous scar left in the ovary when the corpus luteum degenerates?",
+"c": [
+"Corpus albicans",
+"Corpus luteum of pregnancy",
+"Graafian follicle",
+"Decidua basalis",
+"Theca externa"
+],
+"a": 0,
+"e": "The spent corpus luteum turns white and becomes the corpus albicans, a fibrous scar ('albicans' = white, like albino).",
+"w": [
+"White scar = corpus albicans.",
+"That's an active corpus luteum.",
+"That's a mature follicle.",
+"That's uterine lining.",
+"That's a theca layer."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Menstrual Cycle & Hormones",
+"s": "If fertilization occurs, what keeps the corpus luteum secreting progesterone?",
+"c": [
+"FSH from the anterior pituitary",
+"Prolactin",
+"LH surge on day 14",
+"Estrogen from theca cells",
+"hCG produced by the implanting embryo"
+],
+"a": 4,
+"e": "The implanting embryo (syncytiotrophoblast) produces hCG, which tells the corpus luteum to keep secreting progesterone — the corpus luteum of pregnancy. Progesterone stays high, the lining is maintained, and there's no period.",
+"w": [
+"FSH grows follicles.",
+"Prolactin isn't the signal.",
+"The LH surge causes ovulation.",
+"Estrogen doesn't keep it alive.",
+"hCG rescues the corpus luteum."
+],
+"src": "fen",
+"fig": [
+"fe-p12"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Menstrual Cycle & Hormones",
+"s": "What does a urine pregnancy test detect?",
+"c": [
+"FSH",
+"Estrogen",
+"hCG",
+"Alpha-fetoprotein",
+"Progesterone"
+],
+"a": 2,
+"e": "Key exam question: a pregnancy test checks for hCG (human chorionic gonadotropin) made by the syncytiotrophoblast — only 2 drops of urine are needed.",
+"w": [
+"FSH isn't the pregnancy marker.",
+"Not the pregnancy test.",
+"Pregnancy test = hCG.",
+"AFP screens for neural tube defects.",
+"Not the pregnancy test."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Menstrual Cycle & Hormones",
+"s": "What secretes progesterone after the third month of pregnancy?",
+"c": [
+"Corpus albicans",
+"Placenta",
+"Corpus luteum",
+"Theca interna",
+"Anterior pituitary"
+],
+"a": 1,
+"e": "Key exam question: the corpus luteum carries the pregnancy for about 3 months, after which the placenta takes over progesterone production.",
+"w": [
+"The corpus albicans is inactive scar tissue.",
+"The placenta takes over after 3 months.",
+"It supports only the first ~3 months.",
+"Theca interna makes estrogen.",
+"The pituitary doesn't make progesterone."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Menstrual Cycle & Hormones",
+"s": "A woman's last period began on May 1. Assuming a 28-day cycle and conception, when would implantation occur and when would she first notice a missed period?",
+"c": [
+"Implantation June 1; missed period June 28",
+"Implantation May 7; missed period May 14",
+"Implantation May 28; missed period June 14",
+"Implantation about May 21; missed period May 28",
+"Implantation May 14; missed period May 21"
+],
+"a": 3,
+"e": "Professor's May example: ovulation May 14 → fertilization May 14–15 → the embryo takes ~7 days to reach the uterus and attach → implantation about May 21 → hCG keeps the corpus luteum alive → no bleeding on May 28, the missed period.",
+"w": [
+"Too late.",
+"Too early.",
+"Too late.",
+"Implantation ~May 21; missed period May 28.",
+"May 14 is ovulation."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Menstrual Cycle & Hormones",
+"s": "How does the combined oral contraceptive pill mainly prevent pregnancy?",
+"c": [
+"It suppresses FSH, preventing ovulation",
+"It makes the endometrium proliferate",
+"It kills sperm directly in the vaginal canal",
+"It blocks hCG",
+"It makes the corpus luteum persist for months"
+],
+"a": 0,
+"e": "The pill (estrogen + progesterone) suppresses FSH release → no follicular maturation → no ovulation. Secondary action: it thickens cervical/vaginal secretions, which normally liquefy around day 14, making sperm travel harder.",
+"w": [
+"Main action: FSH suppression → no ovulation.",
+"Not its mechanism.",
+"It isn't a spermicide.",
+"It doesn't block hCG.",
+"Not its mechanism."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Menstrual Cycle & Hormones",
+"s": "How long is a secondary oocyte viable after ovulation, and how long can sperm survive in the female tract?",
+"c": [
+"12 hours; 12 hours",
+"72 hours; 24 hours",
+"7 days; 2 days",
+"14 days; 3 days",
+"24 hours; 72 hours"
+],
+"a": 4,
+"e": "Egg: viable for 24 hours after ovulation. Sperm: survive up to 72 hours (3 days). With ovulation on day 14, intercourse on days 11–13 can still fertilize, and the egg is still alive on day 15. The professor's family-planning days to avoid: 13, 14, 15 (practically from day 11).",
+"w": [
+"Not the professor's numbers.",
+"Reversed.",
+"Not the professor's numbers.",
+"Not the professor's numbers.",
+"Egg 24 h; sperm 72 h."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Menstrual Cycle & Hormones",
+"s": "What are the three layers of the uterine wall, from inner to outer?",
+"c": [
+"Decidua, chorion, amnion",
+"Mucosa, submucosa, serosa",
+"Endometrium, myometrium, perimetrium",
+"Perimetrium, myometrium, endometrium",
+"Stroma, glands, vessels"
+],
+"a": 2,
+"e": "Uterine wall: endometrium (inner lining — vessels, stroma and glands, all responsive to estrogen and progesterone), myometrium (thick muscle), perimetrium (outer covering).",
+"w": [
+"These are pregnancy membranes and lining.",
+"Not the uterine terms.",
+"Inner → outer: endo-, myo-, peri-.",
+"Reversed (outer → inner).",
+"These are components of the endometrium."
+],
+"src": "fen",
+"fig": [
+"fe-p10"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Fertilization, Cleavage & Implantation",
+"s": "Where does fertilization normally take place?",
+"c": [
+"Cervix",
+"Ampulla of the tube",
+"Ovary",
+"Isthmus of the uterus near the cervix",
+"Uterine cavity"
+],
+"a": 1,
+"e": "The ovulated secondary oocyte is caught by the fimbriae and climbs the ampulla, where sperm meet it. Fertilization happens on day 14 or 15 of the cycle.",
+"w": [
+"The cervix is a passageway.",
+"Ampulla = site of fertilization.",
+"The oocyte leaves the ovary at ovulation.",
+"Not the site.",
+"Implantation happens in the uterus."
+],
+"src": "fen",
+"fig": [
+"fe-p10"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Fertilization, Cleavage & Implantation",
+"s": "Immediately after the first sperm penetrates the zona pellucida, the zona closes. What is the purpose of this?",
+"c": [
+"To complete meiosis I",
+"To start implantation",
+"To release hCG",
+"To block polyspermy",
+"To begin capacitation"
+],
+"a": 3,
+"e": "The instant one sperm gets through, the zona pellucida closes — the block to polyspermy (entry of more than one sperm). The sperm and oocyte nuclei fuse and the cell starts dividing.",
+"w": [
+"Meiosis I finished before ovulation.",
+"Implantation is about a week later.",
+"hCG comes later from the syncytiotrophoblast.",
+"Closing the zona prevents polyspermy.",
+"Capacitation happens before fertilization."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Fertilization, Cleavage & Implantation",
+"s": "After fertilization, the dividing cells (blastomeres) begin their journey down the tube. What surrounds them?",
+"c": [
+"The zona pellucida",
+"Nothing; they are bare cells",
+"Amniotic membrane",
+"Decidua basalis",
+"Chorion frondosum villi"
+],
+"a": 0,
+"e": "The dividing cells (blastomeres) are still wrapped in the zona pellucida as they travel down the tube. Only before implantation does the blastocyst hatch out of the zona.",
+"w": [
+"Blastomeres remain inside the zona pellucida.",
+"They're still enclosed.",
+"The amnion forms in week 2.",
+"The decidua is uterine.",
+"The chorion forms later."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Fertilization, Cleavage & Implantation",
+"s": "Which of the following is NOT one of the four results of fertilization the professor listed as important?",
+"c": [
+"Meiosis II completed",
+"Diploid number re-established",
+"Cleavage initiated",
+"Sex determined",
+"Implantation completed"
+],
+"a": 4,
+"e": "The 4 things fertilization does (IMPORTANT): 1) diploid re-established; 2) meiosis II completed; 3) sex determined (by the sperm's X or Y); 4) cleavage initiated. Implantation comes about a week later.",
+"w": [
+"This is a result of fertilization.",
+"This is a result of fertilization.",
+"This is a result of fertilization.",
+"This is a result of fertilization.",
+"Implantation is ~day 7 after fertilization — not one of the four."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Fertilization, Cleavage & Implantation",
+"s": "Fertilization determines the sex of the embryo. What decides it?",
+"c": [
+"The FSH level",
+"The mother's age",
+"The sperm's X or Y chromosome",
+"The position of implantation in the uterus",
+"The oocyte's X chromosome alone"
+],
+"a": 2,
+"e": "Sex is determined at fertilization by the sperm's X or Y chromosome — the oocyte always contributes an X.",
+"w": [
+"Hormones don't decide genetic sex.",
+"Age doesn't decide sex.",
+"Sperm X or Y decides sex.",
+"Implantation site doesn't decide sex.",
+"Every oocyte carries an X."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Fertilization, Cleavage & Implantation",
+"s": "The zygote divides into smaller cells. At about how many cells is it called a morula?",
+"c": [
+"8",
+"16",
+"4",
+"32",
+"64"
+],
+"a": 1,
+"e": "When the zygote reaches about 16 cells it's called a morula (EXAM QUESTION) — a solid ball of cells. Flow: zygote → blastomeres → morula (16) → blastocyst (~day 4) → implantation (~day 7).",
+"w": [
+"Too early.",
+"Morula = 16 cells.",
+"Too early.",
+"Not the professor's number.",
+"Not the professor's number."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Fertilization, Cleavage & Implantation",
+"s": "How does a morula become a blastocyst?",
+"c": [
+"The zona pellucida thickens around it",
+"The neural tube closes in the embryo",
+"Its outer cells fuse into a syncytium",
+"Fluid enters and forms a cavity",
+"Mesoderm forms between two layers"
+],
+"a": 3,
+"e": "As the morula travels through the tube (3–5 days), a small amount of fluid enters it and creates a cyst-like hollow — the blastocyst. The fluid pushes a group of cells to one side (inner cell mass); the outer cells form the trophoblast.",
+"w": [
+"The zona is shed before implantation.",
+"Neurulation is later.",
+"Syncytium formation is in the trophoblast at implantation.",
+"Fluid entry → blastocyst.",
+"Mesoderm forms in week 3."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Fertilization, Cleavage & Implantation",
+"s": "When does implantation begin, counting from fertilization?",
+"c": [
+"Day 6–7",
+"Day 14",
+"Day 3–4",
+"Day 21",
+"Day 1–2"
+],
+"a": 0,
+"e": "Implantation begins around day 6–7 after fertilization (EXAM QUESTION). The blastocyst reaches the uterine cavity around day 4–5 and spends about 3 more days preparing to attach. In cycle terms, that's about day 21.",
+"w": [
+"Implantation ~day 6–7 after fertilization.",
+"Day 14 is ovulation in the cycle.",
+"The blastocyst only reaches the uterus around day 4–5.",
+"Day 21 is the cycle day, not days after fertilization.",
+"Too early — still cleaving in the tube."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Fertilization, Cleavage & Implantation",
+"s": "Which part of the blastocyst develops into the embryo, and which part attaches to the uterus and later contributes to the placenta?",
+"c": [
+"Hypoblast → embryo; epiblast → placenta",
+"Trophoblast → embryo; inner cell mass → placenta",
+"Zona pellucida → placenta",
+"Yolk sac → embryo",
+"Inner cell mass → embryo; trophoblast → placenta"
+],
+"a": 4,
+"e": "The inner cell mass develops into the embryo; the trophoblast (outer cells) attaches the blastocyst to the uterus, nourishes the embryo and contributes to the placenta. 'Inner cell mass = infant; trophoblast = feeding.'",
+"w": [
+"Both epiblast and hypoblast come from the ICM.",
+"Reversed.",
+"The zona is shed.",
+"The yolk sac isn't the embryo.",
+"ICM = infant; trophoblast = feeding/placenta."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Fertilization, Cleavage & Implantation",
+"s": "What event allows implantation to begin?",
+"c": [
+"The neural tube closes in the embryo",
+"The corpus luteum degenerates into a scar",
+"Hatching from the zona exposes the sticky trophoblast",
+"The amniotic cavity forms above the epiblast",
+"The morula forms in the fallopian tube"
+],
+"a": 2,
+"e": "Before implantation, the blastocyst hatches out of the zona pellucida. Once exposed, the trophoblast 'wants to grab onto whatever it can' — and that's implantation beginning.",
+"w": [
+"Neurulation is later.",
+"The corpus luteum is needed to maintain the lining.",
+"Loss of the zona exposes the sticky trophoblast.",
+"The amniotic cavity forms in week 2.",
+"Morula formation is earlier."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Fertilization, Cleavage & Implantation",
+"s": "When the blastocyst enters the uterine lining, what is the whole lining now called, and what is the exact implantation site called?",
+"c": [
+"Perimetrium; stratum basalis",
+"Decidua; decidua basalis",
+"Endometrium; myometrium",
+"Chorion; chorion laeve",
+"Amnion; amniotic cavity"
+],
+"a": 1,
+"e": "When the blastocyst enters, the whole uterine lining is called the decidua (EXAM QUESTION); the exact implantation spot (its base) is the decidua basalis. At delivery the decidua is shed.",
+"w": [
+"Not the answer.",
+"Decidua; base = decidua basalis.",
+"Before implantation it's endometrium; the myometrium is muscle.",
+"Chorion is fetal.",
+"Amnion is fetal."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Fertilization, Cleavage & Implantation",
+"s": "In which phase is the endometrium at the time of implantation?",
+"c": [
+"Ovulatory",
+"Postmenopausal",
+"Proliferative (estrogenic)",
+"Secretory (luteal)",
+"Menstrual"
+],
+"a": 3,
+"e": "At implantation the endometrium is in the progesterone/luteal/secretory phase (EXAM QUESTION) — implantation is day 7 after ovulation = about day 21 of the cycle, when the corpus luteum is running the show.",
+"w": [
+"Ovulation is day 14.",
+"Not relevant.",
+"One line in the notes says proliferative, but the starred recap says secretory — secretory is correct.",
+"Secretory/luteal phase.",
+"The lining is shed in the menstrual phase."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Fertilization, Cleavage & Implantation",
+"s": "When the trophoblast meets the decidua basalis, newly formed cells lose their membranes and fuse into a multinucleated mass. What is it called, and what hormone does it produce?",
+"c": [
+"Syncytiotrophoblast; hCG",
+"Decidua; prolactin",
+"Cytotrophoblast; progesterone",
+"Hypoblast; estrogen",
+"Epiblast; FSH"
+],
+"a": 0,
+"e": "The trophoblast proliferates; new cells lose their membranes and merge into the syncytiotrophoblast. The original layer keeps its membranes as the cytotrophoblast. The syncytiotrophoblast produces hCG, which signals the corpus luteum to keep making progesterone for the next 2–3 months.",
+"w": [
+"Syncytiotrophoblast → hCG.",
+"The decidua is maternal.",
+"The cytotrophoblast keeps its membranes; it isn't the hCG source here.",
+"The hypoblast is part of the embryonic disc.",
+"The epiblast is embryonic ectoderm."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Week 2: Bilaminar Disc, Villi & Placenta Formation",
+"s": "During week 2, the inner cell mass forms two layers. What are they?",
+"c": [
+"Chorion and amnion",
+"Cytotrophoblast and syncytiotrophoblast",
+"Sclerotome and dermatome",
+"Ectoderm and mesoderm",
+"Epiblast (upper) and hypoblast (lower)"
+],
+"a": 4,
+"e": "In week 2 the inner cell mass becomes the bilaminar disc: the upper epiblast (future ectoderm, which gives rise to all three germ layers) and the lower hypoblast (future endoderm, helps form the yolk sac). Mesoderm hasn't formed yet.",
+"w": [
+"Those are membranes.",
+"Those are trophoblast layers.",
+"Those are somite parts.",
+"Mesoderm forms in week 3.",
+"Epiblast + hypoblast = bilaminar disc."
+],
+"src": "fen",
+"fig": [
+"fe-p16"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Week 2: Bilaminar Disc, Villi & Placenta Formation",
+"s": "Two cavities develop during week 2. Which cell layer forms the amniotic cavity and which forms the primary yolk sac?",
+"c": [
+"Hypoblast → amniotic cavity; epiblast → yolk sac",
+"Trophoblast → both",
+"Epiblast → amniotic cavity; hypoblast → primary yolk sac",
+"Mesoderm → both",
+"Syncytiotrophoblast → amniotic cavity; cytotrophoblast → yolk sac"
+],
+"a": 2,
+"e": "EXAM QUESTIONS: the amniotic cavity forms above/within the epiblast; the primary yolk sac forms below the hypoblast (its thin lining is Heuser's membrane).",
+"w": [
+"Reversed.",
+"The trophoblast builds extraembryonic mesoderm and the chorionic cavity.",
+"Epiblast → amniotic cavity; hypoblast → yolk sac.",
+"Mesoderm doesn't exist yet.",
+"Not the professor's answer."
+],
+"src": "fen",
+"fig": [
+"fe-p16"
+],
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Week 2: Bilaminar Disc, Villi & Placenta Formation",
+"s": "What is the thin lining of the primary yolk sac called?",
+"c": [
+"Zona pellucida",
+"Heuser's membrane",
+"Chorion laeve",
+"Decidua capsularis",
+"Wharton's jelly"
+],
+"a": 1,
+"e": "The thin lining of the primary yolk sac is Heuser's (exocoelomic) membrane.",
+"w": [
+"The zona surrounds the oocyte.",
+"Heuser's membrane lines the primary yolk sac.",
+"The chorion laeve is the smooth chorion.",
+"Not the term used in the notes.",
+"Wharton's jelly is in the umbilical cord."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Week 2: Bilaminar Disc, Villi & Placenta Formation",
+"s": "In week 2, the extraembryonic mesoderm is split by a cavity. What is that cavity called, and what is its eventual fate?",
+"c": [
+"Primary yolk sac; it becomes the gut",
+"Intraembryonic coelom; it becomes the body cavities",
+"Amniotic cavity; it persists",
+"Chorionic (extraembryonic coelomic) cavity; it is obliterated",
+"Intervillous space; it fills with maternal blood"
+],
+"a": 3,
+"e": "The trophoblast deposits extraembryonic mesoderm; a cavity opening within it is the extraembryonic coelomic cavity (chorionic cavity). Later the enlarging amniotic cavity presses on it until it's obliterated. The intraembryonic coelom, in contrast, persists as the 3 body cavities.",
+"w": [
+"The yolk sac is separate.",
+"That's a different cavity, inside the embryo.",
+"The amniotic cavity enlarges, not the chorionic cavity.",
+"Chorionic cavity → obliterated.",
+"The intervillous space lies between villi."
+],
+"src": "fen",
+"fig": [
+"fe-p17"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Week 2: Bilaminar Disc, Villi & Placenta Formation",
+"s": "The chorionic cavity splits the extraembryonic mesoderm into two layers. Which naming is correct?",
+"c": [
+"Outer = parietal/somatopleuric; inner = visceral/splanchnopleuric",
+"Both layers are called splanchnopleuric",
+"Outer = amnion; inner = chorion",
+"Outer = visceral/splanchnopleuric; inner = parietal/somatopleuric",
+"Outer = endoderm; inner = ectoderm"
+],
+"a": 0,
+"e": "Parietal = somatopleuric = outer layer (the wall — 'parietal = perimeter'). Visceral = splanchnopleuric = inner layer hugging the structure ('viscera = organs'). The same split repeats in the lateral plate inside the embryo.",
+"w": [
+"Parietal/somato = outer; visceral/splanchno = inner.",
+"They have different names.",
+"These are membranes, not mesoderm layers.",
+"Reversed.",
+"These aren't germ layers."
+],
+"src": "fen",
+"fig": [
+"fe-p17"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Week 2: Bilaminar Disc, Villi & Placenta Formation",
+"s": "Which chorionic villus contains blood capillaries and therefore allows maternal–fetal exchange?",
+"c": [
+"Chorion laeve",
+"Stem villus without mesoderm",
+"Secondary villus",
+"Primary villus",
+"Tertiary villus"
+],
+"a": 4,
+"e": "Each villus adds one layer: primary = syncytiotrophoblast + cytotrophoblast; secondary = + extraembryonic mesoderm; tertiary = + blood capillaries. The tertiary villus contains capillaries — making exchange possible.",
+"w": [
+"The chorion laeve has lost its villi.",
+"Not the answer.",
+"Secondary adds mesoderm but no capillaries.",
+"Primary = trophoblast layers only.",
+"Tertiary = capillaries."
+],
+"src": "fen",
+"fig": [
+"fe-p19"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Week 2: Bilaminar Disc, Villi & Placenta Formation",
+"s": "A secondary chorionic villus consists of which components?",
+"c": [
+"Syncytiotrophoblast + cytotrophoblast",
+"Decidua basalis + myometrium + vessels",
+"Syncytio- + cytotrophoblast + mesoderm",
+"Syncytio- + cytotrophoblast + mesoderm + capillaries",
+"Syncytiotrophoblast only"
+],
+"a": 2,
+"e": "Primary = syncytio- + cytotrophoblast; add extraembryonic mesoderm → secondary; add blood capillaries → tertiary.",
+"w": [
+"That's the primary villus.",
+"Those are maternal tissues.",
+"Trophoblast layers + mesoderm = secondary.",
+"That's tertiary.",
+"Incomplete."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Week 2: Bilaminar Disc, Villi & Placenta Formation",
+"s": "Most chorionic villi degenerate except those facing the decidua basalis. What are the persistent bushy villi called, and what do they form together with the decidua basalis?",
+"c": [
+"Cotyledons; the yolk sac",
+"Chorion frondosum; the placenta",
+"Chorion laeve; amnion",
+"Decidua capsularis; the cord",
+"Wharton's jelly; the placenta"
+],
+"a": 1,
+"e": "Villi on the decidua basalis side persist as the chorion frondosum (fetal contribution); the smooth areas where villi degenerated are the chorion laeve. Chorion frondosum (fetal) + decidua basalis (maternal) = placenta.",
+"w": [
+"Cotyledons are lobes of the maternal side of the placenta.",
+"Frondosum + basalis = placenta.",
+"The chorion laeve is the smooth, villus-free part.",
+"Not the answer.",
+"Wharton's jelly is in the cord."
+],
+"src": "fen",
+"fig": [
+"fe-p19"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Week 2: Bilaminar Disc, Villi & Placenta Formation",
+"s": "What fills the intervillous space of the placenta?",
+"c": [
+"Wharton's jelly",
+"Amniotic fluid",
+"Fetal blood",
+"Maternal blood",
+"Cerebrospinal fluid"
+],
+"a": 3,
+"e": "As the villi scrape the endometrium, maternal blood falls into the gaps between the villi — the intervillous space contains maternal blood. Maternal and fetal blood never mix; exchange crosses the villus wall.",
+"w": [
+"Wharton's jelly is in the cord.",
+"Amniotic fluid is in the amniotic cavity.",
+"Fetal blood stays inside the villus capillaries.",
+"Intervillous space = maternal blood.",
+"Not relevant."
+],
+"src": "fen",
+"fig": [
+"fe-p19"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Week 2: Bilaminar Disc, Villi & Placenta Formation",
+"s": "During labor, the fetal head is stuck in the cervix and the membranes are intact. The obstetrician cuts the membranes deliberately. What is this procedure, and which membranes are cut?",
+"c": [
+"ARM; amniotic and chorionic membranes",
+"Episiotomy; the perineal skin and muscle",
+"Caesarean section; the myometrium",
+"Chorionic villus sampling; chorion frondosum",
+"Amniocentesis; the amnion only, by needle"
+],
+"a": 0,
+"e": "The amniotic and chorionic membranes protect the fetus and are the first thing touched through the cervix. At delivery they must rupture; if the head is stuck, they're cut deliberately — ARM (Artificial Rupture of Membranes).",
+"w": [
+"ARM cuts the amniotic + chorionic membranes.",
+"An episiotomy cuts the perineum.",
+"A C-section is abdominal delivery.",
+"CVS samples villi for testing.",
+"Amniocentesis aspirates fluid through the abdominal wall."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Yolk Sac, Primitive Gut & Umbilical Cord",
+"s": "What is the sequence of events that forms the primitive gut?",
+"c": [
+"Trophoblast invaginates into the endoderm → primitive gut",
+"Notochord invaginates → neural plate → neural tube → gut",
+"Chorionic cavity enlarges → amnion obliterated → yolk sac → gut",
+"Intermediate mesoderm hollows out → tube → primitive gut",
+"Amnion enlarges → chorionic cavity lost → secondary yolk sac invaginates → gut"
+],
+"a": 4,
+"e": "Pressure chain: the amniotic cavity enlarges → chorionic cavity obliterated → primary yolk sac squeezed into a smaller secondary yolk sac → it invaginates into the endoderm → tubular primitive gut (future GI tract).",
+"w": [
+"The trophoblast forms the placenta.",
+"That describes neurulation.",
+"Reversed.",
+"Intermediate mesoderm forms the kidneys.",
+"Amnion grows → chorionic cavity gone → secondary yolk sac → invaginates → gut."
+],
+"src": "fen",
+"fig": [
+"fe-p17"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Yolk Sac, Primitive Gut & Umbilical Cord",
+"s": "What are the contents of the normal umbilical cord?",
+"c": [
+"1 artery and 1 vein",
+"2 arteries and 2 veins",
+"2 arteries and 1 vein in Wharton's jelly",
+"3 arteries",
+"2 veins and 1 artery in Wharton's jelly"
+],
+"a": 2,
+"e": "Umbilical cord: 2 arteries + 1 vein embedded in Wharton's jelly (from extraembryonic mesoderm, which cushions and insulates the vessels). Normal length about 50–60 cm; it attaches to the center of the placenta.",
+"w": [
+"Too few vessels.",
+"Too many veins.",
+"2 arteries + 1 vein.",
+"Not normal.",
+"Reversed."
+],
+"src": "fen",
+"fig": [
+"fe-p20"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Yolk Sac, Primitive Gut & Umbilical Cord",
+"s": "What is Wharton's jelly derived from?",
+"c": [
+"Neural crest",
+"Extraembryonic mesoderm",
+"Trophoblast",
+"Yolk sac endoderm",
+"Amniotic fluid"
+],
+"a": 1,
+"e": "A small remnant of extraembryonic mesoderm connects to the stalk of the secondary yolk sac — that connection is the umbilical cord. The extraembryonic mesoderm inside it forms Wharton's jelly, a cushion in which the vessels are embedded.",
+"w": [
+"Not the source.",
+"Extraembryonic mesoderm → Wharton's jelly.",
+"Not the source.",
+"Not the source.",
+"Not the source."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Yolk Sac, Primitive Gut & Umbilical Cord",
+"s": "An umbilical cord measures 95 cm at delivery and is found wrapped around the baby's neck. What is this called?",
+"c": [
+"Velamentous insertion",
+"Succenturiate lobe",
+"Circumvallate placenta",
+"Nuchal cord",
+"Placenta previa"
+],
+"a": 3,
+"e": "Normal cord length is about 50–60 cm. Longer cords (90–100 cm) can wrap around the neck — a nuchal cord ('nuchal' = neck) — which can strangle the baby.",
+"w": [
+"Velamentous: vessels branch in the membranes before reaching the placenta.",
+"An accessory lobe.",
+"Circumvallate is a membrane–edge problem.",
+"Long cord around the neck = nuchal cord.",
+"Previa is low implantation."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Week 3: Gastrulation & Germ Layers",
+"s": "Proliferating cells on the hypoblast (endodermal) side of the disc form a structure that marks the head end and the future oral cavity. What is it?",
+"c": [
+"Prochordal plate",
+"Cloaca",
+"Primitive streak",
+"Notochordal process",
+"Neural crest"
+],
+"a": 0,
+"e": "Prochordal plate = proliferation on the hypoblast/endodermal side → head (cranial) end and future oral cavity (EXAM QUESTION). The primitive streak/knob/node is on the ectodermal side near the tail (cloaca).",
+"w": [
+"Prochordal plate = head end, future mouth.",
+"The cloaca is the tail end.",
+"The primitive streak marks the tail end.",
+"The notochordal process is the midline rod.",
+"Neural crest forms melanocytes and the adrenal medulla."
+],
+"src": "fen",
+"fig": [
+"fe-p21"
+],
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Week 3: Gastrulation & Germ Layers",
+"s": "Where does the primitive streak form, and which end of the embryo does it mark?",
+"c": [
+"Yolk sac; gut end",
+"Amnion; dorsal side",
+"Trophoblast; placental side",
+"Hypoblast side; head end",
+"Ectodermal side; tail end"
+],
+"a": 4,
+"e": "On the ectodermal side near the tail, cells proliferate to form the primitive streak (primitive knob or node). The tail end is called the cloaca. The prochordal plate marks the head.",
+"w": [
+"Not the answer.",
+"Not the answer.",
+"Not the answer.",
+"That's the prochordal plate.",
+"Ectodermal side, tail end."
+],
+"src": "fen",
+"fig": [
+"fe-p21"
+],
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Week 3: Gastrulation & Germ Layers",
+"s": "How does the professor define gastrulation, and when is it complete?",
+"c": [
+"Implantation of the blastocyst; day 7",
+"Formation of the placenta; end of month 3",
+"Formation of all three germ layers; end of week 3",
+"Formation of the neural tube; end of week 4",
+"Division of the zygote into blastomeres; day 1"
+],
+"a": 2,
+"e": "Cells from the primitive streak migrate between the epiblast and hypoblast to form intraembryonic mesoderm. Gastrulation = the accumulation of all the germ layers; once three exist it's complete — by the end of week 3 (bilaminar disc in week 2 → trilaminar in week 3).",
+"w": [
+"That's implantation.",
+"That's placental takeover.",
+"Three germ layers, end of week 3.",
+"That's neurulation.",
+"That's cleavage."
+],
+"src": "fen",
+"fig": [
+"fe-p21"
+],
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Week 3: Gastrulation & Germ Layers",
+"s": "Some primitive-streak cells pass under the ectoderm toward the prochordal plate, forming a solid midline cord. What is it, and what remnant does it leave in the adult?",
+"c": [
+"Primitive gut; esophagus",
+"Notochord; nucleus pulposus",
+"Allantois; urachus",
+"Septum transversum; diaphragm",
+"Neural tube; spinal cord"
+],
+"a": 1,
+"e": "The notochordal process is the midline axis that the vertebrae form around. It degenerates where vertebral bodies form but persists in the intervertebral discs as the nucleus pulposus.",
+"w": [
+"The gut is endoderm.",
+"Notochordal process → nucleus pulposus.",
+"Not discussed.",
+"The septum transversum is lateral plate mesoderm.",
+"The neural tube comes from ectoderm."
+],
+"src": "fen",
+"fig": [
+"fe-p25"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Week 3: Gastrulation & Germ Layers",
+"s": "Which tissues are derived from mesoderm?",
+"c": [
+"Mammary, sebaceous and sweat glands",
+"Lungs, liver and the GI lining",
+"Epidermis, hair and the nervous system",
+"Muscle, bone, vessels and dermis",
+"Melanocytes and the adrenal medulla"
+],
+"a": 3,
+"e": "Mesoderm: muscle, bone, blood vessels/cardiovascular system (including the heart), and the dermis of the skin (EXAM QUESTION). Ectoderm: epidermis, hair, glands, nervous system. Endoderm: GI tract, lungs, liver.",
+"w": [
+"Ectoderm.",
+"Endoderm.",
+"Ectoderm.",
+"Mesoderm = muscle, bone, CVS, dermis.",
+"Neural crest (ectoderm)."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Week 3: Gastrulation & Germ Layers",
+"s": "The skin has two layers derived from different germ layers. Which is correct?",
+"c": [
+"Epidermis from ectoderm; dermis from mesoderm (dermatome)",
+"Epidermis from mesoderm; dermis from ectoderm",
+"Epidermis from neural crest; dermis from endoderm",
+"Epidermis and dermis both from ectoderm",
+"Both from endoderm"
+],
+"a": 0,
+"e": "A tested subtlety: the epidermis comes from ectoderm, but the dermis comes from mesoderm — the dermatome of the somite.",
+"w": [
+"Epidermis ectoderm; dermis mesoderm.",
+"Reversed.",
+"Not the answer.",
+"The dermis is mesodermal.",
+"Not endoderm."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Week 3: Gastrulation & Germ Layers",
+"s": "Which structures are derived from ectoderm?",
+"c": [
+"Muscle, bone and the dermis of skin",
+"Kidneys and ureters",
+"Heart and blood vessels",
+"Liver, lungs and the GI tract lining",
+"Epidermis, hair, glands and nervous system"
+],
+"a": 4,
+"e": "Ectoderm (from the epiblast): epidermis, hair, sebaceous and sweat glands, mammary gland, and the entire nervous system. (The notes' 'memory gland' is a typo for mammary gland.)",
+"w": [
+"Mesoderm.",
+"Intermediate mesoderm.",
+"Mesoderm (splanchnic layer).",
+"Endoderm.",
+"Ectoderm derivatives."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Week 3: Gastrulation & Germ Layers",
+"s": "Which organs are derived from endoderm?",
+"c": [
+"Vertebrae",
+"Heart and blood vessels",
+"GI tract, lungs and liver",
+"Brain and spinal cord",
+"Kidneys and ureters"
+],
+"a": 2,
+"e": "Endoderm (from the hypoblast): the innermost organs — gastrointestinal tract, lungs, liver.",
+"w": [
+"Mesoderm (sclerotome).",
+"Mesoderm.",
+"Endoderm = GI tract, lungs, liver.",
+"Ectoderm.",
+"Intermediate mesoderm."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Week 3: Gastrulation & Germ Layers",
+"s": "During which weeks of development do most congenital malformations arise?",
+"c": [
+"Weeks 1–2",
+"Weeks 4–8",
+"Weeks 12–16",
+"Weeks 20–24",
+"Weeks 36–40"
+],
+"a": 1,
+"e": "The germ layers build the organs during organogenesis, weeks 4–8. The foundation of every organ is laid down then, so it's the most vulnerable window: congenital malformations occur in weeks 4–8 (EXAM QUESTION).",
+"w": [
+"Weeks 1–2 are cleavage, implantation and the bilaminar disc.",
+"Organogenesis = weeks 4–8.",
+"Organs are already formed.",
+"Mainly growth.",
+"Mainly growth."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Week 3: Gastrulation & Germ Layers",
+"s": "A pregnant woman is screened with the TORCH panel. What does it include, and when is infection most dangerous?",
+"c": [
+"TB, Rabies, Cholera, HIV; third trimester",
+"Toxo, RSV, Coxsackie, HIV; postpartum",
+"Typhoid, Rubeola, Chlamydia, HPV; week 20",
+"Toxo, Rubella, CMV, Herpes; weeks 4–8",
+"Tetanus, Rotavirus, Candida, Hepatitis; at delivery"
+],
+"a": 3,
+"e": "Blood doesn't cross the placenta, but small viruses (not bacteria) can — most dangerously during organogenesis, weeks 4–8. TORCH = Toxoplasmosis, Rubella, Cytomegalovirus, Herpes.",
+"w": [
+"Not TORCH.",
+"Not TORCH.",
+"Not TORCH.",
+"TORCH; most dangerous in organogenesis (weeks 4–8).",
+"Not TORCH."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Week 3: Gastrulation & Germ Layers",
+"s": "A newborn has cataracts, deafness and a congenital heart defect. His mother had a rash illness early in pregnancy. Which infection is most likely?",
+"c": [
+"Rubella",
+"Herpes simplex",
+"Syphilis",
+"Toxoplasmosis",
+"Cytomegalovirus"
+],
+"a": 0,
+"e": "Rubella triad = cataracts (blindness), deafness, congenital heart defect — most damaging during organogenesis (weeks 4–8).",
+"w": [
+"Cataracts + deafness + heart defect = rubella.",
+"HSV causes skin, eye and mouth lesions or encephalitis.",
+"Syphilis isn't part of TORCH as taught here.",
+"Toxoplasmosis is classically chorioretinitis, hydrocephalus and calcifications.",
+"CMV classically gives periventricular calcifications and hearing loss."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Mesoderm, Body Cavities & Neurulation",
+"s": "From medial to lateral, what are the three columns of intraembryonic mesoderm, and what does each form?",
+"c": [
+"Lateral → somites; intermediate → kidneys; paraxial → limbs",
+"All three form somites",
+"Intermediate → somites; paraxial → kidneys; lateral → gut",
+"Paraxial → kidneys; intermediate → somites; lateral → heart",
+"Paraxial → somites; intermediate → kidneys; lateral → cavities"
+],
+"a": 4,
+"e": "PIL, medial → lateral: Paraxial (somites → bone, muscle, dermis), Intermediate (kidneys/excretory system), Lateral plate (body cavities, heart in the visceral layer, septum transversum, 4 limb buds).",
+"w": [
+"Paraxial forms the somites.",
+"Each column has a different fate.",
+"Not the answer.",
+"Reversed for paraxial and intermediate.",
+"PIL: somites, kidneys, cavities/limbs."
+],
+"src": "fen",
+"fig": [
+"fe-p23"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Mesoderm, Body Cavities & Neurulation",
+"s": "A fetus has bilateral renal agenesis. From which mesodermal column do the kidneys normally develop?",
+"c": [
+"Septum transversum",
+"Prochordal plate",
+"Intermediate",
+"Paraxial",
+"Lateral plate"
+],
+"a": 2,
+"e": "The intermediate mesoderm forms the excretory/renal system — the kidneys.",
+"w": [
+"The septum transversum forms the liver and diaphragm.",
+"The prochordal plate marks the head.",
+"Intermediate → kidneys.",
+"Paraxial forms somites.",
+"The lateral plate forms body cavities and limbs."
+],
+"src": "fen",
+"fig": [
+"fe-p24"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Mesoderm, Body Cavities & Neurulation",
+"s": "In which structure do the liver and diaphragm develop?",
+"c": [
+"Intermediate mesoderm",
+"Septum transversum",
+"Paraxial mesoderm",
+"Notochord",
+"Neural crest"
+],
+"a": 1,
+"e": "Just above the apex of the horseshoe-shaped coelom lies the septum transversum, a block of lateral-plate mesoderm in which the liver and diaphragm develop.",
+"w": [
+"Intermediate → kidneys.",
+"Septum transversum → liver + diaphragm.",
+"Paraxial mesoderm forms somites.",
+"The notochord → nucleus pulposus.",
+"Neural crest → melanocytes, adrenal medulla."
+],
+"src": "fen",
+"fig": [
+"fe-p23"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Mesoderm, Body Cavities & Neurulation",
+"s": "The horseshoe-shaped intraembryonic coelom becomes the three body cavities. Which part becomes the pericardial cavity?",
+"c": [
+"The chorionic cavity",
+"The primary yolk sac",
+"The two sides of the arch",
+"The apex of the arch",
+"The ends of the arch"
+],
+"a": 3,
+"e": "Apex (top of the arch) → pericardial cavity; the two sides → the two pleural cavities; the ends fuse → peritoneal cavity. The intraembryonic coelom persists as these cavities, whereas the extraembryonic (chorionic) cavity is obliterated.",
+"w": [
+"The chorionic cavity is obliterated.",
+"The yolk sac isn't a body cavity.",
+"The sides become the pleural cavities.",
+"Apex → pericardial cavity.",
+"The ends become the peritoneal cavity."
+],
+"src": "fen",
+"fig": [
+"fe-p23"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Mesoderm, Body Cavities & Neurulation",
+"s": "In which layer of lateral plate mesoderm does the heart develop?",
+"c": [
+"Visceral (splanchnopleuric), toward the endoderm",
+"Neural crest",
+"Intermediate mesoderm",
+"Paraxial mesoderm",
+"Parietal (somatopleuric), toward the ectoderm"
+],
+"a": 0,
+"e": "The intraembryonic coelom splits the lateral plate into a parietal/somatopleuric layer (toward ectoderm) and a visceral/splanchnopleuric layer (toward endoderm). The heart and cardiovascular system form in the visceral (splanchnopleuric) layer.",
+"w": [
+"Heart = visceral/splanchnopleuric layer.",
+"Neural crest isn't the heart's origin here.",
+"Intermediate forms kidneys.",
+"Paraxial forms somites.",
+"The parietal layer lines the body wall."
+],
+"src": "fen",
+"fig": [
+"fe-p24"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Mesoderm, Body Cavities & Neurulation",
+"s": "Each somite divides into three parts. Which matching is correct?",
+"c": [
+"Sclerotome → nucleus pulposus; myotome → dermis; dermatome → bone",
+"All three form muscle",
+"Sclerotome → dermis; myotome → bone; dermatome → muscle",
+"Sclerotome → kidney; myotome → heart; dermatome → epidermis",
+"Sclerotome → vertebrae/bone; myotome → muscle; dermatome → dermis"
+],
+"a": 4,
+"e": "Somite (triangular) → sclerotome (medial) → vertebrae and bone ('sclero' = hard); myotome (middle) → muscles; dermatome (lateral) → dermis of the skin.",
+"w": [
+"The nucleus pulposus comes from the notochord.",
+"Only the myotome forms muscle.",
+"Mixed up.",
+"Not the answer.",
+"Sclerotome bone, myotome muscle, dermatome dermis."
+],
+"src": "fen",
+"fig": [
+"fe-p24"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Mesoderm, Body Cavities & Neurulation",
+"s": "A patient with a herniated ('slipped') intervertebral disc has extrusion of its gel-like center. From which embryonic structure is this gel derived?",
+"c": [
+"Sclerotome",
+"Neural crest",
+"Notochordal process",
+"Dermatome",
+"Intermediate mesoderm"
+],
+"a": 2,
+"e": "Sclerotomes fuse around the notochordal process to form vertebral bodies; the notochord degenerates inside bone but survives within each intervertebral disc as the nucleus pulposus — the part that herniates in a slipped disc.",
+"w": [
+"The sclerotome forms the vertebral bodies around the notochord.",
+"Neural crest forms melanocytes, the adrenal medulla, etc.",
+"Nucleus pulposus = notochord remnant.",
+"The dermatome forms dermis.",
+"Intermediate mesoderm forms kidneys."
+],
+"src": "fen",
+"fig": [
+"fe-p25"
+],
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Mesoderm, Body Cavities & Neurulation",
+"s": "How does the flat embryonic disc become a tube-within-a-tube?",
+"c": [
+"Only cranial–caudal folding of the disc",
+"Cranial–caudal plus lateral folding",
+"Only lateral folding of the trophoblast",
+"Splitting of the notochord into two rods",
+"Fusion of the amnion with the chorion"
+],
+"a": 1,
+"e": "The embryo folds cranial–caudally (head toward tail) and laterally (sides toward the middle). Result: endoderm inside as the gut tube, mesoderm around it (muscle, bone, CVS), and ectoderm outside as the skin.",
+"w": [
+"Lateral folding also occurs.",
+"Both foldings → tube within a tube.",
+"The trophoblast isn't the embryo.",
+"Not the answer.",
+"Not the answer."
+],
+"src": "fen",
+"fig": [
+"fe-p24"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Mesoderm, Body Cavities & Neurulation",
+"s": "Which sequence describes neurulation?",
+"c": [
+"Endoderm invaginates → groove → neural tube",
+"Notochord → neural groove → spinal cord",
+"Neural tube → neural plate → neural groove and folds",
+"Neural plate → neural groove and folds → neural tube",
+"Paraxial mesoderm folds → neural tube → brain"
+],
+"a": 3,
+"e": "A portion of ectoderm above the notochordal process thickens into the neural plate; it sinks to form the neural groove, and the raised neural folds fuse into the neural tube: cranial end → brain, caudal end → spinal cord. The entire nervous system is from ectoderm.",
+"w": [
+"The nervous system is ectodermal.",
+"The notochord is mesodermal; the spinal cord comes from the neural tube.",
+"Reversed order.",
+"Plate → groove/folds → tube.",
+"Not mesoderm."
+],
+"src": "fen",
+"fig": [
+"fe-p26"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Mesoderm, Body Cavities & Neurulation",
+"s": "A patient has a pheochromocytoma, a tumor of the adrenal medulla. From which embryonic source is the adrenal medulla derived, and what other cell type comes from the same source?",
+"c": [
+"Neural crest; melanocytes",
+"Endoderm; hepatocytes",
+"Mesoderm; osteoblasts",
+"Notochord; nucleus pulposus",
+"Intermediate mesoderm; nephrons"
+],
+"a": 0,
+"e": "Neural crest cells come from the edges of the neural folds and migrate. Two classic derivatives: melanocytes (skin pigment) and the adrenal medulla. The adrenal cortex is not neural crest.",
+"w": [
+"Neural crest → adrenal medulla + melanocytes.",
+"Not the answer.",
+"Not the answer.",
+"Not the answer.",
+"Not the answer."
+],
+"src": "fen",
+"fig": [
+"fe-p26"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Mesoderm, Body Cavities & Neurulation",
+"s": "Where do neural crest cells come from?",
+"c": [
+"The prochordal plate",
+"The hypoblast",
+"The trophoblast",
+"The intermediate mesoderm",
+"Edges of the neural folds"
+],
+"a": 4,
+"e": "Before the neural folds fully fuse, their sharp edges are the neural crest; cells there differentiate and migrate to many sites — e.g., melanocytes and the adrenal medulla.",
+"w": [
+"The prochordal plate marks the head.",
+"The hypoblast is endoderm.",
+"The trophoblast forms the placenta.",
+"Intermediate mesoderm forms kidneys.",
+"Edges of the neural folds."
+],
+"src": "fen",
+"fig": [
+"fe-p26"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Placenta: Structure, Variants & Pathology",
+"s": "Which statement about the mature placenta is correct?",
+"c": [
+"~500 g; fetal side has cotyledons; edge cord",
+"~5 kg; both sides smooth with a central cord",
+"~500 g; maternal side has cotyledons; central cord",
+"~500 g; maternal and fetal blood mix inside",
+"~500 g; smooth maternal side; cord at the edge"
+],
+"a": 2,
+"e": "The placenta is disc-shaped, about 500 g, with the cord attached at its center. The maternal side is divided into cotyledons; the fetal side is smooth. Maternal and fetal blood never mix.",
+"w": [
+"Cotyledons are maternal.",
+"Wrong weight and description.",
+"~500 g; maternal cotyledons; smooth fetal side; central cord.",
+"The two bloods never mix.",
+"Normal attachment is central."
+],
+"src": "fen",
+"fig": [
+"fe-p27"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Placenta: Structure, Variants & Pathology",
+"s": "Which immunoglobulin crosses the placenta, giving the newborn passive immunity?",
+"c": [
+"IgA",
+"IgG",
+"IgE",
+"IgD",
+"IgM"
+],
+"a": 1,
+"e": "The barrier rule: no blood crosses — only products and wastes. IgG is the one immunoglobulin that crosses, giving the baby passive immunity.",
+"w": [
+"IgA is in breast milk, not transferred across the placenta.",
+"IgG crosses.",
+"IgE doesn't cross.",
+"IgD doesn't cross.",
+"IgM is too large to cross."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Placenta: Structure, Variants & Pathology",
+"s": "After delivery of the baby, about how long does the placenta take to separate, and what limits blood loss during that time?",
+"c": [
+"About 24 hours; the corpus luteum",
+"It never separates normally",
+"About 2 minutes; fetal clotting factors",
+"15–20 min; uterine vessels constrict",
+"About 2 hours; oxytocin from the baby"
+],
+"a": 3,
+"e": "After the baby is born, the placenta takes about 15–20 minutes to separate. During that time the uterine blood vessels constrict to minimize blood loss.",
+"w": [
+"Not relevant.",
+"It normally separates.",
+"Too fast.",
+"15–20 min; vessels constrict.",
+"Too slow."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Placenta: Structure, Variants & Pathology",
+"s": "At delivery, the umbilical vessels are seen to branch apart and run through the membranes before reaching the placenta. What variant is this?",
+"c": [
+"Velamentous",
+"Succenturiate",
+"Fenestrated",
+"Bilobed",
+"Circumvallate"
+],
+"a": 0,
+"e": "Velamentous: the 2 arteries + 1 vein diverge before reaching the center of the placenta and run through the membranes. Fenestrated = a hole; bilobed = two placentas; succenturiate = accessory lobe far away; circumvallate = membranes grip the edge too tightly.",
+"w": [
+"Vessels run in the membranes = velamentous.",
+"An accessory lobe.",
+"A hole in the placenta.",
+"Two placentas.",
+"Tight membrane grip at the edge."
+],
+"src": "fen",
+"fig": [
+"fe-p28"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Placenta: Structure, Variants & Pathology",
+"s": "A placenta has a small accessory lobe some distance from the main lobe, connected by vessels. What is it called?",
+"c": [
+"Circumvallate placenta",
+"Placenta percreta",
+"Fenestrated placenta",
+"Bilobed placenta",
+"Succenturiate lobe"
+],
+"a": 4,
+"e": "Succenturiate: an accessory lobe grows far away from the main lobe. Bilobed: an extra placenta grows on the first one → 2 placentas.",
+"w": [
+"Circumvallate = tight membranes at the edge.",
+"Percreta = invasion through the uterine wall.",
+"Fenestrated = a hole.",
+"Bilobed = two placentas side by side.",
+"Accessory lobe far away = succenturiate."
+],
+"src": "fen",
+"fig": [
+"fe-p28"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Placenta: Structure, Variants & Pathology",
+"s": "The amniotic and chorionic membranes grip the edge of the placenta too tightly, blood accumulates on the maternal side, and the placenta is hard to separate. What variant is this?",
+"c": [
+"Bilobed",
+"Abruptio placentae",
+"Circumvallate",
+"Velamentous",
+"Fenestrated"
+],
+"a": 2,
+"e": "Circumvallate: the membranes grip the placenta too tightly; blood accumulates on the maternal side and can't get off — hard to separate.",
+"w": [
+"Two placentas.",
+"Abruption = premature separation.",
+"Tight membrane grip = circumvallate.",
+"Vessels in the membranes.",
+"A hole."
+],
+"src": "fen",
+"fig": [
+"fe-p28"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Placenta: Structure, Variants & Pathology",
+"s": "What is placental abruption (abruptio placentae)?",
+"c": [
+"Implantation over the internal os",
+"Premature separation of the placenta",
+"A hole in the placenta",
+"An accessory lobe",
+"Villi invading the myometrium"
+],
+"a": 1,
+"e": "Placental abruption = premature separation of the placenta.",
+"w": [
+"That's previa.",
+"Premature separation.",
+"That's fenestrated.",
+"That's succenturiate.",
+"That's increta."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Placenta: Structure, Variants & Pathology",
+"s": "Placental villi penetrate into the myometrium but not through the full uterine wall. What is this called?",
+"c": [
+"Circumvallate placenta",
+"Placenta accreta",
+"Placenta previa",
+"Placenta increta",
+"Placenta percreta"
+],
+"a": 3,
+"e": "Depth of invasion: accreta (villi attach to the myometrium) → increta (villi go INTO the myometrium) → percreta (through all layers: myometrium + perimetrium). 'A-attaches, IN-into, PER-through.'",
+"w": [
+"Circumvallate is a membrane problem.",
+"Accreta only attaches.",
+"Previa is a low location.",
+"INcreta = INto the muscle.",
+"PERcreta goes through the whole wall."
+],
+"src": "fen",
+"fig": [
+"fe-p28"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Placenta: Structure, Variants & Pathology",
+"s": "Placental villi invade through the myometrium and the perimetrium. What is this called?",
+"c": [
+"Percreta",
+"Increta",
+"Accreta",
+"Abruptio",
+"Velamentous"
+],
+"a": 0,
+"e": "Percreta = through all the layers (myometrium + perimetrium). Accreta attaches; increta goes into the muscle; percreta goes through.",
+"w": [
+"Through the whole wall = percreta.",
+"Into the muscle only.",
+"Attachment only.",
+"Premature separation.",
+"Vessels in the membranes."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Placenta: Structure, Variants & Pathology",
+"s": "A pregnant woman presents with painless vaginal bleeding. Ultrasound shows the placenta implanted in the lower uterine segment completely covering the internal os. What is the condition and grade?",
+"c": [
+"Abruptio placentae",
+"Circumvallate placenta",
+"Placenta accreta",
+"Placenta previa, 1st degree",
+"Placenta previa, 4th degree"
+],
+"a": 4,
+"e": "Normally the placenta implants in the upper segment. Low implantation near or over the internal os = placenta previa, graded 1–4: 1st almost reaches the os (may normalize); 2nd almost touches it; 3rd covers it; 4th completely covers/obstructs the exit. Previa bleeds because the placenta would come out before the fetus; it's diagnosed by ultrasound.",
+"w": [
+"Abruption is premature separation.",
+"A membrane problem.",
+"Accreta is abnormal depth of attachment, not location.",
+"1st degree only approaches the os.",
+"Completely covering the os = 4th-degree previa."
+],
+"src": "fen",
+"fig": [
+"fe-p30"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Placenta: Structure, Variants & Pathology",
+"s": "Why does placenta previa cause bleeding at delivery?",
+"c": [
+"The villi penetrate through the perimetrium",
+"The umbilical cord is too long and tears",
+"The placenta lies over the os and comes out first",
+"The fetus has bilateral renal agenesis",
+"The corpus luteum fails early in pregnancy"
+],
+"a": 2,
+"e": "Normally the fetus delivers first, then the placenta. In previa the placenta comes out first → blood loss. Today it's diagnosed by ultrasound to plan management (often Caesarean section for higher grades).",
+"w": [
+"That's percreta.",
+"Not related.",
+"The placenta blocks the exit and separates first.",
+"Not related.",
+"Not related."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Prenatal Testing, Amniotic Fluid & Twins",
+"s": "A 38-year-old pregnant woman is offered testing for chromosomal anomalies. Which procedure and technique does the professor describe?",
+"c": [
+"Cordocentesis with a fetal blood culture",
+"Amniocentesis with karyotyping (FISH)",
+"Chorionic villus sampling with a Gram stain",
+"Maternal urine hCG measured at 12 weeks",
+"Biopsy of the decidua for histology"
+],
+"a": 1,
+"e": "Pregnancy after 35 raises the risk of chromosomal anomalies. Amniocentesis: a needle under ultrasound guidance aspirates amniotic fluid without touching the fetus; the sample is karyotyped (all 23 pairs) using FISH. The professor says it's done at about 3 months/12 weeks.\n\nProfessor vs. textbook: standard practice is amniocentesis at 15–20 weeks and CVS at 10–13 weeks; use the professor's numbers on his exam.",
+"w": [
+"Not described.",
+"Amniocentesis + karyotype by FISH.",
+"Not what the professor describes for karyotype.",
+"hCG is the pregnancy test.",
+"Not described."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Prenatal Testing, Amniotic Fluid & Twins",
+"s": "After amniocentesis, a woman develops fever and uterine tenderness; inflamed membranes later form strands that wrap around fetal limbs. What happened?",
+"c": [
+"Abruptio placentae",
+"Renal agenesis",
+"Velamentous insertion",
+"Amniochorionitis → amniotic bands",
+"Placenta previa"
+],
+"a": 3,
+"e": "The amniocentesis needle passes through skin → muscle → perimetrium → myometrium → endometrium → amniotic and chorionic membranes → amniotic cavity. Even with sterile technique it can introduce infection: amniochorionitis. Inflammatory cells can clump into amniotic bands that wrap around parts of the fetus.",
+"w": [
+"Premature separation.",
+"Not related to the procedure.",
+"A cord insertion variant.",
+"Infection → amniochorionitis → amniotic bands.",
+"A placental location problem."
+],
+"src": "fen",
+"xp": true,
+"note": "Written for this site from the FBS1 Embryology guide — this tests a point marked in red or as an exam question."
+},
+{
+"t": "Prenatal Testing, Amniotic Fluid & Twins",
+"s": "Which marker measured in amniotic fluid is used to screen for neural tube defects, and what prevents them?",
+"c": [
+"Alpha-fetoprotein; folic acid",
+"hCG; iron supplements",
+"Estrogen; vitamin B12",
+"FSH; calcium",
+"Progesterone; vitamin C"
+],
+"a": 0,
+"e": "A neural tube defect is a gap left when the neural folds fail to fuse. Alpha-fetoprotein is the amniocentesis marker; folic acid in the 1st trimester prevents NTDs regardless of family history. The professor says diagnose by the 8th week via ultrasound + chorionic villus biopsy.\n\nProfessor vs. textbook: standard practice: NTDs are screened with maternal serum AFP at ~16–18 weeks plus ultrasound; CVS tests chromosomes and genes and doesn't detect NTDs. Use the professor's version on his exam.",
+"w": [
+"AFP screens; folic acid prevents.",
+"hCG is the pregnancy test.",
+"Not the answer.",
+"Not the answer.",
+"Not the answer."
+],
+"src": "fen",
+"fig": [
+"fe-p26"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Prenatal Testing, Amniotic Fluid & Twins",
+"s": "What is the normal volume of amniotic fluid near term, and how is it kept constant?",
+"c": [
+"~3000 mL; leaked from the umbilical vein",
+"~100 mL; secreted only by the placenta",
+"~50 mL; made by the yolk sac",
+"~5 L; produced by the mother's kidneys",
+"~1000–1200 mL; swallowed, absorbed, filtered, urinated back"
+],
+"a": 4,
+"e": "Normal fluid rises from about 25 mL to 1000–1200 mL by the 9th month and stays constant through a cycle: fetus swallows → GI tract absorbs → kidneys filter → urine → back to the amniotic cavity.",
+"w": [
+"Too much.",
+"Too little.",
+"Too little.",
+"Too much.",
+"1000–1200 mL, swallow–absorb–filter–urinate cycle."
+],
+"src": "fen",
+"fig": [
+"fe-p32"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Prenatal Testing, Amniotic Fluid & Twins",
+"s": "A pregnant woman's amniotic fluid volume is 2100 mL. Ultrasound suggests the fetus cannot pass swallowed fluid down the gut. What is the most likely cause?",
+"c": [
+"Renal agenesis",
+"Excess fetal urine (diabetes insipidus)",
+"Upper GI obstruction (e.g., TEF)",
+"Placenta previa",
+"Neural tube closure"
+],
+"a": 2,
+"e": "More than 1500 mL = polyhydramnios. If the gut fails to canalize or is obstructed, the fetus swallows but the fluid can't be absorbed and comes back up, so the volume rises. Classic cause: tracheo-esophageal fistula; also duodenal or other upper GI obstruction. 'Poly = plumbing blocked (gut).'",
+"w": [
+"Renal agenesis causes too little fluid.",
+"Not the professor's cause.",
+"Upper GI obstruction → polyhydramnios.",
+"Not related.",
+"Not related."
+],
+"src": "fen",
+"fig": [
+"fe-p32"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Prenatal Testing, Amniotic Fluid & Twins",
+"s": "A fetus has bilateral renal agenesis. Which amniotic fluid finding and which fetal consequences are expected?",
+"c": [
+"Polyhydramnios; neural tube defect",
+"Oligohydramnios; flat face, club foot",
+"Polyhydramnios; macrosomia",
+"Normal fluid; no consequences",
+"Oligohydramnios; tracheo-esophageal fistula"
+],
+"a": 1,
+"e": "Without kidneys, nothing is filtered into urine, so the fluid falls below 700 mL — oligohydramnios ('oligo = kidneys out'). With too little cushion, the face presses on the uterine wall (cartilage face flattens) and the limbs bend → club foot (Potter-type deformities).",
+"w": [
+"Not the answer.",
+"Renal agenesis → oligohydramnios → flat face, club foot.",
+"Too little fluid, not too much.",
+"Fluid volume is reduced.",
+"TEF causes polyhydramnios."
+],
+"src": "fen",
+"fig": [
+"fe-p32"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Prenatal Testing, Amniotic Fluid & Twins",
+"s": "Which amniotic fluid volumes define polyhydramnios and oligohydramnios?",
+"c": [
+">3000 mL; <100 mL",
+">1200 mL; <1000 mL",
+">700 mL; <1500 mL",
+">1500 mL; <700 mL",
+">1000 mL; <500 mL"
+],
+"a": 3,
+"e": "Polyhydramnios (hydramnios) > 1500 mL; oligohydramnios < 700 mL; normal ~1000–1200 mL near term.",
+"w": [
+"Not the professor's numbers.",
+"Not the professor's numbers.",
+"Reversed.",
+">1500 and <700.",
+"Not the professor's numbers."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Prenatal Testing, Amniotic Fluid & Twins",
+"s": "Which statement about monozygotic and dizygotic twins is correct?",
+"c": [
+"MZ: one zygote that splits; DZ: two separate zygotes",
+"DZ twins always share one chorion",
+"MZ twins make up about 2/3 of all twins",
+"DZ twins come from one zygote that splits",
+"MZ twins can be of different sexes"
+],
+"a": 0,
+"e": "Monozygotic (identical): one secondary oocyte + one sperm → one zygote that splits; same sex and genetics; about 1/3 of twins. Dizygotic (fraternal): two oocytes fertilized by two sperm; sex and genetics can differ; about 2/3 of twins.",
+"w": [
+"MZ: one zygote, identical; DZ: two zygotes.",
+"DZ twins are always dichorionic/diamniotic.",
+"MZ twins are about 1/3.",
+"That's monozygotic.",
+"MZ twins are always the same sex."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Prenatal Testing, Amniotic Fluid & Twins",
+"s": "Dizygotic twins always have which arrangement of membranes?",
+"c": [
+"Conjoined",
+"Dichorionic, monoamniotic",
+"Monochorionic, diamniotic",
+"Monochorionic, monoamniotic",
+"Dichorionic, diamniotic"
+],
+"a": 4,
+"e": "Dizygotic twins come from two separate zygotes, so they are always dichorionic + diamniotic — 2 chorions, 2 amnions, 2 placentas.",
+"w": [
+"Only very late MZ splits.",
+"Not standard for DZ.",
+"Only MZ splitting at the blastocyst stage.",
+"Only late MZ splits.",
+"DZ = always di/di."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Prenatal Testing, Amniotic Fluid & Twins",
+"s": "Monozygotic twins split at the blastocyst stage (days 4–8), after the chorion has formed, by division of the inner cell mass. What membrane arrangement results?",
+"c": [
+"Monochorionic, monoamniotic",
+"Dichorionic, diamniotic",
+"Monochorionic, diamniotic",
+"Dichorionic, monoamniotic",
+"Conjoined"
+],
+"a": 2,
+"e": "The later the split, the more the twins share. Days 1–3 (morula) → di/di; days 4–8 (blastocyst, chorion already formed, inner cell mass divides) → monochorionic/diamniotic; days 8–13 (after the amnion forms) → mono/mono; days 13–15 → conjoined.\n\nProfessor vs. textbook: the professor's table also lists 'dichorionic, monoamniotic' (blastomere stage with fused masses) as an uncommon outcome; that isn't a standard textbook result. Know his table for his exam and the standard timeline for Step 1.",
+"w": [
+"That's a split after the amnion forms (days 8–13).",
+"That's an early (morula) split.",
+"Blastocyst split → mono-chorionic, di-amniotic.",
+"Not the standard outcome.",
+"That's days 13–15."
+],
+"src": "fen",
+"fig": [
+"fe-p34"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Prenatal Testing, Amniotic Fluid & Twins",
+"s": "Monozygotic twinning that occurs at days 1–3 (morula stage) gives which result?",
+"c": [
+"Monochorionic, diamniotic",
+"Dichorionic, diamniotic",
+"Monochorionic, monoamniotic",
+"A single fetus",
+"Conjoined twins"
+],
+"a": 1,
+"e": "An early split (blastomere/morula stage, before any chorion exists) gives each twin its own chorion and amnion → dichorionic, diamniotic (the common outcome).",
+"w": [
+"Blastocyst-stage split.",
+"Early split → di/di.",
+"Late split.",
+"Twins do form.",
+"Latest split."
+],
+"src": "fen",
+"fig": [
+"fe-p34"
+],
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Prenatal Testing, Amniotic Fluid & Twins",
+"s": "Conjoined twins joined at the chest are called what?",
+"c": [
+"Pygopagus",
+"Ischiopagus",
+"Omphalopagus",
+"Thoracopagus",
+"Craniopagus"
+],
+"a": 3,
+"e": "Conjoined twins are named by attachment site (-pagus = joined): head → craniopagus; chest → thoracopagus; abdomen/umbilicus → omphalopagus; ischial bone/pelvis → ischiopagus.",
+"w": [
+"Not in the professor's list.",
+"Pelvis (ischium).",
+"Abdomen/umbilicus.",
+"Chest = thoracopagus.",
+"Head."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+},
+{
+"t": "Prenatal Testing, Amniotic Fluid & Twins",
+"s": "Conjoined twins joined at the umbilical region share a liver. What is this type called?",
+"c": [
+"Omphalopagus",
+"Craniopagus",
+"Ischiopagus",
+"Thoracopagus",
+"Cephalopagus"
+],
+"a": 0,
+"e": "Omphalopagus = joined at the abdomen/umbilicus ('omphalos' = navel). Conjoined twins form from the latest split (days 13–15) when the junction between the two inner cell masses persists.",
+"w": [
+"Abdomen/umbilicus = omphalopagus.",
+"Head.",
+"Pelvis.",
+"Chest.",
+"Not in the professor's list."
+],
+"src": "fen",
+"note": "Written for this site from the FBS1 Embryology guide."
+}
+];
