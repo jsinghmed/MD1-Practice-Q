@@ -513,18 +513,19 @@ table.rt tr.click:hover td{background:var(--hover)}
 <div class="lightbox" id="lightbox"><img alt=""></div>
 <div class="toast" id="toast"></div>
 
-<script src="images.js?v=29"></script>
-<script src="questions.js?v=29"></script>
-<script src="histology-review.js?v=29"></script>
-<script src="physiology.js?v=29"></script>
-<script src="physiology-review.js?v=29"></script>
-<script src="biochemistry.js?v=29"></script>
-<script src="anatomy.js?v=29"></script>
-<script src="embryology.js?v=29"></script>
-<script src="fbs-physiology.js?v=29"></script>
-<script src="fbs-cellbio.js?v=29"></script>
-<script src="fbs-anki.js?v=29"></script>
-<script src="crs-embryology.js?v=29"></script>
+<script src="images.js?v=30"></script>
+<script src="questions.js?v=30"></script>
+<script src="histology-review.js?v=30"></script>
+<script src="physiology.js?v=30"></script>
+<script src="physiology-review.js?v=30"></script>
+<script src="biochemistry.js?v=30"></script>
+<script src="anatomy.js?v=30"></script>
+<script src="embryology.js?v=30"></script>
+<script src="fbs-physiology.js?v=30"></script>
+<script src="fbs-cellbio.js?v=30"></script>
+<script src="fbs-biochem.js?v=30"></script>
+<script src="fbs-anki.js?v=30"></script>
+<script src="crs-embryology.js?v=30"></script>
 <script>
 (function(){
 // =====================================================================
@@ -551,6 +552,8 @@ const SECTIONS = [
    extra:[{name:"FBS Review 1", f:q=>q.src==="r1"}, {name:"Class Review Qs", f:q=>q.src==="cls"}, {name:"RMP & AP Questions", f:q=>q.src==="rmp"}]},
   {course:"fbs", name:"FBS Cell Biology", all:"All Cell Biology", prefix:"fc", topics:window.FBS_CB_TOPICS, qs:window.FBS_CB_QUESTIONS,
    extra:[{name:"Shetty Practice Q's (from the slides)", f:q=>q.shetty}, {name:"CB1 Quiz – Cell Organelles", f:q=>q.src==="cb1"}, {name:"New NBME-style Q's", f:q=>q.src==="fcn"}]},
+  {course:"fbs", name:"FBS Biochemistry", all:"All FBS Biochemistry", prefix:"fb", topics:window.FBS_BC_TOPICS, qs:window.FBS_BC_QUESTIONS,
+   extra:[{name:"Shetty Practice Q's (from the slides)", f:q=>q.shetty}, {name:"New NBME-style Q's", f:q=>q.src==="fbn"}]},
   {course:"fbs", name:"Anki Deck Practice Q's", all:"All Anki Deck Q's", prefix:"fa", topics:window.FBS_ANKI_TOPICS, qs:window.FBS_ANKI_QUESTIONS},
   {course:"crs", name:"CRS Embryology", all:"All CRS Embryology", prefix:"ce", topics:window.CRS_EMB_TOPICS, qs:window.CRS_EMB_QUESTIONS}
 ].filter(s=>s.qs && s.qs.length);
@@ -1024,7 +1027,7 @@ function ensureAnkiImages(cb){
   if (!need.size) return cb();
   toast("Loading figures for your cards…");
   let left = need.size;
-  need.forEach(file=>{ const sc = document.createElement("script"); sc.src = file+"?v=29"; sc.onload = sc.onerror = ()=>{ lazyState[file] = 2; if (--left === 0) cb(); }; document.head.appendChild(sc); });
+  need.forEach(file=>{ const sc = document.createElement("script"); sc.src = file+"?v=30"; sc.onload = sc.onerror = ()=>{ lazyState[file] = 2; if (--left === 0) cb(); }; document.head.appendChild(sc); });
 }
 function downloadAnki(){
   const ids = S.anki.filter(id=>byId[id]);
@@ -1542,11 +1545,11 @@ function submit(){
   save(); renderChaps(); renderRail(); renderStats(); renderCard();
 }
 // FBS and CRS images live in their own files and only download the first time one of their figures is shown.
-const LAZY_IMGS = [{re:/^fp-/, file:"images-fbs.js"}, {re:/^ce-/, file:"images-crs.js"}, {re:/^cb-/, file:"images-fbs-cb.js"}];
+const LAZY_IMGS = [{re:/^fp-/, file:"images-fbs.js"}, {re:/^ce-/, file:"images-crs.js"}, {re:/^cb-/, file:"images-fbs-cb.js"}, {re:/^bc-/, file:"images-fbs-bc.js"}];
 const lazyState = {}; // file -> 1 loading, 2 done
 function loadLazyImgs(file){
   if (lazyState[file]) return; lazyState[file] = 1;
-  const sc = document.createElement("script"); sc.src = file+"?v=29";
+  const sc = document.createElement("script"); sc.src = file+"?v=30";
   sc.onload = ()=>{ lazyState[file] = 2; fixImgs(document); };
   sc.onerror = ()=>{ delete lazyState[file]; };
   document.head.appendChild(sc);
