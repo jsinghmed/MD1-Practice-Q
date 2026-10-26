@@ -495,17 +495,17 @@ table.rt tr.click:hover td{background:var(--hover)}
 <div class="lightbox" id="lightbox"><img alt=""></div>
 <div class="toast" id="toast"></div>
 
-<script src="images.js?v=26"></script>
-<script src="questions.js?v=26"></script>
-<script src="histology-review.js?v=26"></script>
-<script src="physiology.js?v=26"></script>
-<script src="physiology-review.js?v=26"></script>
-<script src="biochemistry.js?v=26"></script>
-<script src="anatomy.js?v=26"></script>
-<script src="embryology.js?v=26"></script>
-<script src="fbs-physiology.js?v=26"></script>
-<script src="fbs-anki.js?v=26"></script>
-<script src="crs-embryology.js?v=26"></script>
+<script src="images.js?v=27"></script>
+<script src="questions.js?v=27"></script>
+<script src="histology-review.js?v=27"></script>
+<script src="physiology.js?v=27"></script>
+<script src="physiology-review.js?v=27"></script>
+<script src="biochemistry.js?v=27"></script>
+<script src="anatomy.js?v=27"></script>
+<script src="embryology.js?v=27"></script>
+<script src="fbs-physiology.js?v=27"></script>
+<script src="fbs-anki.js?v=27"></script>
+<script src="crs-embryology.js?v=27"></script>
 <script>
 (function(){
 // =====================================================================
@@ -1000,7 +1000,7 @@ function ensureAnkiImages(cb){
   if (!need.size) return cb();
   toast("Loading figures for your cards…");
   let left = need.size;
-  need.forEach(file=>{ const sc = document.createElement("script"); sc.src = file+"?v=26"; sc.onload = sc.onerror = ()=>{ lazyState[file] = 2; if (--left === 0) cb(); }; document.head.appendChild(sc); });
+  need.forEach(file=>{ const sc = document.createElement("script"); sc.src = file+"?v=27"; sc.onload = sc.onerror = ()=>{ lazyState[file] = 2; if (--left === 0) cb(); }; document.head.appendChild(sc); });
 }
 function downloadAnki(){
   const ids = S.anki.filter(id=>byId[id]);
@@ -1468,7 +1468,7 @@ const LAZY_IMGS = [{re:/^fp-/, file:"images-fbs.js"}, {re:/^ce-/, file:"images-c
 const lazyState = {}; // file -> 1 loading, 2 done
 function loadLazyImgs(file){
   if (lazyState[file]) return; lazyState[file] = 1;
-  const sc = document.createElement("script"); sc.src = file+"?v=26";
+  const sc = document.createElement("script"); sc.src = file+"?v=27";
   sc.onload = ()=>{ lazyState[file] = 2; fixImgs(document); };
   sc.onerror = ()=>{ delete lazyState[file]; };
   document.head.appendChild(sc);
@@ -1486,21 +1486,25 @@ function saveStem(){
   if (el.querySelector("mark")) S.hl[q.id] = c.innerHTML; else delete S.hl[q.id];
   save();
 }
-// Pull a node out of any highlight it sits inside, splitting that highlight around it.
+// Pull a node out of any highlight it sits inside, splitting that highlight (and any formatting
+// such as <b>/<i>/<sub> between them) around it. Formatting is kept on the lifted node.
 function liftOutOfMarks(node, root){
-  let p = node.parentElement;
-  while (p && p !== root && root.contains(p)) {
-    if (p.tagName === "MARK") {
-      const before = p.cloneNode(false), after = p.cloneNode(false);
-      while (p.firstChild && p.firstChild !== node) before.appendChild(p.firstChild);
-      p.removeChild(node);
-      while (p.firstChild) after.appendChild(p.firstChild);
-      if (before.textContent) p.parentNode.insertBefore(before, p);
-      p.parentNode.insertBefore(node, p);
-      if (after.textContent) p.parentNode.insertBefore(after, p);
-      p.remove();
-    }
-    p = node.parentElement;
+  let top = null;
+  for (let p = node.parentElement; p && p !== root && root.contains(p); p = p.parentElement) if (p.tagName === "MARK") top = p;
+  if (!top) return;
+  const stop = top.parentNode;
+  let guard = 0;
+  while (node.parentNode && node.parentNode !== stop && guard++ < 50) {
+    const p = node.parentNode;
+    if (p.tagName !== "MARK") { const w = p.cloneNode(false); w.removeAttribute && w.removeAttribute("id"); while (node.firstChild) w.appendChild(node.firstChild); node.appendChild(w); }
+    const before = p.cloneNode(false), after = p.cloneNode(false);
+    while (p.firstChild && p.firstChild !== node) before.appendChild(p.firstChild);
+    p.removeChild(node);
+    while (p.firstChild) after.appendChild(p.firstChild);
+    if (before.textContent || (before.querySelector && before.querySelector("img"))) p.parentNode.insertBefore(before, p);
+    p.parentNode.insertBefore(node, p);
+    if (after.textContent || (after.querySelector && after.querySelector("img"))) p.parentNode.insertBefore(after, p);
+    p.remove();
   }
 }
 function highlightSelection(){
