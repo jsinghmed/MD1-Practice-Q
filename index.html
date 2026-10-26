@@ -263,6 +263,17 @@ b.g{color:var(--green)} b.r{color:var(--red)}
 .hsearch input:focus,.psearch input:focus{outline:none;border-color:var(--blue)}
 .hsearch .ic,.psearch .ic{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:17px;pointer-events:none}
 .psearch{margin-bottom:10px}
+.psearch.tokens{display:flex;flex-wrap:wrap;align-items:center;gap:6px;background:var(--card);border:1px solid var(--line2);border-radius:10px;padding:7px 10px 7px 40px;cursor:text}
+.psearch.tokens:focus-within{border-color:var(--blue)}
+.psearch.tokens #schips{display:contents}
+.psearch.tokens input{flex:1;min-width:180px;width:auto;border:none;background:none;padding:5px 4px}
+.psearch.tokens input:focus{outline:none}
+.tok{display:inline-flex;align-items:center;gap:4px;background:var(--blue);color:#fff;border-radius:7px;padding:4px 4px 4px 10px;font-size:14px;font-weight:600;line-height:1.2;max-width:100%}
+.tokx{background:none;border:none;color:inherit;opacity:.75;font-size:11px;padding:2px 5px;border-radius:5px;cursor:pointer}
+.tokx:hover{opacity:1;background:rgba(255,255,255,.2)}
+.smatch{align-items:center}
+.shits{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.stag{font-size:11.5px;font-weight:600;padding:1px 7px;border-radius:5px;background:var(--hover);color:var(--blue);border:1px solid var(--line2)}
 .sscope,.sfilt{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
 .chip2{background:var(--card);border:1px solid var(--line2);color:var(--text);border-radius:999px;padding:5px 12px;font-size:13px;cursor:pointer}
 .chip2.on{border-color:var(--blue);background:color-mix(in srgb,var(--blue) 14%,transparent);color:var(--text)}
@@ -448,17 +459,17 @@ table.rt tr.click:hover td{background:var(--hover)}
 <div class="lightbox" id="lightbox"><img alt=""></div>
 <div class="toast" id="toast"></div>
 
-<script src="images.js?v=22"></script>
-<script src="questions.js?v=22"></script>
-<script src="histology-review.js?v=22"></script>
-<script src="physiology.js?v=22"></script>
-<script src="physiology-review.js?v=22"></script>
-<script src="biochemistry.js?v=22"></script>
-<script src="anatomy.js?v=22"></script>
-<script src="embryology.js?v=22"></script>
-<script src="fbs-physiology.js?v=22"></script>
-<script src="fbs-anki.js?v=22"></script>
-<script src="crs-embryology.js?v=22"></script>
+<script src="images.js?v=23"></script>
+<script src="questions.js?v=23"></script>
+<script src="histology-review.js?v=23"></script>
+<script src="physiology.js?v=23"></script>
+<script src="physiology-review.js?v=23"></script>
+<script src="biochemistry.js?v=23"></script>
+<script src="anatomy.js?v=23"></script>
+<script src="embryology.js?v=23"></script>
+<script src="fbs-physiology.js?v=23"></script>
+<script src="fbs-anki.js?v=23"></script>
+<script src="crs-embryology.js?v=23"></script>
 <script>
 (function(){
 // =====================================================================
@@ -553,7 +564,8 @@ const HL_COLORS = [{k:"y",name:"Yellow"},{k:"g",name:"Green"},{k:"b",name:"Blue"
 let hlColor = "y";
 try { const c = localStorage.getItem("msk-hlcolor"); if (HL_COLORS.some(x=>x.k===c)) hlColor = c; } catch(e) {}
 let paused = false;
-let searchTerm = "";
+let searchTerm = "", searchChips = [], searchMatch = "any";
+function searchTerms(){ const t = searchTerm.trim(), a = searchChips.slice(); if (t.length>=2 && !a.some(x=>x.toLowerCase()===t.toLowerCase())) a.push(t); return a; }
 let searchRet = null;
 let searchScope = "course"; // "course" = current summative only, "all" = FBS + MSK + CRS
 let searchFilter = "all";   // when scope is "all": which summative's results to show ("all" or a course id)       // where you were before searching: {view, key, pos, report}
@@ -684,7 +696,7 @@ function backLabel(){
 }
 function leaveSearch(){
   clearTimeout(searchT);
-  $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = ""; searchScope = "course"; searchFilter = "all";
+  $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = ""; searchChips = []; searchMatch = "any"; searchScope = "course"; searchFilter = "all";
   const r = searchRet; searchRet = null;
   if (r && r.view==="quiz" && getChap(r.key)) {
     S.cur = r.key; S.curBy[S.course] = r.key; if (r.pos !== undefined) S.pos[r.key] = r.pos;
@@ -952,7 +964,7 @@ function ensureAnkiImages(cb){
   if (!need.size) return cb();
   toast("Loading figures for your cards…");
   let left = need.size;
-  need.forEach(file=>{ const sc = document.createElement("script"); sc.src = file+"?v=22"; sc.onload = sc.onerror = ()=>{ lazyState[file] = 2; if (--left === 0) cb(); }; document.head.appendChild(sc); });
+  need.forEach(file=>{ const sc = document.createElement("script"); sc.src = file+"?v=23"; sc.onload = sc.onerror = ()=>{ lazyState[file] = 2; if (--left === 0) cb(); }; document.head.appendChild(sc); });
 }
 function downloadAnki(){
   const ids = S.anki.filter(id=>byId[id]);
@@ -1247,14 +1259,18 @@ const SEARCH_IDX = Q.map(q=>({q, fields:[
   ["question", plain(q.s)], ["choices", (q.c||[]).join(" · ")], ["answer", q.ans||""],
   ["explanation", [plain(q.eh), q.se, q.e].filter(Boolean).join(" ")]
 ]}));
-function searchQs(term, scope){
-  const t = term.toLowerCase(), res = [];
+function searchQs(terms, scope){
+  const ts = terms.map(t=>t.toLowerCase()), res = [];
   SEARCH_IDX.forEach(x=>{
     if ((scope||searchScope)!=="all" && x.q.course !== S.course) return;
-    for (const [where, txt] of x.fields) {
-      const i = txt.toLowerCase().indexOf(t);
-      if (i >= 0) { res.push({q:x.q, where, txt, i}); break; }
-    }
+    let first = null; const hits = [];
+    ts.forEach((t,k)=>{
+      for (const [where, txt] of x.fields) {
+        const i = txt.toLowerCase().indexOf(t);
+        if (i >= 0) { hits.push(terms[k]); if (!first) first = {where, txt, i, len:t.length}; break; }
+      }
+    });
+    if (hits.length && (searchMatch==="any" || hits.length===ts.length)) res.push({q:x.q, hits, ...first});
   });
   return res;
 }
@@ -1263,15 +1279,20 @@ function snippet(txt, i, len){
   const pre = (a>0?"…":"") + txt.slice(a, i), hit = txt.slice(i, i+len), post = txt.slice(i+len, b) + (b<txt.length?"…":"");
   return esc(pre) + "<mark>" + esc(hit) + "</mark>" + esc(post);
 }
-function searchResultsHTML(term){
-  const all = searchScope==="all";
-  const raw = term.length>=2 ? searchQs(term) : [];
+function searchResultsHTML(){
+  const all = searchScope==="all", terms = searchTerms(), multi = terms.length > 1;
+  const term = terms.join(" + ");
+  const raw = terms.length ? searchQs(terms) : [];
   if (all && searchFilter!=="all" && !raw.some(r=>r.q.course===searchFilter)) searchFilter = "all";
   const res = all && searchFilter!=="all" ? raw.filter(r=>r.q.course===searchFilter) : raw;
   S._lastSearch = res.map(r=>r.q.id);
-  if (term.length < 2) return `<p class="sub">Type at least 2 letters to search${all?" every FBS, MSK and CRS question":" "+esc(course().name)}.</p>`;
+  if (!terms.length) return `<p class="sub">Type at least 2 letters to search${all?" every FBS, MSK and CRS question":" "+esc(course().name)}. Press <b>Enter</b> to box a topic and add another.</p>`;
   const where = all ? (searchFilter==="all" ? "across FBS, MSK and CRS" : "in "+COURSE_BY_ID[searchFilter].name) : "in "+esc(course().name);
-  let h = `<p class="sub"><b>${res.length}</b> question${res.length===1?"":"s"} ${where} mention “${esc(term)}”${res.length?" — click one to open it, or study them all as a set.":"."}</p>`;
+  let h = `<p class="sub"><b>${res.length}</b> question${res.length===1?"":"s"} ${where} ${multi ? (searchMatch==="any" ? (res.length===1?"mentions":"mention")+" <b>any</b> of " : (res.length===1?"mentions":"mention")+" <b>all</b> of ") + terms.map(x=>`“${esc(x)}”`).join(searchMatch==="any"?" or ":" and ") : `${res.length===1?"mentions":"mention"} “${esc(term)}”`}${res.length?" — click one to open it, or study them all as a set.":"."}</p>`;
+  if (multi) {
+    const per = t => raw.filter(r=>r.hits.includes(t)).length;
+    h += `<div class="sfilt smatch"><span class="muted">Show questions matching</span><button class="chip2 ${searchMatch==="any"?"on":""}" data-smatch="any">any topic</button><button class="chip2 ${searchMatch==="all"?"on":""}" data-smatch="all">all topics</button>${searchMatch==="any" ? `<span class="muted" style="margin-left:6px">${terms.map(t=>`${esc(t)} <b>${per(t)}</b>`).join(" · ")}</span>` : ""}</div>`;
+  }
   if (all) {
     const cnt = id => raw.filter(r=>r.q.course===id).length;
     h += `<div class="sfilt"><button class="chip2 ${searchFilter==="all"?"on":""}" data-sfilt="all">All <b>${raw.length}</b></button>` +
@@ -1282,26 +1303,39 @@ function searchResultsHTML(term){
     const stt = status(r.q,S), cn = COURSE_BY_ID[r.q.course].name;
     return `<button class="sitem" data-sopen="${i}"><div class="sm">${all?`<span class="cbadge">${esc(cn)}</span> `:""}${esc(r.q.sec)} · ${esc(r.q.t)} · Q${r.q.num}
       ${stt?`<span class="st ${stt}">${stt==="ok"?"✓ correct":"✗ incorrect"}</span>`:""}</div>
-      <div class="ss">${snippet(r.txt, r.i, term.length)}</div>${r.where!=="question"?`<div class="where">found in the ${r.where}</div>`:""}</button>`;
+      <div class="ss">${snippet(r.txt, r.i, r.len)}</div>${multi?`<div class="shits">${r.hits.map(x=>`<span class="stag">${esc(x)}</span>`).join("")}</div>`:""}${r.where!=="question"?`<div class="where">found in the ${r.where}</div>`:""}</button>`;
   }).join("") + `</div>` + (res.length>300?`<p class="muted">Showing the first 300 results.</p>`:"");
   return h;
 }
 function renderSearch(){
-  const term = searchTerm.trim(), all = searchScope==="all";
+  const all = searchScope==="all";
   // While typing on the search page, only refresh the results so the box keeps focus.
   if ($("pageSearchIn") && !$("pageView").hidden) {
     $("searchTitle").textContent = all ? "Search all summatives" : "Search " + course().name;
-    $("sresWrap").innerHTML = searchResultsHTML(term);
+    $("schips").innerHTML = chipsHTML();
+    $("sresWrap").innerHTML = searchResultsHTML();
     document.querySelectorAll("[data-sscope]").forEach(b=>b.classList.toggle("on", b.dataset.sscope===searchScope));
     return;
   }
   const h = `<div class="page"><div class="ptools" style="margin-bottom:12px"><button class="btn" id="searchBack">← Back to ${esc(backLabel())}</button></div>
     <h2 id="searchTitle">${all ? "Search all summatives" : "Search " + esc(course().name)}</h2>
-    <div class="psearch"><span class="ic">⌕</span><input id="pageSearchIn" type="search" autocomplete="off" placeholder="Search question stems, choices and explanations…" value="${esc(searchTerm)}"></div>
+    <div class="psearch tokens" id="psearchBox"><span class="ic">⌕</span><span id="schips">${chipsHTML()}</span><input id="pageSearchIn" type="search" autocomplete="off" placeholder="${searchChips.length?"Add another topic…":"Search a topic, press Enter to add another…"}" value="${esc(searchTerm)}"></div>
     <div class="sscope"><button class="chip2 ${!all?"on":""}" data-sscope="course">${esc(course().name)} only</button><button class="chip2 ${all?"on":""}" data-sscope="all">All summatives (FBS · MSK · CRS)</button></div>
-    <div id="sresWrap">${searchResultsHTML(term)}</div></div>`;
+    <div id="sresWrap">${searchResultsHTML()}</div></div>`;
   showPage(h);
   const inp = $("pageSearchIn"); inp.focus(); inp.setSelectionRange(inp.value.length, inp.value.length);
+}
+function chipsHTML(){ return searchChips.map((c,i)=>`<span class="tok">${esc(c)}<button class="tokx" data-tokx="${i}" title="Remove “${esc(c)}”" aria-label="Remove ${esc(c)}">✕</button></span>`).join(""); }
+function addChip(v){
+  v = (v||"").trim();
+  if (v.length < 2) return false;
+  if (!searchChips.some(x=>x.toLowerCase()===v.toLowerCase())) searchChips.push(v);
+  searchTerm = ""; return true;
+}
+function refreshChips(){
+  if (view!=="search") { rememberSpot(); view = "search"; renderAll(); }
+  else renderSearch();
+  const inp = $("pageSearchIn"); if (inp) { inp.value = searchTerm; inp.placeholder = searchChips.length ? "Add another topic…" : "Search a topic, press Enter to add another…"; inp.focus(); }
 }
 function startGlobalSearch(v){
   searchScope = "all"; searchFilter = "all"; searchTerm = v;
@@ -1398,7 +1432,7 @@ const LAZY_IMGS = [{re:/^fp-/, file:"images-fbs.js"}, {re:/^ce-/, file:"images-c
 const lazyState = {}; // file -> 1 loading, 2 done
 function loadLazyImgs(file){
   if (lazyState[file]) return; lazyState[file] = 1;
-  const sc = document.createElement("script"); sc.src = file+"?v=22";
+  const sc = document.createElement("script"); sc.src = file+"?v=23";
   sc.onload = ()=>{ lazyState[file] = 2; fixImgs(document); };
   sc.onerror = ()=>{ delete lazyState[file]; };
   document.head.appendChild(sc);
@@ -1483,7 +1517,7 @@ function switchCourse(id){
   S.cur = S.curBy[id] || (firstChap() ? firstChap().key : null);
   S.openSec = secOf(S.cur) || (courseSecs()[0] ? courseSecs()[0].prefix : null);
   view = "home"; focusOn = false; paused = false; showAllTests = false; openMenu = null;
-  clearTimeout(searchT); $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = ""; searchRet = null;
+  clearTimeout(searchT); $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = ""; searchChips = []; searchRet = null;
   save(); $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0});
   toast(COURSE_BY_ID[id].name + (COURSE_BY_ID[id].items.length ? "" : " — no questions yet"));
 }
@@ -1525,12 +1559,17 @@ document.addEventListener("click", e=>{
   if (t.closest("#themeBtn")) { setTheme(document.documentElement.getAttribute("data-theme")==="light" ? "dark" : "light"); return; }
   if (t.closest("#searchClr") || t.closest("#searchBack")) {
     if (inSearch()) leaveSearch();
-    else { clearTimeout(searchT); $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = ""; }
+    else { clearTimeout(searchT); $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = ""; searchChips = []; }
     return;
   }
   if (t.closest("#menuBtn")) { $("side").classList.toggle("open"); return; }
 
   // pages
+  const tx = t.closest("[data-tokx]");
+  if (tx) { searchChips.splice(+tx.dataset.tokx, 1); if (!searchChips.length && !searchTerm.trim()) { leaveSearch(); return; } refreshChips(); return; }
+  const smb = t.closest("[data-smatch]");
+  if (smb) { searchMatch = smb.dataset.smatch; renderSearch(); return; }
+  if (t.closest("#psearchBox") && !t.closest("input")) { $("pageSearchIn").focus(); return; }
   if (t.closest("[data-ankidl]")) { downloadAnki(); return; }
   if (t.closest("#ankiClear")) { if (!confirm("Are you sure you want to reset the Anki cards you added?\n\nThis removes all "+S.anki.length+" card"+(S.anki.length===1?"":"s")+" from your Anki export list. Your answers and notes are not affected.")) return; S.anki = []; save(); renderAll(); toast("Anki cards reset"); return; }
   const sopen = t.closest("[data-sopen]");
@@ -1538,7 +1577,7 @@ document.addEventListener("click", e=>{
   if (ssc) { searchScope = ssc.dataset.sscope; searchFilter = "all"; renderSearch(); return; }
   const sft = t.closest("[data-sfilt]");
   if (sft && !sft.disabled) { searchFilter = sft.dataset.sfilt; renderSearch(); return; }
-  if (sopen) { S.snap.search = S._lastSearch || []; S.searchQ = searchTerm.trim(); S.searchCourse = searchScope==="all" ? "all" : S.course; openChapter("search", +sopen.dataset.sopen); return; }
+  if (sopen) { S.snap.search = S._lastSearch || []; S.searchQ = searchTerms().join(" + "); S.searchCourse = searchScope==="all" ? "all" : S.course; openChapter("search", +sopen.dataset.sopen); return; }
   const oq = t.closest("[data-openq]"); if (oq) { openInSection(oq.dataset.openq); return; }
   if (t.closest("#printNotesBtn")) { window.print(); return; }
   if (t.closest("#dlNotesBtn")) { downloadNotes(); return; }
@@ -1659,6 +1698,16 @@ document.addEventListener("input", e=>{
   }, 180);
 });
 document.addEventListener("keydown", e=>{
+  const sid = e.target.id;
+  if (e.key==="Enter" && (sid==="pageSearchIn" || sid==="homeSearchIn")) {
+    e.preventDefault(); clearTimeout(searchT);
+    if (sid==="homeSearchIn") { searchScope = "all"; searchFilter = "all"; }
+    if (addChip(e.target.value)) { e.target.value = ""; refreshChips(); }
+    return;
+  }
+  if (e.key==="Backspace" && sid==="pageSearchIn" && !e.target.value && searchChips.length) {
+    e.preventDefault(); const last = searchChips.pop(); searchTerm = last; refreshChips(); const inp = $("pageSearchIn"); inp.setSelectionRange(last.length, last.length); return;
+  }
   if (e.key==="Escape" && (e.target.id==="pageSearchIn" || e.target.id==="homeSearchIn")) { e.target.blur(); if (inSearch()) leaveSearch(); else e.target.value=""; }
 });
 $("searchIn").addEventListener("input", e=>{
@@ -1667,10 +1716,13 @@ $("searchIn").addEventListener("input", e=>{
   searchT = setTimeout(()=>{
     searchTerm = v;
     if (v.trim().length >= 2) { if (!inSearch()) searchScope = "course"; rememberSpot(); view = "search"; $("pageSearchIn") && ($("pageSearchIn").value = v); renderAll(); $("searchIn").focus(); }
-    else if (!v.trim() && view==="search") leaveSearch();
+    else if (!v.trim() && view==="search" && !searchChips.length) leaveSearch();
   }, 220);
 });
-$("searchIn").addEventListener("keydown", e=>{ if (e.key==="Escape") { $("searchClr").click(); e.target.blur(); } });
+$("searchIn").addEventListener("keydown", e=>{
+  if (e.key==="Escape") { $("searchClr").click(); e.target.blur(); }
+  if (e.key==="Enter") { e.preventDefault(); clearTimeout(searchT); if (!inSearch()) searchScope = "course"; if (addChip(e.target.value)) { e.target.value = ""; $("searchWrap").classList.remove("has"); refreshChips(); } }
+});
 
 document.addEventListener("mousedown", e=>{ if (e.target.closest && e.target.closest("#hlMenu")) e.preventDefault(); });
 document.addEventListener("mouseup", e=>{
