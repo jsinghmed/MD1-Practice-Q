@@ -448,17 +448,17 @@ table.rt tr.click:hover td{background:var(--hover)}
 <div class="lightbox" id="lightbox"><img alt=""></div>
 <div class="toast" id="toast"></div>
 
-<script src="images.js?v=21"></script>
-<script src="questions.js?v=21"></script>
-<script src="histology-review.js?v=21"></script>
-<script src="physiology.js?v=21"></script>
-<script src="physiology-review.js?v=21"></script>
-<script src="biochemistry.js?v=21"></script>
-<script src="anatomy.js?v=21"></script>
-<script src="embryology.js?v=21"></script>
-<script src="fbs-physiology.js?v=21"></script>
-<script src="fbs-anki.js?v=21"></script>
-<script src="crs-embryology.js?v=21"></script>
+<script src="images.js?v=22"></script>
+<script src="questions.js?v=22"></script>
+<script src="histology-review.js?v=22"></script>
+<script src="physiology.js?v=22"></script>
+<script src="physiology-review.js?v=22"></script>
+<script src="biochemistry.js?v=22"></script>
+<script src="anatomy.js?v=22"></script>
+<script src="embryology.js?v=22"></script>
+<script src="fbs-physiology.js?v=22"></script>
+<script src="fbs-anki.js?v=22"></script>
+<script src="crs-embryology.js?v=22"></script>
 <script>
 (function(){
 // =====================================================================
@@ -510,9 +510,9 @@ const KEY = "msk-summative-v1";
 let S = {};
 try { S = JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e) { S = {}; }
 S.ans ??= {}; S.sel ??= {}; S.strike ??= {}; S.flag ??= {}; S.notes ??= {}; S.hl ??= {}; S.order ??= {};
-S.scr ??= {}; S.qshuf ??= {}; S.pos ??= {}; S.snap ??= {}; S.tests ??= []; S.testSeq ??= 0;
+S.scr ??= {}; S.qshuf ??= {}; S.posId ??= {}; S.pos ??= {}; S.snap ??= {}; S.tests ??= []; S.testSeq ??= 0;
 S.first ??= {}; S.chgq ??= {}; S.ac ??= []; S.qtime ??= {}; S.anki ??= [];
-if (S.v !== 2) {
+if (!(S.v >= 2)) {
   // chapter positions/scramble used to be stored by list number; move them to chapter keys
   const pos = {}, scr = {};
   Object.keys(S.pos).forEach(k=>{ const c = /^\d+$/.test(k) ? STATIC[+k] : null; if (c) pos[c.key] = S.pos[k]; else pos[k] = S.pos[k]; });
@@ -778,11 +778,6 @@ function textMenu(){
   return `<div class="menu"><button class="btn ${openMenu==="text"?"on":""}" data-menu="text" title="Text size">Aa</button>${openMenu==="text"?`<div class="pop"><div class="mi-h">TEXT SIZE</div>`+
     ZOOMS.map(([v,l])=>`<button class="mi" data-zoom="${v}"><span class="ck">${Math.abs(zoomV-v)<.001?"✓":""}</span>${l} <span class="muted" style="margin-left:auto;font-size:12.5px">${Math.round(v*100)}%</span></button>`).join("")+`</div>`:""}</div>`;
 }
-function shufBtns(c){
-  if (!c || c.ids.length < 2) return "";
-  return `<button class="btn ${c.shuffled?"on":""}" id="qShufBtn" title="Put this chapter's questions in a new random order (click again to reshuffle)">🔀 ${c.shuffled?"Reshuffle":"Shuffle questions"}</button>`
-    + (c.shuffled ? `<button class="btn" id="qOrderBtn" title="Put the questions back in their original order">↺ Original order</button>` : "");
-}
 function renderTools(){
   const c = chap(), t = c.test;
   let h = "";
@@ -791,13 +786,16 @@ function renderTools(){
     h += `<button class="btn danger" id="endBtn">■ End block</button>`;
   } else if (t) {
     if (!focusOn) h += `<button class="btn" id="reportBtn">📊 Score report</button>`;
-    if (!focusOn) h += shufBtns(c);
     if (!focusOn) h += `<div class="menu"><button class="btn ${openMenu==="opts"?"on":""}" data-menu="opts">Options ▾</button>${openMenu==="opts"?`<div class="pop">
+      ${c.ids.length>1 ? `<button class="mi" id="qShufBtn"><span class="ck">${c.shuffled?"✓":""}</span>${c.shuffled?"Reshuffle questions":"Shuffle questions"}</button>` : ""}
+      ${c.shuffled ? `<button class="mi" id="qOrderBtn"><span class="ck"></span>Original question order</button>` : ""}
       <button class="mi" id="clearHlBtn"><span class="ck"></span>Clear highlights</button></div>`:""}</div>`;
   } else if (!focusOn) {
+    if (c.shuffled) h += `<button class="btn on" id="qOrderChip" title="Questions are shuffled — click to restore the original order">🔀 Shuffled · ↺ Original order</button>`;
     if (c.kind==="search") h += `<button class="btn" id="searchBack" title="Leave search and go back (Esc)">← Back to ${esc(backLabel())}</button>`;
-    h += shufBtns(c);
     h += `<div class="menu"><button class="btn ${openMenu==="opts"?"on":""}" data-menu="opts">Chapter options ▾</button>${openMenu==="opts"?`<div class="pop">
+      ${c.ids.length>1 ? `<button class="mi" id="qShufBtn"><span class="ck">${c.shuffled?"✓":""}</span>${c.shuffled?"Reshuffle questions":"Shuffle questions"}</button>` : ""}
+      ${c.shuffled ? `<button class="mi" id="qOrderBtn"><span class="ck"></span>Original question order</button>` : ""}
       <button class="mi" id="scrambleBtn"><span class="ck">${scrOn()?"✓":""}</span>Scramble choices</button>
       <button class="mi" id="clearHlBtn"><span class="ck"></span>Clear highlights</button>
       <div class="mi-sep"></div>
@@ -900,11 +898,8 @@ function renderCard(){
   const shownNow = isReveal ? s.ans[q.id] !== undefined : (done && !timed);
   if (!timedActive() && shownNow) {
     const inA = S.anki.includes(q.id), n2 = S.anki.length;
-    const bad = c.ids.filter(id=>byId[id] && status(byId[id], s)==="bad");
-    const allIn = bad.length && bad.every(id=>S.anki.includes(id));
     h += `<div class="ankirow">
       <button class="btn ${inA?"on":""}" id="ankiAdd" title="${inA?"Remove this question from":"Add this question to"} your Anki export">🃏 ${inA?"✓ In Anki export — remove":"Make Anki card"}</button>
-      ${bad.length ? `<button class="btn ${allIn?"on":""}" id="ankiAddInc" title="${allIn?"Remove every question you got wrong in this chapter from":"Add every question you got wrong in this chapter to"} your Anki export">${allIn?`✓ All ${bad.length} incorrect added — remove`:`＋ Add all ${bad.length} incorrect here`}</button>` : ""}
       ${n2 ? `<button class="btn" data-ankidl="1" title="Download all your cards as one file Anki can import">⬇ Download ${n2} card${n2===1?"":"s"} for Anki</button>` : ""}
       ${n2 ? `<button class="btn danger" id="ankiClear" title="Remove every card from your Anki export list">Reset Anki cards</button>` : ""}
       <button class="btn ghost" id="ankiHelpBtn" title="How to import">?</button>
@@ -957,7 +952,7 @@ function ensureAnkiImages(cb){
   if (!need.size) return cb();
   toast("Loading figures for your cards…");
   let left = need.size;
-  need.forEach(file=>{ const sc = document.createElement("script"); sc.src = file+"?v=21"; sc.onload = sc.onerror = ()=>{ lazyState[file] = 2; if (--left === 0) cb(); }; document.head.appendChild(sc); });
+  need.forEach(file=>{ const sc = document.createElement("script"); sc.src = file+"?v=22"; sc.onload = sc.onerror = ()=>{ lazyState[file] = 2; if (--left === 0) cb(); }; document.head.appendChild(sc); });
 }
 function downloadAnki(){
   const ids = S.anki.filter(id=>byId[id]);
@@ -1316,8 +1311,14 @@ function startGlobalSearch(v){
 // =====================================================================
 // Render all
 // =====================================================================
+function rememberPlace(){
+  S.lastView = view==="search" ? (searchRet && searchRet.view) || "home" : view;
+  S.lastReport = view==="report" ? reportTest : null;
+  if (view==="quiz") { const c = chap(), q = c && curQ(); if (q) S.posId[c.key] = q.id; }
+}
 function renderAll(){
   if (view==="quiz" && !chap()) view = "home";
+  rememberPlace();
   if (view!=="quiz") focusOn = false;
   renderChaps();
   $("app").classList.toggle("focus", focusOn && view==="quiz");
@@ -1337,7 +1338,7 @@ function renderAll(){
 // =====================================================================
 function go(i){
   const n = chap().ids.length; if (i<0||i>=n) return;
-  S.pos[chap().key] = i; save(); renderRail(); renderCard();
+  S.pos[chap().key] = i; rememberPlace(); save(); renderRail(); renderCard();
   $("main").scrollTo({top:0, behavior:"smooth"}); window.scrollTo({top:0});
 }
 function pick(oi){
@@ -1397,7 +1398,7 @@ const LAZY_IMGS = [{re:/^fp-/, file:"images-fbs.js"}, {re:/^ce-/, file:"images-c
 const lazyState = {}; // file -> 1 loading, 2 done
 function loadLazyImgs(file){
   if (lazyState[file]) return; lazyState[file] = 1;
-  const sc = document.createElement("script"); sc.src = file+"?v=21";
+  const sc = document.createElement("script"); sc.src = file+"?v=22";
   sc.onload = ()=>{ lazyState[file] = 2; fixImgs(document); };
   sc.onerror = ()=>{ delete lazyState[file]; };
   document.head.appendChild(sc);
@@ -1586,13 +1587,6 @@ document.addEventListener("click", e=>{
   if (t.closest("#qtimerBtn")) { qtHidden = !qtHidden; try { localStorage.setItem("msk-qtimer", qtHidden ? "hide" : "show"); } catch(e) {} renderCard(); return; }
   if (t.closest("#ankiAdd")) { const id = curQ().id, i = S.anki.indexOf(id); if (i>=0) { S.anki.splice(i,1); toast("Removed from your Anki export"); } else { S.anki.push(id); toast("Added — "+S.anki.length+" card"+(S.anki.length===1?"":"s")+" ready to download"); } save(); renderCard(); return; }
   if (t.closest("#ankiHelpBtn")) { const b = document.getElementById("ankiHelp"); if (b) b.hidden = !b.hidden; return; }
-  if (t.closest("#ankiAddInc")) {
-    const c = chap(), s = store(), bad = c.ids.filter(id=>byId[id] && status(byId[id], s)==="bad");
-    if (!bad.length) { toast("No incorrect questions in this chapter yet"); return; }
-    if (bad.every(id=>S.anki.includes(id))) { const rm = new Set(bad); S.anki = S.anki.filter(id=>!rm.has(id)); save(); renderCard(); toast(`Removed ${bad.length} incorrect question${bad.length===1?"":"s"} — ${S.anki.length} left`); return; }
-    let n=0; bad.forEach(id=>{ if (!S.anki.includes(id)) { S.anki.push(id); n++; } });
-    save(); renderCard(); toast(`Added ${n} incorrect question${n===1?"":"s"} — ${S.anki.length} ready`); return;
-  }
   if (t.closest("#qShufBtn")) {
     const c = chap(); if (!c || c.ids.length<2) return;
     const base = getChap0(c.key).ids.slice(); let a;
@@ -1600,8 +1594,8 @@ document.addEventListener("click", e=>{
     while (a.length>2 && a.join()===c.ids.join());
     S.qshuf[c.key] = a; S.pos[c.key] = 0; openMenu = null; save(); renderAll(); toast("Questions shuffled — starting at question 1"); return;
   }
-  if (t.closest("#qOrderBtn")) {
-    const c = chap(), cur = curQ(); delete S.qshuf[c.key];
+  if (t.closest("#qOrderBtn") || t.closest("#qOrderChip")) {
+    const c = chap(), cur = curQ(); delete S.qshuf[c.key]; openMenu = null;
     const k = getChap0(c.key).ids.indexOf(cur && cur.id); S.pos[c.key] = Math.max(0,k);
     save(); renderAll(); toast("Back to the original question order"); return;
   }
@@ -1727,6 +1721,13 @@ setInterval(()=>{
   if (t.remaining <= 0) finishTest(t, "time");
 }, 1000);
 
+// Restore where you were: same page, same chapter, same question (matched by question, not just number).
+Object.keys(S.posId).forEach(k=>{ const c = getChap(k); if (!c) { delete S.posId[k]; return; } const i = c.ids.indexOf(S.posId[k]); if (i >= 0) S.pos[k] = i; });
+if (S.lastView==="quiz" && S.cur && chap() && chap().key===S.cur) { view = "quiz"; if (timedActive()) paused = true; }
+else if (S.lastView==="report" && S.tests.find(x=>x.id===S.lastReport)) { view = "report"; reportTest = S.lastReport; }
+else if (S.lastView==="builder" || S.lastView==="notes") view = S.lastView;
+window.addEventListener("pagehide", ()=>{ rememberPlace(); save(); });
+document.addEventListener("visibilitychange", ()=>{ if (document.hidden) { rememberPlace(); save(); } });
 themeLabel();
 if (S.openSec === undefined) S.openSec = secOf(S.cur) || (courseSecs()[0] ? courseSecs()[0].prefix : null);
 save();
