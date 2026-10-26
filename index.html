@@ -448,17 +448,17 @@ table.rt tr.click:hover td{background:var(--hover)}
 <div class="lightbox" id="lightbox"><img alt=""></div>
 <div class="toast" id="toast"></div>
 
-<script src="images.js?v=20"></script>
-<script src="questions.js?v=20"></script>
-<script src="histology-review.js?v=20"></script>
-<script src="physiology.js?v=20"></script>
-<script src="physiology-review.js?v=20"></script>
-<script src="biochemistry.js?v=20"></script>
-<script src="anatomy.js?v=20"></script>
-<script src="embryology.js?v=20"></script>
-<script src="fbs-physiology.js?v=20"></script>
-<script src="fbs-anki.js?v=20"></script>
-<script src="crs-embryology.js?v=20"></script>
+<script src="images.js?v=21"></script>
+<script src="questions.js?v=21"></script>
+<script src="histology-review.js?v=21"></script>
+<script src="physiology.js?v=21"></script>
+<script src="physiology-review.js?v=21"></script>
+<script src="biochemistry.js?v=21"></script>
+<script src="anatomy.js?v=21"></script>
+<script src="embryology.js?v=21"></script>
+<script src="fbs-physiology.js?v=21"></script>
+<script src="fbs-anki.js?v=21"></script>
+<script src="crs-embryology.js?v=21"></script>
 <script>
 (function(){
 // =====================================================================
@@ -510,7 +510,7 @@ const KEY = "msk-summative-v1";
 let S = {};
 try { S = JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e) { S = {}; }
 S.ans ??= {}; S.sel ??= {}; S.strike ??= {}; S.flag ??= {}; S.notes ??= {}; S.hl ??= {}; S.order ??= {};
-S.scr ??= {}; S.pos ??= {}; S.snap ??= {}; S.tests ??= []; S.testSeq ??= 0;
+S.scr ??= {}; S.qshuf ??= {}; S.pos ??= {}; S.snap ??= {}; S.tests ??= []; S.testSeq ??= 0;
 S.first ??= {}; S.chgq ??= {}; S.ac ??= []; S.qtime ??= {}; S.anki ??= [];
 if (S.v !== 2) {
   // chapter positions/scramble used to be stored by list number; move them to chapter keys
@@ -607,6 +607,15 @@ function scopeName(scope){ return COURSE_BY_ID[scope] ? "All "+COURSE_BY_ID[scop
 // Chapters: static, review (snapshot), search (snapshot), tests
 // =====================================================================
 function getChap(key){
+  const c = getChap0(key);
+  const sh = c && S.qshuf[c.key];
+  if (!sh) return c;
+  const base = new Set(c.ids), seen = new Set();
+  const ids = sh.filter(id=>base.has(id) && !seen.has(id) && seen.add(id));
+  c.ids.forEach(id=>{ if (!seen.has(id)) ids.push(id); });
+  return Object.assign({}, c, {ids, shuffled:true});
+}
+function getChap0(key){
   if (!key) return null;
   if (STATIC_BY_KEY[key]) return STATIC_BY_KEY[key];
   let m = key.match(/^(\w+):rv:(\w+)$/);
@@ -769,6 +778,11 @@ function textMenu(){
   return `<div class="menu"><button class="btn ${openMenu==="text"?"on":""}" data-menu="text" title="Text size">Aa</button>${openMenu==="text"?`<div class="pop"><div class="mi-h">TEXT SIZE</div>`+
     ZOOMS.map(([v,l])=>`<button class="mi" data-zoom="${v}"><span class="ck">${Math.abs(zoomV-v)<.001?"✓":""}</span>${l} <span class="muted" style="margin-left:auto;font-size:12.5px">${Math.round(v*100)}%</span></button>`).join("")+`</div>`:""}</div>`;
 }
+function shufBtns(c){
+  if (!c || c.ids.length < 2) return "";
+  return `<button class="btn ${c.shuffled?"on":""}" id="qShufBtn" title="Put this chapter's questions in a new random order (click again to reshuffle)">🔀 ${c.shuffled?"Reshuffle":"Shuffle questions"}</button>`
+    + (c.shuffled ? `<button class="btn" id="qOrderBtn" title="Put the questions back in their original order">↺ Original order</button>` : "");
+}
 function renderTools(){
   const c = chap(), t = c.test;
   let h = "";
@@ -777,10 +791,12 @@ function renderTools(){
     h += `<button class="btn danger" id="endBtn">■ End block</button>`;
   } else if (t) {
     if (!focusOn) h += `<button class="btn" id="reportBtn">📊 Score report</button>`;
+    if (!focusOn) h += shufBtns(c);
     if (!focusOn) h += `<div class="menu"><button class="btn ${openMenu==="opts"?"on":""}" data-menu="opts">Options ▾</button>${openMenu==="opts"?`<div class="pop">
       <button class="mi" id="clearHlBtn"><span class="ck"></span>Clear highlights</button></div>`:""}</div>`;
   } else if (!focusOn) {
     if (c.kind==="search") h += `<button class="btn" id="searchBack" title="Leave search and go back (Esc)">← Back to ${esc(backLabel())}</button>`;
+    h += shufBtns(c);
     h += `<div class="menu"><button class="btn ${openMenu==="opts"?"on":""}" data-menu="opts">Chapter options ▾</button>${openMenu==="opts"?`<div class="pop">
       <button class="mi" id="scrambleBtn"><span class="ck">${scrOn()?"✓":""}</span>Scramble choices</button>
       <button class="mi" id="clearHlBtn"><span class="ck"></span>Clear highlights</button>
@@ -881,12 +897,16 @@ function renderCard(){
       <button class="nbtn" id="nextBtn" ${p===n-1?"disabled":""}>Next →</button></div>`;
     if (shown) h += explanation(q, null, s);
   }
-  if (!timedActive()) {
+  const shownNow = isReveal ? s.ans[q.id] !== undefined : (done && !timed);
+  if (!timedActive() && shownNow) {
     const inA = S.anki.includes(q.id), n2 = S.anki.length;
+    const bad = c.ids.filter(id=>byId[id] && status(byId[id], s)==="bad");
+    const allIn = bad.length && bad.every(id=>S.anki.includes(id));
     h += `<div class="ankirow">
       <button class="btn ${inA?"on":""}" id="ankiAdd" title="${inA?"Remove this question from":"Add this question to"} your Anki export">🃏 ${inA?"✓ In Anki export — remove":"Make Anki card"}</button>
+      ${bad.length ? `<button class="btn ${allIn?"on":""}" id="ankiAddInc" title="${allIn?"Remove every question you got wrong in this chapter from":"Add every question you got wrong in this chapter to"} your Anki export">${allIn?`✓ All ${bad.length} incorrect added — remove`:`＋ Add all ${bad.length} incorrect here`}</button>` : ""}
       ${n2 ? `<button class="btn" data-ankidl="1" title="Download all your cards as one file Anki can import">⬇ Download ${n2} card${n2===1?"":"s"} for Anki</button>` : ""}
-      ${s && Object.keys(s.ans||{}).length ? `<button class="btn" id="ankiAddInc" title="Add every question you got wrong in this chapter">＋ Add all incorrect here</button>` : ""}
+      ${n2 ? `<button class="btn danger" id="ankiClear" title="Remove every card from your Anki export list">Reset Anki cards</button>` : ""}
       <button class="btn ghost" id="ankiHelpBtn" title="How to import">?</button>
       <div class="ankihelp" id="ankiHelp" hidden><b>Importing into Anki:</b> click <i>Download</i>, then in Anki choose <b>File → Import</b> and pick the downloaded .txt file. Anki reads the settings from the file automatically (Basic cards, HTML on, a deck per section, tags for summative/section/topic) — just click <b>Import</b>. Re-importing later updates cards that are already there instead of duplicating them.</div>
     </div>`;
@@ -901,7 +921,7 @@ function ankiHomeBox(){
   const n = S.anki.length; if (!n) return "";
   const per = COURSES.map(c=>[c.name, S.anki.filter(id=>byId[id] && byId[id].course===c.id).length]).filter(x=>x[1]).map(x=>x[0]+" "+x[1]).join(" · ");
   return `<div class="h3">Anki export</div><div class="ankibox"><div><b>${n}</b> card${n===1?"":"s"} ready <span class="muted">(${per})</span><div class="muted" style="font-size:13px;margin-top:2px">In Anki: File → Import → choose the downloaded file → Import.</div></div>
-    <div class="ptools" style="margin:0"><button class="btn primary" data-ankidl="1">⬇ Download for Anki</button><button class="btn" id="ankiClear">Clear list</button></div></div>`;
+    <div class="ptools" style="margin:0"><button class="btn primary" data-ankidl="1">⬇ Download for Anki</button><button class="btn danger" id="ankiClear">Reset Anki cards</button></div></div>`;
 }
 function ankiField(html){ return String(html||"").replace(/\t/g," ").replace(/\r?\n/g,"<br>"); }
 function ankiImg(src){ const k = String(src||"").replace(/^\.\//,""); const u = (window.IMG && IMG[k]) || (String(src).startsWith("data:") ? src : ""); return u ? `<img src="${u}">` : ""; }
@@ -937,7 +957,7 @@ function ensureAnkiImages(cb){
   if (!need.size) return cb();
   toast("Loading figures for your cards…");
   let left = need.size;
-  need.forEach(file=>{ const sc = document.createElement("script"); sc.src = file+"?v=20"; sc.onload = sc.onerror = ()=>{ lazyState[file] = 2; if (--left === 0) cb(); }; document.head.appendChild(sc); });
+  need.forEach(file=>{ const sc = document.createElement("script"); sc.src = file+"?v=21"; sc.onload = sc.onerror = ()=>{ lazyState[file] = 2; if (--left === 0) cb(); }; document.head.appendChild(sc); });
 }
 function downloadAnki(){
   const ids = S.anki.filter(id=>byId[id]);
@@ -1377,7 +1397,7 @@ const LAZY_IMGS = [{re:/^fp-/, file:"images-fbs.js"}, {re:/^ce-/, file:"images-c
 const lazyState = {}; // file -> 1 loading, 2 done
 function loadLazyImgs(file){
   if (lazyState[file]) return; lazyState[file] = 1;
-  const sc = document.createElement("script"); sc.src = file+"?v=20";
+  const sc = document.createElement("script"); sc.src = file+"?v=21";
   sc.onload = ()=>{ lazyState[file] = 2; fixImgs(document); };
   sc.onerror = ()=>{ delete lazyState[file]; };
   document.head.appendChild(sc);
@@ -1511,7 +1531,7 @@ document.addEventListener("click", e=>{
 
   // pages
   if (t.closest("[data-ankidl]")) { downloadAnki(); return; }
-  if (t.closest("#ankiClear")) { if (!confirm("Clear all "+S.anki.length+" cards from your Anki export list?")) return; S.anki = []; save(); renderAll(); toast("Anki export list cleared"); return; }
+  if (t.closest("#ankiClear")) { if (!confirm("Are you sure you want to reset the Anki cards you added?\n\nThis removes all "+S.anki.length+" card"+(S.anki.length===1?"":"s")+" from your Anki export list. Your answers and notes are not affected.")) return; S.anki = []; save(); renderAll(); toast("Anki cards reset"); return; }
   const sopen = t.closest("[data-sopen]");
   const ssc = t.closest("[data-sscope]");
   if (ssc) { searchScope = ssc.dataset.sscope; searchFilter = "all"; renderSearch(); return; }
@@ -1566,7 +1586,25 @@ document.addEventListener("click", e=>{
   if (t.closest("#qtimerBtn")) { qtHidden = !qtHidden; try { localStorage.setItem("msk-qtimer", qtHidden ? "hide" : "show"); } catch(e) {} renderCard(); return; }
   if (t.closest("#ankiAdd")) { const id = curQ().id, i = S.anki.indexOf(id); if (i>=0) { S.anki.splice(i,1); toast("Removed from your Anki export"); } else { S.anki.push(id); toast("Added — "+S.anki.length+" card"+(S.anki.length===1?"":"s")+" ready to download"); } save(); renderCard(); return; }
   if (t.closest("#ankiHelpBtn")) { const b = document.getElementById("ankiHelp"); if (b) b.hidden = !b.hidden; return; }
-  if (t.closest("#ankiAddInc")) { const c = chap(), s = store(); let n=0; c.ids.forEach(id=>{ const q=byId[id]; if (q && status(q,s)==="bad" && !S.anki.includes(id)) { S.anki.push(id); n++; } }); save(); renderCard(); toast(n ? `Added ${n} incorrect question${n===1?"":"s"} — ${S.anki.length} ready` : "No new incorrect questions to add"); return; }
+  if (t.closest("#ankiAddInc")) {
+    const c = chap(), s = store(), bad = c.ids.filter(id=>byId[id] && status(byId[id], s)==="bad");
+    if (!bad.length) { toast("No incorrect questions in this chapter yet"); return; }
+    if (bad.every(id=>S.anki.includes(id))) { const rm = new Set(bad); S.anki = S.anki.filter(id=>!rm.has(id)); save(); renderCard(); toast(`Removed ${bad.length} incorrect question${bad.length===1?"":"s"} — ${S.anki.length} left`); return; }
+    let n=0; bad.forEach(id=>{ if (!S.anki.includes(id)) { S.anki.push(id); n++; } });
+    save(); renderCard(); toast(`Added ${n} incorrect question${n===1?"":"s"} — ${S.anki.length} ready`); return;
+  }
+  if (t.closest("#qShufBtn")) {
+    const c = chap(); if (!c || c.ids.length<2) return;
+    const base = getChap0(c.key).ids.slice(); let a;
+    do { a = base.slice(); for (let i=a.length-1;i>0;i--){ const k=Math.floor(Math.random()*(i+1)); [a[i],a[k]]=[a[k],a[i]]; } }
+    while (a.length>2 && a.join()===c.ids.join());
+    S.qshuf[c.key] = a; S.pos[c.key] = 0; openMenu = null; save(); renderAll(); toast("Questions shuffled — starting at question 1"); return;
+  }
+  if (t.closest("#qOrderBtn")) {
+    const c = chap(), cur = curQ(); delete S.qshuf[c.key];
+    const k = getChap0(c.key).ids.indexOf(cur && cur.id); S.pos[c.key] = Math.max(0,k);
+    save(); renderAll(); toast("Back to the original question order"); return;
+  }
   if (t.closest("#flagBtn")) { const id=curQ().id; S.flag[id]=!S.flag[id]; if(!S.flag[id]) delete S.flag[id]; save(); renderChaps(); renderRail(); renderCard(); return; }
   if (t.closest("#hlBtn")) { if (highlightSelection()) { renderCard(); return; } mode = mode==="hl"?null:"hl"; renderCard(); return; }
   if (t.closest("#hlCaret")) { $("hlMenu").classList.toggle("open"); return; }
