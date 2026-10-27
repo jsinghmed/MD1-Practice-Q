@@ -30,4 +30,4 @@ window.JJ_FIREBASE = {
 
 // Google accounts that can open admin.html and block users.
 // Must match the list in the Firestore rules (firestore-rules.txt).
-window.JJ_ADMINS = ["gurdeepsayal@gmail.com", "jasjotsayal@gmail.com"];
+window.JJ_ADMINS = ["gurdeepsayal@gmail.com", "jasjotsayal@gmail.com", "jasjot.sayal@student.windsor.edu"];
