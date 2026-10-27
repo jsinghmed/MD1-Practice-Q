@@ -54,7 +54,7 @@ tr.det td{background:#fafbfc;white-space:normal}
 <header><h1>JJ QBank · Admin</h1><span id="me"></span><a href="./">Back to QBank</a><button id="out" hidden>Sign out</button></header>
 <main id="main"><div class="msg">Loading…</div></main>
 
-<script src="firebase-config.js"></script>
+<script>document.write('<script src="firebase-config.js?t=' + Date.now() + '"><\/script>');</script>
 <script>
 (function(){
   const CFG = window.JJ_FIREBASE, ADMINS = (window.JJ_ADMINS||[]).map(e=>e.toLowerCase());
