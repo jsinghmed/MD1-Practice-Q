@@ -43,7 +43,7 @@
   gate.innerHTML = `${logo ? `<img src="${logo}" alt="JJ QBank">` : `<h2>JJ QBank</h2>`}
     <div id="jjGateBody"></div>
     <div class="jjgstatus" id="jjGateStatus">Checking sign-in…</div>
-    <p class="jjgnote">Signing in with Google saves your answers, flags, notes and highlights to your account so they sync across your devices. Your name, email and study progress are visible to the site owner.</p>`;
+    <p class="jjgnote">Signing in with Google saves your answers, flags, notes and highlights to your account so they sync across your devices.</p>`;
   document.body.appendChild(gate);
   // Keep keyboard shortcuts from reaching the app behind the sign-in screen.
   document.addEventListener("keydown", e=>{ if (!gate.hidden && !gate.contains(e.target) && !(e.target.closest && e.target.closest("#splash"))) { e.stopPropagation(); } }, true);
