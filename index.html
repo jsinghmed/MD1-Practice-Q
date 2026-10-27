@@ -537,6 +537,9 @@ table.rt tr.click:hover td{background:var(--hover)}
 .app.usmle .tile{width:100%;height:40px;border:none!important;border-radius:0;background:none!important;color:var(--text)!important;font-size:14px;font-weight:400;outline:none!important;display:flex;align-items:center;justify-content:center;gap:4px}
 .app.usmle .tile:hover{background:rgba(27,53,80,.07)!important}
 .app.usmle .tile.cur{background:#c9daea!important;font-weight:700}
+.app.usmle .tile.ok::before,.app.usmle .tile.bad::before{position:absolute;left:9px;top:50%;transform:translateY(-50%);font-size:11px;font-weight:700;line-height:1}
+.app.usmle .tile.ok::before{content:"✓";color:var(--green)}
+.app.usmle .tile.bad::before{content:"✗";color:var(--red)}
 :root:not([data-theme="light"]) .app.usmle .tile.cur{background:#24405f!important}
 .app.usmle .tile.flag::after{content:"";position:static;width:9px;height:9px;border:none;border-radius:0;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M5 3v18' stroke='%23d98a00' stroke-width='3'/><path d='M5 4h13l-3 4.5 3 4.5H5z' fill='%23d98a00'/></svg>") center/contain no-repeat}
 @media (max-width:900px){ .app.usmle .rail{flex-direction:row;overflow-x:auto;border-right:none;border-bottom:1px solid #d5dde6} .app.usmle .tile{width:48px;flex:none} :root:not([data-theme="light"]) .app.usmle .rail{border-bottom-color:var(--line)} }
@@ -1063,7 +1066,7 @@ function renderUBar(){
         <div class="pop"><div class="mi-h">SEARCH GOOGLE</div><form class="gform" id="gForm"><input id="gIn" type="search" autocomplete="off" placeholder="Type anything to search…"><button class="btn primary" type="submit">Search</button></form>
         <div class="gnote">Pre-filled with this question${done?" and its answer":""} — edit it or type your own. Tip: select any words in the question or explanation to Google just those.</div></div></span>`;
   h += `<button class="ubtn ${uNotes?"on":""}" id="uNotes" title="Show or hide your note for this question">${uico("notes")}<span class="lb">Notes</span></button>`;
-  if (window.C100 && !timed) h += `<button class="ubtn" data-c100p="${pg}" title="${done && q.c100 ? "Open the matching page of the 100 Concepts PDF" : "Open the 100 Concepts PDF"}">${uico("book")}<span class="lb">100 Concepts</span></button>`;
+  if (window.C100 && !timed && q.c100 && q.c100.length) h += `<button class="ubtn" data-c100p="${pg}" title="${done && q.c100 ? "Open the matching page of the 100 Concepts PDF" : "Open the 100 Concepts PDF"}">${uico("book")}<span class="lb">100 Concepts</span></button>`;
   h += textMenu();
   h += `<button class="ubtn" id="uTheme" title="Switch light / dark">${uico(light?"moon":"sun")}<span class="lb">${light?"Dark":"Light"}</span></button>`;
   h += `<button class="ubtn" id="uSwitch" title="Switch to the normal JJ QBank layout">${uico("view")}<span class="lb">Normal view</span></button>`;
