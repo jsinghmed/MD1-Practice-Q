@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>JJ QBank · Admin</title>
+<style>
+:root{--bg:#f4f6f9;--panel:#fff;--text:#1f2a37;--muted:#5d6b7a;--line:#e1e6ec;--blue:#1b6fb5;--teal:#2b9a91;--red:#c8372d;--green:#2e8b57}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header{background:#1b3550;color:#fff;padding:14px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+header h1{margin:0;font-size:18px;flex:1}
+header a,header button{color:#fff;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:8px;padding:6px 12px;font:inherit;cursor:pointer;text-decoration:none}
+main{max-width:1200px;margin:0 auto;padding:18px 16px 60px}
+.msg{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:28px;text-align:center;margin-top:30px}
+.msg button{background:var(--blue);color:#fff;border:none;border-radius:8px;padding:10px 18px;font:inherit;font-weight:600;cursor:pointer}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+.card b{display:block;font-size:24px}
+.card span{color:var(--muted);font-size:12.5px}
+.tools{display:flex;gap:10px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
+.tools input{flex:1;min-width:200px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;font:inherit}
+.tools select{padding:9px 10px;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff}
+.wrap{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:900px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle;white-space:nowrap}
+th{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.03em;background:#fafbfc}
+tr.u{cursor:pointer}
+tr.u:hover{background:#f7fafc}
+tr.blk td{color:#9aa5b1}
+.who{display:flex;align-items:center;gap:10px}
+.av{width:30px;height:30px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-weight:700;overflow:hidden;flex:none}
+.av img{width:100%;height:100%;object-fit:cover}
+.who b{display:block}
+.who small{color:var(--muted)}
+.pct{font-size:12px;color:var(--muted)}
+.tag{display:inline-block;font-size:11px;font-weight:700;border-radius:20px;padding:2px 8px}
+.tag.on{background:#e6f4ec;color:var(--green)}
+.tag.off{background:#fde8e6;color:var(--red)}
+.tag.ad{background:#e7f0fa;color:var(--blue)}
+.bbtn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:5px 10px;font:inherit;font-size:12.5px;cursor:pointer}
+.bbtn.kick{color:var(--red);border-color:#f0c4bf}
+.bbtn.let{color:var(--green);border-color:#bfe0cc}
+tr.det td{background:#fafbfc;white-space:normal}
+.det table{min-width:0;width:auto;margin:4px 0}
+.det th,.det td{padding:5px 12px;border:none;background:none}
+.bar{display:inline-block;width:90px;height:7px;border-radius:4px;background:#e8edf2;vertical-align:middle;margin-right:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--teal)}
+.muted{color:var(--muted)}
+</style>
+</head>
+<body>
+<header><h1>JJ QBank · Admin</h1><span id="me"></span><a href="./">Back to QBank</a><button id="out" hidden>Sign out</button></header>
+<main id="main"><div class="msg">Loading…</div></main>
+
+<script src="firebase-config.js"></script>
+<script>
+(function(){
+  const CFG = window.JJ_FIREBASE, ADMINS = (window.JJ_ADMINS||[]).map(e=>e.toLowerCase());
+  const main = document.getElementById("main"), SDK = "https://www.gstatic.com/firebasejs/10.12.2/";
+  const esc = t => String(t==null?"":t).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const msg = html => { main.innerHTML = `<div class="msg">${html}</div>`; };
+  if (!CFG || !CFG.apiKey) { msg("Sign-in isn't turned on yet. Paste your Firebase config into <b>firebase-config.js</b> first."); return; }
+
+  let db, auth, users = [], open = {}, q = "", sort = "lastSeen";
+  const load = src => new Promise((res, rej)=>{ const s = document.createElement("script"); s.src = SDK+src; s.onload = res; s.onerror = rej; document.head.appendChild(s); });
+  load("firebase-app-compat.js").then(()=>Promise.all([load("firebase-auth-compat.js"), load("firebase-firestore-compat.js")])).then(()=>{
+    firebase.initializeApp(CFG); auth = firebase.auth(); db = firebase.firestore();
+    auth.onAuthStateChanged(u=>{
+      document.getElementById("out").hidden = !u;
+      document.getElementById("me").textContent = u ? u.email : "";
+      if (!u) { msg(`<p>Sign in with your admin Google account.</p><button id="si">Sign in with Google</button>`); document.getElementById("si").onclick = signIn; return; }
+      if (!ADMINS.includes((u.email||"").toLowerCase())) { msg(`<p><b>${esc(u.email)}</b> isn't an admin account.</p><button id="so">Use a different account</button>`); document.getElementById("so").onclick = ()=>auth.signOut(); return; }
+      msg("Loading users…");
+      db.collection("users").onSnapshot(snap=>{ users = snap.docs.map(d=>Object.assign({id:d.id}, d.data())); render(); },
+        e=>msg(`Couldn't read users: ${esc(e.message)}<br><span class="muted">Check that the Firestore rules from firestore-rules.txt are published and your email is in the admin list there.</span>`));
+    });
+    document.getElementById("out").onclick = ()=>auth.signOut();
+  }).catch(()=>msg("Couldn't reach Firebase. Check your connection and refresh."));
+
+  function signIn(){
+    const p = new firebase.auth.GoogleAuthProvider(); p.setCustomParameters({prompt:"select_account"});
+    auth.signInWithPopup(p).catch(e=>{ if (e.code==="auth/popup-blocked") auth.signInWithRedirect(p); else alert(e.message); });
+  }
+
+  const ts = v => v && v.toDate ? v.toDate() : null;
+  function ago(v){
+    const d = ts(v); if (!d) return "—";
+    const s = (Date.now()-d)/1000;
+    if (s < 90) return "just now"; if (s < 3600) return Math.round(s/60)+" min ago";
+    if (s < 86400) return Math.round(s/3600)+" h ago"; if (s < 86400*14) return Math.round(s/86400)+" d ago";
+    return d.toLocaleDateString();
+  }
+  const COURSES = [["msk","MSK"],["fbs","FBS"],["crs","CRS"]];
+  function cstat(u, c){ return ((u.stats||{}).courses||{})[c] || null; }
+  function cell(u, c){
+    const s = cstat(u, c); if (!s || !s.answered) return `<span class="muted">—</span>`;
+    return `${s.answered}<span class="pct"> / ${s.total} · ${Math.round(100*s.correct/s.answered)}%</span>`;
+  }
+  const totalAns = u => COURSES.reduce((n,[c])=>n+((cstat(u,c)||{}).answered||0), 0);
+
+  function render(){
+    const now = Date.now(), wk = users.filter(u=>ts(u.lastSeen) && now-ts(u.lastSeen) < 7*86400e3).length;
+    const day = users.filter(u=>ts(u.lastSeen) && now-ts(u.lastSeen) < 86400e3).length;
+    const answered = users.reduce((n,u)=>n+totalAns(u), 0);
+    let list = users.filter(u=>!q || (u.name+" "+u.email).toLowerCase().includes(q));
+    const key = {lastSeen:u=>-(ts(u.lastSeen)||0), firstSeen:u=>-(ts(u.firstSeen)||0), answered:u=>-totalAns(u), name:u=>(u.name||u.email||"").toLowerCase()}[sort];
+    list.sort((a,b)=>{ const x = key(a), y = key(b); return x<y?-1:x>y?1:0; });
+    main.innerHTML = `
+      <div class="cards">
+        <div class="card"><b>${users.length}</b><span>people have signed in</span></div>
+        <div class="card"><b>${day}</b><span>active in the last 24 h</span></div>
+        <div class="card"><b>${wk}</b><span>active in the last 7 days</span></div>
+        <div class="card"><b>${answered.toLocaleString()}</b><span>questions answered in total</span></div>
+        <div class="card"><b>${users.filter(u=>u.blocked).length}</b><span>blocked</span></div>
+      </div>
+      <div class="tools"><input id="q" placeholder="Search name or email" value="${esc(q)}">
+        <select id="sort"><option value="lastSeen">Sort: last active</option><option value="firstSeen">Sort: newest</option><option value="answered">Sort: most answered</option><option value="name">Sort: name</option></select></div>
+      <div class="wrap"><table>
+        <thead><tr><th>User</th><th>First seen</th><th>Last active</th><th>Visits</th>${COURSES.map(([,n])=>`<th>${n} answered</th>`).join("")}<th>Flagged</th><th>Anki</th><th>Access</th></tr></thead>
+        <tbody>${list.map(row).join("") || `<tr><td colspan="11" class="muted">No users yet.</td></tr>`}</tbody>
+      </table></div>
+      <p class="muted" style="font-size:12.5px;margin-top:10px">Click a row to see that person's progress by section. Blocking signs them out right away and stops them signing back in; unblocking restores access with their progress intact.</p>`;
+    const qi = document.getElementById("q"); qi.oninput = ()=>{ q = qi.value.toLowerCase().trim(); const pos = qi.selectionStart; render(); const n = document.getElementById("q"); n.focus(); n.setSelectionRange(pos,pos); };
+    const so = document.getElementById("sort"); so.value = sort; so.onchange = ()=>{ sort = so.value; render(); };
+    main.querySelectorAll("tr.u").forEach(tr=>tr.onclick = e=>{ if (e.target.closest("button")) return; open[tr.dataset.id] = !open[tr.dataset.id]; render(); });
+    main.querySelectorAll("button[data-blk]").forEach(b=>b.onclick = ()=>toggle(b.dataset.blk));
+  }
+
+  function row(u){
+    const admin = ADMINS.includes((u.email||"").toLowerCase()), s = u.stats || {};
+    const init = (u.name||u.email||"?").charAt(0).toUpperCase();
+    let h = `<tr class="u${u.blocked?" blk":""}" data-id="${esc(u.id)}">
+      <td><div class="who"><span class="av">${u.photo?`<img src="${esc(u.photo)}" alt="" referrerpolicy="no-referrer">`:esc(init)}</span><span><b>${esc(u.name||"(no name)")}</b><small>${esc(u.email)}</small></span></div></td>
+      <td>${ts(u.firstSeen)?ts(u.firstSeen).toLocaleDateString():"—"}</td><td>${ago(u.lastSeen)}</td><td>${u.sessions||0}</td>
+      ${COURSES.map(([c])=>`<td>${cell(u,c)}</td>`).join("")}
+      <td>${s.flagged||0}</td><td>${s.anki||0}</td>
+      <td>${admin?`<span class="tag ad">Admin</span>`:u.blocked?`<span class="tag off">Blocked</span> <button class="bbtn let" data-blk="${esc(u.id)}">Unblock</button>`:`<span class="tag on">Active</span> <button class="bbtn kick" data-blk="${esc(u.id)}">Block</button>`}</td></tr>`;
+    if (open[u.id]) {
+      const secs = (s.sections||[]).filter(x=>x.total);
+      h += `<tr class="det"><td colspan="11"><div class="det">${secs.length ? `<table><tr><th>Course</th><th>Section</th><th>Answered</th><th>Correct</th></tr>${secs.map(x=>`<tr><td>${esc((x.course||"").toUpperCase())}</td><td>${esc(x.name)}</td><td><span class="bar"><i style="width:${Math.round(100*x.answered/x.total)}%"></i></span>${x.answered} / ${x.total}</td><td>${x.answered?Math.round(100*x.correct/x.answered)+"%":"—"}</td></tr>`).join("")}</table>` : `<span class="muted">No progress synced yet.</span>`}
+        <div class="muted" style="margin-top:6px;font-size:12.5px">Notes: ${s.notes||0} · Highlights: ${s.highlights||0} · Practice tests: ${s.tests||0} · Last synced: ${ago(u.lastSync)}</div></div></td></tr>`;
+    }
+    return h;
+  }
+
+  function toggle(id){
+    const u = users.find(x=>x.id===id); if (!u) return;
+    const to = !u.blocked;
+    if (to && !confirm(`Block ${u.name||u.email}? They'll be signed out right away and won't be able to sign back in.`)) return;
+    db.collection("users").doc(id).update({blocked:to, blockedAt:firebase.firestore.FieldValue.serverTimestamp()})
+      .catch(e=>alert("Couldn't change access: "+e.message));
+  }
+})();
+</script>
+</body>
+</html>

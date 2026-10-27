@@ -543,21 +543,21 @@ table.rt tr.click:hover td{background:var(--hover)}
 <div class="lightbox" id="lightbox"><img alt=""></div>
 <div class="toast" id="toast"></div>
 
-<script src="images.js?v=32"></script>
-<script src="questions.js?v=32"></script>
-<script src="histology-review.js?v=32"></script>
-<script src="physiology.js?v=32"></script>
-<script src="physiology-review.js?v=32"></script>
-<script src="biochemistry.js?v=32"></script>
-<script src="anatomy.js?v=32"></script>
-<script src="embryology.js?v=32"></script>
-<script src="fbs-physiology.js?v=32"></script>
-<script src="fbs-cellbio.js?v=32"></script>
-<script src="fbs-biochem.js?v=32"></script>
-<script src="fbs-embryology.js?v=32"></script>
-<script src="c100.js?v=33"></script>
-<script src="fbs-anki.js?v=32"></script>
-<script src="crs-embryology.js?v=32"></script>
+<script src="images.js?v=34"></script>
+<script src="questions.js?v=34"></script>
+<script src="histology-review.js?v=34"></script>
+<script src="physiology.js?v=34"></script>
+<script src="physiology-review.js?v=34"></script>
+<script src="biochemistry.js?v=34"></script>
+<script src="anatomy.js?v=34"></script>
+<script src="embryology.js?v=34"></script>
+<script src="fbs-physiology.js?v=34"></script>
+<script src="fbs-cellbio.js?v=34"></script>
+<script src="fbs-biochem.js?v=34"></script>
+<script src="fbs-embryology.js?v=34"></script>
+<script src="c100.js?v=34"></script>
+<script src="fbs-anki.js?v=34"></script>
+<script src="crs-embryology.js?v=34"></script>
 <script>
 (function(){
 // =====================================================================
@@ -652,7 +652,7 @@ if (S.v === 2) {
   S.v = 3;
 }
 S.course = COURSE_BY_ID[S.course] ? S.course : "msk"; S.curBy ??= {};
-function save(){ try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){ toast("Couldn't save — browser storage is full or blocked"); } }
+function save(){ if (window.JJ_HOLD) return; try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){ toast("Couldn't save — browser storage is full or blocked"); } }
 
 let view = "home";          // home | quiz | builder | notes | search | report
 let reportTest = null;
@@ -1078,7 +1078,7 @@ function ensureAnkiImages(cb){
   if (!need.size) return cb();
   toast("Loading figures for your cards…");
   let left = need.size;
-  need.forEach(file=>{ const sc = document.createElement("script"); sc.src = file+"?v=32"; sc.onload = sc.onerror = ()=>{ lazyState[file] = 2; if (--left === 0) cb(); }; document.head.appendChild(sc); });
+  need.forEach(file=>{ const sc = document.createElement("script"); sc.src = file+"?v=34"; sc.onload = sc.onerror = ()=>{ lazyState[file] = 2; if (--left === 0) cb(); }; document.head.appendChild(sc); });
 }
 function downloadAnki(){
   const ids = S.anki.filter(id=>byId[id]);
@@ -1152,7 +1152,7 @@ function c100Load(chunk, cb){
   (c100State[f+":cb"] = c100State[f+":cb"] || []).push(cb);
   if (c100State[f]===1) return;
   c100State[f] = 1;
-  const sc = document.createElement("script"); sc.src = f + "?v=32";
+  const sc = document.createElement("script"); sc.src = f + "?v=34";
   sc.onload = ()=>{ c100State[f] = 2; (c100State[f+":cb"]||[]).forEach(fn=>fn&&fn()); c100State[f+":cb"] = []; };
   sc.onerror = ()=>{ delete c100State[f]; const l = $("c100Load"); if (l) { l.hidden = false; l.textContent = "Couldn't load this page — check that " + f + " was uploaded."; } };
   document.head.appendChild(sc);
@@ -1654,7 +1654,7 @@ const LAZY_IMGS = [{re:/^fp-/, file:"images-fbs.js"}, {re:/^ce-/, file:"images-c
 const lazyState = {}; // file -> 1 loading, 2 done
 function loadLazyImgs(file){
   if (lazyState[file]) return; lazyState[file] = 1;
-  const sc = document.createElement("script"); sc.src = file+"?v=32";
+  const sc = document.createElement("script"); sc.src = file+"?v=34";
   sc.onload = ()=>{ lazyState[file] = 2; fixImgs(document); };
   sc.onerror = ()=>{ delete lazyState[file]; };
   document.head.appendChild(sc);
@@ -2023,11 +2023,29 @@ themeLabel();
 if (S.openSec === undefined) S.openSec = secOf(S.cur) || (courseSecs()[0] ? courseSecs()[0].prefix : null);
 save();
 renderAll();
+// Progress summary used by sign-in sync / the admin page (computed from any saved state).
+window.JJ_STATS = function(st){
+  st = st || S; const s = {ans: st.ans || {}};
+  const courses = {}, sections = [];
+  SECTIONS.forEach(sec=>{
+    const qs = sec.items, done = qs.filter(q=>answered(q,s)), ok = done.filter(q=>status(q,s)==="ok").length;
+    sections.push({course:sec.course, name:sec.name, total:qs.length, answered:done.length, correct:ok});
+    const c = courses[sec.course] = courses[sec.course] || {name:(COURSE_BY_ID[sec.course]||{}).name||sec.course, total:0, answered:0, correct:0};
+    c.total += qs.length; c.answered += done.length; c.correct += ok;
+  });
+  const cnt = o => Object.keys(o||{}).length;
+  return {courses, sections, flagged:cnt(st.flag), notes:Object.values(st.notes||{}).filter(v=>String(v).trim()).length,
+    anki:(st.anki||[]).length, tests:(st.tests||[]).length, highlights:cnt(st.hl), lastCourse:st.course||null};
+};
+
 // Welcome screen: shown every time the page loads.
 // Fresh visit / new tab → Enter goes to the home screen. Refresh in the same tab → Enter returns you to where you were.
 (function(){
   const sp = $("splash"); let seen = false;
+  try { window.JJ_LOGO = sp.querySelector("img").src; } catch(e) {}
   try { seen = sessionStorage.getItem("jj-entered")==="1"; } catch(e) {}
+  // After sign-in loads your synced progress, the page reloads once — skip the logo that time.
+  try { if (sessionStorage.getItem("jj-skip-splash")==="1") { sessionStorage.removeItem("jj-skip-splash"); sp.remove(); return; } } catch(e) {}
   document.documentElement.style.overflow = "hidden";
   const enter = ()=>{
     if (!sp.isConnected || sp.classList.contains("out")) return;
@@ -2044,5 +2062,7 @@ renderAll();
 })();
 })();
 </script>
+<script src="firebase-config.js?v=34"></script>
+<script src="auth.js?v=34"></script>
 </body>
 </html>
