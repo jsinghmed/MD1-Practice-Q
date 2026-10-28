@@ -1216,8 +1216,8 @@ function renderCard(){
         <button class="nbtn" id="prevBtn" ${p===0?"disabled":""}>← Previous</button>
         ${p===n-1 ? `<button class="nbtn primary" id="endBtn2">End block</button>` : `<button class="nbtn primary" id="nextBtn">Next →</button>`}
       </div><div class="timednote">Timed block — answers are hidden until you end the block. You can change your answer any time before then.</div>`;
-    } else if (!(U && done)) {
-      h += `<div class="nav">
+    } else {
+      if (!(U && done)) h += `<div class="nav">
         <button class="nbtn" id="prevBtn" ${p===0?"disabled":""}>← Previous</button>
         <button class="nbtn primary" id="submitBtn" ${done||sel===undefined?"disabled":""}>Submit</button>
         <button class="nbtn" id="nextBtn" ${p===n-1?"disabled":""}>Next →</button></div>`;
