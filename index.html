@@ -613,6 +613,93 @@ table.rt tr.click:hover td{background:var(--hover)}
   .ufbtn{height:36px;padding:0 9px}
   .ustrip{flex-wrap:wrap} .ustrip .us{flex:1 1 40%}
 }
+
+/* ===== Dashboard + sidebar redesign (A+C hybrid) ===== */
+:root{--acc:var(--teal);--acc-bg:#15262c;--res-a:#1b4d6b;--res-b:#155e57;--res-line:#236b7a;--res-sub:#b6cbd9;--res-t:#e6edf3}
+:root[data-theme="light"]{--acc-bg:#e3f4f2;--res-a:#dcefff;--res-b:#d6f3ee;--res-line:#a9d8d2;--res-sub:#4b5d6b;--res-t:#14212c}
+.side .brand{text-align:left;padding:16px 16px 14px}
+.side .brand .jjlogo{flex-direction:row;gap:9px;align-items:center}
+.side .brand .lg-mark{width:42px;height:34px}
+.side .brand .lg-word{width:104px;height:21px}
+.side .brand .bcourse{display:none}
+.ctabs{background:var(--choice);border:1px solid var(--line);border-radius:10px;padding:3px;margin:0 12px 12px;gap:3px}
+.ctab{border:none;border-radius:7px;padding:7px 4px;font-size:13px;flex-direction:row;justify-content:center}
+.ctab small{display:none}
+.ctab.on{background:var(--acc-bg);color:var(--text);border:none}
+.stools{border-bottom:none;padding-bottom:4px}
+.chaps{padding:2px 0 10px}
+.chaps .chap-h{padding:16px 18px 6px;font-size:11px}
+.chaps .sec,.chaps .more,.chaps .noq,.chaps>.chap{margin-left:9px;margin-right:9px}
+.chaps>.chap{width:calc(100% - 18px)}
+.nvg{display:flex;flex-direction:column;gap:1px;padding-right:9px}
+.nv{display:flex;align-items:center;gap:11px;width:100%;background:none;border:none;border-left:3px solid transparent;border-radius:0 8px 8px 0;padding:8px 10px 8px 15px;font-size:14px;font-weight:500;color:var(--text);text-align:left}
+.nv:hover{background:var(--hover)}
+.nv.on{background:var(--acc-bg);border-left-color:var(--acc);font-weight:600}
+.nv .ni{width:18px;height:18px;display:grid;place-items:center;color:var(--muted);flex:none;font-size:14px}
+.nv.on .ni{color:var(--acc)}
+.nv .nl{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nv .nn{font-size:12px;color:var(--muted);font-weight:600}
+.nv.rv-inc .nn{color:var(--red)} .nv.rv-flag .nn{color:var(--flag)} .nv.rv-c100 .nn{color:var(--badge-fg)}
+.nv.zero{opacity:.55}
+.nvg:first-child{margin-top:6px}
+.sfoot{border-top:1px solid var(--line);padding:9px 14px 9px 18px;display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12.5px}
+.sfoot .sbtn.th{flex:none;padding:5px 12px}
+
+.dash .dtop{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:14px}
+.dash .dtop h2{margin:0}
+.dash .dtop .sub{margin:4px 0 0;color:var(--muted)}
+.dgrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px;margin:16px 0 14px}
+.dt{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;text-align:left;color:var(--text);font:inherit;position:relative;min-height:138px;display:flex;flex-direction:column}
+button.dt:hover{border-color:var(--line2);background:var(--hover)}
+.dl{font-size:11px;letter-spacing:.08em;color:var(--muted);font-weight:600;text-transform:uppercase;margin-bottom:10px}
+.dres{background:linear-gradient(135deg,var(--res-a),var(--res-b));border-color:var(--res-line);color:var(--res-t)}
+.dres .dl{color:var(--res-sub)}
+.dres .dtt{font-size:19px;font-weight:650;margin-bottom:4px}
+.dres .dsub{color:var(--res-sub)}
+.dgo{position:absolute;right:18px;bottom:18px;background:var(--res-t);color:var(--res-a);border:none;font-weight:700;padding:9px 18px;border-radius:9px;font-size:14px}
+:root[data-theme="light"] .dgo{background:#14212c;color:#fff}
+.dgo:hover{filter:brightness(1.08)}
+.dbig{font-size:32px;font-weight:750;line-height:1.1}
+.dbig.r{color:var(--red)} .dbig.y{color:var(--flag)}
+.dt .dsub{color:var(--muted);margin-top:auto;font-size:13.5px}
+.dres .dsub{margin-top:0}
+.dpanel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:14px}
+.dperf{display:flex;align-items:center;gap:28px}
+.dring{width:124px;height:124px;border-radius:50%;display:grid;place-items:center;flex:none}
+.dring>div{width:96px;height:96px;border-radius:50%;background:var(--panel);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.dring b{font-size:25px;font-weight:750}
+.dring small{font-size:11px;color:var(--muted);margin-top:2px}
+.dkv{flex:1;display:flex;flex-direction:column;gap:8px;min-width:0}
+.dkv>div{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:1px dashed var(--line2);padding-bottom:7px;font-size:14px}
+.dkv span{color:var(--muted)}
+.dkv b{font-weight:650}
+.dkv b small{color:var(--muted);font-weight:500;font-size:12px}
+.dkv .g{color:var(--green)} .dkv .r{color:var(--red)}
+.dlink{background:none;border:none;color:var(--badge-fg);font:inherit;font-weight:650;padding:0}
+.dtw{overflow-x:auto}
+.dtbl{width:100%;border-collapse:collapse;font-size:14px}
+.dtbl th{text-align:left;font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em;padding:8px 10px;border-bottom:1px solid var(--line2)}
+.dtbl td{padding:11px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+.dtbl tr:last-child td{border-bottom:none}
+.dbar{height:6px;border-radius:3px;background:var(--line);width:100%;min-width:120px;max-width:240px;overflow:hidden;display:flex}
+.dbar i.ok{background:var(--green)} .dbar i.bad{background:var(--red)}
+.dacts{text-align:right}
+.dpill{font:inherit;font-size:12px;font-weight:650;padding:5px 11px;border-radius:20px;border:1px solid transparent;background:var(--acc-bg);color:var(--acc);margin-left:5px}
+.dpill:hover{border-color:var(--acc)}
+.dpill.r{background:var(--red-bg);color:var(--red)}
+.dpill.g{background:transparent;border-color:var(--line2);color:var(--muted)}
+.dpill.g:hover{color:var(--text)}
+.dash .h3{margin-top:22px}
+@media (max-width:900px){
+  .dgrid{grid-template-columns:1fr 1fr}
+  .dres{grid-column:span 2}
+  .dperf{flex-wrap:wrap;gap:18px}
+  .dkv{flex-basis:100%}
+  .dash .dtop{flex-direction:column}
+}
+@media (max-width:640px){ .dtbl .hm{display:none} }
+.main,#pageView,.dash,.dpanel,.dgrid>*{min-width:0}
+.dtw{max-width:100%}
 </style>
 </head>
 <body>
@@ -641,13 +728,9 @@ table.rt tr.click:hover td{background:var(--hover)}
         <input id="searchIn" type="search" placeholder="Search questions…" autocomplete="off">
         <button class="clr" id="searchClr" title="Clear search">✕</button>
       </div>
-      <div class="srow">
-        <button class="sbtn" id="buildBtn">＋ Build test</button>
-        <button class="sbtn" id="notesBtn">✎ My notes</button>
-        <button class="sbtn th" id="themeBtn" title="Switch light / dark theme">Light</button>
-      </div>
     </div>
     <div class="chaps" id="chaps"></div>
+    <div class="sfoot"><span class="sfl">Theme</span><button class="sbtn th" id="themeBtn" title="Switch light / dark theme">Light</button></div>
   </aside>
   <nav class="rail" id="rail"></nav>
   <main class="main" id="main">
@@ -990,8 +1073,37 @@ function secStats(sec){
 function chapBtn(c){
   return `<button class="chap ${S.cur===c.key&&view==="quiz"?"on":""} ${c.head?"all":""} ${c.sub?"sub":""}" data-key="${esc(c.key)}"><span>${esc(c.name)}</span><span class="n">${c.ids.length}</span></button>`;
 }
+const NVS = p => `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
+const NVI = {
+  home: NVS('<rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/>'),
+  plus: NVS('<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M12 8v8M8 12h8"/>'),
+  notes: NVS('<path d="M4 20h4L19 9l-4-4L4 16v4z"/>'),
+  inc: NVS('<circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/>'),
+  flag: NVS('<path d="M5 21V4M5 4h11l-2 4 2 4H5"/>'),
+  un: NVS('<circle cx="12" cy="12" r="9"/>'),
+  c100: NVS('<path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11"/>'),
+  plexus: NVS('<path d="M3 6h5M3 12h5M3 18h5M8 6l6 3M8 12h6M8 18l6-3M14 9l7-2M14 12h7M14 15l7 2"/>'),
+  anki: NVS('<rect x="6" y="3" width="13" height="16" rx="2"/><path d="M3 7v12a2 2 0 0 0 2 2h10"/>')
+};
+function navRow(attr, ic, label, n, on, cls){
+  return `<button class="nv ${on?"on":""} ${cls||""}" ${attr}><span class="ni">${ic}</span><span class="nl">${esc(label)}</span>${n!=="" && n!==undefined ? `<span class="nn">${n}</span>` : ""}</button>`;
+}
 function renderChaps(){
-  let h = `<button class="chap home ${view==="home"?"on":""}" id="homeBtn"><span>⌂ Home</span></button>`;
+  const allQ = courseQ(), notesN = allQ.filter(q=>S.notes[q.id] && S.notes[q.id].trim()).length;
+  let h = `<div class="nvg">` + navRow('id="homeBtn"', NVI.home, "Dashboard", "", view==="home")
+    + navRow('id="buildBtn"', NVI.plus, "Create test", "", view==="builder")
+    + navRow('id="notesBtn"', NVI.notes, "My notes", notesN||"", view==="notes") + `</div>`;
+  if (allQ.length) {
+    h += `<div class="chap-h">REVIEW</div><div class="nvg">` + REVIEW.map(r=>{
+      const n = allQ.filter(r.f).length, key = S.course+":rv:"+r.k;
+      if (r.hideZero && !n) return "";
+      return navRow(`data-rv="${key}" title="${r.label} questions in ${esc(course().name)}"`, NVI[r.k], r.label, n, S.cur===key && view==="quiz", "rv-"+r.k+(n?"":" zero"));
+    }).join("") + `</div>`;
+  }
+  let tools = "";
+  if (S.course==="msk") tools += navRow('data-act="plexus"', NVI.plexus, "Brachial plexus", "", view==="plexus");
+  if (S.anki && S.anki.length) tools += navRow('data-act="anki"', NVI.anki, "Anki export", S.anki.length, view==="anki");
+  if (tools) h += `<div class="chap-h">STUDY TOOLS</div><div class="nvg">${tools}</div>`;
   if (courseTests().length) {
     const list = courseTests().slice().reverse(), shown = showAllTests ? list : list.slice(0,3);
     h += `<div class="chap-h">MY TESTS</div>`;
@@ -1499,41 +1611,46 @@ function renderHome(){
       <p>This summative is set up and ready. Once questions are added, its sections, review lists, tests, search and notes will all appear here — kept separate from your other summatives.</p></div></div>`);
     return;
   }
-  const acc = done.length ? Math.round(ok*100/done.length) : 0;
+  const acc = done.length ? Math.round(ok*100/done.length) : 0, bad = done.length - ok;
   const inc = all.filter(REVIEW_BY_K.inc.f).length, fl = all.filter(REVIEW_BY_K.flag.f).length, un = all.length - done.length, c100N = all.filter(REVIEW_BY_K.c100.f).length;
-  const c = chap(), notesN = all.filter(q=>S.notes[q.id] && S.notes[q.id].trim()).length;
-  let h = `<div class="page">
-    <div class="hero"><div><h2>${esc(course().name)} Summative</h2><p class="sub">${done.length} of ${all.length} questions answered${done.length?` · ${acc}% correct`:""}</p></div>
-      <div class="ptools" style="margin:0"><button class="btn primary" data-act="build">＋ Build a test</button><button class="btn" data-act="notes">✎ My notes${notesN?` (${notesN})`:""}</button></div></div>` + homeSearchBox() + homeGoogleBox();
+  const c = chap(), cs = changeStats(q=>q.course===S.course), chg = cs.wc + cs.cw + cs.ww, nm = esc(course().name);
+  let h = `<div class="page dash">
+    <div class="dtop"><div><h2>${nm} Summative</h2><p class="sub">${esc(course().full)} · ${done.length} of ${all.length} questions answered${done.length?` · ${acc}% correct`:""}</p></div>
+      <div class="ptools" style="margin:0"><button class="btn primary" data-act="build">＋ Create test</button></div></div>` + homeSearchBox();
+  h += `<div class="dgrid">`;
   if (c && c.ids.length) {
     const p = Math.min(S.pos[c.key]||0, c.ids.length-1);
-    h += `<div class="cont"><div><div class="l">Continue where you left off</div>
-      <div class="t">${esc(c.kind==="static" ? (c.head ? c.sec : c.sec+" · "+c.name) : c.title)} <span>· question ${p+1} of ${c.ids.length}</span></div></div>
-      <button class="btn primary" data-go="${esc(c.key)}">Continue →</button></div>`;
+    h += `<div class="dt dres"><div class="dl">Pick up where you left off</div>
+      <div class="dtt">${esc(c.kind==="static" ? (c.head ? c.sec : c.sec+" · "+c.name) : c.title)}</div><div class="dsub">Question ${p+1} of ${c.ids.length}</div>
+      <button class="dgo" data-go="${esc(c.key)}">Resume →</button></div>`;
+  } else {
+    const s0 = courseSecs()[0];
+    h += `<div class="dt dres"><div class="dl">Get started</div><div class="dtt">${esc(s0.name)}</div><div class="dsub">${s0.items.length} questions</div>
+      <button class="dgo" data-go="${s0.prefix}:all">Start →</button></div>`;
   }
-  if (S.course==="msk") h += `<button class="bpcard" data-act="plexus"><span class="bpi" aria-hidden="true"><svg width="54" height="40" viewBox="0 0 54 40" fill="none" stroke-linecap="round"><path d="M4 6h10M4 13h10M4 20h10M4 27h10M4 34h10" stroke="currentColor" stroke-width="2.4" opacity=".55"/><path d="M14 6l10 4M14 13l10-3M14 20l10 0M14 27l10 3M14 34l10-4M24 10l12-2M24 10l12 10M24 20l12 0M24 30l12-10M24 30l12 2M36 8h12M36 20h12M36 32h12" stroke="#e2b83e" stroke-width="2.4"/></svg></span>
-      <span class="bpt"><b>Interactive brachial plexus</b><small>Map with clickable nerves · label drill · clinical quiz · injury flashcards</small></span><span class="go">Open ›</span></button>`;
-  h += `<div class="h3">Review across all sections</div><div class="rvbig">
-    <button data-rv="${S.course}:rv:inc"><span class="v r">${inc}</span><span class="l">✗ Incorrect questions</span></button>
-    <button data-rv="${S.course}:rv:flag"><span class="v f">${fl}</span><span class="l">⚑ Flagged questions</span></button>
-    <button data-rv="${S.course}:rv:un"><span class="v">${un}</span><span class="l">○ Unanswered questions</span></button>${c100N ? `
-    <button data-rv="${S.course}:rv:c100"><span class="v c1">${c100N}</span><span class="l">📘 In 100 Concepts PDF</span></button>` : ""}</div>`;
-  h += changeBox(changeStats(q=>q.course===S.course), `Changed answers · ${esc(course().name)}`);
-  h += ankiHomeBox();
-  h += `<div class="h3">Sections</div><div class="secgrid">` + courseSecs().map(sec=>{
-    const st = secStats(sec), acc2 = st.done ? Math.round(st.ok*100/st.done) : null;
-    const incN = sec.items.filter(REVIEW_BY_K.inc.f).length;
-    return `<div class="scard"><h4>${esc(sec.name)}</h4>
-      <div class="meta"><span><b>${st.done}</b> / ${st.n} answered</span><span>${acc2===null?"—":`<b>${acc2}%</b> correct`}</span></div>
-      <div class="pbar"><i class="ok" style="width:${st.ok*100/st.n}%"></i><i class="bad" style="width:${st.bad*100/st.n}%"></i></div>
-      <div class="acts"><button class="btn primary" data-go="${sec.prefix}:all">${st.done?"Continue":"Start"}</button>
-        ${incN?`<button class="btn" data-rv="${sec.prefix}:rv:inc">Review ${incN} incorrect</button>`:""}
-        <button class="btn" data-opensec="${sec.prefix}">Topics</button></div></div>`;
-  }).join("") + `</div>`;
+  h += `<button class="dt" data-rv="${S.course}:rv:inc"><div class="dl">Incorrect</div><div class="dbig r">${inc}</div><div class="dsub">${inc?"Review now ›":"Nothing to review yet"}</div></button>
+    <button class="dt" data-rv="${S.course}:rv:flag"><div class="dl">Flagged</div><div class="dbig y">${fl}</div><div class="dsub">${fl?"Review now ›":"No flagged questions"}</div></button></div>`;
+  const ring = done.length ? `conic-gradient(var(--green) 0 ${ok*100/done.length}%, var(--red) 0 100%)` : "var(--line)";
+  h += `<div class="dpanel"><div class="dl">Performance · ${nm}</div><div class="dperf">
+    <div class="dring" style="background:${ring}"><div><b>${done.length?acc+"%":"—"}</b><small>${done.length?"correct":"no answers yet"}</small></div></div>
+    <div class="dkv"><div><span>Total correct</span><b class="g">${ok}</b></div><div><span>Total incorrect</span><b class="r">${bad}</b></div>
+      <div><span>Answers changed</span><b>${chg}${chg?` <small>(${cs.wc} wrong→right)</small>`:""}</b></div></div>
+    <div class="dkv"><div><span>Used questions</span><b>${done.length} / ${all.length}</b></div><div><span>Unused</span><b>${un}</b></div>
+      <div><span>Tests created</span><b>${courseTests().length}</b></div>${c100N?`<div><span>In 100 Concepts PDF</span><button class="dlink" data-rv="${S.course}:rv:c100">${c100N} ›</button></div>`:""}</div>
+  </div></div>`;
+  h += `<div class="dpanel"><div class="dl">Sections</div><div class="dtw"><table class="dtbl"><thead><tr><th>Section</th><th class="hm">Used</th><th class="hm">Progress</th><th>Score</th><th></th></tr></thead><tbody>` + courseSecs().map(sec=>{
+    const st = secStats(sec), a2 = st.done ? Math.round(st.ok*100/st.done) : null, incN = sec.items.filter(REVIEW_BY_K.inc.f).length;
+    return `<tr><td><b>${esc(sec.name)}</b></td><td class="hm">${st.done} / ${st.n}</td>
+      <td class="hm"><div class="dbar"><i class="ok" style="width:${st.ok*100/st.n}%"></i><i class="bad" style="width:${st.bad*100/st.n}%"></i></div></td>
+      <td>${a2===null?"—":a2+"%"}</td>
+      <td class="dacts"><button class="dpill" data-go="${sec.prefix}:all">${st.done?"Continue":"Start"}</button>${incN?`<button class="dpill r" data-rv="${sec.prefix}:rv:inc" title="Review incorrect">✗ ${incN}</button>`:""}<button class="dpill g" data-opensec="${sec.prefix}">Topics</button></td></tr>`;
+  }).join("") + `</tbody></table></div></div>`;
+  h += changeBox(cs, `Changed answers · ${nm}`);
   if (courseTests().length) {
     h += `<div class="h3">Recent tests</div><div class="tlist">` + courseTests().slice().reverse().slice(0,5).map(t=>
       `<button class="trow" data-go="test:${t.id}"><span>${esc(t.name)}</span><span class="n">${t.mode==="timed"&&!t.finished?"⏱ in progress":t.finished?"Score "+testLabel(t):testLabel(t)+" answered"}</span></button>`).join("") + `</div>`;
   }
+  h += `<div class="h3">Search Google</div>` + homeGoogleBox();
   showPage(h + `</div>`);
 }
 
@@ -1836,6 +1953,7 @@ function renderAll(){
   } else if (view==="builder") renderBuilder();
   else if (view==="notes") renderNotes();
   else if (view==="plexus") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>Brachial plexus</h2><a class="btn" href="brachial-plexus.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="brachial-plexus.html?v=35" title="Interactive brachial plexus"></iframe></div>`);
+  else if (view==="anki") showPage(`<div class="page dash"><div class="dtop"><div><h2>Anki export</h2><p class="sub">Questions you've added as Anki cards, ready to download</p></div></div>${ankiHomeBox().replace('<div class="h3">Anki export</div>','') || `<div class="emptybox"><h3>No Anki cards yet</h3><p>Add questions to your Anki list while you study, and they'll collect here for download.</p></div>`}</div>`);
   else if (view==="search") renderSearch();
   else if (view==="report") { const t = S.tests.find(x=>x.id===reportTest); if (t) renderReport(t); else { view="quiz"; renderAll(); } }
 }
@@ -2000,6 +2118,12 @@ function switchCourse(id){
   toast(COURSE_BY_ID[id].name + (COURSE_BY_ID[id].items.length ? "" : " — no questions yet"));
 }
 function setFocus(on){ focusOn = on; openMenu = null; renderAll(); if (on) toast("Focus mode — press Esc to exit"); }
+document.addEventListener("keydown", e=>{
+  if (e.key!=="/" || e.metaKey || e.ctrlKey || e.altKey) return;
+  const a = document.activeElement; if (a && (a.tagName==="INPUT" || a.tagName==="TEXTAREA" || a.isContentEditable)) return;
+  const si = view==="home" && $("homeSearchIn") ? $("homeSearchIn") : $("searchIn");
+  if (si && si.offsetParent) { e.preventDefault(); si.focus(); }
+});
 document.addEventListener("click", e=>{
   const t = e.target;
   // menus
@@ -2021,7 +2145,7 @@ document.addEventListener("click", e=>{
   if (t.closest("#moreTests")) { showAllTests = !showAllTests; renderChaps(); return; }
   const gk = t.closest("[data-go]"); if (gk) { goKey(gk.dataset.go); return; }
   const act = t.closest("[data-act]");
-  if (act) { view = act.dataset.act==="build" ? "builder" : act.dataset.act==="plexus" ? "plexus" : "notes"; renderAll(); $("main").scrollTo({top:0}); return; }
+  if (act) { view = ({build:"builder", plexus:"plexus", anki:"anki", notes:"notes"})[act.dataset.act] || "notes"; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); return; }
   if (t.closest("[data-plexback]")) { view = "home"; renderAll(); $("main").scrollTo({top:0}); return; }
   // sidebar
   const rv = t.closest("[data-rv]");
