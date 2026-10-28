@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>function jjTheme(){try{var th=localStorage.getItem("msk-theme");document.documentElement.setAttribute("data-theme",th==="light"?"light":"dark");}catch(e){}}jjTheme();window.addEventListener("storage",function(e){if(e.key==="msk-theme")jjTheme();});window.addEventListener("message",function(e){if(e.data==="jj-theme")jjTheme();});</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brachial plexus · JJ QBank</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Spectral:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF1F0;--panel:#FFFFFF;--ink:#16212C;--muted:#55626E;--line:#CDD5D8;--edge:#8D98A1;
+  --nerve:#F2C94C;--nerve-soft:#FFF5D1;--nerve-ink:#6B5000;
+  --ant:#127566;--post:#5D45B5;--ok:#1F7A3A;--ok-bg:#E2F2E5;--bad:#B3261E;--bad-bg:#FBE5E3;--focus:#2462C4;
+  --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --head:"Spectral",Georgia,"Times New Roman",serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F151B;--panel:#18212A;--ink:#E6ECEF;--muted:#9DAAB4;--line:#2B3740;--edge:#71808B;
+  --nerve:#E2B83E;--nerve-soft:#3A3116;--nerve-ink:#F5D97C;
+  --ant:#52C4AF;--post:#A895F2;--ok:#71CF8B;--ok-bg:#16321F;--bad:#F2897F;--bad-bg:#3B1A18;--focus:#86AEF2;}}
+:root[data-theme="dark"]{
+  --bg:#0F151B;--panel:#18212A;--ink:#E6ECEF;--muted:#9DAAB4;--line:#2B3740;--edge:#71808B;
+  --nerve:#E2B83E;--nerve-soft:#3A3116;--nerve-ink:#F5D97C;
+  --ant:#52C4AF;--post:#A895F2;--ok:#71CF8B;--ok-bg:#16321F;--bad:#F2897F;--bad-bg:#3B1A18;--focus:#86AEF2;}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 20px 60px}
+header h1{font-family:var(--head);font-weight:600;font-size:clamp(28px,4.2vw,42px);line-height:1.1;margin:0 0 8px;letter-spacing:-.01em}
+header p{margin:0;color:var(--muted);max-width:64ch}
+.stats{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
+.stat{font-size:14px;padding:4px 10px;border-radius:999px;background:var(--panel);border:1px solid var(--line);color:var(--muted)}
+.stat b{color:var(--ink)}
+nav{display:flex;gap:4px;margin:26px 0 18px;border-bottom:2px solid var(--line);overflow-x:auto}
+nav button{font:inherit;font-weight:700;background:none;border:0;color:var(--muted);padding:10px 14px;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap}
+nav button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--nerve)}
+button:focus-visible,input:focus-visible,.n:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+.map-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:16px;align-items:start}
+@media (max-width:1100px){.map-grid{grid-template-columns:1fr}}
+.controls{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-bottom:12px;font-size:15px}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{font:inherit;font-size:14px;background:var(--panel);color:var(--muted);border:0;padding:6px 12px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--panel)}
+.btn{font:inherit;font-size:15px;font-weight:700;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--ink);padding:8px 14px;cursor:pointer}
+.btn.primary{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+.btn:hover{border-color:var(--edge)}
+.scroll{overflow-x:auto}
+svg.plexus{display:block;width:100%;min-width:680px;height:auto}
+.legend{display:flex;flex-wrap:wrap;gap:16px;font-size:13.5px;color:var(--muted);margin-top:10px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{display:inline-block;width:26px;height:0;border-top:2.5px solid var(--ant)}
+.sw.p{border-top:2.5px dashed var(--post)}
+.sw.y{width:12px;height:12px;border:1px solid var(--nerve-ink);background:var(--nerve);border-radius:50%}
+.e{stroke:var(--edge);stroke-width:1.4;fill:none;transition:opacity .2s}
+.e-a{stroke:var(--ant);stroke-width:2.2}
+.e-p{stroke:var(--post);stroke-width:2.2;stroke-dasharray:6 4}
+.e-s{stroke-width:1.1}
+svg.focus .e{opacity:.15}
+svg.focus .e.hot{opacity:1;stroke-width:3.2}
+.n{cursor:pointer}
+.n rect{fill:var(--nerve-soft);stroke:var(--edge);stroke-width:1.3}
+.n-root rect{fill:var(--panel)}
+.g-a rect{stroke:var(--ant)}
+.g-p rect{stroke:var(--post)}
+.n text{fill:var(--ink);font-size:14px;font-family:var(--body)}
+.n-term text{font-weight:700}
+.n .dot{fill:var(--nerve);stroke:var(--nerve-ink);stroke-width:1}
+.n-side text{fill:var(--muted);font-size:12.5px}
+.n .hit{fill:transparent;stroke:none}
+.n.sel rect{stroke-width:3.2}
+.n.sel .dot{stroke-width:3}
+.n.sel.n-side text{fill:var(--ink);font-weight:700}
+.n.m-ok rect,.n.m-ok .dot{fill:var(--ok-bg);stroke:var(--ok);stroke-width:3}
+.n.m-bad rect,.n.m-bad .dot{fill:var(--bad-bg);stroke:var(--bad);stroke-width:3}
+.n.q text.lbl{fill:var(--muted)}
+.info h2{font-family:var(--head);font-weight:600;font-size:24px;margin:0 0 4px;line-height:1.2}
+.info .kind{color:var(--muted);font-size:14px;margin:0 0 12px}
+.info dl{margin:0}
+.info dt{font-weight:700;font-size:14px;color:var(--muted);margin-top:12px}
+.info dd{margin:2px 0 0}
+.info .hook{margin-top:14px;padding:10px 12px;background:var(--nerve-soft);border-left:4px solid var(--nerve);color:var(--ink);border-radius:0}
+.info .empty{color:var(--muted)}
+.lower{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;margin-top:16px}
+@media (max-width:900px){.lower{grid-template-columns:1fr}}
+h3{font-family:var(--head);font-weight:600;font-size:20px;margin:0 0 10px}
+.mn{margin:0;padding:0;list-style:none}
+.mn li{padding:8px 0;border-top:1px solid var(--line)}
+.mn li:first-child{border-top:0}
+.mn b{display:block}
+.mn span{color:var(--muted);font-size:15px}
+.days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:12px 0 8px}
+.days button{font:inherit;font-size:14px;aspect-ratio:1;border-radius:8px;border:1px solid var(--line);background:var(--panel);color:var(--muted);cursor:pointer}
+.days button[aria-pressed="true"]{background:var(--nerve);border-color:var(--nerve-ink);color:#2A2000;font-weight:700}
+.small{font-size:14px;color:var(--muted);margin:0}
+.drill-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.prompt{font-family:var(--head);font-size:24px;font-weight:600}
+.prompt em{font-style:normal;background:var(--nerve-soft);padding:0 6px;border-radius:4px}
+.fb{min-height:1.6em;font-weight:700}
+.fb.ok{color:var(--ok)} .fb.bad{color:var(--bad)}
+.quiz{max-width:760px}
+.qmeta{display:flex;justify-content:space-between;color:var(--muted);font-size:14px;margin-bottom:8px}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:18px}
+.bar i{display:block;height:100%;background:var(--nerve);width:0;transition:width .3s}
+.qtext{font-size:19px;margin:0 0 16px}
+.opts{display:grid;gap:8px}
+.opt{font:inherit;text-align:left;padding:12px 14px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--edge)}
+.opt.right{background:var(--ok-bg);border-color:var(--ok)}
+.opt.wrong{background:var(--bad-bg);border-color:var(--bad)}
+.opt:disabled{cursor:default}
+.expl{margin-top:16px;padding:12px 14px;border-left:4px solid var(--nerve);background:var(--nerve-soft)}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.card{max-width:640px;min-height:240px;display:flex;flex-direction:column;justify-content:center;text-align:center;padding:30px 24px}
+.card .front{font-family:var(--head);font-size:24px;font-weight:600;line-height:1.3}
+.card .back{margin-top:18px;padding-top:18px;border-top:1px dashed var(--line)}
+.card .back b{font-size:20px;display:block;margin-bottom:6px}
+.card .row{justify-content:center}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>The brachial plexus, mapped and drilled</h1>
+  <p>Learn the map first, then attach the details. Nerves are drawn in yellow, the way every atlas draws them. Green lines are anterior divisions (front of the limb, flexors); dashed purple lines are posterior divisions (back of the limb, extensors).</p>
+  <div class="stats" aria-live="polite">
+    <span class="stat">Quiz best <b id="stQuiz">–</b></span>
+    <span class="stat">Drill best streak <b id="stDrill">0</b></span>
+    <span class="stat">Days drawn from memory <b id="stDays">0/7</b></span>
+  </div>
+</header>
+
+<nav role="tablist" aria-label="Study modes">
+  <button role="tab" aria-selected="true" aria-controls="p-map" id="t-map">Map</button>
+  <button role="tab" aria-selected="false" aria-controls="p-drill" id="t-drill">Label drill</button>
+  <button role="tab" aria-selected="false" aria-controls="p-quiz" id="t-quiz">Clinical quiz</button>
+  <button role="tab" aria-selected="false" aria-controls="p-cards" id="t-cards">Injury flashcards</button>
+</nav>
+
+<section id="p-map" role="tabpanel" aria-labelledby="t-map">
+  <div class="map-grid">
+    <div class="panel">
+      <div class="controls">
+        <div class="seg" role="group" aria-label="Label mode">
+          <button id="lblOn" aria-pressed="true">Labels on</button>
+          <button id="lblOff" aria-pressed="false">Hide labels</button>
+        </div>
+        <label><input type="checkbox" id="sideToggle" checked> Show side branches</label>
+        <button class="btn" id="resetReveal" hidden>Hide again</button>
+      </div>
+      <div class="scroll"><svg class="plexus" id="mapSvg" viewBox="0 0 880 530" role="img" aria-label="Brachial plexus map"></svg></div>
+      <div class="legend">
+        <span><i class="sw"></i>Anterior division path</span>
+        <span><i class="sw p"></i>Posterior division path</span>
+        <span><i class="sw y"></i>Side branch</span>
+      </div>
+      <p class="small" id="mapHint" style="margin-top:8px">Select any structure to light up its path back to the roots.</p>
+    </div>
+    <aside class="panel info" id="info" aria-live="polite">
+      <p class="empty">Pick any nerve on the map. Its full path lights up, and its roots, muscles, sensation, classic injury and a memory hook appear here.</p>
+    </aside>
+  </div>
+  <div class="lower">
+    <div class="panel">
+      <h3>Mnemonics worth keeping</h3>
+      <ul class="mn">
+        <li><b>Randy Travis Drinks Cold Beer</b><span>Roots, Trunks, Divisions, Cords, Branches, in order from the neck to the arm.</span></li>
+        <li><b>MARMU</b><span>Terminal branches: Musculocutaneous, Axillary, Radial, Median, Ulnar.</span></li>
+        <li><b>LLM</b><span>Lateral cord: Lateral pectoral, Lateral root of median, Musculocutaneous.</span></li>
+        <li><b>M4U</b><span>Medial cord: four Medials (pectoral, cutaneous of arm, cutaneous of forearm, root of median) plus Ulnar.</span></li>
+        <li><b>STAR</b><span>Posterior cord: Subscapulars (upper and lower), Thoracodorsal, Axillary, Radial.</span></li>
+        <li><b>LOAF</b><span>Median nerve in the hand: Lateral 2 lumbricals, Opponens pollicis, Abductor pollicis brevis, Flexor pollicis brevis.</span></li>
+        <li><b>C5, 6, 7 raise your wings to heaven</b><span>Long thoracic nerve roots; injury gives a winged scapula.</span></li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Draw it from memory</h3>
+      <p class="small">Once a day: blank page, two-minute timer, draw roots to branches, then check against the map. Start with the big "M" (lateral cord, median, medial cord). Tap a day when you've done it.</p>
+      <div class="days" id="days"></div>
+      <button class="btn" id="daysReset">Start a new week</button>
+    </div>
+  </div>
+</section>
+
+<section id="p-drill" role="tabpanel" aria-labelledby="t-drill" hidden>
+  <div class="panel">
+    <div class="drill-top">
+      <div>
+        <div class="prompt" id="drillPrompt">Find: <em>…</em></div>
+        <div class="fb" id="drillFb" aria-live="polite"></div>
+      </div>
+      <div class="controls" style="margin:0">
+        <label><input type="checkbox" id="drillSide"> Include side branches</label>
+        <span class="stat">Streak <b id="drillStreak">0</b></span>
+        <span class="stat">Score <b id="drillScore">0/0</b></span>
+        <button class="btn" id="drillSkip">Skip</button>
+      </div>
+    </div>
+    <div class="scroll"><svg class="plexus" id="drillSvg" viewBox="0 0 880 530" role="img" aria-label="Unlabeled brachial plexus for drilling"></svg></div>
+    <p class="small" style="margin-top:8px">Roots stay labeled as your anchor. Everything else is blank: click where the named structure lives.</p>
+  </div>
+</section>
+
+<section id="p-quiz" role="tabpanel" aria-labelledby="t-quiz" hidden>
+  <div class="panel quiz" id="quiz"></div>
+</section>
+
+<section id="p-cards" role="tabpanel" aria-labelledby="t-cards" hidden>
+  <p class="small" style="margin-bottom:12px">Read the presentation, name the nerve and lesion site out loud, then reveal. Cards you mark "Again" come back at the end of the deck.</p>
+  <div class="panel card" id="card"></div>
+</section>
+</div>
+
+<script>
+const NODES={
+ C5:{k:'root',x:80,y:120,l:'C5'},C6:{k:'root',x:80,y:180,l:'C6'},C7:{k:'root',x:80,y:240,l:'C7'},C8:{k:'root',x:80,y:300,l:'C8'},T1:{k:'root',x:80,y:360,l:'T1'},
+ UT:{k:'trunk',x:240,y:150,l:'Upper trunk'},MT:{k:'trunk',x:240,y:240,l:'Middle trunk'},LT:{k:'trunk',x:240,y:330,l:'Lower trunk'},
+ LC:{k:'cord',x:460,y:140,l:'Lateral cord',g:'a'},PC:{k:'cord',x:460,y:260,l:'Posterior cord',g:'p'},MC:{k:'cord',x:460,y:380,l:'Medial cord',g:'a'},
+ MCN:{k:'term',x:760,y:80,l:'Musculocutaneous',g:'a'},AX:{k:'term',x:760,y:170,l:'Axillary',g:'p'},RAD:{k:'term',x:760,y:250,l:'Radial',g:'p'},MED:{k:'term',x:760,y:340,l:'Median',g:'a'},ULN:{k:'term',x:760,y:430,l:'Ulnar',g:'a'},
+ DSN:{k:'side',x:150,y:60,l:'Dorsal scapular',lp:'top'},SSN:{k:'side',x:290,y:60,l:'Suprascapular',lp:'top'},NSC:{k:'side',x:410,y:60,l:'Nerve to subclavius',lp:'top'},LPN:{k:'side',x:560,y:60,l:'Lateral pectoral',lp:'top'},
+ USS:{k:'side',x:575,y:285,l:'Upper subscap.',f:'Upper subscapular',lp:'right'},TDN:{k:'side',x:575,y:305,l:'Thoracodorsal',lp:'right'},LSS:{k:'side',x:575,y:325,l:'Lower subscap.',f:'Lower subscapular',lp:'right'},
+ LTN:{k:'side',x:150,y:480,l:'Long thoracic',lp:'bottom'},
+ MPN:{k:'side',x:330,y:490,l:'Medial pectoral',lp:'bottom'},MCA:{k:'side',x:460,y:490,l:'Med. cut. of arm',f:'Medial cutaneous nerve of arm',lp:'bottom'},MCF:{k:'side',x:590,y:490,l:'Med. cut. of forearm',f:'Medial cutaneous nerve of forearm',lp:'bottom'}
+};
+const nm=id=>NODES[id].f||NODES[id].l;
+const SIZE={root:[56,30],trunk:[108,32],cord:[120,34],term:[150,34]};
+const EDGES=[
+ ['C5','UT','g'],['C6','UT','g'],['C7','MT','g'],['C8','LT','g'],['T1','LT','g'],
+ ['UT','LC','a'],['MT','LC','a'],['LT','MC','a'],
+ ['UT','PC','p'],['MT','PC','p'],['LT','PC','p'],
+ ['LC','MCN','a'],['LC','MED','a'],['MC','MED','a'],['MC','ULN','a'],
+ ['PC','AX','p'],['PC','RAD','p'],
+ ['C5','DSN','s'],['C5','LTN','s',[108,124]],['C6','LTN','s',[108,184]],['C7','LTN','s',[108,244]],
+ ['UT','SSN','s'],['UT','NSC','s'],['LC','LPN','s'],
+ ['PC','USS','s',[520,266]],['PC','TDN','s',[520,270]],['PC','LSS','s',[520,274]],
+ ['MC','MPN','s'],['MC','MCA','s'],['MC','MCF','s']
+];
+const KIND={root:'Root (ventral ramus)',trunk:'Trunk',cord:'Cord',term:'Terminal branch',side:'Side branch'};
+const INFO={
+ C5:{r:'C5',m:'Joins C6 to form the upper trunk. Gives the dorsal scapular nerve and the top root of the long thoracic nerve.',s:'Lateral arm, over the deltoid.',i:'With C6, stretched in Erb palsy.',h:'Biceps reflex is C5–C6.'},
+ C6:{r:'C6',m:'Joins C5 in the upper trunk; contributes to the long thoracic nerve.',s:'Lateral forearm and thumb. Make a gun with thumb and index: "six-shooter".',i:'With C5, stretched in Erb palsy.',h:'Brachioradialis reflex is C6.'},
+ C7:{r:'C7',m:'Forms the middle trunk on its own; contributes to the long thoracic nerve.',s:'Middle finger.',i:'Rarely injured in isolation.',h:'Triceps reflex is C7.'},
+ C8:{r:'C8',m:'Joins T1 in the lower trunk and heads mostly to the medial cord (ulnar territory).',s:'Little finger and medial hand.',i:'With T1: Klumpke palsy, cervical rib, Pancoast tumor.',h:'C8 runs the finger flexors and hand intrinsics.'},
+ T1:{r:'T1',m:'Joins C8 in the lower trunk.',s:'Medial forearm.',i:'Injury close to the spine can interrupt sympathetic fibers, giving Horner syndrome (ptosis, miosis, anhidrosis).',h:'T1 sits on the lung apex, which is why Pancoast tumors hit it.'},
+ UT:{r:'C5–C6',m:'Gives the suprascapular nerve and nerve to subclavius, then splits: anterior division to the lateral cord, posterior division to the posterior cord.',s:'Through its branches: lateral arm and forearm.',i:'Erb–Duchenne palsy (shoulder dystocia, or a fall forcing the head away from the shoulder). Arm adducted, internally rotated, elbow extended, forearm pronated: the "waiter\'s tip".',h:'Upper trunk = shoulder and upper arm: deltoid, rotator cuff, biceps.'},
+ MT:{r:'C7',m:'The only trunk built from a single root. Anterior division to the lateral cord, posterior division to the posterior cord.',s:'Middle finger region.',i:'Isolated injury is uncommon.',h:'Middle trunk, middle root, one root: C7.'},
+ LT:{r:'C8–T1',m:'Anterior division becomes the medial cord; posterior division (small) joins the posterior cord.',s:'Medial forearm and hand.',i:'Klumpke palsy (grabbing a branch while falling, arm-up delivery), cervical rib, Pancoast tumor. Total claw hand, with or without Horner syndrome.',h:'Lower trunk = the hand.'},
+ LC:{r:'C5–C7',m:'Anterior divisions of the upper and middle trunks. Gives lateral pectoral, musculocutaneous, and the lateral root of the median nerve.',s:'Through musculocutaneous: lateral forearm.',i:'Cord injuries usually come from trauma in the axilla.',h:'LLM: Lateral pectoral, Lateral root of median, Musculocutaneous.'},
+ MC:{r:'C8–T1',m:'Continuation of the lower trunk\'s anterior division. Gives medial pectoral, medial cutaneous nerves of arm and forearm, the medial root of the median, and the ulnar nerve.',s:'Medial arm, forearm and hand.',i:'Follows lower trunk patterns: hand intrinsics.',h:'M4U: four Medials plus Ulnar.'},
+ PC:{r:'C5–T1',m:'All three posterior divisions. Gives upper subscapular, thoracodorsal, lower subscapular, then axillary and radial. The extensor cord.',s:'Back of arm and forearm, radial side of the back of the hand.',i:'Axillary trauma can hit several branches at once.',h:'STAR: Subscapulars, Thoracodorsal, Axillary, Radial.'},
+ MCN:{r:'C5–C7',m:'Coracobrachialis (which it pierces), biceps brachii, brachialis. Think "BBC".',s:'Lateral forearm, through the lateral cutaneous nerve of the forearm.',i:'Uncommon: shoulder dislocation, stab wounds, heavy backpack straps. Weak elbow flexion and supination; numb lateral forearm.',h:'Brachioradialis (radial nerve) still flexes the elbow, so flexion is weak, not lost.'},
+ AX:{r:'C5–C6',m:'Deltoid and teres minor.',s:'Skin over the lower deltoid: the "regimental badge" patch.',i:'Surgical neck of humerus fracture or anterior shoulder dislocation. Flattened deltoid, weak abduction from about 15° to 90°, numb badge area.',h:'Runs through the quadrangular space with the posterior circumflex humeral artery.'},
+ RAD:{r:'C5–T1',m:'Triceps, anconeus, brachioradialis, supinator, and all the wrist and finger extensors.',s:'Back of arm and forearm, back of the lateral hand, especially the first dorsal web space.',i:'Midshaft humerus fracture (spiral groove): wrist drop with triceps spared. Axilla (crutches, "Saturday night palsy"): wrist drop plus weak triceps.',h:'BEST: Brachioradialis, Extensors, Supinator, Triceps.'},
+ MED:{r:'C5(6)–T1',m:'Most forearm flexors and both pronators (not FCU or the ulnar half of FDP). In the hand, LOAF: lateral 2 lumbricals, opponens pollicis, abductor pollicis brevis, flexor pollicis brevis.',s:'Palm side of the lateral 3½ digits plus their dorsal fingertips.',i:'At the wrist (carpal tunnel): thenar wasting, numb lateral 3½ digits, "ape hand". At the elbow (supracondylar fracture): forearm flexors lost too, "hand of benediction" when trying to make a fist.',h:'Formed by two roots (lateral and medial cords): the middle of the "M" around the axillary artery.'},
+ ULN:{r:'C8–T1',m:'FCU and the ulnar half of FDP. Most hand intrinsics: hypothenar muscles, all interossei, medial 2 lumbricals, adductor pollicis.',s:'Medial 1½ digits, palm and back of hand.',i:'Medial epicondyle ("funny bone") or hook of hamate / Guyon canal. Claw of ring and little fingers, weak finger abduction and adduction, positive Froment sign.',h:'Ulnar paradox: a distal lesion claws worse, because FDP is still working and pulls the fingers into flexion.'},
+ DSN:{r:'C5',m:'Rhomboids and levator scapulae.',s:'None.',i:'Rare; weak scapular retraction.',h:'Comes straight off the root, before any trunk forms.'},
+ LTN:{r:'C5–C7',m:'Serratus anterior.',s:'None.',i:'Mastectomy or axillary dissection, chest tubes, heavy shoulder loads. Winged scapula; trouble raising the arm above horizontal.',h:'C5, 6, 7 raise your wings to heaven.'},
+ SSN:{r:'C5–C6',m:'Supraspinatus and infraspinatus.',s:'Shoulder joint only.',i:'Suprascapular notch entrapment, clavicle fracture. Loss of the first 15° of abduction and weak lateral rotation.',h:'Nerve goes under the superior transverse scapular ligament, artery goes over: "Army over the bridge, Navy under".'},
+ NSC:{r:'C5–C6',m:'Subclavius.',s:'None.',i:'Clinically minor.',h:'Small upper trunk branch. Know that it exists and where it comes from.'},
+ LPN:{r:'C5–C7',m:'Pectoralis major, mainly the clavicular head.',s:'None.',i:'Rarely injured alone.',h:'Named for its cord, not its position: it ends up medial to the medial pectoral nerve.'},
+ MPN:{r:'C8–T1',m:'Pectoralis minor and the sternocostal part of pectoralis major.',s:'None.',i:'Rarely injured alone.',h:'Pierces pec minor on its way to pec major.'},
+ MCA:{r:'C8–T1',m:'None (purely sensory).',s:'Medial arm.',i:'Rarely injured alone.',h:'Often joined by the intercostobrachial nerve (T2).'},
+ MCF:{r:'C8–T1',m:'None (purely sensory).',s:'Medial forearm.',i:'Rarely injured alone.',h:'Runs near the basilic vein, so venipuncture can irritate it.'},
+ USS:{r:'C5–C6',m:'Upper part of subscapularis.',s:'None.',i:'Rare.',h:'First of the three posterior cord side branches (the S in STAR).'},
+ TDN:{r:'C6–C8',m:'Latissimus dorsi.',s:'None.',i:'At risk in axillary surgery. Weak extension, adduction and internal rotation of the arm (trouble climbing).',h:'Also called the middle subscapular nerve.'},
+ LSS:{r:'C5–C6',m:'Lower subscapularis and teres major.',s:'None.',i:'Rare.',h:'Teres major (lower subscapular) vs teres minor (axillary) is a classic exam swap.'}
+};
+
+const store={get(k,d){try{const v=localStorage.getItem('bp_'+k);return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem('bp_'+k,JSON.stringify(v))}catch(e){}}};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function connected(id){
+  const hot=new Set();
+  const up=c=>EDGES.forEach((e,i)=>{if(e[1]===c&&!hot.has(i)){hot.add(i);up(e[0])}});
+  const down=c=>EDGES.forEach((e,i)=>{if(e[0]===c&&!hot.has(i)){hot.add(i);down(e[1])}});
+  up(id);down(id);return hot;
+}
+
+function render(svg,o){
+  const vis=id=>o.side||NODES[id].k!=='side';
+  const hot=o.sel?connected(o.sel):null;
+  svg.classList.toggle('focus',!!o.sel);
+  let h='';
+  EDGES.forEach((e,i)=>{
+    const [a,b,k,p]=e; if(!vis(a)||!vis(b))return;
+    const A=p||[NODES[a].x,NODES[a].y],B=[NODES[b].x,NODES[b].y];
+    h+=`<line class="e e-${k}${hot&&hot.has(i)?' hot':''}" x1="${A[0]}" y1="${A[1]}" x2="${B[0]}" y2="${B[1]}"/>`;
+  });
+  for(const id in NODES){
+    if(!vis(id))continue;
+    const n=NODES[id];
+    const shown=o.labels||n.k==='root'||(o.revealed&&o.revealed.has(id));
+    const t=shown?n.l:'?';
+    const mark=o.marks&&o.marks[id]?' m-'+o.marks[id]:'';
+    const cls=`n n-${n.k} g-${n.g||'n'}${o.sel===id?' sel':''}${shown?'':' q'}${mark}`;
+    const aria=shown?n.l:'Unlabeled structure';
+    h+=`<g class="${cls}" data-id="${id}" tabindex="0" role="button" aria-label="${esc(aria)}">`;
+    if(n.k==='side'){
+      let tx=n.x,ty=n.y-16,an='middle';
+      if(n.lp==='bottom'){ty=n.y+24}
+      if(n.lp==='right'){tx=n.x+13;ty=n.y+4;an='start'}
+      h+=`<circle class="hit" cx="${n.x}" cy="${n.y}" r="15"/><circle class="dot" cx="${n.x}" cy="${n.y}" r="7"/><text class="lbl" x="${tx}" y="${ty}" text-anchor="${an}">${esc(t)}</text>`;
+    }else{
+      const [w,hh]=SIZE[n.k];
+      h+=`<rect x="${n.x-w/2}" y="${n.y-hh/2}" width="${w}" height="${hh}" rx="6"/><text class="lbl" x="${n.x}" y="${n.y}" text-anchor="middle" dominant-baseline="central">${esc(t)}</text>`;
+    }
+    h+='</g>';
+  }
+  svg.innerHTML=h;
+}
+function bindClicks(svg,fn){
+  svg.addEventListener('click',e=>{const g=e.target.closest('.n');if(g)fn(g.dataset.id)});
+  svg.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){const g=e.target.closest('.n');if(g){e.preventDefault();fn(g.dataset.id)}}});
+}
+
+/* ---------- Map ---------- */
+const mapSvg=document.getElementById('mapSvg');
+const mapState={labels:true,side:true,sel:null,revealed:new Set()};
+function names(ids){return ids.map(nm).join(', ')}
+function showInfo(id){
+  const n=NODES[id],d=INFO[id];
+  const from=EDGES.filter(e=>e[1]===id).map(e=>e[0]);
+  const to=EDGES.filter(e=>e[0]===id).map(e=>e[1]).filter(x=>mapState.side||NODES[x].k!=='side');
+  document.getElementById('info').innerHTML=`<h2>${esc(nm(id))}</h2><p class="kind">${KIND[n.k]}, roots ${esc(d.r)}</p><dl>
+  ${from.length?`<dt>Comes from</dt><dd>${esc(names(from))}</dd>`:''}
+  ${to.length?`<dt>Gives off</dt><dd>${esc(names(to))}</dd>`:''}
+  <dt>Motor</dt><dd>${esc(d.m)}</dd><dt>Sensory</dt><dd>${esc(d.s)}</dd><dt>Classic injury</dt><dd>${esc(d.i)}</dd></dl>
+  <div class="hook">${esc(d.h)}</div>`;
+}
+function drawMap(){render(mapSvg,mapState);document.getElementById('resetReveal').hidden=mapState.labels}
+bindClicks(mapSvg,id=>{
+  if(!mapState.labels)mapState.revealed.add(id);
+  mapState.sel=mapState.sel===id?null:id;
+  drawMap();
+  if(mapState.sel)showInfo(id);
+  const el=mapSvg.querySelector(`[data-id="${id}"]`);if(el)el.focus({preventScroll:true});
+});
+const lblOn=document.getElementById('lblOn'),lblOff=document.getElementById('lblOff');
+lblOn.onclick=()=>{mapState.labels=true;lblOn.setAttribute('aria-pressed','true');lblOff.setAttribute('aria-pressed','false');document.getElementById('mapHint').textContent='Select any structure to light up its path back to the roots.';drawMap()};
+lblOff.onclick=()=>{mapState.labels=false;mapState.revealed.clear();mapState.sel=null;lblOff.setAttribute('aria-pressed','true');lblOn.setAttribute('aria-pressed','false');document.getElementById('mapHint').textContent='Say the name out loud, then click to check it.';drawMap()};
+document.getElementById('resetReveal').onclick=()=>{mapState.revealed.clear();mapState.sel=null;drawMap()};
+document.getElementById('sideToggle').onchange=e=>{mapState.side=e.target.checked;if(mapState.sel&&!mapState.side&&NODES[mapState.sel].k==='side')mapState.sel=null;drawMap()};
+drawMap();
+
+/* ---------- Drawing log ---------- */
+const daysEl=document.getElementById('days');
+let days=store.get('days',[0,0,0,0,0,0,0]);
+function drawDays(){
+  daysEl.innerHTML=days.map((d,i)=>`<button aria-pressed="${!!d}" aria-label="Day ${i+1}" data-i="${i}">${i+1}</button>`).join('');
+  document.getElementById('stDays').textContent=days.filter(Boolean).length+'/7';
+}
+daysEl.onclick=e=>{const b=e.target.closest('button');if(!b)return;const i=+b.dataset.i;days[i]=days[i]?0:1;store.set('days',days);drawDays()};
+document.getElementById('daysReset').onclick=()=>{days=[0,0,0,0,0,0,0];store.set('days',days);drawDays()};
+drawDays();
+
+/* ---------- Drill ---------- */
+const drillSvg=document.getElementById('drillSvg');
+const dr={side:false,target:null,marks:{},revealed:new Set(),streak:0,right:0,total:0,best:store.get('drillBest',0),busy:false};
+document.getElementById('stDrill').textContent=dr.best;
+function drillPool(){return Object.keys(NODES).filter(id=>NODES[id].k!=='root'&&(dr.side||NODES[id].k!=='side'))}
+function drawDrill(){render(drillSvg,{labels:false,side:dr.side,marks:dr.marks,revealed:dr.revealed})}
+function nextDrill(){
+  const pool=drillPool().filter(x=>x!==dr.target);
+  dr.target=pool[Math.floor(Math.random()*pool.length)];
+  dr.marks={};dr.revealed=new Set();dr.busy=false;
+  document.getElementById('drillPrompt').innerHTML=`Find: <em>${esc(nm(dr.target))}</em>`;
+  document.getElementById('drillFb').textContent='';document.getElementById('drillFb').className='fb';
+  drawDrill();
+}
+function drillStats(){
+  document.getElementById('drillStreak').textContent=dr.streak;
+  document.getElementById('drillScore').textContent=dr.right+'/'+dr.total;
+  if(dr.streak>dr.best){dr.best=dr.streak;store.set('drillBest',dr.best);document.getElementById('stDrill').textContent=dr.best}
+}
+bindClicks(drillSvg,id=>{
+  if(dr.busy||NODES[id].k==='root')return;
+  dr.busy=true;dr.total++;
+  const fb=document.getElementById('drillFb');
+  if(id===dr.target){
+    dr.right++;dr.streak++;dr.marks={[id]:'ok'};dr.revealed=new Set([id]);
+    fb.textContent='Correct.';fb.className='fb ok';drawDrill();drillStats();setTimeout(nextDrill,800);
+  }else{
+    dr.streak=0;dr.marks={[id]:'bad',[dr.target]:'ok'};dr.revealed=new Set([id,dr.target]);
+    fb.textContent=`That's the ${nm(id)}. The ${nm(dr.target)} is highlighted in green.`;fb.className='fb bad';
+    drawDrill();drillStats();setTimeout(nextDrill,2200);
+  }
+});
+document.getElementById('drillSide').onchange=e=>{dr.side=e.target.checked;nextDrill()};
+document.getElementById('drillSkip').onclick=()=>{dr.streak=0;drillStats();nextDrill()};
+nextDrill();
+
+/* ---------- Quiz ---------- */
+const QS=[
+ {q:'A man breaks the shaft of his humerus. He can extend his elbow but cannot extend his wrist. Which nerve is injured?',o:['Median','Radial','Ulnar','Musculocutaneous'],a:1,e:'The radial nerve wraps around the humerus in the spiral groove. A midshaft fracture spares triceps (its branches leave higher up) but causes wrist drop.'},
+ {q:'After a difficult delivery with shoulder dystocia, a newborn\'s arm hangs adducted, internally rotated, elbow extended and forearm pronated. What is damaged?',o:['Lower trunk (C8–T1)','Posterior cord','Upper trunk (C5–C6)','Long thoracic nerve'],a:2,e:'Erb–Duchenne palsy: upper trunk stretch. Lost abductors, lateral rotators and elbow flexors/supinators give the "waiter\'s tip" posture.'},
+ {q:'After a mastectomy with axillary node dissection, a patient\'s scapula sticks out when she pushes against a wall. Which nerve?',o:['Thoracodorsal','Dorsal scapular','Long thoracic','Suprascapular'],a:2,e:'The long thoracic nerve (C5–C7) runs on the surface of serratus anterior, where it\'s exposed during axillary surgery. Result: winged scapula.'},
+ {q:'After an anterior shoulder dislocation, a patient has a numb patch over the lateral shoulder and can\'t abduct the arm well. Which nerve?',o:['Axillary','Suprascapular','Radial','Musculocutaneous'],a:0,e:'The axillary nerve wraps around the surgical neck of the humerus. Injury weakens deltoid and leaves a numb "regimental badge" area.'},
+ {q:'A pregnant woman has nighttime tingling in her thumb, index and middle fingers, and her thenar eminence is wasted. Where is the lesion?',o:['Ulnar nerve at Guyon canal','Median nerve at the carpal tunnel','Radial nerve at the elbow','C8 root'],a:1,e:'Carpal tunnel syndrome compresses the median nerve at the wrist: LOAF muscles weaken, and the lateral 3½ digits go numb. Pregnancy fluid retention is a classic trigger.'},
+ {q:'A student who leans on his elbows all day has tingling in his ring and little fingers and weak finger abduction. Which nerve?',o:['Median','Ulnar','Radial','Medial cutaneous nerve of forearm'],a:1,e:'The ulnar nerve is superficial behind the medial epicondyle. It supplies the interossei (finger abduction/adduction) and sensation to the medial 1½ digits.'},
+ {q:'A smoker has a claw hand plus ptosis and a small pupil on the same side. What part of the plexus is affected?',o:['Upper trunk','Lateral cord','Lower trunk (C8–T1)','Posterior cord'],a:2,e:'A Pancoast tumor at the lung apex invades the lower trunk (hand intrinsics, giving a claw hand) and the sympathetic chain at T1 (Horner syndrome).'},
+ {q:'Which cord gives rise to the axillary nerve?',o:['Lateral','Medial','Posterior','None; it comes from the upper trunk'],a:2,e:'STAR: the posterior cord gives the subscapulars, thoracodorsal, axillary and radial nerves.'},
+ {q:'Which terminal nerve is formed from both the lateral and medial cords?',o:['Ulnar','Musculocutaneous','Median','Radial'],a:2,e:'The median nerve has a lateral root and a medial root. Together with the two cords they form the "M" you should draw first.'},
+ {q:'The thoracodorsal nerve supplies which muscle?',o:['Teres major','Latissimus dorsi','Rhomboid major','Serratus anterior'],a:1,e:'Thoracodorsal (C6–C8, posterior cord) supplies latissimus dorsi: extension, adduction and internal rotation of the arm.'},
+ {q:'A patient cannot start abducting the arm from the side (first 15°) and has weak lateral rotation. Which nerve?',o:['Axillary','Suprascapular','Long thoracic','Lower subscapular'],a:1,e:'The suprascapular nerve supplies supraspinatus (initiates abduction) and infraspinatus (lateral rotation).'},
+ {q:'A child with a supracondylar humerus fracture tries to make a fist, but the index and middle fingers stay straight. Which nerve?',o:['Ulnar','Radial','Median','Anterior interosseous only'],a:2,e:'A proximal median nerve lesion knocks out the lateral FDP and FDS, so the lateral fingers can\'t flex: the "hand of benediction".'},
+ {q:'A cyclist fractures the hook of the hamate and then has clawing of the ring and little fingers that looks worse than in an elbow lesion. Why?',o:['The radial nerve is also damaged','FDP to those fingers still works, so it pulls them into flexion','The median nerve takes over the lumbricals','Clawing is always worse at the wrist for every nerve'],a:1,e:'The ulnar paradox: a distal ulnar lesion spares the ulnar half of FDP, which flexes the fingers unopposed by the paralyzed intrinsics. A higher lesion takes out FDP too, so clawing is milder.'},
+ {q:'What roots contribute to the musculocutaneous nerve?',o:['C5–C7','C5–C6','C8–T1','C5–T1'],a:0,e:'It comes from the lateral cord, which carries C5–C7 from the anterior divisions of the upper and middle trunks.'},
+ {q:'A patient has weak elbow flexion and weak supination, with numbness on the lateral forearm. Which nerve?',o:['Radial','Musculocutaneous','Axillary','Median'],a:1,e:'Musculocutaneous: biceps (supination and flexion), brachialis (flexion), and the lateral cutaneous nerve of the forearm.'},
+ {q:'Someone using crutches that press into the armpit develops weak wrist extension AND weak elbow extension. Where is the radial nerve injured?',o:['Spiral groove','Axilla','Lateral epicondyle','Wrist'],a:1,e:'In the axilla the radial nerve hasn\'t yet given its triceps branches, so elbow extension is also lost. A spiral groove lesion spares triceps.'},
+ {q:'Which nerve supplies the rhomboids?',o:['Dorsal scapular','Suprascapular','Thoracodorsal','Long thoracic'],a:0,e:'The dorsal scapular nerve comes straight off the C5 root and supplies the rhomboids and levator scapulae.'},
+ {q:'Which trunk is formed by only one root?',o:['Upper','Middle','Lower','None of them'],a:1,e:'The middle trunk is just C7.'},
+ {q:'A patient holding a sheet of paper between thumb and index finger flexes the thumb\'s IP joint to keep grip (positive Froment sign). Which nerve is weak?',o:['Median','Radial','Ulnar','Musculocutaneous'],a:2,e:'Adductor pollicis (ulnar) is weak, so the patient compensates with flexor pollicis longus (median), bending the thumb tip.'},
+ {q:'Which nerve supplies teres major?',o:['Axillary','Lower subscapular','Suprascapular','Thoracodorsal'],a:1,e:'Teres major comes from the lower subscapular nerve. Teres minor comes from the axillary nerve. A favorite exam trap.'},
+ {q:'Loss of sensation on the back of the hand between the thumb and index finger (first dorsal web space) points to which nerve?',o:['Median','Ulnar','Radial','Lateral cutaneous nerve of forearm'],a:2,e:'The superficial branch of the radial nerve supplies the first dorsal web space, the purest radial sensory spot to test.'},
+ {q:'The posterior divisions of all three trunks join to form which structure?',o:['Lateral cord','Posterior cord','Medial cord','Radial nerve directly'],a:1,e:'All three posterior divisions form the posterior cord, which supplies the extensor (back) compartments.'}
+];
+const qz={order:[],i:0,score:0,missed:[],answered:false,best:store.get('quizBest',null)};
+function bestTxt(){document.getElementById('stQuiz').textContent=qz.best?qz.best:'–'}
+bestTxt();
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function startQuiz(ids){qz.order=shuffle(ids);qz.i=0;qz.score=0;qz.missed=[];qz.full=ids.length===QS.length;showQ()}
+function showQ(){
+  const el=document.getElementById('quiz');
+  if(qz.i>=qz.order.length){
+    const n=qz.order.length;
+    if(qz.full){const pct=qz.score/n;const prev=qz.best?parseInt(qz.best):-1;if(qz.score>prev){qz.best=qz.score+'/'+n;store.set('quizBest',qz.best);bestTxt()}}
+    el.innerHTML=`<h3>${qz.score} of ${n} correct</h3><p>${qz.missed.length?`You missed ${qz.missed.length}. Run just those again now, while the explanations are fresh.`:'Clean sweep. Come back tomorrow and run it again to lock it in.'}</p>
+    <div class="row">${qz.missed.length?'<button class="btn primary" id="qMissed">Retry missed questions</button>':''}<button class="btn" id="qAll">Start full quiz</button></div>`;
+    if(qz.missed.length)document.getElementById('qMissed').onclick=()=>startQuiz(qz.missed.slice());
+    document.getElementById('qAll').onclick=()=>startQuiz(QS.map((_,i)=>i));
+    return;
+  }
+  const q=QS[qz.order[qz.i]];qz.answered=false;
+  el.innerHTML=`<div class="qmeta"><span>Question ${qz.i+1} of ${qz.order.length}</span><span>${qz.score} correct</span></div>
+  <div class="bar"><i style="width:${qz.i/qz.order.length*100}%"></i></div>
+  <p class="qtext">${esc(q.q)}</p><div class="opts">${q.o.map((o,j)=>`<button class="opt" data-j="${j}">${esc(o)}</button>`).join('')}</div><div id="qAfter"></div>`;
+  el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>answer(+b.dataset.j));
+}
+function answer(j){
+  if(qz.answered)return;qz.answered=true;
+  const q=QS[qz.order[qz.i]],ok=j===q.a;
+  if(ok)qz.score++;else qz.missed.push(qz.order[qz.i]);
+  document.querySelectorAll('.opt').forEach((b,k)=>{b.disabled=true;if(k===q.a)b.classList.add('right');else if(k===j)b.classList.add('wrong')});
+  document.getElementById('qAfter').innerHTML=`<div class="expl"><b>${ok?'Correct.':'Not quite.'}</b> ${esc(q.e)}</div><div class="row"><button class="btn primary" id="qNext">${qz.i+1<qz.order.length?'Next question':'See results'}</button></div>`;
+  const nb=document.getElementById('qNext');nb.focus();nb.onclick=()=>{qz.i++;showQ()};
+}
+startQuiz(QS.map((_,i)=>i));
+
+/* ---------- Flashcards ---------- */
+const CARDS=[
+ {f:'Wrist drop after a midshaft humerus fracture',b:'Radial nerve at the spiral groove',x:'Triceps is spared because its branches leave above the groove.'},
+ {f:'"Waiter\'s tip" posture in a newborn after shoulder dystocia',b:'Upper trunk, C5–C6 (Erb palsy)',x:'Adducted, internally rotated arm, extended elbow, pronated forearm.'},
+ {f:'Claw hand of all fingers, plus ptosis and miosis',b:'Lower trunk, C8–T1 (Klumpke / Pancoast) with sympathetic involvement',x:'T1 carries the sympathetic outflow that causes Horner syndrome.'},
+ {f:'Winged scapula after axillary node dissection',b:'Long thoracic nerve (C5–C7)',x:'Serratus anterior can\'t hold the scapula to the chest wall.'},
+ {f:'Thenar wasting and numb lateral 3½ digits, worse at night',b:'Median nerve at the carpal tunnel',x:'LOAF muscles weak; palmar sensation over the thenar eminence is often spared (palmar cutaneous branch runs above the tunnel).'},
+ {f:'Index and middle fingers stay straight when trying to make a fist',b:'Median nerve, proximal (e.g. supracondylar fracture)',x:'"Hand of benediction": lateral FDP and FDS are lost.'},
+ {f:'Ring and little fingers clawed at rest; weak finger spreading',b:'Ulnar nerve',x:'Interossei and medial lumbricals are out.'},
+ {f:'Flattened shoulder contour and a numb patch over the lower deltoid',b:'Axillary nerve (surgical neck fracture or anterior dislocation)',x:'"Regimental badge" sensory loss.'},
+ {f:'Weak elbow flexion and supination; numb lateral forearm',b:'Musculocutaneous nerve',x:'Biceps and brachialis weak; brachioradialis still helps flex.'},
+ {f:'Can\'t initiate arm abduction; weak external rotation',b:'Suprascapular nerve',x:'Supraspinatus and infraspinatus.'},
+ {f:'Trouble pulling the body up when climbing; weak arm adduction and extension',b:'Thoracodorsal nerve',x:'Latissimus dorsi.'},
+ {f:'Thumb tip bends when gripping paper between thumb and index finger',b:'Ulnar nerve (positive Froment sign)',x:'Adductor pollicis is weak; FPL (median) compensates.'},
+ {f:'Wrist drop AND weak elbow extension after crutch use',b:'Radial nerve in the axilla',x:'High lesion, above the triceps branches.'}
+];
+const ck={deck:[],done:0,shown:false,total:CARDS.length};
+function startCards(){ck.deck=shuffle(CARDS.map((_,i)=>i));ck.done=0;ck.shown=false;drawCard()}
+function drawCard(){
+  const el=document.getElementById('card');
+  if(!ck.deck.length){el.innerHTML=`<div class="front">Deck cleared.</div><p class="small" style="margin-top:10px">Every card answered correctly at least once. Run it again tomorrow, spacing is what makes it stick.</p><div class="row"><button class="btn primary" id="cAgainAll">Shuffle and restart</button></div>`;document.getElementById('cAgainAll').onclick=startCards;return}
+  const c=CARDS[ck.deck[0]];
+  el.innerHTML=`<p class="small">${ck.deck.length} card${ck.deck.length>1?'s':''} left</p><div class="front">${esc(c.f)}</div>
+  ${ck.shown?`<div class="back"><b>${esc(c.b)}</b><span>${esc(c.x)}</span></div><div class="row"><button class="btn" id="cAgain">Again</button><button class="btn primary" id="cGot">Got it</button></div>`:`<div class="row"><button class="btn primary" id="cShow">Show answer</button></div>`}`;
+  if(ck.shown){
+    document.getElementById('cGot').onclick=()=>{ck.deck.shift();ck.shown=false;drawCard()};
+    document.getElementById('cAgain').onclick=()=>{ck.deck.push(ck.deck.shift());ck.shown=false;drawCard()};
+    document.getElementById('cGot').focus();
+  }else{const s=document.getElementById('cShow');s.onclick=()=>{ck.shown=true;drawCard()}}
+}
+startCards();
+
+/* ---------- Tabs ---------- */
+const tabs=[...document.querySelectorAll('[role=tab]')];
+function selectTab(t){tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on})}
+tabs.forEach((t,i)=>{t.onclick=()=>selectTab(t);t.onkeydown=e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=tabs[(i+(e.key==='ArrowRight'?1:-1)+tabs.length)%tabs.length];selectTab(n);n.focus()}}});
+selectTab(tabs[0]);
+</script>
+</body>
+</html>

@@ -487,6 +487,24 @@ table.rt tr.click:hover td{background:var(--hover)}
 .mob .lg-mark{width:40px;height:32px}
 .mob .lg-word{width:96px;height:19px}
 
+.bpcard{display:flex;align-items:center;gap:16px;width:100%;text-align:left;background:var(--card);border:1px solid var(--line);border-left:4px solid #e2b83e;border-radius:10px;padding:14px 18px;margin:14px 0 6px;color:var(--text)}
+.bpcard:hover{border-color:#e2b83e;background:var(--hover)}
+.bpcard .bpi{flex:none;color:var(--muted);display:grid;place-items:center}
+.bpcard .bpt{flex:1;display:flex;flex-direction:column;gap:3px;min-width:0}
+.bpcard .bpt b{font-size:16px}
+.bpcard .bpt small{color:var(--muted);font-size:13px}
+.bpcard .go{flex:none;font-weight:700;color:#c99a1a}
+.plextop{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.plextop h2{margin:0;flex:1;font-size:22px}
+.plexframe{display:block;width:100%;height:calc(100vh - 140px);min-height:560px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.xexp{font-size:15.5px;line-height:1.7}
+.xexp p{margin:0 0 12px}
+.xexp .bl{background:var(--blue-bg);border:1px solid var(--blue-line);border-radius:8px;padding:10px 14px;margin:0 0 14px}
+.xexp h5{margin:16px 0 8px;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.xexp ul{margin:0 0 12px;padding-left:20px}
+.xexp li{margin:0 0 7px}
+.xexp .hy{background:var(--key-bg);color:var(--key-fg);border-radius:8px;padding:10px 14px;margin:14px 0 4px}
+.xexp .hy b{color:inherit}
 /* ===== USMLE-style interface ===== */
 .ubar,.ufoot{position:fixed;left:0;right:0;z-index:30;background:#1b3550;color:#fff;display:flex;align-items:center;gap:10px;padding:0 14px}
 :root:not([data-theme="light"]) .ubar,:root:not([data-theme="light"]) .ufoot{background:#14243a;border-color:#2a3a52}
@@ -669,6 +687,9 @@ table.rt tr.click:hover td{background:var(--hover)}
 <script src="c100.js?v=34"></script>
 <script src="fbs-anki.js?v=34"></script>
 <script src="crs-embryology.js?v=34"></script>
+<script src="xp-msk.js?v=1"></script>
+<script src="xp-fbs.js?v=1"></script>
+<script src="xp-crs.js?v=1"></script>
 <script>
 (function(){
 // =====================================================================
@@ -717,6 +738,8 @@ COURSES.forEach(c=>{ c.sections = SECTIONS.filter(s=>s.course===c.id); c.items =
 const STATIC_BY_KEY = Object.fromEntries(STATIC.map(c=>[c.key,c]));
 const SEC_BY_PFX = Object.fromEntries(SECTIONS.map(s=>[s.prefix,s]));
 const byId = Object.fromEntries(Q.map(q=>[q.id,q]));
+// Expanded explanations (xp-*.js): q.x = full explanation HTML, q.w = longer per-choice notes.
+if (window.XP) Q.forEach(q=>{ const x = window.XP[q.id]; if (!x) return; if (x.x) q.x = x.x; if (x.w && q.c && x.w.length===q.c.length) q.w = x.w; });
 // Link questions to pages of "100 most important D&GA conceptions" (MSK, FBS and CRS).
 (function(){
   const C = window.C100; if (!C) return;
@@ -1275,7 +1298,8 @@ function ankiCard(q){
   if (q.eh) back += `<br><br>${q.eh}`;
   if (q.se) back += `<br><br>${esc(q.se)}`;
   if (q.e) back += `<br><br>${esc(q.e)}`;
-  if (q.w && q.type !== "reveal") {
+  if (q.x) back += `<br><br>${q.x}`;
+  if (q.w && q.type !== "reveal" && !q.x) {
     const lines = q.c.map((c,i)=>i===q.a || !q.w[i] ? "" : `<li><b>${LET[i]}.</b> ${esc(q.w[i])}</li>`).join("");
     if (lines) back += `<br><br><i>Why the others are wrong:</i><ul style="text-align:left">${lines}</ul>`;
   }
@@ -1333,6 +1357,7 @@ function explanation(q, o, s){
   if (q.ref) h += `<div class="srcnote">Source: ${esc(q.ref)}</div>`;
   if (q.se) h += `<h4>${q.seLabel || "Explanation from the slides"}</h4><p class="pre">${esc(q.se)}</p>`;
   if (q.e) h += `<h4>${q.se ? "More detail" : "Why it's correct"}</h4><p class="pre">${esc(q.e)}</p>`;
+  if (q.x) h += `<h4>Breaking it down</h4><div class="xexp">${q.x}</div>`;
   const imgs = (q.eimg||[]).concat((q.fig||[]).map(f=>`./${f}.jpg`));
   if (imgs.length) h += `<h4>${q.fig ? (q.pfx==="ce" ? "Figures from the guide" : "Figures from the slides") : "Figure"}</h4><div class="eimgs">${imgs.map(x=>`<img class="zoom" src="${x}" alt="" loading="lazy">`).join("")}</div>`;
   // (choice-by-choice notes now appear inside each answer choice, above)
@@ -1486,6 +1511,8 @@ function renderHome(){
       <div class="t">${esc(c.kind==="static" ? (c.head ? c.sec : c.sec+" · "+c.name) : c.title)} <span>· question ${p+1} of ${c.ids.length}</span></div></div>
       <button class="btn primary" data-go="${esc(c.key)}">Continue →</button></div>`;
   }
+  if (S.course==="msk") h += `<button class="bpcard" data-act="plexus"><span class="bpi" aria-hidden="true"><svg width="54" height="40" viewBox="0 0 54 40" fill="none" stroke-linecap="round"><path d="M4 6h10M4 13h10M4 20h10M4 27h10M4 34h10" stroke="currentColor" stroke-width="2.4" opacity=".55"/><path d="M14 6l10 4M14 13l10-3M14 20l10 0M14 27l10 3M14 34l10-4M24 10l12-2M24 10l12 10M24 20l12 0M24 30l12-10M24 30l12 2M36 8h12M36 20h12M36 32h12" stroke="#e2b83e" stroke-width="2.4"/></svg></span>
+      <span class="bpt"><b>Interactive brachial plexus</b><small>Map with clickable nerves · label drill · clinical quiz · injury flashcards</small></span><span class="go">Open ›</span></button>`;
   h += `<div class="h3">Review across all sections</div><div class="rvbig">
     <button data-rv="${S.course}:rv:inc"><span class="v r">${inc}</span><span class="l">✗ Incorrect questions</span></button>
     <button data-rv="${S.course}:rv:flag"><span class="v f">${fl}</span><span class="l">⚑ Flagged questions</span></button>
@@ -1808,6 +1835,7 @@ function renderAll(){
     renderRail(); renderTools(); renderStats(); renderCard();
   } else if (view==="builder") renderBuilder();
   else if (view==="notes") renderNotes();
+  else if (view==="plexus") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>Brachial plexus</h2><a class="btn" href="brachial-plexus.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="brachial-plexus.html?v=35" title="Interactive brachial plexus"></iframe></div>`);
   else if (view==="search") renderSearch();
   else if (view==="report") { const t = S.tests.find(x=>x.id===reportTest); if (t) renderReport(t); else { view="quiz"; renderAll(); } }
 }
@@ -1950,6 +1978,7 @@ function endBlock(){
 function setTheme(th){
   if (th==="light") document.documentElement.setAttribute("data-theme","light"); else document.documentElement.removeAttribute("data-theme");
   try { localStorage.setItem("msk-theme", th); } catch(e){}
+  const pf = document.querySelector(".plexframe"); if (pf && pf.contentWindow) pf.contentWindow.postMessage("jj-theme", "*");
   themeLabel();
 }
 function themeLabel(){ $("themeBtn").textContent = document.documentElement.getAttribute("data-theme")==="light" ? "Dark" : "Light"; }
@@ -1992,7 +2021,8 @@ document.addEventListener("click", e=>{
   if (t.closest("#moreTests")) { showAllTests = !showAllTests; renderChaps(); return; }
   const gk = t.closest("[data-go]"); if (gk) { goKey(gk.dataset.go); return; }
   const act = t.closest("[data-act]");
-  if (act) { view = act.dataset.act==="build" ? "builder" : "notes"; renderAll(); $("main").scrollTo({top:0}); return; }
+  if (act) { view = act.dataset.act==="build" ? "builder" : act.dataset.act==="plexus" ? "plexus" : "notes"; renderAll(); $("main").scrollTo({top:0}); return; }
+  if (t.closest("[data-plexback]")) { view = "home"; renderAll(); $("main").scrollTo({top:0}); return; }
   // sidebar
   const rv = t.closest("[data-rv]");
   if (rv) {
