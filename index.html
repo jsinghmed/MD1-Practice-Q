@@ -690,7 +690,7 @@ button.dt:hover{border-color:var(--line2);background:var(--hover)}
 .dpill.g{background:transparent;border-color:var(--line2);color:var(--muted)}
 .dpill.g:hover{color:var(--text)}
 .dash .h3{margin-top:22px}
-.dtools{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.dtools{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px}
 .dtool{display:flex;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 18px;text-align:left;color:var(--text);font:inherit}
 .dtool:hover{border-color:var(--acc);background:var(--hover)}
 .dtool .dti{width:42px;height:42px;border-radius:10px;background:var(--acc-bg);color:var(--acc);display:grid;place-items:center;flex:none}
@@ -1111,7 +1111,7 @@ function renderChaps(){
     }).join("") + `</div>`;
   }
   let tools = "";
-  if (S.course==="msk") tools += navRow('data-act="limb3d"', NVI.limb, "3D upper limb", "", view==="limb3d") + navRow('data-act="plexus"', NVI.plexus, "Brachial plexus", "", view==="plexus");
+  if (S.course==="msk") tools += navRow('data-act="limb3d"', NVI.limb, "3D upper limb", "", view==="limb3d") + navRow('data-act="leg3d"', NVI.limb, "3D lower limb", "", view==="leg3d") + navRow('data-act="plexus"', NVI.plexus, "Brachial plexus", "", view==="plexus");
   if (S.anki && S.anki.length) tools += navRow('data-act="anki"', NVI.anki, "Anki export", S.anki.length, view==="anki");
   if (tools) h += `<div class="chap-h">STUDY TOOLS</div><div class="nvg">${tools}</div>`;
   if (courseTests().length) {
@@ -1641,6 +1641,7 @@ function renderHome(){
   h += `<button class="dt" data-rv="${S.course}:rv:inc"><div class="dl">Incorrect</div><div class="dbig r">${inc}</div><div class="dsub">${inc?"Review now ›":"Nothing to review yet"}</div></button>
     <button class="dt" data-rv="${S.course}:rv:flag"><div class="dl">Flagged</div><div class="dbig y">${fl}</div><div class="dsub">${fl?"Review now ›":"No flagged questions"}</div></button></div>`;
   if (S.course==="msk") h += `<div class="dtools"><button class="dtool" data-act="limb3d"><span class="dti">${NVI.limb}</span><span><b>3D upper limb atlas</b><small>Rotate the limb · click bones, muscles, ligaments, joints and nerves · origin, insertion, nerve, action</small></span><span class="go">Open ›</span></button>
+    <button class="dtool" data-act="leg3d"><span class="dti">${NVI.limb}</span><span><b>3D lower limb atlas</b><small>Pelvis to toes · bones, muscles, ligaments, joints and nerves · origin, insertion, nerve, action</small></span><span class="go">Open ›</span></button>
     <button class="dtool" data-act="plexus"><span class="dti">${NVI.plexus}</span><span><b>Interactive brachial plexus</b><small>Clickable nerve map · label drill · clinical quiz · injury flashcards</small></span><span class="go">Open ›</span></button></div>`;
   const ring = done.length ? `conic-gradient(var(--green) 0 ${ok*100/done.length}%, var(--red) 0 100%)` : "var(--line)";
   h += `<div class="dpanel"><div class="dl">Performance · ${nm}</div><div class="dperf">
@@ -1966,6 +1967,7 @@ function renderAll(){
   else if (view==="notes") renderNotes();
   else if (view==="plexus") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>Brachial plexus</h2><a class="btn" href="brachial-plexus.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="brachial-plexus.html?v=35" title="Interactive brachial plexus"></iframe></div>`);
   else if (view==="limb3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>3D upper limb atlas</h2><a class="btn" href="upper-limb-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="upper-limb-3d.html?v=1" title="Interactive 3D upper limb atlas"></iframe></div>`);
+  else if (view==="leg3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>3D lower limb atlas</h2><a class="btn" href="lower-limb-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="lower-limb-3d.html?v=1" title="Interactive 3D lower limb atlas"></iframe></div>`);
   else if (view==="anki") showPage(`<div class="page dash"><div class="dtop"><div><h2>Anki export</h2><p class="sub">Questions you've added as Anki cards, ready to download</p></div></div>${ankiHomeBox().replace('<div class="h3">Anki export</div>','') || `<div class="emptybox"><h3>No Anki cards yet</h3><p>Add questions to your Anki list while you study, and they'll collect here for download.</p></div>`}</div>`);
   else if (view==="search") renderSearch();
   else if (view==="report") { const t = S.tests.find(x=>x.id===reportTest); if (t) renderReport(t); else { view="quiz"; renderAll(); } }
@@ -2158,7 +2160,7 @@ document.addEventListener("click", e=>{
   if (t.closest("#moreTests")) { showAllTests = !showAllTests; renderChaps(); return; }
   const gk = t.closest("[data-go]"); if (gk) { goKey(gk.dataset.go); return; }
   const act = t.closest("[data-act]");
-  if (act) { view = ({build:"builder", plexus:"plexus", limb3d:"limb3d", anki:"anki", notes:"notes"})[act.dataset.act] || "notes"; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); return; }
+  if (act) { view = ({build:"builder", plexus:"plexus", limb3d:"limb3d", leg3d:"leg3d", anki:"anki", notes:"notes"})[act.dataset.act] || "notes"; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); return; }
   if (t.closest("[data-plexback]")) { view = "home"; renderAll(); $("main").scrollTo({top:0}); return; }
   // sidebar
   const rv = t.closest("[data-rv]");

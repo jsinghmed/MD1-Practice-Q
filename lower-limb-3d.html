@@ -1,0 +1,591 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Lower Limb Atlas · JJ QBank</title>
+<script>function jjTheme(){try{var th=localStorage.getItem("msk-theme");document.documentElement.setAttribute("data-theme",th==="light"?"light":"dark");}catch(e){}}jjTheme();window.addEventListener("storage",function(e){if(e.key==="msk-theme")jjTheme();});window.addEventListener("message",function(e){if(e.data==="jj-theme")jjTheme();});</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;1,400&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: specimen viewer — narrow reference rail on the left, 3D stage fills the rest; stacks on phones */
+:root{
+  --bg:#e7ecee; --panel:#f7f9f9; --ink:#1b2427; --muted:#56666b; --line:#cfd8db;
+  --accent:#1d6c75; --accent-ink:#ffffff; --scene:#cfd8dc; --chip:#e9eff0;
+  --c-bone:#d9c9a6; --c-muscle:#b0423b; --c-lig:#7fa3b8; --c-joint:#3fa7a2; --c-nerve:#d9a90f;
+  --f-display:"Spectral",Georgia,"Times New Roman",serif;
+  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1517; --panel:#161e21; --ink:#e2eaec; --muted:#93a4a9; --line:#283437;
+  --accent:#62bcc4; --accent-ink:#0b1416; --scene:#0c1214; --chip:#1d272a;
+  --c-bone:#e2d4b4; --c-muscle:#cf5a51; --c-lig:#93b8cc; --c-joint:#4cc0ba; --c-nerve:#f0c419; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1517; --panel:#161e21; --ink:#e2eaec; --muted:#93a4a9; --line:#283437;
+  --accent:#62bcc4; --accent-ink:#0b1416; --scene:#0c1214; --chip:#1d272a;
+  --c-bone:#e2d4b4; --c-muscle:#cf5a51; --c-lig:#93b8cc; --c-joint:#4cc0ba; --c-nerve:#f0c419; color-scheme:dark}
+
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45}
+.app{height:100%;box-sizing:border-box;display:grid;grid-template-columns:340px minmax(0,1fr);gap:14px;
+  padding-block:12px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.side{min-width:0;overflow:auto;display:flex;flex-direction:column;gap:12px;padding-right:2px}
+.stage{position:relative;min-width:0;min-height:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--scene)}
+#cv{display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+#cv:active{cursor:grabbing}
+
+header h1{font-family:var(--f-display);font-weight:600;font-size:26px;line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-.01em}
+header p{margin:4px 0 0;font-family:var(--f-mono);font-size:11.5px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px}
+.label{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+
+#info .kind{display:flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+#info h2{font-family:var(--f-display);font-weight:600;font-size:22px;line-height:1.15;margin:6px 0 10px;text-wrap:balance}
+#info dl{margin:0;display:grid;grid-template-columns:92px minmax(0,1fr);gap:7px 10px}
+#info dt{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+#info dd{margin:0;min-width:0}
+#info .note{margin:12px 0 0;padding:9px 11px;border-left:3px solid var(--accent);background:var(--chip);border-radius:0 6px 6px 0;font-size:13px}
+#info .note b{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:2px;font-weight:500}
+.dot{width:9px;height:9px;border-radius:50%;flex:none;display:inline-block}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+
+button,.btn{font:inherit;font-size:12.5px;border:1px solid var(--line);background:var(--chip);color:var(--ink);border-radius:6px;padding:6px 10px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+
+.layers{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.layer{display:flex;align-items:center;gap:8px;justify-content:flex-start;text-align:left}
+.layer .n{margin-left:auto;font-family:var(--f-mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.layer[aria-pressed="true"] .n{color:inherit;opacity:.8}
+.layer[aria-pressed="false"] .dot{opacity:.35}
+.slider{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;margin-top:12px;font-size:12.5px}
+.slider output{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:3ch;text-align:right}
+input[type=range]{width:100%;accent-color:var(--accent)}
+
+#q{width:100%;box-sizing:border-box;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 8px}
+.chips button{padding:4px 9px;font-size:12px}
+#list{display:flex;flex-direction:column;gap:2px}
+#list h3{font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:10px 0 4px;display:flex;align-items:center;gap:8px}
+#list .it{all:unset;box-sizing:border-box;cursor:pointer;padding:5px 8px;border-radius:5px;display:flex;justify-content:space-between;gap:8px;font-size:13px}
+#list .it:hover{background:var(--chip)}
+#list .it:focus-visible{outline:2px solid var(--accent)}
+#list .it[aria-current="true"]{background:var(--accent);color:var(--accent-ink)}
+#list .it small{font-family:var(--f-mono);font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+#list .it[aria-current="true"] small{color:inherit;opacity:.8}
+
+.views{position:absolute;top:10px;left:10px;right:10px;display:flex;flex-wrap:wrap;gap:6px;pointer-events:none}
+.views button{pointer-events:auto;background:var(--panel);font-size:12px;padding:5px 9px}
+.hint{position:absolute;left:10px;bottom:10px;font-family:var(--f-mono);font-size:10.5px;color:var(--muted);letter-spacing:.04em;background:var(--panel);border:1px solid var(--line);padding:4px 8px;border-radius:5px;pointer-events:none}
+.compass{position:absolute;right:10px;bottom:10px;font-family:var(--f-mono);font-size:10.5px;color:var(--muted);background:var(--panel);border:1px solid var(--line);padding:4px 8px;border-radius:5px}
+.tag{position:absolute;pointer-events:none;transform:translate(-50%,-130%);background:var(--ink);color:var(--bg);font-size:12px;font-weight:500;padding:4px 8px;border-radius:5px;white-space:nowrap}
+.tag::after{content:"";position:absolute;left:50%;bottom:-5px;margin-left:-5px;border:5px solid transparent;border-bottom:0;border-top-color:var(--ink)}
+#tip{transform:translate(12px,12px);background:var(--panel);color:var(--ink);border:1px solid var(--line);font-weight:400}
+#tip::after{display:none}
+.loading{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-family:var(--f-mono);font-size:12px}
+
+@media (max-width:760px){
+  html,body{height:auto}
+  .app{grid-template-columns:1fr;height:auto}
+  .stage{height:62vh;min-height:360px;order:-1}
+  .side{overflow:visible}
+  .hint{display:none}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+
+<div class="app">
+  <aside class="side">
+    <header>
+      <h1>Lower Limb Atlas</h1>
+      <p>Right lower limb · anatomical position</p>
+    </header>
+
+    <section class="card" id="info" aria-live="polite"></section>
+
+    <section class="card">
+      <p class="label">Layers</p>
+      <div class="layers" id="layers"></div>
+      <div class="slider">
+        <label for="mop">Muscle opacity</label>
+        <input id="mop" type="range" min="0" max="100" value="100">
+        <output id="mopv">100%</output>
+      </div>
+    </section>
+
+    <section class="card">
+      <p class="label"><label for="q">Find a structure</label></p>
+      <input id="q" type="search" placeholder="e.g. sartorius, fibular, talus" autocomplete="off">
+      <div class="chips" id="regions"></div>
+      <div id="list"></div>
+    </section>
+  </aside>
+
+  <main class="stage" id="stage">
+    <div class="loading" id="loading">Building model…</div>
+    <canvas id="cv" aria-label="Interactive 3D model of the right lower limb"></canvas>
+    <div class="views" id="views"></div>
+    <div class="tag" id="seltag" hidden></div>
+    <div class="tag" id="tip" hidden></div>
+    <div class="hint">Drag to rotate · scroll or pinch to zoom · right-drag to pan · click to identify</div>
+  </main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function(){
+if(!window.THREE||!THREE.OrbitControls){document.getElementById('loading').textContent='The 3D library did not load. Check your connection and reload.';return;}
+/* ---------------- vector helpers ---------------- */
+const add=(a,b)=>[a[0]+b[0],a[1]+b[1],a[2]+b[2]];
+const sc=(a,s)=>[a[0]*s,a[1]*s,a[2]*s];
+const lerp=(a,b,t)=>[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,a[2]+(b[2]-a[2])*t];
+const off=(a,x,y,z)=>[a[0]+x,a[1]+y,a[2]+z];
+const V=p=>new THREE.Vector3(p[0],p[1],p[2]);
+/* Right lower limb, anatomical position. +x lateral, +y superior, +z anterior. Hip joint centre at origin; midline x = -9.5 */
+function ringPts(c,n,R,k,a0,a1){const N=V(n).normalize();const t=Math.abs(N.y)<0.9?new THREE.Vector3(0,1,0):new THREE.Vector3(1,0,0);
+  const u=new THREE.Vector3().crossVectors(N,t).normalize(),v=new THREE.Vector3().crossVectors(N,u);a0=a0||0;a1=a1==null?Math.PI*2:a1;const out=[];
+  for(let i=0;i<=k;i++){const a=a0+(a1-a0)*i/k;const p=V(c).addScaledVector(u,Math.cos(a)*R).addScaledVector(v,Math.sin(a)*R);out.push([p.x,p.y,p.z]);}return out;}
+const arcXZ=(c,R,a0,a1,k)=>{const o=[];for(let i=0;i<=k;i++){const a=a0+(a1-a0)*i/k;o.push([c[0]+R*Math.cos(a),c[1],c[2]+R*Math.sin(a)]);}return o;};
+const dors=(p,d)=>off(p,0,d,0), plan=(p,d)=>off(p,0,-d,0);
+
+/* Pelvis */
+const IL_N=[0.72,0,-0.69];
+const ILIUM=[[5,8.2,4.2],[4.6,11.2,3.8],[1.4,13,0.45],[-2,12.6,-3.1],[-5.6,9.5,-6.8],[-5.8,7,-7.0],[-4,2.6,-5.2],[-2.4,1.4,-3.5],[-1.0,2.4,-2.1],[1.4,2.6,0.45],[3.0,3.4,2.1],[3.6,4.0,2.74],[4.2,6.0,3.37]];
+const IL_CREST=[[5,8.2,4.2],[4.6,11.2,3.8],[1.4,13,0.45],[-2,12.6,-3.1],[-5.6,9.5,-6.8]];
+const ACET_C=[-0.8,0.3,-0.3], ACET_N=[0.8,-0.35,0.45];
+const ISCH=[[-1.8,-1.6,-2.4],[-3.0,-3.6,-3.4],[-3.2,-6.4,-3.2],[-3.0,-7.6,-2.8]];
+const POST_COL=[[-4,2.6,-5.2],[-3.6,0.6,-4.6],[-3.2,-2,-3.8]];
+const SUP_RAM=[[-1.4,-1.2,2.0],[-3.6,-2.0,3.4],[-6.4,-3.0,4.2],[-8.4,-4.0,4.0]];
+const INF_RAM=[[-8.6,-6.4,3.2],[-6.6,-7.6,1.6],[-4.6,-8.2,-0.6],[-3.2,-7.8,-2.4]];
+const SACRUM=[[-9.5,11.2,-4.6],[-9.5,7,-6.8],[-9.5,2.6,-8.6],[-9.5,-1.2,-8.8]];
+const ASIS=[5,8.2,4.2], AIIS=[3.6,4.0,2.74], PUB_TUB=[-6.8,-3.0,4.4];
+
+/* Foot */
+const MT={1:{base:[-0.6,-88.8,5.9],head:[-0.9,-90.0,11.6]},2:{base:[0.5,-88.4,5.6],head:[0.6,-89.9,12.6]},3:{base:[1.6,-88.6,5.6],head:[1.9,-90.0,12.2]},4:{base:[2.6,-89.0,5.4],head:[3.1,-90.1,11.6]},5:{base:[3.7,-89.2,4.6],head:[4.3,-90.2,10.8]}};
+const TO={1:{pip:[-1.0,-90.2,14.2],tip:[-1.0,-90.3,16.0]},2:{pip:[0.7,-90.1,14.3],dip:[0.75,-90.2,15.3],tip:[0.8,-90.3,16.1]},3:{pip:[2.0,-90.2,13.8],dip:[2.05,-90.3,14.7],tip:[2.1,-90.4,15.4]},4:{pip:[3.3,-90.3,13.0],dip:[3.35,-90.4,13.8],tip:[3.4,-90.5,14.5]},5:{pip:[4.5,-90.4,12.0],dip:[4.55,-90.5,12.7],tip:[4.6,-90.6,13.3]}};
+
+/* ---------------- registry ---------------- */
+const LAYERS={
+ bone:{name:'Bones',color:'--c-bone',hex:0xe6d9bd},
+ muscle:{name:'Muscles',color:'--c-muscle',hex:0xb0423b},
+ ligament:{name:'Ligaments',color:'--c-lig',hex:0x8fb2c6},
+ joint:{name:'Joints',color:'--c-joint',hex:0x3fb0aa},
+ nerve:{name:'Nerves',color:'--c-nerve',hex:0xf0c419}};
+const REGIONS={hip:'Hip & gluteal',thigh:'Thigh',knee:'Knee',leg:'Leg',foot:'Ankle & foot'};
+const ITEMS={}, ORDER=[];
+function reg(id,layer,name,region,info){const it={id,layer,name,region,info,meshes:[]};ITEMS[id]=it;ORDER.push(id);return it;}
+
+/* ---------------- data: bones ---------------- */
+const BONES=[
+['hip_bone','Hip bone (os coxae)','hip',{Parts:'Ilium, ischium and pubis, fused at the acetabulum (Y-shaped triradiate cartilage until about 16–18 years)',Landmarks:'Iliac crest, ASIS, AIIS, PSIS, greater and lesser sciatic notches, ischial spine and tuberosity, pubic tubercle, pectineal line, obturator foramen, acetabulum',Articulates:'Sacrum (sacroiliac joint); opposite pubis (pubic symphysis); femoral head (hip joint)',note:'The ischial tuberosity bears weight in sitting and gives origin to the hamstrings. Adolescent sprinters and kickers can avulse the ASIS (sartorius) or AIIS (rectus femoris).'}],
+['sacrum','Sacrum & coccyx','hip',{Shape:'Five fused sacral vertebrae wedged between the hip bones; coccyx below',Landmarks:'Promontory, ala, anterior and posterior sacral foramina, sacral hiatus, auricular surface',Articulates:'L5; hip bones (sacroiliac joints); coccyx',note:'The anterior sacral foramina transmit the anterior rami of S1–S4, which form the sacral plexus on piriformis. The sacral hiatus is the route for caudal epidural anaesthesia.'}],
+['femur','Femur','thigh',{Landmarks:'Head with fovea, neck, greater and lesser trochanters, intertrochanteric line and crest, gluteal tuberosity, linea aspera, adductor tubercle, medial and lateral condyles and epicondyles, patellar surface',Articulates:'Acetabulum; tibia and patella',note:'Longest and strongest bone; neck–shaft angle about 125°. Intracapsular neck fractures can tear the retinacular branches of the medial circumflex femoral artery (main supply to the head) → avascular necrosis. Displaced fracture: limb shortened and laterally rotated.'}],
+['patella','Patella','knee',{Shape:'Largest sesamoid bone, within the quadriceps tendon',Articulates:'Patellar surface (trochlea) of the femur',note:'Increases the lever arm of quadriceps. Tends to dislocate laterally; the lower oblique fibres of vastus medialis and the raised lateral femoral condyle resist this.'}],
+['tibia','Tibia','leg',{Shape:'Medial, weight-bearing bone of the leg',Landmarks:'Medial and lateral condyles, intercondylar eminence, tibial tuberosity, Gerdy tubercle, soleal line, anterior border (shin), medial malleolus, fibular notch',Articulates:'Femoral condyles; fibula (proximal and distal tibiofibular joints); talus',note:'Its anteromedial surface is subcutaneous, so open fractures are common. Osgood–Schlatter disease: traction apophysitis of the tibial tuberosity in adolescents.'}],
+['fibula','Fibula','leg',{Shape:'Slender lateral bone; bears little weight',Landmarks:'Head, neck, shaft, lateral malleolus (extends lower than the medial malleolus)',Articulates:'Lateral tibial condyle; fibular notch of tibia; talus',note:'The common fibular nerve winds around the neck: a fracture here or a tight cast causes foot drop. The shaft can be harvested as a vascularized bone graft.'}],
+['talus','Talus','foot',{Parts:'Head, neck, body with trochlea, posterior process (groove for FHL)',Articulates:'Tibia and fibula (ankle); calcaneus (subtalar); navicular',note:'No muscle attachments and largely covered by cartilage. Blood enters mainly through the neck, so neck fractures risk avascular necrosis of the body. The trochlea is wider in front, so the ankle is most stable in dorsiflexion.'}],
+['calcaneus','Calcaneus','foot',{Landmarks:'Tuberosity (calcaneal tendon), sustentaculum tali (FHL groove beneath), fibular trochlea, sinus tarsi',Articulates:'Talus; cuboid',note:'Largest tarsal bone. Fractured in falls from a height onto the heels — check the lumbar spine as well.'}],
+['navicular','Navicular','foot',{Landmarks:'Navicular tuberosity (main tibialis posterior insertion)',Articulates:'Talus, three cuneiforms, ± cuboid',note:'Keystone of the medial longitudinal arch. Stress fractures occur in running athletes.'}],
+['cuboid','Cuboid','foot',{Landmarks:'Groove for the fibularis longus tendon on its plantar surface',Articulates:'Calcaneus, lateral cuneiform, navicular, MT4–5',note:'Key bone of the lateral column of the foot.'}],
+['cun_med','Medial cuneiform','foot',{Articulates:'Navicular, intermediate cuneiform, MT1–2',Attachments:'Tibialis anterior and fibularis longus (with the base of MT1)',note:'The paired insertions of tibialis anterior and fibularis longus form a "stirrup" beneath the medial arch.'}],
+['cun_int','Intermediate cuneiform','foot',{Articulates:'Navicular, medial and lateral cuneiforms, MT2',note:'Smallest cuneiform. It is recessed, so the base of MT2 locks into a mortise — key to Lisfranc stability.'}],
+['cun_lat','Lateral cuneiform','foot',{Articulates:'Navicular, intermediate cuneiform, cuboid, MT2–4',note:'Gives origin to part of flexor hallucis brevis.'}],
+['mt1','1st metatarsal','foot',{Notes:'Shortest and thickest; two sesamoids beneath its head lie in the FHB tendons',note:'Hallux valgus: lateral deviation of the great toe with a medial bunion over the MT1 head.'}],
+['mt2','2nd metatarsal','foot',{Notes:'Longest metatarsal; base wedged between the cuneiforms',note:'Commonest site of march (stress) fractures. The Lisfranc ligament runs from the medial cuneiform to its base.'}],
+['mt3','3rd metatarsal','foot',{Notes:'Articulates with the lateral cuneiform',note:'Also a common stress-fracture site.'}],
+['mt4','4th metatarsal','foot',{Notes:'Articulates with the cuboid and lateral cuneiform',note:'With MT5 forms the more mobile lateral column.'}],
+['mt5','5th metatarsal','foot',{Notes:'Tuberosity on the lateral base for fibularis brevis',note:'Inversion injury can avulse the tuberosity. A Jones fracture (metaphyseal–diaphyseal junction) heals poorly because it lies in a vascular watershed.'}],
+['ph_prox','Proximal phalanges (foot)','foot',{Count:'5 (one per toe)',Attachments:'EHB/EDB, interossei, lumbricals, FHB, abductor and adductor hallucis, ADM, FDMB',note:'14 phalanges in each foot: 2 in the great toe, 3 in each lesser toe.'}],
+['ph_mid','Middle phalanges (foot)','foot',{Count:'4 (none in the great toe)',Attachments:'Flexor digitorum brevis (sides of shaft)',note:'Hammer toe: flexion at the PIP joint with extension at the DIP joint.'}],
+['ph_dist','Distal phalanges (foot)','foot',{Count:'5',Attachments:'FDL, FHL, EHL; EDL via the extensor expansion',note:'Claw toe: MTP hyperextension with flexion of both PIP and DIP joints.'}],
+];
+BONES.forEach(b=>reg(b[0],'bone',b[1],b[2],b[3]));
+
+/* ---------------- data: muscles ---------------- */
+const MUS=[];
+function M(id,name,region,info,parts){MUS.push({id,parts});reg(id,'muscle',name,region,info);}
+const P=(pts,r,a,b,tr)=>({pts,r,a:a==null?0:a,b:b==null?1:b,tr:tr==null?r*0.26:tr});
+const T=(pts,r)=>({pts,r:r||0.15,a:2,b:3,tr:r||0.15});
+const EDL_S=[2.2,-87.6,4.4], FDL_S=[0.8,-90.0,4.6], FDB_S=[1.8,-91.0,5.4];
+const edlT=d=>T([EDL_S,lerp(EDL_S,dors(MT[d].head,0.55),0.5),dors(MT[d].head,0.55),dors(TO[d].pip,0.42),dors(TO[d].dip,0.36),off(TO[d].tip,0,0.3,-0.25)],0.12);
+const fdlT=d=>T([FDL_S,lerp(FDL_S,plan(MT[d].head,0.6),0.5),plan(MT[d].head,0.62),plan(TO[d].pip,0.48),plan(TO[d].dip,0.42),off(TO[d].tip,0,-0.36,-0.25)],0.12);
+const fdbT=d=>T([FDB_S,plan(lerp(MT[d].base,MT[d].head,0.7),0.85),plan(MT[d].head,0.75),plan(TO[d].pip,0.56),plan(lerp(TO[d].pip,TO[d].dip,0.5),0.48)],0.11);
+
+M('glut_max','Gluteus maximus','hip',{Origin:'Posterior ilium behind the posterior gluteal line, dorsal sacrum and coccyx, sacrotuberous ligament',Insertion:'Iliotibial tract (most fibres) and gluteal tuberosity of femur',Nerve:'Inferior gluteal nerve (L5–S2)',Action:'Extends and laterally rotates the thigh, especially from flexion (climbing stairs, rising from sitting); steadies the extended knee via the IT tract',note:'Inferior gluteal nerve lesion: difficulty rising from a chair or climbing stairs, with a backward-lurching gait.'},[
+ P([[-4.6,10.2,-7.0],[-2.4,6,-8.0],[2.4,1,-5.6],[5.0,-5,-2.0],[5.6,-9,-0.8]],1.3,0,0.85),
+ P([[-7.2,5,-9.4],[-3.6,1,-9.2],[1.6,-3,-6.6],[4.8,-8,-2.4],[5.4,-11.5,-1.0]],1.45,0,0.85),
+ P([[-7.6,0,-9.4],[-4.6,-4,-8.6],[0.6,-7.4,-6.0],[4.2,-10.6,-2.8],[4.8,-13.5,-1.4]],1.35,0,0.85),
+ P([[-6.6,-4,-8.4],[-3.4,-8,-7.0],[1.2,-11,-5.0],[4.0,-14,-2.6]],1.1,0,0.85)]);
+M('glut_med','Gluteus medius','hip',{Origin:'External surface of ilium between the anterior and posterior gluteal lines',Insertion:'Lateral surface of greater trochanter',Nerve:'Superior gluteal nerve (L4–S1)',Action:'Abducts and medially rotates the thigh; keeps the pelvis level when the opposite foot is off the ground',note:'Superior gluteal nerve injury → positive Trendelenburg sign: standing on the affected limb, the pelvis drops on the opposite (unsupported) side. Safe IM injection site: superolateral quadrant of the buttock.'},[
+ P([[4.6,9.8,2.5],[5.8,4.6,1.4],[5.6,-1.0,0.0]],1.1,0,0.85),P([[1.6,11.4,-0.6],[4.4,5.4,-1.2],[5.4,-1.2,-0.6]],1.25,0,0.85),P([[-2.4,10.4,-4.8],[1.8,5.2,-4.0],[5.0,-1.4,-1.2]],1.15,0,0.85)]);
+M('glut_min','Gluteus minimus','hip',{Origin:'External surface of ilium between the anterior and inferior gluteal lines',Insertion:'Anterior surface of greater trochanter',Nerve:'Superior gluteal nerve (L4–S1)',Action:'Abducts and medially rotates the thigh; stabilizes the pelvis with gluteus medius'},[
+ P([[4.0,7.4,2.1],[5.0,3.0,1.2],[5.0,-0.8,0.5]],0.85,0,0.9),P([[0.5,8.2,-1.5],[3.4,3.4,-1.4],[4.8,-1.0,-0.2]],0.9,0,0.9)]);
+M('tfl','Tensor fasciae latae','hip',{Origin:'ASIS and anterior iliac crest',Insertion:'Iliotibial tract → lateral tibial condyle (Gerdy tubercle)',Nerve:'Superior gluteal nerve (L4–S1)',Action:'Abducts, medially rotates and flexes the thigh; tenses the IT tract to steady the extended knee'},[P([ASIS,[5.8,2,3.0],[6.2,-5,2.0],[6.2,-8,1.6]],0.85,0.05,0.9)]);
+M('piriformis','Piriformis','hip',{Origin:'Anterior surface of sacrum (S2–S4) and sacrotuberous ligament',Insertion:'Superior border of greater trochanter',Nerve:'Nerve to piriformis (S1–S2)',Action:'Laterally rotates the extended thigh; abducts the flexed thigh',note:'Key landmark of the gluteal region: the superior gluteal nerve and vessels leave the pelvis above it; the sciatic, inferior gluteal and pudendal nerves leave below it. Piriformis syndrome: sciatic nerve irritation.'},[P([[-7.8,6,-7.4],[-4.6,2.8,-6.6],[0,1.2,-4.6],[4.2,-0.4,-1.4]],0.8,0,0.8)]);
+M('sup_gem','Superior gemellus','hip',{Origin:'Ischial spine',Insertion:'Greater trochanter, with the obturator internus tendon',Nerve:'Nerve to obturator internus (L5–S2)',Action:'Laterally rotates the extended thigh; abducts the flexed thigh'},[P([[-4.4,-1.4,-4.8],[0,-1.6,-4.0],[4.0,-1.2,-1.4]],0.38,0,0.85)]);
+M('obt_int','Obturator internus','hip',{Origin:'Pelvic surface of obturator membrane and surrounding bone',Insertion:'Medial surface of greater trochanter',Nerve:'Nerve to obturator internus (L5–S2)',Action:'Laterally rotates the extended thigh; abducts the flexed thigh; holds the femoral head in the acetabulum',note:'Leaves the pelvis through the lesser sciatic foramen, turning about 90° around the lesser sciatic notch.'},[P([[-5.4,-4.4,0.8],[-5.6,-2.6,-3.0],[-4.2,-2.4,-5.0],[0,-2.2,-4.2],[4.0,-1.4,-1.4]],0.55,0,0.6)]);
+M('inf_gem','Inferior gemellus','hip',{Origin:'Upper part of ischial tuberosity',Insertion:'Greater trochanter, with the obturator internus tendon',Nerve:'Nerve to quadratus femoris (L4–S1)',Action:'Laterally rotates the extended thigh; abducts the flexed thigh'},[P([[-3.6,-5.2,-3.8],[0,-3.0,-4.0],[4.0,-1.8,-1.4]],0.38,0,0.85)]);
+M('quad_fem','Quadratus femoris','hip',{Origin:'Lateral border of ischial tuberosity',Insertion:'Quadrate tubercle on the intertrochanteric crest',Nerve:'Nerve to quadratus femoris (L4–S1)',Action:'Laterally rotates the thigh'},[P([[-2.6,-6.6,-3.6],[0.6,-5.6,-3.2],[3.2,-4.8,-1.8]],0.8,0,1,0.3)]);
+M('obt_ext','Obturator externus','hip',{Origin:'External surface of obturator membrane and surrounding bone',Insertion:'Trochanteric fossa of femur',Nerve:'Obturator nerve (L3–L4)',Action:'Laterally rotates the thigh; steadies the femoral head',note:'A lateral rotator of the hip that is supplied by the obturator nerve rather than the sacral plexus.'},[P([[-4.2,-5.2,1.6],[-1.8,-4.2,-1.2],[2.0,-3.4,-2.0],[3.6,-2.0,-1.4]],0.6,0,0.85)]);
+M('psoas','Psoas major','hip',{Origin:'Transverse processes, bodies and intervertebral discs of T12–L5',Insertion:'Lesser trochanter (with iliacus, as iliopsoas)',Nerve:'Anterior rami of L1–L3',Action:'Strongest hip flexor (with iliacus); flexes the trunk on the thigh; laterally flexes the lumbar spine',note:'Psoas sign: pain on passive hip extension in retrocaecal appendicitis. A psoas abscess (e.g. spinal TB) can track down into the groin.'},[P([[-7.6,25,-2.4],[-7.4,16,-2.2],[-6.0,8,-0.4],[-3.2,2,2.4],[-1.2,-2,3.4],[0.8,-4.4,1.4],[1.8,-5.6,-0.6]],1.3,0.02,0.85)]);
+M('iliacus','Iliacus','hip',{Origin:'Iliac fossa, iliac crest, ala of sacrum',Insertion:'Lesser trochanter (via the psoas tendon)',Nerve:'Femoral nerve (L2–L4)',Action:'Flexes and stabilizes the hip'},[
+ P([[1.6,10.4,1.8],[0.4,5,2.2],[-1.0,-0.6,3.2],[0.8,-4.2,1.2],[1.8,-5.4,-0.4]],1.1,0,0.8),P([[-3.6,10.2,-3.6],[-2.6,5,0],[-1.6,-0.8,3.0],[0.6,-4.4,1.0],[1.8,-5.5,-0.5]],1.1,0,0.8)]);
+M('sartorius','Sartorius','thigh',{Origin:'ASIS',Insertion:'Superior medial surface of tibia (pes anserinus)',Nerve:'Femoral nerve (L2–L3)',Action:'Flexes, abducts and laterally rotates the thigh; flexes the knee (cross-legged "tailor’s" position)',note:'Longest muscle in the body. Lateral border of the femoral triangle and roof of the adductor canal. Pes anserinus = sartorius, gracilis, semitendinosus ("Say Grace before Tea").'},[P([ASIS,[4.4,0,4.6],[2.4,-12,4.8],[-0.6,-26,3.2],[-2.4,-38,0.6],[-2.6,-45,-0.8],[-1.6,-49.4,0.4],[-0.3,-51.8,1.4]],0.75,0.03,0.8)]);
+M('rect_fem','Rectus femoris','thigh',{Origin:'Straight head: AIIS. Reflected head: ilium above the acetabulum',Insertion:'Base of patella → tibial tuberosity via the patellar ligament',Nerve:'Femoral nerve (L2–L4)',Action:'Extends the knee; flexes the hip (the only quadriceps head crossing the hip)',note:'Often strained in kicking. Its origin can avulse from the AIIS in adolescents.'},[P([AIIS,[3.6,-2,4.4],[3.0,-15,5.0],[2.0,-30,4.4],[1.4,-40,3.6],[1.1,-41.8,2.8]],1.3,0.05,0.85)]);
+M('vast_lat','Vastus lateralis','thigh',{Origin:'Greater trochanter, lateral lip of linea aspera',Insertion:'Lateral patella → tibial tuberosity via the patellar ligament',Nerve:'Femoral nerve (L2–L4)',Action:'Extends the knee',note:'Largest part of quadriceps; a common IM injection site in infants.'},[P([[5.0,-3.4,0.6],[5.8,-12,1.0],[5.2,-25,1.2],[3.8,-38,1.6],[2.4,-42.2,2.8]],1.7,0,0.85)]);
+M('vast_med','Vastus medialis','thigh',{Origin:'Intertrochanteric line, medial lip of linea aspera',Insertion:'Medial patella → tibial tuberosity',Nerve:'Femoral nerve (L2–L4)',Action:'Extends the knee; its lower oblique fibres (VMO) pull the patella medially',note:'VMO weakness predisposes to lateral patellar maltracking and dislocation.'},[P([[1.4,-7,1.0],[0.2,-18,1.6],[-1.0,-32,1.8],[-1.2,-39,1.8],[0.0,-42.4,2.8]],1.5,0.04,0.9)]);
+M('vast_int','Vastus intermedius','thigh',{Origin:'Anterior and lateral surfaces of femoral shaft',Insertion:'Deep surface of quadriceps tendon → patella',Nerve:'Femoral nerve (L2–L4)',Action:'Extends the knee',note:'Patellar (knee-jerk) reflex tests L3–L4, mainly L4.'},[P([[3.2,-6,1.8],[3.0,-18,2.4],[2.2,-30,2.4],[1.5,-40,2.4],[1.2,-41.8,2.6]],1.25,0,0.85)]);
+M('pectineus','Pectineus','thigh',{Origin:'Pectineal line of superior pubic ramus',Insertion:'Pectineal line of femur, below the lesser trochanter',Nerve:'Femoral nerve (L2–L3), ± accessory obturator nerve',Action:'Adducts and flexes the thigh',note:'Part of the floor of the femoral triangle.'},[P([[-5,-2,3.6],[-2,-4.6,2.4],[1.4,-7,0.0]],0.8,0,1,0.3)]);
+M('add_long','Adductor longus','thigh',{Origin:'Body of pubis, below the pubic crest',Insertion:'Middle third of linea aspera',Nerve:'Obturator nerve, anterior division (L2–L4)',Action:'Adducts the thigh',note:'Medial border of the femoral triangle. The muscle usually injured in a "groin strain".'},[P([[-7.4,-3.6,4.0],[-4.2,-10,3.0],[-0.6,-18,1.4],[1.8,-24,-0.4]],1.0,0.05,0.85)]);
+M('add_brev','Adductor brevis','thigh',{Origin:'Body and inferior ramus of pubis',Insertion:'Pectineal line and upper linea aspera',Nerve:'Obturator nerve (L2–L4)',Action:'Adducts and slightly flexes the thigh',note:'The anterior and posterior divisions of the obturator nerve pass in front of and behind it.'},[P([[-7.2,-6,3.0],[-3.2,-9,1.6],[1.2,-13,-0.6]],0.95,0,0.9)]);
+M('add_mag','Adductor magnus','thigh',{Origin:'Adductor part: inferior pubic ramus and ischial ramus. Hamstring part: ischial tuberosity',Insertion:'Adductor part: gluteal tuberosity, linea aspera, medial supracondylar line. Hamstring part: adductor tubercle',Nerve:'Adductor part: obturator nerve (L2–L4). Hamstring part: tibial division of sciatic nerve (L4)',Action:'Adducts the thigh; adductor part flexes and hamstring part extends the thigh',note:'The adductor hiatus between its two insertions lets the femoral vessels pass into the popliteal fossa.'},[
+ P([[-6.6,-7.4,1.2],[-3,-12,-0.8],[1.2,-20,-1.6],[2.0,-24,-1.4]],1.2,0,0.9),P([[-5,-7.8,-0.6],[-2.4,-17,-1.8],[1.0,-30,-1.6],[1.3,-34,-1.2]],1.3,0,0.9),
+ P([[-3.0,-8.2,-3.0],[-3.4,-20,-2.4],[-2.8,-34,-1.6],[-2.0,-40,-1.0],[-1.9,-43.4,-0.6]],1.3,0,0.82)]);
+M('gracilis','Gracilis','thigh',{Origin:'Body and inferior ramus of pubis',Insertion:'Superior medial surface of tibia (pes anserinus)',Nerve:'Obturator nerve (L2–L3)',Action:'Adducts the thigh; flexes the knee and medially rotates the flexed leg',note:'Expendable — often used as a free muscle flap or tendon graft.'},[P([[-8.8,-6.4,3.2],[-6.6,-18,1.2],[-4.2,-34,-0.6],[-3.0,-43,-1.6],[-2.0,-48,-0.6],[-0.3,-52.0,1.2]],0.75,0.02,0.72)]);
+M('bic_fem','Biceps femoris','thigh',{Origin:'Long head: ischial tuberosity. Short head: lateral lip of linea aspera and lateral supracondylar line',Insertion:'Head of fibula',Nerve:'Long head: tibial division of sciatic (L5–S2). Short head: common fibular division (L5–S2)',Action:'Flexes the knee and laterally rotates the flexed leg; long head extends the thigh',note:'The short head is the only hamstring part supplied by the common fibular division, and it does not cross the hip.'},[
+ P([[-2.8,-8.0,-3.4],[-0.4,-18,-3.8],[2.4,-32,-3.2],[3.8,-42,-2.4],[4.4,-47,-1.8],[4.4,-49,-1.4]],1.25,0.04,0.8),P([[2.8,-22,-1.6],[3.6,-34,-2.4],[4.2,-43,-2.2],[4.4,-48.4,-1.5]],0.95,0,0.85)]);
+M('semiten','Semitendinosus','thigh',{Origin:'Ischial tuberosity',Insertion:'Superior medial surface of tibia (pes anserinus)',Nerve:'Tibial division of sciatic nerve (L5–S2)',Action:'Extends the thigh; flexes the knee and medially rotates the flexed leg',note:'Its long cord-like tendon is a common ACL reconstruction graft.'},[P([[-3.0,-7.8,-3.6],[-2.4,-20,-4.0],[-2.0,-34,-3.4],[-2.8,-43,-2.4],[-2.2,-48,-1.0],[-0.3,-52.2,1.0]],1.0,0.03,0.62)]);
+M('semimem','Semimembranosus','thigh',{Origin:'Ischial tuberosity',Insertion:'Posterior medial tibial condyle; reflected fibres form the oblique popliteal ligament',Nerve:'Tibial division of sciatic nerve (L5–S2)',Action:'Extends the thigh; flexes the knee and medially rotates the flexed leg',note:'A Baker (popliteal) cyst usually arises from the semimembranosus–gastrocnemius bursa.'},[P([[-2.4,-7.6,-3.0],[-2.0,-20,-2.8],[-1.6,-34,-2.6],[-1.8,-43,-2.0],[-1.2,-48.2,-1.4]],1.2,0.3,0.92)]);
+M('popliteus','Popliteus','knee',{Origin:'Lateral femoral condyle and lateral meniscus',Insertion:'Posterior tibia above the soleal line',Nerve:'Tibial nerve (L4–S1)',Action:'"Unlocks" the extended knee by laterally rotating the femur on the fixed tibia (medially rotates the tibia if the foot is free)',note:'Its tendon is intracapsular; its attachment to the lateral meniscus draws the meniscus back during flexion.'},[P([[3.6,-46.2,-1.2],[2.0,-48.8,-2.0],[0.0,-51.4,-1.4]],0.65,0.1,1)]);
+M('tib_ant','Tibialis anterior','leg',{Origin:'Lateral condyle and upper half of lateral tibia, interosseous membrane',Insertion:'Medial cuneiform and base of MT1',Nerve:'Deep fibular nerve (L4–L5)',Action:'Dorsiflexes and inverts the foot',note:'Weakness (deep or common fibular nerve injury) causes foot drop and a high-stepping (steppage) gait. Classic muscle of anterior compartment syndrome.'},[P([[2.6,-50,0.6],[2.4,-60,1.8],[1.6,-72,2.0],[0.8,-82,1.6],[0.2,-85.4,1.8],[-0.4,-87.2,3.8],[-0.7,-88.2,5.4]],1.05,0.02,0.6)]);
+M('ehl','Extensor hallucis longus','leg',{Origin:'Middle anterior fibula and interosseous membrane',Insertion:'Base of distal phalanx of great toe (dorsal)',Nerve:'Deep fibular nerve (L5)',Action:'Extends the great toe; dorsiflexes the foot',note:'Testing great-toe extension checks L5.'},[P([[3.4,-62,0.6],[2.4,-74,1.4],[1.4,-83,1.8],[0.6,-86.4,2.8],[-0.4,-88.2,7.0],[-0.9,-89.4,11.6],[-1.0,-89.6,14.0],[-1.0,-89.75,15.0]],0.6,0.1,0.42)]);
+M('edl','Extensor digitorum longus','leg',{Origin:'Lateral tibial condyle, upper three-quarters of anterior fibula, interosseous membrane',Insertion:'Middle and distal phalanges of toes 2–5 via the extensor expansions',Nerve:'Deep fibular nerve (L5–S1)',Action:'Extends toes 2–5; dorsiflexes the foot'},[
+ P([[3.8,-50.6,0.6],[3.6,-62,1.0],[2.8,-74,1.4],[2.2,-83,1.8],[2.2,-86.4,2.8],EDL_S],0.85,0.02,0.7),edlT(2),edlT(3),edlT(4),edlT(5)]);
+M('fib_tert','Fibularis tertius','leg',{Origin:'Lower anterior fibula (a slip of EDL)',Insertion:'Dorsum of base of MT5',Nerve:'Deep fibular nerve (L5–S1)',Action:'Dorsiflexes and everts the foot',note:'Absent in some people.'},[P([[3.4,-72,0.4],[3.2,-82,1.2],[3.4,-86.6,2.4],[3.8,-88.4,4.6]],0.5,0.03,0.55)]);
+M('fib_long','Fibularis (peroneus) longus','leg',{Origin:'Head and upper two-thirds of lateral fibula',Insertion:'Plantar base of MT1 and medial cuneiform',Nerve:'Superficial fibular nerve (L5–S2)',Action:'Everts the foot; weakly plantarflexes; supports the transverse arch',note:'Its tendon runs behind the lateral malleolus and crosses the sole in the groove of the cuboid.'},[P([[4.8,-50.4,-0.6],[5.0,-60,-0.6],[4.6,-72,-0.8],[4.0,-82,-1.4],[3.8,-86.6,-1.6],[4.0,-88.6,0.4],[3.6,-89.6,3.2],[1.6,-90.0,4.2],[-0.4,-89.8,5.4],[-0.6,-89.4,5.8]],0.95,0.02,0.42)]);
+M('fib_brev','Fibularis (peroneus) brevis','leg',{Origin:'Lower two-thirds of lateral fibula',Insertion:'Tuberosity of base of MT5',Nerve:'Superficial fibular nerve (L5–S2)',Action:'Everts the foot; weakly plantarflexes',note:'An inversion injury can avulse the MT5 tuberosity at its insertion.'},[P([[4.6,-62,-0.2],[4.4,-72,-0.4],[4.0,-82,-1.0],[3.9,-86.4,-1.3],[4.1,-88.4,1.2],[4.3,-89.2,4.2]],0.8,0.05,0.55)]);
+M('gastroc','Gastrocnemius','leg',{Origin:'Medial head: above medial femoral condyle. Lateral head: lateral femoral condyle',Insertion:'Posterior calcaneus via the calcaneal (Achilles) tendon',Nerve:'Tibial nerve (S1–S2)',Action:'Plantarflexes the foot (strongest with the knee extended); flexes the knee',note:'Ankle (Achilles) reflex tests S1. Achilles rupture: positive Thompson test (no plantarflexion when the calf is squeezed).'},[
+ P([[-0.7,-44.4,-2.4],[-0.6,-52,-4.2],[0.2,-62,-4.2],[1.0,-70,-3.4],[1.4,-80,-3.0],[1.6,-86,-3.8],[1.7,-88.4,-4.3]],1.6,0.03,0.5),
+ P([[2.9,-44.4,-2.4],[3.0,-52,-4.0],[2.4,-62,-4.0],[1.8,-70,-3.4],[1.4,-80,-3.0],[1.6,-86,-3.8],[1.7,-88.4,-4.3]],1.4,0.03,0.45)]);
+M('soleus','Soleus','leg',{Origin:'Posterior fibular head and upper fibula; soleal line of tibia',Insertion:'Posterior calcaneus via the calcaneal tendon',Nerve:'Tibial nerve (S1–S2)',Action:'Plantarflexes the foot whatever the knee position; main postural muscle resisting forward sway',note:'Its venous sinuses make it the "peripheral heart" (musculovenous pump) and a common site of DVT.'},[
+ P([[4.0,-50.4,-1.8],[2.6,-60,-3.0],[1.6,-72,-2.8],[1.4,-80,-2.6],[1.6,-86,-3.6],[1.7,-88.4,-4.2]],1.4,0.05,0.7),
+ P([[0.2,-53,-1.4],[0.8,-62,-2.8],[1.2,-72,-2.8],[1.4,-80,-2.6],[1.6,-86,-3.6],[1.7,-88.4,-4.2]],1.3,0.05,0.7)]);
+M('plantaris','Plantaris','leg',{Origin:'Lateral supracondylar line of femur, oblique popliteal ligament',Insertion:'Posterior calcaneus, medial to the calcaneal tendon',Nerve:'Tibial nerve (S1–S2)',Action:'Weakly assists gastrocnemius',note:'A small belly with a very long tendon; absent in some people; harvested as a tendon graft.'},[P([[3.0,-43.2,-2.0],[2.4,-46.6,-2.8],[1.6,-50,-3.0],[0.8,-60,-3.4],[0.6,-72,-3.0],[1.0,-82,-2.8],[1.4,-86,-3.6],[1.5,-88.4,-4.1]],0.5,0.02,0.2)]);
+M('tib_post','Tibialis posterior','leg',{Origin:'Interosseous membrane and adjacent posterior tibia and fibula',Insertion:'Navicular tuberosity, cuneiforms, cuboid and bases of MT2–4',Nerve:'Tibial nerve (L4–L5)',Action:'Inverts and plantarflexes the foot; supports the medial longitudinal arch',note:'Tibialis posterior tendon dysfunction is the commonest cause of adult acquired flatfoot. Behind the medial malleolus, front to back: "Tom, Dick And Very Nervous Harry" (tibialis posterior, FDL, posterior tibial artery, vein, tibial nerve, FHL).'},[P([[2.2,-54,-0.9],[1.8,-64,-1.2],[0.8,-76,-1.0],[-0.2,-83,-1.0],[-1.0,-85.6,-0.7],[-0.8,-87.4,1.2],[0.0,-87.8,3.1]],1.0,0.02,0.58)]);
+M('fdl','Flexor digitorum longus','leg',{Origin:'Posterior tibia below the soleal line',Insertion:'Bases of distal phalanges of toes 2–5',Nerve:'Tibial nerve (S2–S3)',Action:'Flexes toes 2–5; plantarflexes the foot; supports the longitudinal arches',note:'Quadratus plantae pulls on its tendon to straighten its oblique line of action; the lumbricals arise from its tendons.'},[
+ P([[0.4,-55,-1.4],[0.0,-66,-1.6],[-0.4,-78,-1.4],[-0.9,-84,-1.2],[-1.3,-86.0,-0.4],[-0.6,-89.0,1.6],FDL_S],0.85,0.02,0.55),fdlT(2),fdlT(3),fdlT(4),fdlT(5)]);
+M('fhl','Flexor hallucis longus','leg',{Origin:'Lower two-thirds of posterior fibula, interosseous membrane',Insertion:'Base of distal phalanx of great toe',Nerve:'Tibial nerve (S2–S3)',Action:'Flexes the great toe; plantarflexes the foot; supports the medial arch; powers push-off in walking',note:'Grooves the posterior talus and runs beneath the sustentaculum tali. It crosses deep to the FDL tendon in the sole (knot of Henry).'},[P([[3.2,-58,-1.8],[2.6,-70,-2.0],[1.8,-80,-1.8],[1.0,-85.4,-1.6],[0.6,-87.2,-1.4],[0.0,-88.6,0.4],[-0.4,-90.0,4.0],[-0.8,-90.7,8.0],[-0.9,-90.7,11.6],[-1.0,-90.8,14.6]],0.9,0.02,0.4)]);
+M('edb','Extensor digitorum & hallucis brevis','foot',{Origin:'Superolateral calcaneus, inferior extensor retinaculum',Insertion:'EHB: base of proximal phalanx of great toe. EDB: long extensor tendons of toes 2–4',Nerve:'Deep fibular nerve (S1–S2)',Action:'Help extend toes 1–4',note:'The only muscle on the dorsum of the foot. Its fleshy belly in front of the lateral malleolus can be mistaken for swelling.'},
+ [1,2,3,4].map(d=>P([[3.2,-87.6,2.0],dors(lerp(MT[d].base,MT[d].head,0.5),0.6),dors(MT[d].head,0.58),dors(lerp(MT[d].head,d===1?TO[1].pip:TO[d].pip,0.3),0.48)],0.42,0,0.5,0.1)));
+M('abd_hal','Abductor hallucis','foot',{Origin:'Medial process of calcaneal tuberosity, flexor retinaculum, plantar aponeurosis',Insertion:'Medial base of proximal phalanx of great toe',Nerve:'Medial plantar nerve (S2–S3)',Action:'Abducts and flexes the great toe',note:'First layer of the sole. Can compress the plantar nerves (contributes to tarsal tunnel syndrome).'},[P([[0.4,-89.6,-3.0],[-0.6,-90.0,1.6],[-1.4,-90.2,7.4],[-1.5,-90.2,11.4]],0.8,0,0.82)]);
+M('fdb','Flexor digitorum brevis','foot',{Origin:'Medial process of calcaneal tuberosity, plantar aponeurosis',Insertion:'Sides of middle phalanges of toes 2–5',Nerve:'Medial plantar nerve (S2–S3)',Action:'Flexes the lateral four toes at the PIP joints',note:'First layer of the sole. Its tendons split to let the FDL tendons through, like FDS in the hand.'},[P([[1.6,-90.8,-2.6],[1.7,-91.2,1.4],FDB_S],0.75,0,1,0.3),fdbT(2),fdbT(3),fdbT(4),fdbT(5)]);
+M('adm_foot','Abductor digiti minimi (foot)','foot',{Origin:'Medial and lateral processes of calcaneal tuberosity, plantar aponeurosis',Insertion:'Lateral base of proximal phalanx of little toe',Nerve:'Lateral plantar nerve (S2–S3)',Action:'Abducts and flexes the little toe',note:'First layer of the sole.'},[P([[2.9,-89.9,-3.0],[4.1,-90.2,3.0],[4.6,-90.4,8.4],[4.7,-90.4,10.8]],0.72,0,0.85)]);
+M('quad_plant','Quadratus plantae','foot',{Origin:'Medial and lateral plantar surfaces of calcaneus',Insertion:'Posterolateral margin of the FDL tendon',Nerve:'Lateral plantar nerve (S2–S3)',Action:'Straightens the oblique pull of FDL, assisting toe flexion',note:'Second layer of the sole, with the lumbricals and the FDL and FHL tendons.'},[P([[1.0,-90.1,-2.2],[0.9,-90.2,1.6],[0.8,-90.0,4.4]],0.7,0,1,0.3)]);
+M('lumb_foot','Lumbricals (foot, 1–4)','foot',{Origin:'Tendons of FDL',Insertion:'Medial sides of the extensor expansions of toes 2–5',Nerve:'1st: medial plantar nerve. 2nd–4th: lateral plantar nerve',Action:'Flex the MTP joints and extend the IP joints of toes 2–5',note:'Second layer of the sole.'},
+ [2,3,4,5].map(d=>P([plan(lerp(MT[d].base,MT[d].head,0.45),0.55),off(plan(MT[d].head,0.5),-0.45,0,0),off(dors(lerp(MT[d].head,TO[d].pip,0.4),0.1),-0.35,0,0)],0.24,0,1,0.08)));
+M('fhb','Flexor hallucis brevis','foot',{Origin:'Plantar surfaces of cuboid and lateral cuneiform',Insertion:'Both sides of base of proximal phalanx of great toe (via the sesamoids)',Nerve:'Medial plantar nerve (S2–S3)',Action:'Flexes the great toe at the MTP joint',note:'Third layer of the sole. Its two tendons contain the hallucal sesamoids.'},[
+ P([[1.4,-89.6,4.6],[0.0,-90.4,8.0],[-0.6,-90.6,11.2],[-0.7,-90.5,12.2]],0.55,0,0.88),P([[1.2,-89.7,4.8],[-0.6,-90.4,8.2],[-1.3,-90.6,11.2],[-1.4,-90.5,12.2]],0.5,0,0.88)]);
+M('add_hal','Adductor hallucis','foot',{Origin:'Oblique head: bases of MT2–4. Transverse head: plantar ligaments of MTP joints 3–5',Insertion:'Lateral base of proximal phalanx of great toe',Nerve:'Deep branch of lateral plantar nerve (S2–S3)',Action:'Adducts the great toe; supports the transverse arch',note:'Third layer of the sole. Its pull contributes to hallux valgus.'},[
+ P([[2.0,-90.0,6.2],[1.0,-90.5,9.0],[-0.4,-90.6,11.4],[-0.6,-90.5,12.2]],0.55,0,0.9),P([[3.8,-90.6,10.8],[2.0,-90.7,11.4],[0.0,-90.7,11.8],[-0.6,-90.5,12.2]],0.38,0,0.9)]);
+M('fdmb_foot','Flexor digiti minimi brevis (foot)','foot',{Origin:'Base of MT5',Insertion:'Base of proximal phalanx of little toe',Nerve:'Superficial branch of lateral plantar nerve (S2–S3)',Action:'Flexes the little toe at the MTP joint',note:'Third layer of the sole.'},[P([[3.8,-89.8,5.0],[4.2,-90.4,8.0],[4.4,-90.5,10.8]],0.45,0,0.9)]);
+M('dor_int_foot','Dorsal interossei (foot, 1–4)','foot',{Origin:'Adjacent sides of MT1–5 (bipennate)',Insertion:'Bases of proximal phalanges and extensor expansions: both sides of toe 2, lateral sides of toes 3–4',Nerve:'Lateral plantar nerve (S2–S3)',Action:'Abduct toes 2–4 away from the axis of the 2nd toe (DAB); flex the MTP joints',note:'Fourth layer of the sole. In the foot the reference axis is the 2nd toe, not the 3rd digit as in the hand.'},
+ [[1,2,2,-1],[2,3,2,1],[3,4,3,1],[4,5,4,1]].map(([a,b,t,s])=>P([off(lerp(lerp(MT[a].base,MT[a].head,0.45),lerp(MT[b].base,MT[b].head,0.45),0.5),0,0.2,0),off(MT[t].head,s*0.45,0.2,0),off(lerp(MT[t].head,TO[t].pip,0.25),s*0.4,0.15,0)],0.38,0,1,0.11)));
+M('plant_int','Plantar interossei (1–3)','foot',{Origin:'Medial sides of MT3–5 (unipennate)',Insertion:'Medial bases of proximal phalanges of toes 3–5',Nerve:'Lateral plantar nerve (S2–S3)',Action:'Adduct toes 3–5 toward the 2nd toe (PAD); flex the MTP joints',note:'Fourth layer of the sole.'},
+ [3,4,5].map(t=>P([off(plan(lerp(MT[t].base,MT[t].head,0.4),0.3),-0.3,0,0),off(plan(MT[t].head,0.3),-0.45,0,0),off(lerp(MT[t].head,TO[t].pip,0.25),-0.4,-0.15,0)],0.33,0,1,0.1)));
+
+/* ---------------- data: ligaments ---------------- */
+const LIGS=[];
+function Lg(id,name,region,info,parts){LIGS.push({id,parts});reg(id,'ligament',name,region,info);}
+const RB_=(pts,w,side,th)=>({rib:true,pts,w,side,th:th||0.18});
+const TB=(pts,r)=>({pts,r:r||0.2});
+Lg('iliofem','Iliofemoral ligament','hip',{Attachments:'AIIS and acetabular rim → intertrochanteric line',Function:'Strongest ligament in the body (inverted "Y" of Bigelow); prevents hyperextension of the hip, so we can stand with little muscle effort',note:'Taut in extension. The close-packed position of the hip is extension with medial rotation and slight abduction.'},[TB([[3.4,3.6,2.9],[3.9,0.8,2.6],[4.4,-1.6,1.2]],0.32),TB([[3.0,3.4,2.8],[2.4,-0.4,2.8],[2.0,-4.4,1.0]],0.32)]);
+Lg('pubofem','Pubofemoral ligament','hip',{Attachments:'Obturator crest of superior pubic ramus → blends with the capsule and iliofemoral ligament',Function:'Prevents over-abduction of the hip'},[TB([[-3.4,-1.8,3.0],[-0.6,-2.4,2.6],[1.6,-4.4,0.9]],0.28)]);
+Lg('ischiofem','Ischiofemoral ligament','hip',{Attachments:'Ischium behind the acetabulum → femoral neck, medial to the greater trochanter',Function:'Weakest of the three capsular ligaments; limits medial rotation and hyperextension'},[TB([[-2.6,-2.2,-3.0],[0.4,-1.0,-2.6],[3.4,-1.0,-1.4]],0.3)]);
+Lg('lig_head','Ligament of head of femur','hip',{Attachments:'Acetabular notch and transverse acetabular ligament → fovea of the femoral head',Function:'Weak; carries the small artery to the head of the femur (from the obturator artery)',note:'This artery matters in children; in adults most of the femoral head’s supply comes from the medial circumflex femoral artery via retinacular branches.'},[TB([[-1.6,-0.9,0.0],[-0.6,-0.5,0.0]],0.18)]);
+Lg('labrum_hip','Acetabular labrum','hip',{Attachments:'Fibrocartilaginous rim of the acetabulum, bridged inferiorly by the transverse acetabular ligament',Function:'Deepens the socket and seals the joint',note:'Labral tears accompany femoroacetabular impingement (cam and pincer types).'},[TB(ringPts(add(ACET_C,sc(ACET_N,0.35)),ACET_N,2.55,26),0.2)]);
+Lg('inguinal','Inguinal ligament','hip',{Attachments:'ASIS → pubic tubercle (rolled lower edge of the external oblique aponeurosis)',Function:'Boundary between abdomen and thigh; femoral nerve, artery and vein pass beneath it',note:'Femoral triangle: inguinal ligament (superior), sartorius (lateral), adductor longus (medial). Lateral to medial: Nerve, Artery, Vein, Empty space, Lymphatics (NAVEL).'},[TB([ASIS,[0,3.2,5.0],PUB_TUB],0.17)]);
+Lg('sacrotub','Sacrotuberous ligament','hip',{Attachments:'Posterior iliac spines, sacrum and coccyx → ischial tuberosity',Function:'Resists upward tilting of the lower sacrum; with the sacrospinous ligament converts the sciatic notches into foramina',note:'Gives partial origin to gluteus maximus.'},[RB_([[-7.2,4,-9.0],[-5.2,-1.6,-6.8],[-3.4,-7.0,-3.6]],1.2,[1,0,0],0.16)]);
+Lg('sacrospin','Sacrospinous ligament','hip',{Attachments:'Lateral sacrum and coccyx → ischial spine',Function:'Separates the greater sciatic foramen (above) from the lesser sciatic foramen (below)',note:'The pudendal nerve crosses it close to the ischial spine — the landmark for a pudendal nerve block.'},[RB_([[-7.4,0.6,-8.4],[-4.6,-1.4,-4.8]],0.9,[0,1,0],0.14)]);
+Lg('it_tract','Iliotibial tract','thigh',{Attachments:'Iliac tubercle (a thickening of fascia lata receiving TFL and gluteus maximus) → Gerdy tubercle on the lateral tibial condyle',Function:'Stabilizes the extended knee and the lateral hip',note:'IT band syndrome: lateral knee pain in runners from friction over the lateral femoral epicondyle.'},[RB_([[5.6,-4,1.6],[6.4,-14,1.2],[6.0,-28,0.8],[5.0,-40,0.4],[4.0,-48.6,0.9]],1.6,[0,0,1],0.14)]);
+Lg('pat_lig','Patellar ligament','knee',{Attachments:'Apex of patella → tibial tuberosity',Function:'Continuation of the quadriceps tendon; transmits the force of knee extension',note:'Tapping it elicits the patellar (knee-jerk) reflex: L3–L4.'},[TB([[1.1,-45.8,2.5],[1.2,-48,2.3],[1.3,-50.2,1.9]],0.45)]);
+Lg('acl','Anterior cruciate ligament','knee',{Attachments:'Anterior intercondylar area of tibia → posteromedial side of the lateral femoral condyle',Function:'Prevents anterior displacement of the tibia on the femur and resists hyperextension',note:'Torn in non-contact pivoting injuries. Anterior drawer and Lachman tests. The "unhappy triad": ACL, MCL and meniscus.'},[TB([[2.0,-45.8,-1.4],[1.5,-46.8,-0.2],[1.0,-47.4,0.9]],0.28)]);
+Lg('pcl','Posterior cruciate ligament','knee',{Attachments:'Posterior intercondylar area of tibia → anterolateral side of the medial femoral condyle',Function:'Prevents posterior displacement of the tibia on the femur; main stabilizer of the flexed, weight-bearing knee',note:'Injured by a "dashboard" blow to the flexed knee. Posterior drawer test and posterior sag sign.'},[TB([[0.4,-45.4,0.4],[0.8,-46.6,-0.8],[1.2,-47.6,-1.8]],0.32)]);
+Lg('mcl','Tibial (medial) collateral ligament','knee',{Attachments:'Medial femoral epicondyle → medial tibial condyle and upper shaft',Function:'Resists valgus (abduction) stress',note:'Firmly attached to the medial meniscus, so they are often injured together. Valgus stress test.'},[RB_([[-2.2,-44.4,-0.3],[-2.3,-47.4,-0.1],[-1.4,-51,0.4],[-0.8,-53,0.6]],1.3,[0,0,1],0.13)]);
+Lg('lcl','Fibular (lateral) collateral ligament','knee',{Attachments:'Lateral femoral epicondyle → head of fibula',Function:'Resists varus (adduction) stress',note:'Cord-like and separate from the lateral meniscus; the popliteus tendon passes between them.'},[TB([[4.0,-44.6,-0.6],[4.3,-46.8,-0.9],[4.5,-48.8,-1.0]],0.24)]);
+Lg('men_med','Medial meniscus','knee',{Shape:'C-shaped fibrocartilage',Attachments:'Intercondylar area of tibia; firmly attached to the MCL and capsule',Function:'Deepens the tibial plateau, absorbs shock and spreads load',note:'Less mobile than the lateral meniscus, so it is torn more often. McMurray test.'},[TB(arcXZ([-0.6,-47.05,-0.3],1.7,0.6,2*Math.PI-0.6,18),0.3)]);
+Lg('men_lat','Lateral meniscus','knee',{Shape:'Nearly circular (O-shaped) fibrocartilage',Attachments:'Intercondylar area; popliteus tendon; meniscofemoral ligaments',Function:'Deepens the lateral tibial plateau and absorbs shock',note:'Not attached to the LCL, so it is more mobile than the medial meniscus.'},[TB(arcXZ([2.8,-47.05,-0.4],1.35,-Math.PI+0.4,Math.PI-0.4,18),0.28)]);
+Lg('iom_leg','Interosseous membrane (leg)','leg',{Attachments:'Interosseous borders of tibia and fibula',Function:'Binds the bones; separates anterior and posterior compartments; gives origin to leg muscles'},[RB_([[2.5,-52,-0.2],[2.3,-64,-0.2],[2.0,-78,-0.1]],1.9,[1,0,0],0.08)]);
+Lg('syndesmosis','Tibiofibular syndesmosis','foot',{Attachments:'Anterior and posterior inferior tibiofibular ligaments and interosseous ligament between distal tibia and fibula',Function:'Holds the ankle mortise together',note:'"High ankle sprain" from external rotation. Maisonneuve fracture: syndesmosis tear with a proximal fibular fracture.'},[TB([[2.0,-84.2,1.0],[3.4,-84.6,0.4]],0.2),TB([[2.0,-84.2,-0.8],[3.3,-84.6,-1.1]],0.2)]);
+Lg('deltoid','Deltoid (medial) ligament','foot',{Attachments:'Medial malleolus → navicular, sustentaculum tali of calcaneus, and talus',Function:'Strong fan that resists eversion',note:'So strong that eversion injuries often avulse the medial malleolus rather than tear the ligament.'},[TB([[-0.6,-85.4,0.8],[-0.2,-86.8,2.2],[0.0,-87.2,3.0]],0.25),TB([[-0.7,-85.8,0.2],[0.0,-87.2,0.3],[0.4,-87.6,0.3]],0.28),TB([[-0.7,-85.6,-0.4],[-0.2,-86.4,-1.0],[0.4,-86.8,-1.3]],0.25)]);
+Lg('lat_ankle','Lateral ankle ligaments','foot',{Attachments:'ATFL: lateral malleolus → talar neck. CFL: tip of malleolus → lateral calcaneus. PTFL: malleolar fossa → posterior talus',Function:'Resist inversion (the ATFL especially in plantarflexion)',note:'Inversion sprain is the most common ankle injury: the ATFL tears first, then the CFL. Anterior drawer test of the ankle.'},[TB([[3.6,-85.8,0.0],[3.0,-86.4,0.8],[2.4,-86.6,1.6]],0.22),TB([[3.6,-86.8,-0.7],[3.8,-87.8,-0.8],[3.6,-88.4,-1.0]],0.22),TB([[3.3,-85.8,-1.3],[2.4,-86.4,-1.6],[1.8,-86.8,-1.6]],0.22)]);
+Lg('spring','Plantar calcaneonavicular (spring) ligament','foot',{Attachments:'Sustentaculum tali → plantar surface of navicular',Function:'Supports the head of the talus; key to the medial longitudinal arch',note:'Its failure, often with tibialis posterior dysfunction, leads to flatfoot (pes planus).'},[RB_([[0.5,-87.9,0.6],[0.4,-88.2,1.8],[0.3,-88.0,2.9]],1.0,[1,0,0],0.16)]);
+Lg('long_plant','Long & short plantar ligaments','foot',{Attachments:'Long: plantar calcaneus → cuboid ridge and bases of MT2–5 (roofs the fibularis longus groove). Short (plantar calcaneocuboid): calcaneus → cuboid',Function:'Support the lateral longitudinal arch'},[RB_([[2.0,-89.9,-1.4],[2.6,-90.0,1.6],[2.8,-89.8,4.0],[2.4,-89.6,5.4]],1.4,[1,0,0],0.14)]);
+Lg('plant_apon','Plantar aponeurosis','foot',{Attachments:'Medial process of calcaneal tuberosity → five slips to the toes (fibrous flexor sheaths and MTP plantar plates)',Function:'Supports the longitudinal arches; the windlass mechanism tightens it when the toes extend',note:'Plantar fasciitis: heel pain that is worst with the first steps in the morning.'},[RB_([[1.4,-90.9,-2.8],[1.6,-91.2,1.0],[1.6,-91.1,5.6]],2.4,[1,0,0],0.1),...[1,2,3,4,5].map(d=>TB([[1.6,-91.1,5.6],plan(lerp(MT[d].base,MT[d].head,0.6),0.8),plan(MT[d].head,0.7)],0.08))]);
+
+/* ---------------- data: joints ---------------- */
+const JOINTS=[];
+function J(id,name,region,info,ells){JOINTS.push({id,ells});reg(id,'joint',name,region,info);}
+J('j_si','Sacroiliac joint','hip',{Type:'Synovial anteriorly (plane); syndesmosis posteriorly',Surfaces:'Auricular surfaces of sacrum and ilium',Movements:'Slight gliding and rotation (nutation)',Ligaments:'Anterior, posterior and interosseous sacroiliac; sacrotuberous; sacrospinous',note:'Transfers body weight from the spine to the hip bones. Sacroiliitis is an early feature of ankylosing spondylitis.'},[[[-7.0,7.2,-6.4],[0.7,2.6,1.4]]]);
+J('j_sym','Pubic symphysis','hip',{Type:'Secondary cartilaginous joint (fibrocartilaginous disc)',Movements:'Minimal; widens slightly in pregnancy'},[[[-9.5,-5.4,3.8],[0.45,1.6,0.8]]]);
+J('j_hip','Hip joint','hip',{Type:'Synovial ball-and-socket joint',Surfaces:'Femoral head; lunate surface of acetabulum, deepened by the labrum',Movements:'Flexion/extension, abduction/adduction, medial/lateral rotation, circumduction',Ligaments:'Iliofemoral, pubofemoral, ischiofemoral, ligament of head, transverse acetabular',Nerve:'Femoral, obturator, superior gluteal, nerve to quadratus femoris (Hilton law)',note:'Hip disease can present as knee pain (shared femoral and obturator supply). Most traumatic dislocations are posterior (dashboard injury): limb shortened, flexed, adducted and medially rotated, with the sciatic nerve at risk. Infant screening: Ortolani and Barlow tests.'},[[[-0.2,0,0],[2.7,2.7,2.7]]]);
+J('j_knee','Knee (tibiofemoral) joint','knee',{Type:'Synovial modified hinge (bicondylar)',Surfaces:'Femoral condyles; tibial condyles with the menisci',Movements:'Flexion and extension, with some rotation when flexed',Ligaments:'ACL, PCL, MCL, LCL, patellar ligament, oblique popliteal',Nerve:'Branches of femoral, obturator, tibial and common fibular nerves',note:'Screw-home: in the last degrees of extension the femur rotates medially on the fixed tibia, locking the knee; popliteus unlocks it. The suprapatellar bursa communicates with the joint cavity.'},[[[1.1,-46.9,-0.3],[3.4,0.8,2.4]]]);
+J('j_pf','Patellofemoral joint','knee',{Type:'Synovial plane joint (shares the knee joint cavity)',Surfaces:'Posterior patella; patellar surface (trochlea) of femur',Movements:'The patella glides as the knee flexes and extends',note:'Patellofemoral pain syndrome is the most common cause of anterior knee pain in young athletes.'},[[[1.1,-43.9,1.7],[1.6,1.9,0.5]]]);
+J('j_ptf','Proximal tibiofibular joint','leg',{Type:'Synovial plane joint',Surfaces:'Fibular head; lateral tibial condyle',Movements:'Slight gliding during ankle movement'},[[[3.8,-49.3,-0.9],[0.45,0.5,0.5]]]);
+J('j_ankle','Ankle (talocrural) joint','foot',{Type:'Synovial hinge joint',Surfaces:'Mortise of tibia and fibula (with the malleoli); trochlea of talus',Movements:'Dorsiflexion and plantarflexion',Ligaments:'Deltoid (medial); ATFL, CFL, PTFL (lateral)',Nerve:'Deep fibular and tibial nerves',note:'Most stable in dorsiflexion, when the wider front of the talus wedges into the mortise; most sprains happen in plantarflexion.'},[[[1.2,-85.6,0.2],[1.8,0.45,1.4]]]);
+J('j_subtalar','Subtalar joint','foot',{Type:'Synovial plane joint (talocalcaneal)',Movements:'Inversion and eversion, together with the transverse tarsal joint',note:'Inversion and eversion happen here and at the transverse tarsal joint, not at the ankle.'},[[[1.6,-87.6,-0.4],[1.2,0.3,1.4]]]);
+J('j_transtarsal','Transverse tarsal (Chopart) joint','foot',{Type:'Talonavicular plus calcaneocuboid joints',Movements:'Inversion and eversion with the subtalar joint; adapts the foot to uneven ground',note:'A common level for surgical amputation of the foot.'},[[[1.7,-87.8,2.8],[2.4,0.8,0.35]]]);
+J('j_tmt','Tarsometatarsal (Lisfranc) joints','foot',{Type:'Synovial plane joints',Movements:'Small gliding movements, greatest at MT1, MT4 and MT5',note:'Lisfranc injury: disruption of this joint complex, often with a fracture at the base of MT2; easily missed on X-ray.'},[[[1.6,-88.4,5.4],[2.8,0.7,0.35]]]);
+J('j_mtp','Metatarsophalangeal joints','foot',{Type:'Synovial condyloid joints',Movements:'Flexion/extension, slight abduction/adduction',note:'Gout classically first affects the 1st MTP joint (podagra). Turf toe: sprain of the 1st MTP plantar plate.'},[1,2,3,4,5].map(d=>[off(MT[d].head,0,0,0.35),[0.5,0.45,0.42]]));
+J('j_ip_foot','Interphalangeal joints (foot)','foot',{Type:'Synovial hinge joints',Movements:'Flexion and extension'},[[TO[1].pip,[0.42,0.36,0.32]],...[2,3,4,5].flatMap(d=>[[TO[d].pip,[0.3,0.26,0.24]],[TO[d].dip,[0.26,0.22,0.2]]])]);
+
+/* ---------------- data: nerves ---------------- */
+const NERVES=[];
+function N(id,name,region,info,parts){NERVES.push({id,parts});reg(id,'nerve',name,region,info);}
+const R={L1:[-8.0,24.4,-2.4],L2:[-8.0,21.2,-2.4],L3:[-8.0,18.0,-2.6],L4:[-8.0,14.8,-2.8],L5:[-8.0,11.8,-3.6],S1:[-7.8,7.6,-5.6],S2:[-7.8,5.2,-6.8],S3:[-7.8,2.8,-7.6]};
+const FJ=[-6.8,12,-1.6], OJ=[-7.4,11,-2.4], LST=[-7.4,8.4,-4.6], SP=[-6.2,3.8,-6.0], FB=[0.2,-5,5.0], SCB=[1.4,-40,-3.3], CFB=[4.8,-51.4,0.4], TIBE=[-1.0,-87.6,0.6];
+const NP=(pts,r)=>({pts,r:r||0.2});
+const NJ=(a,b,r)=>NP([a,lerp(a,b,0.5),b],r);
+N('lsplexus','Lumbosacral plexus (roots)','hip',{Roots:'Lumbar plexus: anterior rami L1–L4, within psoas. Sacral plexus: lumbosacral trunk (L4–L5) and S1–S4, on piriformis',Branches:'Lumbar: iliohypogastric, ilioinguinal, genitofemoral, lateral femoral cutaneous, femoral, obturator. Sacral: superior and inferior gluteal, sciatic, posterior femoral cutaneous, pudendal, nerves to piriformis, obturator internus and quadratus femoris',note:'Dermatomes: L4 medial leg and big toe, L5 dorsum of foot, S1 lateral foot and sole. Femoral and obturator nerves are both L2–L4.'},[
+ NP([R.L1,off(R.L1,1.0,-1.2,0.6)],0.16),NJ(R.L2,FJ,0.18),NJ(R.L3,FJ,0.2),NJ(R.L4,FJ,0.2),NJ(R.L2,OJ,0.14),NJ(R.L3,OJ,0.16),NJ(R.L4,OJ,0.16),NJ(R.L4,LST,0.2),NJ(R.L5,LST,0.24),NJ(LST,SP,0.28),NJ(R.S1,SP,0.26),NJ(R.S2,SP,0.24),NJ(R.S3,SP,0.2)]);
+N('n_femoral','Femoral nerve','thigh',{Roots:'L2–L4 (posterior divisions)',Course:'Through psoas, then in the groove between psoas and iliacus; under the inguinal ligament lateral to the femoral artery (outside the femoral sheath); branches in the femoral triangle',Motor:'Iliacus, pectineus, sartorius, quadriceps femoris',Sensory:'Anterior thigh (anterior cutaneous branches); medial leg and foot (saphenous nerve)',note:'Injury: weak knee extension, absent patellar reflex, numbness of the anterior thigh and medial leg.'},[
+ NP([FJ,[-5.8,8,-0.2],[-2.6,5,2.4],[0.2,3.0,3.9],[0.2,-1.6,4.8],FB],0.3),NP([FB,[2.4,-9,5.2],[3.6,-14,4.6]],0.14),NP([FB,[-0.6,-12,4.0],[-0.6,-18,3.2]],0.14),NP([FB,[2.6,-4,5.6]],0.1)]);
+N('n_saphenous','Saphenous nerve','leg',{Roots:'L3–L4 (terminal branch of femoral)',Course:'Femoral triangle → adductor canal (does not pass through the adductor hiatus) → medial knee → with the great saphenous vein down the medial leg to the medial foot',Motor:'None',Sensory:'Medial leg and medial side of foot',note:'At risk during great saphenous vein harvest and varicose vein surgery.'},[NP([FB,[-1.0,-14,4.2],[-2.2,-26,3.0],[-2.6,-36,1.4],[-2.8,-44,-0.6],[-2.0,-52,0.6],[-1.4,-64,1.2],[-1.2,-78,1.4],[-1.4,-85.2,1.6],[-1.4,-88.2,4.6]],0.13)]);
+N('n_obturator','Obturator nerve','thigh',{Roots:'L2–L4 (anterior divisions)',Course:'Medial border of psoas, along the lateral pelvic wall, through the obturator canal; divides around adductor brevis into anterior and posterior divisions',Motor:'Adductor longus, brevis and magnus (adductor part), gracilis, obturator externus (± pectineus)',Sensory:'Medial thigh',note:'Can be injured in pelvic surgery or compressed during labour: weak adduction, outward swing of the limb, medial thigh numbness. Pelvic disease can refer pain to the medial thigh.'},[
+ NP([OJ,[-7.0,6,-1.6],[-5.6,0,0],[-4.4,-3.0,1.8],[-3.8,-4.6,2.6]],0.24),NP([[-3.8,-4.6,2.6],[-4.0,-10,3.0],[-3.2,-18,2.2]],0.15),NP([[-3.8,-4.6,2.6],[-3.0,-8,0.6],[-1.8,-16,-0.6]],0.15)]);
+N('n_lfc','Lateral femoral cutaneous nerve','thigh',{Roots:'L2–L3',Course:'Crosses iliacus, then passes under or through the inguinal ligament just medial to the ASIS',Motor:'None',Sensory:'Anterolateral thigh',note:'Meralgia paresthetica: burning numbness of the lateral thigh from compression near the ASIS (tight belts, obesity, pregnancy).'},[NP([[-7.2,17,-1.8],[-3.6,12.6,-0.6],[0.6,10,1.8],[4.0,7.4,4.6],[5.4,2,4.8],[6.0,-8,3.6],[6.4,-20,2.6]],0.1)]);
+N('n_supglut','Superior gluteal nerve','hip',{Roots:'L4–S1',Course:'Leaves the pelvis through the greater sciatic foramen above piriformis; runs between gluteus medius and minimus',Motor:'Gluteus medius, gluteus minimus, tensor fasciae latae',Sensory:'None',note:'Injury (e.g. a misplaced IM injection) → Trendelenburg sign and a waddling gait.'},[NP([SP,[-4.4,4.0,-6.0],[-1.7,6,-3.4],[1.9,5,0.2],[4.4,4.6,3.0]],0.16)]);
+N('n_infglut','Inferior gluteal nerve','hip',{Roots:'L5–S2',Course:'Leaves the pelvis through the greater sciatic foramen below piriformis',Motor:'Gluteus maximus',Sensory:'None',note:'Injury → difficulty rising from sitting and climbing stairs.'},[NP([SP,[-4.2,0.4,-6.6],[-2.4,-1.0,-7.8],[-0.4,-2.4,-8.2],[1.2,-4,-7.0]],0.16)]);
+N('n_sciatic','Sciatic nerve','thigh',{Roots:'L4–S3 (tibial and common fibular divisions in one sheath)',Course:'Greater sciatic foramen below piriformis; midway between the ischial tuberosity and greater trochanter; deep to the long head of biceps femoris; divides near the apex of the popliteal fossa',Motor:'Hamstrings and hamstring part of adductor magnus (tibial division); short head of biceps (fibular division); all muscles below the knee through its branches',Sensory:'Through its branches, most of the leg and foot except the medial side (saphenous)',note:'Avoid it by injecting into the superolateral quadrant of the buttock. Posterior hip dislocation can injure it — mainly the fibular division → foot drop.'},[NP([SP,[-4.4,0.6,-6.2],[-2.4,-2.6,-5.6],[0.2,-7,-5.0],[0.8,-16,-4.4],[1.2,-28,-3.8],[1.4,-38,-3.4],SCB],0.42)]);
+N('n_tibial','Tibial nerve','leg',{Roots:'L4–S3',Course:'Through the popliteal fossa (most superficial of its neurovascular contents) → deep to soleus with the posterior tibial vessels → behind the medial malleolus (tarsal tunnel) → medial and lateral plantar nerves',Motor:'Posterior compartment of the leg (gastrocnemius, soleus, plantaris, popliteus, tibialis posterior, FDL, FHL); muscles of the sole via the plantar nerves',Sensory:'Sole of the foot (plantar nerves, medial calcaneal branches); contributes to the sural nerve',note:'Injury → cannot plantarflex or invert, or stand on tiptoe. Tarsal tunnel syndrome: burning pain and numbness in the sole.'},[NP([SCB,[1.3,-45,-3.2],[1.2,-52,-2.6],[0.8,-62,-2.0],[0.2,-74,-1.8],[-0.6,-82,-1.6],[-1.4,-85.6,-1.0],TIBE],0.32)]);
+N('n_cfib','Common fibular nerve','knee',{Roots:'L4–S2',Course:'Along the biceps femoris tendon in the lateral popliteal fossa → winds around the neck of the fibula → divides into superficial and deep branches within fibularis longus',Motor:'Through its branches, the anterior and lateral leg compartments and EDB',Sensory:'Lateral leg (lateral sural cutaneous); dorsum of foot through its branches',note:'The most commonly injured nerve in the lower limb (fibular neck fracture, tight cast, habitual leg crossing): foot drop, steppage gait, weak eversion, numb dorsum of foot.'},[NP([SCB,[3.0,-44,-3.0],[4.2,-48.2,-2.2],[4.9,-50.2,-1.0],CFB],0.26)]);
+N('n_dfib','Deep fibular nerve','leg',{Roots:'L4–S1',Course:'Anterior compartment on the interosseous membrane with the anterior tibial artery → under the extensor retinacula → dorsum of foot',Motor:'Tibialis anterior, EHL, EDL, fibularis tertius, EDB/EHB',Sensory:'First web space (between toes 1 and 2)',note:'Lesion → foot drop with sensory loss limited to the first web space.'},[NP([CFB,[3.6,-54,1.2],[2.8,-62,1.0],[2.0,-74,1.0],[1.2,-83,1.4],[0.8,-86.4,2.8],[-0.2,-88.6,9.6],[-0.2,-89.2,11.4]],0.14),NP([[0.8,-86.6,3.0],[2.4,-87.4,3.4]],0.08)]);
+N('n_sfib','Superficial fibular nerve','leg',{Roots:'L5–S2',Course:'Lateral compartment between the fibularis muscles; pierces the deep fascia in the lower third of the leg',Motor:'Fibularis longus and brevis',Sensory:'Lower anterolateral leg and most of the dorsum of the foot',note:'Lesion → weak eversion with numbness over the dorsum of the foot (the first web space is spared).'},[NP([CFB,[5.2,-58,0.2],[5.0,-68,0.0],[4.4,-76,0.8],[3.4,-82,1.6],[2.8,-86.2,2.6],[1.8,-88.0,6.0]],0.13),NP([[1.8,-88.0,6.0],[0.4,-88.8,10.4]],0.08),NP([[1.8,-88.0,6.0],[3.4,-89.0,10.0]],0.08)]);
+N('n_sural','Sural nerve','leg',{Roots:'S1–S2 (from tibial and common fibular branches)',Course:'Between the heads of gastrocnemius with the small saphenous vein → behind the lateral malleolus → lateral border of foot',Motor:'None',Sensory:'Posterolateral leg and lateral border of foot',note:'Commonly harvested for nerve grafts and used for nerve biopsy.'},[NP([[1.3,-46,-3.4],[1.4,-56,-4.6],[1.8,-68,-4.0],[2.6,-78,-3.2],[3.4,-84.6,-2.4],[4.0,-87.2,-1.6],[4.6,-88.8,2.4],[4.8,-89.4,7.0]],0.12)]);
+N('n_plantar','Medial & lateral plantar nerves','foot',{Roots:'L4–S3 (terminal branches of the tibial nerve)',Course:'Arise in the tarsal tunnel; run forward in the sole deep to abductor hallucis',Motor:'Medial: abductor hallucis, FDB, FHB, 1st lumbrical. Lateral: all other intrinsic muscles of the sole',Sensory:'Medial: medial sole and medial 3½ toes. Lateral: lateral sole and lateral 1½ toes',note:'Their distribution mirrors the median and ulnar nerves in the hand.'},[NP([TIBE,[-0.6,-89.8,4],[-0.6,-90.4,8],[-0.8,-90.6,11.0]],0.15),NP([TIBE,[0.6,-89.8,2.4],[2.8,-90.4,5.4],[3.8,-90.6,9.0]],0.15)]);
+
+/* ---------------- three.js scene ---------------- */
+const stage=document.getElementById('stage'), canvas=document.getElementById('cv');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(32,1,0.5,1000);
+scene.add(camera);
+scene.add(new THREE.HemisphereLight(0xffffff,0x40484c,0.75));
+const key=new THREE.DirectionalLight(0xffffff,0.85);key.position.set(40,60,80);camera.add(key);
+const rim=new THREE.DirectionalLight(0xbfd8ff,0.35);rim.position.set(-60,-20,-40);camera.add(rim);
+const controls=new THREE.OrbitControls(camera,canvas);
+controls.enableDamping=true;controls.dampingFactor=0.09;controls.minDistance=6;controls.maxDistance=360;controls.rotateSpeed=0.8;
+
+const groups={};Object.keys(LAYERS).forEach(k=>{groups[k]=new THREE.Group();scene.add(groups[k]);});
+const ctxGroup=new THREE.Group();scene.add(ctxGroup);
+
+/* geometry builders */
+function sweep(pts,R,ring,density){
+  const vs=pts.map(V);
+  const curve=new THREE.CatmullRomCurve3(vs,false,'centripetal',0.5);
+  const len=curve.getLength();
+  const L=Math.min(90,Math.max(6,Math.round(len*(density||2.2))));
+  const fr=curve.computeFrenetFrames(L,false);
+  const pos=[],col=[],idx=[];
+  for(let i=0;i<=L;i++){const t=i/L;const Pp=curve.getPointAt(t);const r=ring(t,Pp,fr.normals[i],fr.binormals[i],fr.tangents[i]);
+    r.pts.forEach(q=>{pos.push(q.x,q.y,q.z);col.push(r.c[0],r.c[1],r.c[2]);});}
+  for(let i=0;i<L;i++)for(let j=0;j<R;j++){const a=i*R+j,b=i*R+(j+1)%R,c=(i+1)*R+j,d=(i+1)*R+(j+1)%R;idx.push(a,c,b,b,c,d);}
+  [0,L].forEach(i=>{const base=pos.length/3;const cp=curve.getPointAt(i/L);const ci=i*R;pos.push(cp.x,cp.y,cp.z);col.push(col[ci*3],col[ci*3+1],col[ci*3+2]);
+    for(let j=0;j<R;j++){const k=ci+j;pos.push(pos[k*3],pos[k*3+1],pos[k*3+2]);col.push(col[k*3],col[k*3+1],col[k*3+2]);}
+    for(let j=0;j<R;j++)idx.push(base,base+1+j,base+1+(j+1)%R);});
+  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('color',new THREE.Float32BufferAttribute(col,3));g.setIndex(idx);g.computeVertexNormals();return g;
+}
+const WHITE=[1,1,1];
+function tube(pts,prof,colorFn,R,density){R=R||12;return sweep(pts,R,(t,Pp,N,B)=>{const r=prof(t);const out=[];for(let j=0;j<R;j++){const a=j/R*Math.PI*2;out.push(Pp.clone().addScaledVector(N,Math.cos(a)*r).addScaledVector(B,Math.sin(a)*r));}return{pts:out,c:colorFn?colorFn(t,r):WHITE};},density);}
+function ribbonG(pts,w,side,th){const sv=V(side);return sweep(pts,4,(t,Pp,N,B,Tn)=>{const S=sv.clone().addScaledVector(Tn,-sv.dot(Tn));if(S.lengthSq()<1e-6)S.copy(N);S.normalize();const U=new THREE.Vector3().crossVectors(Tn,S).normalize();const hw=w/2,ht=th/2;
+  return{pts:[[1,1],[-1,1],[-1,-1],[1,-1]].map(([a,b])=>Pp.clone().addScaledVector(S,a*hw).addScaledVector(U,b*ht)),c:WHITE};},1.6);}
+function ellG(c,s,seg){const g=new THREE.SphereGeometry(1,seg||18,Math.round((seg||18)*0.7));g.scale(s[0],s[1],s[2]);g.translate(c[0],c[1],c[2]);const n=g.attributes.position.count;g.setAttribute('color',new THREE.Float32BufferAttribute(new Array(n*3).fill(1),3));return g;}
+function plate(outline,normal,th){const n=V(normal).normalize();const c=new THREE.Vector3();outline.forEach(p=>c.add(V(p)));c.divideScalar(outline.length);
+  const pos=[],idx=[];const top=outline.map(p=>V(p).addScaledVector(n,th/2)),bot=outline.map(p=>V(p).addScaledVector(n,-th/2));const ct=c.clone().addScaledVector(n,th*0.9),cb=c.clone().addScaledVector(n,-th*0.9);
+  const m=outline.length;const push=v=>{pos.push(v.x,v.y,v.z);return pos.length/3-1;};
+  const it=top.map(push),ib=bot.map(push),ic=push(ct),icb=push(cb);
+  for(let i=0;i<m;i++){const j=(i+1)%m;idx.push(ic,it[i],it[j]);idx.push(icb,ib[j],ib[i]);idx.push(it[i],ib[i],ib[j],it[i],ib[j],it[j]);}
+  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('color',new THREE.Float32BufferAttribute(new Array(pos.length).fill(1),3));g.setIndex(idx);g.computeVertexNormals();return g;}
+function torusG(c,R,r,sy,rotY){const g=new THREE.TorusGeometry(R,r,8,32);g.rotateY(Math.PI/2);g.scale(1,sy||1,1);if(rotY)g.rotateY(rotY);if(!rotY)g.rotateZ(Math.PI/2);g.translate(c[0],c[1],c[2]);const n=g.attributes.position.count;g.setAttribute('color',new THREE.Float32BufferAttribute(new Array(n*3).fill(1),3));return g;}
+const boneProf=(e1,m,e2,k)=>t=>{k=k||0.13;return m+(e1-m)*Math.exp(-Math.pow(t/k,2))+(e2-m)*Math.exp(-Math.pow((1-t)/k,2));};
+
+/* materials */
+function matFor(layer){const L=LAYERS[layer];
+  const base={vertexColors:true,side:THREE.DoubleSide,roughness:0.62,metalness:0.0};
+  if(layer==='bone')return new THREE.MeshStandardMaterial(Object.assign(base,{color:L.hex,roughness:0.78}));
+  if(layer==='muscle')return new THREE.MeshStandardMaterial(Object.assign(base,{color:0xffffff,roughness:0.55}));
+  if(layer==='ligament')return new THREE.MeshStandardMaterial(Object.assign(base,{color:L.hex,roughness:0.45}));
+  if(layer==='nerve')return new THREE.MeshStandardMaterial(Object.assign(base,{color:L.hex,roughness:0.4,emissive:0x2a2000}));
+  if(layer==='joint')return new THREE.MeshStandardMaterial(Object.assign(base,{color:L.hex,roughness:0.3,transparent:true,opacity:0.5,depthWrite:false}));}
+Object.values(ITEMS).forEach(it=>{it.mat=matFor(it.layer);it.baseEm=it.mat.emissive.clone();});
+function addMesh(id,geom){const it=ITEMS[id];const m=new THREE.Mesh(geom,it.mat);m.userData.id=id;it.meshes.push(m);groups[it.layer].add(m);return m;}
+
+/* ---- context skeleton (lumbar spine, left hip bone) ---- */
+const ctxMat=new THREE.MeshStandardMaterial({color:0xd8ccb0,roughness:0.9,transparent:true,opacity:0.22,depthWrite:false,side:THREE.DoubleSide});
+for(let i=0;i<5;i++){const y=13.4+i*3.2;ctxGroup.add(new THREE.Mesh(ellG([-9.5,y,-3.6],[1.7,1.1,1.5],14),ctxMat));ctxGroup.add(new THREE.Mesh(tube([[-9.5,y,-5],[-9.5,y-0.6,-8.4]],()=>0.4,null,6),ctxMat));ctxGroup.add(new THREE.Mesh(tube([[-11.8,y,-4.8],[-7.2,y,-4.8]],()=>0.3,null,6),ctxMat));}
+const mir=p=>[-19-p[0],p[1],p[2]];
+ctxGroup.add(new THREE.Mesh(plate(ILIUM.map(mir),[-IL_N[0],IL_N[1],IL_N[2]],0.55),ctxMat));
+[[IL_CREST,0.42],[ISCH,0.9],[POST_COL,0.85],[SUP_RAM,0.72],[INF_RAM,0.55]].forEach(([pts,r])=>ctxGroup.add(new THREE.Mesh(tube(pts.map(mir),()=>r,null,8),ctxMat)));
+ctxGroup.add(new THREE.Mesh(ellG(mir([-8.5,-5.0,3.6]),[1.0,1.6,0.8],12),ctxMat));
+ctxGroup.add(new THREE.Mesh(ellG(mir([0,0,0]),[2.3,2.3,2.3],16),ctxMat));
+
+/* ---- bones ---- */
+addMesh('hip_bone',plate(ILIUM,IL_N,0.55));
+addMesh('hip_bone',tube(IL_CREST,()=>0.42,null,8));
+addMesh('hip_bone',tube(ringPts(ACET_C,ACET_N,2.5,26),()=>0.42,null,8,3));
+addMesh('hip_bone',ellG([-1.9,0.3,-0.5],[1.0,2.4,2.4]));
+addMesh('hip_bone',tube(ISCH,boneProf(0.9,0.85,1.1),null,10));
+addMesh('hip_bone',ellG([-3.0,-7.4,-2.9],[1.0,1.5,1.0]));
+addMesh('hip_bone',tube(POST_COL,()=>0.85,null,10));
+addMesh('hip_bone',tube([[-3.0,-0.6,-3.6],[-4.6,-1.6,-4.6]],()=>0.35,null,8));
+addMesh('hip_bone',tube(SUP_RAM,()=>0.72,null,10));
+addMesh('hip_bone',ellG([-8.5,-5.0,3.6],[1.0,1.6,0.8]));
+addMesh('hip_bone',tube(INF_RAM,()=>0.55,null,10));
+addMesh('sacrum',plate([[-12.7,11.4,-4.8],[-9.5,11.8,-4.4],[-6.4,11.4,-4.8],[-6.6,7.2,-6.8],[-8.0,2.6,-8.5],[-9.5,-1.2,-8.8],[-11.0,2.6,-8.5],[-12.4,7.2,-6.8]],[0,0.35,0.94],1.5));
+addMesh('sacrum',tube([[-9.5,-1.2,-8.8],[-9.5,-3.6,-7.6]],t=>0.6-0.3*t,null,8));
+/* femur */
+addMesh('femur',ellG([0,0,0],[2.3,2.3,2.3],28));
+addMesh('femur',tube([[0.8,-0.5,0.1],[2.4,-1.8,0.1],[3.8,-3.0,0.0]],boneProf(1.5,1.15,1.4)));
+addMesh('femur',ellG([4.7,-2.0,-0.5],[1.2,1.9,1.5]));
+addMesh('femur',ellG([2.0,-5.6,-1.1],[0.7,0.8,0.7]));
+addMesh('femur',tube([[4.2,-3.4,0.0],[3.9,-12,0.4],[3.0,-24,0.7],[1.9,-36,0.4],[1.2,-42.8,-0.2]],t=>1.35+0.5*Math.exp(-Math.pow(t/0.1,2))+0.6*Math.exp(-Math.pow((1-t)/0.12,2))));
+addMesh('femur',ellG([4.6,-9,-1.0],[0.5,1.6,0.5]));
+addMesh('femur',ellG([1.1,-44.0,-0.3],[2.7,1.4,1.7]));
+addMesh('femur',ellG([-0.7,-45.3,-0.6],[1.5,1.7,2.3]));
+addMesh('femur',ellG([2.9,-45.3,-0.6],[1.4,1.7,2.3]));
+addMesh('femur',ellG([-1.9,-43.4,-0.6],[0.4,0.4,0.4]));
+addMesh('patella',ellG([1.1,-43.6,2.4],[1.9,2.3,0.8]));
+/* tibia & fibula */
+addMesh('tibia',ellG([1.1,-48.0,-0.3],[3.2,0.9,2.2]));
+addMesh('tibia',tube([[1.1,-48.2,-0.2],[1.0,-52,0.4],[0.8,-62,0.5],[0.5,-74,0.4],[0.6,-83.6,0.2]],boneProf(2.0,1.05,1.4,0.12)));
+addMesh('tibia',ellG([1.3,-50.6,1.6],[0.8,1.1,0.6]));
+addMesh('tibia',ellG([0.8,-84.0,0.2],[1.6,0.6,1.3]));
+addMesh('tibia',ellG([-0.6,-84.8,0.2],[0.55,1.2,0.8]));
+addMesh('fibula',ellG([4.3,-49.4,-1.0],[0.75,0.8,0.75]));
+addMesh('fibula',tube([[4.3,-49.8,-1.0],[4.2,-58,-0.8],[3.9,-72,-0.6],[3.5,-84,-0.6]],boneProf(0.5,0.42,0.6)));
+addMesh('fibula',ellG([3.5,-85.6,-0.7],[0.6,1.5,0.8]));
+/* tarsals */
+addMesh('talus',ellG([1.4,-86.6,0.4],[1.4,1.0,1.8]));
+addMesh('talus',tube([[1.2,-86.8,1.4],[0.8,-87.0,2.4]],boneProf(0.9,0.7,0.85)));
+addMesh('calcaneus',tube([[1.7,-88.9,-3.6],[2.0,-88.6,-0.6],[2.4,-88.3,2.2]],boneProf(1.3,1.1,1.0)));
+addMesh('calcaneus',ellG([1.7,-89.0,-3.4],[1.1,1.4,1.0]));
+addMesh('calcaneus',ellG([0.5,-87.6,0.2],[0.7,0.35,0.8]));
+addMesh('navicular',ellG([0.3,-87.2,3.3],[1.0,0.9,0.6]));
+addMesh('cuboid',ellG([3.2,-88.6,3.4],[0.9,0.8,1.0]));
+addMesh('cun_med',ellG([-0.6,-88.0,4.9],[0.6,0.9,0.8]));
+addMesh('cun_int',ellG([0.5,-87.6,4.8],[0.5,0.6,0.6]));
+addMesh('cun_lat',ellG([1.6,-87.9,4.9],[0.55,0.65,0.7]));
+/* metatarsals & phalanges */
+const segBone=(id,a,b,e1,m,e2)=>addMesh(id,tube([lerp(a,b,0.04),lerp(a,b,0.5),lerp(a,b,0.96)],boneProf(e1,m,e2,0.16),null,10));
+segBone('mt1',MT[1].base,MT[1].head,0.62,0.46,0.58);
+[2,3,4,5].forEach(d=>segBone('mt'+d,MT[d].base,MT[d].head,0.44,0.3,0.42));
+addMesh('mt5',ellG([4.2,-89.3,4.4],[0.45,0.4,0.5]));
+addMesh('mt1',ellG([-0.55,-90.6,11.3],[0.28,0.28,0.32]));addMesh('mt1',ellG([-1.3,-90.6,11.3],[0.28,0.28,0.32]));
+segBone('ph_prox',MT[1].head,TO[1].pip,0.5,0.4,0.45);segBone('ph_dist',TO[1].pip,TO[1].tip,0.42,0.32,0.38);
+[2,3,4,5].forEach(d=>{segBone('ph_prox',MT[d].head,TO[d].pip,0.34,0.25,0.3);segBone('ph_mid',TO[d].pip,TO[d].dip,0.28,0.22,0.26);segBone('ph_dist',TO[d].dip,TO[d].tip,0.24,0.18,0.22);});
+
+/* ---- muscles ---- */
+const TEND=new THREE.Color(0xeadfce);
+let seed=7;const rnd=()=>{seed=(seed*9301+49297)%233280;return seed/233280;};
+MUS.forEach(m=>{const belly=new THREE.Color().setHSL(0.006+rnd()*0.022,0.5+rnd()*0.1,0.36+rnd()*0.08);
+  m.parts.forEach(p=>{const prof=t=>(t<p.a||t>p.b)?p.tr:p.tr+(p.r-p.tr)*Math.pow(Math.sin(Math.PI*(t-p.a)/(p.b-p.a)),0.65);
+    const cf=(t,r)=>{const w=p.r>p.tr?Math.min(1,Math.max(0,(r-p.tr)/(p.r-p.tr)*2.2)):0;const c=TEND.clone().lerp(belly,w);return[c.r,c.g,c.b];};
+    addMesh(m.id,tube(p.pts,prof,cf,p.r>0.5?14:10,p.r>0.5?2.4:3));});});
+
+/* ---- ligaments ---- */
+LIGS.forEach(l=>l.parts.forEach(p=>{
+  if(p.torus)addMesh(l.id,torusG(p.torus.c,p.torus.R,p.torus.r,p.torus.sy,p.torus.rotY));
+  else if(p.ell)addMesh(l.id,ellG(p.ell.c,p.ell.s,12));
+  else if(p.rib)addMesh(l.id,ribbonG(p.pts,p.w,p.side,p.th));
+  else addMesh(l.id,tube(p.pts,()=>p.r,null,8,3));}));
+/* ---- joints ---- */
+JOINTS.forEach(j=>j.ells.forEach(([c,s])=>addMesh(j.id,ellG(c,s,20))));
+/* ---- nerves ---- */
+NERVES.forEach(n=>n.parts.forEach(p=>addMesh(n.id,tube(p.pts,()=>p.r,null,8,2.5))));
+document.getElementById('loading').remove();
+
+/* ---------------- state + look ---------------- */
+const state={sel:null,hover:null,isolate:false,muscleOp:1,vis:{bone:true,muscle:true,ligament:true,joint:false,nerve:true},region:'all',q:''};
+try{const s=JSON.parse(localStorage.getItem('lla-vis')||'null');if(s)Object.assign(state.vis,s);}catch(e){}
+const ACC=new THREE.Color(0x1aa6b0), HOV=new THREE.Color(0x0f5a60);
+function applyLook(){Object.values(ITEMS).forEach(it=>{const m=it.mat;
+  let op=it.layer==='muscle'?state.muscleOp:(it.layer==='joint'?0.5:1);
+  if(state.isolate&&state.sel&&it.id!==state.sel)op=Math.min(op,0.07);
+  if(it.id===state.sel&&it.layer==='joint')op=0.75;
+  const tr=op<0.999;if(m.transparent!==tr){m.transparent=tr;m.needsUpdate=true;}m.opacity=op;m.depthWrite=!tr;
+  if(it.id===state.sel){m.emissive.copy(ACC);m.emissiveIntensity=0.55;}
+  else if(it.id===state.hover){m.emissive.copy(HOV);m.emissiveIntensity=0.6;}
+  else{m.emissive.copy(it.baseEm);m.emissiveIntensity=1;}});
+  Object.keys(groups).forEach(k=>groups[k].visible=state.vis[k]);}
+
+/* ---------------- camera ---------------- */
+const VIEWS={
+ Anterior:{t:[-2,-34,0],d:[0,0.06,1],r:232},Posterior:{t:[-2,-34,0],d:[0,0.06,-1],r:232},Lateral:{t:[1,-34,0],d:[1,0.05,0.05],r:226},
+ Hip:{t:[-1.5,1,0],d:[0.6,0.3,1],r:52},Gluteal:{t:[-2,0,-4],d:[0.3,0.15,-1],r:52},Knee:{t:[1.2,-46,0],d:[0.5,0.15,1],r:32},Foot:{t:[1.8,-88,5],d:[0.55,0.75,0.9],r:36},Sole:{t:[1.8,-90,5],d:[0.15,-1,-0.05],r:34}};
+let anim=null;
+function flyTo(t,pos){anim={t0:performance.now(),dur:650,ft:controls.target.clone(),fp:camera.position.clone(),tt:V(t),tp:pos};}
+function setView(name){const v=VIEWS[name];const dir=V(v.d).normalize();const asp=Math.max(0.6,stage.clientWidth/Math.max(1,stage.clientHeight));const r=v.r*(asp<1?1/Math.sqrt(asp):1);flyTo(v.t,V(v.t).addScaledVector(dir,r));}
+function focusItem(id){const it=ITEMS[id];const box=new THREE.Box3();it.meshes.forEach(m=>box.expandByObject(m));const c=box.getCenter(new THREE.Vector3());const sz=box.getSize(new THREE.Vector3()).length();
+  const dir=camera.position.clone().sub(controls.target).normalize();const dist=Math.min(150,Math.max(14,sz*1.7));flyTo([c.x,c.y,c.z],c.clone().addScaledVector(dir,dist));}
+{const v=VIEWS.Anterior;controls.target.set(...v.t);camera.position.copy(V(v.t).addScaledVector(V(v.d).normalize(),v.r));}
+
+/* ---------------- picking ---------------- */
+const ray=new THREE.Raycaster(), mouse=new THREE.Vector2();
+function pick(cx,cy){const r=canvas.getBoundingClientRect();mouse.set(((cx-r.left)/r.width)*2-1,-((cy-r.top)/r.height)*2+1);ray.setFromCamera(mouse,camera);
+  const objs=[];Object.keys(groups).forEach(k=>{if(!state.vis[k])return;if(k==='muscle'&&state.muscleOp<0.2)return;groups[k].children.forEach(m=>{const it=ITEMS[m.userData.id];if(state.isolate&&state.sel&&it.id!==state.sel)return;objs.push(m);});});
+  const hits=ray.intersectObjects(objs,false);if(!hits.length)return null;
+  // prefer an opaque hit; if the first is a translucent joint and something solid is right behind, keep the joint (it was clicked)
+  return hits[0].object.userData.id;}
+let down=null;
+canvas.addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY};});
+canvas.addEventListener('pointerup',e=>{if(!down)return;const moved=Math.hypot(e.clientX-down.x,e.clientY-down.y);down=null;if(moved>6)return;const id=pick(e.clientX,e.clientY);select(id,false);});
+const tip=document.getElementById('tip');let pend=null;
+canvas.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;pend={x:e.clientX,y:e.clientY};});
+canvas.addEventListener('pointerleave',()=>{pend=null;state.hover=null;tip.hidden=true;applyLook();});
+
+/* ---------------- UI ---------------- */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const cssv=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function renderInfo(){const el=$('#info');const it=ITEMS[state.sel];
+  if(!it){el.innerHTML='<p class="label">Selection</p><p style="margin:0;color:var(--muted)">Click any structure in the model, or pick one from the list below.</p>';return;}
+  const L=LAYERS[it.layer];const rows=Object.entries(it.info).filter(([k])=>k!=='note');
+  el.innerHTML=`<div class="kind"><span class="dot" style="background:var(${L.color})"></span>${esc(L.name.replace(/s$/,''))} · ${esc(REGIONS[it.region])}</div><h2>${esc(it.name)}</h2><dl>${rows.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl>${it.info.note?`<p class="note"><b>Clinical / exam note</b>${esc(it.info.note)}</p>`:''}
+  <div class="actions"><button id="bFocus">Zoom to it</button><button id="bIso" aria-pressed="${state.isolate}">Isolate</button><button id="bClear">Clear</button></div>`;
+  $('#bFocus').onclick=()=>focusItem(state.sel);
+  $('#bIso').onclick=()=>{state.isolate=!state.isolate;applyLook();renderInfo();};
+  $('#bClear').onclick=()=>select(null);}
+function select(id,fromList){if(id&&!state.vis[ITEMS[id].layer]){state.vis[ITEMS[id].layer]=true;renderLayers();}
+  state.sel=id;if(!id)state.isolate=false;applyLook();renderInfo();renderList();
+  if(id&&fromList)focusItem(id);
+  if(id&&fromList===false&&window.matchMedia('(max-width:760px)').matches){}}
+function renderLayers(){const el=$('#layers');el.innerHTML='';Object.entries(LAYERS).forEach(([k,L])=>{const n=Object.values(ITEMS).filter(i=>i.layer===k).length;
+  const b=document.createElement('button');b.className='layer';b.id='lay-'+k;b.setAttribute('aria-pressed',state.vis[k]);b.innerHTML=`<span class="dot" style="background:var(${L.color})"></span>${L.name}<span class="n">${n}</span>`;
+  b.onclick=()=>{state.vis[k]=!state.vis[k];try{localStorage.setItem('lla-vis',JSON.stringify(state.vis));}catch(e){}renderLayers();applyLook();};el.appendChild(b);});
+  const ctx=document.createElement('button');ctx.className='layer';ctx.id='lay-ctx';ctx.setAttribute('aria-pressed',ctxGroup.visible);ctx.innerHTML=`<span class="dot" style="background:var(--muted)"></span>Pelvis &amp; spine<span class="n">ref</span>`;ctx.onclick=()=>{ctxGroup.visible=!ctxGroup.visible;renderLayers();};el.appendChild(ctx);}
+function renderRegions(){const el=$('#regions');el.innerHTML='';[['all','All'],...Object.entries(REGIONS)].forEach(([k,n])=>{const b=document.createElement('button');b.textContent=n;b.setAttribute('aria-pressed',state.region===k);b.onclick=()=>{state.region=k;renderRegions();renderList();};el.appendChild(b);});}
+function renderList(){const el=$('#list');const q=state.q.trim().toLowerCase();el.innerHTML='';
+  Object.entries(LAYERS).forEach(([k,L])=>{const items=ORDER.map(i=>ITEMS[i]).filter(it=>it.layer===k&&(state.region==='all'||it.region===state.region)&&(!q||it.name.toLowerCase().includes(q)||JSON.stringify(it.info).toLowerCase().includes(q)));
+    if(!items.length)return;const h=document.createElement('h3');h.innerHTML=`<span class="dot" style="background:var(${L.color})"></span>${L.name} <span style="margin-left:auto">${items.length}</span>`;el.appendChild(h);
+    items.forEach(it=>{const b=document.createElement('button');b.className='it';b.setAttribute('aria-current',it.id===state.sel);b.innerHTML=`<span>${esc(it.name)}</span><small>${esc(REGIONS[it.region].split(' ')[0])}</small>`;b.onclick=()=>select(it.id,true);el.appendChild(b);});});
+  if(!el.children.length)el.innerHTML='<p style="color:var(--muted);margin:8px 0 0">No structures match. Try a nerve root (L5), a bone, or an action like "evert".</p>';}
+$('#q').addEventListener('input',e=>{state.q=e.target.value;renderList();});
+$('#mop').addEventListener('input',e=>{state.muscleOp=e.target.value/100;$('#mopv').textContent=e.target.value+'%';applyLook();});
+const vEl=$('#views');Object.keys(VIEWS).forEach(n=>{const b=document.createElement('button');b.textContent=n;b.onclick=()=>setView(n);vEl.appendChild(b);});
+
+/* theme → scene background */
+function syncTheme(){scene.background=new THREE.Color(cssv('--scene')||'#cfd8dc');}
+syncTheme();
+try{window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',syncTheme);}catch(e){}
+new MutationObserver(syncTheme).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+
+/* resize */
+function resize(){const w=stage.clientWidth,h=stage.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}
+new ResizeObserver(resize).observe(stage);resize();
+
+/* loop */
+const selTag=$('#seltag');const tmp=new THREE.Vector3();const ease=t=>1-Math.pow(1-t,3);
+function frame(now){
+  if(anim){const k=Math.min(1,(now-anim.t0)/anim.dur);const e=ease(k);controls.target.lerpVectors(anim.ft,anim.tt,e);camera.position.lerpVectors(anim.fp,anim.tp,e);if(k>=1)anim=null;}
+  controls.update();
+  if(pend){const id=pick(pend.x,pend.y);const r=stage.getBoundingClientRect();if(id!==state.hover){state.hover=id;applyLook();}
+    if(id){tip.hidden=false;tip.textContent=ITEMS[id].name;tip.style.left=(pend.x-r.left)+'px';tip.style.top=(pend.y-r.top)+'px';}else tip.hidden=true;pend=null;}
+  if(state.sel){const it=ITEMS[state.sel];const box=new THREE.Box3();it.meshes.forEach(m=>box.expandByObject(m));box.getCenter(tmp);tmp.y=box.max.y;tmp.project(camera);
+    if(tmp.z<1&&groups[it.layer].visible){selTag.hidden=false;selTag.textContent=it.name;selTag.style.left=((tmp.x+1)/2*stage.clientWidth)+'px';selTag.style.top=((1-tmp.y)/2*stage.clientHeight)+'px';}else selTag.hidden=true;}
+  else selTag.hidden=true;
+  renderer.render(scene,camera);requestAnimationFrame(frame);}
+renderLayers();renderRegions();
+select('n_sciatic');
+requestAnimationFrame(frame);
+})();
+</script>
