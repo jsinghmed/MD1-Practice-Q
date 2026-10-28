@@ -1,0 +1,595 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Upper Limb Atlas · JJ QBank</title>
+<script>function jjTheme(){try{var th=localStorage.getItem("msk-theme");document.documentElement.setAttribute("data-theme",th==="light"?"light":"dark");}catch(e){}}jjTheme();window.addEventListener("storage",function(e){if(e.key==="msk-theme")jjTheme();});window.addEventListener("message",function(e){if(e.data==="jj-theme")jjTheme();});</script>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;1,400&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: specimen viewer — narrow reference rail on the left, 3D stage fills the rest; stacks on phones */
+:root{
+  --bg:#e7ecee; --panel:#f7f9f9; --ink:#1b2427; --muted:#56666b; --line:#cfd8db;
+  --accent:#1d6c75; --accent-ink:#ffffff; --scene:#cfd8dc; --chip:#e9eff0;
+  --c-bone:#d9c9a6; --c-muscle:#b0423b; --c-lig:#7fa3b8; --c-joint:#3fa7a2; --c-nerve:#d9a90f;
+  --f-display:"Spectral",Georgia,"Times New Roman",serif;
+  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1517; --panel:#161e21; --ink:#e2eaec; --muted:#93a4a9; --line:#283437;
+  --accent:#62bcc4; --accent-ink:#0b1416; --scene:#0c1214; --chip:#1d272a;
+  --c-bone:#e2d4b4; --c-muscle:#cf5a51; --c-lig:#93b8cc; --c-joint:#4cc0ba; --c-nerve:#f0c419; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1517; --panel:#161e21; --ink:#e2eaec; --muted:#93a4a9; --line:#283437;
+  --accent:#62bcc4; --accent-ink:#0b1416; --scene:#0c1214; --chip:#1d272a;
+  --c-bone:#e2d4b4; --c-muscle:#cf5a51; --c-lig:#93b8cc; --c-joint:#4cc0ba; --c-nerve:#f0c419; color-scheme:dark}
+
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45}
+.app{height:100%;box-sizing:border-box;display:grid;grid-template-columns:340px minmax(0,1fr);gap:14px;
+  padding-block:12px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.side{min-width:0;overflow:auto;display:flex;flex-direction:column;gap:12px;padding-right:2px}
+.stage{position:relative;min-width:0;min-height:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--scene)}
+#cv{display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+#cv:active{cursor:grabbing}
+
+header h1{font-family:var(--f-display);font-weight:600;font-size:26px;line-height:1.1;margin:0;text-wrap:balance;letter-spacing:-.01em}
+header p{margin:4px 0 0;font-family:var(--f-mono);font-size:11.5px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px}
+.label{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+
+#info .kind{display:flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+#info h2{font-family:var(--f-display);font-weight:600;font-size:22px;line-height:1.15;margin:6px 0 10px;text-wrap:balance}
+#info dl{margin:0;display:grid;grid-template-columns:92px minmax(0,1fr);gap:7px 10px}
+#info dt{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+#info dd{margin:0;min-width:0}
+#info .note{margin:12px 0 0;padding:9px 11px;border-left:3px solid var(--accent);background:var(--chip);border-radius:0 6px 6px 0;font-size:13px}
+#info .note b{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:2px;font-weight:500}
+.dot{width:9px;height:9px;border-radius:50%;flex:none;display:inline-block}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+
+button,.btn{font:inherit;font-size:12.5px;border:1px solid var(--line);background:var(--chip);color:var(--ink);border-radius:6px;padding:6px 10px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+
+.layers{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.layer{display:flex;align-items:center;gap:8px;justify-content:flex-start;text-align:left}
+.layer .n{margin-left:auto;font-family:var(--f-mono);font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.layer[aria-pressed="true"] .n{color:inherit;opacity:.8}
+.layer[aria-pressed="false"] .dot{opacity:.35}
+.slider{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;margin-top:12px;font-size:12.5px}
+.slider output{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:3ch;text-align:right}
+input[type=range]{width:100%;accent-color:var(--accent)}
+
+#q{width:100%;box-sizing:border-box;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 8px}
+.chips button{padding:4px 9px;font-size:12px}
+#list{display:flex;flex-direction:column;gap:2px}
+#list h3{font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:10px 0 4px;display:flex;align-items:center;gap:8px}
+#list .it{all:unset;box-sizing:border-box;cursor:pointer;padding:5px 8px;border-radius:5px;display:flex;justify-content:space-between;gap:8px;font-size:13px}
+#list .it:hover{background:var(--chip)}
+#list .it:focus-visible{outline:2px solid var(--accent)}
+#list .it[aria-current="true"]{background:var(--accent);color:var(--accent-ink)}
+#list .it small{font-family:var(--f-mono);font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+#list .it[aria-current="true"] small{color:inherit;opacity:.8}
+
+.views{position:absolute;top:10px;left:10px;right:10px;display:flex;flex-wrap:wrap;gap:6px;pointer-events:none}
+.views button{pointer-events:auto;background:var(--panel);font-size:12px;padding:5px 9px}
+.hint{position:absolute;left:10px;bottom:10px;font-family:var(--f-mono);font-size:10.5px;color:var(--muted);letter-spacing:.04em;background:var(--panel);border:1px solid var(--line);padding:4px 8px;border-radius:5px;pointer-events:none}
+.compass{position:absolute;right:10px;bottom:10px;font-family:var(--f-mono);font-size:10.5px;color:var(--muted);background:var(--panel);border:1px solid var(--line);padding:4px 8px;border-radius:5px}
+.tag{position:absolute;pointer-events:none;transform:translate(-50%,-130%);background:var(--ink);color:var(--bg);font-size:12px;font-weight:500;padding:4px 8px;border-radius:5px;white-space:nowrap}
+.tag::after{content:"";position:absolute;left:50%;bottom:-5px;margin-left:-5px;border:5px solid transparent;border-bottom:0;border-top-color:var(--ink)}
+#tip{transform:translate(12px,12px);background:var(--panel);color:var(--ink);border:1px solid var(--line);font-weight:400}
+#tip::after{display:none}
+.loading{position:absolute;inset:0;display:grid;place-items:center;color:var(--muted);font-family:var(--f-mono);font-size:12px}
+
+@media (max-width:760px){
+  html,body{height:auto}
+  .app{grid-template-columns:1fr;height:auto}
+  .stage{height:62vh;min-height:360px;order:-1}
+  .side{overflow:visible}
+  .hint{display:none}
+}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+
+<div class="app">
+  <aside class="side">
+    <header>
+      <h1>Upper Limb Atlas</h1>
+      <p>Right upper limb · anatomical position</p>
+    </header>
+
+    <section class="card" id="info" aria-live="polite"></section>
+
+    <section class="card">
+      <p class="label">Layers</p>
+      <div class="layers" id="layers"></div>
+      <div class="slider">
+        <label for="mop">Muscle opacity</label>
+        <input id="mop" type="range" min="0" max="100" value="100">
+        <output id="mopv">100%</output>
+      </div>
+    </section>
+
+    <section class="card">
+      <p class="label"><label for="q">Find a structure</label></p>
+      <input id="q" type="search" placeholder="e.g. supinator, ulnar, scaphoid" autocomplete="off">
+      <div class="chips" id="regions"></div>
+      <div id="list"></div>
+    </section>
+  </aside>
+
+  <main class="stage" id="stage">
+    <div class="loading" id="loading">Building model…</div>
+    <canvas id="cv" aria-label="Interactive 3D model of the right upper limb"></canvas>
+    <div class="views" id="views"></div>
+    <div class="tag" id="seltag" hidden></div>
+    <div class="tag" id="tip" hidden></div>
+    <div class="hint">Drag to rotate · scroll or pinch to zoom · right-drag to pan · click to identify</div>
+  </main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function(){
+/* ---------------- vector helpers ---------------- */
+const add=(a,b)=>[a[0]+b[0],a[1]+b[1],a[2]+b[2]];
+const sc=(a,s)=>[a[0]*s,a[1]*s,a[2]*s];
+const lerp=(a,b,t)=>[a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t,a[2]+(b[2]-a[2])*t];
+const off=(a,x,y,z)=>[a[0]+x,a[1]+y,a[2]+z];
+const V=p=>new THREE.Vector3(p[0],p[1],p[2]);
+
+/* Scapular plane normal (posterior surface) */
+const G=[-2.6,0,-2.4], SA=[-12,5.5,-11], IA=[-10.5,-15,-11];
+const PN=(()=>{const u=V(SA).sub(V(G)),v=V(IA).sub(V(G));const n=u.cross(v).normalize();if(n.z>0)n.negate();return [n.x,n.y,n.z];})();
+const post=(p,d)=>add(p,sc(PN,d));        // toward posterior surface of scapula
+const ant=(p,d)=>add(p,sc(PN,-d));        // toward costal surface
+
+/* Ribs (context + attachments) */
+const RA=[5.5,8,9.8,11,11.8,12.2,12.4,12.4,12.2,11.8], RB=[5.5,7,8,8.8,9.3,9.6,9.8,9.8,9.6,9.3];
+function ribPt(n,th,o){o=o||0;const a=RA[n-1]+o,b=RB[n-1]+o;const yp=7-2.5*(n-1),ya=yp-(4.5+0.6*n);const u=(th+Math.PI/2)/Math.PI;return [-19+a*Math.cos(th),yp+(ya-yp)*u,-4.5+b*Math.sin(th)];}
+const medBorder=t=> t<0.2? lerp(SA,[-12.5,1.5,-11.5],t/0.2) : lerp([-12.5,1.5,-11.5],IA,(t-0.2)/0.8);
+
+/* Digits */
+const D={
+ 2:{base:[1.5,-60,0],head:[2.0,-66.3,0],pip:[2.5,-70.3,0.2],dip:[2.8,-72.8,0.3],tip:[3.0,-74.6,0.3]},
+ 3:{base:[0.2,-60,0],head:[0.4,-66.8,0],pip:[0.5,-71.3,0.2],dip:[0.6,-74.1,0.3],tip:[0.7,-76.1,0.3]},
+ 4:{base:[-1.1,-60,-0.1],head:[-1.3,-66.3,0],pip:[-1.6,-70.5,0.2],dip:[-1.8,-73.2,0.3],tip:[-2.0,-75.1,0.3]},
+ 5:{base:[-2.2,-59.8,-0.1],head:[-2.8,-65.4,0],pip:[-3.3,-68.8,0.2],dip:[-3.6,-70.9,0.3],tip:[-3.8,-72.5,0.3]}};
+const TH={base:[2.9,-59.3,0.9],head:[4.6,-63.4,2.4],ip:[5.7,-66.6,3.4],tip:[6.4,-68.6,3.9]};
+const TPAL=[-0.35,-0.05,0.5], TDOR=[0.35,0.05,-0.5];
+
+/* ---------------- registry ---------------- */
+const LAYERS={
+ bone:{name:'Bones',color:'--c-bone',hex:0xe6d9bd},
+ muscle:{name:'Muscles',color:'--c-muscle',hex:0xb0423b},
+ ligament:{name:'Ligaments',color:'--c-lig',hex:0x8fb2c6},
+ joint:{name:'Joints',color:'--c-joint',hex:0x3fb0aa},
+ nerve:{name:'Nerves',color:'--c-nerve',hex:0xf0c419}};
+const REGIONS={shoulder:'Shoulder',arm:'Arm',forearm:'Forearm',hand:'Wrist & hand'};
+const ITEMS={}, ORDER=[];
+function reg(id,layer,name,region,info){const it={id,layer,name,region,info,meshes:[]};ITEMS[id]=it;ORDER.push(id);return it;}
+
+/* ---------------- data: bones ---------------- */
+const BONES=[
+['clavicle','Clavicle','shoulder',{Shape:'S-shaped strut; the only long bone lying horizontally',Landmarks:'Sternal and acromial ends, conoid tubercle, trapezoid line, subclavian groove',Articulates:'Manubrium and 1st costal cartilage (SC joint); acromion (AC joint)',note:'First bone to ossify (intramembranous, week 5). Fractures usually involve the middle third: the lateral fragment is pulled down by the weight of the limb and medially by pectoralis major; the medial fragment is lifted by sternocleidomastoid.'}],
+['scapula','Scapula','shoulder',{Shape:'Flat triangular bone over ribs 2–7 posteriorly',Landmarks:'Spine, acromion, coracoid process, glenoid cavity, supra/infraglenoid tubercles, suprascapular notch, three fossae',Articulates:'Humeral head (glenohumeral); clavicle (AC)',note:'The inferior angle lies at about the T7 spinous process. The suprascapular notch is bridged by the superior transverse scapular ligament: the suprascapular nerve passes below it, the artery above.'}],
+['humerus','Humerus','arm',{Landmarks:'Head, anatomical and surgical necks, greater and lesser tubercles, intertubercular sulcus, deltoid tuberosity, radial groove, supracondylar ridges, medial and lateral epicondyles, capitulum, trochlea',Articulates:'Glenoid cavity; ulna (trochlea) and radius (capitulum)',note:'Nerves in contact with bone: surgical neck → axillary; radial groove (midshaft) → radial; supracondylar region → median and brachial artery; behind medial epicondyle → ulnar.'}],
+['radius','Radius','forearm',{Shape:'Lateral forearm bone; narrow proximally, broad distally',Landmarks:'Head, neck, radial tuberosity, pronator tuberosity, dorsal (Lister) tubercle, styloid process, ulnar notch',Articulates:'Capitulum; radial notch and head of ulna (proximal and distal RU); scaphoid and lunate',note:'Colles fracture: distal radius with dorsal displacement and angulation ("dinner-fork" deformity) after a fall on the outstretched hand.'}],
+['ulna','Ulna','forearm',{Shape:'Medial forearm bone; broad proximally, narrow distally',Landmarks:'Olecranon, coronoid process, trochlear notch, radial notch, ulnar tuberosity, supinator crest, head, styloid process',Articulates:'Trochlea; radius (proximal and distal RU); separated from carpus by the TFCC',note:'Monteggia fracture: proximal ulnar shaft fracture with dislocation of the radial head.'}],
+['scaphoid','Scaphoid','hand',{Row:'Proximal carpal row (lateral)',Articulates:'Radius, lunate, capitate, trapezium, trapezoid',note:'Most commonly fractured carpal. Tender in the anatomical snuffbox. Blood enters distally, so a waist fracture risks avascular necrosis of the proximal pole.'}],
+['lunate','Lunate','hand',{Row:'Proximal carpal row',Articulates:'Radius, scaphoid, triquetrum, capitate (± hamate)',note:'Most commonly dislocated carpal (anteriorly), where it can compress the median nerve in the carpal tunnel. Avascular necrosis = Kienböck disease.'}],
+['triquetrum','Triquetrum','hand',{Row:'Proximal carpal row',Articulates:'Lunate, pisiform, hamate; articular disc (TFCC)',note:'Second most commonly fractured carpal (dorsal chip fractures).'}],
+['pisiform','Pisiform','hand',{Row:'Proximal row, on the palmar face of the triquetrum',Attachments:'FCU tendon, abductor digiti minimi, flexor retinaculum, pisohamate and pisometacarpal ligaments',note:'A sesamoid bone within the FCU tendon. Forms the medial wall of Guyon canal.'}],
+['trapezium','Trapezium','hand',{Row:'Distal carpal row (lateral)',Articulates:'Scaphoid, trapezoid, MC1 (saddle joint), MC2',note:'Its tubercle anchors the flexor retinaculum; a groove medial to it carries the FCR tendon.'}],
+['trapezoid','Trapezoid','hand',{Row:'Distal carpal row',Articulates:'Scaphoid, trapezium, capitate, MC2',note:'Smallest bone of the distal row.'}],
+['capitate','Capitate','hand',{Row:'Distal carpal row (central)',Articulates:'Scaphoid, lunate, trapezoid, hamate, MC2–4 (mainly MC3)',note:'Largest carpal and the first to ossify (around 1 year).'}],
+['hamate','Hamate','hand',{Row:'Distal carpal row (medial)',Landmarks:'Hook (hamulus) projecting anteriorly',Articulates:'Lunate, triquetrum, capitate, MC4–5',note:'The hook anchors the flexor retinaculum, FDMB and ODM and forms the lateral wall of Guyon canal. Hook fractures (golf, racquet sports) can injure the ulnar nerve.'}],
+['mc1','1st metacarpal','hand',{Notes:'Shortest and most mobile; saddle CMC joint with trapezium',note:'Bennett fracture: intra-articular fracture of the MC1 base, the shaft pulled proximally by APL.'}],
+['mc2','2nd metacarpal','hand',{Notes:'Longest metacarpal; base gives attachment to FCR and ECRL',note:'MC2 and MC3 are nearly immobile at the CMC joints and form the fixed central pillar of the hand.'}],
+['mc3','3rd metacarpal','hand',{Notes:'Styloid process on the dorsal base; ECRB attaches here',note:'Origin of the transverse head of adductor pollicis.'}],
+['mc4','4th metacarpal','hand',{Notes:'Narrow; some CMC mobility',note:'Mobility of the 4th and 5th CMC joints lets the palm cup.'}],
+['mc5','5th metacarpal','hand',{Notes:'Tubercle on base for ECU',note:'Boxer fracture: fracture of the 5th metacarpal neck with palmar angulation of the head.'}],
+['ph_prox','Proximal phalanges','hand',{Count:'5 (one per digit)',Attachments:'Interossei, lumbricals (via extensor expansion), thenar and hypothenar muscles, EPB',note:'The 14 phalanges: 3 in each finger, 2 in the thumb.'}],
+['ph_mid','Middle phalanges','hand',{Count:'4 (none in the thumb)',Attachments:'Flexor digitorum superficialis (sides of shaft); central slip of extensor expansion (base)',note:'Rupture of the central slip causes a boutonnière deformity.'}],
+['ph_dist','Distal phalanges','hand',{Count:'5',Attachments:'FDP, FPL, EPL; terminal extensor tendon',note:'Avulsion of the terminal extensor tendon causes mallet finger; avulsion of FDP is "jersey finger" (usually ring finger).'}],
+];
+BONES.forEach(b=>reg(b[0],'bone',b[1],b[2],b[3]));
+
+/* ---------------- data: muscles ---------------- */
+const MUS=[];
+function M(id,name,region,info,parts){MUS.push({id,parts});reg(id,'muscle',name,region,info);}
+const P=(pts,r,a,b,tr)=>({pts,r,a:a==null?0:a,b:b==null?1:b,tr:tr==null?r*0.26:tr});
+const T=(pts,r)=>({pts,r:r||0.15,a:2,b:3,tr:r||0.15});
+const RET_F=[0.3,-56.4,1.0], RET_E=[0.4,-56.0,-1.3];
+const fdsT=d=>{const g=D[d];return T([RET_F,off(lerp(g.base,g.head,0.35),0,0,1.0),off(g.head,0,0,0.75),off(lerp(g.head,g.pip,0.5),0,0,0.55),off(g.pip,0,0,0.42),off(lerp(g.pip,g.dip,0.35),0,0,0.32)],0.15);};
+const fdpT=d=>{const g=D[d];return T([off(RET_F,0,-0.2,-0.2),off(lerp(g.base,g.head,0.35),0,0,0.8),off(g.head,0,0,0.6),off(lerp(g.head,g.pip,0.5),0,0,0.45),off(g.pip,0,0,0.36),off(g.dip,0,0,0.32),off(lerp(g.dip,g.tip,0.2),0,0,0.26)],0.14);};
+const extT=(d,start)=>{const g=D[d];return T([start||RET_E,off(lerp(g.base,g.head,0.4),0,0,-0.7),off(g.head,0,0,-0.6),off(g.pip,0,0,-0.45),off(g.dip,0,0,-0.36),off(lerp(g.dip,g.tip,0.15),0,0,-0.3)],0.13);};
+
+M('pec_major','Pectoralis major','shoulder',{Origin:'Clavicular head: medial half of clavicle. Sternocostal head: sternum, costal cartilages 1–6, external oblique aponeurosis',Insertion:'Lateral lip of intertubercular sulcus',Nerve:'Lateral (C5–7) and medial (C8–T1) pectoral nerves',Action:'Adducts and medially rotates the humerus; clavicular head flexes, sternocostal head extends from flexion',note:'Forms the anterior axillary fold. Poland syndrome: congenital absence of the sternocostal head.'},[
+ P([[-14,5.6,4.8],[-6,1.5,5.2],[1.8,-3.6,1.9]],0.95),P([[-9.5,6,4.4],[-3.5,1.8,4.6],[1.8,-3.2,1.8]],0.85),
+ P([[-17.6,3,4.9],[-8,-1.5,4.8],[-2,-3.6,3.8],[1.8,-4.4,1.8]],1.1),P([[-17.8,-3,5.1],[-8.5,-4.5,4.6],[-2.5,-4.8,3.6],[1.7,-5.2,1.7]],1.1),
+ P([[-17.3,-9,5.2],[-10,-8,4.0],[-3,-6.2,3.4],[1.6,-6,1.6]],1.0)]);
+M('pec_minor','Pectoralis minor','shoulder',{Origin:'Ribs 3–5 near their costal cartilages',Insertion:'Medial border and superior surface of coracoid process',Nerve:'Medial pectoral nerve (C8–T1)',Action:'Stabilises the scapula by drawing it anteroinferiorly against the thoracic wall; accessory inspiration',note:'Key landmark dividing the axillary artery into three parts.'},
+ [3,4,5].map(n=>P([ribPt(n,0.75,0.4),lerp(ribPt(n,0.75,0.6),[-3.2,2.6,2.6],0.5),[-3.3,2.5,2.4]],0.55,0,1,0.15)));
+M('subclavius','Subclavius','shoulder',{Origin:'Junction of 1st rib and its costal cartilage',Insertion:'Inferior surface of middle third of clavicle',Nerve:'Nerve to subclavius (C5–6)',Action:'Anchors and depresses the clavicle',note:'Cushions the subclavian vessels in clavicular fracture.'},[P([ribPt(1,1.2,0.3),[-10,5.3,2.8],[-6,5.7,2.0]],0.42)]);
+M('serratus_ant','Serratus anterior','shoulder',{Origin:'External surfaces of lateral parts of ribs 1–8',Insertion:'Anterior (costal) surface of medial border of scapula',Nerve:'Long thoracic nerve (C5–7)',Action:'Protracts the scapula and rotates it upward; holds it against the thoracic wall',note:'Long thoracic nerve injury (e.g. axillary node clearance) causes winging of the scapula, most visible on pushing against a wall.'},
+ [1,2,3,4,5,6,7,8].map(n=>{const t=[0.02,0.06,0.3,0.5,0.84,0.9,0.95,0.99][n-1];return P([ribPt(n,0.35,0.5),ribPt(n,-0.25,0.65),ribPt(n,-0.75,0.6),ant(medBorder(t),0.45)],0.5,0,1,0.18);}));
+M('trapezius','Trapezius','shoulder',{Origin:'Superior nuchal line, external occipital protuberance, ligamentum nuchae, spinous processes C7–T12',Insertion:'Lateral third of clavicle, acromion, spine of scapula',Nerve:'Spinal accessory nerve (CN XI); C3–4 proprioception',Action:'Descending part elevates and upwardly rotates scapula; transverse part retracts; ascending part depresses',note:'CN XI injury in the posterior triangle causes drooping of the shoulder and weak arm abduction above 90°.'},[
+ P([[-19,16,-16],[-12,10.5,-9.5],[-4,6.6,-1.4]],1.0),P([[-19,6.5,-18.5],[-9,5.6,-10],[0.8,5.4,-1.8]],1.15),
+ P([[-19,1,-18.5],[-12,2.8,-12.6],[-5,3.8,-7.4]],1.0),P([[-19,-12,-18.5],[-15,-4,-15],[-12.2,1.6,-12.6]],0.9)]);
+M('lat_dorsi','Latissimus dorsi','shoulder',{Origin:'Spinous processes T7–T12, thoracolumbar fascia, iliac crest, inferior 3–4 ribs, inferior angle of scapula',Insertion:'Floor of intertubercular sulcus',Nerve:'Thoracodorsal nerve (C6–8)',Action:'Extends, adducts and medially rotates the humerus; raises the body toward the arms when climbing',note:'Forms the posterior axillary fold with teres major. Used as a pedicled flap in breast reconstruction.'},[
+ P([[-19,-10,-18.6],[-12,-11,-15],[-6,-8,-10],[-2.6,-4.6,-4],[0.9,-3.2,1.3]],1.0),
+ P([[-19,-20,-18.6],[-12,-16,-15.2],[-7,-10,-10.6],[-3,-5.6,-4.2],[0.8,-3.8,1.2]],1.1),
+ P([[-19,-30,-18],[-11,-24,-14.2],[-7.2,-12,-10.4],[-3.2,-6,-4.4],[0.7,-4.3,1.1]],1.0),
+ P([[-9,-36,-10.4],[-8.4,-24,-11.4],[-6.4,-12,-9.4],[-2.8,-6.5,-3.6],[0.6,-4.8,1.0]],0.9)]);
+M('levator_scap','Levator scapulae','shoulder',{Origin:'Posterior tubercles of transverse processes C1–C4',Insertion:'Medial border of scapula from superior angle to root of spine',Nerve:'Dorsal scapular nerve (C5) and C3–4',Action:'Elevates the scapula and rotates it downward'},[P([[-17.5,17,-12],[-15,11,-12.2],[-12.2,5.4,-11.2]],0.7)]);
+M('rhomboid_min','Rhomboid minor','shoulder',{Origin:'Ligamentum nuchae, spinous processes C7–T1',Insertion:'Medial border of scapula at root of spine',Nerve:'Dorsal scapular nerve (C4–5)',Action:'Retracts and downwardly rotates the scapula'},[P([[-19,7,-17.6],[-15.5,4.4,-13.6],[-12.8,2,-11.9]],0.55)]);
+M('rhomboid_maj','Rhomboid major','shoulder',{Origin:'Spinous processes T2–T5',Insertion:'Medial border of scapula below the spine',Nerve:'Dorsal scapular nerve (C4–5)',Action:'Retracts and downwardly rotates the scapula; fixes it to the thoracic wall'},[
+ P([[-19,4,-17.6],[-15.5,0.6,-14],[-12.7,-1.5,-11.9]],0.6),P([[-19,-1,-17.6],[-15.5,-4.5,-13.8],[-12.2,-8,-11.8]],0.6),P([[-19,-5.5,-17.6],[-14.5,-10,-13.4],[-11.2,-13.6,-11.6]],0.55)]);
+M('deltoid','Deltoid','shoulder',{Origin:'Lateral third of clavicle, acromion, spine of scapula',Insertion:'Deltoid tuberosity of humerus',Nerve:'Axillary nerve (C5–6)',Action:'Anterior fibres flex and medially rotate; middle fibres abduct (15–90°); posterior fibres extend and laterally rotate',note:'Surgical neck fracture or anterior shoulder dislocation can damage the axillary nerve: flattened shoulder contour, weak abduction, numbness over the "regimental badge" area.'},
+ [[[-4,6.2,1.2],[0.4,-2,3.4],[1.8,-7,2.0]],[[-1.8,5.9,0.4],[1.8,-2,2.9],[2.4,-7,1.6]],[[1.8,4.9,-0.3],[3.7,-1.5,0.3],[3.0,-7,0.6]],[[2.2,4.4,-1.7],[3.6,-1.5,-1.2],[3.0,-7,-0.2]],[[-1,4,-4.4],[2.2,-2,-3.6],[2.4,-7,-1.4]],[[-4.5,3.2,-7],[0.6,-2.5,-4.3],[1.8,-7,-1.8]]]
+ .map(p=>P([...p,[2.1,-12,0.5]],1.15,0,1,0.3)));
+M('supraspinatus','Supraspinatus','shoulder',{Origin:'Supraspinous fossa of scapula',Insertion:'Superior facet of greater tubercle',Nerve:'Suprascapular nerve (C5–6)',Action:'Initiates abduction (first 15°); rotator cuff stabiliser',note:'The most commonly torn rotator cuff tendon; impinges beneath the coracoacromial arch (painful arc 60–120°).'},[P([post([-9.5,4.2,-9],0.6),post([-5,3.9,-5.6],0.5),[-0.6,3.3,-1.6],[1.7,2.1,-0.4],[1.9,1.4,-0.2]],0.9,0,0.75)]);
+M('infraspinatus','Infraspinatus','shoulder',{Origin:'Infraspinous fossa',Insertion:'Middle facet of greater tubercle',Nerve:'Suprascapular nerve (C5–6)',Action:'Laterally rotates the arm; rotator cuff stabiliser'},[
+ P([post([-9.5,-3,-10],0.6),post([-5,-0.5,-6],0.6),[0.6,0.2,-3.8],[2.4,0.5,-1.2]],1.1,0,0.82),P([post([-10,-10,-10.6],0.6),post([-5.5,-3,-6.4],0.6),[0.4,-0.4,-3.8],[2.4,0.3,-1.3]],1.0,0,0.82)]);
+M('teres_minor','Teres minor','shoulder',{Origin:'Upper two-thirds of lateral border of scapula',Insertion:'Inferior facet of greater tubercle',Nerve:'Axillary nerve (C5–6)',Action:'Laterally rotates the arm; rotator cuff stabiliser',note:'Superior boundary of the quadrangular space.'},[P([post([-6,-8,-7],0.5),[-2.4,-3.2,-4.2],[0.6,-1.3,-3.0],[2.2,-0.8,-1.5]],0.65,0,0.85)]);
+M('subscapularis','Subscapularis','shoulder',{Origin:'Subscapular fossa (costal surface of scapula)',Insertion:'Lesser tubercle of humerus',Nerve:'Upper and lower subscapular nerves (C5–6)',Action:'Medially rotates the arm; rotator cuff stabiliser',note:'Lift-off test assesses subscapularis.'},[
+ P([ant([-10,2,-10],0.6),ant([-6,1,-6.5],0.7),[-3.4,0.8,-0.6],[-1.2,0.2,1.4],[0.3,-0.1,1.8]],1.05,0,0.8),
+ P([ant([-9,-9,-10],0.6),ant([-5.5,-3,-6.5],0.7),[-3.4,-1.2,-0.6],[-1.2,-0.6,1.3],[0.3,-0.4,1.7]],1.0,0,0.8)]);
+M('teres_major','Teres major','shoulder',{Origin:'Posterior surface of inferior angle of scapula',Insertion:'Medial lip of intertubercular sulcus',Nerve:'Lower subscapular nerve (C5–6)',Action:'Adducts, medially rotates and extends the arm',note:'Inferior boundary of the quadrangular and triangular spaces.'},[P([post([-10,-13.5,-10.5],0.6),[-5.4,-8.6,-5.8],[-1.8,-5.2,-1],[0.4,-4.4,1.3]],1.05,0,0.85)]);
+M('biceps','Biceps brachii','arm',{Origin:'Long head: supraglenoid tubercle. Short head: tip of coracoid process',Insertion:'Radial tuberosity; bicipital aponeurosis into deep fascia of forearm',Nerve:'Musculocutaneous nerve (C5–6)',Action:'Powerful supinator of the forearm; flexes the elbow (best when supinated); weak shoulder flexion',note:'Biceps reflex tests C5–6. Long head rupture gives the "Popeye" bulge.'},[
+ P([[-2.4,1.9,-2],[-0.6,2.7,-0.6],[1.0,0.6,1.9],[1.3,-3,2.2],[1.0,-12,3.4],[0.6,-20,3.6],[0.7,-27.5,2.7],[0.9,-33.2,0.7]],1.25,0.33,0.86,0.22),
+ P([[-3.2,2.6,2.6],[-2,-3,2.9],[-0.7,-12,3.5],[0.0,-20,3.7],[0.5,-27.5,2.7],[0.9,-33.2,0.7]],1.2,0.2,0.84,0.22),
+ T([[0.4,-28.2,2.8],[-1.2,-30.6,2.5],[-2.6,-33.6,1.6]],0.2)]);
+M('coracobrachialis','Coracobrachialis','arm',{Origin:'Tip of coracoid process',Insertion:'Medial surface of middle third of humerus',Nerve:'Musculocutaneous nerve (C5–7)',Action:'Flexes and adducts the arm',note:'Pierced by the musculocutaneous nerve.'},[P([[-3.2,2.4,2.3],[-2.4,-5,1.7],[-1.1,-14,0.8]],0.75,0.08,0.92)]);
+M('brachialis','Brachialis','arm',{Origin:'Distal half of anterior humerus',Insertion:'Coronoid process and tuberosity of ulna',Nerve:'Musculocutaneous (C5–6); small lateral part by radial (C7)',Action:'Main flexor of the elbow in all forearm positions'},[P([[0.4,-13,1.0],[0.3,-21,2.2],[-0.2,-28.5,2.2],[-0.5,-32.4,0.9]],1.45,0,0.86)]);
+M('triceps','Triceps brachii','arm',{Origin:'Long head: infraglenoid tubercle. Lateral head: posterior humerus above radial groove. Medial head: posterior humerus below radial groove',Insertion:'Olecranon of ulna',Nerve:'Radial nerve (C6–8)',Action:'Extends the elbow; long head steadies the abducted humeral head and helps extend/adduct the arm',note:'Triceps reflex tests C7. The long head separates the quadrangular space (lateral) from the triangular space (medial).'},[
+ P([[-3,-2,-3],[-2.2,-8,-3.5],[-1.2,-18,-3.7],[-1.1,-26,-2.7],[-1.2,-29.2,-2.0]],1.3,0.04,0.86),
+ P([[1.6,-5,-1.4],[1.7,-12,-2.9],[0.3,-20,-3.5],[-1.0,-27,-2.5],[-1.2,-29.2,-2.0]],1.2,0.03,0.85),
+ P([[-0.6,-15,-1.3],[-0.6,-21,-2.4],[-1.0,-27,-2.2],[-1.2,-29.2,-1.9]],1.0,0,0.9)]);
+M('anconeus','Anconeus','forearm',{Origin:'Posterior surface of lateral epicondyle',Insertion:'Lateral surface of olecranon and upper posterior ulna',Nerve:'Radial nerve (C7–8)',Action:'Assists elbow extension; stabilises the joint; may abduct the ulna in pronation'},[P([[2.4,-30,-0.8],[0.8,-31.6,-1.7],[-0.9,-34,-1.3]],0.62)]);
+M('pronator_teres','Pronator teres','forearm',{Origin:'Humeral head: medial epicondyle (common flexor origin). Ulnar head: coronoid process',Insertion:'Middle of lateral surface of radius (pronator tuberosity)',Nerve:'Median nerve (C6–7)',Action:'Pronates the forearm; assists elbow flexion',note:'The median nerve passes between its two heads; compression here is pronator syndrome. Forms the medial boundary of the cubital fossa.'},[
+ P([[-3.3,-29,0.4],[-1,-33,2.2],[1.8,-37.5,1.4],[2.5,-40,0.5]],0.85,0,0.82),P([[-0.6,-31.8,1.2],[0.8,-35,1.5],[1.9,-37.8,1.2]],0.4)]);
+M('fcr','Flexor carpi radialis','forearm',{Origin:'Medial epicondyle (common flexor origin)',Insertion:'Bases of 2nd and 3rd metacarpals',Nerve:'Median nerve (C6–7)',Action:'Flexes and abducts (radially deviates) the wrist',note:'Its tendon is a guide to the radial artery at the wrist, which lies just lateral.'},[P([[-3.3,-29.6,0.6],[-1.6,-36,2.2],[0.9,-46,1.9],[1.8,-55,1.3],[2.1,-58.2,1.2],[1.6,-60.2,0.6]],0.8,0.03,0.5,0.17)]);
+M('palmaris_longus','Palmaris longus','forearm',{Origin:'Medial epicondyle (common flexor origin)',Insertion:'Distal flexor retinaculum and palmar aponeurosis',Nerve:'Median nerve (C7–8)',Action:'Weakly flexes the wrist; tenses the palmar aponeurosis',note:'Absent in about 15% of people. Commonly harvested as a tendon graft.'},[
+ P([[-3.3,-29.7,0.8],[-2,-36,2.4],[-0.2,-46,2.0],[0.4,-55,1.7],[0.4,-57.6,1.9]],0.55,0.03,0.4,0.14),
+ ...[[2.0,-64,1.0],[0.4,-64.6,1.0],[-1.3,-64,1.0],[-2.7,-63,0.9]].map(e=>T([[0.4,-57.6,1.9],lerp([0.4,-57.6,1.9],e,0.5),e],0.1))]);
+M('fcu','Flexor carpi ulnaris','forearm',{Origin:'Humeral head: medial epicondyle. Ulnar head: olecranon and posterior border of ulna',Insertion:'Pisiform, hook of hamate, base of 5th metacarpal',Nerve:'Ulnar nerve (C7–T1)',Action:'Flexes and adducts (ulnar deviates) the wrist',note:'The ulnar nerve enters the forearm between its two heads (cubital tunnel).'},[
+ P([[-3.4,-29.8,0],[-3.2,-36,1.0],[-2.8,-46,1.2],[-2.0,-55,1.2],[-1.1,-56.8,1.3]],0.9,0.03,0.72),P([[-1.5,-30,-1.8],[-2.9,-34,0],[-3.1,-38,0.9]],0.6),
+ T([[-1.1,-56.9,1.3],[-1.6,-58.6,1.0],[-2.2,-60,0.4]],0.12)]);
+M('fds','Flexor digitorum superficialis','forearm',{Origin:'Humero-ulnar head: medial epicondyle and coronoid process. Radial head: upper anterior border of radius',Insertion:'Sides of middle phalanges of digits 2–5',Nerve:'Median nerve (C7–T1)',Action:'Flexes PIP joints, then MCP joints and wrist',note:'Test by holding the other fingers straight and asking the patient to flex one finger at the PIP joint.'},[
+ P([[-3.0,-30.5,1.2],[-1.4,-38,1.7],[-0.6,-46,1.7],[0.0,-52,1.4],[0.3,-56.4,1.0]],1.2,0.03,0.72),P([[1.8,-35,1.0],[0.4,-42,1.6],[-0.4,-46,1.5]],0.55),
+ fdsT(2),fdsT(3),fdsT(4),fdsT(5)]);
+M('fdp','Flexor digitorum profundus','forearm',{Origin:'Proximal three-quarters of anterior and medial ulna; interosseous membrane',Insertion:'Bases of distal phalanges of digits 2–5',Nerve:'Medial part (digits 4–5): ulnar nerve (C8–T1). Lateral part (digits 2–3): anterior interosseous nerve (C8–T1)',Action:'Flexes DIP joints, then PIP, MCP and wrist',note:'Its tendons give origin to the lumbricals. Dual innervation explains the "ulnar paradox": a high ulnar lesion causes less clawing than a low one.'},[
+ P([[-1.4,-31.6,-0.2],[-1.6,-40,0.8],[-0.8,-48,1.0],[0,-54,0.8],[0.3,-56.2,0.8]],1.3,0,0.72),fdpT(2),fdpT(3),fdpT(4),fdpT(5)]);
+M('fpl','Flexor pollicis longus','forearm',{Origin:'Anterior surface of radius and interosseous membrane',Insertion:'Base of distal phalanx of thumb',Nerve:'Anterior interosseous nerve (C7–8)',Action:'Flexes the thumb IP joint, then MCP and CMC',note:'With FDP to the index, tested by the "OK" sign. AIN palsy gives a pinch that collapses into a "pinch sign".'},[P([[2.4,-36,0.6],[2.2,-44,0.9],[1.8,-52,0.8],[1.6,-56.4,0.9],[2.6,-59.6,1.5],add(lerp(TH.base,TH.head,0.6),TPAL),add(TH.head,sc(TPAL,1.2)),add(lerp(TH.head,TH.ip,0.6),TPAL),add(TH.ip,sc(TPAL,0.8)),add(lerp(TH.ip,TH.tip,0.2),sc(TPAL,0.6))],0.8,0.02,0.4,0.15)]);
+M('pronator_quad','Pronator quadratus','forearm',{Origin:'Distal quarter of anterior ulna',Insertion:'Distal quarter of anterior radius',Nerve:'Anterior interosseous nerve (C7–8)',Action:'Main pronator of the forearm; binds radius and ulna together'},[P([[-1.9,-50,0.4],[0.4,-51,1.0],[2.6,-50.6,0.7]],0.55,0,1,0.3),P([[-2.0,-52.6,0.4],[0.4,-53.4,1.0],[2.6,-53.2,0.7]],0.5,0,1,0.28)]);
+M('brachioradialis','Brachioradialis','forearm',{Origin:'Upper two-thirds of lateral supracondylar ridge of humerus',Insertion:'Lateral surface of distal radius, just above the styloid',Nerve:'Radial nerve (C5–6)',Action:'Flexes the elbow, strongest with the forearm midprone',note:'Lateral boundary of the cubital fossa. Brachioradialis reflex tests C6.'},[P([[3.0,-22.5,0.2],[3.7,-29,1.3],[3.4,-38,1.5],[3.3,-47,0.8],[3.4,-53.5,0.4]],1.0,0.04,0.64)]);
+M('ecrl','Extensor carpi radialis longus','forearm',{Origin:'Lower third of lateral supracondylar ridge',Insertion:'Dorsal base of 2nd metacarpal',Nerve:'Radial nerve (C6–7)',Action:'Extends and abducts the wrist'},[P([[3.1,-26,-0.3],[3.7,-31,0.2],[3.3,-40,0],[3.1,-50,-0.3],[2.4,-56.5,-0.9],[1.5,-60.2,-0.6]],0.8,0.03,0.5,0.15)]);
+M('ecrb','Extensor carpi radialis brevis','forearm',{Origin:'Lateral epicondyle (common extensor origin)',Insertion:'Dorsal base of 3rd metacarpal',Nerve:'Deep branch of radial nerve (C7–8)',Action:'Extends and abducts the wrist',note:'The origin most involved in lateral epicondylitis ("tennis elbow").'},[P([[2.8,-29.6,-0.4],[3.0,-34,-0.7],[2.8,-44,-0.7],[2.4,-52,-0.6],[1.6,-56.5,-1.0],[0.4,-60.2,-0.7]],0.75,0.03,0.55,0.15)]);
+M('ext_dig','Extensor digitorum','forearm',{Origin:'Lateral epicondyle (common extensor origin)',Insertion:'Extensor expansions of digits 2–5',Nerve:'Posterior interosseous nerve (C7–8)',Action:'Extends digits 2–5 at the MCP joints (and IP joints with the intrinsics); assists wrist extension'},[
+ P([[2.7,-29.8,-0.6],[2.0,-36,-1.7],[1.0,-46,-1.7],[0.5,-53,-1.2],[0.4,-56,-1.3]],1.0,0.02,0.66),extT(2),extT(3),extT(4),extT(5)]);
+M('edm','Extensor digiti minimi','forearm',{Origin:'Lateral epicondyle (common extensor origin)',Insertion:'Extensor expansion of digit 5',Nerve:'Posterior interosseous nerve (C7–8)',Action:'Extends the little finger'},[P([[2.6,-29.9,-0.8],[1.0,-37,-1.9],[-0.6,-46,-1.6],[-1.2,-53,-1.0],[-1.4,-56,-1.1]],0.5,0.03,0.55,0.13),extT(5,[-1.4,-56,-1.1])]);
+M('ecu','Extensor carpi ulnaris','forearm',{Origin:'Lateral epicondyle and posterior border of ulna',Insertion:'Base of 5th metacarpal (medial side)',Nerve:'Posterior interosseous nerve (C7–8)',Action:'Extends and adducts the wrist'},[P([[2.5,-30,-1.0],[0.6,-34,-2.0],[-1.2,-42,-1.5],[-2.0,-50,-0.8],[-2.3,-55,-0.9],[-2.5,-59.9,-0.4]],0.7,0.03,0.66,0.14)]);
+M('supinator','Supinator','forearm',{Origin:'Lateral epicondyle, radial collateral and annular ligaments, supinator crest of ulna',Insertion:'Lateral, posterior and anterior surfaces of proximal third of radius',Nerve:'Deep branch of radial nerve (C5–6)',Action:'Supinates the forearm',note:'The deep radial nerve passes through it (arcade of Frohse) and emerges as the posterior interosseous nerve; a site of entrapment.'},[
+ P([[2.6,-30.5,-0.6],[2.7,-32.6,-0.3],[2.0,-34.6,0.9]],0.55),P([[-0.6,-32.8,-0.8],[1.0,-33.6,-1.4],[2.7,-34.2,-0.3],[1.9,-36.2,0.9]],0.55)]);
+M('apl','Abductor pollicis longus','forearm',{Origin:'Posterior surfaces of ulna and radius, interosseous membrane',Insertion:'Base of 1st metacarpal',Nerve:'Posterior interosseous nerve (C7–8)',Action:'Abducts the thumb at the CMC joint; extends it',note:'APL and EPB share the 1st dorsal compartment: de Quervain tenosynovitis (positive Finkelstein test).'},[P([[-0.8,-38,-0.9],[1.6,-44,-1.5],[3.0,-50,-0.6],[3.6,-54.5,0],[3.6,-57.6,0.5],[3.2,-59.4,0.7]],0.6,0.04,0.56,0.14)]);
+M('epb','Extensor pollicis brevis','forearm',{Origin:'Posterior surface of radius and interosseous membrane',Insertion:'Base of proximal phalanx of thumb',Nerve:'Posterior interosseous nerve (C7–8)',Action:'Extends the thumb at the MCP and CMC joints',note:'Forms the lateral (anterior) border of the anatomical snuffbox with APL.'},[P([[1.6,-44,-0.8],[3.0,-50,-0.9],[3.7,-55,-0.1],[4.0,-59,0.4],add(lerp(TH.base,TH.head,0.6),TDOR),add(TH.head,TDOR),add(lerp(TH.head,TH.ip,0.12),TDOR)],0.45,0.04,0.42,0.12)]);
+M('epl','Extensor pollicis longus','forearm',{Origin:'Middle third of posterior ulna and interosseous membrane',Insertion:'Base of distal phalanx of thumb',Nerve:'Posterior interosseous nerve (C7–8)',Action:'Extends the thumb at all joints',note:'Hooks around the dorsal (Lister) tubercle; can rupture weeks after a distal radius fracture. Medial border of the anatomical snuffbox.'},[P([[-0.8,-42,-0.9],[0.6,-50,-1.3],[1.4,-54.8,-1.2],[2.6,-57.5,-0.6],add(lerp(TH.base,TH.head,0.5),TDOR),add(TH.head,TDOR),add(TH.ip,sc(TDOR,0.8)),add(lerp(TH.ip,TH.tip,0.15),sc(TDOR,0.7))],0.5,0.04,0.38,0.12)]);
+M('ext_ind','Extensor indicis','forearm',{Origin:'Posterior surface of distal ulna and interosseous membrane',Insertion:'Extensor expansion of index finger',Nerve:'Posterior interosseous nerve (C7–8)',Action:'Extends the index finger independently; assists wrist extension'},[P([[-1.2,-46,-0.8],[0.6,-52,-1.3],[1.0,-56,-1.5]],0.45,0.04,0.7,0.12),extT(2,[1.0,-56,-1.5])]);
+M('apb','Abductor pollicis brevis','hand',{Origin:'Flexor retinaculum, tubercles of scaphoid and trapezium',Insertion:'Lateral base of proximal phalanx of thumb',Nerve:'Recurrent branch of median nerve (C8–T1)',Action:'Abducts the thumb',note:'Wasting of APB is an early sign of carpal tunnel syndrome.'},[P([[2.2,-57.6,1.7],[3.6,-60.4,2.6],[4.9,-63.8,2.6]],0.62,0.08,0.92)]);
+M('fpb','Flexor pollicis brevis','hand',{Origin:'Flexor retinaculum and trapezium (superficial head); trapezoid and capitate (deep head)',Insertion:'Base of proximal phalanx of thumb',Nerve:'Superficial head: recurrent branch of median (C8–T1). Deep head: deep branch of ulnar',Action:'Flexes the thumb at the MCP joint'},[P([[1.6,-58.3,1.6],[3.0,-61,2.2],[4.4,-64,2.9]],0.52,0.08,0.92)]);
+M('op','Opponens pollicis','hand',{Origin:'Flexor retinaculum and trapezium',Insertion:'Whole lateral border of 1st metacarpal',Nerve:'Recurrent branch of median nerve (C8–T1)',Action:'Opposes the thumb: rotates and flexes MC1 toward the palm'},[P([[2.4,-58.4,1.25],[3.4,-60.4,1.7],[4.3,-62.4,2.2]],0.5,0.05,0.95)]);
+M('add_pol','Adductor pollicis','hand',{Origin:'Oblique head: capitate and bases of MC2–3. Transverse head: anterior shaft of MC3',Insertion:'Medial base of proximal phalanx of thumb',Nerve:'Deep branch of ulnar nerve (C8–T1)',Action:'Adducts the thumb toward the palm (key pinch)',note:'Froment sign: with adductor weakness (ulnar palsy) the patient flexes the thumb IP joint (FPL) to hold paper.'},[P([[0.2,-59.6,0.8],[2.2,-62,1.6],[4.4,-64.1,2.5]],0.55),P([[0.4,-64.4,0.6],[2.4,-64.6,1.4],[4.4,-64.1,2.5]],0.5)]);
+M('adm','Abductor digiti minimi','hand',{Origin:'Pisiform and FCU tendon',Insertion:'Medial base of proximal phalanx of digit 5',Nerve:'Deep branch of ulnar nerve (C8–T1)',Action:'Abducts the little finger'},[P([[-1.2,-57.3,1.4],[-2.6,-61,1.0],[-3.2,-65.6,0.2]],0.55,0.06,0.92)]);
+M('fdmb','Flexor digiti minimi brevis','hand',{Origin:'Hook of hamate and flexor retinaculum',Insertion:'Medial base of proximal phalanx of digit 5',Nerve:'Deep branch of ulnar nerve (C8–T1)',Action:'Flexes the little finger at the MCP joint'},[P([[-1.7,-58.8,1.4],[-2.4,-62,1.25],[-3.0,-65.6,0.6]],0.45,0.06,0.92)]);
+M('odm','Opponens digiti minimi','hand',{Origin:'Hook of hamate and flexor retinaculum',Insertion:'Medial border of 5th metacarpal',Nerve:'Deep branch of ulnar nerve (C8–T1)',Action:'Draws MC5 forward and rotates it to face the thumb (cupping)'},[P([[-1.7,-58.9,1.1],[-2.4,-61.5,0.75],[-2.8,-63.6,0.3]],0.45,0.05,0.95)]);
+M('palmaris_brevis','Palmaris brevis','hand',{Origin:'Palmar aponeurosis and flexor retinaculum',Insertion:'Skin of medial (ulnar) border of palm',Nerve:'Superficial branch of ulnar nerve (C8–T1)',Action:'Wrinkles the hypothenar skin; deepens the hollow of the palm',note:'Lies superficially over Guyon canal and the ulnar vessels and nerve.'},[P([[-0.4,-59.4,2.0],[-1.8,-59.8,2.05],[-3.0,-60.2,1.7]],0.25)]);
+M('lumbricals','Lumbricals (1–4)','hand',{Origin:'Tendons of flexor digitorum profundus',Insertion:'Lateral (radial) side of extensor expansions of digits 2–5',Nerve:'1st & 2nd: median nerve. 3rd & 4th: deep branch of ulnar nerve (C8–T1)',Action:'Flex the MCP joints while extending the IP joints',note:'Loss of lumbricals 3–4 in ulnar palsy contributes to the claw hand of the ring and little fingers.'},
+ [2,3,4,5].map(d=>{const g=D[d];const s=d===2||d===3?1:-1;const st=off(lerp(g.base,g.head,0.35),0,0,0.8);return P([st,off(g.head,0.55,0,0.45),off(lerp(g.head,g.pip,0.3),0.45,0,0)],0.3,0,1,0.1);}));
+const DIp=[[TH.base,D[2].base,D[2],1],[D[2].base,D[3].base,D[3],1],[D[3].base,D[4].base,D[3],-1],[D[4].base,D[5].base,D[4],-1]];
+M('dorsal_interossei','Dorsal interossei (1–4)','hand',{Origin:'Adjacent sides of two metacarpals (bipennate)',Insertion:'Bases of proximal phalanges and extensor expansions: index lateral, middle both sides, ring medial',Nerve:'Deep branch of ulnar nerve (C8–T1)',Action:'Abduct the fingers from the axis of the middle finger (DAB); flex MCP and extend IP joints',note:'Test with card-spreading or crossing the fingers. The first dorsal interosseous is the prominent web-space muscle that wastes in ulnar palsy.'},
+ [[lerp(TH.base,TH.head,0.4),lerp(D[2].base,D[2].head,0.4),D[2],0.5],[lerp(D[2].base,D[2].head,0.45),lerp(D[3].base,D[3].head,0.45),D[3],0.5],[lerp(D[3].base,D[3].head,0.45),lerp(D[4].base,D[4].head,0.45),D[3],-0.5],[lerp(D[4].base,D[4].head,0.45),lerp(D[5].base,D[5].head,0.45),D[4],-0.5]]
+ .map(([a,b,g,s])=>P([off(lerp(a,b,0.5),0,0,-0.35),off(g.head,s,0,-0.35),off(lerp(g.head,g.pip,0.22),s*0.8,0,-0.2)],0.42,0,1,0.12)));
+M('palmar_interossei','Palmar interossei (1–3)','hand',{Origin:'Palmar surfaces of MC2, MC4 and MC5 (unipennate)',Insertion:'Extensor expansions and proximal phalanges of the same digits (index medial, ring and little lateral)',Nerve:'Deep branch of ulnar nerve (C8–T1)',Action:'Adduct the fingers toward the middle finger (PAD); flex MCP and extend IP joints',note:'Some texts count a fourth palmar interosseous to the thumb.'},
+ [[D[2],-1],[D[4],1],[D[5],1]].map(([g,s])=>P([off(lerp(g.base,g.head,0.4),s*0.35,0,0.35),off(g.head,s*0.5,0,0.25),off(lerp(g.head,g.pip,0.22),s*0.45,0,0.05)],0.36,0,1,0.11)));
+
+/* ---------------- data: ligaments ---------------- */
+const LIGS=[];
+function Lg(id,name,region,info,parts){LIGS.push({id,parts});reg(id,'ligament',name,region,info);}
+const RB_=(pts,w,side,th)=>({rib:true,pts,w,side,th:th||0.18});
+const TB=(pts,r)=>({pts,r:r||0.2});
+Lg('sc_ligs','Sternoclavicular & costoclavicular ligaments','shoulder',{Attachments:'Anterior/posterior SC ligaments: clavicle to manubrium. Costoclavicular: inferior clavicle to 1st rib and cartilage. Interclavicular: between the clavicles',Function:'Main stabilisers of the SC joint; costoclavicular ligament is the fulcrum of clavicular movement',note:'So strong that the clavicle usually fractures before the SC joint dislocates.'},[TB([[-17,5.8,3.4],[-18.6,4.6,3.6]],0.22),TB([[-15.6,4.6,2.4],ribPt(1,1.25,0.1)],0.25),TB([[-17.6,6,2.4],[-19,6.3,1.8]],0.15)]);
+Lg('ac_lig','Acromioclavicular ligament','shoulder',{Attachments:'Superior and inferior surfaces from acromion to lateral clavicle',Function:'Horizontal stability of the AC joint',note:'Graded AC separations: type I sprain of the AC ligament; type III adds rupture of the coracoclavicular ligament with a visible step.'},[RB_([[0.0,5.9,-0.5],[1.3,5.3,-1.2]],0.7,[0,0,1],0.15)]);
+Lg('cc_lig','Coracoclavicular ligament','shoulder',{Attachments:'Conoid part: coracoid base to conoid tubercle. Trapezoid part: upper coracoid to trapezoid line',Function:'Suspends the scapula (and limb) from the clavicle; main vertical stabiliser of the AC joint',note:'Torn in type III and higher AC separations.'},[TB([[-4.0,3.2,0.0],[-4.4,5.9,1.0]],0.26),TB([[-3.3,3.2,1.4],[-2.6,6.0,0.8]],0.28)]);
+Lg('ca_lig','Coracoacromial ligament','shoulder',{Attachments:'Coracoid process to acromion',Function:'With the acromion and coracoid forms the coracoacromial arch, preventing superior displacement of the humeral head',note:'Supraspinatus tendon and subacromial bursa pass beneath it; the site of impingement.'},[RB_([[-3.2,3.2,2.1],[-1,4.5,1.0],[1.4,4.7,-0.2]],0.9,[0,0,1],0.14)]);
+Lg('ch_lig','Coracohumeral ligament','shoulder',{Attachments:'Lateral base of coracoid to greater and lesser tubercles',Function:'Strengthens the superior capsule; resists inferior translation and external rotation in adduction',note:'Thickened and contracted in adhesive capsulitis (frozen shoulder).'},[RB_([[-2.9,3.0,1.0],[-0.6,2.6,0.8],[1.4,1.8,0.6]],0.6,[0,0,1],0.14)]);
+Lg('gh_ligs','Glenohumeral ligaments','shoulder',{Attachments:'Superior, middle and inferior bands from anterior glenoid rim/labrum to the anatomical neck and lesser tubercle',Function:'Thickenings of the anterior capsule; the inferior band resists anterior dislocation in abduction and external rotation',note:'Anterior (Bankart) lesions tear the labrum and inferior GH ligament off the glenoid.'},[TB([[-2.4,1.4,-1.4],[-1,1.4,0.6],[0.2,0.6,1.6]],0.17),TB([[-2.1,0,-1.0],[-1,-0.2,0.9],[0.4,-0.7,1.7]],0.17),TB([[-2.7,-1.7,-1.8],[-1.6,-2.6,-0.2],[0.2,-2.4,0.8]],0.2)]);
+Lg('labrum','Glenoid labrum','shoulder',{Attachments:'Fibrocartilaginous rim around the glenoid cavity; blends with the long head of biceps superiorly',Function:'Deepens the shallow glenoid by about 50% and adds a suction seal',note:'SLAP lesion: superior labrum anterior to posterior tear at the biceps anchor.'},[{torus:{c:[-2.45,0,-2.25],R:1.35,r:0.16,sy:1.45,rotY:-0.72}}]);
+Lg('tr_hum','Transverse humeral ligament','shoulder',{Attachments:'Bridges the intertubercular sulcus between greater and lesser tubercles',Function:'Holds the long head of biceps tendon in the sulcus'},[RB_([[0.5,-0.6,2.0],[1.2,-0.6,2.2],[1.9,-0.6,1.7]],0.5,[0,1,0],0.12)]);
+Lg('sts_lig','Superior transverse scapular ligament','shoulder',{Attachments:'Bridges the suprascapular notch',Function:'Converts the notch into a foramen for the suprascapular nerve',note:'Suprascapular artery runs above it, nerve below ("army over the bridge, navy under").'},[TB([[-6.9,4.9,-7.2],[-5.6,4.9,-5.9]],0.13)]);
+Lg('ucl','Ulnar collateral ligament (elbow)','arm',{Attachments:'Medial epicondyle to coronoid (anterior band) and olecranon (posterior band); transverse band joins them',Function:'Resists valgus stress at the elbow',note:'Anterior band is torn in throwing athletes; reconstruction is "Tommy John" surgery.'},[TB([[-3.3,-29.9,0.4],[-2.2,-30.9,0.8],[-1.2,-31.8,0.9]],0.22),TB([[-3.4,-30.1,-0.6],[-2.5,-30.4,-1.4],[-1.6,-30.3,-1.7]],0.2),TB([[-1.5,-30.5,-1.5],[-1.4,-31.2,-0.4],[-1.3,-31.7,0.6]],0.14)]);
+Lg('rcl','Radial collateral ligament (elbow)','arm',{Attachments:'Lateral epicondyle to annular ligament (and lateral ulnar collateral band to supinator crest)',Function:'Resists varus stress; the lateral ulnar collateral band prevents posterolateral rotatory instability'},[RB_([[2.7,-30,0.1],[2.6,-30.8,0.1],[2.55,-31.3,0.1]],0.7,[0,0,1],0.14),TB([[2.6,-30.2,-0.5],[1.6,-32.2,-1.1],[-0.4,-33,-0.9]],0.13)]);
+Lg('annular','Annular ligament','forearm',{Attachments:'Anterior and posterior margins of the radial notch of the ulna, encircling the radial head',Function:'Holds the radial head against the ulna while it rotates in pronation and supination',note:'Pulled elbow (nursemaid elbow): in young children a sudden pull on the hand slips the radial head partly out of the annular ligament.'},[{torus:{c:[1.6,-31.55,0],R:1.08,r:0.2,sy:1}}]);
+Lg('quadrate','Quadrate ligament','forearm',{Attachments:'Lower border of radial notch of ulna to neck of radius',Function:'Limits spin of the radial head; reinforces the inferior capsule'},[RB_([[-0.4,-32.2,0.3],[1.2,-32.4,0.4]],0.5,[0,1,0],0.12)]);
+Lg('iom','Interosseous membrane','forearm',{Attachments:'Interosseous borders of radius and ulna; fibres run inferomedially from radius to ulna',Function:'Transfers load from radius (which receives force from the hand) to ulna (which forms the elbow); gives origin to deep forearm muscles; separates anterior and posterior compartments'},[RB_([[0.6,-35.4,0.1],[0.5,-44,0.1],[0.3,-52,0.1]],2.6,[1,0,0],0.08)]);
+Lg('tfcc','Triangular fibrocartilage complex','hand',{Attachments:'Articular disc from the ulnar notch of the radius to the base of the ulnar styloid, with dorsal and palmar radioulnar ligaments',Function:'Main stabiliser of the distal radioulnar joint; cushions the ulnar side of the wrist',note:'TFCC tears cause ulnar-sided wrist pain, especially with ulnar deviation and rotation.'},[{ell:{c:[-1.3,-55.6,-0.1],s:[0.9,0.18,0.75]}}]);
+Lg('palmar_rc','Palmar radiocarpal ligaments','hand',{Attachments:'Anterior distal radius to scaphoid, lunate and capitate (radioscaphocapitate, long and short radiolunate)',Function:'Strong anterior wrist ligaments; carry the hand with the radius in supination',note:'The space of Poirier between them is a weak zone where perilunate dislocations occur.'},[RB_([[2.0,-55,1.0],[1.0,-56.6,1.0],[0.2,-58.2,0.85]],0.6,[0.5,0,1],0.12),RB_([[0.8,-55,0.95],[0.5,-56.6,1.0]],0.55,[1,0,0],0.12)]);
+Lg('dorsal_rc','Dorsal radiocarpal ligament','hand',{Attachments:'Posterior distal radius to lunate and triquetrum',Function:'Keeps the carpus moving with the radius during pronation'},[RB_([[2.2,-54.9,-0.9],[0.6,-56.0,-0.95],[-0.8,-56.9,-0.75]],0.65,[0,1,0],0.12)]);
+Lg('wrist_coll','Collateral ligaments of wrist','hand',{Attachments:'Radial: radial styloid to scaphoid. Ulnar: ulnar styloid to triquetrum and pisiform',Function:'Limit abduction and adduction of the wrist'},[TB([[3.4,-55.4,0.1],[2.7,-56.5,0.3]],0.17),TB([[-2.5,-55.3,-0.5],[-1.3,-56.8,0.2]],0.17)]);
+Lg('flex_ret','Flexor retinaculum','hand',{Attachments:'Pisiform and hook of hamate (medially) to scaphoid and trapezium tubercles (laterally)',Function:'Roofs the carpal tunnel; acts as a pulley for the long flexor tendons',note:'Carpal tunnel contains the median nerve and 9 tendons (4 FDS, 4 FDP, FPL). FCR passes in a separate split. Division of the retinaculum is carpal tunnel release.'},[RB_([[-1.5,-57.9,1.55],[-0.6,-58,2.0],[0.6,-58,2.15],[1.8,-58,2.0],[2.6,-58.1,1.6]],1.3,[0,1,0],0.16)]);
+Lg('ext_ret','Extensor retinaculum','hand',{Attachments:'Distal anterolateral radius to triquetrum and pisiform',Function:'Holds the extensor tendons in six dorsal compartments',note:'Compartments (lateral → medial): 1 APL/EPB, 2 ECRL/ECRB, 3 EPL, 4 ED/EI, 5 EDM, 6 ECU.'},[RB_([[3.5,-54.2,-0.2],[2.4,-54.8,-1.4],[0.6,-55.2,-1.75],[-1.2,-55.6,-1.45],[-2.5,-55.9,-0.6]],1.4,[0,1,0],0.15)]);
+Lg('dtml','Deep transverse metacarpal ligaments','hand',{Attachments:'Join the palmar plates of the MCP joints of digits 2–5',Function:'Tie the metacarpal heads together; lumbricals pass anterior and interossei posterior to them'},[RB_([[2.1,-66.3,0.55],[0.4,-66.8,0.55],[-1.3,-66.3,0.55],[-2.85,-65.4,0.5]],0.5,[0,1,0],0.12)]);
+Lg('digit_coll','Collateral ligaments & palmar plates (digits)','hand',{Attachments:'Collaterals: sides of each metacarpal/phalangeal head to the base of the next bone. Palmar plates: fibrocartilage on the palmar side of MCP and IP joints',Function:'Collaterals resist sideways stress (taut in MCP flexion); palmar plates prevent hyperextension',note:'Gamekeeper (skier) thumb: rupture of the ulnar collateral ligament of the thumb MCP joint.'},
+ (()=>{const out=[];[2,3,4,5].forEach(d=>{const g=D[d];[[g.head,g.pip,0.42],[g.pip,g.dip,0.36],[g.dip,g.tip,0.3]].forEach(([j,n,w])=>{[-1,1].forEach(s=>out.push(TB([off(j,s*w,0.35,0),off(j,s*w*0.95,-0.45,0.05)],0.09)));out.push({ell:{c:off(j,0,-0.05,w*1.05),s:[w*0.75,0.35,0.1]}});});});
+ [[TH.head,0.46],[TH.ip,0.38]].forEach(([j,w])=>{[-1,1].forEach(s=>out.push(TB([off(j,s*w*0.8,0.35,s*-w*0.4),off(j,s*w*0.8,-0.45,s*-w*0.4)],0.09)));});return out;})());
+
+/* ---------------- data: joints ---------------- */
+const JOINTS=[];
+function J(id,name,region,info,ells){JOINTS.push({id,ells});reg(id,'joint',name,region,info);}
+J('j_sc','Sternoclavicular joint','shoulder',{Type:'Synovial saddle joint with an articular disc',Surfaces:'Sternal end of clavicle; clavicular notch of manubrium and 1st costal cartilage',Movements:'Elevation/depression, protraction/retraction, rotation of clavicle',Ligaments:'Anterior and posterior SC, interclavicular, costoclavicular',Nerve:'Medial supraclavicular nerve; nerve to subclavius',note:'The only bony joint between the upper limb and the axial skeleton.'},[[[-17.6,5.2,2.4],[0.85,0.9,0.85]]]);
+J('j_ac','Acromioclavicular joint','shoulder',{Type:'Synovial plane joint (often with an incomplete disc)',Surfaces:'Acromial end of clavicle; medial margin of acromion',Movements:'Gliding and rotation accompanying scapular movement',Ligaments:'Acromioclavicular, coracoclavicular (conoid and trapezoid)',Nerve:'Suprascapular, lateral pectoral, axillary'},[[[0.7,5.3,-0.9],[0.55,0.55,0.55]]]);
+J('j_gh','Glenohumeral (shoulder) joint','shoulder',{Type:'Synovial ball-and-socket joint',Surfaces:'Head of humerus; glenoid cavity deepened by labrum',Movements:'Flexion/extension, abduction/adduction, medial/lateral rotation, circumduction',Ligaments:'Glenohumeral (sup/mid/inf), coracohumeral, transverse humeral; rotator cuff provides dynamic stability',Nerve:'Suprascapular, axillary, lateral pectoral',note:'Most mobile and most frequently dislocated large joint. Over 95% of dislocations are anterior-inferior, where the capsule is weakest.'},[[[-1.5,0,-1.7],[1.25,1.9,1.4]]]);
+J('j_st','Scapulothoracic articulation','shoulder',{Type:'Physiological (functional) joint, not a true joint',Surfaces:'Costal surface of scapula gliding on serratus anterior over the thoracic wall',Movements:'Elevation/depression, protraction/retraction, upward/downward rotation',note:'Scapulohumeral rhythm: about 2° of glenohumeral motion for every 1° of scapular rotation during abduction.'},[[[-9.5,-4.5,-10.6],[2.8,5.5,0.9]]]);
+J('j_elbow','Elbow joint','arm',{Type:'Synovial hinge joint (humeroulnar and humeroradial)',Surfaces:'Trochlea with trochlear notch of ulna; capitulum with head of radius',Movements:'Flexion and extension',Ligaments:'Ulnar and radial collateral ligaments',Nerve:'Musculocutaneous, radial, median and ulnar (Hilton law)',note:'Carrying angle is about 10–15° (larger in females). Supracondylar fracture is the most common elbow fracture in children.'},[[[-0.1,-30.7,0.3],[2.4,0.95,1.1]]]);
+J('j_pru','Proximal radioulnar joint','forearm',{Type:'Synovial pivot joint',Surfaces:'Head of radius; radial notch of ulna and annular ligament',Movements:'Pronation and supination',Ligaments:'Annular, quadrate',Nerve:'Musculocutaneous, median, radial'},[[[0.9,-31.6,0.15],[0.55,0.55,0.6]]]);
+J('j_dru','Distal radioulnar joint','hand',{Type:'Synovial pivot joint',Surfaces:'Head of ulna; ulnar notch of radius',Movements:'Pronation and supination (radius rotates around the ulnar head)',Ligaments:'Dorsal and palmar radioulnar ligaments, articular disc (TFCC)',Nerve:'Anterior and posterior interosseous nerves'},[[[-1.0,-54.5,-0.05],[0.5,0.7,0.6]]]);
+J('j_rc','Radiocarpal (wrist) joint','hand',{Type:'Synovial condyloid (ellipsoid) joint',Surfaces:'Distal radius and articular disc; scaphoid, lunate and triquetrum',Movements:'Flexion/extension, abduction/adduction, circumduction',Ligaments:'Palmar and dorsal radiocarpal, radial and ulnar collateral',Nerve:'Anterior interosseous (median), posterior interosseous (radial), dorsal and deep branches of ulnar',note:'Adduction (ulnar deviation) is greater than abduction because the ulna does not reach the carpus.'},[[[0.9,-55.8,0.1],[2.2,0.4,0.95]]]);
+J('j_mc','Midcarpal joint','hand',{Type:'Synovial; complex plane/condyloid joint between proximal and distal carpal rows',Movements:'Contributes substantially to wrist flexion and abduction',note:'Most wrist extension occurs at the radiocarpal joint; much flexion occurs here.'},[[[0.6,-57.6,0.2],[2.2,0.35,0.85]]]);
+J('j_cmc1','1st carpometacarpal joint','hand',{Type:'Synovial saddle joint',Surfaces:'Trapezium; base of 1st metacarpal',Movements:'Flexion/extension, abduction/adduction, opposition (with rotation)',Nerve:'Median, radial, ulnar branches',note:'Very common site of osteoarthritis in older adults.'},[[[3.0,-59.1,0.85],[0.55,0.5,0.55]]]);
+J('j_cmc','Carpometacarpal joints 2–5','hand',{Type:'Synovial plane joints',Movements:'Minimal at 2–3; increasing gliding at 4–5 to cup the palm'},[1.35,0.15,-1.25,-2.4].map((x,i)=>[[x,-59.55,0],[0.42,0.25,0.42]]));
+J('j_mcp','Metacarpophalangeal joints','hand',{Type:'Synovial condyloid joints (thumb MCP acts mainly as a hinge)',Movements:'Flexion/extension, abduction/adduction, circumduction (fingers)',Ligaments:'Collateral ligaments (taut in flexion), palmar plates, deep transverse metacarpal',note:'Immobilise MCPs in flexion so the collateral ligaments stay at full length and do not contract.'},[...[2,3,4,5].map(d=>[off(D[d].head,0,-0.25,0),[0.48,0.4,0.48]]),[off(TH.head,0.08,-0.15,0.1),[0.52,0.42,0.52]]]);
+J('j_ip','Interphalangeal joints','hand',{Type:'Synovial hinge joints (PIP and DIP in fingers; single IP in thumb)',Movements:'Flexion and extension',Ligaments:'Collateral ligaments and palmar plates',note:'Heberden nodes (DIP) and Bouchard nodes (PIP) are bony swellings of osteoarthritis.'},[...[2,3,4,5].flatMap(d=>[[D[d].pip,[0.42,0.32,0.42]],[D[d].dip,[0.36,0.28,0.36]]]),[TH.ip,[0.44,0.34,0.44]]]);
+
+/* ---------------- data: nerves ---------------- */
+const NERVES=[];
+function N(id,name,region,info,parts){NERVES.push({id,parts});reg(id,'nerve',name,region,info);}
+const roots={C5:[-17.5,13.6,-6.6],C6:[-17.6,11.8,-6.8],C7:[-17.6,10,-7],C8:[-17.6,8.2,-7],T1:[-17.4,6.6,-6.7]};
+const trunk={U:[-13.4,10.6,-4.6],M:[-13.4,9.0,-4.8],L:[-13.2,7.0,-4.8]};
+const cord={lat:[-5.5,2.1,0.6],post:[-5.5,1.4,-1.0],med:[-5.5,0.6,-0.2]};
+const NP=(pts,r)=>({pts,r:r||0.2});
+N('plexus','Brachial plexus (roots → cords)','shoulder',{Roots:'Anterior rami of C5–T1',Course:'Roots and trunks in the posterior triangle of the neck; divisions behind the clavicle; cords in the axilla named by their relation to the axillary artery',Branches:'Roots: dorsal scapular, long thoracic. Upper trunk: suprascapular, nerve to subclavius. Cords: pectoral, subscapular, thoracodorsal and the five terminal nerves',note:'Mnemonic: "Randy Travis Drinks Cold Beer" (roots, trunks, divisions, cords, branches). Erb palsy (C5–6): "waiter tip". Klumpke palsy (C8–T1): claw hand ± Horner syndrome.'},[
+ NP([roots.C5,lerp(roots.C5,trunk.U,0.5),trunk.U],0.22),NP([roots.C6,lerp(roots.C6,trunk.U,0.5),trunk.U],0.22),NP([roots.C7,trunk.M],0.22),NP([roots.C8,lerp(roots.C8,trunk.L,0.5),trunk.L],0.22),NP([roots.T1,lerp(roots.T1,trunk.L,0.5),trunk.L],0.22),
+ NP([trunk.U,[-9,6.2,-1.6],cord.lat],0.2),NP([trunk.M,[-9,5.6,-1.8],cord.lat],0.18),NP([trunk.U,[-9,5.6,-3],cord.post],0.18),NP([trunk.M,[-9,5,-3],cord.post],0.18),NP([trunk.L,[-9,4.4,-2.8],cord.post],0.18),NP([trunk.L,[-9,3.6,-1.6],cord.med],0.22)]);
+N('n_musc','Musculocutaneous nerve','arm',{Roots:'C5–7 (lateral cord)',Course:'Pierces coracobrachialis, descends between biceps and brachialis, emerges lateral to the biceps tendon as the lateral cutaneous nerve of the forearm',Motor:'Coracobrachialis, biceps brachii, brachialis',Sensory:'Lateral forearm',note:'Isolated injury is rare: weak elbow flexion and supination, absent biceps reflex.'},[NP([cord.lat,[-3.5,-1,1.5],[-2.2,-5,1.9],[-0.5,-14,2.4],[0.6,-24,2.5],[1.7,-29,2.3],[2.6,-38,2.0],[3.0,-50,1.5]],0.2)]);
+N('n_median','Median nerve','arm',{Roots:'C6–T1 (lateral and medial roots from lateral and medial cords)',Course:'With the brachial artery down the arm; medial to the biceps tendon in the cubital fossa; between the heads of pronator teres; between FDS and FDP; through the carpal tunnel',Motor:'Most forearm flexors (PT, FCR, PL, FDS; via AIN: FPL, lateral FDP, PQ); thenar muscles (APB, FPB, OP) and lumbricals 1–2',Sensory:'Palmar lateral 3½ digits and their nail beds; lateral palm (palmar cutaneous branch, which spares the carpal tunnel)',note:'Carpal tunnel syndrome spares palm sensation. High lesions give the "hand of benediction" when trying to make a fist; low lesions give "ape hand" (thenar wasting).'},[
+ NP([cord.lat,[-4.6,-0.6,0.9],[-3.6,-2.4,0.9]],0.2),NP([cord.med,[-4.6,-1,0.4],[-3.6,-2.4,0.9]],0.2),
+ NP([[-3.6,-2.4,0.9],[-2.5,-10,1.7],[-2.0,-20,1.9],[-1.2,-29,2.1],[-0.6,-33,1.5],[-0.2,-42,1.35],[0.3,-52,1.25],[0.4,-57.6,1.35],[0.6,-60,1.45]],0.28),
+ NP([[0.6,-60,1.45],[1.8,-60.2,2.0],[3.0,-60.4,2.45]],0.12),
+ ...[add(TH.tip,TPAL),off(D[2].tip,0,0,0.38),off(D[3].tip,0,0,0.38),off(D[4].tip,0.35,0,0.38)].map((tip,i)=>{const via=i===0?add(lerp(TH.base,TH.head,0.7),sc(TPAL,1.5)):off(D[[0,2,3,4][i]].head,i===3?0.5:-0.5,0,0.65);return NP([[0.6,-60,1.45],via,tip],0.1);})]);
+N('n_ain','Anterior interosseous nerve','forearm',{Roots:'C7–8 (branch of median)',Course:'Arises from the median nerve below the elbow; runs on the interosseous membrane between FPL and FDP to pronator quadratus',Motor:'Flexor pollicis longus, lateral half of FDP (digits 2–3), pronator quadratus',Sensory:'None to skin (articular branches to wrist)',note:'AIN palsy: cannot make an "OK" sign; makes a flat pinch instead. No sensory loss.'},[NP([[-0.5,-35,1.4],[0.4,-40,0.6],[0.4,-48,0.4],[0.6,-51,0.75]],0.14)]);
+N('n_ulnar','Ulnar nerve','arm',{Roots:'C8–T1 (medial cord, ± C7)',Course:'Medial arm; pierces medial intermuscular septum; behind the medial epicondyle (cubital tunnel); between heads of FCU; under FCU to the wrist; through Guyon canal lateral to the pisiform, then splits into superficial and deep branches',Motor:'FCU, medial half FDP; hypothenar muscles, interossei, lumbricals 3–4, adductor pollicis, deep head of FPB, palmaris brevis',Sensory:'Medial 1½ digits (palmar and dorsal) and medial hand',note:'"Funny bone". Ulnar claw (ring and little fingers): hyperextended MCP, flexed IP joints. Positive Froment sign; wasting of the 1st dorsal interosseous.'},[
+ NP([cord.med,[-4,-3,-0.6],[-3.2,-12,-0.4],[-3.4,-22,-1.0],[-3.65,-29.6,-1.35],[-3.0,-33,0.0],[-2.6,-42,0.85],[-2.0,-52,1.15],[-0.9,-57.3,1.65],[-0.9,-59,1.55]],0.26),
+ NP([[-0.9,-59,1.55],[-1.6,-60.2,1.0],[0,-61.6,0.4],[2.2,-62.6,0.7]],0.12),
+ NP([[-0.9,-59,1.55],[-2.4,-63,1.2],off(D[5].tip,0,0,0.38)],0.1),NP([[-0.9,-59,1.55],off(D[4].head,-0.5,0,0.7),off(D[4].tip,-0.35,0,0.38)],0.1),
+ NP([[-2.4,-48,0.6],[-2.9,-54,-0.6],[-2.6,-60,-1.0],off(D[5].pip,0,0,-0.4)],0.1)]);
+N('n_radial','Radial nerve','arm',{Roots:'C5–T1 (posterior cord)',Course:'Through the triangular interval; spirals in the radial groove with the profunda brachii; pierces the lateral intermuscular septum; divides anterior to the lateral epicondyle into superficial and deep (posterior interosseous) branches',Motor:'Triceps, anconeus, brachioradialis, ECRL (and ECRB/supinator via deep branch); posterior forearm via PIN',Sensory:'Posterior arm and forearm; dorsum of lateral hand and lateral 3½ digits (proximal to nail beds). Autonomous zone: first dorsal web space',note:'Midshaft humeral fracture or "Saturday night palsy" causes wrist drop with sparing of triceps. Axillary (crutch) injury also weakens triceps.'},[
+ NP([cord.post,[-3.2,-3,-2.2],[-1.6,-7,-2.75],[0.2,-12,-2.1],[1.8,-16,-1.5],[2.65,-20,-0.4],[2.4,-24,0.85],[2.0,-28.5,1.45],[1.9,-30.8,1.35]],0.26),
+ NP([[1.9,-30.8,1.35],[2.8,-38,1.35],[3.4,-48,0.85],[3.4,-54,-0.45],[2.6,-59,-1.15],[2.2,-62,-1.0]],0.13)]);
+N('n_pin','Posterior interosseous nerve','forearm',{Roots:'C7–8 (deep branch of radial)',Course:'Winds around the radial neck through supinator (arcade of Frohse) into the posterior compartment, descends on the interosseous membrane',Motor:'Supinator (deep branch), ED, EDM, ECU, APL, EPB, EPL, extensor indicis',Sensory:'None to skin (articular branches to the wrist)',note:'PIN palsy causes finger drop but the wrist still extends (with radial deviation, because ECRL is spared).'},[NP([[1.9,-30.8,1.35],[2.65,-32.6,0.6],[2.75,-34,-0.6],[1.6,-36,-1.45],[0.8,-42,-1.45],[0.6,-50,-1.25],[0.8,-54,-1.05]],0.16)]);
+N('n_axillary','Axillary nerve','shoulder',{Roots:'C5–6 (posterior cord)',Course:'Through the quadrangular space with the posterior circumflex humeral artery; winds around the surgical neck of the humerus',Motor:'Deltoid, teres minor',Sensory:'Skin over the lower deltoid via the superior lateral cutaneous nerve of the arm',note:'At risk in surgical neck fractures and anterior shoulder dislocation; test sensation over the "regimental badge" area.'},[NP([cord.post,[-3.4,-2.2,-2.4],[-1.6,-4,-3.3],[0.8,-4.4,-2.9],[2.7,-3.6,-0.8],[2.9,-3.4,1.0]],0.2),NP([[2.2,-4,-2.2],[3.7,-8,-0.6]],0.1)]);
+N('n_suprascap','Suprascapular nerve','shoulder',{Roots:'C5–6 (upper trunk)',Course:'Across the posterior triangle; through the suprascapular notch below the superior transverse scapular ligament; around the spinoglenoid notch',Motor:'Supraspinatus, infraspinatus',Sensory:'Articular branches to shoulder and AC joints',note:'Compression at the spinoglenoid notch (e.g. ganglion cyst) weakens infraspinatus alone.'},[NP([trunk.U,[-9,7,-5.6],[-6.2,4.5,-6.6],post([-4.6,3.2,-5.8],0.3),post([-3.6,1.5,-4.6],0.3),post([-5.2,-2.6,-6.8],0.4)],0.16)]);
+N('n_longthor','Long thoracic nerve','shoulder',{Roots:'C5–7 (roots)',Course:'Behind the plexus, descends on the external surface of serratus anterior along the lateral chest wall',Motor:'Serratus anterior',Sensory:'None',note:'Superficial position makes it vulnerable in axillary surgery and with heavy backpacks: winged scapula.'},[NP([roots.C5,[-15,9,-7.2]],0.1),NP([roots.C6,[-15,9,-7.2]],0.1),NP([roots.C7,[-15,9,-7.2]],0.1),NP([[-15,9,-7.2],[-12,3,-6],ribPt(4,-0.05,0.8),ribPt(6,-0.05,0.8),ribPt(8,-0.05,0.8)],0.15)]);
+N('n_thoracodorsal','Thoracodorsal nerve','shoulder',{Roots:'C6–8 (posterior cord)',Course:'Along the posterior axillary wall with the thoracodorsal artery to the deep surface of latissimus dorsi',Motor:'Latissimus dorsi',Sensory:'None',note:'Preserved during axillary dissection; must be intact for a latissimus flap to keep its bulk.'},[NP([cord.post,[-4.6,-2,-3.8],[-5.8,-8,-7.8],[-7.2,-14,-9.8]],0.14)]);
+N('n_dorsalscap','Dorsal scapular nerve','shoulder',{Roots:'C5 (root)',Course:'Pierces scalenus medius; runs deep to levator scapulae and the rhomboids along the medial border of the scapula',Motor:'Rhomboid major, rhomboid minor, levator scapulae (with C3–4)',Sensory:'None'},[NP([roots.C5,[-16.5,10,-10.5],[-14,4,-12.8],[-13.6,-6,-12.8],[-12.4,-12,-12.2]],0.12)]);
+N('n_pectoral','Lateral & medial pectoral nerves','shoulder',{Roots:'Lateral: C5–7 (lateral cord). Medial: C8–T1 (medial cord)',Course:'Lateral pectoral pierces the clavipectoral fascia; medial pectoral pierces pectoralis minor',Motor:'Lateral: pectoralis major. Medial: pectoralis minor and sternocostal pectoralis major',Sensory:'None',note:'Named for the cords they arise from, not their position: the medial pectoral nerve lies lateral to the lateral one.'},[NP([cord.lat,[-6.6,1.6,2.6],[-8,0,4.0]],0.11),NP([cord.med,[-5,-1,2.2],[-5,-3,3.9]],0.11)]);
+N('n_subscap','Upper & lower subscapular nerves','shoulder',{Roots:'C5–6 (posterior cord)',Course:'Run on the anterior surface of subscapularis',Motor:'Upper: subscapularis. Lower: subscapularis and teres major',Sensory:'None'},[NP([cord.post,[-5.4,-0.4,-3.4],ant([-6.5,0,-7.2],0.9)],0.1),NP([cord.post,[-5,-3,-3.4],ant([-6.5,-7,-7.8],0.9)],0.1)]);
+
+/* ---------------- three.js scene ---------------- */
+const stage=document.getElementById('stage'), canvas=document.getElementById('cv');
+if(!window.THREE||!THREE.OrbitControls){document.getElementById('loading').textContent='The 3D library did not load. Check your connection and reload.';return;}
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
+
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(32,1,0.5,1000);
+scene.add(camera);
+scene.add(new THREE.HemisphereLight(0xffffff,0x40484c,0.75));
+const key=new THREE.DirectionalLight(0xffffff,0.85);key.position.set(40,60,80);camera.add(key);
+const rim=new THREE.DirectionalLight(0xbfd8ff,0.35);rim.position.set(-60,-20,-40);camera.add(rim);
+const controls=new THREE.OrbitControls(camera,canvas);
+controls.enableDamping=true;controls.dampingFactor=0.09;controls.minDistance=6;controls.maxDistance=260;controls.rotateSpeed=0.8;
+
+const groups={};Object.keys(LAYERS).forEach(k=>{groups[k]=new THREE.Group();scene.add(groups[k]);});
+const ctxGroup=new THREE.Group();scene.add(ctxGroup);
+
+/* geometry builders */
+function sweep(pts,R,ring,density){
+  const vs=pts.map(V);
+  const curve=new THREE.CatmullRomCurve3(vs,false,'centripetal',0.5);
+  const len=curve.getLength();
+  const L=Math.min(90,Math.max(6,Math.round(len*(density||2.2))));
+  const fr=curve.computeFrenetFrames(L,false);
+  const pos=[],col=[],idx=[];
+  for(let i=0;i<=L;i++){const t=i/L;const Pp=curve.getPointAt(t);const r=ring(t,Pp,fr.normals[i],fr.binormals[i],fr.tangents[i]);
+    r.pts.forEach(q=>{pos.push(q.x,q.y,q.z);col.push(r.c[0],r.c[1],r.c[2]);});}
+  for(let i=0;i<L;i++)for(let j=0;j<R;j++){const a=i*R+j,b=i*R+(j+1)%R,c=(i+1)*R+j,d=(i+1)*R+(j+1)%R;idx.push(a,c,b,b,c,d);}
+  [0,L].forEach(i=>{const base=pos.length/3;const cp=curve.getPointAt(i/L);const ci=i*R;pos.push(cp.x,cp.y,cp.z);col.push(col[ci*3],col[ci*3+1],col[ci*3+2]);
+    for(let j=0;j<R;j++){const k=ci+j;pos.push(pos[k*3],pos[k*3+1],pos[k*3+2]);col.push(col[k*3],col[k*3+1],col[k*3+2]);}
+    for(let j=0;j<R;j++)idx.push(base,base+1+j,base+1+(j+1)%R);});
+  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('color',new THREE.Float32BufferAttribute(col,3));g.setIndex(idx);g.computeVertexNormals();return g;
+}
+const WHITE=[1,1,1];
+function tube(pts,prof,colorFn,R,density){R=R||12;return sweep(pts,R,(t,Pp,N,B)=>{const r=prof(t);const out=[];for(let j=0;j<R;j++){const a=j/R*Math.PI*2;out.push(Pp.clone().addScaledVector(N,Math.cos(a)*r).addScaledVector(B,Math.sin(a)*r));}return{pts:out,c:colorFn?colorFn(t,r):WHITE};},density);}
+function ribbonG(pts,w,side,th){const sv=V(side);return sweep(pts,4,(t,Pp,N,B,Tn)=>{const S=sv.clone().addScaledVector(Tn,-sv.dot(Tn));if(S.lengthSq()<1e-6)S.copy(N);S.normalize();const U=new THREE.Vector3().crossVectors(Tn,S).normalize();const hw=w/2,ht=th/2;
+  return{pts:[[1,1],[-1,1],[-1,-1],[1,-1]].map(([a,b])=>Pp.clone().addScaledVector(S,a*hw).addScaledVector(U,b*ht)),c:WHITE};},1.6);}
+function ellG(c,s,seg){const g=new THREE.SphereGeometry(1,seg||18,Math.round((seg||18)*0.7));g.scale(s[0],s[1],s[2]);g.translate(c[0],c[1],c[2]);const n=g.attributes.position.count;g.setAttribute('color',new THREE.Float32BufferAttribute(new Array(n*3).fill(1),3));return g;}
+function plate(outline,normal,th){const n=V(normal).normalize();const c=new THREE.Vector3();outline.forEach(p=>c.add(V(p)));c.divideScalar(outline.length);
+  const pos=[],idx=[];const top=outline.map(p=>V(p).addScaledVector(n,th/2)),bot=outline.map(p=>V(p).addScaledVector(n,-th/2));const ct=c.clone().addScaledVector(n,th*0.9),cb=c.clone().addScaledVector(n,-th*0.9);
+  const m=outline.length;const push=v=>{pos.push(v.x,v.y,v.z);return pos.length/3-1;};
+  const it=top.map(push),ib=bot.map(push),ic=push(ct),icb=push(cb);
+  for(let i=0;i<m;i++){const j=(i+1)%m;idx.push(ic,it[i],it[j]);idx.push(icb,ib[j],ib[i]);idx.push(it[i],ib[i],ib[j],it[i],ib[j],it[j]);}
+  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.Float32BufferAttribute(pos,3));g.setAttribute('color',new THREE.Float32BufferAttribute(new Array(pos.length).fill(1),3));g.setIndex(idx);g.computeVertexNormals();return g;}
+function torusG(c,R,r,sy,rotY){const g=new THREE.TorusGeometry(R,r,8,32);g.rotateY(Math.PI/2);g.scale(1,sy||1,1);if(rotY)g.rotateY(rotY);if(!rotY)g.rotateZ(Math.PI/2);g.translate(c[0],c[1],c[2]);const n=g.attributes.position.count;g.setAttribute('color',new THREE.Float32BufferAttribute(new Array(n*3).fill(1),3));return g;}
+const boneProf=(e1,m,e2,k)=>t=>{k=k||0.13;return m+(e1-m)*Math.exp(-Math.pow(t/k,2))+(e2-m)*Math.exp(-Math.pow((1-t)/k,2));};
+
+/* materials */
+function matFor(layer){const L=LAYERS[layer];
+  const base={vertexColors:true,side:THREE.DoubleSide,roughness:0.62,metalness:0.0};
+  if(layer==='bone')return new THREE.MeshStandardMaterial(Object.assign(base,{color:L.hex,roughness:0.78}));
+  if(layer==='muscle')return new THREE.MeshStandardMaterial(Object.assign(base,{color:0xffffff,roughness:0.55}));
+  if(layer==='ligament')return new THREE.MeshStandardMaterial(Object.assign(base,{color:L.hex,roughness:0.45}));
+  if(layer==='nerve')return new THREE.MeshStandardMaterial(Object.assign(base,{color:L.hex,roughness:0.4,emissive:0x2a2000}));
+  if(layer==='joint')return new THREE.MeshStandardMaterial(Object.assign(base,{color:L.hex,roughness:0.3,transparent:true,opacity:0.5,depthWrite:false}));}
+Object.values(ITEMS).forEach(it=>{it.mat=matFor(it.layer);it.baseEm=it.mat.emissive.clone();});
+function addMesh(id,geom){const it=ITEMS[id];const m=new THREE.Mesh(geom,it.mat);m.userData.id=id;it.meshes.push(m);groups[it.layer].add(m);return m;}
+
+/* ---- context skeleton (thorax, spine) ---- */
+const ctxMat=new THREE.MeshStandardMaterial({color:0xd8ccb0,roughness:0.9,transparent:true,opacity:0.22,depthWrite:false,side:THREE.DoubleSide});
+for(let n=1;n<=10;n++){const pts=[];const end=n<=7?1.45:1.05;for(let k=0;k<=14;k++){const th=-1.45+(end+1.45)*k/14;pts.push(ribPt(n,th));}ctxGroup.add(new THREE.Mesh(tube(pts,()=>0.32,null,8,1.2),ctxMat));
+  if(n<=7)ctxGroup.add(new THREE.Mesh(tube([ribPt(n,end),[-18.6,ribPt(n,end)[1]+0.3,-4.5+RB[n-1]+0.1]],()=>0.22,null,8),ctxMat));}
+ctxGroup.add(new THREE.Mesh(ribbonG([[-19,6.4,1.4],[-19,3,3.6],[-19,-6,4.5],[-19,-15,4.3]],2.4,[1,0,0],0.7),ctxMat));
+for(let y=20;y>=-36;y-=2.55){const r=y>8?0.75:(y>-12?1.0:1.35);ctxGroup.add(new THREE.Mesh(ellG([-19,y,-13.4],[r,0.9,r*0.9],12),ctxMat));ctxGroup.add(new THREE.Mesh(tube([[-19,y,-14],[-19,y-0.9,-18.2]],()=>0.28,null,6),ctxMat));}
+ctxGroup.add(new THREE.Mesh(tube([[-18,-38.5,-15],[-12,-36.5,-12],[-7,-37.5,-6],[-7.5,-40,0]],()=>0.6,null,8),ctxMat));
+
+/* ---- bones ---- */
+addMesh('clavicle',tube([[-17.2,5.4,2.9],[-13,5.9,4.0],[-8,6.35,3.2],[-4,6.25,1.0],[-1,5.75,-0.2],[0.5,5.35,-0.8]],boneProf(0.78,0.5,0.62)));
+addMesh('scapula',plate([SA,[-8,5.0,-8.5],[-6.2,4.4,-6.4],[-4,3.0,-3.8],[-2.9,1.6,-2.7],[-3.0,-1.8,-3.0],[-5,-6,-6],[-8,-11,-9],IA,[-12.2,-7,-11.5],[-12.5,1.5,-11.5]],PN,0.38));
+addMesh('scapula',tube([post([-12.5,1.5,-11.5],0.3),post([-7,2.6,-8.5],0.6),post([-2.6,3.6,-4.6],0.6),[0.4,4.6,-1.8],[1.6,4.6,-1.0],[1.9,4.4,0.2]],t=>0.32+0.55*Math.max(0,(t-0.55)/0.45)*(t<0.97?1:0.6)));
+addMesh('scapula',tube([[-3.0,2.2,-2.6],[-3.6,3.4,-1.0],[-3.6,3.3,1.0],[-3.2,2.6,2.6]],boneProf(0.6,0.48,0.52)));
+addMesh('scapula',ellG([-2.75,0,-2.55],[0.55,1.9,1.25]));
+addMesh('humerus',ellG([0,0,-1],[2.4,2.4,2.4],28));
+addMesh('humerus',ellG([2.2,0.4,0.2],[0.95,1.1,0.95]));
+addMesh('humerus',ellG([0.3,-0.3,1.55],[0.65,0.75,0.65]));
+addMesh('humerus',tube([[0.6,-1.8,-0.2],[0.7,-5,0.1],[0.5,-15,0.1],[0.2,-25,0.1],[-0.2,-28.4,0.2]],t=>1.0+0.4*Math.exp(-Math.pow(t/0.12,2))+0.35*Math.exp(-Math.pow((1-t)/0.15,2))));
+addMesh('humerus',ellG([2.0,-12,0.4],[0.55,1.4,0.6]));
+addMesh('humerus',ellG([-0.2,-28.2,0.05],[2.6,1.7,0.95]));
+addMesh('humerus',tube([[-3.55,-29.4,-0.3],[-1.5,-29.8,0.1],[0.8,-29.8,0.1],[2.75,-29.4,0]],boneProf(0.6,0.8,0.6)));
+addMesh('humerus',ellG([1.45,-30.55,0.55],[0.85,0.85,0.85]));
+(()=>{const g=new THREE.CylinderGeometry(0.85,0.85,2.2,20);g.rotateZ(Math.PI/2);g.translate(-0.9,-30.65,0.3);const n=g.attributes.position.count;g.setAttribute('color',new THREE.Float32BufferAttribute(new Array(n*3).fill(1),3));addMesh('humerus',g);})();
+addMesh('ulna',tube([[-1.0,-28.3,-1.85],[-1.0,-30,-1.5],[-0.9,-31.8,0.0],[-1.1,-35,-0.2],[-1.6,-45,-0.2],[-1.9,-53,-0.2],[-2.0,-54.8,-0.2]],t=>t<0.08?1.05:(0.42+0.55*Math.exp(-Math.pow((t-0.08)/0.14,2))+0.32*Math.exp(-Math.pow((1-t)/0.05,2)))));
+addMesh('ulna',ellG([-0.55,-31.5,0.75],[0.6,0.45,0.7]));
+addMesh('ulna',ellG([-2.45,-55.25,-0.5],[0.28,0.42,0.28]));
+addMesh('radius',tube([[1.6,-30.95,0],[1.6,-31.5,0],[1.5,-33,0.1],[1.9,-38,0.2],[2.5,-46,0.2],[2.6,-52,0.2],[2.35,-54.9,0.2]],t=>t<0.035?1.0:(0.5+0.18*Math.exp(-Math.pow((t-0.1)/0.04,2))+0.5*Math.pow(Math.max(0,(t-0.78)/0.22),1.6))));
+addMesh('radius',ellG([2.1,-54.7,0.2],[1.65,0.55,0.95]));
+addMesh('radius',ellG([3.35,-55.15,0.1],[0.4,0.5,0.4]));
+addMesh('radius',ellG([1.9,-54.2,-0.85],[0.3,0.55,0.25]));
+[['scaphoid',[2.1,-56.6,0.3],[0.75,0.55,0.6]],['lunate',[0.6,-56.4,0.2],[0.6,0.55,0.62]],['triquetrum',[-0.85,-56.9,0.0],[0.55,0.5,0.55]],['pisiform',[-1.05,-57.0,1.05],[0.38,0.4,0.38]],
+ ['trapezium',[2.5,-58.5,0.6],[0.6,0.55,0.55]],['trapezoid',[1.3,-58.7,0.15],[0.5,0.5,0.5]],['capitate',[0.1,-58.5,0.1],[0.6,0.78,0.62]],['hamate',[-1.4,-58.3,0.0],[0.6,0.65,0.6]]].forEach(([id,c,s])=>addMesh(id,ellG(c,s)));
+addMesh('hamate',ellG([-1.55,-58.7,0.9],[0.25,0.35,0.38]));
+const segBone=(id,a,b,e1,m,e2)=>addMesh(id,tube([lerp(a,b,0.04),lerp(a,b,0.5),lerp(a,b,0.96)],boneProf(e1,m,e2,0.16),null,10));
+segBone('mc1',TH.base,TH.head,0.55,0.4,0.5);
+[2,3,4,5].forEach(d=>segBone('mc'+d,D[d].base,D[d].head,0.5,0.32,0.5));
+[2,3,4,5].forEach(d=>{segBone('ph_prox',D[d].head,D[d].pip,0.42,0.3,0.36);segBone('ph_mid',D[d].pip,D[d].dip,0.34,0.26,0.3);segBone('ph_dist',D[d].dip,D[d].tip,0.28,0.2,0.26);});
+segBone('ph_prox',TH.head,TH.ip,0.46,0.34,0.4);segBone('ph_dist',TH.ip,TH.tip,0.36,0.26,0.32);
+
+/* ---- muscles ---- */
+const TEND=new THREE.Color(0xeadfce);
+let seed=7;const rnd=()=>{seed=(seed*9301+49297)%233280;return seed/233280;};
+MUS.forEach(m=>{const belly=new THREE.Color().setHSL(0.006+rnd()*0.022,0.5+rnd()*0.1,0.36+rnd()*0.08);
+  m.parts.forEach(p=>{const prof=t=>(t<p.a||t>p.b)?p.tr:p.tr+(p.r-p.tr)*Math.pow(Math.sin(Math.PI*(t-p.a)/(p.b-p.a)),0.65);
+    const cf=(t,r)=>{const w=p.r>p.tr?Math.min(1,Math.max(0,(r-p.tr)/(p.r-p.tr)*2.2)):0;const c=TEND.clone().lerp(belly,w);return[c.r,c.g,c.b];};
+    addMesh(m.id,tube(p.pts,prof,cf,p.r>0.5?14:10,p.r>0.5?2.4:3));});});
+
+/* ---- ligaments ---- */
+LIGS.forEach(l=>l.parts.forEach(p=>{
+  if(p.torus)addMesh(l.id,torusG(p.torus.c,p.torus.R,p.torus.r,p.torus.sy,p.torus.rotY));
+  else if(p.ell)addMesh(l.id,ellG(p.ell.c,p.ell.s,12));
+  else if(p.rib)addMesh(l.id,ribbonG(p.pts,p.w,p.side,p.th));
+  else addMesh(l.id,tube(p.pts,()=>p.r,null,8,3));}));
+/* ---- joints ---- */
+JOINTS.forEach(j=>j.ells.forEach(([c,s])=>addMesh(j.id,ellG(c,s,20))));
+/* ---- nerves ---- */
+NERVES.forEach(n=>n.parts.forEach(p=>addMesh(n.id,tube(p.pts,()=>p.r,null,8,2.5))));
+document.getElementById('loading').remove();
+
+/* ---------------- state + look ---------------- */
+const state={sel:null,hover:null,isolate:false,muscleOp:1,vis:{bone:true,muscle:true,ligament:true,joint:false,nerve:true},region:'all',q:''};
+try{const s=JSON.parse(localStorage.getItem('ula-vis')||'null');if(s)Object.assign(state.vis,s);}catch(e){}
+const ACC=new THREE.Color(0x1aa6b0), HOV=new THREE.Color(0x0f5a60);
+function applyLook(){Object.values(ITEMS).forEach(it=>{const m=it.mat;
+  let op=it.layer==='muscle'?state.muscleOp:(it.layer==='joint'?0.5:1);
+  if(state.isolate&&state.sel&&it.id!==state.sel)op=Math.min(op,0.07);
+  if(it.id===state.sel&&it.layer==='joint')op=0.75;
+  const tr=op<0.999;if(m.transparent!==tr){m.transparent=tr;m.needsUpdate=true;}m.opacity=op;m.depthWrite=!tr;
+  if(it.id===state.sel){m.emissive.copy(ACC);m.emissiveIntensity=0.55;}
+  else if(it.id===state.hover){m.emissive.copy(HOV);m.emissiveIntensity=0.6;}
+  else{m.emissive.copy(it.baseEm);m.emissiveIntensity=1;}});
+  Object.keys(groups).forEach(k=>groups[k].visible=state.vis[k]);}
+
+/* ---------------- camera ---------------- */
+const VIEWS={
+ Anterior:{t:[-5,-30,0],d:[0,0.08,1],r:178},Posterior:{t:[-5,-30,0],d:[0,0.08,-1],r:178},Lateral:{t:[0,-30,0],d:[1,0.06,0.05],r:170},
+ Shoulder:{t:[-5,0,-2],d:[0.55,0.35,1],r:48},Elbow:{t:[0,-31,0],d:[0.4,0.15,1],r:30},Hand:{t:[0.8,-65.5,0.6],d:[0.15,0.05,1],r:46}};
+let anim=null;
+function flyTo(t,pos){anim={t0:performance.now(),dur:650,ft:controls.target.clone(),fp:camera.position.clone(),tt:V(t),tp:pos};}
+function setView(name){const v=VIEWS[name];const dir=V(v.d).normalize();const asp=Math.max(0.6,stage.clientWidth/Math.max(1,stage.clientHeight));const r=v.r*(asp<1?1/Math.sqrt(asp):1);flyTo(v.t,V(v.t).addScaledVector(dir,r));}
+function focusItem(id){const it=ITEMS[id];const box=new THREE.Box3();it.meshes.forEach(m=>box.expandByObject(m));const c=box.getCenter(new THREE.Vector3());const sz=box.getSize(new THREE.Vector3()).length();
+  const dir=camera.position.clone().sub(controls.target).normalize();const dist=Math.min(150,Math.max(14,sz*1.7));flyTo([c.x,c.y,c.z],c.clone().addScaledVector(dir,dist));}
+{const v=VIEWS.Anterior;controls.target.set(...v.t);camera.position.copy(V(v.t).addScaledVector(V(v.d).normalize(),v.r));}
+
+/* ---------------- picking ---------------- */
+const ray=new THREE.Raycaster(), mouse=new THREE.Vector2();
+function pick(cx,cy){const r=canvas.getBoundingClientRect();mouse.set(((cx-r.left)/r.width)*2-1,-((cy-r.top)/r.height)*2+1);ray.setFromCamera(mouse,camera);
+  const objs=[];Object.keys(groups).forEach(k=>{if(!state.vis[k])return;if(k==='muscle'&&state.muscleOp<0.2)return;groups[k].children.forEach(m=>{const it=ITEMS[m.userData.id];if(state.isolate&&state.sel&&it.id!==state.sel)return;objs.push(m);});});
+  const hits=ray.intersectObjects(objs,false);if(!hits.length)return null;
+  // prefer an opaque hit; if the first is a translucent joint and something solid is right behind, keep the joint (it was clicked)
+  return hits[0].object.userData.id;}
+let down=null;
+canvas.addEventListener('pointerdown',e=>{down={x:e.clientX,y:e.clientY};});
+canvas.addEventListener('pointerup',e=>{if(!down)return;const moved=Math.hypot(e.clientX-down.x,e.clientY-down.y);down=null;if(moved>6)return;const id=pick(e.clientX,e.clientY);select(id,false);});
+const tip=document.getElementById('tip');let pend=null;
+canvas.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;pend={x:e.clientX,y:e.clientY};});
+canvas.addEventListener('pointerleave',()=>{pend=null;state.hover=null;tip.hidden=true;applyLook();});
+
+/* ---------------- UI ---------------- */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const cssv=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function renderInfo(){const el=$('#info');const it=ITEMS[state.sel];
+  if(!it){el.innerHTML='<p class="label">Selection</p><p style="margin:0;color:var(--muted)">Click any structure in the model, or pick one from the list below.</p>';return;}
+  const L=LAYERS[it.layer];const rows=Object.entries(it.info).filter(([k])=>k!=='note');
+  el.innerHTML=`<div class="kind"><span class="dot" style="background:var(${L.color})"></span>${esc(L.name.replace(/s$/,''))} · ${esc(REGIONS[it.region])}</div><h2>${esc(it.name)}</h2><dl>${rows.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl>${it.info.note?`<p class="note"><b>Clinical / exam note</b>${esc(it.info.note)}</p>`:''}
+  <div class="actions"><button id="bFocus">Zoom to it</button><button id="bIso" aria-pressed="${state.isolate}">Isolate</button><button id="bClear">Clear</button></div>`;
+  $('#bFocus').onclick=()=>focusItem(state.sel);
+  $('#bIso').onclick=()=>{state.isolate=!state.isolate;applyLook();renderInfo();};
+  $('#bClear').onclick=()=>select(null);}
+function select(id,fromList){if(id&&!state.vis[ITEMS[id].layer]){state.vis[ITEMS[id].layer]=true;renderLayers();}
+  state.sel=id;if(!id)state.isolate=false;applyLook();renderInfo();renderList();
+  if(id&&fromList)focusItem(id);
+  if(id&&fromList===false&&window.matchMedia('(max-width:760px)').matches){}}
+function renderLayers(){const el=$('#layers');el.innerHTML='';Object.entries(LAYERS).forEach(([k,L])=>{const n=Object.values(ITEMS).filter(i=>i.layer===k).length;
+  const b=document.createElement('button');b.className='layer';b.id='lay-'+k;b.setAttribute('aria-pressed',state.vis[k]);b.innerHTML=`<span class="dot" style="background:var(${L.color})"></span>${L.name}<span class="n">${n}</span>`;
+  b.onclick=()=>{state.vis[k]=!state.vis[k];try{localStorage.setItem('ula-vis',JSON.stringify(state.vis));}catch(e){}renderLayers();applyLook();};el.appendChild(b);});
+  const ctx=document.createElement('button');ctx.className='layer';ctx.id='lay-ctx';ctx.setAttribute('aria-pressed',ctxGroup.visible);ctx.innerHTML=`<span class="dot" style="background:var(--muted)"></span>Thorax<span class="n">ref</span>`;ctx.onclick=()=>{ctxGroup.visible=!ctxGroup.visible;renderLayers();};el.appendChild(ctx);}
+function renderRegions(){const el=$('#regions');el.innerHTML='';[['all','All'],...Object.entries(REGIONS)].forEach(([k,n])=>{const b=document.createElement('button');b.textContent=n;b.setAttribute('aria-pressed',state.region===k);b.onclick=()=>{state.region=k;renderRegions();renderList();};el.appendChild(b);});}
+function renderList(){const el=$('#list');const q=state.q.trim().toLowerCase();el.innerHTML='';
+  Object.entries(LAYERS).forEach(([k,L])=>{const items=ORDER.map(i=>ITEMS[i]).filter(it=>it.layer===k&&(state.region==='all'||it.region===state.region)&&(!q||it.name.toLowerCase().includes(q)||JSON.stringify(it.info).toLowerCase().includes(q)));
+    if(!items.length)return;const h=document.createElement('h3');h.innerHTML=`<span class="dot" style="background:var(${L.color})"></span>${L.name} <span style="margin-left:auto">${items.length}</span>`;el.appendChild(h);
+    items.forEach(it=>{const b=document.createElement('button');b.className='it';b.setAttribute('aria-current',it.id===state.sel);b.innerHTML=`<span>${esc(it.name)}</span><small>${esc(REGIONS[it.region].split(' ')[0])}</small>`;b.onclick=()=>select(it.id,true);el.appendChild(b);});});
+  if(!el.children.length)el.innerHTML='<p style="color:var(--muted);margin:8px 0 0">No structures match. Try a nerve root (C7), a bone, or an action like "supinate".</p>';}
+$('#q').addEventListener('input',e=>{state.q=e.target.value;renderList();});
+$('#mop').addEventListener('input',e=>{state.muscleOp=e.target.value/100;$('#mopv').textContent=e.target.value+'%';applyLook();});
+const vEl=$('#views');Object.keys(VIEWS).forEach(n=>{const b=document.createElement('button');b.textContent=n;b.onclick=()=>setView(n);vEl.appendChild(b);});
+
+/* theme → scene background */
+function syncTheme(){scene.background=new THREE.Color(cssv('--scene')||'#cfd8dc');}
+syncTheme();
+try{window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',syncTheme);}catch(e){}
+new MutationObserver(syncTheme).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+
+/* resize */
+function resize(){const w=stage.clientWidth,h=stage.clientHeight;if(!w||!h)return;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}
+new ResizeObserver(resize).observe(stage);resize();
+
+/* loop */
+const selTag=$('#seltag');const tmp=new THREE.Vector3();const ease=t=>1-Math.pow(1-t,3);
+function frame(now){
+  if(anim){const k=Math.min(1,(now-anim.t0)/anim.dur);const e=ease(k);controls.target.lerpVectors(anim.ft,anim.tt,e);camera.position.lerpVectors(anim.fp,anim.tp,e);if(k>=1)anim=null;}
+  controls.update();
+  if(pend){const id=pick(pend.x,pend.y);const r=stage.getBoundingClientRect();if(id!==state.hover){state.hover=id;applyLook();}
+    if(id){tip.hidden=false;tip.textContent=ITEMS[id].name;tip.style.left=(pend.x-r.left)+'px';tip.style.top=(pend.y-r.top)+'px';}else tip.hidden=true;pend=null;}
+  if(state.sel){const it=ITEMS[state.sel];const box=new THREE.Box3();it.meshes.forEach(m=>box.expandByObject(m));box.getCenter(tmp);tmp.y=box.max.y;tmp.project(camera);
+    if(tmp.z<1&&groups[it.layer].visible){selTag.hidden=false;selTag.textContent=it.name;selTag.style.left=((tmp.x+1)/2*stage.clientWidth)+'px';selTag.style.top=((1-tmp.y)/2*stage.clientHeight)+'px';}else selTag.hidden=true;}
+  else selTag.hidden=true;
+  renderer.render(scene,camera);requestAnimationFrame(frame);}
+renderLayers();renderRegions();
+select('biceps');
+requestAnimationFrame(frame);
+})();
+</script>
+
+</body></html>
