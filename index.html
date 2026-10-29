@@ -3,7 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MSK Summative</title>
+<title>JJ QBank</title>
+<meta name="description" content="JJ QBank — practice questions, NBME study guides and 3D anatomy atlases for MD1–MD5.">
+<meta name="application-name" content="JJ QBank">
+<meta name="apple-mobile-web-app-title" content="JJ QBank">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="JJ QBank">
+<meta property="og:title" content="JJ QBank">
+<meta property="og:description" content="Practice questions, NBME study guides and 3D anatomy atlases for MD1–MD5.">
+<meta property="og:url" content="https://jsinghmed.github.io/MD1-Practice-Q/">
+<meta property="og:image" content="https://jsinghmed.github.io/MD1-Practice-Q/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JJ QBank">
+<meta name="twitter:description" content="Practice questions, NBME study guides and 3D anatomy atlases for MD1–MD5.">
+<meta name="twitter:image" content="https://jsinghmed.github.io/MD1-Practice-Q/og-image.png">
 <script>try{var th=localStorage.getItem("msk-theme");if(th)document.documentElement.setAttribute("data-theme",th);}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1249,7 +1264,7 @@ function renderChaps(){
   $("ctabs").innerHTML = COURSES.map(c=>`<button class="ctab ${c.id===S.course?"on":""}" data-course="${c.id}" title="${esc(c.full)}">${esc(c.name)}<small>${c.items.length ? c.items.length+" Qs" : "empty"}</small></button>`).join("");
   $("brandTitle").textContent = course().name + " Summative";
   $("brandSub").textContent = (course().full !== course().name ? course().full + " · " : "") + (course().items.length ? course().items.length + " questions" : "no questions yet");
-  document.title = course().name + " Summative";
+  document.title = "JJ QBank · " + course().name;
   $("buildBtn").classList.toggle("on", view==="builder");
   $("notesBtn").classList.toggle("on", view==="notes");
 }
