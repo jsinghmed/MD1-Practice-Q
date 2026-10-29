@@ -855,6 +855,42 @@ button.dst:hover{background:var(--hover)}
 @media (max-width:1100px){.dsecg{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:700px){.dstrip{grid-template-columns:repeat(3,minmax(0,1fr))}.dst:nth-child(3){border-right:none}.dst:nth-child(-n+3){border-bottom:1px solid var(--line)}.dsecg{grid-template-columns:1fr}.dban{flex-direction:column;align-items:flex-start}}
 
+.nbbuild{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin:4px 0 22px}
+.nbbh h3{margin:0;font-size:17px}.nbbh .sub{margin:2px 0 6px}
+.nbrow{margin-top:16px}
+.nblab{font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;display:flex;gap:10px;align-items:center}
+.nblab span{font-weight:500;letter-spacing:0;text-transform:none}.nblab span button{background:none;border:none;color:var(--acc);cursor:pointer;font:inherit;padding:0}
+.nbsubs{display:flex;flex-wrap:wrap;gap:8px}
+.nbsubj{display:inline-flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line2);color:var(--text);border-radius:10px;padding:8px 12px;font-size:14px;cursor:pointer}
+.nbsubj b{color:var(--muted);font-weight:600}
+.nbsubj .ck{width:18px;height:18px;border-radius:5px;border:1.5px solid var(--line2);display:grid;place-items:center;font-size:12px;color:#fff}
+.nbsubj.on{border-color:var(--acc);background:var(--acc-bg)}.nbsubj.on .ck{background:var(--acc);border-color:var(--acc)}
+.nbseg{display:inline-flex;flex-wrap:wrap;background:var(--card);border:1px solid var(--line2);border-radius:10px;padding:3px;gap:2px}
+.nbseg button{background:none;border:none;color:var(--muted);border-radius:7px;padding:7px 12px;font-size:13.5px;font-weight:600;cursor:pointer}
+.nbseg button b{font-weight:600;opacity:.75;margin-left:2px}
+.nbseg button.on{background:var(--acc-bg);color:var(--text);box-shadow:inset 0 0 0 1px var(--acc)}
+.nbseg button:disabled{opacity:.4;cursor:not-allowed}
+.nbmode{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:640px}
+.nbmode button{display:flex;gap:10px;align-items:flex-start;text-align:left;background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:12px 14px;color:var(--text);cursor:pointer}
+.nbmode button b{display:block;font-size:14.5px}.nbmode button small{display:block;color:var(--muted);font-size:12.5px;margin-top:2px;line-height:1.4}
+.nbmode .nbmr{flex:none;width:16px;height:16px;border-radius:50%;border:2px solid var(--line2);margin-top:2px}
+.nbmode button.on{border-color:var(--acc);background:var(--acc-bg)}.nbmode button.on .nbmr{border:5px solid var(--acc)}
+.nbinline{display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end}
+.nbinline .field input{width:120px}.nbinline .field select{width:180px}
+.nbchk{display:inline-flex;gap:8px;align-items:center;font-size:14px;cursor:pointer;margin-top:14px}
+.nbinline .nbchk{margin-top:0;padding-bottom:9px}
+.nbfoot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.nbfoot .avail{color:var(--muted);font-size:13.5px}.nbfoot .avail b{color:var(--text)}
+.nbgo{padding:10px 18px;font-size:15px}
+.nba{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+.nbtests{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:6px 14px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:10px 14px}
+.nbov{position:fixed;inset:0;z-index:500;background:rgba(1,4,9,.6);display:grid;place-items:center;padding:16px;animation:nbFade .15s ease}
+.nbdlg{width:min(560px,100%);background:var(--panel);border:1px solid var(--line2);border-radius:16px;padding:20px 22px;box-shadow:0 24px 60px rgba(0,0,0,.5);max-height:90vh;overflow:auto}
+.nbdh{display:flex;justify-content:space-between;align-items:flex-start}.nbdh h3{margin:2px 0 0;font-size:19px}
+.nbx{background:none;border:1px solid var(--line2);color:var(--muted);border-radius:8px;width:32px;height:32px;cursor:pointer}
+.nbdlg .nbmode{grid-template-columns:1fr 1fr}
+@keyframes nbFade{from{opacity:0}to{opacity:1}}
+@media (max-width:640px){.nbmode,.nbdlg .nbmode{grid-template-columns:1fr}.nbfoot{flex-direction:column;align-items:stretch}.nbgo{width:100%}}
 .nbgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-bottom:6px}
 .nbcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
 .nbtop{display:flex;justify-content:space-between;align-items:center}
@@ -1129,7 +1165,8 @@ function courseQ(){ return course().items; }
 function courseSecs(){ return course().sections; }
 function testCourses(t){ return t.courses && t.courses.length ? t.courses : [t.course||"msk"]; }
 function isMixed(t){ return !!t && testCourses(t).length > 1; }
-function courseTests(){ return S.tests.filter(t=>testCourses(t).includes(S.course)); }
+function courseTests(){ return S.tests.filter(t=>!t.nbme && testCourses(t).includes(S.course)); }
+function nbmeTests(){ return S.tests.filter(t=>t.nbme && testCourses(t).includes(S.course)); }
 // In a test that mixes summatives, label each question's section with its summative (e.g. "MSK · Histology").
 function secLabel(q, t){
   const mixed = t && (t.kind==="search" ? S.searchCourse==="all" : isMixed(t.test || t));
@@ -1306,17 +1343,60 @@ function renderGuideView(){
   showPage(`<div class="page gview">${top}<nav class="gvtoc" aria-label="Sections">${toc}</nav><article class="gvbody">${body}</article>
     <div class="gvfoot"><button class="btn" data-act="guides">← NBME Dashboard (${esc(COURSE_BY_ID[info.course].name)})</button><a class="btn" href="guide-${f}.pdf?v=1" download="JJ QBank - ${esc(nm)} study guide.pdf">⬇ Download PDF</a></div></div>`);
 }
+// ---------- NBME dashboard: quiz cards, quiz builder, start options ----------
+let NB = Object.assign({secs:{}, pool:"all", mode:"tutor", per:90, n:40, scr:true}, S.nbB||{});
+let nbModal = null;   // quiz prefix whose start options are open
+const NB_POOLS = [["all","All"],["un","Unanswered"],["inc","Incorrect"],["uninc","Unanswered + incorrect"],["flag","Flagged"]];
+function nbPoolF(k){ return (POOLS.find(p=>p.k===k)||POOLS[0]).f; }
+function nbSave(){ S.nbB = NB; save(); }
+function nbSelSecs(){ const l = course().nbme||[]; l.forEach(x=>{ if (NB.secs[x.prefix]===undefined) NB.secs[x.prefix] = true; }); return l.filter(x=>NB.secs[x.prefix]); }
+function nbBuildPool(k){ const f = nbPoolF(k||NB.pool); return nbSelSecs().flatMap(x=>x.items).filter(f); }
+function nbSeg(name, cur, opts){ return `<div class="nbseg">` + opts.map(([v,l,n])=>`<button class="${cur===v?"on":""}" data-nbset="${name}:${v}" ${n===0?"disabled":""}>${esc(l)}${n!==undefined?` <b>${n}</b>`:""}</button>`).join("") + `</div>`; }
+function nbModeTiles(cur){
+  return `<div class="nbmode">` + [["tutor","Tutor","See the answer and explanation right after each question"],["timed","Timed (exam)","Answers stay hidden until the end, then you get a score report"]]
+    .map(([v,t,d])=>`<button class="${cur===v?"on":""}" data-nbset="mode:${v}"><span class="nbmr"></span><span><b>${t}</b><small>${d}</small></span></button>`).join("") + `</div>`;
+}
 function nbmeCards(list){
   return `<div class="nbgrid">` + list.map(sec=>{
     const st = secStats(sec), pct = st.done ? Math.round(st.ok*100/st.done) : null, key = sec.prefix+":all";
-    const pos = S.pos[key]||0, started = st.done>0 || pos>0;
+    const started = st.done>0 || (S.pos[key]||0)>0;
     return `<div class="nbcard"><div class="nbtop"><span class="nbsub">${esc(sec.subject||"")}</span>${pct!==null?`<span class="nbpct ${pct>=70?"g":pct>=50?"y":"r"}">${pct}%</span>`:""}</div>
       <b class="nbname">${esc(sec.name)}</b><small class="nbmeta">${st.n} questions · ${st.done} answered${st.bad?` · <span class="r">${st.bad} incorrect</span>`:""}</small>
       <div class="dbar"><i style="width:${st.n?st.ok*100/st.n:0}%"></i><em style="width:${st.n?st.bad*100/st.n:0}%"></em></div>
-      ${sec.note?`<small class="nbnote">${esc(sec.note)}</small>`:""}
-      <div class="nba"><button class="btn primary" data-nbq="${esc(sec.prefix)}">${st.done>=st.n&&st.n?"Review":started?"Continue":"Start"} →</button></div></div>`;
+      <div class="nba"><button class="btn primary" data-nbstart="${esc(sec.prefix)}">Start quiz</button><button class="btn" data-nbq="${esc(sec.prefix)}" title="Go through the questions in order, in tutor style">${started?"Continue browsing":"Browse in order"}</button></div></div>`;
   }).join("") + `</div>`;
 }
+function nbBuilderHTML(){
+  const list = course().nbme||[]; if (!list.length) return "";
+  nbSelSecs();
+  const avail = nbBuildPool().length, n = Math.max(1, Math.min(NB.n, avail||1));
+  const pf = nbPoolF(NB.pool);
+  return `<div class="nbbuild"><div class="nbbh"><div><h3>Build a custom NBME quiz</h3><p class="sub">Mix subjects into one quiz, then pick the question pool, length and mode.</p></div></div>
+    <div class="nbrow"><div class="nblab">Subjects <span><button data-nbsall="1">All</button> · <button data-nbsall="0">None</button></span></div>
+      <div class="nbsubs">` + list.map(x=>{ const on = !!NB.secs[x.prefix], c = x.items.filter(pf).length;
+        return `<button class="nbsubj ${on?"on":""}" data-nbsec="${esc(x.prefix)}"><span class="ck">${on?"✓":""}</span>${esc(x.subject||x.name)} <b>${c}</b></button>`; }).join("") + `</div></div>
+    <div class="nbrow"><div class="nblab">Question pool</div>${nbSeg("pool", NB.pool, NB_POOLS.map(([k,l])=>[k,l,nbBuildPool(k).length]))}</div>
+    <div class="nbrow"><div class="nblab">Mode</div>${nbModeTiles(NB.mode)}</div>
+    <div class="nbrow nbinline"><label class="field">Number of questions <input type="number" id="nbN" min="1" max="${Math.max(1,avail)}" value="${n}"></label>
+      ${NB.mode==="timed"?`<label class="field">Time per question <select id="nbPer">${[60,75,90,120].map(v=>`<option value="${v}" ${+NB.per===v?"selected":""}>${v} s${v===90?" (NBME pace)":""}</option>`).join("")}</select></label>`:""}
+      <label class="nbchk"><input type="checkbox" id="nbScr" ${NB.scr?"checked":""}> Scramble answer choices</label></div>
+    <div class="nbfoot"><span class="avail"><b>${avail}</b> question${avail===1?"":"s"} available${NB.mode==="timed"&&avail?` · about ${fmtTime(Math.min(n,avail)*NB.per)}`:""}</span>
+      <button class="btn primary nbgo" data-nbbuild="1" ${avail?"":"disabled"}>Start quiz · ${Math.min(n,avail)} Qs →</button></div></div>`;
+}
+function nbModalHTML(){
+  const sec = nbModal && SEC_BY_PFX[nbModal]; if (!sec) return "";
+  const M = NB.m || (NB.m = {pool:"all", mode:NB.mode, scr:NB.scr});
+  const avail = sec.items.filter(nbPoolF(M.pool)).length;
+  return `<div class="nbov" data-nbclose="1"><div class="nbdlg" role="dialog" aria-label="Start ${esc(sec.name)}">
+    <div class="nbdh"><div><span class="nbsub">${esc(sec.subject||"")}</span><h3>${esc(sec.name)}</h3></div><button class="nbx" data-nbclose="1" aria-label="Close">✕</button></div>
+    <div class="nbrow"><div class="nblab">Mode</div>${nbModeTiles(M.mode).replace(/data-nbset="mode:/g,'data-nbset="mmode:')}</div>
+    <div class="nbrow"><div class="nblab">Questions</div>${nbSeg("mpool", M.pool, NB_POOLS.slice(0,3).map(([k,l])=>[k,l,sec.items.filter(nbPoolF(k)).length]))}</div>
+    <label class="nbchk"><input type="checkbox" id="nbMScr" ${M.scr?"checked":""}> Scramble answer choices</label>
+    <div class="nbfoot"><span class="avail"><b>${avail}</b> question${avail===1?"":"s"}${M.mode==="timed"&&avail?` · ${fmtTime(avail*NB.per)} at 90 s each`:""}</span>
+      <button class="btn primary nbgo" data-nbgo="1" ${avail?"":"disabled"}>Start ${M.mode==="timed"?"timed quiz":"tutor quiz"} →</button></div>
+  </div></div>`;
+}
+function nbStart(ids, mode, scr, name){ startTest(shuffle(ids), {mode, per: mode==="timed" ? +NB.per||90 : 90, scr, nbme:true, name, ui: S.ui||"usmle"}); }
 function openNbme(pfx){
   const sec = SEC_BY_PFX[pfx]; if (!sec) return;
   if (sec.course !== S.course) { S.curBy[S.course] = S.cur; S.course = sec.course; S.openSec = null; }
@@ -1325,14 +1405,51 @@ function openNbme(pfx){
 function renderGuides(){
   const co = course(), secs = co.nbme||[], guides = GUIDES[co.id]||[];
   const st = secs.map(secStats), tq = st.reduce((n,x)=>n+x.n,0), td = st.reduce((n,x)=>n+x.done,0), tok = st.reduce((n,x)=>n+x.ok,0);
+  const tests = nbmeTests().slice().reverse();
   let h = `<div class="page dash"><div class="dtop"><div><h2>NBME Dashboard (${esc(co.name)})</h2><p class="sub">${esc(co.full)} · NBME-style quizzes and study guides · separate from the content questions</p></div></div>
-    <div class="dstrip"><div class="dst"><b class="${td&&tok*100/td>=70?"g":""}">${td?Math.round(tok*100/td)+"%":"—"}</b><span>Correct</span></div><div class="dst"><b>${td}<small> / ${tq}</small></b><span>Answered</span></div><div class="dst"><b>${secs.length}</b><span>Quizzes</span></div><div class="dst"><b>${guides.length}</b><span>Study guides</span></div></div>
-    <div class="h3">NBME-style quizzes</div>`;
-  h += secs.length ? nbmeCards(secs) : `<div class="emptybox"><p>No NBME-style quizzes for ${esc(co.name)} yet.</p></div>`;
+    <div class="dstrip"><div class="dst"><b class="${td&&tok*100/td>=70?"g":""}">${td?Math.round(tok*100/td)+"%":"—"}</b><span>Correct</span></div><div class="dst"><b>${td}<small> / ${tq}</small></b><span>Answered</span></div><div class="dst"><b>${secs.length}</b><span>Quizzes</span></div><div class="dst"><b>${tests.length}</b><span>Quizzes taken</span></div><div class="dst"><b>${guides.length}</b><span>Study guides</span></div></div>`;
+  if (secs.length) {
+    h += nbBuilderHTML();
+    h += `<div class="h3">Quizzes by subject</div>` + nbmeCards(secs);
+    if (tests.length) h += `<div class="h3" style="margin-top:22px">Your NBME quizzes</div><div class="nbtests">` + tests.slice(0,8).map(t=>`<button class="dtr" data-go="test:${t.id}"><span>${esc(t.name)}</span><em>${t.mode==="timed"&&!t.finished?"in progress":t.finished?testLabel(t):testLabel(t)+" done"}</em></button>`).join("") + `</div>`;
+  } else h += `<div class="h3">NBME-style quizzes</div><div class="emptybox"><p>No NBME-style quizzes for ${esc(co.name)} yet.</p></div>`;
   h += `<div class="h3" style="margin-top:26px">Study guides <span class="muted" style="font-weight:500;font-size:13px">· read here or download the PDF · <span style="color:var(--red);font-weight:600">red = extra high yield</span></span></div>`;
   h += guides.length ? guideCards(guides) : `<div class="emptybox"><p>No study guides for ${esc(co.name)} yet.</p></div>`;
-  showPage(h + `</div>`);
+  showPage(h + `</div>` + nbModalHTML());
 }
+function nbRerender(){ const m = $("main"), y = m.scrollTop; renderGuides(); m.scrollTop = y; }
+document.addEventListener("click", e=>{
+  if (view!=="guides") return;
+  const t = e.target, g = sel => t.closest && t.closest(sel);
+  let b;
+  if ((b = g("[data-nbstart]"))) { nbModal = b.dataset.nbstart; NB.m = {pool:"all", mode:NB.mode, scr:NB.scr}; e.stopPropagation(); nbRerender(); return; }
+  if ((b = g("[data-nbclose]")) && (t===b || b.classList.contains("nbx") || t.closest(".nbx"))) { nbModal = null; e.stopPropagation(); nbRerender(); return; }
+  if ((b = g("[data-nbsec]"))) { const k = b.dataset.nbsec; NB.secs[k] = !NB.secs[k]; nbSave(); e.stopPropagation(); nbRerender(); return; }
+  if ((b = g("[data-nbsall]"))) { (course().nbme||[]).forEach(x=>NB.secs[x.prefix] = b.dataset.nbsall==="1"); nbSave(); e.stopPropagation(); nbRerender(); return; }
+  if ((b = g("[data-nbset]")) && !b.disabled) { const [k,v] = b.dataset.nbset.split(":");
+    if (k==="pool") NB.pool = v; else if (k==="mode") NB.mode = v; else if (k==="mpool") NB.m.pool = v; else if (k==="mmode") NB.m.mode = v;
+    nbSave(); e.stopPropagation(); nbRerender(); return; }
+  if ((b = g("[data-nbbuild]")) && !b.disabled) {
+    const pool = nbBuildPool(), n = Math.max(1, Math.min(+($("nbN")||{}).value || NB.n, pool.length));
+    const subs = nbSelSecs().map(x=>x.subject||x.name);
+    const name = `NBME ${course().name} · ${subs.length===(course().nbme||[]).length ? "All subjects" : subs.join(" + ")} · ${n} Qs${NB.mode==="timed"?" · timed":""}`;
+    e.stopPropagation(); nbStart(shuffle(pool.map(q=>q.id)).slice(0,n), NB.mode, NB.scr, name); return;
+  }
+  if ((b = g("[data-nbgo]")) && !b.disabled) {
+    const sec = SEC_BY_PFX[nbModal], M = NB.m, ids = sec.items.filter(nbPoolF(M.pool)).map(q=>q.id);
+    const pl = M.pool==="all" ? "" : M.pool==="un" ? " · unanswered" : " · incorrect";
+    e.stopPropagation(); nbModal = null; nbStart(ids, M.mode, M.scr, `${sec.name}${pl} · ${ids.length} Qs${M.mode==="timed"?" · timed":""}`); return;
+  }
+}, true);
+document.addEventListener("change", e=>{
+  if (view!=="guides") return;
+  const id = e.target.id;
+  if (id==="nbN") { NB.n = Math.max(1, +e.target.value||1); nbSave(); nbRerender(); }
+  else if (id==="nbPer") { NB.per = +e.target.value; nbSave(); nbRerender(); }
+  else if (id==="nbScr") { NB.scr = e.target.checked; nbSave(); }
+  else if (id==="nbMScr") { NB.m.scr = e.target.checked; }
+});
+document.addEventListener("keydown", e=>{ if (e.key==="Escape" && nbModal && view==="guides") { nbModal = null; nbRerender(); } });
 const NVS = p => `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
 const NVI = {
   home: NVS('<rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/>'),
@@ -1985,10 +2102,11 @@ function startTest(ids, opts){
   const home = courses.includes(S.course) ? S.course : courses[0];
   if (home !== S.course) { S.curBy[S.course] = S.cur; S.course = home; }
   const label = courses.map(id=>COURSE_BY_ID[id].name).join(" + ");
-  const t = {id: Date.now(), course: home, courses, name: `${label} Test ${S.testSeq} · ${ids.length} Qs${opts.mode==="timed"?" · timed":""}`, ids, mode: opts.mode,
+  const t = {id: Date.now(), course: home, courses, name: opts.name || `${label} Test ${S.testSeq} · ${ids.length} Qs${opts.mode==="timed"?" · timed":""}`, ids, mode: opts.mode,
     per: opts.per, remaining: opts.mode==="timed" ? ids.length*opts.per : null, scr: opts.scr, created: Date.now(), finished: false,
     ans:{}, sel:{}, strike:{}, order:{}};
   if (opts.ui) t.ui = opts.ui;
+  if (opts.nbme) t.nbme = true;
   S.tests.push(t);
   while (S.tests.length > 60) { const old = S.tests.shift(); delete S.pos["test:"+old.id]; }
   openChapter("test:"+t.id, 0);
@@ -2742,7 +2860,7 @@ document.addEventListener("click", e=>{
 
   // quiz
   if (view !== "quiz") return;
-  if (t.closest("#uHome") || t.closest("#uHome2")) { const cc = getChap(S.cur); view = cc && cc.nbme ? "guides" : "home"; openMenu = null; renderAll(); $("main").scrollTo({top:0}); return; }
+  if (t.closest("#uHome") || t.closest("#uHome2")) { const cc = getChap(S.cur); view = cc && (cc.nbme || (cc.test && cc.test.nbme)) ? "guides" : "home"; openMenu = null; renderAll(); $("main").scrollTo({top:0}); return; }
   if (t.closest("#uPrev")) return go(pos()-1);
   if (t.closest("#uNext")) return go(pos()+1);
   if (t.closest("#uTheme")) { setTheme(document.documentElement.getAttribute("data-theme")==="light" ? "dark" : "light"); renderUBar(); return; }
