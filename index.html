@@ -964,7 +964,7 @@ button.dst:hover{background:var(--hover)}
 <script src="crs-embryology.js?v=34"></script>
 <script src="xp-msk.js?v=1"></script>
 <script src="xp-fbs.js?v=2"></script>
-<script src="nbme.js?v=1"></script>
+<script src="nbme.js?v=4"></script>
 <script src="xp-crs.js?v=1"></script>
 <script>
 (function(){
@@ -1291,7 +1291,7 @@ function guideInfo(k){ for (const c in GUIDES) { const g = GUIDES[c].find(x=>x[0
 function renderGuideView(){
   const info = guideInfo(curGuide); if (!info) { view = "guides"; renderGuides(); return; }
   const [f, nm, desc, pg] = info.g;
-  const top = `<div class="gvtop"><button class="btn" data-act="guides">← NBME dashboard</button><a class="btn primary" href="guide-${f}.pdf?v=1" download="JJ QBank - ${esc(nm)} study guide.pdf">⬇ Download PDF</a></div>
+  const top = `<div class="gvtop"><button class="btn" data-act="guides">← NBME Dashboard (${esc(COURSE_BY_ID[info.course].name)})</button><a class="btn primary" href="guide-${f}.pdf?v=1" download="JJ QBank - ${esc(nm)} study guide.pdf">⬇ Download PDF</a></div>
     <div class="gvhead"><h2>${esc(nm)}</h2><p class="sub">${esc(desc)}</p><div class="gvleg"><span><span class="hy">Red</span> = extra high yield (classic NBME)</span><span>Black/white = core content</span><span class="mn">Italic = mnemonic</span></div></div>`;
   if (!window.GUIDE_HTML) {
     showPage(`<div class="page gview">${top}<div class="emptybox"><p>Loading study guide…</p></div></div>`);
@@ -1304,7 +1304,7 @@ function renderGuideView(){
   const body = window.GUIDE_HTML[f] || "";
   const toc = [...body.matchAll(/<h2 id="(g\d+)">([\s\S]*?)<\/h2>/g)].map(m=>`<a href="#${m[1]}" data-gjump="${m[1]}">${m[2].replace(/^\d+\.\s*/,"")}</a>`).join("");
   showPage(`<div class="page gview">${top}<nav class="gvtoc" aria-label="Sections">${toc}</nav><article class="gvbody">${body}</article>
-    <div class="gvfoot"><button class="btn" data-act="guides">← NBME dashboard</button><a class="btn" href="guide-${f}.pdf?v=1" download="JJ QBank - ${esc(nm)} study guide.pdf">⬇ Download PDF</a></div></div>`);
+    <div class="gvfoot"><button class="btn" data-act="guides">← NBME Dashboard (${esc(COURSE_BY_ID[info.course].name)})</button><a class="btn" href="guide-${f}.pdf?v=1" download="JJ QBank - ${esc(nm)} study guide.pdf">⬇ Download PDF</a></div></div>`);
 }
 function nbmeCards(list){
   return `<div class="nbgrid">` + list.map(sec=>{
@@ -1323,16 +1323,14 @@ function openNbme(pfx){
   openChapter(pfx+":all");
 }
 function renderGuides(){
-  const order = [S.course, ...COURSES.map(c=>c.id).filter(k=>k!==S.course)];
-  const tq = NBME_SECS.reduce((n,s)=>n+s.items.length,0), td = NBME_SECS.reduce((n,s)=>n+secStats(s).done,0), tok = NBME_SECS.reduce((n,s)=>n+secStats(s).ok,0);
-  let h = `<div class="page dash"><div class="dtop"><div><h2>NBME dashboard</h2><p class="sub">NBME-style quizzes and study guides · this bank is separate from the content questions</p></div></div>
-    <div class="dstrip"><div class="dst"><b class="${td&&tok*100/td>=70?"g":""}">${td?Math.round(tok*100/td)+"%":"—"}</b><span>Correct</span></div><div class="dst"><b>${td}<small> / ${tq}</small></b><span>Answered</span></div><div class="dst"><b>${NBME_SECS.length}</b><span>Quizzes</span></div><div class="dst"><b>${Object.values(GUIDES).reduce((n,l)=>n+l.length,0)}</b><span>Study guides</span></div></div>
+  const co = course(), secs = co.nbme||[], guides = GUIDES[co.id]||[];
+  const st = secs.map(secStats), tq = st.reduce((n,x)=>n+x.n,0), td = st.reduce((n,x)=>n+x.done,0), tok = st.reduce((n,x)=>n+x.ok,0);
+  let h = `<div class="page dash"><div class="dtop"><div><h2>NBME Dashboard (${esc(co.name)})</h2><p class="sub">${esc(co.full)} · NBME-style quizzes and study guides · separate from the content questions</p></div></div>
+    <div class="dstrip"><div class="dst"><b class="${td&&tok*100/td>=70?"g":""}">${td?Math.round(tok*100/td)+"%":"—"}</b><span>Correct</span></div><div class="dst"><b>${td}<small> / ${tq}</small></b><span>Answered</span></div><div class="dst"><b>${secs.length}</b><span>Quizzes</span></div><div class="dst"><b>${guides.length}</b><span>Study guides</span></div></div>
     <div class="h3">NBME-style quizzes</div>`;
-  const anyQ = order.some(k=>(COURSE_BY_ID[k].nbme||[]).length);
-  if (!anyQ) h += `<div class="emptybox"><p>No NBME-style quizzes yet.</p></div>`;
-  order.forEach(k=>{ const l = COURSE_BY_ID[k].nbme||[]; if (l.length) h += `<div class="nbch">${esc(COURSE_BY_ID[k].name)} · ${esc(COURSE_BY_ID[k].full)}</div>` + nbmeCards(l); });
+  h += secs.length ? nbmeCards(secs) : `<div class="emptybox"><p>No NBME-style quizzes for ${esc(co.name)} yet.</p></div>`;
   h += `<div class="h3" style="margin-top:26px">Study guides <span class="muted" style="font-weight:500;font-size:13px">· read here or download the PDF · <span style="color:var(--red);font-weight:600">red = extra high yield</span></span></div>`;
-  order.filter(k=>GUIDES[k]).forEach(k=>{ h += `<div class="nbch">${esc(COURSE_BY_ID[k].name)} · ${esc(COURSE_BY_ID[k].full)}</div>` + guideCards(GUIDES[k]); });
+  h += guides.length ? guideCards(guides) : `<div class="emptybox"><p>No study guides for ${esc(co.name)} yet.</p></div>`;
   showPage(h + `</div>`);
 }
 const NVS = p => `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
@@ -1357,7 +1355,7 @@ function renderChaps(){
   let h = `<div class="nvg">` + navRow('id="homeBtn"', NVI.home, "Dashboard", "", view==="home")
     + navRow('id="buildBtn"', NVI.plus, "Create test", "", view==="builder")
     + navRow('id="notesBtn"', NVI.notes, "My notes", notesN||"", view==="notes")
-    + navRow('data-act="guides"', NVI.guide, "NBME dashboard", "", view==="guides"||view==="guide") + `</div>`;
+    + navRow('data-act="guides"', NVI.guide, "NBME Dashboard ("+course().name+")", "", view==="guides"||view==="guide") + `</div>`;
   if (allQ.length) {
     h += `<div class="chap-h">REVIEW</div><div class="nvg">` + REVIEW.map(r=>{
       const n = allQ.filter(r.f).length, key = S.course+":rv:"+r.k;
@@ -2641,7 +2639,7 @@ function switchCourse(id){
   S.course = id;
   S.cur = S.curBy[id] || (firstChap() ? firstChap().key : null);
   S.openSec = secOf(S.cur) || (courseSecs()[0] ? courseSecs()[0].prefix : null);
-  view = "home"; focusOn = false; paused = false; showAllTests = false; openMenu = null;
+  view = (view==="guides" || view==="guide") ? "guides" : "home"; focusOn = false; paused = false; showAllTests = false; openMenu = null;
   clearTimeout(searchT); $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = ""; searchChips = []; searchRet = null;
   save(); $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0});
   toast(COURSE_BY_ID[id].name + (COURSE_BY_ID[id].items.length ? "" : " — no questions yet"));
