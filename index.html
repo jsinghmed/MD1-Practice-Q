@@ -469,6 +469,33 @@ table.rt tr.click:hover td{background:var(--hover)}
   .nitem .nt,.nitem .nq b{color:#000}
 }
 
+/* study-break blackjack */
+.bjp{max-width:820px}
+.bjtable{background:radial-gradient(ellipse at 50% 30%,#1f6b52 0%,#145040 60%,#0f3d31 100%);border:1px solid #2b7a60;border-radius:22px;padding:22px 24px;color:#eef7f2;box-shadow:inset 0 0 60px rgba(0,0,0,.35)}
+.bjrow{min-height:150px;margin-bottom:10px}
+.bjlab{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#bfe3d3;font-weight:700;margin-bottom:8px;display:flex;gap:10px;align-items:center}
+.bjlab b{background:rgba(0,0,0,.28);color:#fff;border-radius:20px;padding:2px 10px;letter-spacing:0;font-size:13px}
+.bjcards{display:flex;gap:10px;flex-wrap:wrap}
+.bjc{width:78px;height:110px;border-radius:9px;background:#fff;color:#1b1f24;box-shadow:0 4px 12px rgba(0,0,0,.35);position:relative;font-weight:700;animation:bjIn .28s ease both}
+.bjc.red{color:#c62828}
+.bjc .r1{position:absolute;left:7px;top:5px;font-size:17px;line-height:1.05;text-align:center}
+.bjc .r2{position:absolute;right:7px;bottom:5px;font-size:17px;line-height:1.05;text-align:center;transform:rotate(180deg)}
+.bjc .pip{position:absolute;inset:0;display:grid;place-items:center;font-size:34px}
+.bjc.back{background:repeating-linear-gradient(45deg,#1b4d6b 0 6px,#236b7a 6px 12px);border:4px solid #fff}
+@keyframes bjIn{from{opacity:0;transform:translateY(-14px) rotate(-4deg)}to{opacity:1;transform:none}}
+.bjmsg{text-align:center;font-size:20px;font-weight:700;min-height:30px;margin:6px 0 12px}
+.bjmsg.win{color:#9ef0b5}.bjmsg.lose{color:#ffb4a8}.bjmsg.push{color:#ffe08a}
+.bjbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
+.bjchip{width:56px;height:56px;border-radius:50%;border:4px dashed rgba(255,255,255,.75);font-weight:800;color:#fff;cursor:pointer;font-size:14px;box-shadow:0 3px 8px rgba(0,0,0,.35)}
+.bjchip:disabled{opacity:.35;cursor:not-allowed}
+.bjchip.c10{background:#1e88e5}.bjchip.c25{background:#43a047}.bjchip.c50{background:#e53935}.bjchip.c100{background:#212121}
+.bjbtn{background:#eef7f2;color:#0f3d31;border:none;border-radius:10px;padding:10px 18px;font-weight:800;font-size:15px;cursor:pointer}
+.bjbtn.ghost{background:rgba(0,0,0,.25);color:#eef7f2}
+.bjbtn:disabled{opacity:.4;cursor:not-allowed}
+.bjstats{display:flex;gap:18px;justify-content:center;margin-top:14px;color:#cfe9dd;font-size:13.5px}
+.bjstats b{color:#fff}
+.bjnote{margin-top:12px;font-size:12.5px}
+@media (max-width:600px){.bjc{width:58px;height:84px}.bjc .pip{font-size:24px}.bjc .r1,.bjc .r2{font-size:14px}.bjtable{padding:16px 12px}}
 /* welcome screen */
 .splash{position:fixed;inset:0;z-index:9999;background:#1b3550;background:radial-gradient(ellipse at 50% 40%,#22436a 0%,#1b3550 55%,#152a40 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(28px,6vh,56px);padding:24px;transition:opacity .45s ease,visibility .45s;color:#fff}
 .splash.out{opacity:0;visibility:hidden}
@@ -2057,6 +2084,80 @@ function startGlobalSearch(v){
   rememberSpot(); view = "search"; renderAll();
 }
 
+// ---------- Study-break blackjack (type "bj" in search + Enter) ----------
+function isBJ(v){ return (v||"").trim().toLowerCase()==="bj"; }
+const BJ = { bank:1000, bet:0, shoe:[], p:[], d:[], phase:"bet", msg:"Place a bet to start", cls:"", w:0, l:0, doubled:false };
+try { const b = +localStorage.getItem("jj-bj-bank"); if (b > 0) BJ.bank = b; } catch(e) {}
+function bjSave(){ try { localStorage.setItem("jj-bj-bank", String(BJ.bank)); } catch(e) {} }
+function bjShoe(){ const r = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"], su = ["♠","♥","♦","♣"], sh = [];
+  for (let d=0; d<6; d++) for (const x of su) for (const y of r) sh.push({r:y, s:x});
+  for (let i=sh.length-1; i>0; i--) { const j = Math.floor(Math.random()*(i+1)); [sh[i],sh[j]] = [sh[j],sh[i]]; }
+  BJ.shoe = sh; }
+function bjDraw(){ if (BJ.shoe.length < 60) bjShoe(); return BJ.shoe.pop(); }
+function bjVal(h){ let t = 0, a = 0; h.forEach(c=>{ if (c.r==="A") { a++; t += 11; } else t += ["J","Q","K"].includes(c.r) ? 10 : +c.r; }); while (t > 21 && a) { t -= 10; a--; } return t; }
+function bjIsBJ(h){ return h.length===2 && bjVal(h)===21; }
+function bjCard(c, hide){ if (hide) return `<div class="bjc back"></div>`; const red = c.s==="♥"||c.s==="♦";
+  return `<div class="bjc ${red?"red":""}"><span class="r1">${c.r}<br>${c.s}</span><span class="pip">${c.s}</span><span class="r2">${c.r}<br>${c.s}</span></div>`; }
+function openBJ(){ clearTimeout(searchT); $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = ""; searchChips = []; searchRet = null; view = "bj"; renderAll(); $("main").scrollTo({top:0}); }
+function bjEnd(res){
+  const b = BJ.bet;
+  if (res==="bj") { BJ.bank += Math.floor(b*2.5); BJ.msg = "Blackjack! You win $" + Math.floor(b*1.5); BJ.cls = "win"; BJ.w++; }
+  else if (res==="win") { BJ.bank += b*2; BJ.msg = "You win $" + b; BJ.cls = "win"; BJ.w++; }
+  else if (res==="push") { BJ.bank += b; BJ.msg = "Push — bet returned"; BJ.cls = "push"; }
+  else { BJ.msg = res==="bust" ? "Bust! You lose $" + b : "Dealer wins — you lose $" + b; BJ.cls = "lose"; BJ.l++; }
+  BJ.phase = "done"; bjSave();
+}
+function bjDealer(){
+  while (bjVal(BJ.d) < 17) BJ.d.push(bjDraw());
+  const p = bjVal(BJ.p), d = bjVal(BJ.d);
+  bjEnd(d > 21 || p > d ? "win" : p===d ? "push" : "lose");
+}
+function bjAct(a){
+  if (a.startsWith("bet:")) { const n = +a.slice(4); if (BJ.phase==="done") { BJ.phase = "bet"; BJ.p = []; BJ.d = []; BJ.bet = 0; BJ.cls = ""; }
+    if (BJ.phase==="bet" && BJ.bank >= n) { BJ.bank -= n; BJ.bet += n; BJ.msg = "Bet $" + BJ.bet + " — press Deal"; } }
+  else if (a==="clear" && BJ.phase==="bet") { BJ.bank += BJ.bet; BJ.bet = 0; BJ.msg = "Place a bet to start"; }
+  else if (a==="deal") {
+    if (BJ.phase==="done") { if (BJ.bank < BJ.bet) { BJ.phase = "bet"; BJ.bet = 0; BJ.p = []; BJ.d = []; BJ.cls = ""; BJ.msg = "Not enough for the same bet — pick a new one"; renderBJ(); return; } BJ.bank -= BJ.bet; }
+    if (!BJ.bet) return;
+    BJ.doubled = false; BJ.cls = ""; BJ.p = [bjDraw(), bjDraw()]; BJ.d = [bjDraw(), bjDraw()]; BJ.phase = "play"; BJ.msg = "Hit or stand?";
+    if (bjIsBJ(BJ.p) || bjIsBJ(BJ.d)) bjEnd(bjIsBJ(BJ.p) && bjIsBJ(BJ.d) ? "push" : bjIsBJ(BJ.p) ? "bj" : "lose");
+  }
+  else if (a==="hit" && BJ.phase==="play") { BJ.p.push(bjDraw()); const v = bjVal(BJ.p); if (v > 21) bjEnd("bust"); else if (v===21) bjDealer(); }
+  else if (a==="stand" && BJ.phase==="play") bjDealer();
+  else if (a==="double" && BJ.phase==="play" && BJ.p.length===2 && BJ.bank >= BJ.bet) { BJ.bank -= BJ.bet; BJ.bet *= 2; BJ.doubled = true; BJ.p.push(bjDraw()); if (bjVal(BJ.p) > 21) bjEnd("bust"); else bjDealer(); }
+  else if (a==="refill") { BJ.bank = 1000; BJ.bet = 0; BJ.phase = "bet"; BJ.p = []; BJ.d = []; BJ.cls = ""; BJ.msg = "Fresh $1,000 — place a bet"; bjSave(); }
+  else if (a==="back") { view = "home"; renderAll(); $("main").scrollTo({top:0}); return; }
+  if (BJ.doubled && BJ.phase==="done") BJ.bet /= 2, BJ.doubled = false;
+  renderBJ();
+}
+function renderBJ(){
+  const play = BJ.phase==="play", done = BJ.phase==="done", hide = play;
+  const dv = BJ.d.length ? (hide ? bjVal([BJ.d[0]]) + " + ?" : bjVal(BJ.d)) : "";
+  const pv = BJ.p.length ? bjVal(BJ.p) : "";
+  const broke = BJ.bank < 10 && !BJ.bet && BJ.phase!=="play";
+  const chips = [10,25,50,100].map(n=>`<button class="bjchip c${n}" data-bj="bet:${n}" ${play||BJ.bank<n?"disabled":""}>$${n}</button>`).join("");
+  showPage(`<div class="page bjp"><div class="ptools" style="margin-bottom:12px"><button class="btn" data-bj="back">← Back to studying</button></div>
+    <h2>Study break: Blackjack 🃏</h2><p class="sub">Fake money only. Dealer stands on 17, blackjack pays 3:2. Type <b>bj</b> in search any time to come back.</p>
+    <div class="bjtable" style="margin-top:14px">
+      <div class="bjrow"><div class="bjlab">Dealer ${dv!==""?`<b>${dv}</b>`:""}</div><div class="bjcards">${BJ.d.map((c,i)=>bjCard(c, hide && i===1)).join("")}</div></div>
+      <div class="bjmsg ${BJ.cls}">${esc(BJ.msg)}</div>
+      <div class="bjrow"><div class="bjlab">You ${pv!==""?`<b>${pv}</b>`:""}</div><div class="bjcards">${BJ.p.map(c=>bjCard(c)).join("")}</div></div>
+      <div class="bjbar">${play
+        ? `<button class="bjbtn" data-bj="hit">Hit</button><button class="bjbtn" data-bj="stand">Stand</button><button class="bjbtn ghost" data-bj="double" ${BJ.p.length===2&&BJ.bank>=BJ.bet?"":"disabled"}>Double</button>`
+        : broke ? `<button class="bjbtn" data-bj="refill">Out of chips — get another $1,000</button>`
+        : chips + `<button class="bjbtn" data-bj="deal" ${BJ.bet?"":"disabled"}>${done?"Deal again ($"+BJ.bet+")":"Deal"}</button>${BJ.phase==="bet"&&BJ.bet?`<button class="bjbtn ghost" data-bj="clear">Clear bet</button>`:""}`}</div>
+      <div class="bjstats"><span>Bank <b>$${BJ.bank.toLocaleString()}</b></span><span>Bet <b>$${BJ.bet}</b></span><span>W–L <b>${BJ.w}–${BJ.l}</b></span></div>
+    </div><p class="muted bjnote">Keyboard: H hit · S stand · D double · Enter deal</p></div>`);
+}
+document.addEventListener("click", e=>{ const b = e.target.closest && e.target.closest("[data-bj]"); if (b && !b.disabled) { e.preventDefault(); e.stopPropagation(); bjAct(b.dataset.bj); } }, true);
+document.addEventListener("keydown", e=>{
+  if (view!=="bj" || e.metaKey || e.ctrlKey || e.altKey) return;
+  const a = document.activeElement; if (a && (a.tagName==="INPUT" || a.tagName==="TEXTAREA")) return;
+  const k = e.key.toLowerCase(), m = {h:"hit", s:"stand", d:"double"}[k];
+  if (m && BJ.phase==="play") { e.preventDefault(); bjAct(m); }
+  else if (e.key==="Enter" && BJ.phase!=="play" && BJ.bet) { e.preventDefault(); bjAct("deal"); }
+});
+
 // =====================================================================
 // Render all
 // =====================================================================
@@ -2088,6 +2189,7 @@ function renderAll(){
   else if (view==="guide") renderGuideView();
   else if (view==="anki") showPage(`<div class="page dash"><div class="dtop"><div><h2>Anki export</h2><p class="sub">Questions you've added as Anki cards, ready to download</p></div></div>${ankiHomeBox().replace('<div class="h3">Anki export</div>','') || `<div class="emptybox"><h3>No Anki cards yet</h3><p>Add questions to your Anki list while you study, and they'll collect here for download.</p></div>`}</div>`);
   else if (view==="search") renderSearch();
+  else if (view==="bj") renderBJ();
   else if (view==="report") { const t = S.tests.find(x=>x.id===reportTest); if (t) renderReport(t); else { view="quiz"; renderAll(); } }
 }
 
@@ -2456,6 +2558,7 @@ document.addEventListener("keydown", e=>{
   const sid = e.target.id;
   if (e.key==="Enter" && (sid==="pageSearchIn" || sid==="homeSearchIn")) {
     e.preventDefault(); clearTimeout(searchT);
+    if (isBJ(e.target.value)) { e.target.value = ""; openBJ(); return; }
     if (sid==="homeSearchIn") { searchScope = "all"; searchFilter = "all"; }
     if (addChip(e.target.value)) { e.target.value = ""; refreshChips(); }
     return;
@@ -2476,7 +2579,7 @@ $("searchIn").addEventListener("input", e=>{
 });
 $("searchIn").addEventListener("keydown", e=>{
   if (e.key==="Escape") { $("searchClr").click(); e.target.blur(); }
-  if (e.key==="Enter") { e.preventDefault(); clearTimeout(searchT); if (!inSearch()) searchScope = "course"; if (addChip(e.target.value)) { e.target.value = ""; $("searchWrap").classList.remove("has"); refreshChips(); } }
+  if (e.key==="Enter") { e.preventDefault(); clearTimeout(searchT); if (isBJ(e.target.value)) { openBJ(); return; } if (!inSearch()) searchScope = "course"; if (addChip(e.target.value)) { e.target.value = ""; $("searchWrap").classList.remove("has"); refreshChips(); } }
 });
 
 document.addEventListener("mousedown", e=>{ if (e.target.closest && e.target.closest("#hlMenu")) e.preventDefault(); });
