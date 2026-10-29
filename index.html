@@ -470,36 +470,91 @@ table.rt tr.click:hover td{background:var(--hover)}
 }
 
 /* study-break blackjack */
-.bjp{max-width:820px}
-.bjtable{background:radial-gradient(ellipse at 50% 30%,#1f6b52 0%,#145040 60%,#0f3d31 100%);border:1px solid #2b7a60;border-radius:22px;padding:22px 24px;color:#eef7f2;box-shadow:inset 0 0 60px rgba(0,0,0,.35)}
-.bjrow{min-height:150px;margin-bottom:10px}
-.bjlab{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#bfe3d3;font-weight:700;margin-bottom:8px;display:flex;gap:10px;align-items:center}
-.bjlab b{background:rgba(0,0,0,.28);color:#fff;border-radius:20px;padding:2px 10px;letter-spacing:0;font-size:13px}
-.bjcards{display:flex;gap:10px;flex-wrap:wrap}
-.bjtable{position:relative}
-.bjdeck{position:absolute;right:22px;top:18px;width:62px;height:88px}
-.bjdeck i{position:absolute;inset:0;border-radius:8px;border:3px solid #fff;background:repeating-linear-gradient(45deg,#1b4d6b 0 6px,#236b7a 6px 12px);box-shadow:0 2px 6px rgba(0,0,0,.35)}
-.bjdeck i:nth-child(2){transform:translate(-2px,-2px)}.bjdeck i:nth-child(3){transform:translate(-4px,-4px)}
-.bjc{width:78px;height:110px;border-radius:9px;background:#fff;color:#1b1f24;box-shadow:0 4px 12px rgba(0,0,0,.35);position:relative;font-weight:700}
-.bjc.red{color:#c62828}
-.bjc .r1{position:absolute;left:7px;top:5px;font-size:17px;line-height:1.05;text-align:center}
-.bjc .r2{position:absolute;right:7px;bottom:5px;font-size:17px;line-height:1.05;text-align:center;transform:rotate(180deg)}
-.bjc .pip{position:absolute;inset:0;display:grid;place-items:center;font-size:34px}
-.bjc.back{background:repeating-linear-gradient(45deg,#1b4d6b 0 6px,#236b7a 6px 12px);border:4px solid #fff}
-@keyframes bjIn{from{opacity:0;transform:translateY(-14px) rotate(-4deg)}to{opacity:1;transform:none}}
-.bjmsg{text-align:center;font-size:20px;font-weight:700;min-height:30px;margin:6px 0 12px}
-.bjmsg.win{color:#9ef0b5}.bjmsg.lose{color:#ffb4a8}.bjmsg.push{color:#ffe08a}
-.bjbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center}
-.bjchip{width:56px;height:56px;border-radius:50%;border:4px dashed rgba(255,255,255,.75);font-weight:800;color:#fff;cursor:pointer;font-size:14px;box-shadow:0 3px 8px rgba(0,0,0,.35)}
-.bjchip:disabled{opacity:.35;cursor:not-allowed}
-.bjchip.c10{background:#1e88e5}.bjchip.c25{background:#43a047}.bjchip.c50{background:#e53935}.bjchip.c100{background:#212121}
-.bjbtn{background:#eef7f2;color:#0f3d31;border:none;border-radius:10px;padding:10px 18px;font-weight:800;font-size:15px;cursor:pointer}
-.bjbtn.ghost{background:rgba(0,0,0,.25);color:#eef7f2}
-.bjbtn:disabled{opacity:.4;cursor:not-allowed}
-.bjstats{display:flex;gap:18px;justify-content:center;margin-top:14px;color:#cfe9dd;font-size:13.5px}
-.bjstats b{color:#fff}
-.bjnote{margin-top:12px;font-size:12.5px}
-@media (max-width:600px){.bjdeck{width:44px;height:62px;right:12px;top:12px}.bjc{width:58px;height:84px}.bjc .pip{font-size:24px}.bjc .r1,.bjc .r2{font-size:14px}.bjtable{padding:16px 12px}}
+.bjp{max-width:1240px}
+.bjlay{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start;margin-top:14px}
+@media (max-width:1100px){.bjlay{grid-template-columns:minmax(0,1fr)}}
+.bjscale{position:relative;width:100%;max-width:880px;margin:0 auto}
+.bjfelt{position:absolute;left:0;top:0;width:880px;height:600px;transform-origin:0 0;overflow:hidden;
+  border-radius:0 0 440px 440px/0 0 300px 300px;
+  background:radial-gradient(ellipse at 50% 18%,#1d7a55 0%,#14613f 45%,#0d4a30 80%,#0a3d27 100%);
+  border:20px solid #4a2a17;border-top:0;
+  box-shadow:inset 0 0 0 3px #c9a24a55,inset 0 -30px 80px rgba(0,0,0,.35),0 16px 40px rgba(0,0,0,.45);color:#f3efe2;user-select:none}
+.bjfelt::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:repeating-radial-gradient(circle at 30% 40%,rgba(255,255,255,.018) 0 1px,transparent 1px 3px)}
+.bjrailwrap{position:absolute;left:-20px;top:0;width:920px;height:620px;border-radius:0 0 460px 460px/0 0 320px 320px;pointer-events:none;
+  background:linear-gradient(180deg,#6b3d22,#3a1f10);box-shadow:0 18px 40px rgba(0,0,0,.5);z-index:-1}
+.bjtop{position:absolute;left:0;right:0;top:0;height:6px;background:linear-gradient(180deg,rgba(0,0,0,.45),transparent)}
+/* dealer furniture */
+.bjrack{position:absolute;left:330px;top:-6px;width:220px;height:44px;border-radius:0 0 10px 10px;background:linear-gradient(180deg,#151515,#2a2a2a);box-shadow:0 4px 10px rgba(0,0,0,.5);display:flex;gap:4px;justify-content:center;align-items:flex-end;padding:0 8px 6px}
+.bjrack i{width:28px;height:30px;border-radius:5px 5px 3px 3px;box-shadow:inset 0 -3px 0 rgba(0,0,0,.35),inset 0 2px 0 rgba(255,255,255,.25)}
+.bjshoe{position:absolute;right:30px;top:16px;width:104px;height:120px;transform:rotate(-8deg)}
+.bjshoe .box{position:absolute;inset:14px 0 0 18px;border-radius:8px 8px 12px 12px;background:linear-gradient(160deg,#3a3a3a,#111);box-shadow:0 8px 16px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.18)}
+.bjshoe .cardout{position:absolute;left:0;top:38px;width:62px;height:76px;border-radius:6px;border:3px solid #fff;background:var(--bjpat);transform:rotate(8deg);box-shadow:0 3px 6px rgba(0,0,0,.4)}
+.bjshoe .lip{position:absolute;left:10px;top:30px;width:30px;height:90px;border-radius:6px;background:linear-gradient(90deg,#222,#444);opacity:.95}
+.bjdisc{position:absolute;left:30px;top:18px;width:86px;height:112px;border-radius:8px;background:rgba(255,255,255,.07);border:2px solid rgba(255,255,255,.18);box-shadow:inset 0 0 14px rgba(0,0,0,.3)}
+.bjdisc .pile{position:absolute;left:4px;top:4px;width:74px;height:100px;border-radius:6px;border:3px solid #fff;background:var(--bjpat);display:none}
+.bjdisc.has .pile{display:block}
+.bjprint{position:absolute;left:0;top:0;width:880px;height:600px;pointer-events:none}
+.bjprint text{fill:#e7c66b;font-family:Georgia,"Times New Roman",serif;letter-spacing:.14em}
+/* cards */
+.bjc{position:absolute;width:78px;height:110px;border-radius:8px;background:#fdfdfb;color:#17191c;box-shadow:0 3px 8px rgba(0,0,0,.45);font-weight:700;font-family:Georgia,serif;backface-visibility:hidden}
+.bjc.red{color:#c3262b}
+.bjc .r1{position:absolute;left:6px;top:4px;font-size:17px;line-height:1.02;text-align:center}
+.bjc .r2{position:absolute;right:6px;bottom:4px;font-size:17px;line-height:1.02;text-align:center;transform:rotate(180deg)}
+.bjc .pip{position:absolute;inset:0;display:grid;place-items:center;font-size:36px}
+.bjc.back{background:var(--bjpat);border:4px solid #fff;box-shadow:0 3px 8px rgba(0,0,0,.45),inset 0 0 0 2px rgba(79,184,176,.45)}
+.bjc.back::before{content:"";position:absolute;left:50%;top:44%;width:50px;height:50px;transform:translate(-50%,-50%);border-radius:50%;background:#0f2236 var(--bjlogo) 3px 50%/138px auto no-repeat;border:1.5px solid #4fb8b0;box-shadow:0 1px 5px rgba(0,0,0,.45)}
+.bjc.back::after{content:"JJ QBANK";position:absolute;left:0;right:0;bottom:12px;text-align:center;font:800 8px/1 Inter,system-ui,sans-serif;letter-spacing:.14em;color:#7fd3cb}
+.bjfelt{--bjpat:repeating-linear-gradient(45deg,rgba(79,184,176,.18) 0 1.5px,transparent 1.5px 9px),repeating-linear-gradient(-45deg,rgba(79,184,176,.18) 0 1.5px,transparent 1.5px 9px),linear-gradient(160deg,#1f3f60,#132a42)}
+.bjpill{position:absolute;transform:translateX(-50%);background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.2);color:#fff;border-radius:20px;padding:3px 12px;font-size:14px;font-weight:700;white-space:nowrap;font-family:Inter,system-ui,sans-serif}
+.bjpill:empty{display:none}
+.bjpill small{font-weight:600;color:#cfe3d8;letter-spacing:.08em;font-size:11px;margin-right:6px}
+.bjmsg{position:absolute;left:50%;top:222px;transform:translateX(-50%);padding:7px 20px;border-radius:24px;font-size:19px;font-weight:800;white-space:nowrap;background:rgba(0,0,0,.42);border:1px solid rgba(255,255,255,.15);font-family:Inter,system-ui,sans-serif;transition:opacity .25s}
+.bjmsg:empty{opacity:0}
+.bjmsg.win{color:#a8f5bf;border-color:#a8f5bf66}.bjmsg.lose{color:#ffb7ab;border-color:#ffb7ab55}.bjmsg.push{color:#ffe08a;border-color:#ffe08a55}
+/* bet spot + chips */
+.bjspot{position:absolute;left:400px;top:488px;width:80px;height:80px;border-radius:50%;border:2px solid #e7c66b99;box-shadow:inset 0 0 0 6px rgba(231,198,107,.12)}
+.bjspot span{position:absolute;left:0;right:0;bottom:-20px;text-align:center;font-size:10px;letter-spacing:.2em;color:#e7c66bbb;font-family:Georgia,serif}
+.bjstack{position:absolute;width:46px;height:46px}
+.bjchp{position:absolute;left:0;width:46px;height:46px;border-radius:50%;border:5px dashed rgba(255,255,255,.85);box-shadow:0 2px 0 rgba(0,0,0,.45),0 0 0 1px rgba(0,0,0,.35);display:grid;place-items:center;font:800 11px/1 Inter,system-ui,sans-serif;color:#fff}
+.bjchp.c10,.bjchip.c10,.bjrack i.c10{background:#1f6fd1}.bjchp.c25,.bjchip.c25,.bjrack i.c25{background:#2e9b47}
+.bjchp.c50,.bjchip.c50,.bjrack i.c50{background:#d33a2c}.bjchp.c100,.bjchip.c100,.bjrack i.c100{background:#1c1c1c}
+.bjrack i.c5{background:#e8e4d8}.bjrack i.c500{background:#7b3fb5}
+/* dealer's hand */
+.bjdealer{position:absolute;left:0;top:0;width:78px;height:110px;z-index:30;pointer-events:none;will-change:transform}
+.bjdealer .held{position:absolute;inset:0}
+.bjdealer .held .bjc{left:0;top:0}
+.bjarm{position:absolute;left:-19px;top:-76px;width:104px;height:152px;transform-origin:58px 100px;will-change:transform}
+.bjarm .sleeve{position:absolute;left:35px;bottom:146px;width:44px;height:700px;background:linear-gradient(90deg,#08080a,#2a2a30 40%,#1a1a1f 60%,#08080a);box-shadow:0 0 8px rgba(0,0,0,.5)}
+.bjarm svg{position:absolute;left:0;top:0;width:104px;height:152px;overflow:visible;filter:drop-shadow(0 8px 7px rgba(0,0,0,.42))}
+/* controls under the table */
+.bjctl{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;margin:16px auto 0;max-width:880px;background:linear-gradient(180deg,#3a1f10,#2a160b);border:1px solid #5a3420;border-radius:16px;padding:12px 14px}
+.bjchip{width:54px;height:54px;border-radius:50%;border:5px dashed rgba(255,255,255,.85);font-weight:800;color:#fff;cursor:pointer;font-size:13px;box-shadow:0 3px 0 rgba(0,0,0,.45);transition:transform .12s}
+.bjchip:hover:not(:disabled){transform:translateY(-3px)}
+.bjchip:disabled{opacity:.3;cursor:not-allowed}
+.bjbtn{background:#f3efe2;color:#2a160b;border:none;border-radius:10px;padding:11px 20px;font-weight:800;font-size:15px;cursor:pointer;box-shadow:0 3px 0 rgba(0,0,0,.35)}
+.bjbtn.go{background:#e7c66b}
+.bjbtn.ghost{background:rgba(255,255,255,.1);color:#f3efe2;box-shadow:none;border:1px solid rgba(255,255,255,.2)}
+.bjbtn:disabled{opacity:.35;cursor:not-allowed}
+.bjstats{display:flex;gap:18px;justify-content:center;margin-top:10px;color:var(--muted);font-size:13.5px}
+.bjstats b{color:var(--text)}
+.bjnote{margin-top:8px;font-size:12.5px;text-align:center}
+/* leaderboard */
+.bjlb{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;position:sticky;top:12px}
+.bjlb h3{margin:0 0 2px;font-size:16px;display:flex;justify-content:space-between;align-items:center}
+.bjlb h3 button{background:none;border:1px solid var(--line2);color:var(--muted);border-radius:7px;padding:3px 8px;font-size:12px;cursor:pointer}
+.bjlb .lbsub{color:var(--muted);font-size:12.5px;margin-bottom:10px}
+.bjlbr{display:grid;grid-template-columns:28px 1fr auto;gap:8px;align-items:center;padding:7px 8px;border-radius:8px;font-size:13.5px}
+.bjlbr:nth-child(odd){background:rgba(127,127,127,.06)}
+.bjlbr .rk{font-weight:800;color:var(--muted);text-align:center}
+.bjlbr .nm{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bjlbr .nm small{display:block;color:var(--muted);font-size:11.5px}
+.bjlbr .bk{font-weight:800;font-variant-numeric:tabular-nums}
+.bjlbr.me{background:var(--acc-bg)!important;outline:1px solid var(--acc)}
+.bjlbr.g1 .rk{color:#e7b416}.bjlbr.g2 .rk{color:#a8b3bd}.bjlbr.g3 .rk{color:#c27c3e}
+.bjlb .lbme{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.bjlb .lbme b{color:var(--text)}
+@media (max-width:600px){.bjctl{gap:8px;padding:10px}.bjchip{width:46px;height:46px;font-size:12px}.bjbtn{padding:10px 14px}}
 /* welcome screen */
 .splash{position:fixed;inset:0;z-index:9999;background:#1b3550;background:radial-gradient(ellipse at 50% 40%,#22436a 0%,#1b3550 55%,#152a40 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(28px,6vh,56px);padding:24px;transition:opacity .45s ease,visibility .45s;color:#fff}
 .splash.out{opacity:0;visibility:hidden}
@@ -2090,89 +2145,263 @@ function startGlobalSearch(v){
 
 // ---------- Study-break blackjack (type "bj" in search + Enter) ----------
 function isBJ(v){ return (v||"").trim().toLowerCase()==="bj"; }
-const BJ = { bank:1000, bet:0, shoe:[], p:[], d:[], phase:"bet", msg:"Place a bet to start", cls:"", w:0, l:0, doubled:false };
-try { const b = +localStorage.getItem("jj-bj-bank"); if (b > 0) BJ.bank = b; } catch(e) {}
-function bjSave(){ try { localStorage.setItem("jj-bj-bank", String(BJ.bank)); } catch(e) {} }
+const BJ = { bank:1000, peak:1000, hands:0, w:0, l:0, bet:0, shoe:[], p:[], d:[], phase:"bet", msg:"Place your bet", cls:"", doubled:false, busy:false, board:null, boardErr:"", boardAt:0, synced:false, hx:401, hy:-190 };
+try { const j = JSON.parse(localStorage.getItem("jj-bj") || "null"); if (j && j.bank >= 0) Object.assign(BJ, {bank:j.bank, peak:j.peak||j.bank, hands:j.hands||0, w:j.w||0, l:j.l||0}); else { const b = +localStorage.getItem("jj-bj-bank"); if (b > 0) BJ.bank = BJ.peak = b; } } catch(e) {}
+const BJW = 880, BJH = 600, BJ_SHOE = {x:712, y:50}, BJ_REST = {x:401, y:-190}, BJ_WAIT = {x:600, y:-4}, BJ_DISC = {x:36, y:24};
+const bjWait = ms => new Promise(r=>setTimeout(r, ms));
+const bjReduce = () => !!(window.matchMedia && matchMedia("(prefers-reduced-motion:reduce)").matches);
 function bjShoe(){ const r = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"], su = ["♠","♥","♦","♣"], sh = [];
   for (let d=0; d<6; d++) for (const x of su) for (const y of r) sh.push({r:y, s:x});
   for (let i=sh.length-1; i>0; i--) { const j = Math.floor(Math.random()*(i+1)); [sh[i],sh[j]] = [sh[j],sh[i]]; }
   BJ.shoe = sh; }
 function bjDraw(){ if (BJ.shoe.length < 60) bjShoe(); return BJ.shoe.pop(); }
 function bjVal(h){ let t = 0, a = 0; h.forEach(c=>{ if (c.r==="A") { a++; t += 11; } else t += ["J","Q","K"].includes(c.r) ? 10 : +c.r; }); while (t > 21 && a) { t -= 10; a--; } return t; }
+function bjSoft(h){ let t = 0, a = 0; h.forEach(c=>{ if (c.r==="A") { a++; t += 11; } else t += ["J","Q","K"].includes(c.r) ? 10 : +c.r; }); while (t > 21 && a) { t -= 10; a--; } return a > 0 && t <= 21; }
 function bjIsBJ(h){ return h.length===2 && bjVal(h)===21; }
-function bjCard(c, hide){ const nw = c.n ? " new" : "", fl = c.f ? " flip" : ""; if (hide) return `<div class="bjc back${nw}"></div>`; const red = c.s==="♥"||c.s==="♦";
-  return `<div class="bjc ${red?"red":""}${nw}${fl}"><span class="r1">${c.r}<br>${c.s}</span><span class="pip">${c.s}</span><span class="r2">${c.r}<br>${c.s}</span></div>`; }
+function bjFace(c){ const red = c.s==="♥"||c.s==="♦"; return `<div class="bjc ${red?"red":""}"><span class="r1">${c.r}<br>${c.s}</span><span class="pip">${c.s}</span><span class="r2">${c.r}<br>${c.s}</span></div>`; }
+const BJ_BACK = `<div class="bjc back"></div>`;
+function bjPos(who, i){ return who==="d" ? {x:368 + i*34, y:64} : {x:368 + i*34, y:330}; }
+function bjChipsFor(n){ const out = []; for (const v of [100,50,25,10]) while (n >= v && out.length < 14) { out.push(v); n -= v; } return out; }
+function bjStackHTML(n){ return bjChipsFor(n).map((v,i)=>`<div class="bjchp c${v}" style="top:${-i*4}px">${i===bjChipsFor(n).length-1?"$"+n:""}</div>`).join(""); }
+const BJ_HAND = `<div class="bjarm" id="bjArm"><div class="sleeve"></div><svg viewBox="-10 -10 130 190" aria-hidden="true" style="overflow:visible"><defs><radialGradient id="bjhbk" cx="50%" cy="42%" r="60%"><stop offset="0" stop-color="#e9bd98"/><stop offset=".6" stop-color="#d9a37b"/><stop offset="1" stop-color="#b57b54"/></radialGradient><linearGradient id="bjhnl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dcae9a"/><stop offset=".75" stop-color="#f0cfc0"/><stop offset="1" stop-color="#faece4"/></linearGradient><linearGradient id="bjhcf" x1="0" x2="1"><stop offset="0" stop-color="#c9ccd1"/><stop offset=".2" stop-color="#fff"/><stop offset=".8" stop-color="#f1f2f4"/><stop offset="1" stop-color="#bfc3c8"/></linearGradient><radialGradient id="bjhgd" cx="35%" cy="35%"><stop offset="0" stop-color="#fff3c4"/><stop offset=".5" stop-color="#d9b04a"/><stop offset="1" stop-color="#8a6a1c"/></radialGradient><linearGradient id="bjhgp" x1="0" y1=".5" x2="1" y2=".5" gradientTransform="rotate(7.0 .5 .5)"><stop offset="0" stop-color="#b0764f"/><stop offset=".3" stop-color="#d9a780"/><stop offset=".55" stop-color="#e6b994"/><stop offset=".85" stop-color="#c99169"/><stop offset="1" stop-color="#a86f49"/></linearGradient><linearGradient id="bjhgr" x1="0" y1=".5" x2="1" y2=".5" gradientTransform="rotate(2.5 .5 .5)"><stop offset="0" stop-color="#b0764f"/><stop offset=".3" stop-color="#d9a780"/><stop offset=".55" stop-color="#e6b994"/><stop offset=".85" stop-color="#c99169"/><stop offset="1" stop-color="#a86f49"/></linearGradient><linearGradient id="bjhgm" x1="0" y1=".5" x2="1" y2=".5" gradientTransform="rotate(-0.5 .5 .5)"><stop offset="0" stop-color="#b0764f"/><stop offset=".3" stop-color="#d9a780"/><stop offset=".55" stop-color="#e6b994"/><stop offset=".85" stop-color="#c99169"/><stop offset="1" stop-color="#a86f49"/></linearGradient><linearGradient id="bjhgi" x1="0" y1=".5" x2="1" y2=".5" gradientTransform="rotate(-3.0 .5 .5)"><stop offset="0" stop-color="#b0764f"/><stop offset=".3" stop-color="#d9a780"/><stop offset=".55" stop-color="#e6b994"/><stop offset=".85" stop-color="#c99169"/><stop offset="1" stop-color="#a86f49"/></linearGradient><linearGradient id="bjhgt1" x1="0" y1=".5" x2="1" y2=".5" gradientTransform="rotate(-38.0 .5 .5)"><stop offset="0" stop-color="#b0764f"/><stop offset=".3" stop-color="#d9a780"/><stop offset=".55" stop-color="#e6b994"/><stop offset=".85" stop-color="#c99169"/><stop offset="1" stop-color="#a86f49"/></linearGradient><linearGradient id="bjhgt2" x1="0" y1=".5" x2="1" y2=".5" gradientTransform="rotate(-20.0 .5 .5)"><stop offset="0" stop-color="#b0764f"/><stop offset=".3" stop-color="#d9a780"/><stop offset=".55" stop-color="#e6b994"/><stop offset=".85" stop-color="#c99169"/><stop offset="1" stop-color="#a86f49"/></linearGradient><filter id="bjhsh"><feDropShadow dx="0" dy="2" stdDeviation="1.6" flood-color="#2a1408" flood-opacity=".45"/></filter></defs><g filter="url(#bjhsh)"><path d="M75.92 54.81 Q78.67 74.42 81.86 93.12 A5.36 5.36 0 0 0 92.58 91.80 Q91.16 72.89 89.08 53.19 Z" fill="url(#bjhgp)" stroke="#8f5e3f" stroke-width=".6"/><g transform="translate(87.18 92.13) rotate(7.00)"><rect x="-3.36" y="-4.99" width="6.72" height="9.97" rx="3.05" fill="url(#bjhnl)" stroke="#b7836b" stroke-width=".35"/><path d="M-2.56 3.59 Q0 5.19 2.56 3.59" stroke="#fff" stroke-width=".6" fill="none" opacity=".75"/></g><g transform="translate(84.43 69.72) rotate(7.00)" stroke="#8a593a" fill="none" stroke-width=".5" opacity=".5"><path d="M-4.84 0 Q0 1.6 4.84 0"/><path d="M-3.39 1.9 Q0 2.9 3.39 1.9" opacity=".6"/></g><g transform="translate(86.04 82.82) rotate(7.00)" stroke="#8a593a" fill="none" stroke-width=".5" opacity=".5"><path d="M-4.54 0 Q0 1.6 4.54 0"/><path d="M-3.18 1.9 Q0 2.9 3.18 1.9" opacity=".6"/></g><path d="M62.86 59.83 Q64.37 84.99 66.53 109.72 A6.12 6.12 0 0 0 78.84 109.18 Q78.83 84.36 78.14 59.17 Z" fill="url(#bjhgr)" stroke="#8f5e3f" stroke-width=".6"/><g transform="translate(72.67 109.15) rotate(2.50)"><rect x="-3.84" y="-5.70" width="7.68" height="11.40" rx="3.49" fill="url(#bjhnl)" stroke="#b7836b" stroke-width=".35"/><path d="M-3.04 4.30 Q0 5.90 3.04 4.30" stroke="#fff" stroke-width=".6" fill="none" opacity=".75"/></g><g transform="translate(71.38 79.64) rotate(2.50)" stroke="#8a593a" fill="none" stroke-width=".5" opacity=".5"><path d="M-5.57 0 Q0 1.6 5.57 0"/><path d="M-3.90 1.9 Q0 2.9 3.90 1.9" opacity=".6"/></g><g transform="translate(72.11 96.42) rotate(2.50)" stroke="#8a593a" fill="none" stroke-width=".5" opacity=".5"><path d="M-5.21 0 Q0 1.6 5.21 0"/><path d="M-3.65 1.9 Q0 2.9 3.65 1.9" opacity=".6"/></g><path d="M48.84 60.93 Q49.00 87.93 49.87 114.44 A6.63 6.63 0 0 0 63.20 114.56 Q64.53 88.07 65.16 61.07 Z" fill="url(#bjhgm)" stroke="#8f5e3f" stroke-width=".6"/><g transform="translate(56.54 114.22) rotate(-0.50)"><rect x="-4.16" y="-6.17" width="8.32" height="12.35" rx="3.78" fill="url(#bjhnl)" stroke="#b7836b" stroke-width=".35"/><path d="M-3.36 4.78 Q0 6.38 3.36 4.78" stroke="#fff" stroke-width=".6" fill="none" opacity=".75"/></g><g transform="translate(56.81 82.60) rotate(-0.50)" stroke="#8a593a" fill="none" stroke-width=".5" opacity=".5"><path d="M-5.97 0 Q0 1.6 5.97 0"/><path d="M-4.18 1.9 Q0 2.9 4.18 1.9" opacity=".6"/></g><g transform="translate(56.65 100.60) rotate(-0.50)" stroke="#8a593a" fill="none" stroke-width=".5" opacity=".5"><path d="M-5.61 0 Q0 1.6 5.61 0"/><path d="M-3.93 1.9 Q0 2.9 3.93 1.9" opacity=".6"/></g><path d="M35.11 57.59 Q34.24 81.87 34.09 105.35 A6.38 6.38 0 0 0 46.92 106.02 Q49.22 82.66 50.89 58.41 Z" fill="url(#bjhgi)" stroke="#8f5e3f" stroke-width=".6"/><g transform="translate(40.52 105.40) rotate(-3.00)"><rect x="-4.00" y="-5.94" width="8.00" height="11.88" rx="3.64" fill="url(#bjhnl)" stroke="#b7836b" stroke-width=".35"/><path d="M-3.20 4.54 Q0 6.14 3.20 4.54" stroke="#fff" stroke-width=".6" fill="none" opacity=".75"/></g><g transform="translate(41.98 77.41) rotate(-3.00)" stroke="#8a593a" fill="none" stroke-width=".5" opacity=".5"><path d="M-5.77 0 Q0 1.6 5.77 0"/><path d="M-4.04 1.9 Q0 2.9 4.04 1.9" opacity=".6"/></g><g transform="translate(41.13 93.59) rotate(-3.00)" stroke="#8a593a" fill="none" stroke-width=".5" opacity=".5"><path d="M-5.41 0 Q0 1.6 5.41 0"/><path d="M-3.79 1.9 Q0 2.9 3.79 1.9" opacity=".6"/></g><path d="M23.76 16.78 Q14.73 29.14 9.99 37.11 A9.69 9.69 0 0 0 25.84 49.50 Q32.43 42.97 42.24 31.22 Z" fill="url(#bjhgt1)" stroke="#8f5e3f" stroke-width=".6"/><path d="M8.13 41.26 Q4.98 51.61 3.88 57.54 A7.40 7.40 0 0 0 18.64 62.91 Q21.62 57.66 25.86 47.72 Z" fill="url(#bjhgt2)" stroke="#8f5e3f" stroke-width=".6"/><g transform="translate(11.35 60.00) rotate(-20.00)"><rect x="-4.64" y="-6.89" width="9.28" height="13.77" rx="4.22" fill="url(#bjhnl)" stroke="#b7836b" stroke-width=".35"/><path d="M-3.84 5.49 Q0 7.09 3.84 5.49" stroke="#fff" stroke-width=".6" fill="none" opacity=".75"/></g><g transform="translate(15.19 49.45) rotate(-20.00)" stroke="#8a593a" fill="none" stroke-width=".5" opacity=".5"><path d="M-7.05 0 Q0 1.6 7.05 0"/><path d="M-4.93 1.9 Q0 2.9 4.93 1.9" opacity=".6"/></g><path d="M39 2 C37 12 33 18 29 25 C26 31 28 40 33 47 C36 52 36 58 38 61 Q43 65 50 63 Q56 66 63 63.5 Q70 65 76 61 Q83 60 87 55 Q91 50 91 40 C91 26 86 14 84 2 Z" fill="url(#bjhbk)" stroke="#8f5e3f" stroke-width=".6"/><g stroke="#f3cfae" stroke-width="1.3" fill="none" opacity=".2" stroke-linecap="round"><path d="M53 12 C50 30 46 44 43.5 56"/><path d="M59 12 C58 30 57.5 46 57 59"/><path d="M65 12 C67 30 69 44 70.5 57"/><path d="M71 12 C75 28 79 40 82 52"/></g><g fill="#f2caa6" opacity=".35"><ellipse cx="43" cy="59" rx="5" ry="2.6"/><ellipse cx="57" cy="62" rx="5.4" ry="2.8"/><ellipse cx="70.5" cy="60.5" rx="5" ry="2.6"/><ellipse cx="82.5" cy="55" rx="4" ry="2.3"/></g></g><path d="M33 -6 L89 -6 L90 13 Q61 18 32 13 Z" fill="url(#bjhcf)" stroke="#b9bdc2" stroke-width=".7"/><path d="M34 7 Q61 11 88 7" stroke="#c6cacf" stroke-width=".8" fill="none"/><circle cx="82" cy="3" r="3.2" fill="url(#bjhgd)" stroke="#7a5c18" stroke-width=".4"/></svg></div>`;
+
+// ---- table DOM ----
 function openBJ(){ clearTimeout(searchT); $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = ""; searchChips = []; searchRet = null; view = "bj"; renderAll(); $("main").scrollTo({top:0}); }
-const bjWait = ms => new Promise(r=>setTimeout(r, ms));
-async function bjGive(hand){ const c = bjDraw(); c.n = 1; BJ[hand].push(c); renderBJ(); await bjWait(560); }
-function bjEnd(res){
-  const b = BJ.bet;
-  if (res==="bj") { BJ.bank += Math.floor(b*2.5); BJ.msg = "Blackjack! You win $" + Math.floor(b*1.5); BJ.cls = "win"; BJ.w++; }
-  else if (res==="win") { BJ.bank += b*2; BJ.msg = (bjVal(BJ.d) > 21 ? "Dealer busts! " : "") + "You win $" + b; BJ.cls = "win"; BJ.w++; }
-  else if (res==="push") { BJ.bank += b; BJ.msg = "Push — bet returned"; BJ.cls = "push"; }
-  else { BJ.msg = res==="bust" ? "Bust! You lose $" + b : "Dealer wins — you lose $" + b; BJ.cls = "lose"; BJ.l++; }
-  if (BJ.doubled) { BJ.bet /= 2; BJ.doubled = false; }
-  BJ.phase = "done"; bjSave(); renderBJ();
+function renderBJ(){
+  if (view!=="bj") return;
+  if (BJ.phase==="deal" || BJ.phase==="dealer") BJ.phase = BJ.p.length ? "play" : "bet";   // re-entering mid-animation
+  BJ.busy = false;
+  showPage(`<div class="page bjp"><div class="ptools" style="margin-bottom:12px"><button class="btn" data-bj="back">← Back to studying</button></div>
+    <h2>Study break: Blackjack 🃏</h2><p class="sub">Fake money only. 6-deck shoe, dealer stands on all 17s, blackjack pays 3 to 2.</p>
+    <div class="bjlay"><div>
+      <div class="bjscale" id="bjScale"><div class="bjfelt" id="bjFelt" style="--bjlogo:url('${window.JJ_LOGO||""}')">
+        <div class="bjtop"></div>
+        <svg class="bjprint" viewBox="0 0 880 600" aria-hidden="true">
+          <defs><path id="bjArc1" d="M170 236 Q440 336 710 236"/><path id="bjArc2" d="M205 276 Q440 344 675 276"/></defs>
+          <text font-size="21" text-anchor="middle"><textPath href="#bjArc1" startOffset="50%">BLACKJACK PAYS 3 TO 2</textPath></text>
+          <text font-size="12" text-anchor="middle" opacity=".8"><textPath href="#bjArc2" startOffset="50%">DEALER MUST DRAW TO 16 AND STAND ON ALL 17s</textPath></text>
+          <text x="440" y="590" font-size="11" text-anchor="middle" opacity=".6">JJ QBANK · STUDY BREAK</text>
+        </svg>
+        <div class="bjrack"><i class="c5"></i><i class="c10"></i><i class="c25"></i><i class="c50"></i><i class="c100"></i><i class="c500"></i></div>
+        <div class="bjdisc ${BJ.hands?"has":""}" id="bjDisc"><div class="pile"></div></div>
+        <div class="bjshoe"><div class="box"></div><div class="cardout"></div><div class="lip"></div></div>
+        <div class="bjspot"></div>
+        <div class="bjstack" id="bjBet" style="left:417px;top:505px"></div>
+        <div id="bjCards"></div>
+        <div class="bjpill" id="bjDV" style="left:440px;top:184px"></div>
+        <div class="bjpill" id="bjPV" style="left:440px;top:448px"></div>
+        <div class="bjmsg" id="bjMsg"></div>
+        <div class="bjdealer" id="bjDealer"><div class="held" id="bjHeld"></div>${BJ_HAND}</div>
+      </div></div>
+      <div class="bjctl" id="bjCtl"></div>
+      <div class="bjstats" id="bjStats"></div>
+      <p class="muted bjnote">Keyboard: H hit · S stand · D double · Enter deal</p>
+    </div>
+    <aside class="bjlb" id="bjLB"></aside></div></div>`);
+  bjFit();
+  // put any cards still in play back on the felt
+  const cw = $("bjCards");
+  BJ.p.forEach((c,i)=>{ const p = bjPos("p",i); cw.insertAdjacentHTML("beforeend", bjFace(c)); c.el = cw.lastElementChild; Object.assign(c.el.style,{left:p.x+"px",top:p.y+"px"}); });
+  BJ.d.forEach((c,i)=>{ const p = bjPos("d",i), down = !!c.down; cw.insertAdjacentHTML("beforeend", down ? BJ_BACK : bjFace(c)); c.el = cw.lastElementChild; Object.assign(c.el.style,{left:p.x+"px",top:p.y+"px"}); });
+  const hp = BJ.phase==="play" ? BJ_WAIT : BJ_REST; BJ.hx = hp.x; BJ.hy = hp.y; bjHandSet(hp.x, hp.y); BJ.pend = 0;
+  bjUI(); bjBoard(); bjSync();
 }
-async function bjReveal(){ BJ.phase = "dealer"; BJ.msg = "Dealer's turn…"; BJ.d[1].f = 1; renderBJ(); await bjWait(700); }
+function bjFit(){
+  const sc = $("bjScale"), f = $("bjFelt"); if (!sc || !f) return;
+  const k = Math.min(1, sc.clientWidth / (BJW+40));
+  f.style.transform = `scale(${k})`; sc.style.height = ((BJH+20)*k) + "px"; BJ.k = k;
+}
+window.addEventListener("resize", ()=>{ if (view==="bj") bjFit(); });
+function bjHandAngle(x, y){ const dx = (x+39) - 440, dy = (y+30) + 320; return -Math.atan2(dx, dy) * 180/Math.PI; }
+function bjHandSet(x, y){ const d = $("bjDealer"), a = $("bjArm"); if (!d) return; d.style.transform = `translate(${x}px,${y}px)`; a.style.transform = `rotate(${bjHandAngle(x,y)}deg)`; }
+async function bjHandTo(x, y, ms){
+  const d = $("bjDealer"), a = $("bjArm"); if (!d) return;
+  const fx = BJ.hx, fy = BJ.hy; BJ.hx = x; BJ.hy = y;
+  if (bjReduce() || !d.animate) { bjHandSet(x, y); return; }
+  const mx = (fx+x)/2, my = Math.min(fy, y) - 14;   // a slight arc, like a real toss
+  const o = {duration:ms, easing:"cubic-bezier(.45,.05,.25,1)", fill:"forwards"};
+  d.animate([{transform:`translate(${fx}px,${fy}px)`},{transform:`translate(${mx}px,${my}px)`, offset:.55},{transform:`translate(${x}px,${y}px)`}], o);
+  a.animate([{transform:`rotate(${bjHandAngle(fx,fy)}deg)`},{transform:`rotate(${bjHandAngle(mx,my)-4}deg)`, offset:.55},{transform:`rotate(${bjHandAngle(x,y)}deg)`}], o);
+  await bjWait(ms);
+}
+async function bjFlip(c){
+  if (!c.el) return;
+  const st = {left:c.el.style.left, top:c.el.style.top, zIndex:c.el.style.zIndex};
+  if (!bjReduce() && c.el.animate) await c.el.animate([{transform:"none"},{transform:"rotateY(90deg) scale(1.04)"}], {duration:150, easing:"ease-in", fill:"forwards"}).finished.catch(()=>{});
+  const t = document.createElement("div"); t.innerHTML = bjFace(c); const nel = t.firstElementChild; Object.assign(nel.style, st);
+  c.el.replaceWith(nel); c.el = nel;
+  if (!bjReduce() && nel.animate) await nel.animate([{transform:"rotateY(-90deg) scale(1.04)"},{transform:"none"}], {duration:170, easing:"ease-out"}).finished.catch(()=>{});
+}
+async function bjGive(who, down){
+  const c = bjDraw(), i = BJ[who].length, p = bjPos(who, i); BJ[who].push(c); c.down = true;
+  $("bjHeld").innerHTML = BJ_BACK;                       // every card travels face-down
+  await bjHandTo(BJ_SHOE.x, BJ_SHOE.y, Math.hypot(BJ.hx-BJ_SHOE.x, BJ.hy-BJ_SHOE.y) < 5 ? 1 : 300);   // pull a card from the shoe
+  await bjWait(90);
+  await bjHandTo(p.x, p.y, 470);
+  const cw = $("bjCards"); if (!cw) return c;
+  cw.insertAdjacentHTML("beforeend", BJ_BACK); c.el = cw.lastElementChild;
+  Object.assign(c.el.style, {left:p.x+"px", top:p.y+"px", zIndex: 10+i});
+  $("bjHeld").innerHTML = "";
+  await bjWait(60);
+  if (!down) { await bjFlip(c); c.down = false; }        // turn it over once it's in place
+  bjUI();
+  await bjWait(90);
+  return c;
+}
+async function bjSweep(){
+  const all = [...BJ.p, ...BJ.d].filter(c=>c.el);
+  if (all.length && !bjReduce()) {
+    await bjHandTo(BJ.d.length ? bjPos("d",0).x+40 : 400, 200, 380);
+    all.forEach((c,i)=>{ const x = parseFloat(c.el.style.left), y = parseFloat(c.el.style.top);
+      c.el.animate([{transform:"none"},{transform:`translate(${BJ_DISC.x+4-x}px,${BJ_DISC.y+4-y}px) rotate(-6deg)`}], {duration:420, delay:i*25, easing:"cubic-bezier(.5,0,.3,1)", fill:"forwards"}); });
+    bjHandTo(BJ_DISC.x+10, BJ_DISC.y+30, 420);
+    await bjWait(480 + all.length*25);
+  }
+  all.forEach(c=>c.el.remove()); if ($("bjDisc")) $("bjDisc").classList.add("has");
+  BJ.p = []; BJ.d = []; bjUI();
+}
+async function bjReveal(){
+  BJ.phase = "dealer"; BJ.msg = "";
+  const c = BJ.d[1]; if (!c || !c.el) { bjUI(); return; }
+  const p = bjPos("d", 1);
+  await bjHandTo(p.x, p.y + 10, 380);
+  await bjFlip(c); c.down = false;
+  bjUI(); await bjWait(380);
+}
+function bjFly(html, from, to, ms, fade){
+  const f = $("bjFelt"); if (!f || bjReduce()) return bjWait(0);
+  const el = document.createElement("div"); el.className = "bjstack"; el.innerHTML = html; el.style.left = from.x+"px"; el.style.top = from.y+"px"; el.style.zIndex = 25; f.appendChild(el);
+  const an = el.animate([{transform:"none", opacity:1},{transform:`translate(${to.x-from.x}px,${to.y-from.y}px)`, opacity: fade?0:1}], {duration:ms, easing:"cubic-bezier(.45,.05,.25,1)", fill:"forwards"});
+  return an.finished.then(()=>el.remove()).catch(()=>el.remove());
+}
+async function bjPay(res){
+  const b = BJ.bet, spot = {x:417, y:505}, rack = {x:417, y:-10}, me = {x:417, y:640}, side = {x:470, y:505};
+  $("bjBet").innerHTML = "";
+  if (res==="win" || res==="bj") {
+    const won = res==="bj" ? Math.floor(b*1.5) : b;
+    await Promise.all([bjFly(bjStackHTML(b), spot, spot, 1), bjFly(bjStackHTML(won), rack, side, 520)]);
+    await Promise.all([bjFly(bjStackHTML(b), spot, me, 480, true), bjFly(bjStackHTML(won), side, {x:470, y:640}, 480, true)]);
+  } else if (res==="push") await bjFly(bjStackHTML(b), spot, me, 480, true);
+  else await bjFly(bjStackHTML(b), spot, rack, 520, true);
+}
+async function bjEnd(res){
+  const b = BJ.bet;
+  if (res==="bj") { BJ.bank += Math.floor(b*2.5); BJ.msg = "Blackjack! +$" + Math.floor(b*1.5); BJ.cls = "win"; BJ.w++; }
+  else if (res==="win") { BJ.bank += b*2; BJ.msg = (bjVal(BJ.d) > 21 ? "Dealer busts! " : "You win! ") + "+$" + b; BJ.cls = "win"; BJ.w++; }
+  else if (res==="push") { BJ.bank += b; BJ.msg = "Push — bet returned"; BJ.cls = "push"; }
+  else { BJ.msg = (res==="bust" ? "Bust! " : "Dealer wins. ") + "−$" + b; BJ.cls = "lose"; BJ.l++; }
+  BJ.hands++; BJ.peak = Math.max(BJ.peak, BJ.bank);
+  BJ.phase = "done"; bjUI(); bjSave();
+  await Promise.all([bjPay(res), bjHandTo(BJ_REST.x, BJ_REST.y, 520)]);
+  if (BJ.doubled) { BJ.bet /= 2; BJ.doubled = false; }
+  bjUI();
+}
 async function bjDealer(){
   await bjReveal();
-  while (bjVal(BJ.d) < 17) { BJ.msg = "Dealer hits…"; await bjGive("d"); await bjWait(200); }
+  while (bjVal(BJ.d) < 17) { await bjGive("d"); await bjWait(250); }
   const p = bjVal(BJ.p), d = bjVal(BJ.d);
-  bjEnd(d > 21 || p > d ? "win" : p===d ? "push" : "lose");
+  await bjEnd(d > 21 || p > d ? "win" : p===d ? "push" : "lose");
 }
 async function bjAct(a){
-  if (BJ.busy) return;
-  if (a.startsWith("bet:")) { const n = +a.slice(4); if (BJ.phase==="done") { BJ.phase = "bet"; BJ.p = []; BJ.d = []; BJ.bet = 0; BJ.cls = ""; }
-    if (BJ.phase==="bet" && BJ.bank >= n) { BJ.bank -= n; BJ.bet += n; BJ.msg = "Bet $" + BJ.bet + " — press Deal"; } renderBJ(); return; }
-  if (a==="clear" && BJ.phase==="bet") { BJ.bank += BJ.bet; BJ.bet = 0; BJ.msg = "Place a bet to start"; renderBJ(); return; }
-  if (a==="refill") { BJ.bank = 1000; BJ.bet = 0; BJ.phase = "bet"; BJ.p = []; BJ.d = []; BJ.cls = ""; BJ.msg = "Fresh $1,000 — place a bet"; bjSave(); renderBJ(); return; }
   if (a==="back") { view = "home"; renderAll(); $("main").scrollTo({top:0}); return; }
+  if (a==="lbref") { BJ.boardAt = 0; bjBoard(true); return; }
+  if (BJ.busy) return;
+  if (a.startsWith("bet:")) { const n = +a.slice(4);
+    if (BJ.phase==="done") { BJ.phase = "bet"; BJ.bet = 0; BJ.cls = ""; }
+    if (BJ.phase==="bet" && BJ.bank >= n) { BJ.bank -= n; BJ.bet += n; BJ.msg = ""; BJ.pend = (BJ.pend||0) + n; bjFly(`<div class="bjchp c${n}"></div>`, {x:417, y:640}, {x:417, y:505 - Math.max(0, bjChipsFor(BJ.bet).length-1)*4}, 280).then(()=>{ BJ.pend -= n; bjUI(); }); }
+    bjUI(); return; }
+  if (a==="clear" && BJ.phase==="bet") { BJ.bank += BJ.bet; BJ.bet = 0; BJ.msg = "Place your bet"; bjUI(); return; }
+  if (a==="refill") { BJ.bank = 1000; BJ.bet = 0; BJ.phase = "bet"; BJ.cls = ""; BJ.msg = "Fresh $1,000 — place your bet"; bjSave(); bjUI(); return; }
   BJ.busy = true;
   try {
     if (a==="deal") {
-      if (BJ.phase==="done") { if (BJ.bank < BJ.bet) { BJ.phase = "bet"; BJ.bet = 0; BJ.p = []; BJ.d = []; BJ.cls = ""; BJ.msg = "Not enough for the same bet — pick a new one"; return; } BJ.bank -= BJ.bet; }
+      if (BJ.phase==="done") { if (BJ.bank < BJ.bet) { BJ.phase = "bet"; BJ.bet = 0; BJ.cls = ""; BJ.msg = "Not enough for that bet — pick a new one"; return; } BJ.bank -= BJ.bet; }
       if (!BJ.bet) return;
-      BJ.doubled = false; BJ.cls = ""; BJ.p = []; BJ.d = []; BJ.phase = "deal"; BJ.msg = "Dealing…"; renderBJ(); await bjWait(250);
-      await bjGive("p"); await bjGive("d"); await bjGive("p"); await bjGive("d");
-      if (bjIsBJ(BJ.p) || bjIsBJ(BJ.d)) { await bjReveal(); bjEnd(bjIsBJ(BJ.p) && bjIsBJ(BJ.d) ? "push" : bjIsBJ(BJ.p) ? "bj" : "lose"); return; }
-      BJ.phase = "play"; BJ.msg = "Hit or stand?";
+      BJ.phase = "deal"; BJ.cls = ""; BJ.msg = ""; BJ.doubled = false; bjUI();
+      await bjSweep();
+      await bjGive("p"); await bjGive("d"); await bjGive("p"); await bjGive("d", true);
+      if (bjIsBJ(BJ.p) || bjIsBJ(BJ.d)) { await bjReveal(); await bjEnd(bjIsBJ(BJ.p) && bjIsBJ(BJ.d) ? "push" : bjIsBJ(BJ.p) ? "bj" : "lose"); return; }
+      BJ.phase = "play"; BJ.msg = ""; bjUI();
+      await bjHandTo(BJ_WAIT.x, BJ_WAIT.y, 420);
     }
-    else if (a==="hit" && BJ.phase==="play") { BJ.phase = "deal"; await bjGive("p"); BJ.phase = "play"; const v = bjVal(BJ.p); if (v > 21) { await bjWait(250); bjEnd("bust"); return; } if (v===21) { await bjDealer(); return; } }
+    else if (a==="hit" && BJ.phase==="play") { BJ.phase = "deal"; bjUI(); await bjGive("p"); const v = bjVal(BJ.p);
+      if (v > 21) { await bjWait(200); await bjEnd("bust"); return; } if (v===21) { await bjDealer(); return; }
+      BJ.phase = "play"; await bjHandTo(BJ_WAIT.x, BJ_WAIT.y, 380); }
     else if (a==="stand" && BJ.phase==="play") { await bjDealer(); return; }
-    else if (a==="double" && BJ.phase==="play" && BJ.p.length===2 && BJ.bank >= BJ.bet) { BJ.bank -= BJ.bet; BJ.bet *= 2; BJ.doubled = true; BJ.phase = "deal"; await bjGive("p"); if (bjVal(BJ.p) > 21) { await bjWait(250); bjEnd("bust"); return; } await bjDealer(); return; }
-  } finally { BJ.busy = false; if (view==="bj") renderBJ(); }
+    else if (a==="double" && BJ.phase==="play" && BJ.p.length===2 && BJ.bank >= BJ.bet) {
+      BJ.bank -= BJ.bet; BJ.bet *= 2; BJ.doubled = true; BJ.phase = "deal"; bjUI();
+      await bjGive("p"); if (bjVal(BJ.p) > 21) { await bjWait(200); await bjEnd("bust"); return; } await bjDealer(); return; }
+  } finally { BJ.busy = false; if (view==="bj") bjUI(); }
 }
-function renderBJ(){
-  if (view!=="bj") return;
-  const play = BJ.phase==="play", busy = BJ.phase==="deal" || BJ.phase==="dealer", done = BJ.phase==="done", hide = play || BJ.phase==="deal";
-  const dv = BJ.d.length ? (hide ? (BJ.d.length>1 ? bjVal([BJ.d[0]]) + " + ?" : bjVal(BJ.d)) : bjVal(BJ.d)) : "";
-  const pv = BJ.p.length ? bjVal(BJ.p) : "";
-  const broke = BJ.bank < 10 && !BJ.bet && BJ.phase==="bet";
-  const chips = [10,25,50,100].map(n=>`<button class="bjchip c${n}" data-bj="bet:${n}" ${BJ.bank<n?"disabled":""}>$${n}</button>`).join("");
-  const sc = $("main").scrollTop;
-  showPage(`<div class="page bjp"><div class="ptools" style="margin-bottom:12px"><button class="btn" data-bj="back">← Back to studying</button></div>
-    <h2>Study break: Blackjack 🃏</h2><p class="sub">Fake money only. Dealer stands on 17, blackjack pays 3:2.</p>
-    <div class="bjtable" style="margin-top:14px"><div class="bjdeck" id="bjDeck"><i></i><i></i><i></i></div>
-      <div class="bjrow"><div class="bjlab">Dealer ${dv!==""?`<b>${dv}</b>`:""}</div><div class="bjcards">${BJ.d.map((c,i)=>bjCard(c, hide && i===1)).join("")}</div></div>
-      <div class="bjmsg ${BJ.cls}">${esc(BJ.msg)}</div>
-      <div class="bjrow"><div class="bjlab">You ${pv!==""?`<b>${pv}</b>`:""}</div><div class="bjcards">${BJ.p.map(c=>bjCard(c)).join("")}</div></div>
-      <div class="bjbar">${play || busy
-        ? `<button class="bjbtn" data-bj="hit" ${busy?"disabled":""}>Hit</button><button class="bjbtn" data-bj="stand" ${busy?"disabled":""}>Stand</button><button class="bjbtn ghost" data-bj="double" ${!busy&&BJ.p.length===2&&BJ.bank>=BJ.bet?"":"disabled"}>Double</button>`
-        : broke ? `<button class="bjbtn" data-bj="refill">Out of chips — get another $1,000</button>`
-        : chips + `<button class="bjbtn" data-bj="deal" ${BJ.bet?"":"disabled"}>${done?"Deal again ($"+BJ.bet+")":"Deal"}</button>${BJ.phase==="bet"&&BJ.bet?`<button class="bjbtn ghost" data-bj="clear">Clear bet</button>`:""}`}</div>
-      <div class="bjstats"><span>Bank <b>$${BJ.bank.toLocaleString()}</b></span><span>Bet <b>$${BJ.bet}</b></span><span>W–L <b>${BJ.w}–${BJ.l}</b></span></div>
-    </div><p class="muted bjnote">Keyboard: H hit · S stand · D double · Enter deal</p></div>`);
-  $("main").scrollTop = sc;
-  // Slide newly dealt cards in from the deck, and flip the dealer's hole card.
-  const deck = $("bjDeck"), dr = deck && deck.getBoundingClientRect(), reduce = window.matchMedia && matchMedia("(prefers-reduced-motion:reduce)").matches;
-  document.querySelectorAll(".bjc.new").forEach(el=>{
-    if (reduce || !el.animate || !dr) return;
-    const r = el.getBoundingClientRect(), dx = dr.left - r.left, dy = dr.top - r.top;
-    el.animate([{transform:`translate(${dx}px,${dy}px) rotate(-18deg) scale(.85)`, opacity:.9},{transform:`translate(${dx*.15}px,${dy*.15}px) rotate(-3deg)`, opacity:1, offset:.8},{transform:"none", opacity:1}], {duration:480, easing:"cubic-bezier(.25,.8,.3,1)"});
-  });
-  document.querySelectorAll(".bjc.flip").forEach(el=>{ if (!reduce && el.animate) el.animate([{transform:"rotateY(90deg)"},{transform:"none"}], {duration:380, easing:"ease-out"}); });
-  [...BJ.p, ...BJ.d].forEach(c=>{ delete c.n; delete c.f; });
+function bjUI(){
+  if (view!=="bj" || !$("bjCtl")) return;
+  const ph = BJ.phase, play = ph==="play", busy = ph==="deal" || ph==="dealer" || BJ.busy && ph!=="play", done = ph==="done";
+  const holeDown = BJ.d.length > 1 && (ph==="play" || ph==="deal");
+  const dUp = BJ.d.filter(c=>!c.down), pUp = BJ.p.filter(c=>!c.down);
+  const dv = dUp.length ? bjVal(dUp) : "";
+  const pv = pUp.length ? (bjSoft(pUp) && bjVal(pUp) < 21 ? (bjVal(pUp)-10) + " / " + bjVal(pUp) : bjVal(pUp)) : "";
+  $("bjDV").innerHTML = dv!=="" ? `<small>DEALER</small>${dv}` : "";
+  $("bjPV").innerHTML = pv!=="" ? `<small>YOU</small>${pv}` : "";
+  const m = $("bjMsg"); m.textContent = BJ.msg; m.className = "bjmsg " + BJ.cls;
+  const showBet = ph==="bet" || ph==="deal" || ph==="play" || ph==="dealer";
+  const shown = BJ.bet - (BJ.pend||0); $("bjBet").innerHTML = showBet && shown > 0 ? bjStackHTML(shown) : "";
+  const broke = BJ.bank < 10 && !BJ.bet && (ph==="bet" || done);
+  const chips = [10,25,50,100].map(n=>`<button class="bjchip c${n}" data-bj="bet:${n}" ${BJ.bank<n||BJ.busy?"disabled":""}>$${n}</button>`).join("");
+  $("bjCtl").innerHTML = play || busy
+    ? `<button class="bjbtn go" data-bj="hit" ${!play||BJ.busy?"disabled":""}>Hit</button><button class="bjbtn go" data-bj="stand" ${!play||BJ.busy?"disabled":""}>Stand</button><button class="bjbtn ghost" data-bj="double" ${play&&!BJ.busy&&BJ.p.length===2&&BJ.bank>=BJ.bet?"":"disabled"}>Double</button>`
+    : broke ? `<button class="bjbtn go" data-bj="refill">Out of chips — get another $1,000</button>`
+    : chips + `<button class="bjbtn go" data-bj="deal" ${BJ.bet&&!BJ.busy?"":"disabled"}>${done?"Deal again · $"+BJ.bet:"Deal"}</button>${ph==="bet"&&BJ.bet?`<button class="bjbtn ghost" data-bj="clear">Clear bet</button>`:""}`;
+  $("bjStats").innerHTML = `<span>Bank <b>$${BJ.bank.toLocaleString()}</b></span><span>Bet <b>$${BJ.bet}</b></span><span>Hands <b>${BJ.hands}</b></span><span>W–L <b>${BJ.w}–${BJ.l}</b></span>`;
+}
+
+// ---- saving + leaderboard (Firestore collection "bjLeaders", one doc per signed-in person) ----
+function bjFB(){ try { if (window.firebase && firebase.apps && firebase.apps.length && firebase.auth) { const u = firebase.auth().currentUser; if (u) return {db:firebase.firestore(), u}; } } catch(e) {} return null; }
+function bjName(u){ const n = (u.displayName || (u.email||"Player").split("@")[0]).trim().split(/\s+/); return (n[0] + (n.length>1 ? " " + n[n.length-1][0] + "." : "")).slice(0, 40); }
+let bjPushT = 0;
+function bjSave(){
+  try { localStorage.setItem("jj-bj", JSON.stringify({bank:BJ.bank, peak:BJ.peak, hands:BJ.hands, w:BJ.w, l:BJ.l})); } catch(e) {}
+  clearTimeout(bjPushT); bjPushT = setTimeout(bjPush, 1200);
+}
+function bjPush(){
+  const fb = bjFB(); if (!fb || !BJ.synced) return;
+  const bank = Math.round(BJ.bank + (BJ.phase==="bet" ? BJ.bet : 0));
+  fb.db.collection("bjLeaders").doc(fb.u.uid).set({name:bjName(fb.u), bank, peak:Math.round(Math.max(BJ.peak, bank)), hands:BJ.hands, wins:BJ.w, losses:BJ.l, updatedAt:firebase.firestore.FieldValue.serverTimestamp()})
+    .then(()=>{ BJ.boardAt = 0; bjBoard(); }).catch(e=>{ BJ.boardErr = "Couldn't save your score (" + (e.code||"error") + ")"; bjLBRender(); });
+}
+async function bjSync(tries){
+  if (BJ.synced) return;
+  const fb = bjFB();
+  if (!fb) { if ((tries||0) < 6) setTimeout(()=>bjSync((tries||0)+1), 1000); return; }
+  try {
+    const d = await fb.db.collection("bjLeaders").doc(fb.u.uid).get();
+    if (d.exists) { const x = d.data(); if (!BJ.busy && BJ.phase!=="play") { BJ.bank = x.bank; BJ.peak = x.peak||x.bank; BJ.hands = x.hands||0; BJ.w = x.wins||0; BJ.l = x.losses||0; BJ.bet = 0; if (BJ.phase==="done") BJ.phase = "bet"; } }
+    BJ.synced = true; if (!d.exists) bjPush(); bjUI(); bjBoard(true);
+  } catch(e) { BJ.boardErr = "Leaderboard unavailable (" + (e.code||"error") + ")"; bjLBRender(); }
+}
+async function bjBoard(force){
+  const fb = bjFB(); if (!fb) { bjLBRender(); return; }
+  if (!force && Date.now() - BJ.boardAt < 10000 && BJ.board) { bjLBRender(); return; }
+  BJ.boardAt = Date.now();
+  try { const q = await fb.db.collection("bjLeaders").orderBy("bank","desc").limit(200).get(); BJ.board = q.docs.map(d=>({id:d.id, ...d.data()})); BJ.boardErr = ""; }
+  catch(e) { BJ.boardErr = "Leaderboard unavailable (" + (e.code||"error") + ")"; }
+  bjLBRender();
+}
+function bjLBRender(){
+  const el = $("bjLB"); if (!el || view!=="bj") return;
+  const fb = bjFB(), me = fb && fb.u.uid;
+  let h = `<h3>🏆 Leaderboard <button data-bj="lbref" title="Refresh">↻</button></h3><div class="lbsub">Ranked by bankroll · everyone starts with $1,000</div>`;
+  if (!fb) h += `<p class="muted" style="font-size:13px">Sign in to put your name on the board and see how you stack up.</p>`;
+  else if (BJ.boardErr && !BJ.board) h += `<p class="muted" style="font-size:13px">${esc(BJ.boardErr)}</p>`;
+  else if (!BJ.board) h += `<p class="muted" style="font-size:13px">Loading…</p>`;
+  else {
+    const list = BJ.board, idx = list.findIndex(r=>r.id===me);
+    const row = (r,i)=>`<div class="bjlbr ${r.id===me?"me":""} ${i<3?"g"+(i+1):""}"><span class="rk">${i<3?["🥇","🥈","🥉"][i]:i+1}</span><span class="nm">${esc(r.name||"Player")}${r.id===me?" (you)":""}<small>${r.hands||0} hands · ${r.wins||0}–${r.losses||0}</small></span><span class="bk">$${Number(r.bank||0).toLocaleString()}</span></div>`;
+    h += `<div>${list.slice(0,10).map(row).join("") || `<p class="muted">No players yet — be the first!</p>`}</div>`;
+    if (idx >= 10) h += `<div style="margin-top:6px">${row(list[idx], idx)}</div>`;
+    h += `<div class="lbme">${idx>=0 ? `You're <b>#${idx+1}</b> of ${list.length} player${list.length===1?"":"s"} · best ever <b>$${Number(list[idx].peak||0).toLocaleString()}</b>` : "Play a hand to join the board."}</div>`;
+    if (BJ.boardErr) h += `<p class="muted" style="font-size:12px;margin-top:6px">${esc(BJ.boardErr)}</p>`;
+  }
+  el.innerHTML = h;
 }
 document.addEventListener("click", e=>{ const b = e.target.closest && e.target.closest("[data-bj]"); if (b && !b.disabled) { e.preventDefault(); e.stopPropagation(); bjAct(b.dataset.bj); } }, true);
 document.addEventListener("keydown", e=>{
