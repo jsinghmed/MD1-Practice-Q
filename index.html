@@ -690,6 +690,12 @@ button.dt:hover{border-color:var(--line2);background:var(--hover)}
 .dpill.g{background:transparent;border-color:var(--line2);color:var(--muted)}
 .dpill.g:hover{color:var(--text)}
 .dash .h3{margin-top:22px}
+.gdgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
+.gdcard{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.gdi{width:38px;height:38px;border-radius:9px;background:var(--acc-bg);color:var(--acc);display:grid;place-items:center;flex:none}
+.gdt{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.gdt b{font-size:14.5px}.gdt small{color:var(--muted);font-size:12.5px;line-height:1.35}.gdm{font-size:11.5px;color:var(--dim)}
+.gda{display:flex;flex-direction:column;gap:6px;flex:none}.gda .dpill{margin:0;text-align:center;text-decoration:none}
 .dtools{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px}
 .dtool{display:flex;align-items:center;gap:14px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 18px;text-align:left;color:var(--text);font:inherit}
 .dtool:hover{border-color:var(--acc);background:var(--hover)}
@@ -1082,6 +1088,27 @@ function secStats(sec){
 function chapBtn(c){
   return `<button class="chap ${S.cur===c.key&&view==="quiz"?"on":""} ${c.head?"all":""} ${c.sub?"sub":""}" data-key="${esc(c.key)}"><span>${esc(c.name)}</span><span class="n">${c.ids.length}</span></button>`;
 }
+const GUIDES = {
+  fbs: [["fbs-physiology","FBS Physiology","Homeostasis, body fluids & edema, membrane transport, RMP, action potentials",4],
+        ["fbs-cellbio","FBS Cell Biology","Organelles, plasma membrane, cytoskeleton, cell cycle, apoptosis",5],
+        ["fbs-biochem","FBS Biochemistry","Carbohydrates, glycosylation, amino acids & proteins, enzymes, vitamins",4],
+        ["fbs-embryology","FBS Embryology","Gametogenesis, menstrual cycle, weeks 1–3, placenta, prenatal testing, twins",4]],
+  msk: [["msk-histology","MSK Histology","Muscle, junctions, bone & cartilage, connective tissue, skin",4],
+        ["msk-physiology","MSK Physiology","NMJ, E–C coupling, contraction mechanics, fiber types, smooth muscle",3],
+        ["msk-biochem","MSK Biochemistry","Glycolysis, glycogen & storage diseases, GAGs, collagen & elastin",4],
+        ["msk-anatomy","MSK Anatomy","Upper & lower limb: plexus, nerve injuries, compartments, joints, vessels",6],
+        ["msk-embryology","MSK Embryology","Bone formation, growth plate, vertebrae, skull & sutures, limbs, skin",3]]
+};
+function guideCards(list){
+  return `<div class="gdgrid">` + list.map(([f,nm,desc,pg])=>`<div class="gdcard"><div class="gdi">${NVI.guide}</div><div class="gdt"><b>${esc(nm)}</b><small>${esc(desc)}</small><span class="gdm">${pg} pages · PDF</span></div>
+    <div class="gda"><a class="dpill" href="guide-${f}.pdf?v=1" target="_blank" rel="noopener">Open</a><a class="dpill g" href="guide-${f}.pdf?v=1" download>Download</a></div></div>`).join("") + `</div>`;
+}
+function renderGuides(){
+  const order = [S.course, ...Object.keys(GUIDES).filter(k=>k!==S.course)].filter(k=>GUIDES[k]);
+  let h = `<div class="page dash"><div class="dtop"><div><h2>NBME Study Guides</h2><p class="sub">One PDF per section · under 10 pages each · <span style="color:var(--red);font-weight:600">red = extra high yield</span> · Anki-deck content is folded into the FBS guides</p></div></div>`;
+  order.forEach(k=>{ h += `<div class="h3">${esc(COURSE_BY_ID[k].name)} · ${esc(COURSE_BY_ID[k].full)}</div>` + guideCards(GUIDES[k]); });
+  showPage(h + `</div>`);
+}
 const NVS = p => `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
 const NVI = {
   home: NVS('<rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/>'),
@@ -1093,6 +1120,7 @@ const NVI = {
   c100: NVS('<path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11"/>'),
   plexus: NVS('<path d="M3 6h5M3 12h5M3 18h5M8 6l6 3M8 12h6M8 18l6-3M14 9l7-2M14 12h7M14 15l7 2"/>'),
   limb: NVS('<path d="M12 2l8 4.5v9L12 20l-8-4.5v-9z"/><path d="M12 11l8-4.5M12 11v9M12 11L4 6.5"/>'),
+  guide: NVS('<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h7M9 17h5"/>'),
   anki: NVS('<rect x="6" y="3" width="13" height="16" rx="2"/><path d="M3 7v12a2 2 0 0 0 2 2h10"/>')
 };
 function navRow(attr, ic, label, n, on, cls){
@@ -1102,7 +1130,8 @@ function renderChaps(){
   const allQ = courseQ(), notesN = allQ.filter(q=>S.notes[q.id] && S.notes[q.id].trim()).length;
   let h = `<div class="nvg">` + navRow('id="homeBtn"', NVI.home, "Dashboard", "", view==="home")
     + navRow('id="buildBtn"', NVI.plus, "Create test", "", view==="builder")
-    + navRow('id="notesBtn"', NVI.notes, "My notes", notesN||"", view==="notes") + `</div>`;
+    + navRow('id="notesBtn"', NVI.notes, "My notes", notesN||"", view==="notes")
+    + navRow('data-act="guides"', NVI.guide, "Study guides", (GUIDES[S.course]||[]).length||"", view==="guides") + `</div>`;
   if (allQ.length) {
     h += `<div class="chap-h">REVIEW</div><div class="nvg">` + REVIEW.map(r=>{
       const n = allQ.filter(r.f).length, key = S.course+":rv:"+r.k;
@@ -1643,6 +1672,7 @@ function renderHome(){
   if (S.course==="msk") h += `<div class="dtools"><button class="dtool" data-act="limb3d"><span class="dti">${NVI.limb}</span><span><b>3D upper limb atlas</b><small>Rotate the limb · click bones, muscles, ligaments, joints and nerves · origin, insertion, nerve, action</small></span><span class="go">Open ›</span></button>
     <button class="dtool" data-act="leg3d"><span class="dti">${NVI.limb}</span><span><b>3D lower limb atlas</b><small>Pelvis to toes · bones, muscles, ligaments, joints and nerves · origin, insertion, nerve, action</small></span><span class="go">Open ›</span></button>
     <button class="dtool" data-act="plexus"><span class="dti">${NVI.plexus}</span><span><b>Interactive brachial plexus</b><small>Clickable nerve map · label drill · clinical quiz · injury flashcards</small></span><span class="go">Open ›</span></button></div>`;
+  if (GUIDES[S.course]) h += `<div class="dpanel"><div class="dl" style="display:flex;justify-content:space-between;align-items:center">NBME study guides · ${nm}<button class="dlink" style="color:var(--acc)" data-act="guides">All guides ›</button></div>` + guideCards(GUIDES[S.course]) + `</div>`;
   const ring = done.length ? `conic-gradient(var(--green) 0 ${ok*100/done.length}%, var(--red) 0 100%)` : "var(--line)";
   h += `<div class="dpanel"><div class="dl">Performance · ${nm}</div><div class="dperf">
     <div class="dring" style="background:${ring}"><div><b>${done.length?acc+"%":"—"}</b><small>${done.length?"correct":"no answers yet"}</small></div></div>
@@ -1968,6 +1998,7 @@ function renderAll(){
   else if (view==="plexus") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>Brachial plexus</h2><a class="btn" href="brachial-plexus.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="brachial-plexus.html?v=35" title="Interactive brachial plexus"></iframe></div>`);
   else if (view==="limb3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>3D upper limb atlas</h2><a class="btn" href="upper-limb-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="upper-limb-3d.html?v=1" title="Interactive 3D upper limb atlas"></iframe></div>`);
   else if (view==="leg3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>3D lower limb atlas</h2><a class="btn" href="lower-limb-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="lower-limb-3d.html?v=1" title="Interactive 3D lower limb atlas"></iframe></div>`);
+  else if (view==="guides") renderGuides();
   else if (view==="anki") showPage(`<div class="page dash"><div class="dtop"><div><h2>Anki export</h2><p class="sub">Questions you've added as Anki cards, ready to download</p></div></div>${ankiHomeBox().replace('<div class="h3">Anki export</div>','') || `<div class="emptybox"><h3>No Anki cards yet</h3><p>Add questions to your Anki list while you study, and they'll collect here for download.</p></div>`}</div>`);
   else if (view==="search") renderSearch();
   else if (view==="report") { const t = S.tests.find(x=>x.id===reportTest); if (t) renderReport(t); else { view="quiz"; renderAll(); } }
@@ -2160,7 +2191,7 @@ document.addEventListener("click", e=>{
   if (t.closest("#moreTests")) { showAllTests = !showAllTests; renderChaps(); return; }
   const gk = t.closest("[data-go]"); if (gk) { goKey(gk.dataset.go); return; }
   const act = t.closest("[data-act]");
-  if (act) { view = ({build:"builder", plexus:"plexus", limb3d:"limb3d", leg3d:"leg3d", anki:"anki", notes:"notes"})[act.dataset.act] || "notes"; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); return; }
+  if (act) { view = ({build:"builder", plexus:"plexus", limb3d:"limb3d", leg3d:"leg3d", guides:"guides", anki:"anki", notes:"notes"})[act.dataset.act] || "notes"; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); return; }
   if (t.closest("[data-plexback]")) { view = "home"; renderAll(); $("main").scrollTo({top:0}); return; }
   // sidebar
   const rv = t.closest("[data-rv]");
