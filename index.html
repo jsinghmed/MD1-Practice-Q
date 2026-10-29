@@ -614,6 +614,32 @@ table.rt tr.click:hover td{background:var(--hover)}
   .ustrip{flex-wrap:wrap} .ustrip .us{flex:1 1 40%}
 }
 
+
+/* embedded study guides */
+.gview{max-width:980px}
+.gvtop,.gvfoot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.gvfoot{margin-top:22px}
+.gvtop a.btn,.gvfoot a.btn{text-decoration:none}
+.gvhead h2{margin:0 0 4px}.gvhead .sub{margin:0 0 10px;color:var(--muted)}
+.gvleg{display:flex;flex-wrap:wrap;gap:16px;font-size:13px;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin-bottom:12px}
+.gvtoc{position:sticky;top:0;z-index:3;box-shadow:0 -40px 0 var(--bg);display:flex;gap:6px;overflow-x:auto;padding:8px 0;margin-bottom:6px;background:var(--bg);border-bottom:1px solid var(--line);scrollbar-width:thin}
+.gvtoc a{flex:none;font-size:12.5px;font-weight:600;color:var(--muted);text-decoration:none;padding:5px 11px;border:1px solid var(--line2);border-radius:20px;white-space:nowrap}
+.gvtoc a:hover{color:var(--text);border-color:var(--acc)}
+.gvbody{font-size:15px;line-height:1.6;color:var(--text)}
+.gvbody h2{font-size:18px;margin:26px 0 10px;padding:8px 12px;background:var(--acc-bg);border-left:4px solid var(--acc);border-radius:0 8px 8px 0;scroll-margin-top:56px}
+.gvbody h3{font-size:15.5px;margin:16px 0 6px;padding-bottom:4px;border-bottom:1px solid var(--line)}
+.gvbody ul,.gvbody ol{padding-left:20px;margin:4px 0 10px}.gvbody li{margin:3px 0}
+.gvbody p{margin:6px 0 10px}
+.gvbody table{width:100%;border-collapse:collapse;margin:8px 0 14px;font-size:14px;display:block;overflow-x:auto}
+.gvbody th{background:var(--panel);text-align:left;padding:7px 9px;border:1px solid var(--line2);white-space:nowrap}
+.gvbody td{padding:7px 9px;border:1px solid var(--line);vertical-align:top}
+.gvbody .box{border:1.5px solid var(--red);background:var(--red-bg);border-radius:10px;padding:10px 14px;margin:12px 0}
+.gvbody .box b.t{color:var(--red)}
+.gview .hy{color:var(--red);font-weight:600}
+.gview .mn{color:var(--blue);font-style:italic}
+.gvbody sub,.gvbody sup{font-size:.72em}
+@media (max-width:640px){.gvbody{font-size:14.5px}.gvbody table{font-size:13px}}
+@media print{.gvtop,.gvtoc,.gvfoot{display:none!important}}
 /* ===== Dashboard + sidebar redesign (A+C hybrid) ===== */
 :root{--acc:var(--teal);--acc-bg:#15262c;--res-a:#1b4d6b;--res-b:#155e57;--res-line:#236b7a;--res-sub:#b6cbd9;--res-t:#e6edf3}
 :root[data-theme="light"]{--acc-bg:#e3f4f2;--res-a:#dcefff;--res-b:#d6f3ee;--res-line:#a9d8d2;--res-sub:#4b5d6b;--res-t:#14212c}
@@ -1101,7 +1127,27 @@ const GUIDES = {
 };
 function guideCards(list){
   return `<div class="gdgrid">` + list.map(([f,nm,desc,pg])=>`<div class="gdcard"><div class="gdi">${NVI.guide}</div><div class="gdt"><b>${esc(nm)}</b><small>${esc(desc)}</small><span class="gdm">${pg} pages · PDF</span></div>
-    <div class="gda"><a class="dpill" href="guide-${f}.pdf?v=1" target="_blank" rel="noopener">Open</a><a class="dpill g" href="guide-${f}.pdf?v=1" download>Download</a></div></div>`).join("") + `</div>`;
+    <div class="gda"><button class="dpill" data-guide="${f}">Read</button><a class="dpill g" href="guide-${f}.pdf?v=1" download="JJ QBank - ${esc(nm)} study guide.pdf">PDF</a></div></div>`).join("") + `</div>`;
+}
+let curGuide = null, guideLoading = false;
+function guideInfo(k){ for (const c in GUIDES) { const g = GUIDES[c].find(x=>x[0]===k); if (g) return {course:c, g}; } return null; }
+function renderGuideView(){
+  const info = guideInfo(curGuide); if (!info) { view = "guides"; renderGuides(); return; }
+  const [f, nm, desc, pg] = info.g;
+  const top = `<div class="gvtop"><button class="btn" data-act="guides">← All study guides</button><a class="btn primary" href="guide-${f}.pdf?v=1" download="JJ QBank - ${esc(nm)} study guide.pdf">⬇ Download PDF</a></div>
+    <div class="gvhead"><h2>${esc(nm)}</h2><p class="sub">${esc(desc)}</p><div class="gvleg"><span><span class="hy">Red</span> = extra high yield (classic NBME)</span><span>Black/white = core content</span><span class="mn">Italic = mnemonic</span></div></div>`;
+  if (!window.GUIDE_HTML) {
+    showPage(`<div class="page gview">${top}<div class="emptybox"><p>Loading study guide…</p></div></div>`);
+    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=1";
+      sc.onload = ()=>{ guideLoading = false; if (view==="guide") renderGuideView(); };
+      sc.onerror = ()=>{ guideLoading = false; toast("Couldn't load the study guide — check your connection"); };
+      document.head.appendChild(sc); }
+    return;
+  }
+  const body = window.GUIDE_HTML[f] || "";
+  const toc = [...body.matchAll(/<h2 id="(g\d+)">([\s\S]*?)<\/h2>/g)].map(m=>`<a href="#${m[1]}" data-gjump="${m[1]}">${m[2].replace(/^\d+\.\s*/,"")}</a>`).join("");
+  showPage(`<div class="page gview">${top}<nav class="gvtoc" aria-label="Sections">${toc}</nav><article class="gvbody">${body}</article>
+    <div class="gvfoot"><button class="btn" data-act="guides">← All study guides</button><a class="btn" href="guide-${f}.pdf?v=1" download="JJ QBank - ${esc(nm)} study guide.pdf">⬇ Download PDF</a></div></div>`);
 }
 function renderGuides(){
   const order = [S.course, ...Object.keys(GUIDES).filter(k=>k!==S.course)].filter(k=>GUIDES[k]);
@@ -1131,7 +1177,7 @@ function renderChaps(){
   let h = `<div class="nvg">` + navRow('id="homeBtn"', NVI.home, "Dashboard", "", view==="home")
     + navRow('id="buildBtn"', NVI.plus, "Create test", "", view==="builder")
     + navRow('id="notesBtn"', NVI.notes, "My notes", notesN||"", view==="notes")
-    + navRow('data-act="guides"', NVI.guide, "Study guides", (GUIDES[S.course]||[]).length||"", view==="guides") + `</div>`;
+    + navRow('data-act="guides"', NVI.guide, "Study guides", (GUIDES[S.course]||[]).length||"", view==="guides"||view==="guide") + `</div>`;
   if (allQ.length) {
     h += `<div class="chap-h">REVIEW</div><div class="nvg">` + REVIEW.map(r=>{
       const n = allQ.filter(r.f).length, key = S.course+":rv:"+r.k;
@@ -1999,6 +2045,7 @@ function renderAll(){
   else if (view==="limb3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>3D upper limb atlas</h2><a class="btn" href="upper-limb-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="upper-limb-3d.html?v=1" title="Interactive 3D upper limb atlas"></iframe></div>`);
   else if (view==="leg3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>3D lower limb atlas</h2><a class="btn" href="lower-limb-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="lower-limb-3d.html?v=1" title="Interactive 3D lower limb atlas"></iframe></div>`);
   else if (view==="guides") renderGuides();
+  else if (view==="guide") renderGuideView();
   else if (view==="anki") showPage(`<div class="page dash"><div class="dtop"><div><h2>Anki export</h2><p class="sub">Questions you've added as Anki cards, ready to download</p></div></div>${ankiHomeBox().replace('<div class="h3">Anki export</div>','') || `<div class="emptybox"><h3>No Anki cards yet</h3><p>Add questions to your Anki list while you study, and they'll collect here for download.</p></div>`}</div>`);
   else if (view==="search") renderSearch();
   else if (view==="report") { const t = S.tests.find(x=>x.id===reportTest); if (t) renderReport(t); else { view="quiz"; renderAll(); } }
@@ -2190,6 +2237,10 @@ document.addEventListener("click", e=>{
   if (os) { S.openSec = os.dataset.opensec; save(); renderChaps(); $("side").classList.add("open"); const el = document.querySelector(".sec.open"); if (el) el.scrollIntoView({block:"start", behavior:"smooth"}); return; }
   if (t.closest("#moreTests")) { showAllTests = !showAllTests; renderChaps(); return; }
   const gk = t.closest("[data-go]"); if (gk) { goKey(gk.dataset.go); return; }
+  const gd = t.closest("[data-guide]");
+  if (gd) { curGuide = gd.dataset.guide; view = "guide"; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); window.scrollTo({top:0}); return; }
+  const gj = t.closest("[data-gjump]");
+  if (gj) { e.preventDefault(); const el = document.getElementById(gj.dataset.gjump); if (el) el.scrollIntoView({behavior:"smooth", block:"start"}); return; }
   const act = t.closest("[data-act]");
   if (act) { view = ({build:"builder", plexus:"plexus", limb3d:"limb3d", leg3d:"leg3d", guides:"guides", anki:"anki", notes:"notes"})[act.dataset.act] || "notes"; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); return; }
   if (t.closest("[data-plexback]")) { view = "home"; renderAll(); $("main").scrollTo({top:0}); return; }
