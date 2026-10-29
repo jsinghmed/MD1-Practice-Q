@@ -716,6 +716,30 @@ button.dt:hover{border-color:var(--line2);background:var(--hover)}
 .dpill.g{background:transparent;border-color:var(--line2);color:var(--muted)}
 .dpill.g:hover{color:var(--text)}
 .dash .h3{margin-top:22px}
+.dstrip{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));background:var(--panel);border:1px solid var(--line);border-radius:14px;margin:4px 0 14px;overflow:hidden}
+.dst{display:flex;flex-direction:column;gap:2px;padding:14px 18px;border:none;border-right:1px solid var(--line);background:none;color:var(--text);font:inherit;text-align:left}
+.dst:last-child{border-right:none}
+button.dst:hover{background:var(--hover)}
+.dst b{font-size:24px;font-weight:750;line-height:1.15}.dst b small{font-size:14px;color:var(--muted);font-weight:600}
+.dst span{font-size:12.5px;color:var(--muted)}
+.dst .g{color:var(--green)}.dst .r{color:var(--red)}.dst .y{color:var(--flag)}
+.dban{display:flex;align-items:center;justify-content:space-between;gap:16px;background:linear-gradient(135deg,var(--res-a),var(--res-b));border:1px solid var(--res-line);border-radius:14px;padding:18px 22px;margin-bottom:22px;color:var(--res-t)}
+.dban .dl{color:var(--res-sub);margin-bottom:6px}
+.dbt{font-size:19px;font-weight:650}.dbt span{font-size:14.5px;font-weight:400;color:var(--res-sub)}
+.dgo2{flex:none;background:var(--res-t);color:var(--res-a);border:none;font-weight:700;padding:10px 20px;border-radius:9px;font-size:14px}
+:root[data-theme="light"] .dgo2{background:#14212c;color:#fff}
+.dsech{margin:0 0 10px}
+.dsecg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:14px}
+.dsc{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column}
+.dsct{display:flex;justify-content:space-between;align-items:baseline;gap:8px}.dsct b{font-size:16px}.dsct span{color:var(--muted);font-size:14px}
+.dscs{color:var(--muted);font-size:13.5px;margin-top:3px}
+.dsc .dbar{max-width:none;margin:12px 0 14px}
+.dsca{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}.dsca .dpill{margin:0}
+.dtr{display:flex;justify-content:space-between;gap:10px;background:none;border:none;border-bottom:1px solid var(--line);color:var(--text);font:inherit;font-size:14px;padding:8px 0;text-align:left}
+.dtr:last-child{border-bottom:none}.dtr:hover span{color:var(--acc)}.dtr em{font-style:normal;color:var(--muted);font-size:13px;white-space:nowrap}
+@media (max-width:1100px){.dsecg{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:700px){.dstrip{grid-template-columns:repeat(3,minmax(0,1fr))}.dst:nth-child(3){border-right:none}.dst:nth-child(-n+3){border-bottom:1px solid var(--line)}.dsecg{grid-template-columns:1fr}.dban{flex-direction:column;align-items:flex-start}}
+
 .gdgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
 .gdcard{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 .gdi{width:38px;height:38px;border-radius:9px;background:var(--acc-bg);color:var(--acc);display:grid;place-items:center;flex:none}
@@ -1177,7 +1201,7 @@ function renderChaps(){
   let h = `<div class="nvg">` + navRow('id="homeBtn"', NVI.home, "Dashboard", "", view==="home")
     + navRow('id="buildBtn"', NVI.plus, "Create test", "", view==="builder")
     + navRow('id="notesBtn"', NVI.notes, "My notes", notesN||"", view==="notes")
-    + navRow('data-act="guides"', NVI.guide, "Study guides", (GUIDES[S.course]||[]).length||"", view==="guides"||view==="guide") + `</div>`;
+    + navRow('data-act="guides"', NVI.guide, "Study guides (NBME)", (GUIDES[S.course]||[]).length||"", view==="guides"||view==="guide") + `</div>`;
   if (allQ.length) {
     h += `<div class="chap-h">REVIEW</div><div class="nvg">` + REVIEW.map(r=>{
       const n = allQ.filter(r.f).length, key = S.course+":rv:"+r.k;
@@ -1699,47 +1723,33 @@ function renderHome(){
   const acc = done.length ? Math.round(ok*100/done.length) : 0, bad = done.length - ok;
   const inc = all.filter(REVIEW_BY_K.inc.f).length, fl = all.filter(REVIEW_BY_K.flag.f).length, un = all.length - done.length, c100N = all.filter(REVIEW_BY_K.c100.f).length;
   const c = chap(), cs = changeStats(q=>q.course===S.course), chg = cs.wc + cs.cw + cs.ww, nm = esc(course().name);
+  const tests = courseTests();
   let h = `<div class="page dash">
     <div class="dtop"><div><h2>${nm} Summative</h2><p class="sub">${esc(course().full)} · ${done.length} of ${all.length} questions answered${done.length?` · ${acc}% correct`:""}</p></div>
-      <div class="ptools" style="margin:0"><button class="btn primary" data-act="build">＋ Create test</button></div></div>` + homeSearchBox();
-  h += `<div class="dgrid">`;
+      <div class="ptools" style="margin:0"><button class="btn primary" data-act="build">＋ Create test</button></div></div>`;
+  h += `<div class="dstrip">
+    <div class="dst"><b class="${done.length?"g":""}">${done.length?acc+"%":"—"}</b><span>Correct</span></div>
+    <div class="dst"><b>${done.length}<small> / ${all.length}</small></b><span>Answered</span></div>
+    <button class="dst" data-rv="${S.course}:rv:inc" title="Review incorrect questions"><b class="r">${inc}</b><span>Incorrect${inc?" ›":""}</span></button>
+    <button class="dst" data-rv="${S.course}:rv:flag" title="Review flagged questions"><b class="y">${fl}</b><span>Flagged${fl?" ›":""}</span></button>
+    <div class="dst"><b>${tests.length}</b><span>Tests</span></div></div>`;
   if (c && c.ids.length) {
     const p = Math.min(S.pos[c.key]||0, c.ids.length-1);
-    h += `<div class="dt dres"><div class="dl">Pick up where you left off</div>
-      <div class="dtt">${esc(c.kind==="static" ? (c.head ? c.sec : c.sec+" · "+c.name) : c.title)}</div><div class="dsub">Question ${p+1} of ${c.ids.length}</div>
-      <button class="dgo" data-go="${esc(c.key)}">Resume →</button></div>`;
+    h += `<div class="dban"><div><div class="dl">Pick up where you left off</div><div class="dbt">${esc(c.kind==="static" ? (c.head ? c.sec : c.sec+" · "+c.name) : c.title)} <span>· question ${p+1} of ${c.ids.length}</span></div></div><button class="dgo2" data-go="${esc(c.key)}">Resume →</button></div>`;
   } else {
     const s0 = courseSecs()[0];
-    h += `<div class="dt dres"><div class="dl">Get started</div><div class="dtt">${esc(s0.name)}</div><div class="dsub">${s0.items.length} questions</div>
-      <button class="dgo" data-go="${s0.prefix}:all">Start →</button></div>`;
+    h += `<div class="dban"><div><div class="dl">Get started</div><div class="dbt">${esc(s0.name)} <span>· ${s0.items.length} questions</span></div></div><button class="dgo2" data-go="${s0.prefix}:all">Start →</button></div>`;
   }
-  h += `<button class="dt" data-rv="${S.course}:rv:inc"><div class="dl">Incorrect</div><div class="dbig r">${inc}</div><div class="dsub">${inc?"Review now ›":"Nothing to review yet"}</div></button>
-    <button class="dt" data-rv="${S.course}:rv:flag"><div class="dl">Flagged</div><div class="dbig y">${fl}</div><div class="dsub">${fl?"Review now ›":"No flagged questions"}</div></button></div>`;
-  if (S.course==="msk") h += `<div class="dtools"><button class="dtool" data-act="limb3d"><span class="dti">${NVI.limb}</span><span><b>3D upper limb atlas</b><small>Rotate the limb · click bones, muscles, ligaments, joints and nerves · origin, insertion, nerve, action</small></span><span class="go">Open ›</span></button>
-    <button class="dtool" data-act="leg3d"><span class="dti">${NVI.limb}</span><span><b>3D lower limb atlas</b><small>Pelvis to toes · bones, muscles, ligaments, joints and nerves · origin, insertion, nerve, action</small></span><span class="go">Open ›</span></button>
-    <button class="dtool" data-act="plexus"><span class="dti">${NVI.plexus}</span><span><b>Interactive brachial plexus</b><small>Clickable nerve map · label drill · clinical quiz · injury flashcards</small></span><span class="go">Open ›</span></button></div>`;
-  if (GUIDES[S.course]) h += `<div class="dpanel"><div class="dl" style="display:flex;justify-content:space-between;align-items:center">NBME study guides · ${nm}<button class="dlink" style="color:var(--acc)" data-act="guides">All guides ›</button></div>` + guideCards(GUIDES[S.course]) + `</div>`;
-  const ring = done.length ? `conic-gradient(var(--green) 0 ${ok*100/done.length}%, var(--red) 0 100%)` : "var(--line)";
-  h += `<div class="dpanel"><div class="dl">Performance · ${nm}</div><div class="dperf">
-    <div class="dring" style="background:${ring}"><div><b>${done.length?acc+"%":"—"}</b><small>${done.length?"correct":"no answers yet"}</small></div></div>
-    <div class="dkv"><div><span>Total correct</span><b class="g">${ok}</b></div><div><span>Total incorrect</span><b class="r">${bad}</b></div>
-      <div><span>Answers changed</span><b>${chg}${chg?` <small>(${cs.wc} wrong→right)</small>`:""}</b></div></div>
-    <div class="dkv"><div><span>Used questions</span><b>${done.length} / ${all.length}</b></div><div><span>Unused</span><b>${un}</b></div>
-      <div><span>Tests created</span><b>${courseTests().length}</b></div>${c100N?`<div><span>In 100 Concepts PDF</span><button class="dlink" data-rv="${S.course}:rv:c100">${c100N} ›</button></div>`:""}</div>
-  </div></div>`;
-  h += `<div class="dpanel"><div class="dl">Sections</div><div class="dtw"><table class="dtbl"><thead><tr><th>Section</th><th class="hm">Used</th><th class="hm">Progress</th><th>Score</th><th></th></tr></thead><tbody>` + courseSecs().map(sec=>{
+  h += `<div class="dl dsech">Sections</div><div class="dsecg">` + courseSecs().map(sec=>{
     const st = secStats(sec), a2 = st.done ? Math.round(st.ok*100/st.done) : null, incN = sec.items.filter(REVIEW_BY_K.inc.f).length;
-    return `<tr><td><b>${esc(sec.name)}</b></td><td class="hm">${st.done} / ${st.n}</td>
-      <td class="hm"><div class="dbar"><i class="ok" style="width:${st.ok*100/st.n}%"></i><i class="bad" style="width:${st.bad*100/st.n}%"></i></div></td>
-      <td>${a2===null?"—":a2+"%"}</td>
-      <td class="dacts"><button class="dpill" data-go="${sec.prefix}:all">${st.done?"Continue":"Start"}</button>${incN?`<button class="dpill r" data-rv="${sec.prefix}:rv:inc" title="Review incorrect">✗ ${incN}</button>`:""}<button class="dpill g" data-opensec="${sec.prefix}">Topics</button></td></tr>`;
-  }).join("") + `</tbody></table></div></div>`;
-  h += changeBox(cs, `Changed answers · ${nm}`);
-  if (courseTests().length) {
-    h += `<div class="h3">Recent tests</div><div class="tlist">` + courseTests().slice().reverse().slice(0,5).map(t=>
-      `<button class="trow" data-go="test:${t.id}"><span>${esc(t.name)}</span><span class="n">${t.mode==="timed"&&!t.finished?"⏱ in progress":t.finished?"Score "+testLabel(t):testLabel(t)+" answered"}</span></button>`).join("") + `</div>`;
-  }
-  h += `<div class="h3">Search Google</div>` + homeGoogleBox();
+    return `<div class="dsc"><div class="dsct"><b>${esc(sec.name)}</b><span>${a2===null?"—":a2+"%"}</span></div>
+      <div class="dscs">${st.done} of ${st.n} answered</div>
+      <div class="dbar"><i class="ok" style="width:${st.ok*100/st.n}%"></i><i class="bad" style="width:${st.bad*100/st.n}%"></i></div>
+      <div class="dsca"><button class="dpill" data-go="${sec.prefix}:all">${st.done?"Continue":"Start"}</button>${incN?`<button class="dpill r" data-rv="${sec.prefix}:rv:inc" title="Review incorrect">✗ ${incN}</button>`:""}<button class="dpill g" data-opensec="${sec.prefix}">Topics</button></div></div>`;
+  }).join("");
+  h += `<div class="dsc"><div class="dsct"><b>Recent tests</b></div>` + (tests.length
+    ? tests.slice().reverse().slice(0,4).map(t=>`<button class="dtr" data-go="test:${t.id}"><span>${esc(t.name)}</span><em>${t.mode==="timed"&&!t.finished?"in progress":t.finished?testLabel(t):testLabel(t)+" done"}</em></button>`).join("")
+    : `<div class="dscs" style="margin:6px 0 12px">No tests yet — build a custom test from any mix of sections.</div><div class="dsca"><button class="dpill" data-act="build">＋ Create test</button></div>`) + `</div></div>`;
   showPage(h + `</div>`);
 }
 
