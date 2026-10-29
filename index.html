@@ -855,6 +855,17 @@ button.dst:hover{background:var(--hover)}
 @media (max-width:1100px){.dsecg{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:700px){.dstrip{grid-template-columns:repeat(3,minmax(0,1fr))}.dst:nth-child(3){border-right:none}.dst:nth-child(-n+3){border-bottom:1px solid var(--line)}.dsecg{grid-template-columns:1fr}.dban{flex-direction:column;align-items:flex-start}}
 
+.nbgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;margin-bottom:6px}
+.nbcard{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px;display:flex;flex-direction:column;gap:6px}
+.nbtop{display:flex;justify-content:space-between;align-items:center}
+.nbsub{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--acc)}
+.nbpct{font-weight:700;font-size:14px}.nbpct.g{color:var(--green)}.nbpct.y{color:var(--yellow,#d29922)}.nbpct.r{color:var(--red)}
+.nbname{font-size:16px}.nbmeta{color:var(--muted);font-size:12.5px}.nbmeta .r{color:var(--red)}
+.nbnote{color:var(--dim,var(--muted));font-size:12px}
+.nba{margin-top:6px}
+.nbch{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:14px 0 8px}
+.cbadge.nbtag{background:rgba(210,153,34,.16);color:#e3b341;border-color:rgba(210,153,34,.4)}
+.eh .nbhint{color:var(--muted);font-size:.95em;margin-top:8px}
 .gdgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
 .gdcard{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
 .gdi{width:38px;height:38px;border-radius:9px;background:var(--acc-bg);color:var(--acc);display:grid;place-items:center;flex:none}
@@ -947,12 +958,13 @@ button.dst:hover{background:var(--hover)}
 <script src="fbs-physiology.js?v=34"></script>
 <script src="fbs-cellbio.js?v=34"></script>
 <script src="fbs-biochem.js?v=34"></script>
-<script src="fbs-embryology.js?v=34"></script>
+<script src="fbs-embryology.js?v=35"></script>
 <script src="c100.js?v=34"></script>
 <script src="fbs-anki.js?v=34"></script>
 <script src="crs-embryology.js?v=34"></script>
 <script src="xp-msk.js?v=1"></script>
-<script src="xp-fbs.js?v=1"></script>
+<script src="xp-fbs.js?v=2"></script>
+<script src="nbme.js?v=1"></script>
 <script src="xp-crs.js?v=1"></script>
 <script>
 (function(){
@@ -986,19 +998,22 @@ const SECTIONS = [
    extra:[{name:"Exam Points (red + exam questions)", f:q=>q.xp}]},
   {course:"fbs", name:"Anki Deck Practice Q's", all:"All Anki Deck Q's", prefix:"fa", topics:window.FBS_ANKI_TOPICS, qs:window.FBS_ANKI_QUESTIONS},
   {course:"crs", name:"CRS Embryology", all:"All CRS Embryology", prefix:"ce", topics:window.CRS_EMB_TOPICS, qs:window.CRS_EMB_QUESTIONS}
-].filter(s=>s.qs && s.qs.length);
+].concat((window.NBME_QUIZZES||[]).map(z=>({course:z.course, name:z.name, all:z.name, prefix:z.prefix, topics:[], qs:z.qs, nbme:true, subject:z.subject, note:z.note})))
+ .filter(s=>s.qs && s.qs.length);
 
 const Q = [], STATIC = [];
 SECTIONS.forEach(sec=>{
   const co = sec.course;
-  const qs = sec.qs.map((q,i)=>Object.assign({id:sec.prefix+(i+1), sec:sec.name, pfx:sec.prefix, num:i+1, course:co}, q));
+  const qs = sec.qs.map((q,i)=>Object.assign({id:sec.prefix+(i+1), sec:sec.name, pfx:sec.prefix, num:i+1, course:co}, sec.nbme?{nbme:true}:{}, q));
   sec.items = qs; Q.push(...qs);
-  STATIC.push({key:sec.prefix+":all", name:sec.all, sec:sec.name, pfx:sec.prefix, course:co, head:true, ids:qs.map(q=>q.id), kind:"static"});
+  STATIC.push({key:sec.prefix+":all", name:sec.all, sec:sec.name, pfx:sec.prefix, course:co, head:true, ids:qs.map(q=>q.id), kind:"static", nbme:!!sec.nbme});
   sec.topics.forEach(t=>{ const ids=qs.filter(q=>q.t===t).map(q=>q.id); if(ids.length) STATIC.push({key:sec.prefix+":t:"+t, name:t, sec:sec.name, pfx:sec.prefix, course:co, ids, kind:"static"}); });
   (sec.extra||[]).forEach(x=>{ const ids=qs.filter(x.f).map(q=>q.id); if(ids.length) STATIC.push({key:sec.prefix+":x:"+x.name, name:x.name, sec:sec.name, pfx:sec.prefix, course:co, ids, sub:true, kind:"static"}); });
 });
 const COURSE_BY_ID = Object.fromEntries(COURSES.map(c=>[c.id,c]));
-COURSES.forEach(c=>{ c.sections = SECTIONS.filter(s=>s.course===c.id); c.items = Q.filter(q=>q.course===c.id); });
+// NBME-style quizzes live in their own bank (NBME dashboard): kept out of the course sections, counts, review lists and test builder.
+COURSES.forEach(c=>{ c.sections = SECTIONS.filter(s=>s.course===c.id && !s.nbme); c.items = Q.filter(q=>q.course===c.id && !q.nbme); c.nbme = SECTIONS.filter(s=>s.course===c.id && s.nbme); });
+const NBME_SECS = SECTIONS.filter(s=>s.nbme);
 const STATIC_BY_KEY = Object.fromEntries(STATIC.map(c=>[c.key,c]));
 const SEC_BY_PFX = Object.fromEntries(SECTIONS.map(s=>[s.prefix,s]));
 const byId = Object.fromEntries(Q.map(q=>[q.id,q]));
@@ -1084,6 +1099,8 @@ let zoomV = 1; try { zoomV = +localStorage.getItem("msk-zoom") || 1; } catch(e){
 
 const $ = id => document.getElementById(id);
 function toast(t){ const el=$("toast"); el.textContent=t; el.classList.add("on"); clearTimeout(toast._t); toast._t=setTimeout(()=>el.classList.remove("on"),1800); }
+function plainS(h){ return plain(String(h??"").replace(/<\/?su[bp]>/g,"")); }
+function cTxt(q,i){ return q.chtml ? String(q.c[i]).trim() : esc(String(q.c[i]).trim()); }
 function esc(s){ return String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
 function plain(h){ return String(h??"").replace(/<img[^>]*>/g," ").replace(/<[^>]+>/g," ").replace(/&nbsp;/g," ").replace(/\s+/g," ").trim(); }
 function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
@@ -1165,7 +1182,7 @@ function chapCourse(c){
   if (c.key==="search") return (S.searchCourse==="all" || !S.searchCourse) ? S.course : S.searchCourse;
   return null;
 }
-function firstChap(){ return STATIC.find(c=>c.course===S.course) || null; }
+function firstChap(){ return STATIC.find(c=>c.course===S.course && !c.nbme) || null; }
 function chap(){ const c = getChap(S.cur); return (c && chapCourse(c)===S.course) ? c : firstChap(); }
 function store(){ const c = chap(); return (c && c.test) || S; }
 function timedActive(){ const c = chap(), t = c && c.test; return !!(t && t.mode==="timed" && !t.finished); }
@@ -1274,7 +1291,7 @@ function guideInfo(k){ for (const c in GUIDES) { const g = GUIDES[c].find(x=>x[0
 function renderGuideView(){
   const info = guideInfo(curGuide); if (!info) { view = "guides"; renderGuides(); return; }
   const [f, nm, desc, pg] = info.g;
-  const top = `<div class="gvtop"><button class="btn" data-act="guides">← All study guides</button><a class="btn primary" href="guide-${f}.pdf?v=1" download="JJ QBank - ${esc(nm)} study guide.pdf">⬇ Download PDF</a></div>
+  const top = `<div class="gvtop"><button class="btn" data-act="guides">← NBME dashboard</button><a class="btn primary" href="guide-${f}.pdf?v=1" download="JJ QBank - ${esc(nm)} study guide.pdf">⬇ Download PDF</a></div>
     <div class="gvhead"><h2>${esc(nm)}</h2><p class="sub">${esc(desc)}</p><div class="gvleg"><span><span class="hy">Red</span> = extra high yield (classic NBME)</span><span>Black/white = core content</span><span class="mn">Italic = mnemonic</span></div></div>`;
   if (!window.GUIDE_HTML) {
     showPage(`<div class="page gview">${top}<div class="emptybox"><p>Loading study guide…</p></div></div>`);
@@ -1287,12 +1304,35 @@ function renderGuideView(){
   const body = window.GUIDE_HTML[f] || "";
   const toc = [...body.matchAll(/<h2 id="(g\d+)">([\s\S]*?)<\/h2>/g)].map(m=>`<a href="#${m[1]}" data-gjump="${m[1]}">${m[2].replace(/^\d+\.\s*/,"")}</a>`).join("");
   showPage(`<div class="page gview">${top}<nav class="gvtoc" aria-label="Sections">${toc}</nav><article class="gvbody">${body}</article>
-    <div class="gvfoot"><button class="btn" data-act="guides">← All study guides</button><a class="btn" href="guide-${f}.pdf?v=1" download="JJ QBank - ${esc(nm)} study guide.pdf">⬇ Download PDF</a></div></div>`);
+    <div class="gvfoot"><button class="btn" data-act="guides">← NBME dashboard</button><a class="btn" href="guide-${f}.pdf?v=1" download="JJ QBank - ${esc(nm)} study guide.pdf">⬇ Download PDF</a></div></div>`);
+}
+function nbmeCards(list){
+  return `<div class="nbgrid">` + list.map(sec=>{
+    const st = secStats(sec), pct = st.done ? Math.round(st.ok*100/st.done) : null, key = sec.prefix+":all";
+    const pos = S.pos[key]||0, started = st.done>0 || pos>0;
+    return `<div class="nbcard"><div class="nbtop"><span class="nbsub">${esc(sec.subject||"")}</span>${pct!==null?`<span class="nbpct ${pct>=70?"g":pct>=50?"y":"r"}">${pct}%</span>`:""}</div>
+      <b class="nbname">${esc(sec.name)}</b><small class="nbmeta">${st.n} questions · ${st.done} answered${st.bad?` · <span class="r">${st.bad} incorrect</span>`:""}</small>
+      <div class="dbar"><i style="width:${st.n?st.ok*100/st.n:0}%"></i><em style="width:${st.n?st.bad*100/st.n:0}%"></em></div>
+      ${sec.note?`<small class="nbnote">${esc(sec.note)}</small>`:""}
+      <div class="nba"><button class="btn primary" data-nbq="${esc(sec.prefix)}">${st.done>=st.n&&st.n?"Review":started?"Continue":"Start"} →</button></div></div>`;
+  }).join("") + `</div>`;
+}
+function openNbme(pfx){
+  const sec = SEC_BY_PFX[pfx]; if (!sec) return;
+  if (sec.course !== S.course) { S.curBy[S.course] = S.cur; S.course = sec.course; S.openSec = null; }
+  openChapter(pfx+":all");
 }
 function renderGuides(){
-  const order = [S.course, ...Object.keys(GUIDES).filter(k=>k!==S.course)].filter(k=>GUIDES[k]);
-  let h = `<div class="page dash"><div class="dtop"><div><h2>NBME Study Guides</h2><p class="sub">One PDF per section · under 10 pages each · <span style="color:var(--red);font-weight:600">red = extra high yield</span> · Anki-deck content is folded into the FBS guides</p></div></div>`;
-  order.forEach(k=>{ h += `<div class="h3">${esc(COURSE_BY_ID[k].name)} · ${esc(COURSE_BY_ID[k].full)}</div>` + guideCards(GUIDES[k]); });
+  const order = [S.course, ...COURSES.map(c=>c.id).filter(k=>k!==S.course)];
+  const tq = NBME_SECS.reduce((n,s)=>n+s.items.length,0), td = NBME_SECS.reduce((n,s)=>n+secStats(s).done,0), tok = NBME_SECS.reduce((n,s)=>n+secStats(s).ok,0);
+  let h = `<div class="page dash"><div class="dtop"><div><h2>NBME dashboard</h2><p class="sub">NBME-style quizzes and study guides · this bank is separate from the content questions</p></div></div>
+    <div class="dstrip"><div class="dst"><b class="${td&&tok*100/td>=70?"g":""}">${td?Math.round(tok*100/td)+"%":"—"}</b><span>Correct</span></div><div class="dst"><b>${td}<small> / ${tq}</small></b><span>Answered</span></div><div class="dst"><b>${NBME_SECS.length}</b><span>Quizzes</span></div><div class="dst"><b>${Object.values(GUIDES).reduce((n,l)=>n+l.length,0)}</b><span>Study guides</span></div></div>
+    <div class="h3">NBME-style quizzes</div>`;
+  const anyQ = order.some(k=>(COURSE_BY_ID[k].nbme||[]).length);
+  if (!anyQ) h += `<div class="emptybox"><p>No NBME-style quizzes yet.</p></div>`;
+  order.forEach(k=>{ const l = COURSE_BY_ID[k].nbme||[]; if (l.length) h += `<div class="nbch">${esc(COURSE_BY_ID[k].name)} · ${esc(COURSE_BY_ID[k].full)}</div>` + nbmeCards(l); });
+  h += `<div class="h3" style="margin-top:26px">Study guides <span class="muted" style="font-weight:500;font-size:13px">· read here or download the PDF · <span style="color:var(--red);font-weight:600">red = extra high yield</span></span></div>`;
+  order.filter(k=>GUIDES[k]).forEach(k=>{ h += `<div class="nbch">${esc(COURSE_BY_ID[k].name)} · ${esc(COURSE_BY_ID[k].full)}</div>` + guideCards(GUIDES[k]); });
   showPage(h + `</div>`);
 }
 const NVS = p => `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
@@ -1317,7 +1357,7 @@ function renderChaps(){
   let h = `<div class="nvg">` + navRow('id="homeBtn"', NVI.home, "Dashboard", "", view==="home")
     + navRow('id="buildBtn"', NVI.plus, "Create test", "", view==="builder")
     + navRow('id="notesBtn"', NVI.notes, "My notes", notesN||"", view==="notes")
-    + navRow('data-act="guides"', NVI.guide, "Study guides (NBME)", (GUIDES[S.course]||[]).length||"", view==="guides"||view==="guide") + `</div>`;
+    + navRow('data-act="guides"', NVI.guide, "NBME dashboard", "", view==="guides"||view==="guide") + `</div>`;
   if (allQ.length) {
     h += `<div class="chap-h">REVIEW</div><div class="nvg">` + REVIEW.map(r=>{
       const n = allQ.filter(r.f).length, key = S.course+":rv:"+r.k;
@@ -1569,7 +1609,7 @@ function renderCard(){
         const wt = String(q.w[oi]).replace(/^\s*correct\s*(?:[.—–:-]\s*|$)/i, "").trim();
         if (wt) { why = `<span class="wi">${esc(wt.charAt(0).toUpperCase() + wt.slice(1))}</span>`; cls += " hasw"; }
       }
-      return `<div class="${cls}" data-oi="${oi}"><span class="L">${LET[k]}</span><span class="T"><span class="tx">${esc(q.c[oi])}</span>${why}</span>${tag}<button class="x" data-strike="${oi}" title="Cross out">✕</button></div>`;
+      return `<div class="${cls}" data-oi="${oi}"><span class="L">${LET[k]}</span><span class="T"><span class="tx">${cTxt(q,oi)}</span>${why}</span>${tag}<button class="x" data-strike="${oi}" title="Cross out">✕</button></div>`;
     }).join("") + `</div>`;
     if (timed) {
       h += `<div class="nav">
@@ -1676,8 +1716,8 @@ function explanation(q, o, s){
   let h = `<div class="exp">`;
   if (o) {
     const a = s.ans[q.id], letter = LET[o.indexOf(q.a)];
-    if (a === undefined) h += `<div class="verdict m">Not answered. The answer is ${letter}. ${esc(q.c[q.a].trim())}</div>`;
-    else { const right = a === q.a; h += `<div class="verdict ${right?"g":"r"}">${right?"Correct.":"Incorrect."} The answer is ${letter}. ${esc(q.c[q.a].trim())}</div>`; }
+    if (a === undefined) h += `<div class="verdict m">Not answered. The answer is ${letter}. ${cTxt(q,q.a)}</div>`;
+    else { const right = a === q.a; h += `<div class="verdict ${right?"g":"r"}">${right?"Correct.":"Incorrect."} The answer is ${letter}. ${cTxt(q,q.a)}</div>`; }
     const ch = (s.chgq||{})[q.id], tt = S.qtime[q.id];
     if (ch || tt) {
       let line = "";
@@ -1901,7 +1941,7 @@ function renderBuilder(){
     `</div></div>
     <div class="box"><h3>2 · Sections and topics</h3>`;
   if (!cs.length) h += `<p class="muted">Tick at least one summative above.</p>`;
-  SECTIONS.filter(s=>cs.includes(s.course)).forEach((s,i,arr)=>{
+  SECTIONS.filter(s=>cs.includes(s.course) && !s.nbme).forEach((s,i,arr)=>{
     if (cs.length > 1 && (i===0 || arr[i-1].course!==s.course)) h += `<div class="bch">${esc(COURSE_BY_ID[s.course].name)} · ${esc(COURSE_BY_ID[s.course].full)}</div>`;
     const allQ = s.items.filter(q=>q.type!=="reveal");
     const pf = POOLS.find(p=>p.k===B.pool).f;
@@ -2057,8 +2097,8 @@ function downloadNotes(){
 
 // ---------- Search ----------
 const SEARCH_IDX = Q.map(q=>({q, fields:[
-  ["question", plain(q.s)], ["choices", (q.c||[]).join(" · ")], ["answer", q.ans||""],
-  ["explanation", [plain(q.eh), q.se, q.e].filter(Boolean).join(" ")]
+  ["question", plainS(q.s)], ["choices", (q.c||[]).map(plainS).join(" · ")], ["answer", q.ans||""],
+  ["explanation", [plainS(q.eh), q.se, q.e].filter(Boolean).join(" ")]
 ]}));
 function searchQs(terms, scope){
   const ts = terms.map(t=>t.toLowerCase()), res = [];
@@ -2102,7 +2142,7 @@ function searchResultsHTML(){
   if (res.length) h += `<div class="ptools"><button class="btn primary" data-sopen="0">Study these ${res.length} questions →</button></div>`;
   h += `<div class="sres">` + res.slice(0,300).map((r,i)=>{
     const stt = status(r.q,S), cn = COURSE_BY_ID[r.q.course].name;
-    return `<button class="sitem" data-sopen="${i}"><div class="sm">${all?`<span class="cbadge">${esc(cn)}</span> `:""}${esc(r.q.sec)} · ${esc(r.q.t)} · Q${r.q.num}
+    return `<button class="sitem" data-sopen="${i}"><div class="sm">${r.q.nbme?`<span class="cbadge nbtag">NBME</span> `:""}${all?`<span class="cbadge">${esc(cn)}</span> `:""}${esc(r.q.sec)}${r.q.nbme?"":" · "+esc(r.q.t)} · Q${r.q.num}
       ${stt?`<span class="st ${stt}">${stt==="ok"?"✓ correct":"✗ incorrect"}</span>`:""}</div>
       <div class="ss">${snippet(r.txt, r.i, r.len)}</div>${multi?`<div class="shits">${r.hits.map(x=>`<span class="stag">${esc(x)}</span>`).join("")}</div>`:""}${r.where!=="question"?`<div class="where">found in the ${r.where}</div>`:""}</button>`;
   }).join("") + `</div>` + (res.length>300?`<p class="muted">Showing the first 300 results.</p>`:"");
@@ -2633,6 +2673,8 @@ document.addEventListener("click", e=>{
   if (os) { S.openSec = os.dataset.opensec; save(); renderChaps(); $("side").classList.add("open"); const el = document.querySelector(".sec.open"); if (el) el.scrollIntoView({block:"start", behavior:"smooth"}); return; }
   if (t.closest("#moreTests")) { showAllTests = !showAllTests; renderChaps(); return; }
   const gk = t.closest("[data-go]"); if (gk) { goKey(gk.dataset.go); return; }
+  const nbq = t.closest("[data-nbq]");
+  if (nbq) { openNbme(nbq.dataset.nbq); return; }
   const gd = t.closest("[data-guide]");
   if (gd) { curGuide = gd.dataset.guide; view = "guide"; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); window.scrollTo({top:0}); return; }
   const gj = t.closest("[data-gjump]");
@@ -2702,7 +2744,7 @@ document.addEventListener("click", e=>{
 
   // quiz
   if (view !== "quiz") return;
-  if (t.closest("#uHome") || t.closest("#uHome2")) { view = "home"; openMenu = null; renderAll(); $("main").scrollTo({top:0}); return; }
+  if (t.closest("#uHome") || t.closest("#uHome2")) { const cc = getChap(S.cur); view = cc && cc.nbme ? "guides" : "home"; openMenu = null; renderAll(); $("main").scrollTo({top:0}); return; }
   if (t.closest("#uPrev")) return go(pos()-1);
   if (t.closest("#uNext")) return go(pos()+1);
   if (t.closest("#uTheme")) { setTheme(document.documentElement.getAttribute("data-theme")==="light" ? "dark" : "light"); renderUBar(); return; }
@@ -2912,7 +2954,8 @@ window.JJ_STATS = function(st){
   const courses = {}, sections = [];
   SECTIONS.forEach(sec=>{
     const qs = sec.items, done = qs.filter(q=>answered(q,s)), ok = done.filter(q=>status(q,s)==="ok").length;
-    sections.push({course:sec.course, name:sec.name, total:qs.length, answered:done.length, correct:ok});
+    sections.push({course:sec.course, name:(sec.nbme?"NBME · ":"")+sec.name, total:qs.length, answered:done.length, correct:ok});
+    if (sec.nbme) return;
     const c = courses[sec.course] = courses[sec.course] || {name:(COURSE_BY_ID[sec.course]||{}).name||sec.course, total:0, answered:0, correct:0};
     c.total += qs.length; c.answered += done.length; c.correct += ok;
   });
