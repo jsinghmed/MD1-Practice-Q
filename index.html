@@ -476,7 +476,11 @@ table.rt tr.click:hover td{background:var(--hover)}
 .bjlab{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#bfe3d3;font-weight:700;margin-bottom:8px;display:flex;gap:10px;align-items:center}
 .bjlab b{background:rgba(0,0,0,.28);color:#fff;border-radius:20px;padding:2px 10px;letter-spacing:0;font-size:13px}
 .bjcards{display:flex;gap:10px;flex-wrap:wrap}
-.bjc{width:78px;height:110px;border-radius:9px;background:#fff;color:#1b1f24;box-shadow:0 4px 12px rgba(0,0,0,.35);position:relative;font-weight:700;animation:bjIn .28s ease both}
+.bjtable{position:relative}
+.bjdeck{position:absolute;right:22px;top:18px;width:62px;height:88px}
+.bjdeck i{position:absolute;inset:0;border-radius:8px;border:3px solid #fff;background:repeating-linear-gradient(45deg,#1b4d6b 0 6px,#236b7a 6px 12px);box-shadow:0 2px 6px rgba(0,0,0,.35)}
+.bjdeck i:nth-child(2){transform:translate(-2px,-2px)}.bjdeck i:nth-child(3){transform:translate(-4px,-4px)}
+.bjc{width:78px;height:110px;border-radius:9px;background:#fff;color:#1b1f24;box-shadow:0 4px 12px rgba(0,0,0,.35);position:relative;font-weight:700}
 .bjc.red{color:#c62828}
 .bjc .r1{position:absolute;left:7px;top:5px;font-size:17px;line-height:1.05;text-align:center}
 .bjc .r2{position:absolute;right:7px;bottom:5px;font-size:17px;line-height:1.05;text-align:center;transform:rotate(180deg)}
@@ -495,7 +499,7 @@ table.rt tr.click:hover td{background:var(--hover)}
 .bjstats{display:flex;gap:18px;justify-content:center;margin-top:14px;color:#cfe9dd;font-size:13.5px}
 .bjstats b{color:#fff}
 .bjnote{margin-top:12px;font-size:12.5px}
-@media (max-width:600px){.bjc{width:58px;height:84px}.bjc .pip{font-size:24px}.bjc .r1,.bjc .r2{font-size:14px}.bjtable{padding:16px 12px}}
+@media (max-width:600px){.bjdeck{width:44px;height:62px;right:12px;top:12px}.bjc{width:58px;height:84px}.bjc .pip{font-size:24px}.bjc .r1,.bjc .r2{font-size:14px}.bjtable{padding:16px 12px}}
 /* welcome screen */
 .splash{position:fixed;inset:0;z-index:9999;background:#1b3550;background:radial-gradient(ellipse at 50% 40%,#22436a 0%,#1b3550 55%,#152a40 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(28px,6vh,56px);padding:24px;transition:opacity .45s ease,visibility .45s;color:#fff}
 .splash.out{opacity:0;visibility:hidden}
@@ -2096,58 +2100,79 @@ function bjShoe(){ const r = ["A","2","3","4","5","6","7","8","9","10","J","Q","
 function bjDraw(){ if (BJ.shoe.length < 60) bjShoe(); return BJ.shoe.pop(); }
 function bjVal(h){ let t = 0, a = 0; h.forEach(c=>{ if (c.r==="A") { a++; t += 11; } else t += ["J","Q","K"].includes(c.r) ? 10 : +c.r; }); while (t > 21 && a) { t -= 10; a--; } return t; }
 function bjIsBJ(h){ return h.length===2 && bjVal(h)===21; }
-function bjCard(c, hide){ if (hide) return `<div class="bjc back"></div>`; const red = c.s==="♥"||c.s==="♦";
-  return `<div class="bjc ${red?"red":""}"><span class="r1">${c.r}<br>${c.s}</span><span class="pip">${c.s}</span><span class="r2">${c.r}<br>${c.s}</span></div>`; }
+function bjCard(c, hide){ const nw = c.n ? " new" : "", fl = c.f ? " flip" : ""; if (hide) return `<div class="bjc back${nw}"></div>`; const red = c.s==="♥"||c.s==="♦";
+  return `<div class="bjc ${red?"red":""}${nw}${fl}"><span class="r1">${c.r}<br>${c.s}</span><span class="pip">${c.s}</span><span class="r2">${c.r}<br>${c.s}</span></div>`; }
 function openBJ(){ clearTimeout(searchT); $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = ""; searchChips = []; searchRet = null; view = "bj"; renderAll(); $("main").scrollTo({top:0}); }
+const bjWait = ms => new Promise(r=>setTimeout(r, ms));
+async function bjGive(hand){ const c = bjDraw(); c.n = 1; BJ[hand].push(c); renderBJ(); await bjWait(560); }
 function bjEnd(res){
   const b = BJ.bet;
   if (res==="bj") { BJ.bank += Math.floor(b*2.5); BJ.msg = "Blackjack! You win $" + Math.floor(b*1.5); BJ.cls = "win"; BJ.w++; }
-  else if (res==="win") { BJ.bank += b*2; BJ.msg = "You win $" + b; BJ.cls = "win"; BJ.w++; }
+  else if (res==="win") { BJ.bank += b*2; BJ.msg = (bjVal(BJ.d) > 21 ? "Dealer busts! " : "") + "You win $" + b; BJ.cls = "win"; BJ.w++; }
   else if (res==="push") { BJ.bank += b; BJ.msg = "Push — bet returned"; BJ.cls = "push"; }
   else { BJ.msg = res==="bust" ? "Bust! You lose $" + b : "Dealer wins — you lose $" + b; BJ.cls = "lose"; BJ.l++; }
-  BJ.phase = "done"; bjSave();
+  if (BJ.doubled) { BJ.bet /= 2; BJ.doubled = false; }
+  BJ.phase = "done"; bjSave(); renderBJ();
 }
-function bjDealer(){
-  while (bjVal(BJ.d) < 17) BJ.d.push(bjDraw());
+async function bjReveal(){ BJ.phase = "dealer"; BJ.msg = "Dealer's turn…"; BJ.d[1].f = 1; renderBJ(); await bjWait(700); }
+async function bjDealer(){
+  await bjReveal();
+  while (bjVal(BJ.d) < 17) { BJ.msg = "Dealer hits…"; await bjGive("d"); await bjWait(200); }
   const p = bjVal(BJ.p), d = bjVal(BJ.d);
   bjEnd(d > 21 || p > d ? "win" : p===d ? "push" : "lose");
 }
-function bjAct(a){
+async function bjAct(a){
+  if (BJ.busy) return;
   if (a.startsWith("bet:")) { const n = +a.slice(4); if (BJ.phase==="done") { BJ.phase = "bet"; BJ.p = []; BJ.d = []; BJ.bet = 0; BJ.cls = ""; }
-    if (BJ.phase==="bet" && BJ.bank >= n) { BJ.bank -= n; BJ.bet += n; BJ.msg = "Bet $" + BJ.bet + " — press Deal"; } }
-  else if (a==="clear" && BJ.phase==="bet") { BJ.bank += BJ.bet; BJ.bet = 0; BJ.msg = "Place a bet to start"; }
-  else if (a==="deal") {
-    if (BJ.phase==="done") { if (BJ.bank < BJ.bet) { BJ.phase = "bet"; BJ.bet = 0; BJ.p = []; BJ.d = []; BJ.cls = ""; BJ.msg = "Not enough for the same bet — pick a new one"; renderBJ(); return; } BJ.bank -= BJ.bet; }
-    if (!BJ.bet) return;
-    BJ.doubled = false; BJ.cls = ""; BJ.p = [bjDraw(), bjDraw()]; BJ.d = [bjDraw(), bjDraw()]; BJ.phase = "play"; BJ.msg = "Hit or stand?";
-    if (bjIsBJ(BJ.p) || bjIsBJ(BJ.d)) bjEnd(bjIsBJ(BJ.p) && bjIsBJ(BJ.d) ? "push" : bjIsBJ(BJ.p) ? "bj" : "lose");
-  }
-  else if (a==="hit" && BJ.phase==="play") { BJ.p.push(bjDraw()); const v = bjVal(BJ.p); if (v > 21) bjEnd("bust"); else if (v===21) bjDealer(); }
-  else if (a==="stand" && BJ.phase==="play") bjDealer();
-  else if (a==="double" && BJ.phase==="play" && BJ.p.length===2 && BJ.bank >= BJ.bet) { BJ.bank -= BJ.bet; BJ.bet *= 2; BJ.doubled = true; BJ.p.push(bjDraw()); if (bjVal(BJ.p) > 21) bjEnd("bust"); else bjDealer(); }
-  else if (a==="refill") { BJ.bank = 1000; BJ.bet = 0; BJ.phase = "bet"; BJ.p = []; BJ.d = []; BJ.cls = ""; BJ.msg = "Fresh $1,000 — place a bet"; bjSave(); }
-  else if (a==="back") { view = "home"; renderAll(); $("main").scrollTo({top:0}); return; }
-  if (BJ.doubled && BJ.phase==="done") BJ.bet /= 2, BJ.doubled = false;
-  renderBJ();
+    if (BJ.phase==="bet" && BJ.bank >= n) { BJ.bank -= n; BJ.bet += n; BJ.msg = "Bet $" + BJ.bet + " — press Deal"; } renderBJ(); return; }
+  if (a==="clear" && BJ.phase==="bet") { BJ.bank += BJ.bet; BJ.bet = 0; BJ.msg = "Place a bet to start"; renderBJ(); return; }
+  if (a==="refill") { BJ.bank = 1000; BJ.bet = 0; BJ.phase = "bet"; BJ.p = []; BJ.d = []; BJ.cls = ""; BJ.msg = "Fresh $1,000 — place a bet"; bjSave(); renderBJ(); return; }
+  if (a==="back") { view = "home"; renderAll(); $("main").scrollTo({top:0}); return; }
+  BJ.busy = true;
+  try {
+    if (a==="deal") {
+      if (BJ.phase==="done") { if (BJ.bank < BJ.bet) { BJ.phase = "bet"; BJ.bet = 0; BJ.p = []; BJ.d = []; BJ.cls = ""; BJ.msg = "Not enough for the same bet — pick a new one"; return; } BJ.bank -= BJ.bet; }
+      if (!BJ.bet) return;
+      BJ.doubled = false; BJ.cls = ""; BJ.p = []; BJ.d = []; BJ.phase = "deal"; BJ.msg = "Dealing…"; renderBJ(); await bjWait(250);
+      await bjGive("p"); await bjGive("d"); await bjGive("p"); await bjGive("d");
+      if (bjIsBJ(BJ.p) || bjIsBJ(BJ.d)) { await bjReveal(); bjEnd(bjIsBJ(BJ.p) && bjIsBJ(BJ.d) ? "push" : bjIsBJ(BJ.p) ? "bj" : "lose"); return; }
+      BJ.phase = "play"; BJ.msg = "Hit or stand?";
+    }
+    else if (a==="hit" && BJ.phase==="play") { BJ.phase = "deal"; await bjGive("p"); BJ.phase = "play"; const v = bjVal(BJ.p); if (v > 21) { await bjWait(250); bjEnd("bust"); return; } if (v===21) { await bjDealer(); return; } }
+    else if (a==="stand" && BJ.phase==="play") { await bjDealer(); return; }
+    else if (a==="double" && BJ.phase==="play" && BJ.p.length===2 && BJ.bank >= BJ.bet) { BJ.bank -= BJ.bet; BJ.bet *= 2; BJ.doubled = true; BJ.phase = "deal"; await bjGive("p"); if (bjVal(BJ.p) > 21) { await bjWait(250); bjEnd("bust"); return; } await bjDealer(); return; }
+  } finally { BJ.busy = false; if (view==="bj") renderBJ(); }
 }
 function renderBJ(){
-  const play = BJ.phase==="play", done = BJ.phase==="done", hide = play;
-  const dv = BJ.d.length ? (hide ? bjVal([BJ.d[0]]) + " + ?" : bjVal(BJ.d)) : "";
+  if (view!=="bj") return;
+  const play = BJ.phase==="play", busy = BJ.phase==="deal" || BJ.phase==="dealer", done = BJ.phase==="done", hide = play || BJ.phase==="deal";
+  const dv = BJ.d.length ? (hide ? (BJ.d.length>1 ? bjVal([BJ.d[0]]) + " + ?" : bjVal(BJ.d)) : bjVal(BJ.d)) : "";
   const pv = BJ.p.length ? bjVal(BJ.p) : "";
-  const broke = BJ.bank < 10 && !BJ.bet && BJ.phase!=="play";
-  const chips = [10,25,50,100].map(n=>`<button class="bjchip c${n}" data-bj="bet:${n}" ${play||BJ.bank<n?"disabled":""}>$${n}</button>`).join("");
+  const broke = BJ.bank < 10 && !BJ.bet && BJ.phase==="bet";
+  const chips = [10,25,50,100].map(n=>`<button class="bjchip c${n}" data-bj="bet:${n}" ${BJ.bank<n?"disabled":""}>$${n}</button>`).join("");
+  const sc = $("main").scrollTop;
   showPage(`<div class="page bjp"><div class="ptools" style="margin-bottom:12px"><button class="btn" data-bj="back">← Back to studying</button></div>
-    <h2>Study break: Blackjack 🃏</h2><p class="sub">Fake money only. Dealer stands on 17, blackjack pays 3:2. Type <b>bj</b> in search any time to come back.</p>
-    <div class="bjtable" style="margin-top:14px">
+    <h2>Study break: Blackjack 🃏</h2><p class="sub">Fake money only. Dealer stands on 17, blackjack pays 3:2.</p>
+    <div class="bjtable" style="margin-top:14px"><div class="bjdeck" id="bjDeck"><i></i><i></i><i></i></div>
       <div class="bjrow"><div class="bjlab">Dealer ${dv!==""?`<b>${dv}</b>`:""}</div><div class="bjcards">${BJ.d.map((c,i)=>bjCard(c, hide && i===1)).join("")}</div></div>
       <div class="bjmsg ${BJ.cls}">${esc(BJ.msg)}</div>
       <div class="bjrow"><div class="bjlab">You ${pv!==""?`<b>${pv}</b>`:""}</div><div class="bjcards">${BJ.p.map(c=>bjCard(c)).join("")}</div></div>
-      <div class="bjbar">${play
-        ? `<button class="bjbtn" data-bj="hit">Hit</button><button class="bjbtn" data-bj="stand">Stand</button><button class="bjbtn ghost" data-bj="double" ${BJ.p.length===2&&BJ.bank>=BJ.bet?"":"disabled"}>Double</button>`
+      <div class="bjbar">${play || busy
+        ? `<button class="bjbtn" data-bj="hit" ${busy?"disabled":""}>Hit</button><button class="bjbtn" data-bj="stand" ${busy?"disabled":""}>Stand</button><button class="bjbtn ghost" data-bj="double" ${!busy&&BJ.p.length===2&&BJ.bank>=BJ.bet?"":"disabled"}>Double</button>`
         : broke ? `<button class="bjbtn" data-bj="refill">Out of chips — get another $1,000</button>`
         : chips + `<button class="bjbtn" data-bj="deal" ${BJ.bet?"":"disabled"}>${done?"Deal again ($"+BJ.bet+")":"Deal"}</button>${BJ.phase==="bet"&&BJ.bet?`<button class="bjbtn ghost" data-bj="clear">Clear bet</button>`:""}`}</div>
       <div class="bjstats"><span>Bank <b>$${BJ.bank.toLocaleString()}</b></span><span>Bet <b>$${BJ.bet}</b></span><span>W–L <b>${BJ.w}–${BJ.l}</b></span></div>
     </div><p class="muted bjnote">Keyboard: H hit · S stand · D double · Enter deal</p></div>`);
+  $("main").scrollTop = sc;
+  // Slide newly dealt cards in from the deck, and flip the dealer's hole card.
+  const deck = $("bjDeck"), dr = deck && deck.getBoundingClientRect(), reduce = window.matchMedia && matchMedia("(prefers-reduced-motion:reduce)").matches;
+  document.querySelectorAll(".bjc.new").forEach(el=>{
+    if (reduce || !el.animate || !dr) return;
+    const r = el.getBoundingClientRect(), dx = dr.left - r.left, dy = dr.top - r.top;
+    el.animate([{transform:`translate(${dx}px,${dy}px) rotate(-18deg) scale(.85)`, opacity:.9},{transform:`translate(${dx*.15}px,${dy*.15}px) rotate(-3deg)`, opacity:1, offset:.8},{transform:"none", opacity:1}], {duration:480, easing:"cubic-bezier(.25,.8,.3,1)"});
+  });
+  document.querySelectorAll(".bjc.flip").forEach(el=>{ if (!reduce && el.animate) el.animate([{transform:"rotateY(90deg)"},{transform:"none"}], {duration:380, easing:"ease-out"}); });
+  [...BJ.p, ...BJ.d].forEach(c=>{ delete c.n; delete c.f; });
 }
 document.addEventListener("click", e=>{ const b = e.target.closest && e.target.closest("[data-bj]"); if (b && !b.disabled) { e.preventDefault(); e.stopPropagation(); bjAct(b.dataset.bj); } }, true);
 document.addEventListener("keydown", e=>{
@@ -2155,7 +2180,7 @@ document.addEventListener("keydown", e=>{
   const a = document.activeElement; if (a && (a.tagName==="INPUT" || a.tagName==="TEXTAREA")) return;
   const k = e.key.toLowerCase(), m = {h:"hit", s:"stand", d:"double"}[k];
   if (m && BJ.phase==="play") { e.preventDefault(); bjAct(m); }
-  else if (e.key==="Enter" && BJ.phase!=="play" && BJ.bet) { e.preventDefault(); bjAct("deal"); }
+  else if (e.key==="Enter" && (BJ.phase==="bet" || BJ.phase==="done") && BJ.bet) { e.preventDefault(); bjAct("deal"); }
 });
 
 // =====================================================================
