@@ -1207,8 +1207,16 @@ function renderQuiz(){const el=$('#paneQuiz');
   if($('#qzNext'))$('#qzNext').onclick=()=>{IS.qi++;IS.ans=null;renderQuiz();injOff();hideTags();if(IS.qi<QZ.length)setView('Anterior');};}
 function injGo(sc,st){setTab('inj');IS.sc=SCN.find(s=>s.id===sc)||SCN[0];IS.st=st||0;renderInj();applyFx(IS.sc.steps[IS.st].fx);}
 function injInit(){document.querySelectorAll('.tabs [data-tab]').forEach(b=>b.onclick=()=>setTab(b.dataset.tab));
-  const h=(location.hash||'').toLowerCase();if(h==='#injuries')setTab('inj');else if(h==='#quiz')setTab('quiz');
-  window.addEventListener('hashchange',()=>{const h=location.hash.toLowerCase();setTab(h==='#injuries'?'inj':h==='#quiz'?'quiz':'explore');});}
+  // deep links: #injuries · #quiz · #case=mi:4 · #sel=mitral&view=4-chamber · #mode=beat|flow|follow|cut
+  function route(){const h=decodeURIComponent((location.hash||'').slice(1));const P={};h.split('&').forEach(kv=>{const i=kv.indexOf('=');if(i<0)P[kv.toLowerCase()]=1;else P[kv.slice(0,i).toLowerCase()]=kv.slice(i+1);});
+    if(P.case){const[sc,st]=P.case.split(':');injGo(sc,+st||0);return;}
+    if(P.injuries){setTab('inj');return;}if(P.quiz){setTab('quiz');return;}
+    if(IS.tab!=='explore')setTab('explore');
+    if(P.view){const v=Object.keys(VIEWS).find(k=>k.toLowerCase()===P.view.toLowerCase());if(v)setView(v);}
+    if(P.mode){P.mode.split(',').forEach(m=>{if(m==='beat'){state.beat=true;}if(m==='flow'){state.flow=true;state.beat=true;}if(m==='cut'){state.cut=true;}if(m==='ghost'){state.ghost=true;}if(m==='follow')setFollow(true);});syncModes();applyLook();}
+    if(P.terr&&TERR_TXT[P.terr]){setTerr(P.terr);}
+    if(P.sel&&ITEMS[P.sel]){select(P.sel,!P.view);}}
+  route();window.addEventListener('hashchange',route);}
 
 renderLayers();renderRegions();renderTerr();renderInfo();renderList();applyLook();
 injInit();

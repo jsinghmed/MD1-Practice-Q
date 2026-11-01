@@ -230,6 +230,21 @@ button{font:inherit;color:inherit;cursor:pointer}
 .reveal-ans{margin-top:4px;padding:14px 16px;border-radius:7px;border:1px solid var(--green);background:var(--green-bg);font-size:17px;font-weight:700;color:var(--green)}
 
 /* explanation */
+.vizbtn{display:flex;align-items:center;gap:12px;width:100%;text-align:left;margin-top:18px;background:linear-gradient(135deg,color-mix(in srgb,var(--teal) 16%,var(--card)),var(--card));border:1px solid color-mix(in srgb,var(--teal) 45%,var(--line2));border-radius:12px;padding:12px 14px;color:var(--text);cursor:pointer;font:inherit}
+.vizbtn:hover{border-color:var(--teal)}
+.vizbtn .vi{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:color-mix(in srgb,var(--teal) 22%,transparent);flex:none;font-size:20px}
+.vizbtn b{display:block;font-size:15px}.vizbtn small{display:block;color:var(--muted);font-size:13px;margin-top:2px;line-height:1.35}
+.vizbtn .go{margin-left:auto;color:var(--teal);font-weight:600;white-space:nowrap}
+.vizm{position:fixed;inset:0;z-index:90;background:rgba(4,8,10,.62);display:flex;align-items:center;justify-content:center;padding:24px}
+.vizm[hidden]{display:none}
+.vizm .box{width:min(1400px,100%);height:min(900px,100%);background:var(--bg);border:1px solid var(--line2);border-radius:14px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.vizm .bar{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--panel)}
+.vizm .bar b{font-size:15px}.vizm .bar small{color:var(--muted);font-size:13px}
+.vizm .bar .sp{flex:1}
+.vizm iframe{flex:1;border:0;width:100%;background:var(--bg)}
+@media (max-width:760px){.vizm{padding:0}.vizm .box{border-radius:0;height:100%}.vizm .bar small{display:none}}
+.ethnote{margin:10px 14px;color:var(--muted);font-size:12.5px;line-height:1.45}
+.page.ethpage{max-width:none}.ethframe{height:calc(100vh - 120px)!important}
 .exp{margin-top:22px;border-top:1px solid var(--line);padding-top:20px}
 .verdict{font-weight:700;font-size:16px;margin-bottom:6px}
 .verdict.g{color:var(--green)} .verdict.r{color:var(--red)} .verdict.m{color:var(--muted)}
@@ -1021,6 +1036,7 @@ button.dst:hover{background:var(--hover)}
 <script src="xp-fbs.js?v=2"></script>
 <script src="nbme.js?v=5"></script>
 <script src="xp-crs.js?v=1"></script>
+<script src="viz-links.js?v=1"></script>
 <script>
 (function(){
 // =====================================================================
@@ -1031,7 +1047,8 @@ button.dst:hover{background:var(--hover)}
 const COURSES = [
   {id:"fbs", name:"FBS", full:"Foundations of Basic Sciences"},
   {id:"msk", name:"MSK", full:"Musculoskeletal"},
-  {id:"crs", name:"CRS", full:"Cardiovascular & Respiratory Systems"}
+  {id:"crs", name:"CRS", full:"Cardiovascular & Respiratory Systems"},
+  {id:"eth", name:"Ethics", full:"Medical Ethics", special:"ethics", count:102}
 ];
 const SECTIONS = [
   {course:"msk", name:"Histology", all:"All Histology", prefix:"q", topics:window.TOPICS, qs:window.QUESTIONS,
@@ -1490,10 +1507,13 @@ function navRow(attr, ic, label, n, on, cls){
 }
 function renderChaps(){
   const allQ = courseQ(), notesN = allQ.filter(q=>S.notes[q.id] && S.notes[q.id].trim()).length;
-  let h = `<div class="nvg">` + navRow('id="homeBtn"', NVI.home, "Dashboard", "", view==="home")
-    + navRow('id="buildBtn"', NVI.plus, "Create test", "", view==="builder")
-    + navRow('id="notesBtn"', NVI.notes, "My notes", notesN||"", view==="notes")
-    + navRow('data-act="guides"', NVI.guide, "NBME Dashboard ("+course().name+")", "", view==="guides"||view==="guide") + `</div>`;
+  const ETH = S.course==="eth", hid = ETH ? ' style="display:none"' : '';
+  let h = `<div class="nvg">` + (ETH ? navRow('data-act="ethics"', NVI.notes, "Ethics practice questions", "102", true) : "")
+    + navRow('id="homeBtn"'+hid, NVI.home, "Dashboard", "", view==="home")
+    + navRow('id="buildBtn"'+hid, NVI.plus, "Create test", "", view==="builder")
+    + navRow('id="notesBtn"'+hid, NVI.notes, "My notes", notesN||"", view==="notes")
+    + (ETH ? "" : navRow('data-act="guides"', NVI.guide, "NBME Dashboard ("+course().name+")", "", view==="guides"||view==="guide")) + `</div>`
+    + (ETH ? `<div class="ethnote">Open your ethics PDF inside the page — each question and its explanation are shown from your copy. The file stays on your device.</div>` : "");
   if (allQ.length) {
     h += `<div class="chap-h">REVIEW</div><div class="nvg">` + REVIEW.map(r=>{
       const n = allQ.filter(r.f).length, key = S.course+":rv:"+r.k;
@@ -1515,8 +1535,8 @@ function renderChaps(){
     }).join("");
     if (list.length > 3) h += `<button class="more" id="moreTests">${showAllTests ? "Show fewer" : "See all "+list.length+" tests"}</button>`;
   }
-  h += `<div class="chap-h">${esc(course().name)} SECTIONS</div>`;
-  if (!courseSecs().length) h += `<div class="noq">No questions added to ${esc(course().name)} yet.</div>`;
+  if (!ETH) h += `<div class="chap-h">${esc(course().name)} SECTIONS</div>`;
+  if (!ETH && !courseSecs().length) h += `<div class="noq">No questions added to ${esc(course().name)} yet.</div>`;
   courseSecs().forEach(sec=>{
     const open = S.openSec===sec.prefix, st = secStats(sec);
     h += `<div class="sec ${open?"open":""}"><button class="sec-h" data-sec="${sec.prefix}" aria-expanded="${open}"><span class="chev">▶</span><span class="nm">${esc(sec.name)}</span><span class="n">${st.done}/${st.n}</span></button>`;
@@ -1524,9 +1544,9 @@ function renderChaps(){
     h += `</div>`;
   });
   $("chaps").innerHTML = h;
-  $("ctabs").innerHTML = COURSES.map(c=>`<button class="ctab ${c.id===S.course?"on":""}" data-course="${c.id}" title="${esc(c.full)}">${esc(c.name)}<small>${c.items.length ? c.items.length+" Qs" : "empty"}</small></button>`).join("");
+  $("ctabs").innerHTML = COURSES.map(c=>`<button class="ctab ${c.id===S.course?"on":""}" data-course="${c.id}" title="${esc(c.full)}">${esc(c.name)}<small>${c.count ? c.count+" Qs" : c.items.length ? c.items.length+" Qs" : "empty"}</small></button>`).join("");
   $("brandTitle").textContent = course().name + " Summative";
-  $("brandSub").textContent = (course().full !== course().name ? course().full + " · " : "") + (course().items.length ? course().items.length + " questions" : "no questions yet");
+  $("brandSub").textContent = (course().full !== course().name ? course().full + " · " : "") + (course().count ? course().count + " questions" : course().items.length ? course().items.length + " questions" : "no questions yet");
   document.title = "JJ QBank · " + course().name;
   $("buildBtn").classList.toggle("on", view==="builder");
   $("notesBtn").classList.toggle("on", view==="notes");
@@ -1848,6 +1868,61 @@ function downloadAnki(){
   });
 }
 
+// ---- "See it in 3D": link a question to the interactive tool that shows it ----
+// A question can carry q.viz = {tool, hash, label, why}; otherwise these keyword rules pick one.
+const VIZ_TOOLS = {heart3d:{page:"heart-3d.html", name:"3D heart", icon:"🫀"}, cap:{page:"cardiac-ap.html", name:"cardiac action potentials", icon:"⚡"},
+  pvl:{page:"cardiac-cycle.html", name:"cardiac cycle & PV loop", icon:"📈"}, limb3d:{page:"upper-limb-3d.html", name:"3D upper limb", icon:"💪"},
+  leg3d:{page:"lower-limb-3d.html", name:"3D lower limb", icon:"🦵"}, plexus:{page:"brachial-plexus.html", name:"brachial plexus", icon:"🧠"}};
+const VIZ_RULES = [
+  [/ligamentum arteriosum|ductus arteriosus|isthmus/i, "heart3d", "case=blunt:2", "Aortic isthmus and the ligamentum arteriosum"],
+  [/coarctation/i, "heart3d", "sel=aorta", "The aorta and its arch"],
+  [/tamponade|beck'?s triad|pulsus paradoxus|electrical alternans/i, "heart3d", "case=stab:2", "Cardiac tamponade, step by step"],
+  [/papillary muscle rupture/i, "heart3d", "case=mi:5", "Papillary muscle rupture after an MI"],
+  [/septal rupture/i, "heart3d", "case=mi:4", "Septal rupture after an MI"],
+  [/ventricular aneurysm|dressler/i, "heart3d", "case=mi:7", "Months after an MI"],
+  [/aortic dissection|dissecting aneurysm/i, "heart3d", "case=dissect:0", "Type A aortic dissection"],
+  [/commotio cordis/i, "heart3d", "case=blunt:1", "Commotio cordis"],
+  [/complete heart block|third[- ]degree|triangle of koch|bundle of his/i, "heart3d", "case=block:1", "Conduction injury after valve surgery"],
+  [/tetralogy|overriding aorta|pulmonary (valve )?stenosis|infundibul|truncus/i, "heart3d", "sel=pulmonary&view=Anterior", "Pulmonary valve and the RV outflow tract"],
+  [/interventricular septum|ventricular septal|membranous septum|\bVSD\b/i, "heart3d", "sel=IVS&view=4-chamber", "The interventricular septum, opened up"],
+  [/foramen ovale|septum (primum|secundum)|atrial septal|\bASD\b/i, "heart3d", "view=4-chamber&mode=cut", "The atria, opened up"],
+  [/mitral/i, "heart3d", "sel=mitral&view=4-chamber", "The mitral valve"],
+  [/tricuspid/i, "heart3d", "sel=tricuspid&view=4-chamber", "The tricuspid valve"],
+  [/aortic (valve|stenosis|regurg)/i, "heart3d", "sel=aortic&view=4-chamber", "The aortic valve"],
+  [/\bLAD\b|left anterior descending/i, "heart3d", "terr=lad", "LAD territory"],
+  [/circumflex|\bLCx\b/i, "heart3d", "terr=lcx", "Circumflex territory"],
+  [/right coronary|\bRCA\b|posterior descending/i, "heart3d", "terr=rca", "RCA territory"],
+  [/coronary sinus/i, "heart3d", "sel=cs&view=Posterior", "The coronary sinus"],
+  [/\bSA node|sinoatrial|AV node|atrioventricular node|purkinje|bundle branch/i, "heart3d", "mode=beat,ghost&sel=avnode", "The conduction system firing in sequence"],
+  [/plateau|phase 0|phase 4|funny current|pacemaker potential|L-type/i, "cap", "", "Cardiac action potentials"],
+  [/pressure[- ]volume|isovolumetric|stroke volume|preload|afterload|\bS1\b|\bS2\b|cardiac cycle/i, "pvl", "", "Cardiac cycle & PV loop"],
+  [/blood flow|pulmonary circulation|deoxygenated/i, "heart3d", "mode=follow", "Follow a drop of blood through the heart"],
+];
+function vizFor(q){
+  const ov = (window.VIZ_LINKS||{})[q.id];
+  if (ov === false || q.viz === false) return null;
+  if (ov && !q.viz) q = Object.assign({}, q, {viz: ov});
+  if (q.viz) { const t = VIZ_TOOLS[q.viz.tool]; return t ? Object.assign({icon:t.icon, name:t.name, page:t.page}, q.viz) : null; }
+  if ((q.course||S.course) !== "crs") return null;   // keyword rules are tuned for CRS; other courses use viz-links.js
+  const text = [q.s, q.q, q.e, plainS(q.eh||"")].filter(Boolean).join(" ");
+  for (const [re, tool, hash, label] of VIZ_RULES) if (re.test(text)) { const t = VIZ_TOOLS[tool]; return {tool, hash, label, icon:t.icon, name:t.name, page:t.page}; }
+  return null;
+}
+function vizOpen(page, hash, title, sub){
+  let m = $("vizM");
+  if (!m) { m = document.createElement("div"); m.id = "vizM"; m.className = "vizm"; m.hidden = true;
+    m.innerHTML = `<div class="box" role="dialog" aria-modal="true" aria-labelledby="vizT"><div class="bar"><b id="vizT"></b><small id="vizS"></small><span class="sp"></span><a class="btn" id="vizFull" target="_blank" rel="noopener">Open full page ↗</a><button class="btn" id="vizX" aria-label="Close">✕ Close</button></div><iframe id="vizF" title="Interactive diagram"></iframe></div>`;
+    document.body.appendChild(m);
+    m.addEventListener("click", e=>{ if (e.target===m || e.target.closest("#vizX")) vizClose(); });
+    document.addEventListener("keydown", e=>{ if (e.key==="Escape" && !m.hidden) vizClose(); }); }
+  const url = page + "?v=5" + (hash ? "#" + hash : "");
+  $("vizT").textContent = title; $("vizS").textContent = sub || ""; $("vizFull").href = page + (hash ? "#" + hash : "");
+  $("vizF").src = url; m.hidden = false; document.body.style.overflow = "hidden"; $("vizX").focus();
+}
+function vizClose(){ const m = $("vizM"); if (!m) return; m.hidden = true; $("vizF").src = "about:blank"; document.body.style.overflow = ""; }
+document.addEventListener("click", e=>{ const b = e.target.closest && e.target.closest("[data-viz]"); if (!b) return;
+  vizOpen(b.dataset.viz, b.dataset.vizh, b.dataset.vizt, b.dataset.vizs); });
+
 function explanation(q, o, s){
   s = s || store();
   let h = `<div class="exp">`;
@@ -1880,6 +1955,8 @@ function explanation(q, o, s){
   }
   if (q.c100) h += `<h4>📘 100 D&amp;GA Conceptions (Mavrych)</h4><div class="c100links">` + q.c100.map(p=>{ const c = c100Concept(p);
       return `<button class="c100btn" data-c100p="${p}"><span class="cn">#${c?c[0]:"?"}</span><span class="ct"><b>${esc(c100Topic(p)||c[1])}</b><small>${c?esc(c[1])+" · ":""}page ${p}</small></span><span class="go">Open ›</span></button>`; }).join("") + `</div>`;
+  const vz = vizFor(q);
+  if (vz) h += `<button class="vizbtn" data-viz="${vz.page}" data-vizh="${esc(vz.hash||"")}" data-vizt="${esc(vz.label)}" data-vizs="${esc("On the "+vz.name)}"><span class="vi" aria-hidden="true">${vz.icon}</span><span><b>See it on the ${esc(vz.name)}</b><small>${esc(vz.label)}</small></span><span class="go">Open ›</span></button>`;
   if (q.key) h += `<div class="keynote">${esc(q.key)}</div>`;
   if (q.src==="doc" && !q.given && !q.key) h += `<div class="srcnote">The document doesn't give an answer for this question; the answer here is supplied.</div>`;
   if (q.note) h += `<div class="srcnote">${esc(q.note)}</div>`;
@@ -2599,6 +2676,8 @@ function rememberPlace(){
   if (view==="quiz") { const c = chap(), q = c && curQ(); if (q) S.posId[c.key] = q.id; }
 }
 function renderAll(){
+  if (S.course==="eth") view = "ethics";
+  else if (view==="ethics") view = "home";
   if (view==="quiz" && !chap()) view = "home";
   rememberPlace();
   if (view!=="quiz") focusOn = false;
@@ -2621,6 +2700,7 @@ function renderAll(){
   else if (view==="pvl") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Cardiac cycle & PV loop</h2><a class="btn" href="cardiac-cycle.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="cardiac-cycle.html?v=1" title="Interactive cardiac cycle and pressure-volume loop simulator"></iframe></div>`);
   else if (view==="limb3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>3D upper limb atlas</h2><a class="btn" href="upper-limb-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="upper-limb-3d.html?v=1" title="Interactive 3D upper limb atlas"></iframe></div>`);
   else if (view==="leg3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>3D lower limb atlas</h2><a class="btn" href="lower-limb-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="lower-limb-3d.html?v=1" title="Interactive 3D lower limb atlas"></iframe></div>`);
+  else if (view==="ethics") showPage(`<div class="page plexpage ethpage"><div class="plextop"><h2>Medical Ethics</h2><a class="btn" href="ethics.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe ethframe" src="ethics.html?v=1" title="Ethics practice questions"></iframe></div>`);
   else if (view==="guides") renderGuides();
   else if (view==="guide") renderGuideView();
   else if (view==="anki") showPage(`<div class="page dash"><div class="dtop"><div><h2>Anki export</h2><p class="sub">Questions you've added as Anki cards, ready to download</p></div></div>${ankiHomeBox().replace('<div class="h3">Anki export</div>','') || `<div class="emptybox"><h3>No Anki cards yet</h3><p>Add questions to your Anki list while you study, and they'll collect here for download.</p></div>`}</div>`);
@@ -2822,7 +2902,7 @@ document.addEventListener("click", e=>{
   const gj = t.closest("[data-gjump]");
   if (gj) { e.preventDefault(); const el = document.getElementById(gj.dataset.gjump); if (el) el.scrollIntoView({behavior:"smooth", block:"start"}); return; }
   const act = t.closest("[data-act]");
-  if (act) { view = ({build:"builder", plexus:"plexus", limb3d:"limb3d", leg3d:"leg3d", cap:"cap", pvl:"pvl", heart3d:"heart3d", heartinj:"heartinj", guides:"guides", anki:"anki", notes:"notes"})[act.dataset.act] || "notes"; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); return; }
+  if (act) { view = ({build:"builder", plexus:"plexus", limb3d:"limb3d", leg3d:"leg3d", cap:"cap", pvl:"pvl", heart3d:"heart3d", heartinj:"heartinj", ethics:"ethics", guides:"guides", anki:"anki", notes:"notes"})[act.dataset.act] || "notes"; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); return; }
   if (t.closest("[data-plexback]")) { view = "home"; renderAll(); $("main").scrollTo({top:0}); return; }
   // sidebar
   const rv = t.closest("[data-rv]");

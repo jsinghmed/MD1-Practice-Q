@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ethics · JJ QBank</title>
+<script>function jjTheme(){try{var th=localStorage.getItem("msk-theme");document.documentElement.setAttribute("data-theme",th==="light"?"light":"dark");}catch(e){}}jjTheme();window.addEventListener("storage",function(e){if(e.key==="msk-theme")jjTheme();});window.addEventListener("message",function(e){if(e.data==="jj-theme")jjTheme();});</script>
+<style>
+:root{--bg:#0d1117;--panel:#161b22;--card:#11161d;--choice:#1a2029;--choice-h:#202733;--teal:#4fb8b0;--teal-ink:#0b1416;--line:#2a313c;--line2:#353d4a;--text:#e6edf3;--muted:#8b949e;--good:#2ea043;--bad:#d1453b;--pdfbg:#0a0d11;--paper:#fff}
+:root[data-theme="light"]{--bg:#f3f5f8;--panel:#ffffff;--card:#ffffff;--choice:#f6f8fa;--choice-h:#eef1f4;--teal:#2b9a91;--teal-ink:#ffffff;--line:#d8dee4;--line2:#c4ccd5;--text:#1f2328;--muted:#59636e;--pdfbg:#e9edf1}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:15px;-webkit-font-smoothing:antialiased}
+button,select,textarea,input{font:inherit;color:inherit}button{cursor:pointer}
+.app{display:grid;grid-template-columns:250px minmax(0,1fr) minmax(0,1fr);height:100vh}
+.side{background:var(--panel);border-right:1px solid var(--line);overflow:auto;padding:14px 10px}
+.pdfst{border:1px solid var(--line2);border-radius:10px;padding:10px;background:var(--card);font-size:13px}
+.pdfst b{display:block;font-size:13.5px;word-break:break-word}.pdfst small{color:var(--muted);display:block;margin-top:2px;line-height:1.35}
+.pdfst button{margin-top:8px;width:100%;border:1px solid var(--teal);background:color-mix(in srgb,var(--teal) 16%,transparent);border-radius:8px;padding:7px;font-weight:600}
+.h{font-size:11px;letter-spacing:1.2px;color:var(--muted);margin:16px 6px 6px;font-weight:600}
+.flt{display:flex;flex-wrap:wrap;gap:5px;padding:0 4px}
+.flt button{border:1px solid var(--line2);background:transparent;border-radius:14px;padding:3px 9px;font-size:12px;color:var(--muted)}
+.flt button.on{background:var(--teal);border-color:var(--teal);color:var(--teal-ink)}
+.tp{width:100%;display:flex;justify-content:space-between;gap:8px;align-items:center;border:0;background:transparent;border-radius:7px;padding:7px 8px;font-size:13.5px;text-align:left}
+.tp:hover{background:var(--choice)}.tp.on{background:color-mix(in srgb,var(--teal) 20%,transparent)}
+.tp .n{font-size:11.5px;color:var(--muted);white-space:nowrap}
+.qcol{overflow:auto;padding:22px 26px 40px;border-right:1px solid var(--line)}
+.crumb{font-size:12px;color:var(--muted);letter-spacing:.6px;text-transform:uppercase}
+h1{font-size:22px;margin:4px 0 2px}
+.msel{display:none;width:100%;margin:10px 0 0;padding:9px;border-radius:8px;border:1px solid var(--line2);background:var(--choice)}
+.qnav{display:flex;flex-wrap:wrap;gap:5px;margin:12px 0 16px}
+.qnav button{min-width:32px;height:28px;padding:0 4px;border-radius:7px;border:1px solid var(--line2);background:var(--choice);font-size:12.5px;font-weight:600;position:relative}
+.qnav button.cur{border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal)}
+.qnav button.ok{background:color-mix(in srgb,var(--good) 30%,var(--choice))}.qnav button.no{background:color-mix(in srgb,var(--bad) 30%,var(--choice))}
+.qnav button.mk::after{content:"";position:absolute;top:-3px;right:-3px;width:8px;height:8px;border-radius:50%;background:#e0a800}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.qn{font-size:19px;font-weight:700}.tag{font-size:12px;border:1px solid var(--line2);border-radius:20px;padding:2px 9px;color:var(--muted)}
+.mark{margin-left:auto;border:1px solid var(--line2);background:transparent;border-radius:8px;padding:4px 10px;font-size:13px}
+.mark.on{border-color:#e0a800;color:#e0a800}
+.crop{margin-top:12px;background:var(--paper);border-radius:8px;padding:10px 12px;min-height:90px;display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:10px}
+.crop canvas{width:100%;height:auto;display:block}
+.crop.none{background:var(--choice);color:var(--muted);font-size:14px;text-align:center;border:1px dashed var(--line2);align-items:center;padding:22px}
+.crop.none button{margin-top:10px}
+.mini{background:none;border:0;color:var(--teal);font-weight:600;font-size:13px;padding:6px 0}
+.lbl{font-size:12px;letter-spacing:1px;color:var(--muted);margin:16px 0 8px;text-transform:uppercase;font-weight:600}
+.letters{display:flex;flex-wrap:wrap;gap:8px}
+.letters button{width:46px;height:42px;border-radius:9px;border:1px solid var(--line2);background:var(--choice);font-size:16px;font-weight:700}
+.letters button:hover:not(:disabled){background:var(--choice-h)}.letters button.sel{border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal)}
+.letters button.ok{background:color-mix(in srgb,var(--good) 35%,var(--choice));border-color:var(--good)}
+.letters button.no{background:color-mix(in srgb,var(--bad) 35%,var(--choice));border-color:var(--bad)}
+.letters button:disabled{cursor:default}
+.row{margin-top:14px;display:flex;gap:8px;flex-wrap:wrap}
+.btn{border:1px solid var(--line2);background:var(--choice);border-radius:8px;padding:8px 14px;font-weight:600}
+.btn.pri{background:var(--teal);border-color:var(--teal);color:var(--teal-ink)}
+.btn:disabled{opacity:.45;cursor:default}
+.verdict{margin-top:14px;border-radius:10px;padding:11px 14px;font-weight:600}
+.verdict.ok{background:color-mix(in srgb,var(--good) 18%,transparent);border:1px solid color-mix(in srgb,var(--good) 55%,transparent)}
+.verdict.no{background:color-mix(in srgb,var(--bad) 16%,transparent);border:1px solid color-mix(in srgb,var(--bad) 55%,transparent)}
+.notes{width:100%;min-height:64px;background:var(--choice);border:1px solid var(--line2);border-radius:8px;padding:9px;font-size:14px;resize:vertical}
+.score{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;font-size:13px;color:var(--muted)}.score b{color:var(--text);font-size:15px}
+.score button{margin-left:auto;background:none;border:0;color:var(--muted);text-decoration:underline;font-size:12.5px}
+.pcol{display:flex;flex-direction:column;min-height:0;background:var(--pdfbg)}
+.pbar{display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid var(--line);background:var(--panel);font-size:13px}
+.pbar b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:40%}
+.pbar .sp{flex:1}.pbar input{width:52px;background:var(--choice);border:1px solid var(--line2);border-radius:6px;padding:4px 6px;text-align:center}
+.pbar .btn{padding:4px 10px}.pbar .x{display:none}
+.pview{flex:1;overflow:auto;display:flex;justify-content:center;align-items:flex-start;padding:14px}
+.pview canvas{background:#fff;box-shadow:0 6px 24px rgba(0,0,0,.35);border-radius:3px;max-width:100%;height:auto}
+.empty{margin:auto;text-align:center;max-width:340px;color:var(--muted)}
+.drop{border:2px dashed var(--line2);border-radius:14px;padding:26px 20px;line-height:1.5}
+.drop b{display:block;color:var(--text);font-size:17px;margin-bottom:6px}
+.drop .btn{margin-top:14px}.priv{font-size:12px;margin-top:12px}
+.warn{margin-top:8px;color:#e0a800;font-size:12.5px}
+@media (max-width:1100px){.app{grid-template-columns:220px minmax(0,1fr) minmax(0,.9fr)}}
+@media (max-width:860px){
+  .app{grid-template-columns:minmax(0,1fr);height:auto;min-height:100vh}.side{display:none}.msel{display:block}
+  .qcol{border-right:0;padding:16px 14px 40px;overflow:visible}
+  .pcol{position:fixed;inset:0;z-index:20;display:none}.pcol.open{display:flex}.pbar .x{display:inline-block}
+  .mobpdf{display:block!important}.mflt{display:flex!important;margin-top:10px}
+  .qnav{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}.qnav button{flex:none}
+}
+.mobpdf{display:none;margin-bottom:12px}.mflt{display:none}
+</style></head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="pdfst" id="pdfst"></div>
+    <div class="h">SHOW</div>
+    <div class="flt" id="flt"></div>
+    <div class="h">TOPICS</div>
+    <div id="topics"></div>
+  </aside>
+  <section class="qcol" id="qcol"></section>
+  <section class="pcol" id="pcol">
+    <div class="pbar"><button class="btn x" id="pX">✕ Close</button><b id="pname">Your PDF</b><span class="sp"></span><button class="btn" id="pPrev" aria-label="Previous page">‹</button><span>Page <input id="pNum" inputmode="numeric" aria-label="Page number"> / <span id="pTot">–</span></span><button class="btn" id="pNext" aria-label="Next page">›</button></div>
+    <div class="pview" id="pview"></div>
+  </section>
+</div>
+<input type="file" id="file" accept="application/pdf,.pdf" hidden>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+// Each question stores only its number, topic, answer letter and where it sits in YOUR copy of the PDF
+// (page + crop box in PDF points). The question and explanation are drawn from the PDF on your own device.
+const QS=[{"n":1,"t":"Brain death","q":[71,[34,256,441,505]],"e":[[121,[46,251,584,618]]],"k":5,"a":0},{"n":2,"t":"Abuse: child, elder & spouse","q":[72,[174,96,585,426]],"e":[[122,[177,89,590,373]]],"k":9,"a":7},{"n":3,"t":"Confidentiality","q":[73,[39,96,450,318]],"e":[[122,[177,375,590,597]]],"k":4,"a":2},{"n":4,"t":"Confidentiality","q":[73,[38,322,444,559]],"e":[[123,[26,94,451,312]]],"k":6,"a":3},{"n":5,"t":"Confidentiality","q":[74,[175,94,580,297]],"e":[[123,[26,314,451,474]]],"k":5,"a":4},{"n":6,"t":"Confidentiality","q":[74,[175,304,584,536]],"e":[[123,[26,476,451,654]],[124,[179,62,590,225]]],"k":5,"a":3},{"n":7,"t":"Confidentiality","q":[75,[35,93,436,327]],"e":[[124,[179,227,590,615]],[125,[29,62,428,156]]],"k":6,"a":4},{"n":8,"t":"Confidentiality","q":[75,[29,334,434,534]],"e":[[125,[29,158,428,374]]],"k":4,"a":0},{"n":9,"t":"Organ donation","q":[76,[169,96,581,289]],"e":[[125,[29,376,428,496]]],"k":5,"a":2},{"n":10,"t":"Organ donation","q":[76,[168,296,576,499]],"e":[[126,[175,94,572,352]]],"k":5,"a":4},{"n":11,"t":"Organ donation","q":[77,[30,100,432,307]],"e":[[126,[175,354,572,528]]],"k":5,"a":4},{"n":12,"t":"Organ donation","q":[77,[24,311,426,491]],"e":[[127,[51,90,451,250]]],"k":5,"a":4},{"n":13,"t":"DNR orders","q":[78,[186,97,598,272]],"e":[[127,[51,252,451,501]]],"k":4,"a":2},{"n":14,"t":"DNR orders","q":[78,[187,279,598,454]],"e":[[128,[191,93,574,294]]],"k":5,"a":2},{"n":15,"t":"DNR orders","q":[78,[188,461,598,623]],"e":[[128,[191,296,574,417]]],"k":5,"a":4},{"n":16,"t":"Abuse: child, elder & spouse","q":[79,[54,93,456,339]],"e":[[129,[6,94,415,353]]],"k":7,"a":5},{"n":17,"t":"Executions & torture","q":[79,[44,361,447,557]],"e":[[129,[6,355,415,654]]],"k":5,"a":3},{"n":18,"t":"Research & experimentation","q":[80,[167,124,582,327]],"e":[[130,[177,96,593,382]]],"k":4,"a":1},{"n":19,"t":"Research & experimentation","q":[80,[170,333,578,495]],"e":[[130,[177,384,593,631]]],"k":6,"a":3},{"n":20,"t":"Research & experimentation","q":[81,[47,103,449,352]],"e":[[131,[29,94,448,352]]],"k":6,"a":3},{"n":21,"t":"Research & experimentation","q":[81,[57,360,445,501]],"e":[[131,[29,354,448,654]],[132,[168,62,543,200]]],"k":5,"a":2},{"n":22,"t":"Genetic testing","q":[82,[158,102,569,334]],"e":[[132,[168,202,543,430]]],"k":6,"a":3},{"n":23,"t":"Genetic testing","q":[82,[158,343,568,516]],"e":[[132,[168,432,543,568]]],"k":5,"a":3},{"n":24,"t":"Gifts","q":[83,[35,117,432,327]],"e":[[133,[24,94,430,289]]],"k":6,"a":2},{"n":25,"t":"Gifts","q":[83,[26,331,426,522]],"e":[[133,[24,291,430,504]]],"k":5,"a":3},{"n":26,"t":"Gifts","q":[84,[172,126,585,309]],"e":[[133,[24,506,430,640]]],"k":4,"a":1},{"n":27,"t":"Gifts","q":[84,[167,316,374,507]],"e":[[134,[184,93,595,281]]],"k":6,"a":1},{"n":28,"t":"Gifts","q":[84,[162,512,571,685]],"e":[[134,[184,283,595,543]]],"k":5,"a":0},{"n":29,"t":"HIV/AIDS","q":[85,[43,95,447,348]],"e":[[135,[51,85,449,359]]],"k":6,"a":0},{"n":30,"t":"HIV/AIDS","q":[85,[39,358,443,580]],"e":[[135,[51,361,449,552]],[136,[177,62,552,214]]],"k":7,"a":4},{"n":31,"t":"HIV/AIDS","q":[86,[180,95,593,265]],"e":[[136,[177,216,552,449]]],"k":4,"a":3},{"n":32,"t":"HIV/AIDS","q":[86,[178,271,589,473]],"e":[[137,[58,94,455,322]]],"k":5,"a":0},{"n":33,"t":"HIV/AIDS","q":[86,[177,478,586,646]],"e":[[137,[58,324,455,517]]],"k":4,"a":0},{"n":34,"t":"Impaired drivers","q":[87,[31,92,453,364]],"e":[[138,[188,92,597,406]]],"k":7,"a":4},{"n":35,"t":"Informed consent & capacity","q":[88,[163,127,576,418]],"e":[[138,[188,408,597,640]]],"k":6,"a":3},{"n":36,"t":"Informed consent & capacity","q":[88,[165,424,578,670]],"e":[[139,[0,92,408,336]]],"k":6,"a":0},{"n":37,"t":"Informed consent & capacity","q":[89,[58,96,471,286]],"e":[[139,[0,338,408,654]]],"k":4,"a":2},{"n":38,"t":"Informed consent & capacity","q":[89,[69,290,462,431]],"e":[[140,[181,93,592,393]]],"k":4,"a":1},{"n":39,"t":"Informed consent & capacity","q":[89,[49,435,456,625]],"e":[[140,[181,395,592,514]]],"k":5,"a":4},{"n":40,"t":"Informed consent & capacity","q":[90,[188,96,598,271]],"e":[[141,[51,92,428,436]]],"k":5,"a":0},{"n":41,"t":"Informed consent & capacity","q":[90,[187,279,598,482]],"e":[[142,[173,94,590,399]]],"k":5,"a":0},{"n":42,"t":"Informed consent & capacity","q":[91,[26,95,413,325]],"e":[[143,[71,94,449,458]]],"k":5,"a":3},{"n":43,"t":"Informed consent & capacity","q":[91,[23,334,412,520]],"e":[[144,[173,92,595,378]]],"k":4,"a":3},{"n":44,"t":"Informed consent & capacity","q":[92,[188,94,601,285]],"e":[[144,[173,380,595,613]]],"k":5,"a":0},{"n":45,"t":"Informed consent & capacity","q":[92,[186,290,595,510]],"e":[[145,[22,91,430,266]]],"k":5,"a":3},{"n":46,"t":"Informed consent & capacity","q":[93,[62,94,540,296]],"e":[[145,[22,268,430,487]]],"k":5,"a":4},{"n":47,"t":"Informed consent & capacity","q":[93,[62,298,467,448]],"e":[[146,[179,91,597,293]]],"k":3,"a":1},{"n":48,"t":"Informed consent & capacity","q":[93,[62,449,480,602]],"e":[[146,[179,295,597,460]]],"k":4,"a":3},{"n":49,"t":"Malpractice & medical errors","q":[94,[175,89,584,375]],"e":[[147,[0,92,413,336]]],"k":6,"a":4},{"n":50,"t":"Malpractice & medical errors","q":[94,[168,376,577,507]],"e":[[147,[0,338,413,654]]],"k":5,"a":4},{"n":51,"t":"Malpractice & medical errors","q":[95,[20,98,430,329]],"e":[[148,[193,92,608,561]]],"k":5,"a":3},{"n":52,"t":"Malpractice & medical errors","q":[95,[20,337,427,609]],"e":[[149,[47,94,444,353]]],"k":5,"a":4},{"n":53,"t":"Malpractice & medical errors","q":[96,[161,96,575,300]],"e":[[149,[47,355,444,530]]],"k":5,"a":4},{"n":54,"t":"Malpractice & medical errors","q":[96,[160,326,570,548]],"e":[[150,[186,95,602,452]]],"k":5,"a":2},{"n":55,"t":"Malpractice & medical errors","q":[97,[50,97,450,359]],"e":[[150,[186,454,602,613]]],"k":6,"a":4},{"n":56,"t":"Medical records","q":[97,[44,404,447,611]],"e":[[151,[58,92,444,294]]],"k":6,"a":3},{"n":57,"t":"Medical records","q":[98,[183,95,601,233]],"e":[[151,[58,296,444,462]]],"k":4,"a":2},{"n":58,"t":"Medical records","q":[98,[183,240,594,401]],"e":[[152,[173,94,595,310]]],"k":5,"a":4},{"n":59,"t":"Minors","q":[98,[183,428,595,624]],"e":[[152,[173,312,595,595]]],"k":6,"a":2},{"n":60,"t":"Minors","q":[99,[62,95,465,262]],"e":[[154,[73,91,475,350]]],"k":5,"a":0},{"n":61,"t":"Minors","q":[99,[55,264,458,468]],"e":[[154,[73,352,475,584]],[155,[181,62,557,231]]],"k":6,"a":2},{"n":62,"t":"Minors","q":[99,[55,468,458,630]],"e":[[155,[181,233,557,392]]],"k":4,"a":0},{"n":63,"t":"Minors","q":[100,[179,100,593,290]],"e":[[155,[181,394,557,589]]],"k":5,"a":3},{"n":64,"t":"Minors","q":[100,[177,297,592,489]],"e":[[156,[80,91,475,362]]],"k":5,"a":3},{"n":65,"t":"Suicide, PAS & euthanasia","q":[101,[50,95,530,365]],"e":[[156,[80,364,475,588]],[157,[181,62,593,226]]],"k":6,"a":0},{"n":66,"t":"Suicide, PAS & euthanasia","q":[102,[184,95,597,385]],"e":[[157,[181,228,593,584]]],"k":6,"a":4},{"n":67,"t":"Physician impairment","q":[102,[183,413,594,608]],"e":[[158,[49,57,444,372]]],"k":6,"a":4},{"n":68,"t":"Physician impairment","q":[103,[41,95,445,280]],"e":[[158,[49,374,444,512]]],"k":4,"a":3},{"n":69,"t":"Physician impairment","q":[103,[39,288,448,474]],"e":[[159,[163,92,588,351]]],"k":4,"a":3},{"n":70,"t":"Doctor\u2013patient relationship","q":[104,[201,98,594,304]],"e":[[159,[163,353,588,640]]],"k":5,"a":0},{"n":71,"t":"Doctor\u2013patient relationship","q":[104,[201,313,609,602]],"e":[[160,[51,94,435,384]]],"k":6,"a":0},{"n":72,"t":"Doctor\u2013patient relationship","q":[105,[37,98,446,303]],"e":[[161,[157,94,612,437]]],"k":5,"a":4},{"n":73,"t":"Doctor\u2013patient relationship","q":[105,[50,308,443,500]],"e":[[161,[157,439,612,629]]],"k":5,"a":3},{"n":74,"t":"Public health & reporting","q":[106,[148,93,547,223]],"e":[[162,[65,95,458,397]]],"k":5,"a":2},{"n":75,"t":"Public health & reporting","q":[106,[161,232,570,462]],"e":[[162,[65,399,458,631]]],"k":5,"a":3},{"n":76,"t":"Public health & reporting","q":[107,[54,98,442,318]],"e":[[163,[188,93,611,323]]],"k":6,"a":3},{"n":77,"t":"Reproductive rights","q":[107,[33,346,442,594]],"e":[[163,[188,325,611,526]],[164,[31,62,430,295]]],"k":5,"a":4},{"n":78,"t":"Reproductive rights","q":[108,[177,98,586,276]],"e":[[164,[31,297,430,589]]],"k":5,"a":4},{"n":79,"t":"Reproductive rights","q":[108,[165,282,586,457]],"e":[[165,[168,92,593,421]]],"k":5,"a":0},{"n":80,"t":"Reproductive rights","q":[109,[41,111,448,327]],"e":[[165,[168,423,593,649]],[166,[46,62,437,152]]],"k":5,"a":4},{"n":81,"t":"Reproductive rights","q":[109,[40,336,451,510]],"e":[[166,[46,154,437,489]]],"k":5,"a":3},{"n":82,"t":"Abuse: child, elder & spouse","q":[110,[159,95,571,330]],"e":[[167,[164,93,487,351]]],"k":5,"a":1},{"n":83,"t":"Suicide, PAS & euthanasia","q":[110,[161,356,575,561]],"e":[[167,[164,353,487,584]],[168,[33,62,430,177]]],"k":4,"a":1},{"n":84,"t":"Executions & torture","q":[111,[42,96,443,320]],"e":[[168,[33,179,430,409]]],"k":5,"a":4},{"n":85,"t":"Executions & torture","q":[111,[34,325,444,501]],"e":[[168,[33,411,430,629]],[169,[193,62,568,154]]],"k":5,"a":0},{"n":86,"t":"Withholding & withdrawing treatment","q":[112,[195,93,595,312]],"e":[[169,[193,156,568,371]]],"k":5,"a":4},{"n":87,"t":"Withholding & withdrawing treatment","q":[112,[195,318,595,536]],"e":[[169,[193,373,568,649]]],"k":5,"a":0},{"n":88,"t":"Withholding & withdrawing treatment","q":[113,[29,94,438,300]],"e":[[170,[67,92,466,364]]],"k":6,"a":3},{"n":89,"t":"Withholding & withdrawing treatment","q":[113,[28,308,431,513]],"e":[[170,[67,366,466,629]]],"k":6,"a":0},{"n":90,"t":"Withholding & withdrawing treatment","q":[114,[155,92,575,326]],"e":[[171,[186,97,612,654]]],"k":5,"a":3},{"n":91,"t":"Withholding & withdrawing treatment","q":[114,[185,345,575,596]],"e":[[172,[0,92,437,654]]],"k":6,"a":0},{"n":92,"t":"Withholding & withdrawing treatment","q":[115,[40,94,451,284]],"e":[[173,[172,92,545,294]]],"k":4,"a":0},{"n":93,"t":"Withholding & withdrawing treatment","q":[115,[37,288,442,493]],"e":[[173,[172,296,545,586]]],"k":5,"a":4},{"n":94,"t":"Withholding & withdrawing treatment","q":[116,[177,97,587,374]],"e":[[174,[60,87,458,481]]],"k":6,"a":1},{"n":95,"t":"Withholding & withdrawing treatment","q":[116,[174,381,587,598]],"e":[[175,[159,94,464,438]]],"k":5,"a":2},{"n":96,"t":"Withholding & withdrawing treatment","q":[117,[40,93,447,310]],"e":[[176,[64,92,449,627]],[177,[166,62,550,197]]],"k":5,"a":4},{"n":97,"t":"Withholding & withdrawing treatment","q":[117,[32,318,440,565]],"e":[[177,[166,199,550,557]]],"k":8,"a":0},{"n":98,"t":"Withholding & withdrawing treatment","q":[118,[171,99,585,309]],"e":[[178,[51,94,442,423]]],"k":8,"a":5},{"n":99,"t":"Withholding & withdrawing treatment","q":[118,[171,318,580,534]],"e":[[178,[51,425,442,627]],[179,[161,62,552,197]]],"k":5,"a":0},{"n":100,"t":"Withholding & withdrawing treatment","q":[119,[37,95,446,235]],"e":[[179,[161,199,552,458]]],"k":5,"a":2},{"n":101,"t":"Withholding & withdrawing treatment","q":[119,[35,243,439,420]],"e":[[180,[56,92,457,294]]],"k":5,"a":0},{"n":102,"t":"Withholding & withdrawing treatment","q":[120,[205,90,592,360]],"e":[[180,[56,296,457,552]]],"k":6,"a":4}];
+const LET="abcdefghi", KEY="jj-ethics-v1";
+const $=id=>document.getElementById(id);
+let S={ans:{},notes:{},mark:{},cur:1,topic:"",flt:"all"};
+try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||"{}"));}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}};
+const TOPICS=[...new Set(QS.map(q=>q.t))].sort();
+const st={sel:null,doc:null,name:"",page:1,warn:""};
+const isMob=()=>matchMedia("(max-width:860px)").matches;
+const byN=n=>QS.find(q=>q.n===n);
+const isOk=q=>S.ans[q.n]===q.a;
+function list(){return QS.filter(q=>(!S.topic||q.t===S.topic)&&(S.flt==="all"||(S.flt==="missed"&&S.ans[q.n]!==undefined&&!isOk(q))||(S.flt==="marked"&&S.mark[q.n])||(S.flt==="todo"&&S.ans[q.n]===undefined)));}
+
+/* ---------- remember the PDF on this device (IndexedDB) ---------- */
+function idb(){return new Promise((res,rej)=>{const r=indexedDB.open("jj-ethics",1);r.onupgradeneeded=()=>r.result.createObjectStore("f");r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error);});}
+async function idbPut(v){try{const db=await idb();await new Promise((res,rej)=>{const t=db.transaction("f","readwrite");t.objectStore("f").put(v,"pdf");t.oncomplete=res;t.onerror=()=>rej(t.error);});}catch(e){}}
+async function idbGet(){try{const db=await idb();return await new Promise(res=>{const t=db.transaction("f").objectStore("f").get("pdf");t.onsuccess=()=>res(t.result);t.onerror=()=>res(null);});}catch(e){return null;}}
+async function openPdf(buf,name,blob){
+  try{st.doc=await pdfjsLib.getDocument({data:buf}).promise;}catch(e){st.warn="That file couldn't be opened as a PDF.";renderSide();return;}
+  st.name=name;st.warn=st.doc.numPages<120?"This PDF has "+st.doc.numPages+" pages — the ethics PDF has 180, so the questions may not line up.":"";
+  if(blob)idbPut({name,blob});
+  $("pname").textContent=name;$("pTot").textContent=st.doc.numPages;renderSide();renderQ();if(!isMob())showPage(st.page||byN(S.cur).q[0]);}
+$("file").onchange=async e=>{const f=e.target.files[0];if(!f)return;const buf=await f.arrayBuffer();await openPdf(buf,f.name,f);e.target.value="";};
+const pick=()=>$("file").click();
+
+/* ---------- drawing a region of a page ---------- */
+const pageCache={};
+function getPage(p){return pageCache[p]||(pageCache[p]=st.doc.getPage(p));}
+async function cropCanvas(p,box,width){const page=await getPage(p);const [x0,y0,x1,y1]=box;const dpr=Math.min(2.5,window.devicePixelRatio||1);
+  const sc=Math.min(3.2,Math.max(1,width/(x1-x0)))*dpr;const vp=page.getViewport({scale:sc});
+  const c=document.createElement("canvas");c.width=Math.round((x1-x0)*sc);c.height=Math.round((y1-y0)*sc);const ctx=c.getContext("2d");
+  ctx.fillStyle="#fff";ctx.fillRect(0,0,c.width,c.height);ctx.translate(-x0*sc,-y0*sc);await page.render({canvasContext:ctx,viewport:vp}).promise;return c;}
+let drawTok=0;
+async function drawInto(el,segs){const tok=++drawTok;const w=Math.max(260,el.clientWidth-24);const cs=[];
+  for(const [p,box] of segs){cs.push(await cropCanvas(p,box,w));if(tok!==drawTok)return;}
+  el.innerHTML="";cs.forEach(c=>el.appendChild(c));}
+
+/* ---------- full-page viewer ---------- */
+let rendering=null;
+async function showPage(p){if(isMob())$("pcol").classList.add("open");
+  if(!st.doc){$("pview").innerHTML=`<div class="empty"><div class="drop"><b>Open your ethics PDF</b>Pick the file from your computer or phone. Each question and its explanation will appear right in the question card.<br><button class="btn pri" id="op2">Open my PDF</button><div class="priv">🔒 The file stays on this device — it is never uploaded to the site.</div></div></div>`;$("op2").onclick=pick;return;}
+  p=Math.max(1,Math.min(st.doc.numPages,p|0||1));st.page=p;$("pNum").value=p;
+  const page=await getPage(p);const w=$("pview").clientWidth-28;const dpr=window.devicePixelRatio||1;const v1=page.getViewport({scale:1});const sc=Math.min(2.4,w/v1.width)*dpr;
+  const vp=page.getViewport({scale:sc});const c=document.createElement("canvas");c.width=vp.width;c.height=vp.height;c.style.width=(vp.width/dpr)+"px";
+  if(rendering)try{rendering.cancel();}catch(e){}rendering=page.render({canvasContext:c.getContext("2d"),viewport:vp});
+  try{await rendering.promise;}catch(e){return;}$("pview").innerHTML="";$("pview").appendChild(c);$("pview").scrollTop=0;}
+$("pPrev").onclick=()=>showPage(st.page-1);$("pNext").onclick=()=>showPage(st.page+1);$("pNum").onchange=e=>showPage(+e.target.value);
+$("pX").onclick=()=>$("pcol").classList.remove("open");
+
+/* ---------- sidebar ---------- */
+function counts(arr){const d=arr.filter(q=>S.ans[q.n]!==undefined).length,r=arr.filter(isOk).length;return {d,r};}
+function renderSide(){
+  $("pdfst").innerHTML=st.doc?`<b>✓ ${esc(st.name)}</b><small>${st.doc.numPages} pages · stays on this device</small><button id="chg">Change PDF</button>${st.warn?`<div class="warn">${esc(st.warn)}</div>`:""}`
+    :`<b>No PDF open</b><small>Open your ethics PDF to see each question and explanation.</small><button id="chg">Open my PDF</button>${st.warn?`<div class="warn">${esc(st.warn)}</div>`:""}`;
+  $("chg").onclick=pick;
+  $("flt").innerHTML=[["all","All"],["todo","Unanswered"],["missed","Missed"],["marked","Marked"]].map(([k,l])=>{const n=k==="all"?QS.length:k==="todo"?QS.filter(q=>S.ans[q.n]===undefined).length:k==="missed"?QS.filter(q=>S.ans[q.n]!==undefined&&!isOk(q)).length:QS.filter(q=>S.mark[q.n]).length;return `<button class="${S.flt===k?"on":""}" data-f="${k}">${l} ${n}</button>`;}).join("");
+  document.querySelectorAll("#flt [data-f]").forEach(b=>b.onclick=()=>setFilter(b.dataset.f));
+  const all=counts(QS);
+  $("topics").innerHTML=`<button class="tp ${!S.topic?"on":""}" data-t=""><span>All Ethics</span><span class="n">${all.d}/${QS.length}</span></button>`+TOPICS.map(t=>{const a=QS.filter(q=>q.t===t),c=counts(a);return `<button class="tp ${S.topic===t?"on":""}" data-t="${esc(t)}"><span>${esc(t)}</span><span class="n">${c.d}/${a.length}</span></button>`;}).join("");
+  document.querySelectorAll("#topics [data-t]").forEach(b=>b.onclick=()=>setTopic(b.dataset.t));}
+function setTopic(t){S.topic=t;const L=list();if(L.length&&!L.some(q=>q.n===S.cur))S.cur=L[0].n;save();go(S.cur,true);}
+function setFilter(f){S.flt=f;const L=list();if(L.length&&!L.some(q=>q.n===S.cur))S.cur=L[0].n;save();go(S.cur,true);}
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* ---------- question card ---------- */
+function go(n,keepView){S.cur=n;st.sel=null;save();renderSide();renderQ();const q=byN(n);
+  if(st.doc&&!isMob())showPage(S.ans[n]!==undefined?q.e[0][0]:q.q[0]);if(!keepView)$("qcol").scrollTop=0;}
+function renderQ(){const L=list(),q=byN(S.cur),A=S.ans[q.n],done=A!==undefined;const i=L.findIndex(x=>x.n===q.n);
+  const all=counts(QS);
+  $("qcol").innerHTML=`<div class="crumb">Ethics · ${esc(S.topic||"All Ethics")}${S.flt!=="all"?" · "+({todo:"Unanswered",missed:"Missed",marked:"Marked"})[S.flt]:""}</div><h1>Practice questions</h1>
+  <select class="msel" id="msel" aria-label="Topic"><option value="">All Ethics (${QS.length})</option>${TOPICS.map(t=>`<option ${S.topic===t?"selected":""} value="${esc(t)}">${esc(t)} (${QS.filter(x=>x.t===t).length})</option>`).join("")}</select>
+  <div class="flt mflt" id="mflt">${[["all","All"],["todo","Unanswered"],["missed","Missed"],["marked","Marked"]].map(([k,l])=>`<button class="${S.flt===k?"on":""}" data-f="${k}">${l}</button>`).join("")}</div>
+  <div class="mobpdf">${st.doc?"":`<button class="btn pri" id="mop" style="width:100%;margin-top:10px">Open my ethics PDF</button>`}</div>
+  <div class="qnav">${L.length?L.map(x=>{const a=S.ans[x.n];return `<button class="${x.n===q.n?"cur":""} ${a===undefined?"":isOk(x)?"ok":"no"} ${S.mark[x.n]?"mk":""}" data-j="${x.n}">${x.n}</button>`;}).join(""):`<span style="color:var(--muted);font-size:13px">No questions here yet.</span>`}</div>
+  <div class="card"><div class="top"><span class="qn">Question ${q.n}</span><span class="tag">${esc(q.t)}</span><button class="mark ${S.mark[q.n]?"on":""}" id="mk">${S.mark[q.n]?"★ Marked":"☆ Mark"}</button></div>
+   <div class="crop ${st.doc?"":"none"}" id="qimg">${st.doc?"":`Open your ethics PDF and the question appears here.<br><button class="btn pri" id="op1">Open my PDF</button>`}</div>
+   ${st.doc?`<button class="mini" id="jq">📄 Show the full page (p. ${q.q[0]}) ›</button>`:""}
+   <div class="lbl">Your answer</div>
+   <div class="letters">${[...Array(q.k)].map((_,j)=>`<button data-l="${j}" class="${!done?(st.sel===j?"sel":""):(j===q.a?"ok":j===A?"no":"")}" ${done?"disabled":""} aria-label="Answer ${LET[j]}">${LET[j]}</button>`).join("")}</div>
+   ${!done?`<div class="row"><button class="btn pri" id="sub" ${st.sel===null?"disabled":""}>Submit</button>${i>0?`<button class="btn" id="prev">‹ Previous</button>`:""}${i<L.length-1?`<button class="btn" id="skip">Skip ›</button>`:""}</div>`:
+   `<div class="verdict ${A===q.a?"ok":"no"}">${A===q.a?"Correct":"Incorrect"} — the answer is (${LET[q.a]}).</div>
+    <div class="lbl">Explanation</div>
+    <div class="crop ${st.doc?"":"none"}" id="eimg">${st.doc?"":`Open your ethics PDF to read the explanation.`}</div>
+    ${st.doc?`<button class="mini" id="je">📖 Show the full page (p. ${q.e[0][0]}) ›</button>`:""}
+    <div class="lbl">My notes</div><textarea class="notes" id="nt" placeholder="Your own takeaway for this question…">${esc(S.notes[q.n]||"")}</textarea>
+    <div class="row">${i>0?`<button class="btn" id="prev">‹ Previous</button>`:""}${i<L.length-1?`<button class="btn pri" id="next">Next question ›</button>`:""}<button class="btn" id="redo" style="margin-left:auto">Try again</button></div>`}
+  </div>
+  <div class="score"><span>Answered <b>${all.d}</b> / ${QS.length}</span><span>Correct <b>${all.r}</b></span><span>Missed <b>${all.d-all.r}</b></span><button id="reset">Reset all answers</button></div>`;
+  const on=(id,f)=>{const e=$(id);if(e)e.onclick=f;};
+  document.querySelectorAll(".qnav [data-j]").forEach(b=>b.onclick=()=>go(+b.dataset.j,true));
+  $("msel").onchange=e=>setTopic(e.target.value);
+  document.querySelectorAll("#mflt [data-f]").forEach(b=>b.onclick=()=>setFilter(b.dataset.f));
+  const cur=document.querySelector(".qnav .cur");if(cur&&isMob())cur.scrollIntoView({inline:"center",block:"nearest"});
+  on("mop",pick);on("op1",pick);
+  on("mk",()=>{if(S.mark[q.n])delete S.mark[q.n];else S.mark[q.n]=1;save();renderSide();renderQ();});
+  on("jq",()=>showPage(q.q[0]));on("je",()=>showPage(q.e[0][0]));
+  document.querySelectorAll(".letters [data-l]").forEach(b=>b.onclick=()=>{st.sel=+b.dataset.l;renderQ();});
+  on("sub",()=>{S.ans[q.n]=st.sel;st.sel=null;save();renderSide();renderQ();if(st.doc&&!isMob())showPage(q.e[0][0]);const e=$("eimg");if(e&&isMob())setTimeout(()=>e.scrollIntoView({behavior:"smooth",block:"start"}),60);});
+  on("next",()=>go(L[i+1].n));on("skip",()=>go(L[i+1].n));on("prev",()=>go(L[i-1].n));
+  on("redo",()=>{delete S.ans[q.n];save();renderSide();renderQ();if(st.doc&&!isMob())showPage(q.q[0]);});
+  on("reset",()=>{if(confirmReset()){S.ans={};save();renderSide();renderQ();}});
+  const nt=$("nt");if(nt)nt.oninput=()=>{const v=nt.value.trim();if(v)S.notes[q.n]=nt.value;else delete S.notes[q.n];save();};
+  if(st.doc){drawInto($("qimg"),[q.q]).then(()=>{if(done&&$("eimg"))drawInto2($("eimg"),q.e);});}}
+let drawTok2=0;
+async function drawInto2(el,segs){const tok=++drawTok2;const w=Math.max(260,el.clientWidth-24);const cs=[];for(const [p,box] of segs){cs.push(await cropCanvas(p,box,w));if(tok!==drawTok2)return;}el.innerHTML="";cs.forEach(c=>el.appendChild(c));}
+let resetArm=0;function confirmReset(){const b=$("reset");if(Date.now()-resetArm<4000){resetArm=0;return true;}resetArm=Date.now();b.textContent="Tap again to reset all answers";setTimeout(()=>{if($("reset"))$("reset").textContent="Reset all answers";},4000);return false;}
+let rz;addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{if(st.doc)renderQ();},250);});
+
+pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+if(!byN(S.cur))S.cur=1;
+renderSide();renderQ();if(!isMob())showPage(1);
+idbGet().then(async v=>{if(v&&v.blob){try{openPdf(await v.blob.arrayBuffer(),v.name,null);}catch(e){}}});
+</script>
+</body></html>
