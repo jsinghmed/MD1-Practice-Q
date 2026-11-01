@@ -118,6 +118,50 @@ input[type=range]{width:100%;accent-color:var(--accent)}
 .seg .sw{width:9px;height:9px;border-radius:50%;flex:none}
 .strip{position:absolute;left:10px;right:130px;bottom:10px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:12.5px;z-index:2;box-shadow:0 4px 14px rgba(0,0,0,.18)}
 .droptag{background:var(--accent);color:var(--accent-ink);z-index:1}.droptag::after{border-top-color:var(--accent)}
+.tabs{display:flex;gap:3px;background:var(--chip);padding:3px;border-radius:9px;border:1px solid var(--line)}
+.tabs button{flex:1;border:0;background:transparent;padding:7px 6px;font-weight:600;color:var(--muted);border-radius:6px}
+.tabs button[aria-selected="true"]{background:var(--panel);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.pane{display:flex;flex-direction:column;gap:12px}.pane[hidden]{display:none}
+.sclist{display:flex;flex-direction:column;gap:8px}
+.sc{all:unset;box-sizing:border-box;cursor:pointer;display:block;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+.sc:hover{border-color:var(--accent)}.sc:focus-visible{outline:2px solid var(--accent)}
+.sc .k{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+.sc h3{margin:3px 0 3px;font-size:15px;font-family:var(--f-display)}
+.sc p{margin:0;color:var(--muted);font-size:12.5px;line-height:1.4}
+.sc .n{float:right;font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.cs .back{all:unset;cursor:pointer;color:var(--accent);font-size:12.5px;font-weight:600}
+.cs h2{margin:6px 0 2px;font-family:var(--f-display);font-size:19px}
+.cs .k{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.dots{display:flex;gap:4px;margin:10px 0 12px}
+.dots button{flex:1;height:6px;padding:0;border:0;border-radius:3px;background:var(--line)}
+.dots button.done{background:color-mix(in srgb,var(--accent) 45%,var(--line))}.dots button.cur{background:var(--accent)}
+.cs h3{margin:0 0 6px;font-size:15.5px}
+.cs .tx{font-size:13.5px;line-height:1.5}.cs .tx p{margin:0 0 8px}.cs .tx ul{margin:0 0 8px;padding-left:18px}.cs .tx li{margin:2px 0}
+.pearl{margin:10px 0 0;padding:9px 11px;border-left:3px solid #e0a800;background:var(--chip);border-radius:0 6px 6px 0;font-size:13px;line-height:1.45}
+.pearl b.h{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:#c08a00;display:block;margin-bottom:2px;font-weight:600}
+.nav2{display:flex;gap:6px;margin-top:12px}.nav2 button{flex:1}
+.nav2 .pri{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+.qz .meta{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
+.qz .stem{font-size:14px;line-height:1.5;margin:8px 0 10px}
+.qz .opt{all:unset;box-sizing:border-box;cursor:pointer;display:flex;gap:9px;width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:7px;margin-bottom:6px;font-size:13.5px;line-height:1.4;background:var(--panel)}
+.qz .opt:hover{border-color:var(--accent)}.qz .opt:focus-visible{outline:2px solid var(--accent)}
+.qz .opt .l{font-family:var(--f-mono);font-weight:600;color:var(--muted);flex:none}
+.qz .opt.ok{border-color:#2ea043;background:color-mix(in srgb,#2ea043 16%,var(--panel))}
+.qz .opt.bad{border-color:#d1453b;background:color-mix(in srgb,#d1453b 14%,var(--panel))}
+.qz .opt[disabled]{cursor:default}
+.qz .exp{margin-top:8px;padding:10px 11px;border-radius:7px;background:var(--chip);font-size:13px;line-height:1.5}
+.qz .exp b.h{display:block;margin-bottom:3px}
+.qz .big{font-family:var(--f-display);font-size:34px;font-weight:600;margin:4px 0}
+.injs{display:grid;grid-template-columns:minmax(160px,1fr) minmax(170px,1.1fr);gap:14px;align-items:center}
+.injs .t{font-family:var(--f-display);font-size:15px;font-weight:600;line-height:1.2}
+.injs .vit{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}
+.injs .vit span{font-size:11.5px;padding:2px 7px;border-radius:5px;background:var(--chip);color:var(--ink)}
+.injs .vit span.w{background:color-mix(in srgb,#d1453b 22%,var(--chip))}
+.injs .eg{position:relative}.injs .eg small{position:absolute;left:4px;top:0;font-family:var(--f-mono);font-size:10px;color:var(--muted)}
+.injs .eg .cap{position:static;display:block;text-align:right;margin-top:1px}
+.injs svg{display:block;width:100%;height:46px;background:repeating-linear-gradient(90deg,transparent 0 19px,color-mix(in srgb,#3fb950 10%,transparent) 19px 20px)}
+.injtag{background:#d1453b;color:#fff;z-index:1}.injtag::after{border-top-color:#d1453b}
+@media (max-width:760px){.injs{grid-template-columns:1fr;gap:4px}.injs svg{height:34px}}
 .strip[hidden]{display:none!important}
 .stage.hasstrip .hint{display:none}
 .cyc{display:grid;grid-template-columns:minmax(150px,1.2fr) minmax(140px,1fr) auto;gap:14px;align-items:center;padding-right:34px}
@@ -154,6 +198,10 @@ input[type=range]{width:100%;accent-color:var(--accent)}
       <h1>Heart Atlas</h1>
       <p>Chambers · valves · great vessels · coronary circulation · conduction</p>
     </header>
+    <nav class="tabs" role="tablist" aria-label="Heart atlas sections"><button role="tab" data-tab="explore" aria-selected="true">Explore</button><button role="tab" data-tab="inj" aria-selected="false">Injuries</button><button role="tab" data-tab="quiz" aria-selected="false">Quiz</button></nav>
+    <div class="pane" id="paneInj" hidden></div>
+    <div class="pane" id="paneQuiz" hidden></div>
+    <div class="pane" id="paneExplore">
     <section class="card" id="info" aria-live="polite"></section>
     <section class="card">
       <p class="label">Modes</p>
@@ -182,6 +230,7 @@ input[type=range]{width:100%;accent-color:var(--accent)}
       <div class="chips" id="regions"></div>
       <div id="list"></div>
     </section>
+    </div>
   </aside>
   <main class="stage" id="stage">
     <div class="loading" id="loading">Building heart…</div>
@@ -200,6 +249,10 @@ input[type=range]{width:100%;accent-color:var(--accent)}
       <div class="ds" id="fDs"></div>
       <div class="bar" id="fBar"></div>
       <div class="row"><button id="fPrev">◀ Back</button><button id="fPlay">▶ Play</button><button id="fNext">Next ▶</button><span style="flex:1"></span><label><input type="checkbox" id="fCam" checked> Camera follows</label><button id="fX">Exit</button></div>
+    </div>
+    <div class="strip injs" id="injS" hidden>
+      <div><div class="t" id="injT"></div><div class="vit" id="injV"></div></div>
+      <div class="eg"><svg viewBox="0 0 300 56" preserveAspectRatio="none"><path id="injE" fill="none" stroke="#3fb950" stroke-width="1.6" vector-effect="non-scaling-stroke"/></svg><small class="cap" id="injEL"></small></div>
     </div>
     <div class="tag" id="seltag" hidden></div>
     <div class="tag droptag" id="droptag" hidden></div>
@@ -623,7 +676,10 @@ makeDef(myoGeo);
 ['art','vein','cond'].forEach(L=>groups[L].children.forEach(m=>makeDef(m.geometry)));
 groups.valve.children.forEach(m=>{const id=m.userData.id;if(id==='papillary'||Object.values(ringMesh).includes(m))makeDef(m.geometry);});
 const tmpD=[0,0,0];
-function deformAll(fv,fa,ax){DEF.forEach(d=>{const B=d.base,A=d.at.array,W=d.w;for(let i=0;i<d.n;i++){const j=i*3,p=[B[j],B[j+1],B[j+2]];dispAt(p,[W[i*4],W[i*4+1],W[i*4+2],W[i*4+3]],fv,fa,ax,tmpD);A[j]=B[j]+tmpD[0];A[j+1]=B[j+1]+tmpD[1];A[j+2]=B[j+2]+tmpD[2];}d.at.needsUpdate=true;});}
+function deformAll(fv,fa,ax){DEF.forEach((d,di)=>{const B=d.base,A=d.at.array,W=d.w;const bg=di===0&&INJ.bulge?INJ.bulge:null;const bk=bg?bg.amt*(0.55+0.9*fv):0;
+  for(let i=0;i<d.n;i++){const j=i*3,p=[B[j],B[j+1],B[j+2]];dispAt(p,[W[i*4],W[i*4+1],W[i*4+2],W[i*4+3]],fv,fa,ax,tmpD);
+    if(bg){const m=bg.mask[i];if(m>0){const dx=p[0]-1.15,dy=p[1]+1.0,dz=p[2]+0.7,l=Math.hypot(dx,dy,dz)||1;const k=bk*m/l;tmpD[0]=tmpD[0]*(1-m)+dx*k;tmpD[1]=tmpD[1]*(1-m)+dy*k;tmpD[2]=tmpD[2]*(1-m)+dz*k;}}
+    A[j]=B[j]+tmpD[0];A[j+1]=B[j+1]+tmpD[1];A[j+2]=B[j+2]+tmpD[2];}d.at.needsUpdate=true;});}
 function moved(p,fv,fa,ax){const d=dispAt(p,weights(p),fv,fa,ax,[0,0,0]);return [p[0]+d[0],p[1]+d[1],p[2]+d[2]];}
 function updateValves(f,fv,fa,ax){const av=oAV(f),sl=oSL(f);let k=0;const CP=chordGeo.attributes.position.array;
   DYN.forEach(d=>{const c=moved(d.c0,fv,fa,ax);d.fill(d.kind==='av'?av:sl,c);
@@ -710,6 +766,7 @@ document.getElementById('loading').remove();
 /* ======================= state + look ======================= */
 const state={sel:null,hover:null,isolate:false,vis:{myo:true,valve:true,vessel:true,art:true,vein:true,cond:false},q:'',region:'all',cut:false,flow:false,ghost:false,beat:false,follow:false,side:'both',terr:null,myoOp:1};
 try{const s=JSON.parse(localStorage.getItem('heart-vis')||'null');if(s)Object.assign(state.vis,s);}catch(e){}
+const INJ={on:false,tint:null,bulge:null,cond:null,hl:[],tk:0};
 const ACC=new THREE.Color(0x1aa6b0),HOV=new THREE.Color(0x0f5a60);
 const TERR_COL={rca:[0.15,0.55,1.0],sanodal:[0.15,0.55,1.0],acutemarg:[0.15,0.55,1.0],pda:[0.55,0.3,1.0],lmca:[1.0,0.75,0.1],lad:[1.0,0.75,0.1],diag:[1.0,0.55,0.2],lcx:[0.2,0.85,0.5],om:[0.2,0.85,0.5]};
 const BASE={RA:[0.70,0.36,0.36],RV:[0.62,0.24,0.22],LA:[0.74,0.40,0.38],LV:[0.58,0.20,0.18],IVS:[0.60,0.22,0.20]};
@@ -721,13 +778,14 @@ function colorMyo(){
     const x=M.pos[v*3],y=M.pos[v*3+1],z=M.pos[v*3+2];const n=0.92+0.08*noise(x,y,z);c=c.map(k=>k*n);
     if(!vEndo[v]&&vFat[v]>0&&!tKey){const f=Math.min(1,vFat[v]*0.85);c=[c[0]+(FAT[0]-c[0])*f,c[1]+(FAT[1]-c[1])*f,c[2]+(FAT[2]-c[2])*f];}
     if(tArr){if(tArr[v]>0){c=[c[0]*0.35+tc[0]*0.65,c[1]*0.35+tc[1]*0.65,c[2]*0.35+tc[2]*0.65];}else c=c.map(k=>k*0.55+0.12);}
+    if(INJ.tint){const t=INJ.tint,m=t.mask[v];if(m>0){let col=t.col;if(t.mott){const q=0.7+0.6*Math.abs(noise(x*2.1+1,y*2.1,z*2.1));col=col.map(k=>Math.min(1,k*q));}const a2=t.amt*m;c=[c[0]+(col[0]-c[0])*a2,c[1]+(col[1]-c[1])*a2,c[2]+(col[2]-c[2])*a2];if(t.edge&&m<0.7&&m>0.1)c=[c[0]*0.6+0.38,c[1]*0.6+0.05,c[2]*0.6+0.06];}else if(t.dim)c=c.map(k=>k*0.8+0.04);}
     if(selReg&&r===selReg){c=[c[0]*0.45+0.1,c[1]*0.45+0.55,c[2]*0.45+0.6];}
     else if(hovReg&&r===hovReg){c=[c[0]*0.7+0.05,c[1]*0.7+0.25,c[2]*0.7+0.27];}
     vCol[v*3]=c[0];vCol[v*3+1]=c[1];vCol[v*3+2]=c[2];}
   myoGeo.attributes.color.needsUpdate=true;}
 let lastMyoKey='';
 function applyLook(){
-  const myoKey=[state.sel,state.hover,state.terr].join('|');if(myoKey!==lastMyoKey){lastMyoKey=myoKey;colorMyo();}
+  const myoKey=[state.sel,state.hover,state.terr,INJ.tint?INJ.tint.key:''].join('|');if(myoKey!==lastMyoKey){lastMyoKey=myoKey;colorMyo();}
   let mop=state.myoOp;if(state.ghost||state.flow||state.follow)mop=Math.min(mop,0.3);
   if(state.isolate&&state.sel&&!REG_IDS.includes(state.sel))mop=Math.min(mop,0.08);
   const tr=mop<0.999;if(myoMat.transparent!==tr){myoMat.transparent=tr;myoMat.needsUpdate=true;}myoMat.opacity=mop;myoMat.depthWrite=!tr;
@@ -736,7 +794,9 @@ function applyLook(){
     if(state.terr&&it.layer==='art'&&!(it.terr&&(TERR_GROUP[state.terr]||[]).includes(it.id)))op=Math.min(op,0.25);
     const t=op<0.999;if(m.transparent!==t){m.transparent=t;m.needsUpdate=true;}m.opacity=op;m.depthWrite=!t;
     if(it.id===state.sel){m.emissive.copy(ACC);m.emissiveIntensity=0.6;}else if(it.id===state.hover){m.emissive.copy(HOV);m.emissiveIntensity=0.7;}else{m.emissive.copy(it.baseEm);m.emissiveIntensity=1;}});
+  INJ.hl.forEach(id=>{const m=ITEMS[id]&&ITEMS[id].mat;if(m&&id!==state.sel){m.emissive.setRGB(0.9,0.25,0.05);m.emissiveIntensity=0.55;}});
   Object.keys(groups).forEach(k=>groups[k].visible=state.vis[k]);
+  if(typeof injLook==='function')injLook();
   const clip=state.cut?[CUT]:[];myoMat.clippingPlanes=clip;['vessel','art','vein'].forEach(L=>Object.values(ITEMS).filter(it=>it.layer===L).forEach(it=>it.mat.clippingPlanes=clip));
   flowMeshes.forEach((m,i)=>m.visible=state.flow&&!state.follow&&(state.side==='both'||state.side===(i<2?'R':'L')));
   drop.visible=trail.visible=state.follow;
@@ -852,17 +912,23 @@ const COND_WIN={sanode:[0,0.07],avnode:[0.06,0.19],his:[0.17,0.215],bundles:[0.1
 const GLOW=new THREE.Color(0xfff1a0);
 function cycleTick(now){
   const running=state.beat||state.flow||state.follow;const dtR=Math.min(0.05,(now-(cycLast||now))/1000);cycLast=now;
-  document.getElementById('cyc').hidden=!(state.beat||state.flow)||state.follow;document.getElementById('fol').hidden=!state.follow;stage.classList.toggle('hasstrip',running);
+  document.getElementById('cyc').hidden=!(state.beat||state.flow)||state.follow||INJ.on;document.getElementById('injS').hidden=!INJ.on;document.getElementById('fol').hidden=!state.follow;stage.classList.toggle('hasstrip',running||INJ.on);
   if(!running){if(wasRunning){deformAll(0,0,0.5);updateValves(0.72,0,0,0.5);applyLook();}wasRunning=false;wasBeat=false;return;}
   wasRunning=true;const dt=cycPaused?0:dtR*cycSpeed;let f;
   if(state.follow){stepFollow(dtR);f=FO.f;}else{simT+=dt;f=(simT%CYC_T)/CYC_T;}
   const bt=state.beat||state.follow;
-  const fv=bt?1-vVol(f):0, fa=bt?aKick(f):0, ax=bt?aVol(f):0.5;
+  let fv=bt?1-vVol(f):0, fa=bt?aKick(f):0, ax=bt?aVol(f):0.5;
+  const fe=(simT/(CYC_T*2.4))%1;
+  if(bt&&INJ.cond==='chb')fv=1-vVol((fe*0.8+0.17)%1);
+  if(bt&&INJ.cond==='vf'){fv=0.12+0.07*Math.sin(simT*61)+0.05*Math.sin(simT*37);fa=0;ax=0.6+0.1*Math.sin(simT*23);}
   if(bt||wasBeat)deformAll(fv,fa,ax);wasBeat=bt;
   updateValves(f,fv,fa,ax);
   if(state.flow)stepFlow(dt,f);
   // conduction lights up in sequence
-  Object.entries(COND_WIN).forEach(([id,[a0,a1]])=>{const it=ITEMS[id];if(!it||id===state.sel||id===state.hover)return;const on=f>=a0&&f<a1;
+  Object.entries(COND_WIN).forEach(([id,[a0,a1]])=>{const it=ITEMS[id];if(!it||id===state.sel||id===state.hover)return;let on=f>=a0&&f<a1;
+    if(INJ.cond==='chb'&&(id==='his'||id==='bundles'||id==='purkinje'))on=fe<0.07;
+    if(INJ.cond==='vf')on=id==='purkinje'||id==='bundles'?Math.sin(simT*53+id.length)>0.3:false;
+    if(!on&&INJ.hl.includes(id)){it.mat.emissive.setRGB(0.9,0.25,0.05);it.mat.emissiveIntensity=0.55;return;}
     if(on){it.mat.emissive.copy(GLOW);it.mat.emissiveIntensity=1.3;}else{it.mat.emissive.copy(it.baseEm);it.mat.emissiveIntensity=1;}});
   // HUD
   const p=PH.find(x=>f>=x[0]&&f<x[1])||PH[0];
@@ -889,10 +955,264 @@ function frame(now){
   if(state.sel&&!REG_IDS.includes(state.sel)){const it=ITEMS[state.sel];const b=new THREE.Box3();it.meshes.forEach(m=>b.expandByObject(m));b.getCenter(tmp);tmp.y=b.max.y;tmp.project(camera);
     if(tmp.z<1&&groups[it.layer].visible){selTag.hidden=false;selTag.textContent=it.name;selTag.style.left=((tmp.x+1)/2*stage.clientWidth)+'px';selTag.style.top=((1-tmp.y)/2*stage.clientHeight)+'px';}else selTag.hidden=true;}
   else selTag.hidden=true;
+  injFrame(now);
   if(state.follow){const dt2=$('#droptag');drop.getWorldPosition(tmp);tmp.project(camera);if(tmp.z<1){dt2.hidden=false;dt2.textContent=STOPS[FO.i].ti.split(' → ')[0];dt2.style.left=((tmp.x+1)/2*stage.clientWidth)+'px';dt2.style.top=((1-tmp.y)/2*stage.clientHeight-10)+'px';}else dt2.hidden=true;}else $('#droptag').hidden=true;
   renderer.render(scene,camera);requestAnimationFrame(frame);}
+/* ======================= injuries + quiz ======================= */
+const FXG=new THREE.Group();scene.add(FXG);          // world-space props (knives, bullets, arrows)
+const FXL=new THREE.Group();root.add(FXL);            // heart-frame props (markers, jets, sac)
+const smo=x=>x<=0?0:x>=1?1:x*x*(3-2*x);
+// ---- masks over the myocardium vertices ----
+const MASKC={};
+function mask(name){if(MASKC[name])return MASKC[name];const m=new Float32Array(nV);
+  for(let v=0;v<nV;v++){const x=M.pos[v*3],y=M.pos[v*3+1],z=M.pos[v*3+2],r=REG_IDS[vReg[v]];let k=0;
+    if(name==='RV')k=r==='RV'?1:0; else if(name==='LA')k=r==='LA'?1:0; else if(name==='RA')k=r==='RA'?1:0;
+    else if(name==='rvAnt')k=(r==='RV')?smo((z-0.2)/1.2):0;
+    else if(name==='lvLat')k=vTerr.lcx[v]*(r==='LV'?1:0)*smo((x-1.5)/1.5);
+    else if(name==='ladApex')k=vTerr.lad[v]*smo((-y-1.8)/2.6)*(r==='LV'||r==='IVS'?1:0);
+    else if(name==='lad')k=vTerr.lad[v]*(r==='LV'||r==='IVS'?1:0);
+    else if(name==='ladCore'){k=vTerr.lad[v]*(r==='LV'||r==='IVS'?1:0);if(k){const a=Math.atan2(z-LVc[2],x-LVc[0])*180/Math.PI;k*=y<-4.4?1:smo((a-48)/18)*smo((142-a)/18);}}
+    else if(vTerr[name])k=vTerr[name][v];
+    m[v]=k;}
+  return MASKC[name]=m;}
+// ---- helpers ----
+const LW=p=>root.localToWorld(new THREE.Vector3(...p));
+const sfc=(p,lift)=>HGf.toSurface(p,lift||0);
+const PT={
+  rvAnt:sfc([-0.9,-0.9,3.4]), raLat:sfc([-4.9,2.0,-0.2]), lvApex:sfc([1.6,-5.6,0.4]), lvLat:sfc([4.2,-1.4,-0.6]), laPost:sfc([0.8,3.0,-4.2]),
+  rvInf:sfc([-0.9,-3.9,1.2]), lvFree:sfc([2.6,-3.0,1.4]), ivs:[-0.05,-1.6,0.25], lvC:[1.3,-2.1,-0.6], rvC:[-1.3,-1.4,1.2],
+  ladProx:sfc([0.6,0.9,1.6],0.25), tear:aoPts[1], isth:aoPts[5], rcaO:wa(aoRoot,-0.45,0.25,0.75), his:[-0.55,1.35,0.15]};
+function injMat(c,o){return new THREE.MeshStandardMaterial({color:c,roughness:0.35,metalness:o&&o.metal?0.7:0.05,transparent:!!(o&&o.op),opacity:o&&o.op||1,depthWrite:!(o&&o.op),emissive:o&&o.em||0x000000});}
+// knife / needle / bullet / impact arrow — built pointing along +Y with the tip at the origin
+function knifeMesh(){const g=new THREE.Group();const sh=new THREE.Shape();sh.moveTo(0,0);sh.lineTo(0.34,1.1);sh.lineTo(0.34,6.2);sh.lineTo(-0.26,6.2);sh.lineTo(-0.26,0.7);sh.lineTo(0,0);
+  const bl=new THREE.Mesh(new THREE.ExtrudeGeometry(sh,{depth:0.07,bevelEnabled:false}),injMat(0xd5dbe0,{metal:1}));bl.position.z=-0.035;g.add(bl);
+  const gd=new THREE.Mesh(new THREE.BoxGeometry(1.3,0.3,0.55),injMat(0x2b2b2e));gd.position.y=6.35;g.add(gd);
+  const hd=new THREE.Mesh(new THREE.BoxGeometry(0.62,3.4,0.46),injMat(0x3a2418));hd.position.y=8.2;g.add(hd);return g;}
+function needleMesh(){const g=new THREE.Group();const n=new THREE.Mesh(new THREE.CylinderGeometry(0.05,0.05,8,8),injMat(0xcfd6db,{metal:1}));n.position.y=4;g.add(n);
+  const b=new THREE.Mesh(new THREE.CylinderGeometry(0.42,0.42,3.4,16),injMat(0xe8f2f6,{op:0.55}));b.position.y=9.7;g.add(b);
+  const f=new THREE.Mesh(new THREE.CylinderGeometry(0.4,0.4,1.6,16),injMat(0x8a1b1b,{op:0.85}));f.position.y=8.9;g.add(f);return g;}
+function arrowMesh(col){const g=new THREE.Group();const m=injMat(col,{op:0.85,em:col});const c=new THREE.Mesh(new THREE.ConeGeometry(0.9,1.8,20),m);c.rotation.x=Math.PI;c.position.y=0.9;g.add(c);
+  const s=new THREE.Mesh(new THREE.CylinderGeometry(0.38,0.38,4.2,16),m);s.position.y=3.9;g.add(s);return g;}
+const UPV=new THREE.Vector3(0,1,0);
+function place(obj,tipW,dirW){obj.position.copy(tipW);obj.quaternion.setFromUnitVectors(UPV,dirW.clone().normalize());FXG.add(obj);return obj;}
+// pericardial sac (meshed lazily)
+let SAC=null;
+function sacMeshes(){if(SAC)return SAC;const off=(o)=>p=>Math.max(HGf.outer(p)-o,p[1]-4.4);
+  const mk=(o,col,op)=>{const R=HGf.mesh(off(o),[-7.6,-8.4,-6.4],[7.0,5.0,5.6],0.26);const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(R.pos,3));g.setAttribute('normal',new THREE.BufferAttribute(R.nrm,3));g.setIndex(new THREE.BufferAttribute(R.ind,1));
+    const m=new THREE.MeshStandardMaterial({color:col,transparent:true,opacity:op,depthWrite:false,side:THREE.DoubleSide,roughness:0.4,clippingPlanes:[]});const me=new THREE.Mesh(g,m);me.renderOrder=3;me.visible=false;FXL.add(me);return me;};
+  SAC={fluid:mk(0.55,0x9a0f18,0.5),sac:mk(0.85,0xf1e4cf,0.1)};SAC.fluid.material.emissive.set(0x3a0004);return SAC;}
+// false lumen of a dissection
+let FL=null;
+function falseLumen(){if(FL)return FL;const pts=aoPts.slice(0,6).map((p,i)=>wa(p,0.35+0.12*i,0.15,0.55-0.25*i));FL=new THREE.Mesh(sweep(pts,t=>0.55+0.25*Math.sin(Math.PI*t),12),new THREE.MeshStandardMaterial({color:0x5e1230,roughness:0.4,transparent:true,opacity:0.9,emissive:0x2a0010}));FL.visible=false;FXL.add(FL);return FL;}
+// markers, jets, tags
+const MK=[],JETS=[],TAGS=[];const mkGeo=new THREE.SphereGeometry(0.3,16,12);
+const jGeo=new THREE.SphereGeometry(0.16,8,6);
+function clearFx(){MK.forEach(k=>k.m.parent&&k.m.parent.remove(k.m));while(FXG.children.length)FXG.remove(FXG.children[0]);MK.length=0;JETS.forEach(j=>FXL.remove(j.m));JETS.length=0;
+  if(SAC){SAC.fluid.visible=SAC.sac.visible=false;}if(FL)FL.visible=false;INJ.tint=null;INJ.bulge=null;INJ.cond=null;INJ.hl=[];}
+function addMarker(p,label,col,world){const c=col||0xd1453b;const m=new THREE.Mesh(mkGeo,new THREE.MeshBasicMaterial({color:c,depthTest:false,transparent:true,opacity:0.95}));m.renderOrder=12;
+  if(world){m.position.copy(p);FXG.add(m);}else{m.position.set(...p);FXL.add(m);}MK.push({m,label,world});return m;}
+function addJet(pts,col,speed){const c=new THREE.CatmullRomCurve3(pts.map(p=>new THREE.Vector3(...p)));const n=34;
+  const m=new THREE.InstancedMesh(jGeo,new THREE.MeshBasicMaterial({color:col,depthTest:false,transparent:true,opacity:0.9}),n);m.renderOrder=11;FXL.add(m);
+  JETS.push({c,m,n,s:Array.from({length:n},(_,i)=>i/n),v:speed||0.45,jit:Array.from({length:n},()=>new THREE.Vector3((Math.random()-0.5)*0.35,(Math.random()-0.5)*0.35,(Math.random()-0.5)*0.35))});}
+// ---- the ECG strip ----
+function ecgD(type){const G=(x,c,w,a)=>a*Math.exp(-0.5*((x-c)/w)**2);const N=300;let pts=[];
+  const P={normal:{n:3},tachy:{n:4.6},alt:{n:5.2,alt:1,sc:0.4},stemi:{n:3,st:0.42,t:0.45},qwave:{n:3,q:-0.5,r:0.32,s:-0.05,t:-0.28},aneur:{n:3,q:-0.5,r:0.28,st:0.32,t:0.22},
+    peric:{n:3,st:0.24,pr:-0.07},chb:{n:4},vf:{n:4},flat:{n:3}}[type]||{n:3};
+  for(let i=0;i<=N;i++){const X=i/N*P.n;let v=0;
+    if(type==='vf'){v=0.42*Math.sin(X*13.1)*(0.6+0.4*Math.sin(X*2.3))+0.2*Math.sin(X*23.7+1)+0.12*Math.sin(X*7.3);}
+    else if(type==='chb'){for(let k=0;k<8;k++){v+=G(X,0.12+k*0.58,0.03,0.14);}for(let k=0;k<3;k++){const c=0.45+k*1.6;v+=G(X,c,0.035,0.95)+G(X,c+0.07,0.035,-0.4)+G(X,c+0.42,0.08,-0.28);}}
+    else{const b=Math.floor(X),x=X-b;const sc=P.sc||1;const r=(P.alt&&b%2?0.55:1)*(P.r??1)*sc;
+      v=G(x,0.12,0.025,0.13*sc)+G(x,0.245,0.008,(P.q??-0.08)*sc)+G(x,0.26,0.009,r)+G(x,0.275,0.009,(P.s??-0.25)*sc)+G(x,0.36,0.055,(P.st||0)*sc)+G(x,0.47,0.045,(P.t??0.3)*sc)+(P.pr?G(x,0.19,0.025,P.pr):0);}
+    pts.push((i?'L':'M')+i+' '+(36-v*30).toFixed(1));}
+  return pts.join('');}
+// ---- views ----
+function flyDir(d,r,tgtLocal){const dir=new THREE.Vector3(...d).normalize();const asp=Math.max(0.6,stage.clientWidth/Math.max(1,stage.clientHeight));const rr=(r||38)*(asp<1?1/Math.sqrt(asp):1);
+  const tgt=tgtLocal?HC.clone().lerp(LW(tgtLocal),0.45):HC.clone();flyTo(tgt,tgt.clone().addScaledVector(dir,rr));}
+const DIRS={obl:[1,0.3,0.75],oblR:[-0.35,0.45,1],ant:[0,0.05,1],antL:[0.45,0.1,1],antR:[-0.5,0.1,1],post:[0,0.12,-1],postL:[0.55,0.15,-1],left:[1,0.08,-0.1],right:[-1,0.1,0.15],inf:[0.1,-1,0.3],sup:[-0.1,1,0.45],fourC:[0,0.12,1]};
+// ---- apply one step's scene ----
+let curFx=null;
+function applyFx(fx){curFx=fx;clearFx();INJ.on=true;INJ.tk=performance.now();
+  if(state.follow)setFollow(false);state.flow=false;state.terr=null;state.sel=null;state.isolate=false;$('#legend').style.display='none';
+  state.cut=!!fx.cut;state.ghost=!!fx.ghost;state.beat=fx.beat!==false;
+  if(fx.cond||fx.condLayer){state.vis.cond=true;}state.vis.myo=true;state.vis.valve=true;state.vis.vessel=true;state.vis.art=fx.art!==false;
+  if(fx.tint){const t=fx.tint;INJ.tint={mask:mask(t.m),col:t.col,amt:t.amt??0.75,mott:!!t.mott,dim:!!t.dim,edge:!!t.edge,key:t.m+t.col.join()+(t.amt??'')+(t.mott?'m':'')};}
+  if(fx.bulge)INJ.bulge={mask:mask(fx.bulge.m),amt:fx.bulge.amt};
+  INJ.cond=fx.cond||null;INJ.hl=fx.hl||[];
+  (fx.knife||[]).forEach(k=>{const tip=LW(PT[k.at]);const d=new THREE.Vector3(...k.d).normalize();place(knifeMesh(),tip.clone().addScaledVector(d,-(k.deep??0.9)),d);if(k.label)addMarker(PT[k.at],k.label,0xd1453b);});
+  (fx.needle||[]).forEach(k=>{const tip=LW(PT[k.at]);const d=new THREE.Vector3(...k.d).normalize();place(needleMesh(),tip.clone().addScaledVector(d,0.2),d);});
+  (fx.bullet||[]).forEach(k=>{const pts=k.via.map(p=>LW(typeof p==='string'?PT[p]:p));const d=new THREE.Vector3(...k.d).normalize();const entry=pts[0].clone().addScaledVector(d,9);
+    const all=[entry,...pts];const c=new THREE.CatmullRomCurve3(all);const tube=new THREE.Mesh(new THREE.TubeGeometry(c,60,0.17,8,false),new THREE.MeshBasicMaterial({color:0xb3121b,transparent:true,opacity:0.85,depthTest:false}));tube.renderOrder=10;FXG.add(tube);
+    const slug=new THREE.Mesh(new THREE.SphereGeometry(0.3,14,10),injMat(0x9c8a5a,{metal:1}));slug.scale.set(1,1.6,1);slug.position.copy(pts[pts.length-1]);slug.quaternion.setFromUnitVectors(UPV,pts[pts.length-1].clone().sub(pts[pts.length-2]).normalize());FXG.add(slug);
+    const ent=new THREE.Mesh(new THREE.TorusGeometry(0.5,0.12,8,24),new THREE.MeshBasicMaterial({color:0x2b0a0a}));ent.position.copy(entry);ent.lookAt(entry.clone().add(d));FXG.add(ent);
+    if(k.label)addMarker(entry,k.label,0x2b0a0a,true);});
+  (fx.impact||[]).forEach(k=>{const tip=LW(PT[k.at]).addScaledVector(new THREE.Vector3(...k.d).normalize(),1.6);const a=arrowMesh(k.col||0xe0a800);place(a,tip,new THREE.Vector3(...k.d));a.userData.pulse=1;if(k.label)addMarker(tip.clone().addScaledVector(new THREE.Vector3(...k.d).normalize(),6.2),k.label,k.col||0xe0a800,true);});
+  (fx.marks||[]).forEach(k=>addMarker(PT[k.at]||k.at,k.t,k.col));
+  (fx.jets||[]).forEach(j=>addJet(j.p.map(p=>typeof p==='string'?PT[p]:p),j.col,j.v));
+  if(fx.sac){const S=sacMeshes();S.sac.visible=true;S.fluid.visible=fx.sac.fill>0;S.fluid.material.color.set(fx.sac.fibrin?0xe6cf7a:0x7a0d12);S.fluid.material.opacity=fx.sac.fibrin?0.42:0.25+0.55*fx.sac.fill;}
+  if(fx.lumen)falseLumen().visible=true;
+  renderLayers();syncModes();applyLook();
+  if(fx.view)flyDir(DIRS[fx.view]||fx.view,fx.r,fx.focus?PT[fx.focus]||fx.focus:null);
+  // strip
+  $('#injT').textContent=fx.title||'';$('#injV').innerHTML=(fx.vit||[]).map(v=>`<span class="${v[0]==='!'?'w':''}">${esc(v.replace(/^!/,''))}</span>`).join('');
+  $('#injE').setAttribute('d',ecgD(fx.ecg||'normal'));$('#injEL').textContent=fx.ecgL||'ECG · lead II';}
+function injLook(){const clip=state.cut?[CUT]:[];if(SAC){SAC.sac.material.clippingPlanes=clip;SAC.fluid.material.clippingPlanes=clip;}}
+function injOff(){if(!INJ.on)return;clearFx();INJ.on=false;state.beat=false;state.cut=false;state.ghost=false;curFx=null;renderLayers();syncModes();applyLook();}
+function injFrame(now){if(!INJ.on)return;const t=(now-INJ.tk)/1000;
+  MK.forEach((k,i)=>{const s=1+0.25*Math.sin(t*5+i);k.m.scale.setScalar(s);});
+  FXG.children.forEach(o=>{if(o.userData.pulse){const q=0.5+0.5*Math.sin(t*4);o.children.forEach(c=>c.material.opacity=0.45+0.5*q);}});
+  JETS.forEach(J=>{for(let k=0;k<J.n;k++){J.s[k]=(J.s[k]+J.v*0.016)%1;const P=J.c.getPointAt(J.s[k]);dummy.position.copy(P).add(J.jit[k]);dummy.scale.setScalar(0.6+0.8*Math.sin(Math.PI*J.s[k]));dummy.updateMatrix();J.m.setMatrixAt(k,dummy.matrix);}J.m.instanceMatrix.needsUpdate=true;});
+  dummy.scale.setScalar(1);
+  // red tags on markers
+  while(TAGS.length<MK.length){const d=document.createElement('div');d.className='tag injtag';stage.appendChild(d);TAGS.push(d);}
+  TAGS.forEach((d,i)=>{const k=MK[i];if(!k||!k.label){d.hidden=true;return;}k.m.getWorldPosition(tmp);tmp.project(camera);if(tmp.z>1){d.hidden=true;return;}
+    d.hidden=false;if(d.textContent!==k.label)d.textContent=k.label;d.style.left=((tmp.x+1)/2*stage.clientWidth)+'px';d.style.top=((1-tmp.y)/2*stage.clientHeight-8)+'px';});}
+function hideTags(){TAGS.forEach(d=>d.hidden=true);}
+
+/* ---------- scenarios ---------- */
+const IRED=[1.0,0.66,0.36],DUSK=[0.33,0.12,0.2],TAN=[0.86,0.68,0.36],YEL=[0.9,0.74,0.32],SCAR=[0.86,0.84,0.8],BLUE2=[0.35,0.55,1];
+const SCN=[
+{id:'stab',k:'Penetrating trauma',ti:'Stab wound → cardiac tamponade',bl:'Left parasternal stab hits the right ventricle; the pericardial sac fills with blood.',steps:[
+ {h:'Left parasternal stab wound',tx:'<p>A 24-year-old is stabbed at the <b>left sternal border, 4th intercostal space</b>. The blade passes straight back into the <b>right ventricle</b>.</p><p>The RV forms most of the anterior (sternocostal) surface, so it is the chamber most often injured by an anterior stab wound.</p>',
+  pearl:'Surfaces of the heart: <b>anterior</b> = RV · <b>left border</b> = LV · <b>right border</b> = RA · <b>posterior/base</b> = LA · <b>inferior (diaphragmatic)</b> = LV + RV.',
+  fx:{title:'Stab wound · left 4th ICS',view:'obl',r:44,knife:[{at:'rvAnt',d:[0.15,0.12,1],label:'Right ventricle'}],tint:{m:'RV',col:IRED,amt:0.45},vit:['HR 112','BP 118/76','Alert'],ecg:'tachy'}},
+ {h:'Hemopericardium',tx:'<p>Blood escapes from the RV into the pericardial sac. The <b>fibrous pericardium cannot stretch acutely</b>, so even 100–200 mL raises the pressure in the sac.</p><p>A slowly growing effusion (e.g., uremia, cancer) can reach 1–2 L before tamponade because the sac has time to stretch.</p>',
+  pearl:'It is the <b>speed</b> of accumulation, not the volume, that causes tamponade.',
+  fx:{title:'Blood filling the sac',view:'obl',r:44,knife:[{at:'rvAnt',d:[0.15,0.12,1]}],sac:{fill:0.45},jets:[{p:['rvC','rvAnt',sfc([-0.4,-2.2,3.8],0.6)],col:0xb3121b,v:0.35}],tint:{m:'RV',col:IRED,amt:0.35},vit:['HR 124','BP 98/70','!JVP rising'],ecg:'tachy'}},
+ {h:'Cardiac tamponade',tx:'<p>Pressure in the sac exceeds the filling pressure of the thin-walled <b>right heart</b>, so the RA and RV collapse in diastole. Filling falls → stroke volume falls → shock.</p><ul><li><b>Beck triad</b>: hypotension, distended neck veins, muffled heart sounds</li><li><b>Pulsus paradoxus</b>: systolic BP falls &gt;10 mmHg on inspiration (RV fills, the septum bows into the LV)</li><li><b>ECG</b>: low voltage + <b>electrical alternans</b> (the heart swings in the fluid)</li><li>Diastolic pressures equalize in all 4 chambers</li></ul>',
+  pearl:'Tamponade vs tension pneumothorax: both give hypotension + JVD, but tension PTX has <b>absent breath sounds and a shifted trachea</b>.',
+  fx:{title:'Tamponade',view:'ant',sac:{fill:1},vit:['!HR 132','!BP 82/60','!JVD','!Muffled S1/S2','!Pulsus paradoxus 18 mmHg'],ecg:'alt',ecgL:'Low voltage · electrical alternans'}},
+ {h:'Treatment',tx:'<p><b>Pericardiocentesis</b>: a needle is passed below the xiphoid and aimed toward the <b>left shoulder</b> to drain the sac. For trauma, the definitive fix is a <b>surgical pericardial window / thoracotomy</b> to repair the hole.</p><p>IV fluids temporarily help by raising preload. Avoid diuretics, nitrates and positive-pressure ventilation — they lower preload further.</p>',
+  pearl:'Removing even a small volume of fluid produces a big rise in blood pressure (steep pressure–volume curve).',
+  fx:{title:'Subxiphoid pericardiocentesis',view:'inf',r:42,needle:[{at:'rvInf',d:[-0.25,-0.85,0.6]}],sac:{fill:0.35},vit:['HR 104','BP 108/72','JVP falling'],ecg:'tachy'}},
+ {h:'Where else could the blade go?',tx:'<ul><li><b>Left 4th ICS, parasternal</b> → right ventricle</li><li><b>Right 4th ICS, parasternal</b> → right atrium</li><li><b>Left 5th ICS, midclavicular line</b> → apex of the left ventricle</li><li><b>Epigastric, aimed upward</b> → inferior (diaphragmatic) surface: RV and LV</li></ul>',
+  pearl:'The <b>"cardiac box"</b> (clavicles → costal margins, between the midclavicular lines) marks wounds that should be assumed to involve the heart.',
+  fx:{title:'Entry site → chamber',view:'oblR',r:50,knife:[{at:'rvAnt',d:[0.15,0.12,1],label:'RV'},{at:'raLat',d:[-0.7,0.1,1],label:'RA'},{at:'lvApex',d:[0.55,-0.2,1],label:'LV apex'}],vit:['Surface anatomy'],ecg:'normal'}}]},
+{id:'mi',k:'Ischemia',ti:'After a heart attack: the timeline',bl:'LAD occlusion followed from the first hours to months — what the wall looks like and what can go wrong at each time.',steps:[
+ {h:'0–4 hours · occlusion',tx:'<p>A thrombus blocks the <b>proximal LAD</b>. The anterior wall, apex and anterior 2/3 of the septum lose blood flow.</p><ul><li>Gross & light microscopy: <b>no visible change</b> yet (wavy fibers at most)</li><li>ECG: hyperacute T waves → <b>ST elevation in V1–V4</b></li><li>Troponin I starts to rise at ~2–4 h</li></ul>',
+  pearl:'Biggest early danger: <b>ventricular arrhythmia (VF)</b> — the most common cause of death in the first 24 h.',
+  fx:{title:'0–4 h · LAD occluded',view:'antL',focus:'ladProx',hl:['lad','lmca'],marks:[{at:'ladProx',t:'Thrombus'}],tint:{m:'ladCore',col:BLUE2,amt:0.35,dim:true},vit:['Crushing chest pain','Diaphoresis','!Troponin ↑ (2–4 h)'],ecg:'stemi',ecgL:'V1–V4 · ST elevation'}},
+ {h:'4–24 hours · coagulative necrosis',tx:'<p>The dead muscle shows <b>dark mottling</b>. Microscopy: early coagulative necrosis, edema, hemorrhage, wavy fibers.</p><p>If the artery is reopened, <b>reperfusion injury</b> causes contraction bands (Ca²⁺ influx) and free-radical damage.</p>',
+  pearl:'Complications in this window: <b>arrhythmia, cardiogenic shock, heart failure</b>.',
+  fx:{title:'4–24 h · necrosis',view:'antL',hl:['lad'],tint:{m:'ladCore',col:DUSK,amt:0.85,mott:true,edge:true},vit:['!Arrhythmia risk','!Cardiogenic shock risk'],ecg:'stemi',ecgL:'V1–V4 · ST elevation'}},
+ {h:'1–3 days · acute inflammation',tx:'<p><b>Neutrophils</b> invade; the infarct turns hyperemic with a tan center.</p><p>Complication: <b>postinfarction fibrinous pericarditis</b> — a transmural infarct inflames the overlying pericardium → pleuritic chest pain and a <b>friction rub</b>.</p>',
+  pearl:'Do not confuse with <b>Dressler syndrome</b> — autoimmune pericarditis that appears <b>weeks</b> later.',
+  fx:{title:'1–3 d · neutrophils',view:'antL',sac:{fill:1,fibrin:1},tint:{m:'ladCore',col:TAN,amt:0.75,mott:true,edge:true},vit:['!Friction rub','Pleuritic pain','Fever'],ecg:'peric',ecgL:'Diffuse ST↑ + PR depression'}},
+ {h:'3–14 days · free-wall rupture',tx:'<p><b>Macrophages</b> clear the dead tissue and granulation tissue only starts at the edges — the wall is at its <b>softest</b>, so the rupture risk peaks.</p><p><b>Free-wall rupture</b> (LAD or LCx territory) → blood pours into the sac → <b>tamponade</b> and sudden death.</p>',
+  pearl:'A <b>contained</b> rupture sealed by pericardium/scar is a <b>pseudoaneurysm</b> — narrow neck, high rupture risk.',
+  fx:{title:'3–14 d · free-wall rupture',view:'antL',ghost:true,sac:{fill:0.4},jets:[{p:['lvC','lvFree',sfc([3.4,-3.6,2.3],0.6)],col:0xb3121b,v:0.5}],marks:[{at:'lvFree',t:'Rupture'}],tint:{m:'ladCore',col:YEL,amt:0.8,mott:true,edge:true},vit:['!BP 70/40','!JVD','!Muffled heart sounds'],ecg:'alt',ecgL:'Tamponade'}},
+ {h:'3–14 days · septal rupture',tx:'<p>The soft septum tears → blood shunts <b>left → right</b> across the hole.</p><ul><li>New <b>harsh holosystolic murmur</b> at the left sternal border</li><li>Hypotension, right heart failure</li><li><b>O₂ step-up</b> from the RA to the RV on catheterization</li></ul>',
+  pearl:'Step-up in O₂ saturation in the RV = oxygenated blood entering from the LV.',
+  fx:{title:'3–14 d · septal rupture',view:'fourC',cut:true,jets:[{p:['lvC','ivs','rvC'],col:0xe0483a,v:0.6}],marks:[{at:'ivs',t:'Septal rupture'}],tint:{m:'ladCore',col:YEL,amt:0.8,mott:true,edge:true},vit:['!New holosystolic murmur','!O₂ step-up RA → RV','BP 86/54'],ecg:'stemi',ecgL:'V1–V4'}},
+ {h:'3–14 days · papillary muscle rupture',tx:'<p>A ruptured papillary muscle lets a mitral leaflet flail → <b>acute severe mitral regurgitation</b>: flash pulmonary edema and a new <b>apical holosystolic murmur</b> radiating to the axilla.</p><p>The <b>posteromedial</b> papillary muscle is the one that ruptures — it has a <b>single</b> blood supply (PDA, usually from the RCA), so this follows an <b>inferior</b> MI. The anterolateral muscle has dual supply (LAD + LCx).</p>',
+  pearl:'No O₂ step-up (unlike septal rupture) — the blood goes back into the left atrium.',
+  fx:{title:'3–14 d · papillary rupture',view:'fourC',cut:true,hl:['papillary','mitral','pda'],jets:[{p:[[1.3,-0.6,-0.9],miC,HGf.C.LA.c],col:0xe0483a,v:0.65}],marks:[{at:miC,t:'Flail mitral leaflet'}],tint:{m:'pda',col:YEL,amt:0.7,mott:true},vit:['!Pulmonary edema','!Apical holosystolic murmur','SpO₂ 86%'],ecg:'stemi',ecgL:'II, III, aVF (inferior)'}},
+ {h:'2 weeks – 2 months · scar',tx:'<p>Granulation tissue → <b>collagen scar</b>; the infarct turns <b>gray-white</b> and contracts.</p><p><b>Dressler syndrome</b> can appear now: autoimmune fibrinous pericarditis with fever and pleuritic pain, weeks after the MI.</p>',
+  pearl:'The ECG keeps <b>pathological Q waves</b> and T inversions — a permanent record of the transmural infarct.',
+  fx:{title:'Weeks · scar',view:'antL',tint:{m:'ladCore',col:SCAR,amt:0.85},vit:['Dressler risk','Heart failure risk'],ecg:'qwave',ecgL:'V1–V4 · Q waves'}},
+ {h:'Months later · true ventricular aneurysm',tx:'<p>The thin scar bulges <b>outward during systole</b> (dyskinesis), stealing stroke volume.</p><ul><li>Heart failure, ventricular arrhythmias</li><li><b>Mural thrombus</b> in the stagnant pouch → embolic stroke</li><li>ECG: <b>persistent ST elevation</b> weeks after the MI</li></ul>',
+  pearl:'True aneurysm = scarred wall, wide neck, <b>rarely ruptures</b>. Pseudoaneurysm = contained rupture, narrow neck, <b>often ruptures</b>.',
+  fx:{title:'Months · ventricular aneurysm',view:'antL',bulge:{m:'ladApex',amt:0.9},tint:{m:'ladCore',col:SCAR,amt:0.85},marks:[{at:[1.4,-4.6,-0.1],t:'Mural thrombus',col:0x7a0d12}],vit:['!Persistent ST↑','Emboli risk'],ecg:'aneur',ecgL:'V1–V4 · Q + persistent ST↑'}}]},
+{id:'block',k:'Surgical injury',ti:'Valve surgery → heart block',bl:'Which conduction structure or coronary artery sits next to each valve, and what happens when it is damaged.',steps:[
+ {h:'Neighbors of the conduction system',tx:'<ul><li><b>AV node</b>: in the floor of the right atrium, in the <b>triangle of Koch</b> — bounded by the coronary sinus opening, the tendon of Todaro and the <b>septal leaflet of the tricuspid</b>.</li><li><b>Bundle of His</b>: runs through the <b>membranous septum</b>, just beneath the aortic valve (between the right and non-coronary cusps).</li></ul>',
+  pearl:'Membranous VSD repair, aortic and tricuspid valve surgery, and ablation near Koch\'s triangle can all cause heart block.',
+  fx:{title:'Conduction anatomy',view:'fourC',cut:true,condLayer:1,hl:['avnode','his','tricuspid','aortic'],vit:['Normal sinus rhythm'],ecg:'normal'}},
+ {h:'Aortic valve replacement → complete heart block',tx:'<p>During <b>TAVR or surgical AVR</b>, the prosthesis or annular calcium presses on the <b>bundle of His</b>. Result: new LBBB or <b>3rd-degree (complete) heart block</b>.</p><ul><li>P waves march through at their own rate; QRS complexes come from a slow ventricular <b>escape rhythm</b> — no relationship between them</li><li>Watch the model: the atria beat fast, the ventricles slowly</li><li><b>Cannon a waves</b> when the atria contract against closed AV valves</li></ul>',
+  pearl:'Treatment: permanent <b>pacemaker</b>.',
+  fx:{title:'Post-TAVR · complete heart block',view:'fourC',cut:true,cond:'chb',hl:['his','aortic'],marks:[{at:'his',t:'His bundle injured'}],vit:['!HR 38','BP 94/58','!Cannon a waves','Syncope'],ecg:'chb',ecgL:'3rd-degree AV block'}},
+ {h:'Mitral valve surgery → circumflex injury',tx:'<p>The <b>left circumflex</b> runs in the left AV groove, millimetres from the posterior mitral annulus. A deep suture can kink or tie it off → <b>lateral MI</b> (I, aVL, V5–V6).</p><p>The <b>coronary sinus</b> also runs in this groove.</p>',
+  pearl:'Mitral annulus ↔ LCx and coronary sinus. Tricuspid annulus ↔ RCA and AV node. Aortic annulus ↔ His bundle and the coronary ostia.',
+  fx:{title:'Mitral repair · LCx injury',view:'postL',hl:['lcx','mitral','cs'],tint:{m:'lvLat',col:DUSK,amt:0.7,mott:true},marks:[{at:sfc([2.4,1.2,-1.6],0.3),t:'LCx kinked'}],vit:['New lateral wall motion defect'],ecg:'stemi',ecgL:'I, aVL, V5–V6'}},
+ {h:'Tricuspid surgery → AV node / RCA',tx:'<p>Sutures along the <b>septal leaflet</b> of the tricuspid can injure the <b>AV node</b> → heart block.</p><p>The <b>RCA</b> runs in the right AV groove next to the tricuspid annulus and can also be caught → inferior MI / bradycardia.</p>',
+  pearl:'The RCA supplies the <b>SA node (~60%)</b> and <b>AV node (~80–90%)</b> — inferior MIs often come with bradycardia or AV block.',
+  fx:{title:'Tricuspid repair · AV node',view:'antR',cut:true,cond:'chb',hl:['avnode','tricuspid','rca'],vit:['!HR 42','Escape rhythm'],ecg:'chb',ecgL:'3rd-degree AV block'}}]},
+{id:'gsw',k:'Penetrating trauma',ti:'Gunshot wound',bl:'Lateral and posterior bullet paths: which chamber and vessels lie in the way.',steps:[
+ {h:'Left lateral chest (5th ICS, mid-axillary line)',tx:'<p>A bullet entering the left side hits the <b>left ventricle</b> — the left border of the heart (LCx / obtuse-marginal territory).</p><p>The LV\'s thick wall can partly seal a small hole, but its high pressure drives rapid bleeding.</p>',
+  pearl:'Left border of the heart on CXR = LV (lower) + left auricle + pulmonary trunk + aortic knob (upper).',
+  fx:{title:'GSW · left lateral chest',view:'ant',r:44,bullet:[{via:['lvLat',[1.6,-1.6,-0.6]],d:[1,0.05,0.1],label:'Entry'}],tint:{m:'lvLat',col:IRED,amt:0.5},vit:['!HR 128','!BP 88/56'],ecg:'tachy'}},
+ {h:'Back of the left chest',tx:'<p>A bullet entering the <b>left back</b> next to the spine meets the <b>descending thoracic aorta</b> first, then the <b>left atrium</b> — the most posterior chamber of the heart.</p><p>The <b>esophagus</b> lies directly behind the left atrium and is also at risk.</p>',
+  pearl:'LA–esophagus contact explains <b>dysphagia</b> with an enlarged LA (mitral stenosis) and why <b>TEE</b> gives such good views of the LA (looking for LA appendage thrombus).',
+  fx:{title:'GSW · left posterior chest',view:'postL',bullet:[{via:[aoPts[7],'laPost',HGf.C.LA.c],d:[0.35,0,-1],label:'Entry'}],hl:['aorta'],tint:{m:'LA',col:IRED,amt:0.6},vit:['!HR 140','!BP 70/40','!Left hemothorax'],ecg:'tachy'}},
+ {h:'Bleeding out vs tamponade',tx:'<ul><li><b>Large pericardial hole</b> → blood drains into the pleural space → <b>massive hemothorax</b> → hypovolemic shock with <b>flat</b> neck veins</li><li><b>Small hole</b> that clots over → blood trapped in the sac → <b>tamponade</b> with <b>distended</b> neck veins</li></ul>',
+  pearl:'Neck veins tell them apart: <b>flat = hypovolemia</b>, <b>distended = obstruction</b> (tamponade, tension PTX).',
+  fx:{title:'Trapped blood → tamponade',view:'ant',sac:{fill:0.8},vit:['!JVD','!Muffled sounds','!Hypotension'],ecg:'alt',ecgL:'Electrical alternans'}}]},
+{id:'dissect',k:'Vascular',ti:'Aortic dissection (type A)',bl:'A tear in the ascending aorta spreads backward into the valve, the coronary ostia and the pericardium.',steps:[
+ {h:'Intimal tear',tx:'<p>Blood splits the media through an intimal tear, creating a <b>false lumen</b>. Sudden <b>tearing chest pain radiating to the back</b>, unequal BP between the arms, widened mediastinum.</p><ul><li>Risks: <b>hypertension</b> (#1), Marfan, Ehlers-Danlos, bicuspid aortic valve, Turner, cocaine, pregnancy</li><li>Pathology: cystic medial degeneration</li><li><b>Stanford A</b> = ascending aorta → surgery · <b>Stanford B</b> = descending only → BP control</li></ul>',
+  pearl:'Do <b>not</b> give thrombolytics to a dissection that looks like an MI.',
+  fx:{title:'Type A dissection',view:'antR',r:44,lumen:1,marks:[{at:'tear',t:'Intimal tear'}],vit:['!Tearing pain → back','!BP R 168/94 · L 122/80'],ecg:'tachy'}},
+ {h:'Into the aortic root → aortic regurgitation',tx:'<p>The dissection dilates the root and strips support from the cusps → <b>acute aortic regurgitation</b>: early diastolic decrescendo murmur, wide pulse pressure, acute pulmonary edema.</p>',
+  pearl:'Watch the jet: blood falls back from the aorta into the LV when the valve should be closed.',
+  fx:{title:'Acute aortic regurgitation',view:'fourC',cut:true,lumen:1,hl:['aortic'],jets:[{p:[aoPts[1],aoRoot,[1.0,-1.6,-0.5]],col:0xe0483a,v:0.55}],vit:['!Diastolic decrescendo murmur','Wide pulse pressure'],ecg:'tachy'}},
+ {h:'Into a coronary ostium → inferior MI',tx:'<p>The flap can extend into a coronary opening — usually the <b>right coronary ostium</b> → <b>inferior STEMI</b> (II, III, aVF).</p>',
+  pearl:'Inferior STEMI + back pain + unequal arm pressures = think dissection before giving anticoagulants or thrombolytics.',
+  fx:{title:'RCA ostium involved',view:'antR',lumen:1,hl:['rca','pda'],marks:[{at:'rcaO',t:'RCA ostium'}],tint:{m:'pda',col:DUSK,amt:0.6,mott:true},vit:['!Inferior STEMI','Bradycardia'],ecg:'stemi',ecgL:'II, III, aVF'}},
+ {h:'Rupture into the pericardium → tamponade',tx:'<p>Rupture of the ascending aorta into the pericardial sac → <b>hemopericardium and tamponade</b> — the most common cause of death in type A dissection.</p>',
+  pearl:'Type A = emergency surgery.',
+  fx:{title:'Rupture → tamponade',view:'ant',lumen:1,sac:{fill:1},vit:['!BP 74/50','!JVD','!Muffled sounds'],ecg:'alt',ecgL:'Electrical alternans'}}]},
+{id:'blunt',k:'Blunt trauma',ti:'Blunt chest trauma',bl:'Steering wheel, baseball and rapid deceleration: contusion, commotio cordis and an aortic tear.',steps:[
+ {h:'Myocardial contusion',tx:'<p>A steering-wheel or dashboard impact drives the sternum into the <b>right ventricle</b>, the most anterior chamber.</p><ul><li>Arrhythmias (sinus tachycardia, PVCs, new <b>RBBB</b>)</li><li>Raised troponin, RV wall motion abnormality on echo</li></ul>',
+  pearl:'Screen with <b>ECG + troponin</b>; a normal ECG and troponin make significant injury unlikely.',
+  fx:{title:'Steering-wheel impact',view:'antL',impact:[{at:'rvAnt',d:[0.1,0.05,1],label:'Impact'}],tint:{m:'rvAnt',col:DUSK,amt:0.7,mott:true},vit:['HR 118','!Troponin ↑','PVCs'],ecg:'tachy'}},
+ {h:'Commotio cordis',tx:'<p>A low-energy blow directly over the heart (baseball, hockey puck) in a young athlete with a <b>structurally normal heart</b> → instant <b>ventricular fibrillation</b>.</p><p>It only happens if the blow lands during the <b>upstroke of the T wave</b> — the vulnerable period of repolarization.</p>',
+  pearl:'Treatment: immediate CPR and <b>defibrillation (AED)</b>. Survival falls fast with every minute of delay.',
+  fx:{title:'Commotio cordis → VF',view:'ant',impact:[{at:'rvAnt',d:[-0.05,0.1,1],label:'Baseball'}],cond:'vf',condLayer:1,vit:['!Pulseless','!Collapse'],ecg:'vf',ecgL:'Ventricular fibrillation'}},
+ {h:'Aortic isthmus tear',tx:'<p>In rapid <b>deceleration</b> (high-speed crash, fall) the mobile heart and arch keep moving while the descending aorta stays fixed. The aorta tears at the <b>isthmus</b>, just distal to the left subclavian artery, where the <b>ligamentum arteriosum</b> tethers it.</p><ul><li>CXR: <b>widened mediastinum</b>, loss of the aortic knob</li><li>Most patients die at the scene</li></ul>',
+  pearl:'Ligamentum arteriosum = remnant of the ductus arteriosus, linking the aortic isthmus to the left pulmonary artery.',
+  fx:{title:'Deceleration · aortic isthmus',view:'left',r:46,hl:['aorta'],marks:[{at:'isth',t:'Isthmus tear'}],impact:[{at:'rvAnt',d:[0,0,1],label:'Deceleration',col:0x8b949e}],vit:['!Widened mediastinum','!BP 80/50'],ecg:'tachy'}}]}];
+
+/* ---------- quiz ---------- */
+const QZ=[
+ {q:'A man is stabbed at the left sternal border in the 4th intercostal space. Which chamber is most likely injured?',o:['Left atrium','Right ventricle','Left ventricle','Right atrium'],a:1,e:'The right ventricle forms most of the anterior (sternocostal) surface, directly behind the left parasternal chest wall.',fx:{title:'Anterior surface = RV',view:'obl',r:44,tint:{m:'RV',col:IRED,amt:0.55},knife:[{at:'rvAnt',d:[0.15,0.12,1]}],ecg:'tachy'}},
+ {q:'After a stab wound, a patient has hypotension, distended neck veins and muffled heart sounds. Which ECG finding is most likely?',o:['Diffuse ST elevation with PR depression','Peaked T waves','Low voltage with electrical alternans','Delta waves'],a:2,e:'Cardiac tamponade: the heart swings within the fluid-filled sac, so QRS amplitude alternates beat to beat; fluid also lowers the voltage.',fx:{title:'Tamponade',view:'ant',sac:{fill:1},ecg:'alt',ecgL:'Electrical alternans'}},
+ {q:'In tamponade, systolic BP drops 18 mmHg on inspiration. What causes this?',o:['Inspiration lowers venous return to the right heart','Inspiration increases RV filling, bowing the septum into the LV','Vagal stimulation slows the heart','The pericardium tears on inspiration'],a:1,e:'Pulsus paradoxus: inspiration increases venous return to the RV. With the sac rigid, the RV can only expand by pushing the septum into the LV, which lowers LV filling and stroke volume.',fx:{title:'Pulsus paradoxus',view:'fourC',cut:true,sac:{fill:1},hl:[],ecg:'alt'}},
+ {q:'Five days after an anterior MI, a patient becomes hypotensive with a new harsh holosystolic murmur at the left sternal border. Oxygen saturation rises from the right atrium to the right ventricle. Diagnosis?',o:['Papillary muscle rupture','Free-wall rupture','Interventricular septal rupture','Dressler syndrome'],a:2,e:'The O₂ step-up in the RV means oxygenated LV blood is crossing into the RV through a ruptured septum (3–14 days, when the infarct is softest).',fx:{title:'Septal rupture',view:'fourC',cut:true,jets:[{p:['lvC','ivs','rvC'],col:0xe0483a,v:0.6}],marks:[{at:'ivs',t:'Septal rupture'}],ecg:'stemi'}},
+ {q:'Four days after an inferior MI, a patient develops flash pulmonary edema and a new apical holosystolic murmur radiating to the axilla. Which artery supplies the structure that failed?',o:['Left anterior descending','Posterior descending artery','Left circumflex','Diagonal branch'],a:1,e:'Posteromedial papillary muscle rupture → acute MR. That muscle has a single supply from the PDA (usually from the RCA), so it fails after inferior MIs.',fx:{title:'Posteromedial papillary muscle',view:'fourC',cut:true,hl:['papillary','pda','mitral'],jets:[{p:[[1.3,-0.6,-0.9],miC,HGf.C.LA.c],col:0xe0483a,v:0.65}],ecg:'stemi',ecgL:'II, III, aVF'}},
+ {q:'Two days after a transmural MI, a patient has sharp pleuritic chest pain relieved by leaning forward and a friction rub. What is the cause?',o:['Dressler syndrome','Postinfarction fibrinous pericarditis','Ventricular aneurysm','Free-wall rupture'],a:1,e:'Fibrinous pericarditis appears 1–3 days after a transmural MI from inflammation of the overlying pericardium. Dressler syndrome is autoimmune and appears weeks later.',fx:{title:'Fibrinous pericarditis',view:'antL',sac:{fill:1,fibrin:1},tint:{m:'ladCore',col:TAN,amt:0.7,mott:true},ecg:'peric',ecgL:'Diffuse ST↑ + PR depression'}},
+ {q:'Three months after an anterior MI, the ECG still shows ST elevation in V1–V4 and echo shows the apex bulging outward in systole. What complication is this patient at risk for?',o:['Cardiac tamponade from rupture','Mural thrombus with embolic stroke','Complete heart block','Acute mitral regurgitation'],a:1,e:'True ventricular aneurysm: dyskinetic scar with stagnant blood → mural thrombus and emboli. True aneurysms rarely rupture.',fx:{title:'True ventricular aneurysm',view:'antL',bulge:{m:'ladApex',amt:0.9},tint:{m:'ladCore',col:SCAR,amt:0.85},marks:[{at:[1.4,-4.6,-0.1],t:'Mural thrombus',col:0x7a0d12}],ecg:'aneur'}},
+ {q:'After transcatheter aortic valve replacement, a patient has a heart rate of 38 with P waves and QRS complexes occurring independently. Which structure was injured?',o:['SA node','AV node in the triangle of Koch','Bundle of His in the membranous septum','Right bundle branch in the moderator band'],a:2,e:'The bundle of His passes through the membranous septum just below the aortic valve (between the right and non-coronary cusps) and can be compressed by the prosthesis → complete heart block.',fx:{title:'His bundle',view:'fourC',cut:true,cond:'chb',hl:['his','aortic'],ecg:'chb',ecgL:'3rd-degree AV block'}},
+ {q:'After mitral valve repair, a patient develops ST elevation in I, aVL, V5 and V6. Which artery was most likely injured?',o:['Right coronary artery','Left anterior descending','Left circumflex','Posterior descending'],a:2,e:'The circumflex runs in the left AV groove right next to the posterior mitral annulus; a suture can kink it → lateral MI.',fx:{title:'Circumflex',view:'postL',hl:['lcx','mitral'],tint:{m:'lvLat',col:DUSK,amt:0.7,mott:true},ecg:'stemi',ecgL:'I, aVL, V5–V6'}},
+ {q:'A bullet enters the left back beside the spine and travels straight forward. Which chamber of the heart does it reach first?',o:['Right ventricle','Left ventricle','Left atrium','Right atrium'],a:2,e:'The left atrium forms the base (posterior surface) of the heart, directly in front of the esophagus and descending aorta.',fx:{title:'Posterior surface = LA',view:'postL',tint:{m:'LA',col:IRED,amt:0.6},bullet:[{via:[aoPts[7],'laPost',HGf.C.LA.c],d:[0.35,0,-1]}],ecg:'tachy'}},
+ {q:'A hypertensive man with tearing chest pain radiating to his back has ST elevation in II, III and aVF. What explains the ECG?',o:['Dissection flap occluding the RCA ostium','Vasospasm of the LAD','Pericarditis','Pulmonary embolism'],a:0,e:'A type A dissection can extend into the right coronary ostium → inferior STEMI. Thrombolytics are contraindicated.',fx:{title:'Dissection → RCA',view:'antR',lumen:1,hl:['rca','pda'],marks:[{at:'rcaO',t:'RCA ostium'}],ecg:'stemi',ecgL:'II, III, aVF'}},
+ {q:'A 15-year-old is hit in the chest by a baseball and collapses. His heart is structurally normal. During which part of the cardiac cycle did the ball strike?',o:['P wave','QRS complex','Upstroke of the T wave','ST segment after the T wave'],a:2,e:'Commotio cordis: a blow during the vulnerable period of repolarization (upstroke of the T wave) triggers VF. Treat with immediate defibrillation.',fx:{title:'Commotio cordis',view:'ant',impact:[{at:'rvAnt',d:[-0.05,0.1,1]}],cond:'vf',condLayer:1,ecg:'vf',ecgL:'Ventricular fibrillation'}},
+ {q:'After a high-speed head-on crash, a driver\'s chest x-ray shows a widened mediastinum. Where is the aorta most likely torn?',o:['Aortic root','Ascending aorta at the sinotubular junction','Isthmus, just distal to the left subclavian artery','Abdominal aorta at the renal arteries'],a:2,e:'Deceleration injury tears the aorta at the isthmus, where the mobile arch meets the descending aorta held by the ligamentum arteriosum.',fx:{title:'Aortic isthmus',view:'left',r:46,hl:['aorta'],marks:[{at:'isth',t:'Isthmus'}]}}];
+
+/* ---------- UI ---------- */
+const IS={tab:'explore',sc:null,st:0,qi:0,ans:null,score:0,done:[]};
+function setTab(t){IS.tab=t;document.querySelectorAll('.tabs [data-tab]').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===t));
+  $('#paneExplore').hidden=t!=='explore';$('#paneInj').hidden=t!=='inj';$('#paneQuiz').hidden=t!=='quiz';
+  if(t==='explore'){injOff();hideTags();setView('Anterior');}
+  if(t==='inj'){renderInj();if(IS.sc)applyFx(Object.assign({},IS.sc.steps[IS.st].fx));else injOff(),hideTags(),setView('Anterior');}
+  if(t==='quiz'){renderQuiz();if(IS.ans!==null&&QZ[IS.qi])applyFx(QZ[IS.qi].fx);else{injOff();hideTags();setView('Anterior');}}}
+function renderInj(){const el=$('#paneInj');
+  if(!IS.sc){el.innerHTML=`<section class="card"><p class="label">Heart injuries</p><p style="margin:0 0 12px;color:var(--muted);font-size:13px">Pick a case. Each one plays out on the 3D heart step by step — the wound, what fills or fails, the ECG and the vitals.</p><div class="sclist">${SCN.map((s,i)=>`<button class="sc" data-sc="${i}"><span class="n">${s.steps.length} steps</span><span class="k">${esc(s.k)}</span><h3>${esc(s.ti)}</h3><p>${esc(s.bl)}</p></button>`).join('')}</div></section>`;
+    el.querySelectorAll('[data-sc]').forEach(b=>b.onclick=()=>{IS.sc=SCN[+b.dataset.sc];IS.st=0;renderInj();go();});return;}
+  const s=IS.sc,st=s.steps[IS.st];
+  el.innerHTML=`<section class="card cs"><button class="back" id="csBack">← All injuries</button><div class="k" style="margin-top:8px">${esc(s.k)} · step ${IS.st+1} of ${s.steps.length}</div><h2>${esc(s.ti)}</h2>
+  <div class="dots">${s.steps.map((x,j)=>`<button data-j="${j}" class="${j===IS.st?'cur':j<IS.st?'done':''}" title="${esc(x.h)}" aria-label="Step ${j+1}: ${esc(x.h)}"></button>`).join('')}</div>
+  <h3>${esc(st.h)}</h3><div class="tx">${st.tx}</div>${st.pearl?`<p class="pearl"><b class="h">Board pearl</b>${st.pearl}</p>`:''}
+  <div class="nav2"><button id="csPrev" ${IS.st?'':'disabled'}>◀ Back</button>${IS.st<s.steps.length-1?'<button class="pri" id="csNext">Next ▶</button>':'<button class="pri" id="csDone">Next case ▶</button>'}</div></section>`;
+  $('#csBack').onclick=()=>{IS.sc=null;renderInj();injOff();hideTags();setView('Anterior');};
+  el.querySelectorAll('.dots [data-j]').forEach(b=>b.onclick=()=>{IS.st=+b.dataset.j;renderInj();go();});
+  $('#csPrev').onclick=()=>{IS.st--;renderInj();go();};
+  if($('#csNext'))$('#csNext').onclick=()=>{IS.st++;renderInj();go();};
+  if($('#csDone'))$('#csDone').onclick=()=>{IS.sc=SCN[(SCN.indexOf(s)+1)%SCN.length];IS.st=0;renderInj();go();};
+  function go(){applyFx(IS.sc.steps[IS.st].fx);const sd=document.querySelector('.side');if(innerWidth>760)el.scrollIntoView({block:'nearest'});}}
+function renderQuiz(){const el=$('#paneQuiz');
+  if(IS.qi>=QZ.length){el.innerHTML=`<section class="card qz"><p class="label">Quiz complete</p><div class="big">${IS.score} / ${QZ.length}</div><p style="color:var(--muted);margin:0 0 12px">${IS.score===QZ.length?'Perfect score.':'Review the cases in the Injuries tab for the ones you missed.'}</p><div class="nav2"><button class="pri" id="qzRe">Start again</button></div></section>`;
+    $('#qzRe').onclick=()=>{IS.qi=0;IS.ans=null;IS.score=0;renderQuiz();injOff();hideTags();setView('Anterior');};return;}
+  const Q=QZ[IS.qi],A=IS.ans;
+  el.innerHTML=`<section class="card qz"><div class="meta"><span>Question ${IS.qi+1} of ${QZ.length}</span><span>Score ${IS.score}</span></div><div class="stem">${esc(Q.q)}</div>
+  ${Q.o.map((o,i)=>`<button class="opt ${A!==null?(i===Q.a?'ok':i===A?'bad':''):''}" data-i="${i}" ${A!==null?'disabled':''}><span class="l">${'ABCD'[i]}</span><span>${esc(o)}</span></button>`).join('')}
+  ${A!==null?`<div class="exp"><b class="h">${A===Q.a?'Correct.':'Not quite — the answer is '+'ABCD'[Q.a]+'.'}</b>${esc(Q.e)}<div style="margin-top:6px;color:var(--muted);font-size:12px">Shown on the heart →</div></div><div class="nav2"><button class="pri" id="qzNext">${IS.qi<QZ.length-1?'Next question ▶':'See score ▶'}</button></div>`:''}</section>`;
+  el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(IS.ans!==null)return;IS.ans=+b.dataset.i;if(IS.ans===Q.a)IS.score++;renderQuiz();applyFx(Q.fx);});
+  if($('#qzNext'))$('#qzNext').onclick=()=>{IS.qi++;IS.ans=null;renderQuiz();injOff();hideTags();if(IS.qi<QZ.length)setView('Anterior');};}
+function injGo(sc,st){setTab('inj');IS.sc=SCN.find(s=>s.id===sc)||SCN[0];IS.st=st||0;renderInj();applyFx(IS.sc.steps[IS.st].fx);}
+function injInit(){document.querySelectorAll('.tabs [data-tab]').forEach(b=>b.onclick=()=>setTab(b.dataset.tab));
+  const h=(location.hash||'').toLowerCase();if(h==='#injuries')setTab('inj');else if(h==='#quiz')setTab('quiz');
+  window.addEventListener('hashchange',()=>{const h=location.hash.toLowerCase();setTab(h==='#injuries'?'inj':h==='#quiz'?'quiz':'explore');});}
+
 renderLayers();renderRegions();renderTerr();renderInfo();renderList();applyLook();
-window.__heart={FO,goStop,setFollow,setView,select,setTerr,state,applyLook,syncModes,ITEMS,setT:t=>{simT=t*CYC_T;cycPaused=true;}};
+injInit();
+window.__heart={INJ,injGo:(...a)=>injGo(...a),FO,goStop,setFollow,setView,select,setTerr,state,applyLook,syncModes,ITEMS,setT:t=>{simT=t*CYC_T;cycPaused=true;}};
 requestAnimationFrame(frame);
 })();
 
