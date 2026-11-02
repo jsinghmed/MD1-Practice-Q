@@ -75,6 +75,7 @@ table.quiz td.hid::after{content:"tap to reveal";position:absolute;left:10px;top
 .chk .cq{margin:10px 0 14px}.chk .cq:last-child{margin-bottom:0}.chk .cq p{margin:0 0 8px;font-weight:600}
 .chk .co{all:unset;box-sizing:border-box;display:block;width:100%;padding:8px 12px;border:1px solid var(--line2);border-radius:9px;margin-bottom:6px;background:var(--choice);cursor:pointer;font-size:15px;line-height:1.4}
 .chk .co:hover{background:var(--choice-h)}.chk .co.ok{border-color:var(--good);background:color-mix(in srgb,var(--good) 18%,var(--choice))}.chk .co.no{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 16%,var(--choice))}
+.chk .crs{background:none;border:0;color:var(--teal);font-weight:600;font-size:13px;padding:6px 0 0;cursor:pointer}.chk .ht .crs.all{float:right;padding:0;font-size:12px;letter-spacing:0;text-transform:none}
 .chk .ce{font-size:14px;color:var(--muted);margin-top:4px}.chk .ce b{color:var(--text)}
 @media (max-width:600px){.wrap{padding:18px 14px 60px}h1{font-size:23px}body{font-size:15.5px}}
 </style></head>
@@ -96,7 +97,7 @@ function guideHTML(c){
   const parts=h.split(/(?=<h2>)/);const K=c.checks||[];const A=(S.chk[c.n]||{});
   return parts.map(p=>{const m=p.match(/^<h2>(.*?)<\/h2>/);if(!m)return p;const t=m[1].replace(/<[^>]+>/g,"").replace(/&amp;/g,"&").replace(/&quot;/g,'"');
     const ks=K.map((k,i)=>[k,i]).filter(([k])=>k.after===t);if(!ks.length)return p;
-    return p+`<div class="chk"><div class="ht">✓ Quick check</div>${ks.map(([k,i])=>{const a=A[i];return `<div class="cq"><p>${esc(k.q)}</p>${k.c.map((o,j)=>`<button class="co ${a===undefined?"":j===k.a?"ok":j===a?"no":""}" data-ck="${i}" data-co="${j}">${esc(o)}</button>`).join("")}${a!==undefined?`<div class="ce"><b>${a===k.a?"Correct.":"Not quite."}</b> ${esc(k.e)}</div>`:""}</div>`;}).join("")}</div>`;}).join("");}
+    return p+`<div class="chk"><div class="ht">✓ Quick check${ks.filter(([k,i])=>A[i]!==undefined).length>1?`<button class="crs all" data-ckra="${ks.map(([k,i])=>i).join(",")}">↺ Reset all</button>`:""}</div>${ks.map(([k,i])=>{const a=A[i];return `<div class="cq"><p>${esc(k.q)}</p>${k.c.map((o,j)=>`<button class="co ${a===undefined?"":j===k.a?"ok":j===a?"no":""}" data-ck="${i}" data-co="${j}">${esc(o)}</button>`).join("")}${a!==undefined?`<div class="ce"><b>${a===k.a?"Correct.":"Not quite."}</b> ${esc(k.e)}</div><button class="crs" data-ckr="${i}">↺ Reset this question</button>`:""}</div>`;}).join("")}</div>`;}).join("");}
 function render(scrollTop){const c=chap();if(!c){$("app").innerHTML='<div class="empty">No content.</div>';return;}
   const A=S.ans[c.n]||{},qi=S.q[c.n]||0,nd=Object.keys(A).length,nr=c.quiz.filter(q=>A[q.n]===q.a).length;
   let h=`<div class="crumb">CRS Anatomy · Thorax study guide · Chapter ${c.n} of ${CH.length}</div><h1>${esc(c.title)}</h1>
@@ -128,6 +129,7 @@ function render(scrollTop){const c=chap();if(!c){$("app").innerHTML='<div class=
     const td=e.target.closest("td.hid");if(td){td.classList.remove("hid");return;}
     const tq=e.target.closest("[data-tq]");if(tq){const t=tq.parentElement.nextElementSibling.querySelector("table");const on=!t.classList.contains("quiz");t.classList.toggle("quiz",on);
       t.querySelectorAll("tbody tr").forEach(tr=>[...tr.children].forEach((td,j)=>td.classList.toggle("hid",on&&j>0)));tq.textContent=on?"Show the whole table":"Quiz me on this table";return;}
+    const rr=e.target.closest("[data-ckr],[data-ckra]");if(rr){const A=(S.chk[c.n]=S.chk[c.n]||{});(rr.dataset.ckra?rr.dataset.ckra.split(","):[rr.dataset.ckr]).forEach(i=>delete A[i]);save();const y=window.scrollY;render();window.scrollTo(0,y);return;}
     const co=e.target.closest("[data-ck]");if(co){const i=+co.dataset.ck;const A=(S.chk[c.n]=S.chk[c.n]||{});if(A[i]!==undefined)return;A[i]=+co.dataset.co;save();
       const box=co.closest(".chk");const y=window.scrollY;render();window.scrollTo(0,y);}
   });
