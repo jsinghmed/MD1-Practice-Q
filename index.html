@@ -1080,11 +1080,11 @@ const SECTIONS = [
      {name:"Sinus venosus & fate of the heart tube", f:q=>q.t==="Sinus Venosus & Heart Tube Fate"},
      {name:"Atrial septation & ASDs", f:q=>q.t==="Atrial Septation & ASDs"},
      {main:true, name:"Lecture 2 · Ventricles & Truncus Arteriosus (with anomalies)", f:q=>q.t==="Ventricles, Outflow & Tetralogy"},
-     {main:true, name:"Lecture 3 · Nasal Cavity & Paranasal Sinuses", f:NAS},
-     {main:true, name:"Lecture 4 · Fetal Circulation, Artery & Vein Development", f:q=>["Fetal Circulation & Birth","Arterial Arches & Arteries","Veins"].includes(q.t)},
+     {main:true, name:"Lecture 3 · Fetal Circulation, Artery & Vein Development", f:q=>["Fetal Circulation & Birth","Arterial Arches & Arteries","Veins"].includes(q.t)},
      {name:"Fetal circulation & changes at birth", f:q=>q.t==="Fetal Circulation & Birth"},
      {name:"Arterial (aortic) arches & arteries", f:q=>q.t==="Arterial Arches & Arteries"},
      {name:"Development of the veins", f:q=>q.t==="Veins"},
+     {main:true, name:"Lecture 4 · Nasal Cavity & Paranasal Sinuses", f:NAS},
      {main:true, name:"Lecture 5 · Development of the Respiratory System", f:q=>q.t==="Respiratory Development" && !NAS(q)},
      {main:true, name:"Lecture 6 · Formation of the Diaphragm", f:q=>q.t==="Body Cavities & Diaphragm"},
      {main:true, name:"Lecture 7 · Congenital Anomalies (all lectures)", f:q=>ANOM.test(q.s+" "+(q.c?q.c[q.a]:""))}]; })()}
