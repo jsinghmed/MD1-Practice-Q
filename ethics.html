@@ -126,14 +126,16 @@ const pick=()=>$("file").click();
 /* ---------- drawing a region of a page ---------- */
 const pageCache={};
 function getPage(p){return pageCache[p]||(pageCache[p]=st.doc.getPage(p));}
-async function cropCanvas(p,box,width){const page=await getPage(p);const [x0,y0,x1,y1]=box;const dpr=Math.min(2.5,window.devicePixelRatio||1);
+const CC={};
+async function cropCanvas(p,box,width){const key=p+":"+box.join(",")+":"+Math.round(width/40);if(CC[key])return CC[key];const c0=await cropCanvas0(p,box,width);CC[key]=c0;return c0;}
+async function cropCanvas0(p,box,width){const page=await getPage(p);const [x0,y0,x1,y1]=box;const dpr=Math.min(2.5,window.devicePixelRatio||1);
   const sc=Math.min(3.2,Math.max(1,width/(x1-x0)))*dpr;const vp=page.getViewport({scale:sc});
   const c=document.createElement("canvas");c.width=Math.round((x1-x0)*sc);c.height=Math.round((y1-y0)*sc);const ctx=c.getContext("2d");
   ctx.fillStyle="#fff";ctx.fillRect(0,0,c.width,c.height);ctx.translate(-x0*sc,-y0*sc);await page.render({canvasContext:ctx,viewport:vp}).promise;return c;}
 let drawTok=0;
 async function drawInto(el,segs){const tok=++drawTok;const w=Math.max(260,el.clientWidth-24);const cs=[];
   for(const [p,box] of segs){cs.push(await cropCanvas(p,box,w));if(tok!==drawTok)return;}
-  el.innerHTML="";cs.forEach(c=>el.appendChild(c));}
+  el.innerHTML="";el.style.minHeight="";cs.forEach(c=>el.appendChild(c));}
 
 /* ---------- full-page viewer ---------- */
 let rendering=null;
@@ -164,8 +166,10 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",
 
 /* ---------- question card ---------- */
 function go(n,keepView){S.cur=n;st.sel=null;save();renderSide();renderQ();const q=byN(n);
-  if(st.doc&&!isMob())showPage(S.ans[n]!==undefined?q.e[0][0]:q.q[0]);if(!keepView)$("qcol").scrollTop=0;}
-function renderQ(){const L=list(),q=byN(S.cur),A=S.ans[q.n],done=A!==undefined;const i=L.findIndex(x=>x.n===q.n);
+  if(st.doc&&!isMob())showPage(S.ans[n]!==undefined?q.e[0][0]:q.q[0]);if(!keepView){$("qcol").scrollTop=0;window.scrollTo(0,0);}}
+function renderQ(){const qc=$("qcol"),y1=qc.scrollTop,y2=window.scrollY,h0=qc.scrollHeight;renderQ0();
+  const fix=()=>{qc.scrollTop=y1;window.scrollTo(0,y2);};fix();requestAnimationFrame(fix);}
+function renderQ0(){const L=list(),q=byN(S.cur),A=S.ans[q.n],done=A!==undefined;const i=L.findIndex(x=>x.n===q.n);
   const all=counts(QS);
   $("qcol").innerHTML=`<div class="crumb">Ethics · ${esc(S.topic||"All Ethics")}${S.flt!=="all"?" · "+({todo:"Unanswered",missed:"Missed",marked:"Marked"})[S.flt]:""}</div><h1>Practice questions</h1>
   <select class="msel" id="msel" aria-label="Topic"><option value="">All Ethics (${QS.length})</option>${TOPICS.map(t=>`<option ${S.topic===t?"selected":""} value="${esc(t)}">${esc(t)} (${QS.filter(x=>x.t===t).length})</option>`).join("")}</select>
@@ -194,15 +198,17 @@ function renderQ(){const L=list(),q=byN(S.cur),A=S.ans[q.n],done=A!==undefined;c
   on("mop",pick);on("op1",pick);
   on("mk",()=>{if(S.mark[q.n])delete S.mark[q.n];else S.mark[q.n]=1;save();renderSide();renderQ();});
   on("jq",()=>showPage(q.q[0]));on("je",()=>showPage(q.e[0][0]));
-  document.querySelectorAll(".letters [data-l]").forEach(b=>b.onclick=()=>{st.sel=+b.dataset.l;renderQ();});
+  document.querySelectorAll(".letters [data-l]").forEach(b=>b.onclick=()=>{st.sel=+b.dataset.l;document.querySelectorAll(".letters [data-l]").forEach(x=>x.classList.toggle("sel",+x.dataset.l===st.sel));const sb=$("sub");if(sb)sb.disabled=false;});
   on("sub",()=>{S.ans[q.n]=st.sel;st.sel=null;save();renderSide();renderQ();if(st.doc&&!isMob())showPage(q.e[0][0]);const e=$("eimg");if(e&&isMob())setTimeout(()=>e.scrollIntoView({behavior:"smooth",block:"start"}),60);});
   on("next",()=>go(L[i+1].n));on("skip",()=>go(L[i+1].n));on("prev",()=>go(L[i-1].n));
   on("redo",()=>{delete S.ans[q.n];save();renderSide();renderQ();if(st.doc&&!isMob())showPage(q.q[0]);});
   on("reset",()=>{if(confirmReset()){S.ans={};save();renderSide();renderQ();}});
   const nt=$("nt");if(nt)nt.oninput=()=>{const v=nt.value.trim();if(v)S.notes[q.n]=nt.value;else delete S.notes[q.n];save();};
+  const ph=(el,segs)=>{if(!el)return;const w=Math.max(260,el.clientWidth-24);const got=segs.map(([p,b])=>CC[p+":"+b.join(",")+":"+Math.round(w/40)]);if(got.every(Boolean)){el.innerHTML="";got.forEach(c=>el.appendChild(c));}else{const [p,b]=segs[0];el.style.minHeight=Math.round((b[3]-b[1])*(w/(b[2]-b[0])))+"px";}};
+  if(st.doc){ph($("qimg"),[q.q]);if(done)ph($("eimg"),q.e);}
   if(st.doc){drawInto($("qimg"),[q.q]).then(()=>{if(done&&$("eimg"))drawInto2($("eimg"),q.e);});}}
 let drawTok2=0;
-async function drawInto2(el,segs){const tok=++drawTok2;const w=Math.max(260,el.clientWidth-24);const cs=[];for(const [p,box] of segs){cs.push(await cropCanvas(p,box,w));if(tok!==drawTok2)return;}el.innerHTML="";cs.forEach(c=>el.appendChild(c));}
+async function drawInto2(el,segs){const tok=++drawTok2;const w=Math.max(260,el.clientWidth-24);const cs=[];for(const [p,box] of segs){cs.push(await cropCanvas(p,box,w));if(tok!==drawTok2)return;}el.innerHTML="";el.style.minHeight="";cs.forEach(c=>el.appendChild(c));}
 let resetArm=0;function confirmReset(){const b=$("reset");if(Date.now()-resetArm<4000){resetArm=0;return true;}resetArm=Date.now();b.textContent="Tap again to reset all answers";setTimeout(()=>{if($("reset"))$("reset").textContent="Reset all answers";},4000);return false;}
 let rz;addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{if(st.doc)renderQ();},250);});
 
