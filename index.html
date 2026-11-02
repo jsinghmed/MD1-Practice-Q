@@ -1587,7 +1587,7 @@ function thxPage(){
   const msg = !thxErr ? "" : missing ? `The study guide hasn't been uploaded yet.` : denied ? `This account isn't allowed to read the study guide yet. The database rules may not be published.` : `Couldn't load the study guide: ${esc(thxErr)}`;
   showPage(`<div class="page plexpage thxpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Thorax anatomy study guide</h2></div>`
     + (msg ? `<div class="thxmsg">${msg}${missing ? `<div style="margin-top:12px"><label class="btn primary">Upload the study guide file<input type="file" id="thxUp" accept=".json" hidden></label><div class="sub" style="margin-top:6px">Choose thorax-content.json. Only you and Daniel can read it once uploaded.</div></div>` : ""}</div>`
-           : `<iframe class="plexframe thxframe" src="thorax.html?v=2" title="Thorax anatomy study guide"></iframe>`) + `</div>`);
+           : `<iframe class="plexframe thxframe" src="thorax.html?v=3" title="Thorax anatomy study guide"></iframe>`) + `</div>`);
   const up = $("thxUp"); if (up) up.onchange = async ()=>{ const f = up.files[0]; if (!f) return;
     try { const C = JSON.parse(await f.text()); const db = firebase.firestore();
       for (const c of C) await db.collection("thorax").doc("ch"+c.n).set(c);
