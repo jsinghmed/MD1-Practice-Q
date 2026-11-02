@@ -1070,7 +1070,18 @@ const SECTIONS = [
   {course:"fbs", name:"FBS Embryology", all:"All FBS Embryology", prefix:"fe", topics:window.FBS_EMB_TOPICS, qs:window.FBS_EMB_QUESTIONS,
    extra:[{name:"Exam Points (red + exam questions)", f:q=>q.xp}]},
   {course:"fbs", name:"Anki Deck Practice Q's", all:"All Anki Deck Q's", prefix:"fa", topics:window.FBS_ANKI_TOPICS, qs:window.FBS_ANKI_QUESTIONS},
-  {course:"crs", name:"CRS Embryology", all:"All CRS Embryology", prefix:"ce", topics:window.CRS_EMB_TOPICS, qs:window.CRS_EMB_QUESTIONS}
+  {course:"crs", name:"CRS Embryology", all:"All CRS Embryology", prefix:"ce", topics:window.CRS_EMB_TOPICS, hideTopics:true, qs:window.CRS_EMB_QUESTIONS,
+   // Grouped by the CRS102 class schedule (Dr. Venkatesh's embryology lectures, in order)
+   extra:(()=>{ const NAS = q=>/nasal|paranasal|sinusitis/i.test(q.s);
+     const ANOM = /defect|\bASD\b|\bVSD\b|tetralogy|coarctation|patent|persistent|hernia|atresia|fistula|transposition|anomal|stenosis|ectopi|dextro|hypoplas|agenesis|cleft/i;
+     return [
+     {main:true, name:"Lecture 1 · Heart Tubes & Atrial Chambers", f:q=>["Heart Origin & Heart Tubes","Sinus Venosus & Heart Tube Fate","Atrial Septation & ASDs"].includes(q.t)},
+     {main:true, name:"Lecture 2 · Ventricles & Truncus Arteriosus (with anomalies)", f:q=>q.t==="Ventricles, Outflow & Tetralogy"},
+     {main:true, name:"Lecture 3 · Nasal Cavity & Paranasal Sinuses", f:NAS},
+     {main:true, name:"Lecture 4 · Fetal Circulation, Artery & Vein Development", f:q=>["Fetal Circulation & Birth","Arterial Arches & Arteries","Veins"].includes(q.t)},
+     {main:true, name:"Lecture 5 · Development of the Respiratory System", f:q=>q.t==="Respiratory Development" && !NAS(q)},
+     {main:true, name:"Lecture 6 · Formation of the Diaphragm", f:q=>q.t==="Body Cavities & Diaphragm"},
+     {main:true, name:"Lecture 7 · Congenital Anomalies (all lectures)", f:q=>ANOM.test(q.s+" "+(q.c?q.c[q.a]:""))}]; })()}
 ].concat((window.NBME_QUIZZES||[]).map(z=>({course:z.course, name:z.name, all:z.name, prefix:z.prefix, topics:[], qs:z.qs, nbme:true, subject:z.subject, note:z.note})))
  .filter(s=>s.qs && s.qs.length);
 
@@ -1080,8 +1091,8 @@ SECTIONS.forEach(sec=>{
   const qs = sec.qs.map((q,i)=>Object.assign({id:sec.prefix+(i+1), sec:sec.name, pfx:sec.prefix, num:i+1, course:co}, sec.nbme?{nbme:true}:{}, q));
   sec.items = qs; Q.push(...qs);
   STATIC.push({key:sec.prefix+":all", name:sec.all, sec:sec.name, pfx:sec.prefix, course:co, head:true, ids:qs.map(q=>q.id), kind:"static", nbme:!!sec.nbme});
-  sec.topics.forEach(t=>{ const ids=qs.filter(q=>q.t===t).map(q=>q.id); if(ids.length) STATIC.push({key:sec.prefix+":t:"+t, name:t, sec:sec.name, pfx:sec.prefix, course:co, ids, kind:"static"}); });
-  (sec.extra||[]).forEach(x=>{ const ids=qs.filter(x.f).map(q=>q.id); if(ids.length) STATIC.push({key:sec.prefix+":x:"+x.name, name:x.name, sec:sec.name, pfx:sec.prefix, course:co, ids, sub:true, kind:"static"}); });
+  if (!sec.hideTopics) sec.topics.forEach(t=>{ const ids=qs.filter(q=>q.t===t).map(q=>q.id); if(ids.length) STATIC.push({key:sec.prefix+":t:"+t, name:t, sec:sec.name, pfx:sec.prefix, course:co, ids, kind:"static"}); });
+  (sec.extra||[]).forEach(x=>{ const ids=qs.filter(x.f).map(q=>q.id); if(ids.length) STATIC.push({key:sec.prefix+":x:"+x.name, name:x.name, sec:sec.name, pfx:sec.prefix, course:co, ids, sub:!x.main, kind:"static"}); });
 });
 const COURSE_BY_ID = Object.fromEntries(COURSES.map(c=>[c.id,c]));
 // NBME-style quizzes live in their own bank (NBME dashboard): kept out of the course sections, counts, review lists and test builder.
@@ -1570,7 +1581,7 @@ function thxPage(){
   const msg = !thxErr ? "" : missing ? `The study guide hasn't been uploaded yet.` : denied ? `This account isn't allowed to read the study guide yet. The database rules may not be published.` : `Couldn't load the study guide: ${esc(thxErr)}`;
   showPage(`<div class="page plexpage thxpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Thorax anatomy study guide</h2></div>`
     + (msg ? `<div class="thxmsg">${msg}${missing ? `<div style="margin-top:12px"><label class="btn primary">Upload the study guide file<input type="file" id="thxUp" accept=".json" hidden></label><div class="sub" style="margin-top:6px">Choose thorax-content.json. Only you and Daniel can read it once uploaded.</div></div>` : ""}</div>`
-           : `<iframe class="plexframe thxframe" src="thorax.html?v=1" title="Thorax anatomy study guide"></iframe>`) + `</div>`);
+           : `<iframe class="plexframe thxframe" src="thorax.html?v=2" title="Thorax anatomy study guide"></iframe>`) + `</div>`);
   const up = $("thxUp"); if (up) up.onchange = async ()=>{ const f = up.files[0]; if (!f) return;
     try { const C = JSON.parse(await f.text()); const db = firebase.firestore();
       for (const c of C) await db.collection("thorax").doc("ch"+c.n).set(c);
