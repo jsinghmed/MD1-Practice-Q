@@ -77,7 +77,8 @@ h1{font-size:22px;margin:4px 0 2px}
   .qnav{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}.qnav button{flex:none}
 }
 .mobpdf{display:none;margin-bottom:12px}
-html.emb .app{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}html.emb .side{display:none}html.emb .mobpdf{display:block}
+@media (min-width:861px){html.emb .app{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}}html.emb .side{display:none}html.emb .mobpdf{display:block}
+@media (max-width:860px){.qcol{max-width:none}.card{width:100%}}
 .pdfline{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:13px;color:var(--muted)}.pdfline b{color:var(--text);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60%}
 .pdfline button{background:none;border:0;color:var(--teal);font-weight:600;padding:0}.mflt{display:none}
 </style></head>
