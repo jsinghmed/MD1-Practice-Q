@@ -76,9 +76,13 @@ h1{font-size:22px;margin:4px 0 2px}
   .mobpdf{display:block!important}.mflt{display:flex!important;margin-top:10px}
   .qnav{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}.qnav button{flex:none}
 }
-.mobpdf{display:none;margin-bottom:12px}.mflt{display:none}
+.mobpdf{display:none;margin-bottom:12px}
+html.emb .app{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}html.emb .side{display:none}html.emb .mobpdf{display:block}
+.pdfline{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:13px;color:var(--muted)}.pdfline b{color:var(--text);font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60%}
+.pdfline button{background:none;border:0;color:var(--teal);font-weight:600;padding:0}.mflt{display:none}
 </style></head>
 <body>
+<script>if(window.self!==window.top||/[?&]embed/.test(location.search))document.documentElement.classList.add("emb");</script>
 <div class="app">
   <aside class="side">
     <div class="pdfst" id="pdfst"></div>
@@ -103,7 +107,7 @@ const LET="abcdefghi", KEY="jj-ethics-v1";
 const $=id=>document.getElementById(id);
 let S={ans:{},notes:{},mark:{},cur:1,topic:"",flt:"all"};
 try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||"{}"));}catch(e){}
-const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}};
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}try{if(window.parent!==window)window.parent.postMessage({jjEth:"changed"},"*");}catch(e){}};
 const TOPICS=[...new Set(QS.map(q=>q.t))].sort();
 const st={sel:null,doc:null,name:"",page:1,warn:""};
 const isMob=()=>matchMedia("(max-width:860px)").matches;
@@ -174,7 +178,7 @@ function renderQ0(){const L=list(),q=byN(S.cur),A=S.ans[q.n],done=A!==undefined;
   $("qcol").innerHTML=`<div class="crumb">Ethics · ${esc(S.topic||"All Ethics")}${S.flt!=="all"?" · "+({todo:"Unanswered",missed:"Missed",marked:"Marked"})[S.flt]:""}</div><h1>Practice questions</h1>
   <select class="msel" id="msel" aria-label="Topic"><option value="">All Ethics (${QS.length})</option>${TOPICS.map(t=>`<option ${S.topic===t?"selected":""} value="${esc(t)}">${esc(t)} (${QS.filter(x=>x.t===t).length})</option>`).join("")}</select>
   <div class="flt mflt" id="mflt">${[["all","All"],["todo","Unanswered"],["missed","Missed"],["marked","Marked"]].map(([k,l])=>`<button class="${S.flt===k?"on":""}" data-f="${k}">${l}</button>`).join("")}</div>
-  <div class="mobpdf">${st.doc?"":`<button class="btn pri" id="mop" style="width:100%;margin-top:10px">Open my ethics PDF</button>`}</div>
+  <div class="mobpdf">${st.doc?`<div class="pdfline">📄 <b>${esc(st.name)}</b><button id="mop">Change PDF</button></div>${st.warn?`<div class="warn">${esc(st.warn)}</div>`:""}`:`<button class="btn pri" id="mop" style="width:100%;margin-top:10px">Open my ethics PDF</button>`}</div>
   <div class="qnav">${L.length?L.map(x=>{const a=S.ans[x.n];return `<button class="${x.n===q.n?"cur":""} ${a===undefined?"":isOk(x)?"ok":"no"} ${S.mark[x.n]?"mk":""}" data-j="${x.n}">${x.n}</button>`;}).join(""):`<span style="color:var(--muted);font-size:13px">No questions here yet.</span>`}</div>
   <div class="card"><div class="top"><span class="qn">Question ${q.n}</span><span class="tag">${esc(q.t)}</span><button class="mark ${S.mark[q.n]?"on":""}" id="mk">${S.mark[q.n]?"★ Marked":"☆ Mark"}</button></div>
    <div class="crop ${st.doc?"":"none"}" id="qimg">${st.doc?"":`Open your ethics PDF and the question appears here.<br><button class="btn pri" id="op1">Open my PDF</button>`}</div>
@@ -212,6 +216,9 @@ async function drawInto2(el,segs){const tok=++drawTok2;const w=Math.max(260,el.c
 let resetArm=0;function confirmReset(){const b=$("reset");if(Date.now()-resetArm<4000){resetArm=0;return true;}resetArm=Date.now();b.textContent="Tap again to reset all answers";setTimeout(()=>{if($("reset"))$("reset").textContent="Reset all answers";},4000);return false;}
 let rz;addEventListener("resize",()=>{clearTimeout(rz);rz=setTimeout(()=>{if(st.doc)renderQ();},250);});
 
+addEventListener("message",e=>{const m=e.data;if(!m||m.jjEth!=="set")return;
+  if(m.topic!==undefined)S.topic=m.topic;if(m.flt)S.flt=m.flt;const L=list();
+  if(m.n&&byN(m.n))S.cur=m.n;else if(L.length&&!L.some(q=>q.n===S.cur))S.cur=L[0].n;save();go(S.cur);});
 pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
 if(!byN(S.cur))S.cur=1;
 renderSide();renderQ();if(!isMob())showPage(1);
