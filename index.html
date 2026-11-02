@@ -245,6 +245,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 @media (max-width:760px){.vizm{padding:0}.vizm .box{border-radius:0;height:100%}.vizm .bar small{display:none}}
 .ethnote{margin:10px 14px;color:var(--muted);font-size:12.5px;line-height:1.45}
 .page.ethpage{max-width:none}.ethframe{height:calc(100vh - 120px)!important}
+.thxlock{font-size:11px}.page.thxpage{max-width:none}.thxframe{height:calc(100vh - 120px)!important}.thxmsg{border:1px solid var(--line2);border-radius:12px;padding:22px;background:var(--card);max-width:620px}
 .exp{margin-top:22px;border-top:1px solid var(--line);padding-top:20px}
 .verdict{font-weight:700;font-size:16px;margin-bottom:6px}
 .verdict.g{color:var(--green)} .verdict.r{color:var(--red)} .verdict.m{color:var(--muted)}
@@ -1534,6 +1535,51 @@ document.addEventListener("click", e=>{
   const t = e.target.closest && e.target.closest("[data-etht]"); if (t) { ethSet(t.dataset.etht, "all"); return; }
   const f = e.target.closest && e.target.closest("[data-ethf]"); if (f) { const E = ethState(); ethSet(E.topic||"", (E.flt===f.dataset.ethf) ? "all" : f.dataset.ethf); }
 });
+// ---- Restricted: Thorax anatomy study guide (CRS). Content lives in Firestore, readable only by the emails in the rules. ----
+const THX_USERS = ["jasjot.sayal@student.windsor.edu", "daniel.mandalaoui@student.windsor.edu"];
+const THX_TITLES = ["The Thorax: Thoracic Cage, Apertures, Sternum, Ribs and Vertebrae", "Intercostal Spaces", "Mediastinum", "The Heart and Coronary Circulation", "Pericardium", "Lungs and Pleura", "Trachea, Bronchi and Bronchioles", "Diaphragm", "Esophagus and Thoracic Duct", "Radiology of the Thorax", "Clinicals of the Thorax (Integrated Review)"];
+let thxAllowed = false, thxChapters = null, thxErr = "", thxCh = 1;
+function thxUser(){ try { return window.firebase && firebase.auth && firebase.auth().currentUser; } catch(e) { return null; } }
+(function thxWatch(){
+  if (!(window.firebase && firebase.apps && firebase.apps.length && firebase.auth)) { setTimeout(thxWatch, 500); return; }
+  firebase.auth().onAuthStateChanged(u=>{ const ok = !!(u && u.email && THX_USERS.includes(u.email.toLowerCase()));
+    if (ok !== thxAllowed) { thxAllowed = ok; thxChapters = null; if (!ok && view==="thorax") view = "home"; renderAll(); } });
+})();
+function thxState(){ try { return JSON.parse(localStorage.getItem("jj-thorax-v1")||"{}"); } catch(e) { return {}; } }
+function thxSide(){
+  if (!thxAllowed || S.course!=="crs") return "";
+  const E = thxState(), A = E.ans||{};
+  return `<div class="chap-h">THORAX STUDY GUIDE <span class="thxlock" title="Only visible to approved accounts">🔒</span></div><div class="sec open"><div class="sec-b">`
+    + THX_TITLES.map((t,i)=>{ const n=i+1, d=Object.keys(A[n]||{}).length;
+      return `<button class="chap ${view==="thorax"&&thxCh===n?"on":""}" data-thx="${n}"><span>${n}. ${esc(t)}</span><span class="n">${d}/10</span></button>`; }).join("") + `</div></div>`;
+}
+async function thxLoad(){
+  if (thxChapters) return thxChapters;
+  const db = firebase.firestore(), out = [];
+  for (let i=1; i<=THX_TITLES.length; i++) { const d = await db.collection("thorax").doc("ch"+i).get(); if (!d.exists) throw new Error("missing"); out.push(d.data()); }
+  return thxChapters = out;
+}
+function thxSend(){ const f = document.querySelector(".thxframe"); if (!f || !thxChapters) return;
+  f.contentWindow.postMessage({jjThx:"data", chapters:thxChapters}, "*"); f.contentWindow.postMessage({jjThx:"open", ch:thxCh}, "*"); }
+window.addEventListener("message", e=>{ const m = e.data; if (!m || !m.jjThx) return;
+  if (m.jjThx==="ready") { thxLoad().then(thxSend).catch(err=>{ thxErr = String(err&&err.message||err); thxPage(); }); }
+  if (m.jjThx==="changed" && S.course==="crs") renderChaps(); });
+function thxPage(){
+  if (!thxAllowed) { view = "home"; renderAll(); return; }
+  const missing = thxErr==="missing", denied = /permission/i.test(thxErr);
+  const msg = !thxErr ? "" : missing ? `The study guide hasn't been uploaded yet.` : denied ? `This account isn't allowed to read the study guide yet. The database rules may not be published.` : `Couldn't load the study guide: ${esc(thxErr)}`;
+  showPage(`<div class="page plexpage thxpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Thorax anatomy study guide</h2></div>`
+    + (msg ? `<div class="thxmsg">${msg}${missing ? `<div style="margin-top:12px"><label class="btn primary">Upload the study guide file<input type="file" id="thxUp" accept=".json" hidden></label><div class="sub" style="margin-top:6px">Choose thorax-content.json. Only you and Daniel can read it once uploaded.</div></div>` : ""}</div>`
+           : `<iframe class="plexframe thxframe" src="thorax.html?v=1" title="Thorax anatomy study guide"></iframe>`) + `</div>`);
+  const up = $("thxUp"); if (up) up.onchange = async ()=>{ const f = up.files[0]; if (!f) return;
+    try { const C = JSON.parse(await f.text()); const db = firebase.firestore();
+      for (const c of C) await db.collection("thorax").doc("ch"+c.n).set(c);
+      thxErr = ""; thxChapters = null; thxPage(); } catch(e) { thxErr = "Upload failed: " + (e.message||e); thxPage(); } };
+}
+document.addEventListener("click", e=>{ const b = e.target.closest && e.target.closest("[data-thx]"); if (!b) return;
+  thxCh = +b.dataset.thx; $("side").classList.remove("open");
+  if (view==="thorax" && document.querySelector(".thxframe")) { document.querySelector(".thxframe").contentWindow.postMessage({jjThx:"open", ch:thxCh, tab:"guide"}, "*"); renderChaps(); }
+  else { view = "thorax"; thxErr = ""; renderAll(); } });
 function renderChaps(){
   const allQ = courseQ(), notesN = allQ.filter(q=>S.notes[q.id] && S.notes[q.id].trim()).length;
   const ETH = S.course==="eth", hid = ETH ? ' style="display:none"' : '';
@@ -1572,6 +1618,7 @@ function renderChaps(){
     if (open) h += `<div class="secbar"><i style="width:${Math.round(st.done*100/st.n)}%"></i></div><div class="sec-b">` + rvChips(sec.prefix) + STATIC.filter(c=>c.pfx===sec.prefix).map(chapBtn).join("") + `</div>`;
     h += `</div>`;
   });
+  h += thxSide();
   $("chaps").innerHTML = h;
   $("ctabs").innerHTML = COURSES.map(c=>`<button class="ctab ${c.id===S.course?"on":""}" data-course="${c.id}" title="${esc(c.full)}">${esc(c.name)}<small>${c.count ? c.count+" Qs" : c.items.length ? c.items.length+" Qs" : "empty"}</small></button>`).join("");
   $("brandTitle").textContent = course().name + " Summative";
@@ -2729,7 +2776,8 @@ function renderAll(){
   else if (view==="pvl") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Cardiac cycle & PV loop</h2><a class="btn" href="cardiac-cycle.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="cardiac-cycle.html?v=1" title="Interactive cardiac cycle and pressure-volume loop simulator"></iframe></div>`);
   else if (view==="limb3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>3D upper limb atlas</h2><a class="btn" href="upper-limb-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="upper-limb-3d.html?v=1" title="Interactive 3D upper limb atlas"></iframe></div>`);
   else if (view==="leg3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>3D lower limb atlas</h2><a class="btn" href="lower-limb-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="lower-limb-3d.html?v=1" title="Interactive 3D lower limb atlas"></iframe></div>`);
-  else if (view==="ethics") showPage(`<div class="page plexpage ethpage"><div class="plextop"><h2>Medical Ethics</h2><a class="btn" href="ethics.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe ethframe" src="ethics.html?v=2" title="Ethics practice questions"></iframe></div>`);
+  else if (view==="thorax") thxPage();
+  else if (view==="ethics") showPage(`<div class="page plexpage ethpage"><div class="plextop"><h2>Medical Ethics</h2><a class="btn" href="ethics.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe ethframe" src="ethics.html?v=3" title="Ethics practice questions"></iframe></div>`);
   else if (view==="guides") renderGuides();
   else if (view==="guide") renderGuideView();
   else if (view==="anki") showPage(`<div class="page dash"><div class="dtop"><div><h2>Anki export</h2><p class="sub">Questions you've added as Anki cards, ready to download</p></div></div>${ankiHomeBox().replace('<div class="h3">Anki export</div>','') || `<div class="emptybox"><h3>No Anki cards yet</h3><p>Add questions to your Anki list while you study, and they'll collect here for download.</p></div>`}</div>`);
