@@ -1,0 +1,317 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Thoracic Cage 3D · JJ QBank</title>
+<script>function jjTheme(){try{var th=localStorage.getItem("msk-theme");document.documentElement.setAttribute("data-theme",th==="light"?"light":"dark");}catch(e){}}jjTheme();window.addEventListener("storage",function(e){if(e.key==="msk-theme")jjTheme();});window.addEventListener("message",function(e){if(e.data==="jj-theme")jjTheme();});</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#e7ecee;--panel:#f7f9f9;--ink:#1b2427;--muted:#56666b;--line:#cfd8db;--accent:#1d6c75;--accent-ink:#fff;--scene:#cfd8dc;--chip:#e9eff0;
+ --ok:#2b8a3e;--bad:#c92a2a;--f-display:"Spectral",Georgia,serif;--f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1517;--panel:#161e21;--ink:#e2eaec;--muted:#93a4a9;--line:#283437;--accent:#62bcc4;--accent-ink:#0b1416;--scene:#0c1214;--chip:#1d272a;--ok:#51cf66;--bad:#ff6b6b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1517;--panel:#161e21;--ink:#e2eaec;--muted:#93a4a9;--line:#283437;--accent:#62bcc4;--accent-ink:#0b1416;--scene:#0c1214;--chip:#1d272a;--ok:#51cf66;--bad:#ff6b6b;color-scheme:dark}
+*{box-sizing:border-box}[hidden]{display:none!important}html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45}
+.app{height:100%;display:grid;grid-template-columns:340px minmax(0,1fr);gap:14px;padding:12px max(16px,env(safe-area-inset-right,0px)) 12px max(16px,env(safe-area-inset-left,0px))}
+.side{min-width:0;overflow:auto;display:flex;flex-direction:column;gap:12px;padding-right:2px}
+.stage{position:relative;min-width:0;min-height:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--scene)}
+#cv{display:block;width:100%;height:100%;touch-action:none;cursor:grab}#cv:active{cursor:grabbing}
+header h1{font-family:var(--f-display);font-weight:600;font-size:26px;line-height:1.1;margin:0;letter-spacing:-.01em}
+header p{margin:4px 0 0;font-family:var(--f-mono);font-size:11.5px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px}
+.label{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+#info .kind{display:flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+#info h2{font-family:var(--f-display);font-weight:600;font-size:22px;line-height:1.15;margin:6px 0 10px}
+#info ul{margin:0;padding-left:18px}#info li{margin:3px 0}
+#info .note{margin:12px 0 0;padding:9px 11px;border-left:3px solid var(--accent);background:var(--chip);border-radius:0 6px 6px 0;font-size:13px}
+#info .note b{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:2px;font-weight:500}
+.dot{width:10px;height:10px;border-radius:50%;flex:none;display:inline-block}
+button{font:inherit;font-size:12.5px;border:1px solid var(--line);background:var(--chip);color:var(--ink);border-radius:6px;padding:6px 10px;cursor:pointer}
+button:hover{border-color:var(--accent)}button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.row{display:flex;gap:6px;flex-wrap:wrap}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:6px}.grid2 button{text-align:left;display:flex;align-items:center;gap:8px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;font-size:12.5px;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:6px}
+.slider{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;margin-top:10px;font-size:12.5px}
+.slider input{width:100%;accent-color:var(--accent)}
+.views{position:absolute;top:10px;left:10px;display:flex;gap:6px;flex-wrap:wrap;max-width:calc(100% - 20px)}
+.views button{background:color-mix(in srgb,var(--panel) 88%,transparent);backdrop-filter:blur(4px);font-size:12px;padding:5px 9px}
+.hint{position:absolute;bottom:10px;left:10px;right:10px;font-size:12px;color:var(--muted);pointer-events:none;text-align:center}
+#tags{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.tag{position:absolute;transform:translate(-50%,-50%);font-family:var(--f-mono);font-size:11px;padding:2px 6px;border-radius:4px;background:color-mix(in srgb,var(--panel) 85%,transparent);border:1px solid var(--line);white-space:nowrap;color:var(--ink)}
+.tag.lm{border-color:var(--accent);color:var(--accent)}
+#quiz .q{font-size:15px;font-weight:600;margin:4px 0 8px}#quiz .fb{font-size:13px;min-height:20px}#quiz .fb.ok{color:var(--ok)}#quiz .fb.bad{color:var(--bad)}
+#quiz .score{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.van{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin-top:8px;font-size:12.5px}.van b{font-family:var(--f-mono);font-weight:500;color:var(--accent)}
+@media (max-width:820px){.app{grid-template-columns:1fr;grid-template-rows:58vh auto;height:auto;min-height:100%}.stage{order:-1;min-height:58vh}.side{overflow:visible}}
+</style></head><body>
+<div class="app">
+<aside class="side">
+ <header><h1>Thoracic Cage</h1><p>Sternum · ribs · costal cartilages · thoracic vertebrae</p></header>
+ <section class="card" id="info" aria-live="polite"></section>
+ <section class="card"><p class="label">Colour the ribs by</p>
+  <div class="row" id="colorBy"><button data-c="type" aria-pressed="true">True / false / floating</button><button data-c="typical" aria-pressed="false">Typical / atypical</button><button data-c="plain" aria-pressed="false">Plain bone</button></div>
+  <div class="legend" id="legend"></div></section>
+ <section class="card"><p class="label">Show</p>
+  <div class="grid2" id="toggles">
+   <button data-t="labels" aria-pressed="true">Labels</button>
+   <button data-t="planes" aria-pressed="false">Sternal levels</button>
+   <button data-t="apertures" aria-pressed="false">Apertures</button>
+   <button data-t="clavicles" aria-pressed="true">Clavicles</button>
+   <button data-t="spine" aria-pressed="false">Vertebral levels</button>
+   <button data-t="space" aria-pressed="false">Intercostal space</button>
+  </div>
+  <div class="slider" id="spaceRow" hidden><span>Space</span><input type="range" min="1" max="11" value="4" id="spaceN" aria-label="Intercostal space number"><b id="spaceLbl">4th</b></div>
+  <div id="spaceInfo" hidden class="van"><b>Named</b><span id="spaceName"></span><b>Bundle</b><span>Vein, Artery, Nerve (VAN) top to bottom, in the costal groove of the rib above</span><b>Needle</b><span>Just above the upper border of the rib below</span><b>Layers</b><span>External, internal, innermost intercostals; bundle between internal and innermost</span></div>
+ </section>
+ <section class="card" id="quiz"><p class="label">Quiz yourself</p>
+  <div id="qIdle"><p style="margin:0 0 10px;font-size:13px">Click the structure the question names. 12 questions, new order each time.</p><button id="qStart">Start quiz</button></div>
+  <div id="qRun" hidden><div class="score" id="qScore"></div><div class="q" id="qText"></div><div class="fb" id="qFb"></div><div class="row" style="margin-top:8px"><button id="qSkip">Show me</button><button id="qStop">End quiz</button></div></div>
+ </section>
+</aside>
+<main class="stage">
+ <canvas id="cv" aria-label="Interactive 3D thoracic cage"></canvas>
+ <div id="tags"></div>
+ <div class="views" id="views"></div>
+ <div class="hint" id="hint">Drag to rotate · scroll or pinch to zoom · click any bone</div>
+</main>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+// ---------- geometry constants (y up, z anterior, patient's right = -x) ----------
+const yv=k=>9-(k-1)*1.6;                       // body centre of Tk
+const zv=k=>-3.2-0.55*Math.sin(Math.PI*(k-1)/11); // kyphosis
+const yDisc=k=>yv(k)-0.8;                      // disc below Tk
+const Y={notch:yDisc(2), angle:yDisc(4), xs:yv(9), xtip:yv(10)-0.2};
+const zs=y=>3.0+(Y.notch-y)*0.115;             // sternum front plane
+const W=[0,3.1,4.6,5.6,6.3,6.8,7.1,7.3,7.3,7.1,6.8,6.1,5.0];
+const attachY=[0,Y.notch-1.0,Y.angle,2.2,0.9,-0.55,-2.05,-3.6];
+const endX=[0,2.1,2.9,3.4,3.85,4.25,4.65,5.05,5.6,6.0,6.15,5.9,4.6];
+const endY=[0,5.5,3.75,2.35,0.95,-0.65,-2.3,-3.95,-5.35,-6.55,-7.55,-8.5,-9.6];
+const endZ=[0,2.15,2.55,2.75,2.9,3.0,3.05,3.05,2.9,2.45,1.9,0.5,-1.6];
+const TRUE=n=>n<=7, FALSE=n=>n>=8&&n<=10, FLOAT=n=>n>=11;
+const TYPICAL=n=>n>=3&&n<=9;
+const ord=n=>n+(n===1?"st":n===2?"nd":n===3?"rd":"th");
+
+// ---------- scene ----------
+const canvas=$("cv");
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,preserveDrawingBuffer:true});
+renderer.setPixelRatio(Math.min(2,window.devicePixelRatio||1));
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(35,1,0.1,400);
+const controls=new THREE.OrbitControls(camera,canvas);controls.enableDamping=true;controls.dampingFactor=0.12;controls.minDistance=10;controls.maxDistance=90;controls.target.set(0,0,0.3);
+scene.add(new THREE.HemisphereLight(0xffffff,0x3a3330,0.75));
+const key=new THREE.DirectionalLight(0xffffff,0.8);key.position.set(8,12,16);scene.add(key);
+const rim=new THREE.DirectionalLight(0xe6eeff,0.35);rim.position.set(-10,-4,-14);scene.add(rim);
+
+const COL={bone:0xe3d5b3,cart:0x9fc3d6,trueR:0xe3d5b3,falseR:0xe0a85a,floatR:0x52b7ae,typ:0xe3d5b3,atyp:0xc77dce,disc:0x7d9fb0,clav:0xcfc3a6,sel:0x4fd1c5};
+const pickables=[];const parts={};
+function mat(c){return new THREE.MeshStandardMaterial({color:c,roughness:.62,metalness:0.02});}
+function addPart(id,mesh,info){mesh.userData.id=id;mesh.userData.base=mesh.material.color.getHex();scene.add(mesh);pickables.push(mesh);(parts[id]=parts[id]||{meshes:[],info}).meshes.push(mesh);return mesh;}
+function tube(points,r,c,closed){const curve=new THREE.CatmullRomCurve3(points,!!closed,"centripetal");return {mesh:new THREE.Mesh(new THREE.TubeGeometry(curve,Math.max(24,points.length*14),r,10,!!closed),mat(c)),curve};}
+function boxBetween(a,b,w,d,c){const dir=new THREE.Vector3().subVectors(b,a);const len=dir.length();const g=new THREE.BoxGeometry(w,len,d);const m=new THREE.Mesh(g,mat(c));m.position.copy(a).addScaledVector(dir,.5);m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),dir.normalize());return m;}
+
+// ---------- info text ----------
+const INFO={
+ manubrium:{kind:"Sternum",name:"Manubrium",pts:["Top part of the sternum, opposite T3–T4","Jugular (suprasternal) notch on its upper border, at the T2/T3 disc","Joins the clavicles and the 1st costal cartilages; half of the 2nd cartilage joins at the sternal angle"],note:["Clinical","Forms the front of the superior thoracic aperture."]},
+ angle:{kind:"Joint · landmark",name:"Sternal angle (of Louis)",pts:["Manubriosternal joint, a palpable ridge","2nd costal cartilage joins here: slide sideways to rib 2 and count down","Plane passes back to the T4/T5 disc"],note:["At this level","Aortic arch begins and ends · trachea bifurcates · superior/inferior mediastinum divide · azygos arches into the SVC · pulmonary trunk divides just below."]},
+ body:{kind:"Sternum",name:"Body of the sternum",pts:["Long middle part, opposite T5–T9","Costal cartilages of ribs 2–7 join its sides","Lower end meets the xiphoid at the xiphisternal joint (T9)"],note:["Clinical","Median sternotomy splits it to reach the mediastinum (e.g. coronary bypass)."]},
+ xiphoid:{kind:"Sternum",name:"Xiphoid process",pts:["Small lower tip; starts as cartilage, fuses with the body after about 40","Linea alba attaches to its lower end","Xiphisternal joint lies at T9"],note:["Clinical","Heimlich: fist just below it. Subxiphoid route for pericardiocentesis."]},
+ clavicle:{kind:"Shoulder girdle",name:"Clavicle",pts:["Not part of the thoracic cage, shown for orientation","Shields the 1st rib, which is why rib 1 rarely breaks"],note:["Clinical","Costoclavicular syndrome: subclavian artery and brachial plexus squeezed between the 1st rib and clavicle (weaker radial pulse with shoulders pulled back and down)."]},
+ margin:{kind:"Landmark",name:"Costal margin",pts:["Joined costal cartilages of ribs 7–10","Forms part of the inferior thoracic aperture"],note:["Remember","Ribs 8–10 reach the sternum only through the cartilage above them."]}
+};
+function ribInfo(n,side){const t=TRUE(n)?"True rib (vertebrosternal)":FALSE(n)?"False rib (vertebrochondral)":"Floating rib";
+ const pts=[];
+ if(n===1)pts.push("Broadest, shortest, most curved; flat with upper and lower surfaces","Head has one facet (T1); tubercle and angle coincide","Upper surface: groove for subclavian vein (front) and artery (behind), separated by the scalene tubercle");
+ else if(n===2)pts.push("Atypical: thinner and longer than rib 1","Tuberosity for serratus anterior on its upper surface","Its cartilage joins at the sternal angle: start counting ribs here");
+ else if(n===10)pts.push("Atypical: head has a single facet (T10)","Cartilage joins the 9th cartilage (false rib)");
+ else if(n>=11)pts.push("Atypical: single head facet, no neck, no tubercle","Short; ends in the abdominal wall muscles");
+ else pts.push("Typical rib: head with two facets (own vertebra T"+n+" and T"+(n-1)+" above)","Tubercle joins the transverse process of T"+n,"Angle just past the tubercle is the weakest point","Costal groove on the inner lower border shelters VAN");
+ if(TRUE(n))pts.push("Cartilage joins the sternum directly");else if(FALSE(n))pts.push("Cartilage joins the cartilage above");
+ let note=null;
+ if(n===1)note=["Clinical","Protected by the clavicle. A cervical rib (on C7) can press on the lower trunk (C8, T1) and subclavian artery."];
+ else if(n>=8&&n<=10)note=["Clinical","Slipping rib syndrome: dislocation at the sternocostal/interchondral joints, usually ribs 8–10."];
+ else if(n>=3&&n<=9)note=["Clinical","Fractures usually occur just in front of the angle; middle ribs break most. Several ribs broken in two places → flail chest (paradoxical movement)."];
+ else if(n>=11)note=["Clinical","Mobile, so rarely broken. A broken lower rib can injure the spleen or liver."];
+ return {kind:t+(TYPICAL(n)?" · typical":" · atypical"),name:(side<0?"Right ":"Left ")+ord(n)+" rib",pts,note};}
+function cartInfo(n,side){return {kind:"Costal cartilage",name:(side<0?"Right ":"Left ")+ord(n)+" costal cartilage",pts:["Hyaline cartilage continuing the rib forward",TRUE(n)?(n===1?"Joins the manubrium":n===2?"Joins the sternum at the sternal angle":"Joins the side of the sternal body"):"Joins the cartilage above (ribs 8–10)",n>=7?"Part of the costal margin":"Gives the cage its elasticity for breathing"],note:["Clinical","Rib separation is dislocation at the costochondral junction, between the rib and this cartilage."]};}
+const LEVEL={2:"Jugular notch at the T2/T3 disc",3:"Root of the scapular spine",4:"Sternal angle at the T4/T5 disc",7:"Inferior angle of the scapula",8:"Caval opening (IVC) of the diaphragm",9:"Xiphisternal joint",10:"Esophageal opening of the diaphragm",12:"Aortic opening of the diaphragm"};
+function vertInfo(k){const pts=["Heart-shaped body with costal facets for the rib heads","Long spinous process slanting steeply downward"];
+ pts.push(k>=11?"Transverse process usually has no facet for a rib tubercle":"Transverse process has a facet for the tubercle of rib "+k);
+ if(k===1)pts.push("Forms the back of the superior thoracic aperture");if(k===12)pts.push("Forms the back of the inferior thoracic aperture");
+ return {kind:"Thoracic vertebra",name:"T"+k,pts,note:LEVEL[k]?["Level marker",LEVEL[k]]:null};}
+
+// ---------- build: vertebrae ----------
+for(let k=1;k<=12;k++){
+ const r=0.62+0.035*k, y=yv(k), z=zv(k);
+ const g=new THREE.Group();
+ const body=new THREE.Mesh(new THREE.CylinderGeometry(r,r*1.04,1.12,20),mat(COL.bone));body.position.set(0,y,z);addPart("T"+k,body,vertInfo(k));
+ const arch=new THREE.Mesh(new THREE.TorusGeometry(r*0.78,0.17,8,18,Math.PI),mat(COL.bone));arch.rotation.x=Math.PI/2;arch.rotation.z=Math.PI;arch.position.set(0,y+0.05,z-r*0.95);addPart("T"+k,arch);
+ const spT=new THREE.Vector3(0,y+0.1,z-r*1.7), spE=new THREE.Vector3(0,y-0.9-0.03*k,z-r*1.7-1.9);
+ addPart("T"+k,boxBetween(spT,spE,0.22,0.42,COL.bone));
+ for(const s of [-1,1]){const tl=k>=11?1.15:1.75;addPart("T"+k,boxBetween(new THREE.Vector3(s*0.45,y+0.15,z-r*1.15),new THREE.Vector3(s*tl,y+0.1,z-0.75-r*0.9),0.32,0.32,COL.bone));}
+ if(k<12){const d=new THREE.Mesh(new THREE.CylinderGeometry(r*1.02,r*1.02,0.42,20),mat(COL.disc));d.position.set(0,yDisc(k),(zv(k)+zv(k+1))/2);addPart(k===4?"disc45":"disc"+k,d,{kind:"Intervertebral disc",name:"T"+k+"/T"+(k+1)+" disc",pts:k===4?["Level of the sternal angle","Rib heads also articulate across the disc above them"]:k===2?["Level of the jugular notch"]:["Rib heads articulate with the disc above their own vertebra"],note:k===4?["Transverse thoracic plane","Divides superior from inferior mediastinum."]:null});}
+}
+// ---------- sternum ----------
+const sP=y=>new THREE.Vector3(0,y,zs(y));
+addPart("manubrium",boxBetween(sP(Y.angle),sP(Y.notch),2.5,0.55,COL.bone),INFO.manubrium);
+const notchCap=new THREE.Mesh(new THREE.BoxGeometry(2.9,0.5,0.55),mat(COL.bone));notchCap.position.copy(sP(Y.notch-0.15));addPart("manubrium",notchCap);
+addPart("body",boxBetween(sP(Y.xs),sP(Y.angle-0.12),1.9,0.5,COL.bone),INFO.body);
+const angleM=new THREE.Mesh(new THREE.CylinderGeometry(0.2,0.2,2.3,12),mat(0xd4bf8e));angleM.rotation.z=Math.PI/2;angleM.position.copy(sP(Y.angle)).add(new THREE.Vector3(0,0,0.18));addPart("angle",angleM,INFO.angle);
+addPart("xiphoid",boxBetween(sP(Y.xtip),sP(Y.xs-0.05),0.9,0.3,COL.bone),INFO.xiphoid);
+// ---------- ribs + cartilages ----------
+const ribCurve={}, cartCurve={};
+function ribPoints(n,s){
+ const yh=yv(n)+0.3, z0=zv(n), drop=yh-endY[n], w=W[n];
+ const P=[[0.72,yh,z0+0.25],[1.65,yh-0.06,z0-0.72],[0.47*w,yh-0.28,z0-1.25],[0.86*w,yh-0.42-0.14*drop,z0*0.5-0.65]];
+ if(n===12){P.push([endX[n],endY[n],endZ[n]]);}
+ else if(n===11){P.push([0.99*w,yh-0.6*drop,-0.6],[endX[n],endY[n],endZ[n]]);}
+ else{P.push([w,yh-0.45*drop,0.55],[0.5*(w+endX[n])+0.45,yh-0.78*drop,0.5*endZ[n]+1.15],[endX[n],endY[n],endZ[n]]);}
+ if(n===1){P.splice(2,2,[0.62*w,yh-0.25,z0-0.75],[0.98*w,yh-1.2,-0.4]);}
+ return P.map(p=>new THREE.Vector3(s*p[0],p[1],p[2]));}
+for(const s of [-1,1]){
+ for(let n=1;n<=12;n++){
+  const {mesh,curve}=tube(ribPoints(n,s),n===1?0.27:n>=11?0.18:0.21,COL.bone);ribCurve[n+"_"+s]=curve;
+  addPart("rib"+n+(s<0?"R":"L"),mesh,ribInfo(n,s));mesh.userData.rib=n;
+ }
+ for(let n=1;n<=10;n++){
+  const a=new THREE.Vector3(s*endX[n],endY[n],endZ[n]);let pts;
+  if(n<=7){const sy=attachY[n], half=n===1?1.25:n===2?1.12:0.95, b=new THREE.Vector3(s*half,sy,zs(sy)-0.02);
+   const m=new THREE.Vector3().lerpVectors(a,b,.5);m.z+=0.25;m.y+= n>=5?0.15:0;pts=[a,m,b];}
+  else{const prev=cartCurve[(n-1)+"_"+s];const b=prev.getPoint(n===8?0.55:0.45);const m=new THREE.Vector3().lerpVectors(a,b,.5);m.z+=0.2;pts=[a,m,b];}
+  const {mesh,curve}=tube(pts,n===1?0.26:0.2,COL.cart);cartCurve[n+"_"+s]=curve;addPart("cart"+n+(s<0?"R":"L"),mesh,cartInfo(n,s));mesh.userData.cart=n;
+ }
+ for(const n of [11,12]){const tip=ribCurve[n+"_"+s].getPoint(1);const m=new THREE.Mesh(new THREE.SphereGeometry(0.17,10,8),mat(COL.cart));m.position.copy(tip);addPart("rib"+n+(s<0?"R":"L"),m);}
+ // clavicle
+ const {mesh:cl}=tube([[1.35,Y.notch+0.15,2.75],[3.2,Y.notch+0.75,2.9],[5.4,Y.notch+0.95,1.6],[7.4,Y.notch+1.55,0.1]].map(p=>new THREE.Vector3(s*p[0],p[1],p[2])),0.3,COL.clav);
+ addPart("clav"+(s<0?"R":"L"),cl,INFO.clavicle);cl.userData.clav=1;
+}
+// costal margin helper (for quiz/selection highlight only)
+parts.margin={meshes:[],info:INFO.margin};
+for(const s of [-1,1])for(const n of [7,8,9,10])parts.margin.meshes.push(...parts["cart"+n+(s<0?"R":"L")].meshes);
+
+// ---------- overlays ----------
+const overlay=new THREE.Group();scene.add(overlay);
+function planeAt(y,label){const g=new THREE.PlaneGeometry(18,13);const m=new THREE.Mesh(g,new THREE.MeshBasicMaterial({color:0x62bcc4,transparent:true,opacity:.13,side:THREE.DoubleSide,depthWrite:false}));m.rotation.x=-Math.PI/2;m.position.set(0,y,0.3);m.userData.label=label;return m;}
+const planes=new THREE.Group();planes.add(planeAt(Y.notch,"Jugular notch · T2/T3"),planeAt(Y.angle,"Sternal angle · T4/T5"),planeAt(Y.xs,"Xiphisternal joint · T9"));planes.visible=false;overlay.add(planes);
+function loop(pts,c){const g=new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts,true,"centripetal"),220,0.09,6,true);return new THREE.Mesh(g,new THREE.MeshBasicMaterial({color:c}));}
+const aps=new THREE.Group();aps.visible=false;overlay.add(aps);
+{const sup=[sP(Y.notch+0.1)];for(let t=0.05;t<=1;t+=0.12)sup.push(cartCurve["1_1"].getPoint(1-t));for(let t=0;t<=1;t+=0.12)sup.push(ribCurve["1_1"].getPoint(1-t));sup.push(new THREE.Vector3(0,yv(1)+0.6,zv(1)+0.6));for(let t=0;t<=1;t+=0.12)sup.push(ribCurve["1_-1"].getPoint(t));for(let t=0;t<=0.95;t+=0.12)sup.push(cartCurve["1_-1"].getPoint(t));
+ const L1=loop(sup,0xf0c419);L1.userData.label="Superior thoracic aperture";aps.add(L1);
+ const inf=[sP(Y.xs)];for(const s of [1]){for(const n of [7,8,9,10]){const c=cartCurve[n+"_"+s];inf.push(c.getPoint(n===7?0.8:0.3));}inf.push(ribCurve["11_1"].getPoint(1),ribCurve["12_1"].getPoint(1),ribCurve["12_1"].getPoint(.45));}
+ inf.push(new THREE.Vector3(0,yv(12)-0.3,zv(12)+0.6));
+ for(const s of [-1]){inf.push(ribCurve["12_-1"].getPoint(.45),ribCurve["12_-1"].getPoint(1),ribCurve["11_-1"].getPoint(1));for(const n of [10,9,8,7]){const c=cartCurve[n+"_"+s];inf.push(c.getPoint(n===7?0.8:0.3));}}
+ const L2=loop(inf,0xff8a65);L2.userData.label="Inferior thoracic aperture";aps.add(L2);}
+const spaceMesh=new THREE.Mesh(new THREE.BufferGeometry(),new THREE.MeshBasicMaterial({color:0xf0c419,transparent:true,opacity:.42,side:THREE.DoubleSide,depthWrite:false}));spaceMesh.visible=false;scene.add(spaceMesh);
+function buildSpace(n){const pos=[],idx=[];const N=40;
+ for(const s of [-1,1]){const a=ribCurve[n+"_"+s],b=ribCurve[(n+1)+"_"+s];const base=pos.length/3;
+  const ta=n+1>=11?0.98:1, tb=n+1>=11?1:1;
+  for(let i=0;i<=N;i++){const t=0.12+0.88*i/N;const p=a.getPoint(Math.min(1,t*ta)),q=b.getPoint(Math.min(1,t*tb));const pa=p.clone().lerp(q,0.12),qb=p.clone().lerp(q,0.88);pos.push(pa.x,pa.y,pa.z,qb.x,qb.y,qb.z);
+   if(i<N){const k=base+i*2;idx.push(k,k+1,k+2,k+1,k+3,k+2);}}}
+ const g=new THREE.BufferGeometry();g.setAttribute("position",new THREE.Float32BufferAttribute(pos,3));g.setIndex(idx);spaceMesh.geometry.dispose();spaceMesh.geometry=g;}
+const spineMarks=new THREE.Group();spineMarks.visible=false;scene.add(spineMarks);
+for(const k of [2,3,4,7,8,9,10,12]){const m=new THREE.Mesh(new THREE.SphereGeometry(0.16,10,8),new THREE.MeshBasicMaterial({color:0x62bcc4}));m.position.set(-1.6,k===2?yDisc(2):k===4?yDisc(4):yv(k),zv(k));m.userData.label="T"+(k===2?"2/3":k===4?"4/5":k)+" · "+LEVEL[k].replace(/ at the.*| of the diaphragm/,"");spineMarks.add(m);}
+
+// ---------- labels ----------
+const tagsEl=$("tags");const TAGS=[];
+function tagAt(text,getPos,cls){const el=document.createElement("div");el.className="tag"+(cls?" "+cls:"");el.textContent=text;tagsEl.appendChild(el);TAGS.push({el,getPos,cls});}
+const st={labels:true,planes:false,apertures:false,clavicles:true,spine:false,space:false,color:"type",sel:null,quiz:null};
+tagAt("Manubrium",()=>sP((Y.notch+Y.angle)/2).add(new THREE.Vector3(0,0,0.5)));
+tagAt("Sternal angle",()=>sP(Y.angle).add(new THREE.Vector3(2.1,0,0.4)));
+tagAt("Body of sternum",()=>sP(0).add(new THREE.Vector3(0,0,0.5)));
+tagAt("Xiphoid",()=>sP(Y.xtip+0.3).add(new THREE.Vector3(0,0,0.4)));
+for(const n of [1,2,7,10,11,12])tagAt("Rib "+n,()=>ribCurve[n+"_-1"].getPoint(n>=11?0.85:0.62).add(new THREE.Vector3(-0.6,0,0.3)));
+tagAt("Costal margin",()=>cartCurve["9_1"].getPoint(.4).add(new THREE.Vector3(1.1,-0.3,0.4)));
+tagAt("T1",()=>new THREE.Vector3(1.6,yv(1)+0.4,zv(1)));tagAt("T12",()=>new THREE.Vector3(1.4,yv(12),zv(12)));
+for(const p of planes.children)tagAt(p.userData.label,()=>new THREE.Vector3(7.8,p.position.y,3.2),"lm planes");
+for(const l of aps.children)tagAt(l.userData.label,()=>l.userData.label.startsWith("Sup")?new THREE.Vector3(0,yv(1)+1.4,1.2):new THREE.Vector3(0,-9.9,2.6),"lm apertures");
+for(const m of spineMarks.children)tagAt(m.userData.label,()=>m.position.clone().add(new THREE.Vector3(-3.4,0,0)),"lm spine");
+const vtmp=new THREE.Vector3();
+function placeTags(){const r=canvas.getBoundingClientRect();for(const t of TAGS){
+ const grp=t.cls?t.cls.split(" ")[1]:"labels";const on=grp==="labels"?st.labels:st[grp];
+ if(!on){t.el.style.display="none";continue;}vtmp.copy(t.getPos()).project(camera);
+ if(vtmp.z>1){t.el.style.display="none";continue;}t.el.style.display="";t.el.style.left=((vtmp.x+1)/2*r.width)+"px";t.el.style.top=((1-vtmp.y)/2*r.height)+"px";}}
+
+// ---------- colouring & selection ----------
+function baseColor(m){const id=m.userData.id;
+ if(m.userData.rib){const n=m.userData.rib;if(st.color==="type")return TRUE(n)?COL.trueR:FALSE(n)?COL.falseR:COL.floatR;if(st.color==="typical")return TYPICAL(n)?COL.typ:COL.atyp;return COL.bone;}
+ if(m.userData.cart)return COL.cart;if(m.userData.clav)return COL.clav;if(id.startsWith("disc"))return COL.disc;if(id==="angle")return 0xd4bf8e;return COL.bone;}
+function recolor(){const selMeshes=st.sel&&parts[st.sel]?parts[st.sel].meshes:[];
+ for(const m of pickables){const on=selMeshes.includes(m);m.material.color.setHex(on?COL.sel:baseColor(m));m.material.emissive.setHex(on?0x0b3a36:0x000000);}
+ const lg=$("legend");const sw=(c,t)=>`<span><i class="dot" style="background:#${c.toString(16).padStart(6,"0")}"></i>${t}</span>`;
+ lg.innerHTML=st.color==="type"?sw(COL.trueR,"True 1–7")+sw(COL.falseR,"False 8–10")+sw(COL.floatR,"Floating 11–12")+sw(COL.cart,"Costal cartilage"):st.color==="typical"?sw(COL.typ,"Typical 3–9")+sw(COL.atyp,"Atypical 1, 2, 10, 11, 12")+sw(COL.cart,"Costal cartilage"):sw(COL.bone,"Bone")+sw(COL.cart,"Costal cartilage");}
+function showInfo(id){const p=parts[id];const el=$("info");
+ if(!p||!p.info){el.innerHTML=`<div class="kind">Start here</div><h2>Click any bone</h2><ul><li>Front: sternum (manubrium, body, xiphoid)</li><li>Back: 12 thoracic vertebrae and their discs</li><li>Sides: 12 pairs of ribs and costal cartilages</li></ul><div class="note"><b>Key idea</b>The cage changes volume: bigger cage → lower pressure → air in.</div>`;return;}
+ const i=p.info;el.innerHTML=`<div class="kind">${i.kind}</div><h2>${i.name}</h2><ul>${i.pts.map(x=>`<li>${x}</li>`).join("")}</ul>${i.note?`<div class="note"><b>${i.note[0]}</b>${i.note[1]}</div>`:""}`;}
+function select(id){st.sel=id;recolor();showInfo(id);}
+
+// ---------- views ----------
+const VIEWS={Anterior:[0,1,42],Posterior:[0,1,-42],Right:[-42,1,0],Left:[42,1,0],Superior:[0,44,3],Inferior:[0,-44,3],Oblique:[26,10,32]};
+let tween=null;function setView(v){const p=VIEWS[v];if(!p)return;tween={from:camera.position.clone(),to:new THREE.Vector3(...p),t:0};controls.target.set(0,0,0.3);}
+$("views").innerHTML=Object.keys(VIEWS).map(v=>`<button data-v="${v}">${v}</button>`).join("");
+$("views").addEventListener("click",e=>{const b=e.target.closest("[data-v]");if(b)setView(b.dataset.v);});
+
+// ---------- controls ----------
+$("colorBy").addEventListener("click",e=>{const b=e.target.closest("[data-c]");if(!b)return;st.color=b.dataset.c;for(const x of $("colorBy").children)x.setAttribute("aria-pressed",x===b);recolor();});
+function setToggle(k,v){st[k]=v;const b=document.querySelector(`[data-t="${k}"]`);if(b)b.setAttribute("aria-pressed",v);
+ planes.visible=st.planes;aps.visible=st.apertures;spineMarks.visible=st.spine;spaceMesh.visible=st.space;
+ for(const s of ["R","L"])parts["clav"+s].meshes.forEach(m=>m.visible=st.clavicles);
+ $("spaceRow").hidden=$("spaceInfo").hidden=!st.space;if(st.space)updSpace();}
+$("toggles").addEventListener("click",e=>{const b=e.target.closest("[data-t]");if(b)setToggle(b.dataset.t,!st[b.dataset.t]);});
+function updSpace(){const n=+$("spaceN").value;$("spaceLbl").textContent=ord(n);buildSpace(n);
+ $("spaceName").textContent=`${ord(n)} intercostal space lies below the ${ord(n)} rib`+(n>=10?" · open in front (ribs 11–12 float)":"");}
+$("spaceN").addEventListener("input",updSpace);
+
+// ---------- picking ----------
+const ray=new THREE.Raycaster(),mouse=new THREE.Vector2();let down=null;
+canvas.addEventListener("pointerdown",e=>{down=[e.clientX,e.clientY];});
+canvas.addEventListener("pointerup",e=>{if(!down||Math.hypot(e.clientX-down[0],e.clientY-down[1])>6)return;const r=canvas.getBoundingClientRect();
+ mouse.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);ray.setFromCamera(mouse,camera);
+ const hit=ray.intersectObjects(pickables.filter(m=>m.visible),false)[0];if(!hit)return;const id=hit.object.userData.id;
+ if(st.quiz)answer(id);else select(id);});
+
+// ---------- quiz ----------
+const QZ=[
+ {q:"Click the sternal angle",ok:id=>id==="angle"||id==="disc45",show:"angle"},
+ {q:"Click the manubrium",ok:id=>id==="manubrium",show:"manubrium"},
+ {q:"Click the xiphoid process",ok:id=>id==="xiphoid",show:"xiphoid"},
+ {q:"Click the rib whose cartilage meets the sternal angle",ok:id=>/^rib2[RL]$/.test(id)||/^cart2[RL]$/.test(id),show:"rib2R"},
+ {q:"Click any floating rib",ok:id=>/^rib1[12][RL]$/.test(id),show:"rib11R"},
+ {q:"Click any false rib (8–10)",ok:id=>/^rib(8|9|10)[RL]$/.test(id),show:"rib9R"},
+ {q:"Click the rib with the scalene tubercle",ok:id=>/^rib1[RL]$/.test(id),show:"rib1R"},
+ {q:"Click the rib with the tuberosity for serratus anterior",ok:id=>/^rib2[RL]$/.test(id),show:"rib2L"},
+ {q:"Click a costal cartilage that joins the cartilage above it",ok:id=>/^cart(8|9|10)[RL]$/.test(id),show:"cart9R"},
+ {q:"Click the 7th costal cartilage",ok:id=>/^cart7[RL]$/.test(id),show:"cart7R"},
+ {q:"Click the vertebra that forms the back of the superior aperture",ok:id=>id==="T1",show:"T1"},
+ {q:"Click the vertebra at the level of the xiphisternal joint",ok:id=>id==="T9",show:"T9"},
+ {q:"Click the disc in line with the sternal angle",ok:id=>id==="disc45",show:"disc45"},
+ {q:"Click the vertebra at the caval opening of the diaphragm",ok:id=>id==="T8",show:"T8"},
+ {q:"Click a typical rib",ok:id=>{const m=/^rib(\d+)[RL]$/.exec(id);return !!m&&TYPICAL(+m[1]);},show:"rib6R"},
+ {q:"Click the body of the sternum",ok:id=>id==="body",show:"body"}];
+function nextQ(){const z=st.quiz;if(z.i>=z.list.length){$("qText").textContent=`Done: ${z.score} / ${z.list.length}`;$("qFb").textContent="";$("qSkip").hidden=true;$("qScore").textContent="";return;}
+ $("qSkip").hidden=false;$("qScore").textContent=`Question ${z.i+1} of ${z.list.length} · score ${z.score}`;$("qText").textContent=z.list[z.i].q;$("qFb").textContent="";$("qFb").className="fb";z.tries=0;}
+function answer(id){const z=st.quiz;if(z.i>=z.list.length)return;const q=z.list[z.i];
+ if(q.ok(id)){if(!z.tries)z.score++;$("qFb").textContent="Correct: "+(parts[id].info?parts[id].info.name:id);$("qFb").className="fb ok";select(id);z.i++;setTimeout(nextQ,1100);}
+ else{z.tries++;$("qFb").textContent="Not that one ("+(parts[id]&&parts[id].info?parts[id].info.name:id)+"). Try again.";$("qFb").className="fb bad";}}
+$("qStart").onclick=()=>{const list=QZ.slice().sort(()=>Math.random()-.5).slice(0,12);st.quiz={list,i:0,score:0,tries:0};$("qIdle").hidden=true;$("qRun").hidden=false;select(null);nextQ();};
+$("qSkip").onclick=()=>{const z=st.quiz;const q=z.list[z.i];z.tries++;select(q.show);$("qFb").textContent="Here it is. Click it to move on.";$("qFb").className="fb";};
+$("qStop").onclick=()=>{st.quiz=null;$("qIdle").hidden=false;$("qRun").hidden=true;};
+
+// ---------- resize & loop ----------
+function resize(){const r=canvas.parentElement.getBoundingClientRect();renderer.setSize(r.width,r.height,false);camera.aspect=r.width/Math.max(1,r.height);camera.updateProjectionMatrix();}
+window.addEventListener("resize",resize);
+function bg(){scene.background=new THREE.Color(css("--scene")||"#0c1214");}
+window.addEventListener("message",e=>{if(e.data==="jj-theme")setTimeout(bg,30);});window.addEventListener("storage",()=>setTimeout(bg,30));
+function frame(){requestAnimationFrame(frame);if(tween){tween.t=Math.min(1,tween.t+0.06);const k=tween.t<.5?2*tween.t*tween.t:1-Math.pow(-2*tween.t+2,2)/2;camera.position.lerpVectors(tween.from,tween.to,k);if(tween.t>=1)tween=null;}
+ controls.update();renderer.render(scene,camera);placeTags();}
+// ---------- deep links: #sel=rib2R&view=Anterior&show=planes,apertures&space=4&quiz=1 ----------
+function route(){const h=new URLSearchParams(location.hash.slice(1));
+ if(h.get("view"))camera.position.set(...(VIEWS[h.get("view")]||VIEWS.Anterior));
+ const show=(h.get("show")||"").split(",").filter(Boolean);for(const k of ["planes","apertures","spine","space"])setToggle(k,show.includes(k));
+ if(h.get("space")){$("spaceN").value=h.get("space");setToggle("space",true);}
+ if(h.get("sel")&&parts[h.get("sel")])select(h.get("sel"));
+ if(h.get("quiz"))$("qStart").click();}
+camera.position.set(...VIEWS.Oblique);bg();resize();recolor();showInfo(null);setToggle("clavicles",true);route();
+window.addEventListener("hashchange",route);frame();
+</script></body></html>
