@@ -3468,5 +3468,314 @@ window.NBME_QUIZZES = [
 "eh": "<p>Osteopetrosis stems from osteoclast dysfunction (e.g., carbonic anhydrase II defect), preventing bone resorption and resulting in dense, brittle bones.</p><p class=\"nbhint\"><b>Hint:</b> Connect osteoclast failure with the inability to resorb bone matrix, leading to solid 'stone' bones.</p>"
 }
 ]
+},
+{
+"course": "crs",
+"subject": "Biochemistry",
+"name": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"prefix": "ncb1",
+"note": "NBME-style extra practice for Lecture 1 (Fatty Acid Oxidation)",
+"qs": [
+{
+"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"s": "A 3-year-old has a seizure after 18 hours of vomiting and poor intake. Glucose is 30 mg/dL with no urinary ketones. Echocardiography shows a dilated left ventricle. Plasma total carnitine is very low and urinary free carnitine is high. The defective protein normally does which of the following?",
+"c": [
+"Takes carnitine up into cells",
+"Moves acyl-carnitine across the inner membrane",
+"Transfers acyl groups onto carnitine",
+"Oxidizes medium-chain acyl CoA",
+"Imports VLCFA into peroxisomes"
+],
+"a": 0,
+"e": "Primary carnitine deficiency: OCTN2 (SLC22A5), the organic cation transporter that takes up carnitine (including reabsorption in the kidney), is defective, so carnitine is wasted in urine and tissue levels fall.",
+"w": [
+"",
+"That is CACT.",
+"That is CPT I.",
+"That is MCAD.",
+"That is ALDP."
+]
+},
+{
+"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"s": "A 22-year-old soldier develops muscle pain, weakness and dark urine after a long march without food. Serum CK is very high. He had a similar episode last year and was well in between. Which diet should he follow?",
+"c": [
+"High carbohydrate, low fat with MCFA",
+"High fat, low carbohydrate",
+"High protein with long-chain fats",
+"Low carbohydrate with long fasts",
+"Low carbohydrate with added carnitine"
+],
+"a": 0,
+"e": "CPT II deficiency: avoid fasting, high-carbohydrate diet, low-fat diet of MCFA (which bypass the carnitine system).",
+"w": [
+"",
+"Fat cannot be used and worsens attacks.",
+"Long-chain fats need CPT II.",
+"Fasting triggers attacks.",
+"Carbohydrate is the key fuel."
+]
+},
+{
+"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"s": "A drug inhibits hepatic acetyl CoA carboxylase, the enzyme that forms malonyl CoA. What happens to fatty acid oxidation?",
+"c": [
+"Rises, as CPT I is released from inhibition",
+"Falls, as CPT I becomes more strongly inhibited",
+"Rises, as thiolase is directly activated",
+"Falls, as acetyl CoA builds up and blocks thiolase",
+"Unchanged, as CPT I is not regulated by malonyl CoA"
+],
+"a": 0,
+"e": "Less malonyl CoA means less inhibition of CPT I, so more fatty acyl CoA enters mitochondria for β-oxidation.",
+"w": [
+"",
+"Malonyl CoA would fall, not rise.",
+"Not the mechanism.",
+"Not the mechanism.",
+"CPT I is regulated by malonyl CoA."
+]
+},
+{
+"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"s": "A child develops vomiting and severe hypoglycemia after eating unripe ackee. The toxin blocks the same enzyme that is deficient in which inherited disorder?",
+"c": [
+"CPT II deficiency",
+"MCAD deficiency",
+"X-linked adrenoleukodystrophy",
+"Adult Refsum disease",
+"Zellweger syndrome"
+],
+"a": 1,
+"e": "Hypoglycin inactivates medium- and short-chain acyl CoA dehydrogenase, mimicking MCAD deficiency, with hypoglycemia and dicarboxylic aciduria.",
+"w": [
+"Different enzyme.",
+"",
+"Different defect.",
+"Different defect.",
+"Different defect."
+]
+},
+{
+"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"s": "A 70-year-old strict vegan has paresthesias and a macrocytic anemia. Which urinary compound is most likely increased?",
+"c": [
+"Phytanic acid",
+"Dicarboxylic acids",
+"Orotic acid",
+"Homogentisic acid",
+"Methylmalonic acid"
+],
+"a": 4,
+"e": "B12 is the coenzyme for methylmalonyl CoA mutase; B12 deficiency causes accumulation of methylmalonyl CoA/acid.",
+"w": [
+"Refsum disease.",
+"β-oxidation defects.",
+"Urea cycle or pyrimidine defects.",
+"Alkaptonuria.",
+""
+]
+},
+{
+"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"s": "An infant has methylmalonic aciduria from a mutase defect. Restricting which amino acids would reduce flux into the blocked step?",
+"c": [
+"Lysine and methionine",
+"Phenylalanine and tyrosine",
+"Glycine and serine",
+"Leucine and lysine",
+"Valine and isoleucine"
+],
+"a": 4,
+"e": "Valine and isoleucine enter at propionyl CoA, upstream of methylmalonyl CoA mutase.",
+"w": [
+"These are carnitine precursors.",
+"Not shown feeding propionyl CoA.",
+"Not shown feeding propionyl CoA.",
+"Ketogenic; not shown feeding propionyl CoA.",
+""
+]
+},
+{
+"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"s": "A boy has high plasma VLCFA but normal plasmalogens and normal numbers of peroxisomes. Which disorder is most likely?",
+"c": [
+"Classic Zellweger syndrome",
+"X-linked adrenoleukodystrophy",
+"Infantile Refsum disease",
+"Adult-onset Refsum disease",
+"Medium-chain acyl CoA dehydrogenase deficiency"
+],
+"a": 1,
+"e": "Only VLCFA transport is lost in X-ALD (ABCD1/ALDP), so other peroxisomal functions such as plasmalogen synthesis are preserved. In Zellweger, peroxisomes don't form, so plasmalogens fall too.",
+"w": [
+"Plasmalogens would be low.",
+"",
+"Zellweger spectrum; peroxisomes deficient.",
+"Phytanic acid rises, not VLCFA.",
+"Medium-chain species rise."
+]
+},
+{
+"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"s": "An adult has high plasma phytanic acid with normal VLCFA and normal plasmalogens. Which pathway is defective?",
+"c": [
+"β-Oxidation in mitochondria",
+"ω-Oxidation in the ER",
+"α-Oxidation in peroxisomes",
+"β-Oxidation in peroxisomes",
+"Carnitine shuttle transport"
+],
+"a": 2,
+"e": "Adult Refsum disease is an α-oxidation defect (phytanoyl CoA hydroxylase deficiency).",
+"w": [
+"Would not raise phytanic acid.",
+"Not the defect.",
+"",
+"VLCFA would rise.",
+"Phytanic acid would not rise."
+]
+},
+{
+"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"s": "A patient with type 2 diabetes on a sulfonylurea has impaired fasting fatty acid oxidation. Which step is the drug most likely affecting?",
+"c": [
+"Activation of fatty acids to acyl CoA",
+"Hydration of trans-2-enoyl CoA",
+"Thiolytic cleavage by thiolase",
+"Acyl transfer by CPT I and CPT II",
+"Peroxisomal oxidation of VLCFA"
+],
+"a": 3,
+"e": "Both CPT enzymes can be inhibited by sulfonylurea drugs.",
+"w": [
+"Not listed.",
+"Not listed.",
+"Not listed.",
+"",
+"Not listed."
+]
+},
+{
+"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"s": "A child on long-term sodium valproate has fasting hypoketotic hypoglycemia and low plasma carnitine. Which is the best classification?",
+"c": [
+"Primary carnitine deficiency",
+"Carnitine palmitoyltransferase II deficiency",
+"Secondary carnitine deficiency",
+"Medium-chain acyl CoA dehydrogenase deficiency",
+"Methylmalonic aciduria"
+],
+"a": 2,
+"e": "Sodium valproate interferes with carnitine metabolism, causing secondary (acquired, non-genetic) carnitine deficiency.",
+"w": [
+"That is genetic (OCTN2).",
+"Not caused by the drug.",
+"",
+"Not caused by the drug.",
+"Not caused by the drug."
+]
+},
+{
+"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"s": "Which set of findings (glucose, ketones, ammonia) fits an MCAD crisis?",
+"c": [
+"Low, high, high",
+"Low, low, high",
+"High, low, normal",
+"Low, high, normal",
+"Normal, low, low"
+],
+"a": 1,
+"e": "MCAD pathogenesis: hypoglycemia, hypoketosis and hyperammonemia (↓ acetyl CoA → ↓ NAG → ↓ urea cycle).",
+"w": [
+"Ketones are low.",
+"",
+"Glucose is low.",
+"Ketones are low and ammonia rises.",
+"Glucose is low and ammonia rises."
+]
+},
+{
+"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"s": "Compared with the mitochondrial pathway, why does the first step of peroxisomal β-oxidation yield less ATP?",
+"c": [
+"It uses NAD+ instead of FAD as cofactor",
+"It needs carnitine to enter the organelle",
+"It skips the hydratase step",
+"It produces propionyl CoA",
+"Its FADH2 passes electrons to O2"
+],
+"a": 4,
+"e": "Acyl CoA oxidase hands electrons from FADH2 directly to oxygen, forming H2O2 instead of feeding the electron transport chain.",
+"w": [
+"It uses FAD.",
+"Not the reason.",
+"The other steps are the same.",
+"Not the reason.",
+""
+]
+},
+{
+"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"s": "In MCAD deficiency, which urinary marker reflects backed-up substrate bound to carnitine?",
+"c": [
+"Free carnitine without acyl groups",
+"Long-chain acylcarnitines",
+"Methylmalonic acid",
+"Medium-chain acylcarnitines",
+"Phytanic and pristanic acids"
+],
+"a": 3,
+"e": "↑ Medium-chain fatty acids → ↑ acylcarnitines in urine.",
+"w": [
+"Not the marker.",
+"Long chains are processed normally.",
+"Methylmalonic aciduria.",
+"",
+"Refsum disease."
+]
+},
+{
+"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"s": "A fasting infant has hypoketotic hypoglycemia and hepatomegaly with no muscle or heart involvement. Which enzyme is most likely deficient?",
+"c": [
+"CPT II",
+"OCTN2",
+"ALDP",
+"CPT I",
+"Acyl CoA oxidase"
+],
+"a": 3,
+"e": "CPT I deficiency affects primarily the liver, with reduced fatty acid oxidation and ketogenesis.",
+"w": [
+"Also involves cardiac and skeletal muscle.",
+"Also causes cardiomyopathy and hypotonia.",
+"X-ALD.",
+"",
+"Peroxisomal pathway."
+]
+},
+{
+"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"s": "A tracer shows that the last three carbons of a dietary odd-chain fatty acid end up in the citric acid cycle. Through which intermediate do they enter?",
+"c": [
+"Acetyl CoA",
+"Oxaloacetate",
+"Succinyl CoA",
+"Malonyl CoA",
+"Fumarate"
+],
+"a": 2,
+"e": "Propionyl CoA (3C) → D-methylmalonyl CoA → L-methylmalonyl CoA → succinyl CoA, a citric acid cycle intermediate.",
+"w": [
+"Acetyl CoA comes from the other 2C units.",
+"Not the entry point.",
+"",
+"Not a TCA intermediate.",
+"Not the entry point."
+]
+}
+]
 }
 ];

@@ -254,6 +254,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .exp p.pre{white-space:pre-line}
 .badge.xp{color:var(--red);border-color:var(--red)}
 .badge.shetty{color:var(--teal);border-color:var(--teal)}
+.badge.lvE{color:#2b8a3e;border-color:#2b8a3e}.badge.lvH{color:#e8590c;border-color:#e8590c}
 .badge{display:inline-block;margin-left:6px;font-size:11.5px;font-weight:600;color:var(--badge-fg);border:1px solid var(--badge-line);background:var(--badge-bg);border-radius:10px;padding:1px 8px;vertical-align:1px}
 .srcnote{margin-top:14px;color:var(--muted);font-size:13.5px;font-style:italic}
 .why{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
@@ -1033,9 +1034,10 @@ button.dst:hover{background:var(--hover)}
 <script src="c100.js?v=34"></script>
 <script src="fbs-anki.js?v=34"></script>
 <script src="crs-embryology.js?v=34"></script>
+<script src="crs-biochem.js?v=1"></script>
 <script src="xp-msk.js?v=1"></script>
 <script src="xp-fbs.js?v=2"></script>
-<script src="nbme.js?v=5"></script>
+<script src="nbme.js?v=6"></script>
 <script src="xp-crs.js?v=1"></script>
 <script src="viz-links.js?v=1"></script>
 <script>
@@ -1087,7 +1089,14 @@ const SECTIONS = [
      {main:true, name:"Lecture 4 · Nasal Cavity & Paranasal Sinuses", f:NAS},
      {main:true, name:"Lecture 5 · Development of the Respiratory System", f:q=>q.t==="Respiratory Development" && !NAS(q)},
      {main:true, name:"Lecture 6 · Formation of the Diaphragm", f:q=>q.t==="Body Cavities & Diaphragm"},
-     {main:true, name:"Lecture 7 · Congenital Anomalies (all lectures)", f:q=>ANOM.test(q.s+" "+(q.c?q.c[q.a]:""))}]; })()}
+     {main:true, name:"Lecture 7 · Congenital Anomalies (all lectures)", f:q=>ANOM.test(q.s+" "+(q.c?q.c[q.a]:""))}]; })()},
+  {course:"crs", name:"CRS Biochemistry", all:"All CRS Biochemistry", prefix:"cb", topics:window.CRS_BC_TOPICS, hideTopics:true, qs:window.CRS_BC_QUESTIONS,
+   // Grouped by lecture (Dr. Shetty), then topic; Easy/Hard filters per lecture
+   extra:(()=>{ const L1 = ["Overview & Activation", "Carnitine Shuttle", "Carnitine & CPT Deficiencies", "β-Oxidation Reactions", "Energetics & Regulation", "Unsaturated & Odd-Chain Fatty Acids", "Methylmalonic Aciduria", "Peroxisomal, α- & ω-Oxidation", "MCAD Deficiency & Jamaican Vomiting Sickness", "Zellweger, X-ALD & Refsum"];
+     return [{main:true, name:"Lecture 1 · Fatty Acid Oxidation", f:q=>L1.includes(q.t)},
+       {name:"Easy questions", f:q=>L1.includes(q.t) && q.lv==="Easy"},
+       {name:"Hard questions", f:q=>L1.includes(q.t) && q.lv==="Hard"}]
+       .concat(L1.map(t=>({name:t, f:q=>q.t===t}))); })()}
 ].concat((window.NBME_QUIZZES||[]).map(z=>({course:z.course, name:z.name, all:z.name, prefix:z.prefix, topics:[], qs:z.qs, nbme:true, subject:z.subject, note:z.note})))
  .filter(s=>s.qs && s.qs.length);
 
@@ -1371,11 +1380,12 @@ const GUIDES = {
         ["msk-physiology","MSK Physiology","NMJ, E–C coupling, contraction mechanics, fiber types, smooth muscle",3],
         ["msk-biochem","MSK Biochemistry","Glycolysis, glycogen & storage diseases, GAGs, collagen & elastin",4],
         ["msk-anatomy","MSK Anatomy","Upper & lower limb: plexus, nerve injuries, compartments, joints, vessels",6],
-        ["msk-embryology","MSK Embryology","Bone formation, growth plate, vertebrae, skull & sutures, limbs, skin",3]]
+        ["msk-embryology","MSK Embryology","Bone formation, growth plate, vertebrae, skull & sutures, limbs, skin",3]],
+  crs: [["crs-biochem","CRS Biochemistry","Fatty acid oxidation · grows one chapter per lecture",0]]
 };
 function guideCards(list){
-  return `<div class="gdgrid">` + list.map(([f,nm,desc,pg])=>`<div class="gdcard"><div class="gdi">${NVI.guide}</div><div class="gdt"><b>${esc(nm)}</b><small>${esc(desc)}</small><span class="gdm">${pg} pages · PDF</span></div>
-    <div class="gda"><button class="dpill" data-guide="${f}">Read</button><a class="dpill g" href="guide-${f}.pdf?v=1" download="JJ QBank - ${esc(nm)} study guide.pdf">PDF</a></div></div>`).join("") + `</div>`;
+  return `<div class="gdgrid">` + list.map(([f,nm,desc,pg])=>`<div class="gdcard"><div class="gdi">${NVI.guide}</div><div class="gdt"><b>${esc(nm)}</b><small>${esc(desc)}</small><span class="gdm">${pg?pg+" pages · PDF":"Read on site · updated each lecture"}</span></div>
+    <div class="gda"><button class="dpill" data-guide="${f}">Read</button>${pg?`<a class="dpill g" href="guide-${f}.pdf?v=1" download="JJ QBank - ${esc(nm)} study guide.pdf">PDF</a>`:""}</div></div>`).join("") + `</div>`;
 }
 let curGuide = null, guideLoading = false;
 function guideInfo(k){ for (const c in GUIDES) { const g = GUIDES[c].find(x=>x[0]===k); if (g) return {course:c, g}; } return null; }
@@ -1386,7 +1396,7 @@ function renderGuideView(){
     <div class="gvhead"><h2>${esc(nm)}</h2><p class="sub">${esc(desc)}</p><div class="gvleg"><span><span class="hy">Red</span> = extra high yield (classic NBME)</span><span>Black/white = core content</span><span class="mn">Italic = mnemonic</span></div></div>`;
   if (!window.GUIDE_HTML) {
     showPage(`<div class="page gview">${top}<div class="emptybox"><p>Loading study guide…</p></div></div>`);
-    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=1";
+    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=2";
       sc.onload = ()=>{ guideLoading = false; if (view==="guide") renderGuideView(); };
       sc.onerror = ()=>{ guideLoading = false; toast("Couldn't load the study guide — check your connection"); };
       document.head.appendChild(sc); }
@@ -1809,7 +1819,7 @@ function renderStats(){
   $("stats").innerHTML = `<b>${done.length}</b> / ${qs.length} answered · <span class="g">${ok} correct</span> · <span class="r">${bad} incorrect</span> · ${pct}%${note}`;
 }
 function srcBadge(q){
-  return (q.xp?' <span class="badge xp">Exam Point</span>':"")+(q.shetty?' <span class="badge shetty">Shetty Practice Q</span>':"")+(q.src==="new"?' <span class="badge">Blueprint practice</span>':"")+(q.src==="rev"?' <span class="badge">Review slides</span>':"")+
+  return (q.xp?' <span class="badge xp">Exam Point</span>':"")+(q.shetty?' <span class="badge shetty">Shetty Practice Q</span>':"")+(q.src==="lec"?' <span class="badge">Lecture slides</span>':"")+(q.lv?' <span class="badge lv'+q.lv[0]+'">'+q.lv+'</span>':"")+(q.src==="new"?' <span class="badge">Blueprint practice</span>':"")+(q.src==="rev"?' <span class="badge">Review slides</span>':"")+
     (q.src==="rev3"?' <span class="badge">MSK Review 3</span>':"")+(q.src==="rev4"?' <span class="badge">MSK Review 4</span>':"");
 }
 function renderCard(){
