@@ -1034,12 +1034,13 @@ button.dst:hover{background:var(--hover)}
 <script src="c100.js?v=34"></script>
 <script src="fbs-anki.js?v=34"></script>
 <script src="crs-embryology.js?v=34"></script>
+<script src="crs-anatomy.js?v=1"></script>
 <script src="crs-biochem.js?v=1"></script>
 <script src="xp-msk.js?v=1"></script>
 <script src="xp-fbs.js?v=2"></script>
 <script src="nbme.js?v=6"></script>
 <script src="xp-crs.js?v=1"></script>
-<script src="viz-links.js?v=1"></script>
+<script src="viz-links.js?v=2"></script>
 <script>
 (function(){
 // =====================================================================
@@ -1090,6 +1091,10 @@ const SECTIONS = [
      {main:true, name:"Lecture 5 · Development of the Respiratory System", f:q=>q.t==="Respiratory Development" && !NAS(q)},
      {main:true, name:"Lecture 6 · Formation of the Diaphragm", f:q=>q.t==="Body Cavities & Diaphragm"},
      {main:true, name:"Lecture 7 · Congenital Anomalies (all lectures)", f:q=>ANOM.test(q.s+" "+(q.c?q.c[q.a]:""))}]; })()},
+  {course:"crs", name:"CRS Anatomy", all:"All CRS Anatomy", prefix:"ca", topics:window.CRS_ANAT_TOPICS, hideTopics:true, qs:window.CRS_ANAT_QUESTIONS,
+   // Original questions written from the Thorax study guide, grouped by the CRS102 anatomy lectures, then topic
+   extra:(window.CRS_ANAT_LECTURES||[]).flatMap(([n,ts])=>[{main:true, name:n, f:q=>ts.includes(q.t)}].concat(ts.map(t=>({name:t, f:q=>q.t===t}))))
+     .concat([{main:true, name:"Easy questions", f:q=>q.lv==="Easy"}, {main:true, name:"Hard questions", f:q=>q.lv==="Hard"}])},
   {course:"crs", name:"CRS Biochemistry", all:"All CRS Biochemistry", prefix:"cb", topics:window.CRS_BC_TOPICS, hideTopics:true, qs:window.CRS_BC_QUESTIONS,
    // Grouped by lecture (Dr. Shetty), then topic; Easy/Hard filters per lecture
    extra:(()=>{ const L1 = ["Overview & Activation", "Carnitine Shuttle", "Carnitine & CPT Deficiencies", "β-Oxidation Reactions", "Energetics & Regulation", "Unsaturated & Odd-Chain Fatty Acids", "Methylmalonic Aciduria", "Peroxisomal, α- & ω-Oxidation", "MCAD Deficiency & Jamaican Vomiting Sickness", "Zellweger, X-ALD & Refsum"];
@@ -1819,7 +1824,7 @@ function renderStats(){
   $("stats").innerHTML = `<b>${done.length}</b> / ${qs.length} answered · <span class="g">${ok} correct</span> · <span class="r">${bad} incorrect</span> · ${pct}%${note}`;
 }
 function srcBadge(q){
-  return (q.xp?' <span class="badge xp">Exam Point</span>':"")+(q.shetty?' <span class="badge shetty">Shetty Practice Q</span>':"")+(q.src==="lec"?' <span class="badge">Lecture slides</span>':"")+(q.lv?' <span class="badge lv'+q.lv[0]+'">'+q.lv+'</span>':"")+(q.src==="new"?' <span class="badge">Blueprint practice</span>':"")+(q.src==="rev"?' <span class="badge">Review slides</span>':"")+
+  return (q.xp?' <span class="badge xp">Exam Point</span>':"")+(q.shetty?' <span class="badge shetty">Shetty Practice Q</span>':"")+(q.src==="lec"?' <span class="badge">Lecture slides</span>':"")+(q.src==="guide"?' <span class="badge">Study guide</span>':"")+(q.lv?' <span class="badge lv'+q.lv[0]+'">'+q.lv+'</span>':"")+(q.src==="new"?' <span class="badge">Blueprint practice</span>':"")+(q.src==="rev"?' <span class="badge">Review slides</span>':"")+
     (q.src==="rev3"?' <span class="badge">MSK Review 3</span>':"")+(q.src==="rev4"?' <span class="badge">MSK Review 4</span>':"");
 }
 function renderCard(){
