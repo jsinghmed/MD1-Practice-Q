@@ -258,6 +258,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .exp p.pre{white-space:pre-line}
 .badge.xp{color:var(--red);border-color:var(--red)}
 .badge.shetty{color:var(--teal);border-color:var(--teal)}
+.badge.sampath{color:#0b7285;border-color:#0b7285}
 .badge.lvE{color:#2b8a3e;border-color:#2b8a3e}.badge.lvH{color:#e8590c;border-color:#e8590c}
 .badge{display:inline-block;margin-left:6px;font-size:11.5px;font-weight:600;color:var(--badge-fg);border:1px solid var(--badge-line);background:var(--badge-bg);border-radius:10px;padding:1px 8px;vertical-align:1px}
 .srcnote{margin-top:14px;color:var(--muted);font-size:13.5px;font-style:italic}
@@ -1040,9 +1041,10 @@ button.dst:hover{background:var(--hover)}
 <script src="crs-embryology.js?v=34"></script>
 <script src="crs-anatomy.js?v=1"></script>
 <script src="crs-biochem.js?v=1"></script>
+<script src="crs-physiology.js?v=1"></script>
 <script src="xp-msk.js?v=1"></script>
 <script src="xp-fbs.js?v=2"></script>
-<script src="nbme.js?v=6"></script>
+<script src="nbme.js?v=7"></script>
 <script src="xp-crs.js?v=1"></script>
 <script src="viz-links.js?v=3"></script>
 <script>
@@ -1105,6 +1107,14 @@ const SECTIONS = [
      return [{main:true, name:"Lecture 1 · Fatty Acid Oxidation", f:q=>L1.includes(q.t)},
        {name:"Easy questions", f:q=>L1.includes(q.t) && q.lv==="Easy"},
        {name:"Hard questions", f:q=>L1.includes(q.t) && q.lv==="Hard"}]
+       .concat(L1.map(t=>({name:t, f:q=>q.t===t}))); })()},
+  {course:"crs", name:"CRS Physiology", all:"All CRS Physiology", prefix:"cp", topics:window.CRS_PH_TOPICS, hideTopics:true, qs:window.CRS_PH_QUESTIONS,
+   // Grouped by lecture (Dr. Sampath V.), then topic; Easy/Hard and Sampath's Q's filters per lecture
+   extra:(()=>{ const L1 = (window.CRS_PH_TOPICS||[]).slice(0,11);
+     return [{main:true, name:"Lecture 1 · Cardiac Action Potential", f:q=>L1.includes(q.t)},
+       {name:"Easy questions", f:q=>L1.includes(q.t) && q.lv==="Easy"},
+       {name:"Hard questions", f:q=>L1.includes(q.t) && q.lv==="Hard"},
+       {name:"Sampath's Q's (from the slides)", f:q=>L1.includes(q.t) && q.sampath}]
        .concat(L1.map(t=>({name:t, f:q=>q.t===t}))); })()}
 ].concat((window.NBME_QUIZZES||[]).map(z=>({course:z.course, name:z.name, all:z.name, prefix:z.prefix, topics:[], qs:z.qs, nbme:true, subject:z.subject, note:z.note})))
  .filter(s=>s.qs && s.qs.length);
@@ -1390,7 +1400,7 @@ const GUIDES = {
         ["msk-biochem","MSK Biochemistry","Glycolysis, glycogen & storage diseases, GAGs, collagen & elastin",4],
         ["msk-anatomy","MSK Anatomy","Upper & lower limb: plexus, nerve injuries, compartments, joints, vessels",6],
         ["msk-embryology","MSK Embryology","Bone formation, growth plate, vertebrae, skull & sutures, limbs, skin",3]],
-  crs: [["crs-biochem","CRS Biochemistry","Fatty acid oxidation · grows one chapter per lecture",0]]
+  crs: [["crs-biochem","CRS Biochemistry","Fatty acid oxidation · grows one chapter per lecture",0],["crs-physiology","CRS Physiology","Cardiac action potential · grows one chapter per lecture",0]]
 };
 function guideCards(list){
   return `<div class="gdgrid">` + list.map(([f,nm,desc,pg])=>`<div class="gdcard"><div class="gdi">${NVI.guide}</div><div class="gdt"><b>${esc(nm)}</b><small>${esc(desc)}</small><span class="gdm">${pg?pg+" pages · PDF":"Read on site · updated each lecture"}</span></div>
@@ -1405,7 +1415,7 @@ function renderGuideView(){
     <div class="gvhead"><h2>${esc(nm)}</h2><p class="sub">${esc(desc)}</p><div class="gvleg"><span><span class="hy">Red</span> = extra high yield (classic NBME)</span><span>Black/white = core content</span><span class="mn">Italic = mnemonic</span></div></div>`;
   if (!window.GUIDE_HTML) {
     showPage(`<div class="page gview">${top}<div class="emptybox"><p>Loading study guide…</p></div></div>`);
-    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=2";
+    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=3";
       sc.onload = ()=>{ guideLoading = false; if (view==="guide") renderGuideView(); };
       sc.onerror = ()=>{ guideLoading = false; toast("Couldn't load the study guide — check your connection"); };
       document.head.appendChild(sc); }
@@ -1833,7 +1843,7 @@ function renderStats(){
   $("stats").innerHTML = `<b>${done.length}</b> / ${qs.length} answered · <span class="g">${ok} correct</span> · <span class="r">${bad} incorrect</span> · ${pct}%${note}`;
 }
 function srcBadge(q){
-  return (q.xp?' <span class="badge xp">Exam Point</span>':"")+(q.shetty?' <span class="badge shetty">Shetty Practice Q</span>':"")+(q.src==="lec"?' <span class="badge">Lecture slides</span>':"")+(q.src==="guide"?' <span class="badge">Study guide</span>':"")+(q.lv?' <span class="badge lv'+q.lv[0]+'">'+q.lv+'</span>':"")+(q.src==="new"?' <span class="badge">Blueprint practice</span>':"")+(q.src==="rev"?' <span class="badge">Review slides</span>':"")+
+  return (q.xp?' <span class="badge xp">Exam Point</span>':"")+(q.shetty?' <span class="badge shetty">Shetty Practice Q</span>':"")+(q.sampath?' <span class="badge sampath">Sampath\'s Q\'s</span>':"")+(q.src==="lec"?' <span class="badge">Lecture slides</span>':"")+(q.src==="guide"?' <span class="badge">Study guide</span>':"")+(q.lv?' <span class="badge lv'+q.lv[0]+'">'+q.lv+'</span>':"")+(q.src==="new"?' <span class="badge">Blueprint practice</span>':"")+(q.src==="rev"?' <span class="badge">Review slides</span>':"")+
     (q.src==="rev3"?' <span class="badge">MSK Review 3</span>':"")+(q.src==="rev4"?' <span class="badge">MSK Review 4</span>':"");
 }
 function renderCard(){

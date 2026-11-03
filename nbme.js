@@ -3777,5 +3777,314 @@ window.NBME_QUIZZES = [
 ]
 }
 ]
+},
+{
+"course": "crs",
+"subject": "Physiology",
+"name": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"prefix": "ncp1",
+"note": "NBME-style extra practice for Lecture 1 (Cardiac Action Potential)",
+"qs": [
+{
+"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"s": "A researcher bathes isolated ventricular myocytes in a Ca²⁺-free solution. The cells still fire action potentials when stimulated but no longer shorten. Which step is most directly lost?",
+"c": [
+"Opening of fast Na⁺ channels",
+"K⁺ efflux through IK1",
+"Spread of current through gap junctions",
+"Recovery of the h gate",
+"Ca²⁺-induced SR Ca²⁺ release"
+],
+"a": 4,
+"e": "Cardiac myocytes require extracellular Ca²⁺ entering through L-type channels in Phase 2 to trigger Ca²⁺-induced Ca²⁺ release from the SR. Without it, excitation is uncoupled from contraction.",
+"w": [
+"APs still fire, so Na⁺ channels still open.",
+"IK1 holds rest and does not need extracellular Ca²⁺.",
+"Cells still fire, so impulses still spread.",
+"Recovery is voltage driven, not Ca²⁺ driven.",
+""
+]
+},
+{
+"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"s": "A 58-year-old man with ventricular tachycardia after a myocardial infarction is given lidocaine. The drug acts on the channel responsible for which phase of the ventricular action potential?",
+"c": [
+"Phase 1",
+"Phase 2",
+"Phase 0",
+"Phase 3",
+"Phase 4"
+],
+"a": 2,
+"e": "Lidocaine, a local anesthetic antiarrhythmic, blocks the fast Na⁺ current (INa), which produces the Phase 0 upstroke.",
+"w": [
+"Phase 1 is Ito.",
+"Phase 2 is L-type Ca²⁺ with K⁺ efflux.",
+"",
+"Phase 3 is delayed-rectifier K⁺.",
+"Phase 4 is held by IK1."
+]
+},
+{
+"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"s": "A 62-year-old woman with hypertension starts verapamil. Which effect on ventricular myocytes is expected?",
+"c": [
+"Faster Phase 0 upstroke",
+"Reduced contractility",
+"Increased SR Ca²⁺ release",
+"Spontaneous Phase 4 firing",
+"A more negative resting potential"
+],
+"a": 1,
+"e": "Ca²⁺ channel blockers reduce L-type Ca²⁺ influx in Phase 2 → less Ca²⁺-induced Ca²⁺ release → reduced contractility. In vessels they relax smooth muscle, causing vasodilation.",
+"w": [
+"Phase 0 is Na⁺ carried.",
+"",
+"Less trigger Ca²⁺ means less release.",
+"Ventricular cells do not gain automaticity.",
+"Rest is held by IK1."
+]
+},
+{
+"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"s": "In an experiment, a ventricular myocyte is given a second stimulus at varying times after the first. A stimulus 120 ms after the first fails at any strength. One at 260 ms produces a small AP only with a strong stimulus. At 260 ms the cell is in which period?",
+"c": [
+"Absolute refractory period",
+"Supranormal period",
+"Full recovery at rest",
+"Phase 2 plateau",
+"Relative refractory period"
+],
+"a": 4,
+"e": "120 ms is within the ARP (Phases 0–2 and early 3). At 260 ms, a strong stimulus gives a lower-amplitude AP — the relative refractory period of late Phase 3.",
+"w": [
+"At 120 ms no AP fires; at 260 ms one can.",
+"In this period a weaker stimulus would suffice.",
+"At rest a normal stimulus gives a normal AP.",
+"The plateau is inside the ARP.",
+""
+]
+},
+{
+"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"s": "A toxin prevents the h gate of the cardiac fast Na⁺ channel from reopening after inactivation. What is the most likely effect on ventricular myocytes after the first beat?",
+"c": [
+"They fire a longer plateau",
+"They cannot fire a new AP",
+"They fire spontaneously",
+"Their resting potential rises to 0 mV",
+"They fire larger APs"
+],
+"a": 1,
+"e": "Recovery from inactivation needs the h gate to reopen in late Phase 3. If it never reopens, channels stay inactivated — closed and unavailable — so no new AP can fire.",
+"w": [
+"The plateau is a Ca²⁺/K⁺ balance.",
+"",
+"Myocytes have no Phase 4 depolarization.",
+"Rest is held by IK1.",
+"No channels are available to fire."
+]
+},
+{
+"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"s": "A conduction study shows that impulse speed in the AV node is much slower than in ventricular muscle. Which property of nodal cells best explains this?",
+"c": [
+"A Ca²⁺-carried upstroke",
+"A long Phase 2 plateau",
+"A stable −90 mV rest",
+"A very large IK1 current",
+"A Na⁺-carried upstroke"
+],
+"a": 0,
+"e": "Steep Na⁺ upstroke → fast conduction. Nodal cells use a slow Ca²⁺ upstroke through L-type channels, so they conduct slowly.",
+"w": [
+"",
+"Nodal cells have no plateau.",
+"Nodal cells have no stable rest.",
+"Not the reason for slow conduction.",
+"That would conduct fast."
+]
+},
+{
+"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"s": "A drug blocks the inward-rectifier K⁺ current (IK1) in ventricular myocytes. Which change is most likely?",
+"c": [
+"A taller Phase 0 upstroke",
+"A shorter refractory period",
+"A less negative resting potential",
+"Loss of the Phase 1 notch",
+"A more negative resting potential"
+],
+"a": 2,
+"e": "Constant K⁺ efflux through IK1 holds the RMP near −90 mV. Blocking it removes that hold, so the resting potential becomes less negative.",
+"w": [
+"Losing IK1 does not make the upstroke taller.",
+"Not the direct effect of IK1 block.",
+"",
+"The notch is Ito.",
+"IK1 holds the cell negative."
+]
+},
+{
+"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"s": "A drug blocks the delayed-rectifier K⁺ current in ventricular myocytes. Which change in the action potential is expected?",
+"c": [
+"Prolonged Phase 3 repolarization",
+"A slower Phase 0 upstroke",
+"Loss of the Phase 1 notch",
+"A plateau held at a higher voltage",
+"A more negative resting potential"
+],
+"a": 0,
+"e": "Phase 3 is due to massive K⁺ efflux through voltage-gated slow (delayed-rectifier) K⁺ channels. Blocking them slows repolarization and lengthens the AP.",
+"w": [
+"",
+"The upstroke is Na⁺ carried.",
+"The notch is Ito.",
+"Not the main expected change.",
+"Rest is held by IK1."
+]
+},
+{
+"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"s": "A patient's ventricular myocardium has regions with very different refractory periods after an infarction. A premature beat arrives. What is the patient at greatest risk of?",
+"c": [
+"Tetanic contraction",
+"Complete heart block",
+"Loss of the plateau",
+"Arrest of the sinoatrial node",
+"A re-entrant arrhythmia"
+],
+"a": 4,
+"e": "Heterogeneous refractory periods make re-entrant arrhythmias possible when an impulse arrives at the wrong time.",
+"w": [
+"Cardiac muscle cannot tetanize.",
+"Not the risk described.",
+"Not caused by unequal refractoriness.",
+"Not the risk described.",
+""
+]
+},
+{
+"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"s": "A 70-year-old man has a degenerative lesion of the cardiac fibrous skeleton. It destroys the AV bundle of His. Why does atrial activity no longer reach the ventricles?",
+"c": [
+"The SA node is destroyed",
+"The AV node is in the ventricle",
+"It is the only muscular link",
+"Purkinje fibers conduct to the atria",
+"The atria lack gap junctions"
+],
+"a": 2,
+"e": "The AV bundle of His runs in the interventricular septum and is the ONLY muscular connection between the atria and ventricles.",
+"w": [
+"The SA node is in the right atrial wall.",
+"The AV node is in the interatrial septum.",
+"",
+"Purkinje fibers are ventricular.",
+"Atria have gap junctions."
+]
+},
+{
+"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"s": "A student compares action potentials from a motor neuron, a skeletal muscle fiber and a ventricular myocyte. Which feature unique to the myocyte accounts for its much longer AP?",
+"c": [
+"A faster Na⁺ upstroke",
+"A more negative rest",
+"A Phase 1 notch",
+"A Phase 2 plateau",
+"Larger K⁺ efflux"
+],
+"a": 3,
+"e": "Neuron ≈ 1 ms, skeletal muscle ≈ 10 ms, cardiac ≈ 300 ms. The Phase 2 plateau (L-type Ca²⁺ ≈ delayed-rectifier K⁺) stretches the cardiac AP.",
+"w": [
+"All three have a fast Na⁺ upstroke.",
+"Not the reason for a longer AP.",
+"The notch is brief.",
+"",
+"More K⁺ efflux would shorten the AP."
+]
+},
+{
+"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"s": "A physiology student asks why cardiac muscle never shows the summation of twitches seen in skeletal muscle. Which is the best explanation?",
+"c": [
+"Cardiac muscle lacks an SR",
+"Refractoriness lasts into relaxation",
+"Cardiac APs are shorter than skeletal",
+"Cardiac cells lack troponin C",
+"Gap junctions block summation"
+],
+"a": 1,
+"e": "The long refractory period covers most of the contraction, so the muscle cannot be re-excited until it starts relaxing. This prevents tetany, which would be fatal in the heart.",
+"w": [
+"Cardiac muscle has an SR.",
+"",
+"They are longer.",
+"They have troponin.",
+"Not the mechanism."
+]
+},
+{
+"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"s": "In voltage-clamp studies, ventricular Na⁺ channels are held at a depolarized potential for 200 ms, and then stepped further positive. Almost no Na⁺ current flows. What is the state of the channels?",
+"c": [
+"m closed, h open",
+"m open, h open",
+"m closed, h closed",
+"m open, h closed",
+"h gate reopening"
+],
+"a": 3,
+"e": "Sustained depolarization leaves the channels inactivated: m open · h closed. They are closed and unavailable regardless of stimulus strength until repolarization.",
+"w": [
+"That is the resting state, which could open.",
+"That would let Na⁺ flow.",
+"Not the expected state after depolarization.",
+"",
+"That needs repolarization."
+]
+},
+{
+"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"s": "A cardiac cell's action potential has a plateau lasting 250 ms. In what type of cell was it most likely recorded?",
+"c": [
+"Ventricular myocyte",
+"SA nodal cell",
+"AV nodal cell",
+"Skeletal muscle fiber",
+"Motor neuron"
+],
+"a": 0,
+"e": "A 150–300 ms plateau is a feature of fast response cardiac myocytes, such as ventricular myocytes. SA and AV nodal cells lack a plateau.",
+"w": [
+"",
+"Nodal cells have no plateau.",
+"Nodal cells have no plateau.",
+"Skeletal APs last ~10 ms.",
+"Neuron APs last ~1 ms."
+]
+},
+{
+"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"s": "After repolarization, a ventricular myocyte has extra Ca²⁺ in the cytosol and extra Na⁺. Which mechanism restores the ionic gradients?",
+"c": [
+"Opening of L-type channels",
+"Opening of fast Na⁺ channels",
+"Closure of IK1 channels",
+"Exchangers and ATPases",
+"Opening of gap junctions"
+],
+"a": 3,
+"e": "The Na⁺/Ca²⁺ exchanger and ATPases restore ionic gradients after Phase 3.",
+"w": [
+"These let more Ca²⁺ in.",
+"These let more Na⁺ in.",
+"IK1 does not restore gradients.",
+"",
+"These connect cells."
+]
+}
+]
 }
 ];

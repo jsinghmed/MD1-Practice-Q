@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 520" width="560" height="520" font-family="Helvetica,Arial,sans-serif" font-size="15">
+<rect width="560" height="520" fill="#fff"/>
+<g stroke="#111" fill="none" stroke-width="2">
+<!-- AP -->
+<line x1="80" y1="40" x2="520" y2="40" stroke-dasharray="6 5" stroke-width="1"/>
+<path d="M80 120 H150 L156 30 Q165 38 200 44 Q300 52 390 60 Q410 66 418 90 Q424 116 436 120 H520"/>
+<!-- INa -->
+<line x1="80" y1="170" x2="520" y2="170" stroke-dasharray="6 5" stroke-width="1"/>
+<path d="M80 170 H152 L154 232 L158 176 Q168 170 180 170 H520"/>
+<!-- ICa -->
+<line x1="80" y1="250" x2="520" y2="250" stroke-dasharray="6 5" stroke-width="1"/>
+<path d="M80 250 H154 Q160 284 190 284 Q250 280 330 262 Q380 254 420 251 H520"/>
+<!-- IK1 -->
+<line x1="80" y1="325" x2="520" y2="325" stroke-dasharray="6 5" stroke-width="1"/>
+<path d="M80 318 H152 L156 325 H400 Q420 300 436 318 Q446 324 460 322 Q490 318 520 318"/>
+<!-- IK -->
+<line x1="80" y1="395" x2="520" y2="395" stroke-dasharray="6 5" stroke-width="1"/>
+<path d="M80 395 H156 Q250 392 330 380 Q400 368 424 360 Q434 380 450 392 Q470 395 520 395"/>
+<!-- ITO -->
+<line x1="80" y1="465" x2="520" y2="465" stroke-dasharray="6 5" stroke-width="1"/>
+<path d="M80 465 H154 L160 438 Q172 440 190 455 Q220 464 260 465 H520"/>
+<!-- time axis -->
+<line x1="155" y1="20" x2="155" y2="490" stroke-width="1"/>
+<line x1="430" y1="20" x2="430" y2="490" stroke-width="1"/>
+</g>
+<text x="62" y="45">0</text><text x="14" y="125" font-size="13">−80 mV</text>
+<text x="20" y="165">I<tspan baseline-shift="sub" font-size="11">Na</tspan></text>
+<text x="20" y="245">I<tspan baseline-shift="sub" font-size="11">Ca</tspan></text>
+<text x="20" y="315">I<tspan baseline-shift="sub" font-size="11">K1</tspan></text>
+<text x="20" y="388">I<tspan baseline-shift="sub" font-size="11">K</tspan></text>
+<text x="20" y="458">I<tspan baseline-shift="sub" font-size="11">TO</tspan></text>
+<g font-size="13" text-anchor="middle"><text x="155" y="510">0</text><text x="247" y="510">100 ms</text><text x="338" y="510">200 ms</text><text x="430" y="510">300 ms</text></g>
+</svg>
