@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Viva Practice · JJ QBank</title>
+<script>function jjTheme(){try{var th=localStorage.getItem("msk-theme");document.documentElement.setAttribute("data-theme",th==="light"?"light":"dark");}catch(e){}}jjTheme();window.addEventListener("storage",function(e){if(e.key==="msk-theme")jjTheme();});window.addEventListener("message",function(e){if(e.data==="jj-theme")jjTheme();});</script>
+<style>
+:root{--bg:#0d1117;--panel:#161b22;--card:#11161d;--choice:#1a2029;--choice-h:#202733;--teal:#4fb8b0;--teal-ink:#0b1416;--line:#2a313c;--line2:#353d4a;--text:#e6edf3;--muted:#8b949e;--good:#2ea043;--bad:#d1453b;--warn:#d69a2d}
+:root[data-theme="light"]{--bg:#f3f5f8;--panel:#fff;--card:#fff;--choice:#f6f8fa;--choice-h:#eef1f4;--teal:#2b9a91;--teal-ink:#fff;--line:#d8dee4;--line2:#c4ccd5;--text:#1f2328;--muted:#59636e}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+button,textarea{font:inherit;color:inherit}button{cursor:pointer}
+.wrap{max-width:860px;margin:0 auto;padding:26px 22px 70px}
+.crumb{font-size:12px;letter-spacing:.7px;text-transform:uppercase;color:var(--muted)}
+h1{font-size:27px;margin:6px 0 2px}
+.sub{color:var(--muted);margin:0 0 14px;font-size:14.5px}
+.qnav{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 18px}
+.qnav button{width:36px;height:32px;border-radius:8px;border:1px solid var(--line2);background:var(--choice);font-weight:600;font-size:13px}
+.qnav button.cur{border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal)}
+.qnav button.ok{background:color-mix(in srgb,var(--good) 32%,var(--choice))}.qnav button.part{background:color-mix(in srgb,var(--warn) 30%,var(--choice))}.qnav button.no{background:color-mix(in srgb,var(--bad) 30%,var(--choice))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+.top{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.qn{font-weight:700;color:var(--teal)}.tag{font-size:12px;border:1px solid var(--line2);border-radius:20px;padding:2px 9px;color:var(--muted)}
+.say{margin-left:auto;background:none;border:1px solid var(--line2);border-radius:18px;padding:4px 11px;font-size:13px}
+.q{font-size:22px;font-weight:600;line-height:1.35;margin:12px 0 20px}
+.mic{display:flex;flex-direction:column;align-items:center;gap:10px;margin:8px 0 6px}
+.mbtn{width:84px;height:84px;border-radius:50%;border:0;background:var(--teal);color:var(--teal-ink);font-size:34px;display:grid;place-items:center;box-shadow:0 6px 20px color-mix(in srgb,var(--teal) 40%,transparent);transition:transform .15s}
+.mbtn:hover{transform:scale(1.04)}
+.mbtn.rec{background:var(--bad);color:#fff;animation:pulse 1.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--bad) 55%,transparent)}100%{box-shadow:0 0 0 22px transparent}}
+.mlab{font-size:13.5px;color:var(--muted);text-align:center}
+.ans{width:100%;min-height:78px;background:var(--choice);border:1px solid var(--line2);border-radius:10px;padding:11px 12px;font-size:16px;resize:vertical;margin-top:10px}
+.ans:focus{outline:2px solid var(--teal);outline-offset:1px}
+.row{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;align-items:center}
+.btn{border:1px solid var(--line2);background:var(--choice);border-radius:9px;padding:9px 16px;font-weight:600}
+.btn.pri{background:var(--teal);border-color:var(--teal);color:var(--teal-ink)}.btn:disabled{opacity:.45;cursor:default}
+.res{margin-top:18px;border-radius:12px;padding:16px;border:1px solid}
+.res.ok{border-color:color-mix(in srgb,var(--good) 60%,transparent);background:color-mix(in srgb,var(--good) 12%,var(--card))}
+.res.part{border-color:color-mix(in srgb,var(--warn) 60%,transparent);background:color-mix(in srgb,var(--warn) 10%,var(--card))}
+.res.no{border-color:color-mix(in srgb,var(--bad) 60%,transparent);background:color-mix(in srgb,var(--bad) 10%,var(--card))}
+.res .v{font-weight:700;font-size:17px}.res .heard{color:var(--muted);font-size:14px;margin:4px 0 10px}
+.kp{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 12px}
+.kp span{font-size:13px;border-radius:14px;padding:3px 10px;border:1px solid var(--line2)}
+.kp .y{background:color-mix(in srgb,var(--good) 22%,transparent);border-color:color-mix(in srgb,var(--good) 55%,transparent)}
+.kp .n{background:color-mix(in srgb,var(--bad) 16%,transparent);border-color:color-mix(in srgb,var(--bad) 45%,transparent)}
+.model{font-size:16px}.model b{display:block;font-size:12px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.self{margin-top:12px;font-size:13.5px;color:var(--muted)}.self button{margin-left:6px;padding:4px 10px;font-size:13px}
+.score{display:flex;gap:16px;margin-top:16px;font-size:13.5px;color:var(--muted);flex-wrap:wrap}.score b{color:var(--text)}
+.score button{margin-left:auto;background:none;border:0;color:var(--muted);text-decoration:underline;font-size:13px}
+.note{font-size:13px;color:var(--muted);margin-top:8px;text-align:center}
+@media (max-width:600px){.wrap{padding:16px 14px 50px}.q{font-size:19px}h1{font-size:22px}}
+</style></head>
+<body><div class="wrap" id="app"></div>
+<script>
+const V=[{"n": 1, "t": "Thoracic cage", "q": "What bones form the thoracic cage?", "a": "The sternum in front, the 12 pairs of ribs with their costal cartilages on the sides, and the 12 thoracic vertebrae (with the intervertebral discs) behind.", "k": [["Sternum", ["stern"]], ["Ribs", ["rib"]], ["Costal cartilages", ["cartilage"]], ["Thoracic vertebrae", ["vertebra", "spine", "t1 to t12"]]]}, {"n": 2, "t": "Thoracic cage", "q": "What forms the superior thoracic aperture?", "a": "Behind: the body of T1. On each side: the first rib and its costal cartilage. In front: the upper border of the manubrium (jugular notch).", "k": [["Body of T1", ["t1", "first thoracic"]], ["First ribs", ["first rib", "rib 1", "1st rib", "1 rib"]], ["Manubrium / jugular notch", ["manubri", "jugular", "suprasternal"]]]}, {"n": 3, "t": "Thoracic cage", "q": "What closes the inferior thoracic aperture?", "a": "The diaphragm.", "k": [["Diaphragm", ["diaphragm"]]]}, {"n": 4, "t": "Thoracic cage", "q": "What forms the costal margin?", "a": "The joined costal cartilages of ribs 7 to 10.", "k": [["Costal cartilages", ["cartilage"]], ["Ribs 7 to 10", ["7", "10", "seven", "ten"]]]}, {"n": 5, "t": "Sternum", "q": "What are the three parts of the sternum?", "a": "Manubrium, body and xiphoid process.", "k": [["Manubrium", ["manubri"]], ["Body", ["body"]], ["Xiphoid process", ["xiphoid", "ziphoid", "xyphoid"]]]}, {"n": 6, "t": "Sternum", "q": "At what vertebral level is the jugular (suprasternal) notch?", "a": "At the level of the T2/T3 intervertebral disc.", "k": [["T2/T3", ["t2", "t3"]]]}, {"n": 7, "t": "Sternum", "q": "What is the sternal angle, and at what vertebral level is it?", "a": "The ridge where the manubrium joins the body of the sternum (manubriosternal joint, angle of Louis). It lies at the level of the T4/T5 intervertebral disc.", "k": [["Manubrium meets the body", ["manubri"]], ["T4/T5", ["t4", "t5"]]]}, {"n": 8, "t": "Sternum", "q": "Which costal cartilage joins the sternum at the sternal angle?", "a": "The 2nd costal cartilage.", "k": [["Second", ["\\b2\\b", "second", "two"]]]}, {"n": 9, "t": "Sternum", "q": "At what vertebral level is the xiphisternal joint?", "a": "T9.", "k": [["T9", ["t9", "\\b9\\b", "nine"]]]}, {"n": 10, "t": "Sternum", "q": "Which part of the sternum is used for bone-marrow aspiration?", "a": "The body of the sternum (sternal puncture); the manubrium can also be used.", "k": [["Body (or manubrium)", ["body", "manubri"]]]}, {"n": 11, "t": "Ribs", "q": "What are true, false and floating ribs?", "a": "True ribs (1\u20137) reach the sternum directly through their own costal cartilage. False ribs (8\u201310) join the cartilage of the rib above. Floating ribs (11\u201312) have no front attachment.", "k": [["True ribs 1\u20137", ["true"]], ["False ribs 8\u201310", ["false"]], ["Floating ribs 11\u201312", ["float"]], ["Correct numbers", ["7", "seven"]]]}, {"n": 12, "t": "Ribs", "q": "Which ribs are atypical?", "a": "Ribs 1, 2, 10, 11 and 12.", "k": [["1", ["\\b1\\b", "first", "one"]], ["2", ["\\b2\\b", "second", "two"]], ["10", ["10", "ten"]], ["11", ["11", "eleven"]], ["12", ["12", "twelve"]]]}, {"n": 13, "t": "Ribs", "q": "Which rib is the shortest, broadest and most curved?", "a": "The first rib.", "k": [["First rib", ["first", "\\b1\\b", "1st", "one"]]]}, {"n": 14, "t": "Ribs", "q": "Which ribs have a single facet on the head?", "a": "Ribs 1, 10, 11 and 12.", "k": [["1", ["\\b1\\b", "first", "one"]], ["10", ["10", "ten"]], ["11", ["11", "eleven"]], ["12", ["12", "twelve"]]]}, {"n": 15, "t": "Ribs", "q": "Name the parts of a typical rib.", "a": "Head (with two facets), neck, tubercle, and the shaft (body) with its angle and costal groove.", "k": [["Head", ["head"]], ["Neck", ["neck"]], ["Tubercle", ["tubercle"]], ["Shaft / body", ["shaft", "body"]], ["Angle or costal groove", ["angle", "groove"]]]}, {"n": 16, "t": "Ribs", "q": "What lies in the costal groove?", "a": "The intercostal vein, artery and nerve (VAN, from above down).", "k": [["Vein", ["vein"]], ["Artery", ["arter"]], ["Nerve", ["nerve"]]]}, {"n": 17, "t": "Ribs", "q": "Where does a rib usually fracture?", "a": "Just in front of its angle, which is its weakest point (middle ribs most often).", "k": [["Near the angle", ["angle"]]]}, {"n": 18, "t": "Ribs", "q": "What is attached to the scalene tubercle of the first rib?", "a": "Scalenus anterior (anterior scalene muscle).", "k": [["Scalenus anterior", ["scalen"]], ["Anterior", ["anterior"]]]}, {"n": 19, "t": "Ribs", "q": "Which vessel crosses the first rib in front of the scalene tubercle?", "a": "The subclavian vein.", "k": [["Subclavian", ["subclavian"]], ["Vein", ["vein"]]]}, {"n": 20, "t": "Ribs", "q": "What is a cervical rib?", "a": "An extra rib that articulates with the 7th cervical vertebra (C7). It can compress the lower trunk of the brachial plexus (C8, T1) or the subclavian artery.", "k": [["Extra rib", ["extra", "additional", "supernumerary"]], ["From C7", ["c7", "seventh cervical", "7th cervical"]]]}, {"n": 21, "t": "Thoracic vertebrae and joints", "q": "What is the key identifying feature of a thoracic vertebra?", "a": "Costal facets on the sides of the body (for the rib heads), and on the transverse processes (for the rib tubercles).", "k": [["Costal facets", ["facet"]]]}, {"n": 22, "t": "Thoracic vertebrae and joints", "q": "What is the shape of the body of a typical thoracic vertebra?", "a": "Heart-shaped.", "k": [["Heart-shaped", ["heart"]]]}, {"n": 23, "t": "Thoracic vertebrae and joints", "q": "Which thoracic vertebrae have no costal facets on their transverse processes?", "a": "T11 and T12.", "k": [["T11", ["11", "eleven"]], ["T12", ["12", "twelve"]]]}, {"n": 24, "t": "Thoracic vertebrae and joints", "q": "What type of joint is the costovertebral joint?", "a": "A synovial joint of the plane (gliding) type.", "k": [["Synovial", ["synovial"]], ["Plane", ["plane", "gliding"]]]}, {"n": 25, "t": "Thoracic vertebrae and joints", "q": "What type of joint is the 1st sternocostal joint?", "a": "A primary cartilaginous joint (synchondrosis). The 2nd to 7th sternocostal joints are synovial.", "k": [["Primary cartilaginous / synchondrosis", ["cartilaginous", "synchondrosis"]]]}];
+const KEY="jj-viva-thorax-v1";const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let S={i:0,res:{}};try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||"{}"));}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}};
+// spoken words → something the key points can match ("tee four" → t4, "second" → 2nd)
+const NUM={zero:0,one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,twelve:12,first:1,second:2,third:3,fourth:4,fifth:5,sixth:6,seventh:7,eighth:8,ninth:9,tenth:10,eleventh:11,twelfth:12};
+function norm(s){s=" "+String(s).toLowerCase().replace(/[–—-]/g," ").replace(/[^a-z0-9\/ ]/g," ")+" ";
+  s=s.replace(/\b(tea|tee)\b/g,"t").replace(/\b(see|sea)\b/g,"c");
+  for(const [w,n] of Object.entries(NUM)){s=s.replace(new RegExp("\\b(t|c)\\s+"+w+"\\b","g"),"$1"+n);}
+  s=s.replace(/\b(t|c)\s+(\d+)/g,"$1$2");
+  let t=s;for(const [w,n] of Object.entries(NUM))t=t.replace(new RegExp("\\b"+w+"\\b","g"),w+" "+n);
+  return t.replace(/\s+/g," ");}
+function grade(q,ans){const t=norm(ans);const hits=q.k.map(([lab,alts])=>alts.some(a=>new RegExp(a,"i").test(t)));
+  const n=hits.filter(Boolean).length,need=q.k.length;const v=n===need?"ok":n>0?"part":"no";return {hits,n,need,v};}
+let rec=null,listening=false,st={text:"",interim:""};
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+function startMic(){if(!SR){alert("Voice isn't supported in this browser. Type your answer instead.");return;}
+  rec=new SR();rec.lang="en-US";rec.interimResults=true;rec.continuous=true;
+  rec.onresult=e=>{let fin="",tmp="";for(let i=e.resultIndex;i<e.results.length;i++){const r=e.results[i];if(r.isFinal)fin+=r[0].transcript;else tmp+=r[0].transcript;}
+    if(fin)st.text=(st.text+" "+fin).trim();st.interim=tmp;const a=$("ans");if(a)a.value=(st.text+" "+st.interim).trim();const sb=$("sub");if(sb)sb.disabled=!a.value.trim();};
+  rec.onend=()=>{listening=false;st.interim="";paintMic();};rec.onerror=e=>{listening=false;paintMic();if(e.error==="not-allowed")$("mlab").textContent="Microphone blocked — allow it in the browser, or type your answer.";};
+  rec.start();listening=true;paintMic();}
+function stopMic(){if(rec)try{rec.stop();}catch(e){}listening=false;paintMic();}
+function paintMic(){const b=$("mbtn");if(!b)return;b.classList.toggle("rec",listening);b.textContent=listening?"■":"🎤";$("mlab").textContent=listening?"Listening… tap to stop":"Tap and say your answer (or type it below)";}
+function sayQ(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.rate=1;speechSynthesis.speak(u);}catch(e){}}
+function render(){stopMic();const q=V[S.i],R=S.res[q.n];
+  const done=Object.keys(S.res).length,ok=Object.values(S.res).filter(r=>r.v==="ok").length;
+  let h=`<div class="crumb">CRS Anatomy · Viva practice</div><h1>Thoracic Wall — Osteology</h1><p class="sub">Questions from your SGD sheet. Answer out loud like in the viva, then check against the model answer.</p>
+  <div class="qnav">${V.map((x,j)=>{const r=S.res[x.n];return `<button class="${j===S.i?"cur":""} ${r?r.v:""}" data-j="${j}">${x.n}</button>`;}).join("")}</div>
+  <div class="card"><div class="top"><span class="qn">Question ${q.n}</span><span class="tag">${esc(q.t)}</span><button class="say" id="say">🔊 Read aloud</button></div>
+  <div class="q">${esc(q.q)}</div>`;
+  if(!R){h+=`<div class="mic"><button class="mbtn" id="mbtn" aria-label="Answer by voice">🎤</button><div class="mlab" id="mlab"></div></div>
+    <textarea class="ans" id="ans" placeholder="Your answer appears here as you speak — you can also type or fix it."></textarea>
+    <div class="row"><button class="btn pri" id="sub" disabled>Check my answer</button><button class="btn" id="reveal">Just show the answer</button></div>`;}
+  else{const g=R;h+=`<div class="res ${g.v}"><div class="v">${g.v==="ok"?"✓ Correct — all key points covered":g.v==="part"?`◐ Partly correct — ${g.n} of ${g.need} key points`:"✗ Not quite"}</div>
+    ${R.heard?`<div class="heard">You said: “${esc(R.heard)}”</div>`:`<div class="heard">Answer revealed without attempting.</div>`}
+    <div class="kp">${q.k.map(([lab],j)=>`<span class="${g.hits[j]?"y":"n"}">${g.hits[j]?"✓":"✗"} ${esc(lab)}</span>`).join("")}</div>
+    <div class="model"><b>Model answer</b>${esc(q.a)}</div>
+    <div class="self">Marked wrong but you said it differently? <button class="btn" id="markok">Count it as correct</button></div></div>
+    <div class="row">${S.i>0?`<button class="btn" id="prev">‹ Previous</button>`:""}${S.i<V.length-1?`<button class="btn pri" id="next">Next question ›</button>`:""}<button class="btn" id="redo" style="margin-left:auto">↺ Try again</button></div>`;}
+  h+=`</div><div class="score"><span>Answered <b>${done}</b> / ${V.length}</span><span>Correct <b>${ok}</b></span><button id="reset">Reset all</button></div>
+  <div class="note">Voice works in Chrome, Arc, Edge and Safari. Your browser turns speech into text; nothing is recorded or saved by the site.</div>`;
+  $("app").innerHTML=h;st={text:"",interim:""};
+  const on=(id,f)=>{const e=$(id);if(e)e.onclick=f;};
+  document.querySelectorAll("[data-j]").forEach(b=>b.onclick=()=>{S.i=+b.dataset.j;save();render();});
+  on("say",()=>sayQ(q.q));on("mbtn",()=>listening?stopMic():startMic());paintMic();
+  const a=$("ans");if(a)a.oninput=()=>{st.text=a.value;$("sub").disabled=!a.value.trim();};
+  on("sub",()=>{stopMic();const txt=$("ans").value.trim();const g=grade(q,txt);S.res[q.n]={...g,heard:txt};save();render();});
+  on("reveal",()=>{stopMic();S.res[q.n]={hits:q.k.map(()=>false),n:0,need:q.k.length,v:"no",heard:""};save();render();});
+  on("markok",()=>{S.res[q.n]={...S.res[q.n],v:"ok",hits:q.k.map(()=>true),n:q.k.length};save();render();});
+  on("next",()=>{S.i++;save();render();window.scrollTo(0,0);});on("prev",()=>{S.i--;save();render();});
+  on("redo",()=>{delete S.res[q.n];save();render();});on("reset",()=>{S.res={};S.i=0;save();render();});}
+render();
+</script></body></html>
