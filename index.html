@@ -1635,6 +1635,7 @@ function renderChaps(){
     if (open) h += `<div class="secbar"><i style="width:${Math.round(st.done*100/st.n)}%"></i></div><div class="sec-b">` + rvChips(sec.prefix) + STATIC.filter(c=>c.pfx===sec.prefix).map(chapBtn).join("") + `</div>`;
     h += `</div>`;
   });
+  if (S.course==="crs") h += `<div class="chap-h">CRS ANATOMY</div><div class="nvg">` + navRow('data-act="viva"', NVI.notes, "Viva Practice", "25", view==="viva") + `</div>`;
   h += thxSide();
   $("chaps").innerHTML = h;
   $("ctabs").innerHTML = COURSES.map(c=>`<button class="ctab ${c.id===S.course?"on":""}" data-course="${c.id}" title="${esc(c.full)}">${esc(c.name)}<small>${c.count ? c.count+" Qs" : c.items.length ? c.items.length+" Qs" : "empty"}</small></button>`).join("");
@@ -2794,6 +2795,7 @@ function renderAll(){
   else if (view==="limb3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>3D upper limb atlas</h2><a class="btn" href="upper-limb-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="upper-limb-3d.html?v=1" title="Interactive 3D upper limb atlas"></iframe></div>`);
   else if (view==="leg3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>3D lower limb atlas</h2><a class="btn" href="lower-limb-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="lower-limb-3d.html?v=1" title="Interactive 3D lower limb atlas"></iframe></div>`);
   else if (view==="thorax") thxPage();
+  else if (view==="viva") showPage(`<div class="page plexpage thxpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Viva Practice</h2><a class="btn" href="viva.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe thxframe" src="viva.html?v=1" allow="microphone" title="Viva practice"></iframe></div>`);
   else if (view==="ethics") showPage(`<div class="page plexpage ethpage"><div class="plextop"><h2>Medical Ethics</h2><a class="btn" href="ethics.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe ethframe" src="ethics.html?v=3" title="Ethics practice questions"></iframe></div>`);
   else if (view==="guides") renderGuides();
   else if (view==="guide") renderGuideView();
@@ -2996,7 +2998,7 @@ document.addEventListener("click", e=>{
   const gj = t.closest("[data-gjump]");
   if (gj) { e.preventDefault(); const el = document.getElementById(gj.dataset.gjump); if (el) el.scrollIntoView({behavior:"smooth", block:"start"}); return; }
   const act = t.closest("[data-act]");
-  if (act) { view = ({build:"builder", plexus:"plexus", limb3d:"limb3d", leg3d:"leg3d", cap:"cap", pvl:"pvl", heart3d:"heart3d", heartinj:"heartinj", ethics:"ethics", guides:"guides", anki:"anki", notes:"notes"})[act.dataset.act] || "notes"; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); return; }
+  if (act) { view = ({build:"builder", plexus:"plexus", limb3d:"limb3d", leg3d:"leg3d", cap:"cap", pvl:"pvl", heart3d:"heart3d", heartinj:"heartinj", viva:"viva", ethics:"ethics", guides:"guides", anki:"anki", notes:"notes"})[act.dataset.act] || "notes"; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); return; }
   if (t.closest("[data-plexback]")) { view = "home"; renderAll(); $("main").scrollTo({top:0}); return; }
   // sidebar
   const rv = t.closest("[data-rv]");
