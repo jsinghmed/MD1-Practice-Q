@@ -67,16 +67,44 @@ function grade(q,ans){const t=norm(ans);const hits=q.k.map(([lab,alts])=>alts.so
   const n=hits.filter(Boolean).length,need=q.k.length;const v=n===need?"ok":n>0?"part":"no";return {hits,n,need,v};}
 let rec=null,listening=false,st={text:"",interim:""};
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-function startMic(){if(!SR){alert("Voice isn't supported in this browser. Type your answer instead.");return;}
-  rec=new SR();rec.lang="en-US";rec.interimResults=true;rec.continuous=true;
-  rec.onresult=e=>{let fin="",tmp="";for(let i=e.resultIndex;i<e.results.length;i++){const r=e.results[i];if(r.isFinal)fin+=r[0].transcript;else tmp+=r[0].transcript;}
-    if(fin)st.text=(st.text+" "+fin).trim();st.interim=tmp;const a=$("ans");if(a)a.value=(st.text+" "+st.interim).trim();const sb=$("sub");if(sb)sb.disabled=!a.value.trim();};
-  rec.onend=()=>{listening=false;st.interim="";paintMic();};rec.onerror=e=>{listening=false;paintMic();if(e.error==="not-allowed")$("mlab").textContent="Microphone blocked — allow it in the browser, or type your answer.";};
-  rec.start();listening=true;paintMic();}
-function stopMic(){if(rec)try{rec.stop();}catch(e){}listening=false;paintMic();}
-function paintMic(){const b=$("mbtn");if(!b)return;b.classList.toggle("rec",listening);b.textContent=listening?"■":"🎤";$("mlab").textContent=listening?"Listening… tap to stop":"Tap and say your answer (or type it below)";}
+// Arc, Brave and some other Chromium browsers include the speech API but can't reach Google's speech service,
+// so it fails instantly with a "network" error. Then we switch to a small speech model that runs in the browser.
+let useLocal=(()=>{try{return localStorage.getItem("jj-viva-local")==="1";}catch(e){return false;}})()||!SR;
+let mr=null,chunks=[],asr=null,asrLoading=null,busy=false,msg="";
+function setMsg(t){msg=t;const l=$("mlab");if(l)l.textContent=t;}
+function startMic(){msg="";if(useLocal){startLocal();return;}
+  rec=new SR();rec.lang="en-US";rec.interimResults=true;rec.continuous=true;let got=false;
+  rec.onresult=e=>{got=true;let fin="",tmp="";for(let i=e.resultIndex;i<e.results.length;i++){const r=e.results[i];if(r.isFinal)fin+=r[0].transcript;else tmp+=r[0].transcript;}
+    if(fin)st.text=(st.text+" "+fin).trim();st.interim=tmp;putText((st.text+" "+st.interim).trim());};
+  rec.onend=()=>{if(listening&&!rec._err){listening=false;st.interim="";paintMic();}};
+  rec.onerror=e=>{rec._err=e.error;listening=false;
+    if(e.error==="not-allowed"||e.error==="service-not-allowed"&&!navigator.userAgent.includes("Chrome")){paintMic();setMsg("Microphone is blocked. Click the icon at the left of the address bar, allow the microphone, then try again.");return;}
+    if(e.error==="no-speech"){paintMic();setMsg("I didn't hear anything — tap and try again.");return;}
+    // network / service-not-allowed / audio-capture etc. → use the built-in model instead
+    useLocal=true;try{localStorage.setItem("jj-viva-local","1");}catch(x){}startLocal();};
+  try{rec.start();listening=true;paintMic();}catch(e){useLocal=true;startLocal();}}
+function putText(t){const a=$("ans");if(!a)return;a.value=t;const sb=$("sub");if(sb)sb.disabled=!a.value.trim();}
+async function loadASR(){if(asr)return asr;if(!asrLoading)asrLoading=(async()=>{
+    const m=await import("https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2/dist/transformers.min.js");
+    m.env.allowLocalModels=false;
+    asr=await m.pipeline("automatic-speech-recognition","Xenova/whisper-base.en",{progress_callback:p=>{if(p.status==="progress"&&p.file&&/onnx/.test(p.file))setMsg("Loading the voice model (one time, ~75 MB)… "+Math.round(p.progress||0)+"%");}});
+    return asr;})();return asrLoading;}
+async function startLocal(){
+  let stream;try{stream=await navigator.mediaDevices.getUserMedia({audio:true});}catch(e){listening=false;paintMic();setMsg("Microphone is blocked. Allow it for this site (icon at the left of the address bar), then try again.");return;}
+  loadASR().catch(()=>{});chunks=[];mr=new MediaRecorder(stream);mr.ondataavailable=e=>{if(e.data.size)chunks.push(e.data);};
+  mr.onstop=async()=>{stream.getTracks().forEach(t=>t.stop());busy=true;paintMic();setMsg("Working out what you said…");
+    try{const blob=new Blob(chunks,{type:mr.mimeType||"audio/webm"});const ac=new (window.AudioContext||window.webkitAudioContext)({sampleRate:16000});
+      const buf=await ac.decodeAudioData(await blob.arrayBuffer());const data=buf.getChannelData(0);
+      const p=await loadASR();setMsg("Working out what you said…");const out=await p(data,{chunk_length_s:30});
+      const t=(out.text||"").replace(/\[.*?\]|\(.*?\)/g,"").trim();st.text=(st.text+" "+t).trim();putText(st.text);setMsg(t?"Got it — check the text, then press Check my answer.":"I didn't catch that — tap and try again.");}
+    catch(e){setMsg("Voice didn't work here — type your answer instead.");}
+    busy=false;paintMic(true);};
+  mr.start();listening=true;paintMic();}
+function stopMic(){if(rec&&!useLocal)try{rec.stop();}catch(e){}if(mr&&mr.state==="recording")try{mr.stop();}catch(e){}listening=false;paintMic(true);}
+function paintMic(keep){const b=$("mbtn");if(!b)return;b.classList.toggle("rec",listening);b.disabled=busy;b.textContent=busy?"…":listening?"■":"🎤";
+  if(keep&&msg)return;$("mlab").textContent=msg||(listening?"Listening… tap ■ when you're done":"Tap and say your answer (or type it below)");}
 function sayQ(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.rate=1;speechSynthesis.speak(u);}catch(e){}}
-function render(){stopMic();const q=V[S.i],R=S.res[q.n];
+function render(){if(mr&&mr.state==="recording"){mr.onstop=null;try{mr.stop();mr.stream.getTracks().forEach(t=>t.stop());}catch(e){}}if(rec)try{rec.abort();}catch(e){}listening=false;msg="";const q=V[S.i],R=S.res[q.n];
   const done=Object.keys(S.res).length,ok=Object.values(S.res).filter(r=>r.v==="ok").length;
   let h=`<div class="crumb">CRS Anatomy · Viva practice</div><h1>Thoracic Wall — Osteology</h1><p class="sub">Questions from your SGD sheet. Answer out loud like in the viva, then check against the model answer.</p>
   <div class="qnav">${V.map((x,j)=>{const r=S.res[x.n];return `<button class="${j===S.i?"cur":""} ${r?r.v:""}" data-j="${j}">${x.n}</button>`;}).join("")}</div>
@@ -92,7 +120,7 @@ function render(){stopMic();const q=V[S.i],R=S.res[q.n];
     <div class="self">Marked wrong but you said it differently? <button class="btn" id="markok">Count it as correct</button></div></div>
     <div class="row">${S.i>0?`<button class="btn" id="prev">‹ Previous</button>`:""}${S.i<V.length-1?`<button class="btn pri" id="next">Next question ›</button>`:""}<button class="btn" id="redo" style="margin-left:auto">↺ Try again</button></div>`;}
   h+=`</div><div class="score"><span>Answered <b>${done}</b> / ${V.length}</span><span>Correct <b>${ok}</b></span><button id="reset">Reset all</button></div>
-  <div class="note">Voice works in Chrome, Arc, Edge and Safari. Your browser turns speech into text; nothing is recorded or saved by the site.</div>`;
+  <div class="note">Voice works in any modern browser. In Arc and Brave a small speech model is downloaded once and runs on your own device. Nothing you say is saved by the site.</div>`;
   $("app").innerHTML=h;st={text:"",interim:""};
   const on=(id,f)=>{const e=$(id);if(e)e.onclick=f;};
   document.querySelectorAll("[data-j]").forEach(b=>b.onclick=()=>{S.i=+b.dataset.j;save();render();});
