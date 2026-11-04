@@ -106,7 +106,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .diff-h{display:flex;align-items:center;gap:8px;padding:14px 9px 6px;color:var(--muted);font-size:11px;letter-spacing:1.2px;font-weight:600;text-transform:uppercase}
 .diff-h::after{content:"";flex:1;height:1px;background:var(--line)}
 i.d{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px;background:var(--muted)}
-.lchip i.d{margin-right:0}i.d.E{background:#2b8a3e}i.d.H{background:#e8590c}i.d.S{background:#0b7285}
+.lchip i.d{margin-right:0}i.d.E{background:#2b8a3e}i.d.H{background:#e8590c}i.d.S{background:#0b7285}.lchip i.d.S,.chap i.d.S{background:var(--teal,#0b7285)}
 .rv{display:flex;gap:5px;flex-wrap:wrap;padding:0 3px 8px}
 .rv button{font-size:12px;padding:4px 9px;border:1px solid var(--line2);border-radius:13px;background:transparent;color:var(--muted);display:inline-flex;gap:4px;align-items:center}
 .rv button:hover{background:var(--hover);color:var(--text)}
@@ -1049,9 +1049,9 @@ button.dst:hover{background:var(--hover)}
 <script src="fbs-anki.js?v=34"></script>
 <script src="crs-embryology.js?v=34"></script>
 <script src="crs-anatomy.js?v=1"></script>
-<script src="crs-biochem.js?v=1"></script>
-<script src="crs-physiology.js?v=1"></script>
-<script src="nbme.js?v=7"></script>
+<script src="crs-biochem.js?v=2"></script>
+<script src="crs-physiology.js?v=2"></script>
+<script src="nbme.js?v=8"></script>
 <script src="xp-crs.js?v=1"></script>
 <script src="viz-links.js?v=3"></script>
 <script>
@@ -1067,6 +1067,18 @@ const COURSES = [
   {id:"crs", name:"CRS", full:"Cardiovascular & Respiratory Systems"},
   {id:"eth", name:"Ethics", full:"Medical Ethics", special:"ethics", count:102}
 ];
+// Lecture-grouped sidebar entries: each lecture, its topics, then its Easy/Hard (and slide practice Q) chips; course-wide filters at the bottom.
+function lecExtras(lectures, tags){
+  tags = tags || [];
+  const all = lectures.flatMap(([n,ts])=>{
+    const inL = q=>ts.includes(q.t);
+    return [{main:true, name:n, f:inL}].concat(ts.map(t=>({name:t, f:q=>q.t===t})),
+      [{name:"Easy questions", key:n+" · Easy", f:q=>inL(q) && q.lv==="Easy"}, {name:"Hard questions", key:n+" · Hard", f:q=>inL(q) && q.lv==="Hard"}],
+      tags.map(([label,k,fld])=>({name:label, key:n+" · "+k, f:q=>inL(q) && q[fld]})));
+  });
+  return all.concat([{main:true, name:"Easy questions", f:q=>q.lv==="Easy"}, {main:true, name:"Hard questions", f:q=>q.lv==="Hard"}],
+    tags.map(([label,k,fld])=>({main:true, name:label, f:q=>q[fld]})));
+}
 const SECTIONS = [
   {course:"msk", name:"Histology", all:"All Histology", prefix:"q", topics:window.TOPICS, qs:window.QUESTIONS,
    extra:[{name:"Review Slides Practice (new)", f:q=>q.src==="rev"}]},
@@ -1110,25 +1122,15 @@ const SECTIONS = [
        [{name:"Easy questions", key:n+" · Easy", f:q=>ts.includes(q.t) && q.lv==="Easy"}, {name:"Hard questions", key:n+" · Hard", f:q=>ts.includes(q.t) && q.lv==="Hard"}]))
      .concat([{main:true, name:"Easy questions", f:q=>q.lv==="Easy"}, {main:true, name:"Hard questions", f:q=>q.lv==="Hard"}])},
   {course:"crs", name:"CRS Biochemistry", all:"All CRS Biochemistry", prefix:"cb", topics:window.CRS_BC_TOPICS, hideTopics:true, qs:window.CRS_BC_QUESTIONS,
-   // Grouped by lecture (Dr. Shetty), then topic; Easy/Hard filters per lecture
-   extra:(()=>{ const L1 = ["Overview & Activation", "Carnitine Shuttle", "Carnitine & CPT Deficiencies", "β-Oxidation Reactions", "Energetics & Regulation", "Unsaturated & Odd-Chain Fatty Acids", "Methylmalonic Aciduria", "Peroxisomal, α- & ω-Oxidation", "MCAD Deficiency & Jamaican Vomiting Sickness", "Zellweger, X-ALD & Refsum"];
-     const N1 = "Lecture 1 · Fatty Acid Oxidation";
-     return [{main:true, name:N1, f:q=>L1.includes(q.t)}]
-       .concat(L1.map(t=>({name:t, f:q=>q.t===t})),
-       [{name:"Easy questions", key:N1+" · Easy", f:q=>L1.includes(q.t) && q.lv==="Easy"},
-        {name:"Hard questions", key:N1+" · Hard", f:q=>L1.includes(q.t) && q.lv==="Hard"},
-        {main:true, name:"Easy questions", f:q=>q.lv==="Easy"}, {main:true, name:"Hard questions", f:q=>q.lv==="Hard"}]); })()},
+   // Grouped by lecture (Dr. Shetty), then topic. Add each new lecture as one more [name, topics] row.
+   extra:(()=>{ const T = window.CRS_BC_TOPICS||[];
+     return lecExtras([["Lecture 1 · Fatty Acid Oxidation", T.slice(0,10)], ["Lecture 2 · Fatty Acid & TAG Synthesis", T.slice(10,21)]],
+       [["Shetty Practice Q's", "Shetty", "shetty"]]); })()},
   {course:"crs", name:"CRS Physiology", all:"All CRS Physiology", prefix:"cp", topics:window.CRS_PH_TOPICS, hideTopics:true, qs:window.CRS_PH_QUESTIONS,
-   // Grouped by lecture (Dr. Sampath V.), then topic; Easy/Hard and Sampath's Q's filters per lecture
-   extra:(()=>{ const L1 = (window.CRS_PH_TOPICS||[]).slice(0,11);
-     const N1 = "Lecture 1 · Cardiac Action Potential";
-     return [{main:true, name:N1, f:q=>L1.includes(q.t)}]
-       .concat(L1.map(t=>({name:t, f:q=>q.t===t})),
-       [{name:"Easy questions", key:N1+" · Easy", f:q=>L1.includes(q.t) && q.lv==="Easy"},
-        {name:"Hard questions", key:N1+" · Hard", f:q=>L1.includes(q.t) && q.lv==="Hard"},
-        {name:"Sampath's Q's", key:N1+" · Sampath", f:q=>L1.includes(q.t) && q.sampath},
-        {main:true, name:"Easy questions", f:q=>q.lv==="Easy"}, {main:true, name:"Hard questions", f:q=>q.lv==="Hard"},
-        {main:true, name:"Sampath's Q's", f:q=>q.sampath}]); })()}
+   // Grouped by lecture (Dr. Sampath V.), then topic. Add each new lecture as one more [name, topics] row.
+   extra:(()=>{ const T = window.CRS_PH_TOPICS||[];
+     return lecExtras([["Lecture 1 · Cardiac Action Potential", T.slice(0,11)], ["Lecture 2 · Pacemaker Potential: SA & AV Nodes", T.slice(11,18)]],
+       [["Sampath's Q's", "Sampath", "sampath"]]); })()}
 ].concat((window.NBME_QUIZZES||[]).map(z=>({course:z.course, name:z.name, all:z.name, prefix:z.prefix, topics:[], qs:z.qs, nbme:true, subject:z.subject, note:z.note})))
  .filter(s=>s.qs && s.qs.length);
 
@@ -1414,7 +1416,7 @@ function chapBtn(c){
   return `<button class="chap ${S.cur===c.key&&view==="quiz"?"on":""} ${c.head?"all":""} ${c.sub?"sub":""}" data-key="${esc(c.key)}"><span>${esc(c.name)}</span><span class="n">${c.ids.length}</span></button>`;
 }
 // CRS sidebar: each lecture is one row that opens to show its topics; Easy/Hard etc. sit at the bottom.
-const DIFF_RE = /^(Easy questions|Hard questions|Sampath's Q's)/;
+const DIFF_RE = /^(Easy questions|Hard questions|Sampath's Q's|Shetty Practice Q's)/;
 let LEC_OPEN = {}; try { LEC_OPEN = JSON.parse(localStorage.getItem("jj-lec-open")||"{}"); } catch(e) {}
 function lecTree(sec){
   const all = STATIC.filter(c=>c.pfx===sec.prefix), groups = [], bottom = [];
@@ -1451,10 +1453,10 @@ const GUIDES = {
         ["msk-biochem","MSK Biochemistry","Glycolysis, glycogen & storage diseases, GAGs, collagen & elastin",4],
         ["msk-anatomy","MSK Anatomy","Upper & lower limb: plexus, nerve injuries, compartments, joints, vessels",6],
         ["msk-embryology","MSK Embryology","Bone formation, growth plate, vertebrae, skull & sutures, limbs, skin",3]],
-  crs: [["crs-biochem","CRS Biochemistry","Fatty acid oxidation · grows one chapter per lecture",0],["crs-physiology","CRS Physiology","Cardiac action potential · grows one chapter per lecture",0]]
+  crs: [["crs-biochem","CRS Biochemistry NBME guide","High-yield, commonly tested NBME content · Lecture 1–2 · grows with each lecture",0],["crs-physiology","CRS Physiology NBME guide","High-yield, commonly tested NBME content · Lecture 1–2 · grows with each lecture",0]]
 };
 function guideCards(list){
-  return `<div class="gdgrid">` + list.map(([f,nm,desc,pg])=>`<div class="gdcard"><div class="gdi">${NVI.guide}</div><div class="gdt"><b>${esc(nm)}</b><small>${esc(desc)}</small><span class="gdm">${pg?pg+" pages · PDF":"Read on site · updated each lecture"}</span></div>
+  return `<div class="gdgrid">` + list.map(([f,nm,desc,pg])=>`<div class="gdcard"><div class="gdi">${NVI.guide}</div><div class="gdt"><b>${esc(nm)}</b><small>${esc(desc)}</small><span class="gdm">${pg?pg+" pages · PDF":"Read on site or save as PDF · updated each lecture"}</span></div>
     <div class="gda"><button class="dpill" data-guide="${f}">Read</button>${pg?`<a class="dpill g" href="guide-${f}.pdf?v=1" download="JJ QBank - ${esc(nm)} study guide.pdf">PDF</a>`:""}</div></div>`).join("") + `</div>`;
 }
 let curGuide = null, guideLoading = false;
@@ -1462,11 +1464,11 @@ function guideInfo(k){ for (const c in GUIDES) { const g = GUIDES[c].find(x=>x[0
 function renderGuideView(){
   const info = guideInfo(curGuide); if (!info) { view = "guides"; renderGuides(); return; }
   const [f, nm, desc, pg] = info.g;
-  const top = `<div class="gvtop"><button class="btn" data-act="guides">← NBME Dashboard (${esc(COURSE_BY_ID[info.course].name)})</button><a class="btn primary" href="guide-${f}.pdf?v=1" download="JJ QBank - ${esc(nm)} study guide.pdf">⬇ Download PDF</a></div>
+  const top = `<div class="gvtop"><button class="btn" data-act="guides">← NBME Dashboard (${esc(COURSE_BY_ID[info.course].name)})</button>${pg?`<a class="btn primary" href="guide-${f}.pdf?v=1" download="JJ QBank - ${esc(nm)} study guide.pdf">⬇ Download PDF</a>`:`<button class="btn primary" data-gprint="1" title="Opens your browser's print window: choose Save as PDF">⬇ Save as PDF</button>`}</div>
     <div class="gvhead"><h2>${esc(nm)}</h2><p class="sub">${esc(desc)}</p><div class="gvleg"><span><span class="hy">Red</span> = extra high yield (classic NBME)</span><span>Black/white = core content</span><span class="mn">Italic = mnemonic</span></div></div>`;
   if (!window.GUIDE_HTML) {
     showPage(`<div class="page gview">${top}<div class="emptybox"><p>Loading study guide…</p></div></div>`);
-    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=3";
+    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=4";
       sc.onload = ()=>{ guideLoading = false; if (view==="guide") renderGuideView(); };
       sc.onerror = ()=>{ guideLoading = false; toast("Couldn't load the study guide — check your connection"); };
       document.head.appendChild(sc); }
@@ -3090,6 +3092,7 @@ document.addEventListener("click", e=>{
   if (nbq) { openNbme(nbq.dataset.nbq); return; }
   const gd = t.closest("[data-guide]");
   if (gd) { curGuide = gd.dataset.guide; view = "guide"; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); window.scrollTo({top:0}); return; }
+  if (t.closest("[data-gprint]")) { window.print(); return; }
   const gj = t.closest("[data-gjump]");
   if (gj) { e.preventDefault(); const el = document.getElementById(gj.dataset.gjump); if (el) el.scrollIntoView({behavior:"smooth", block:"start"}); return; }
   if (t.closest("[data-toolstoggle]")) { const b = t.closest("[data-toolstoggle]"), op = b.getAttribute("aria-expanded")!=="true"; try { localStorage.setItem("jj-tools-open", op?"1":"0"); } catch(e) {} renderAll(); return; }

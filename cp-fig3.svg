@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 300" width="520" height="300" font-family="Helvetica,Arial,sans-serif" font-size="15">
+<rect width="520" height="300" fill="#fff"/>
+<text x="20" y="28" font-weight="bold" font-size="17">SA NODE</text>
+<line x1="80" y1="70" x2="500" y2="70" stroke="#111" stroke-dasharray="5 4"/>
+<text x="56" y="75">0</text><text x="14" y="210" font-size="13">−65 mV</text>
+<line x1="80" y1="40" x2="80" y2="260" stroke="#111"/>
+<path d="M90 230 L210 195 L222 72 Q232 62 244 78 L292 222 Q300 236 312 232 L410 198 L422 72 Q432 62 444 78 L480 180" fill="none" stroke="#111" stroke-width="2.5"/>
+<text x="150" y="232" font-weight="bold">4</text><text x="196" y="140" font-weight="bold">0</text><text x="270" y="150" font-weight="bold">3</text><text x="350" y="232" font-weight="bold">4</text>
+<g fill="#c92a2a" font-weight="bold"><text x="110" y="290">Current?</text><text x="120" y="110">Current?</text><text x="290" y="100">Current?</text></g>
+<g stroke="#c92a2a" stroke-width="2"><line x1="150" y1="272" x2="150" y2="218"/><line x1="185" y1="112" x2="214" y2="135"/><line x1="292" y1="104" x2="262" y2="128"/></g>
+</svg>

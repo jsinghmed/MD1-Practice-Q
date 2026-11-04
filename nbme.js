@@ -3472,12 +3472,12 @@ window.NBME_QUIZZES = [
 {
 "course": "crs",
 "subject": "Biochemistry",
-"name": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"name": "CRS Biochemistry · NBME",
 "prefix": "ncb1",
-"note": "NBME-style extra practice for Lecture 1 (Fatty Acid Oxidation)",
+"note": "NBME-style questions for every CRS Biochemistry lecture · grows each lecture",
 "qs": [
 {
-"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"t": "Lecture 1 · Fatty Acid Oxidation",
 "s": "A 3-year-old has a seizure after 18 hours of vomiting and poor intake. Glucose is 30 mg/dL with no urinary ketones. Echocardiography shows a dilated left ventricle. Plasma total carnitine is very low and urinary free carnitine is high. The defective protein normally does which of the following?",
 "c": [
 "Takes carnitine up into cells",
@@ -3497,7 +3497,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"t": "Lecture 1 · Fatty Acid Oxidation",
 "s": "A 22-year-old soldier develops muscle pain, weakness and dark urine after a long march without food. Serum CK is very high. He had a similar episode last year and was well in between. Which diet should he follow?",
 "c": [
 "High carbohydrate, low fat with MCFA",
@@ -3517,7 +3517,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"t": "Lecture 1 · Fatty Acid Oxidation",
 "s": "A drug inhibits hepatic acetyl CoA carboxylase, the enzyme that forms malonyl CoA. What happens to fatty acid oxidation?",
 "c": [
 "Rises, as CPT I is released from inhibition",
@@ -3537,7 +3537,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"t": "Lecture 1 · Fatty Acid Oxidation",
 "s": "A child develops vomiting and severe hypoglycemia after eating unripe ackee. The toxin blocks the same enzyme that is deficient in which inherited disorder?",
 "c": [
 "CPT II deficiency",
@@ -3557,7 +3557,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"t": "Lecture 1 · Fatty Acid Oxidation",
 "s": "A 70-year-old strict vegan has paresthesias and a macrocytic anemia. Which urinary compound is most likely increased?",
 "c": [
 "Phytanic acid",
@@ -3577,7 +3577,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"t": "Lecture 1 · Fatty Acid Oxidation",
 "s": "An infant has methylmalonic aciduria from a mutase defect. Restricting which amino acids would reduce flux into the blocked step?",
 "c": [
 "Lysine and methionine",
@@ -3597,7 +3597,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"t": "Lecture 1 · Fatty Acid Oxidation",
 "s": "A boy has high plasma VLCFA but normal plasmalogens and normal numbers of peroxisomes. Which disorder is most likely?",
 "c": [
 "Classic Zellweger syndrome",
@@ -3617,7 +3617,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"t": "Lecture 1 · Fatty Acid Oxidation",
 "s": "An adult has high plasma phytanic acid with normal VLCFA and normal plasmalogens. Which pathway is defective?",
 "c": [
 "β-Oxidation in mitochondria",
@@ -3637,7 +3637,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"t": "Lecture 1 · Fatty Acid Oxidation",
 "s": "A patient with type 2 diabetes on a sulfonylurea has impaired fasting fatty acid oxidation. Which step is the drug most likely affecting?",
 "c": [
 "Activation of fatty acids to acyl CoA",
@@ -3657,7 +3657,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"t": "Lecture 1 · Fatty Acid Oxidation",
 "s": "A child on long-term sodium valproate has fasting hypoketotic hypoglycemia and low plasma carnitine. Which is the best classification?",
 "c": [
 "Primary carnitine deficiency",
@@ -3677,7 +3677,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"t": "Lecture 1 · Fatty Acid Oxidation",
 "s": "Which set of findings (glucose, ketones, ammonia) fits an MCAD crisis?",
 "c": [
 "Low, high, high",
@@ -3697,7 +3697,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"t": "Lecture 1 · Fatty Acid Oxidation",
 "s": "Compared with the mitochondrial pathway, why does the first step of peroxisomal β-oxidation yield less ATP?",
 "c": [
 "It uses NAD+ instead of FAD as cofactor",
@@ -3717,7 +3717,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"t": "Lecture 1 · Fatty Acid Oxidation",
 "s": "In MCAD deficiency, which urinary marker reflects backed-up substrate bound to carnitine?",
 "c": [
 "Free carnitine without acyl groups",
@@ -3737,7 +3737,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"t": "Lecture 1 · Fatty Acid Oxidation",
 "s": "A fasting infant has hypoketotic hypoglycemia and hepatomegaly with no muscle or heart involvement. Which enzyme is most likely deficient?",
 "c": [
 "CPT II",
@@ -3757,7 +3757,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Biochemistry · NBME Quiz 1 · Fatty Acid Oxidation",
+"t": "Lecture 1 · Fatty Acid Oxidation",
 "s": "A tracer shows that the last three carbons of a dietary odd-chain fatty acid end up in the citric acid cycle. Through which intermediate do they enter?",
 "c": [
 "Acetyl CoA",
@@ -3775,18 +3775,318 @@ window.NBME_QUIZZES = [
 "Not a TCA intermediate.",
 "Not the entry point."
 ]
+},
+{
+"t": "Lecture 2 · Fatty Acid & TAG Synthesis",
+"s": "A 30-year-old man eats a large carbohydrate meal. In his hepatocytes, acetyl-CoA formed in the mitochondria is used for fatty acid synthesis in the cytosol. Which enzyme releases acetyl-CoA in the cytosol?",
+"c": [
+"ATP-citrate lyase",
+"Citrate synthase",
+"Pyruvate dehydrogenase",
+"Carnitine acyltransferase I",
+"Acetyl-CoA carboxylase"
+],
+"a": 0,
+"e": "Acetyl-CoA cannot cross the inner mitochondrial membrane. It leaves as citrate, and cytosolic ATP-citrate lyase cleaves citrate to acetyl-CoA and oxaloacetate.",
+"w": [
+"",
+"This forms citrate in the matrix.",
+"This forms acetyl-CoA in the matrix.",
+"This moves fatty acyl groups into mitochondria.",
+"This uses acetyl-CoA in the cytosol."
+]
+},
+{
+"t": "Lecture 2 · Fatty Acid & TAG Synthesis",
+"s": "Researchers block cytosolic malic enzyme in cultured hepatocytes. Fatty acid synthesis falls despite normal HMP shunt activity. Which shortage most directly explains this?",
+"c": [
+"ATP",
+"NADPH",
+"Acetyl-CoA",
+"Biotin",
+"Malonyl CoA"
+],
+"a": 1,
+"e": "Malic enzyme supplies 8 of the 14 NADPH per palmitate; the HMP pathway supplies the other 6.",
+"w": [
+"ATP is not made by malic enzyme.",
+"",
+"Malic enzyme acts after acetyl-CoA is released.",
+"Biotin is a vitamin cofactor.",
+"Made by ACC, not malic enzyme."
+]
+},
+{
+"t": "Lecture 2 · Fatty Acid & TAG Synthesis",
+"s": "A 6-month-old has a rash, alopecia and lactic acidosis. A deficient vitamin is a cofactor for both pyruvate carboxylase and the committed enzyme of fatty acid synthesis. Which vitamin?",
+"c": [
+"Thiamine",
+"Biotin",
+"Pantothenate",
+"Niacin",
+"Riboflavin"
+],
+"a": 1,
+"e": "Biotin is the prosthetic group of carboxylases, including acetyl-CoA carboxylase and pyruvate carboxylase.",
+"w": [
+"A cofactor for PDH, not carboxylases.",
+"",
+"A component of CoA and ACP.",
+"Forms NAD and NADP.",
+"Forms FAD and FMN."
+]
+},
+{
+"t": "Lecture 2 · Fatty Acid & TAG Synthesis",
+"s": "A 52-year-old woman with type 2 diabetes starts metformin. Her hepatic fatty acid synthesis decreases. Which change in acetyl-CoA carboxylase explains this?",
+"c": [
+"Dephosphorylation by phosphatase",
+"Polymerization by citrate",
+"Increased SREBP-1c expression",
+"Increased ChREBP expression",
+"Phosphorylation by AMPK"
+],
+"a": 4,
+"e": "Metformin activates AMPK, which phosphorylates and inactivates ACC, lowering malonyl CoA and fatty acid synthesis.",
+"w": [
+"This activates ACC.",
+"This activates ACC.",
+"This increases ACC.",
+"This increases ACC.",
+""
+]
+},
+{
+"t": "Lecture 2 · Fatty Acid & TAG Synthesis",
+"s": "A man runs a marathon. His muscle AMP rises and his glucagon and epinephrine are high. Which state of acetyl-CoA carboxylase is expected?",
+"c": [
+"Dephosphorylated and active",
+"Phosphorylated and inactive",
+"Phosphorylated and active",
+"Polymerized by citrate",
+"Induced by SREBP-1c"
+],
+"a": 1,
+"e": "Low energy (high AMP → AMPK) and stress hormones (glucagon/epinephrine) both phosphorylate and inactivate ACC.",
+"w": [
+"This is the fed state.",
+"",
+"Phosphorylation inactivates ACC.",
+"Citrate is the fed-state activator.",
+"SREBP-1c is the insulin signal."
+]
+},
+{
+"t": "Lecture 2 · Fatty Acid & TAG Synthesis",
+"s": "A patient on a high-carbohydrate diet develops elevated serum triglycerides. Which mechanism best links the diet to increased TAG synthesis?",
+"c": [
+"Glucagon activates hormone-sensitive lipase",
+"AMPK activation increases ACC",
+"Insulin activates ACC and SREBP-1c",
+"Fatty acyl CoA activates ACC",
+"Low citrate activates fatty acid synthase"
+],
+"a": 2,
+"e": "Excess carbohydrate → insulin (protein phosphatase + SREBP-1c) and ChREBP → ↑ ACC → ↑ fatty acids → ↑ TAG, exported as VLDL.",
+"w": [
+"This increases lipolysis.",
+"AMPK inhibits ACC.",
+"",
+"Fatty acyl CoA inhibits ACC.",
+"Citrate activates ACC when high."
+]
+},
+{
+"t": "Lecture 2 · Fatty Acid & TAG Synthesis",
+"s": "A mutation removes the thioesterase domain of fatty acid synthase. What is the most likely consequence?",
+"c": [
+"Palmitate stays bound to ACP",
+"Malonyl groups cannot be loaded",
+"Acetoacetyl ACP cannot be reduced",
+"Malonyl CoA cannot be formed",
+"The cycle halts at crotonyl ACP"
+],
+"a": 0,
+"e": "Thioesterase (domain 3) hydrolyzes C16-acyl ACP to release palmitate; it acts as the ruler for chain length.",
+"w": [
+"",
+"That needs malonyl transferase.",
+"That needs β-ketoacyl reductase.",
+"That needs ACC.",
+"That needs enoyl reductase."
+]
+},
+{
+"t": "Lecture 2 · Fatty Acid & TAG Synthesis",
+"s": "A drug blocks the enoyl reductase of fatty acid synthase. Which intermediate accumulates in the first cycle?",
+"c": [
+"Acetoacetyl ACP",
+"D-3-hydroxybutyryl ACP",
+"Butyryl ACP",
+"Crotonyl ACP",
+"Malonyl ACP"
+],
+"a": 3,
+"e": "Enoyl reductase uses NADPH to reduce crotonyl ACP to butyryl ACP; blocking it builds up crotonyl ACP.",
+"w": [
+"This needs β-ketoacyl reductase.",
+"This needs dehydratase.",
+"This is the product of enoyl reductase.",
+"",
+"This is a substrate."
+]
+},
+{
+"t": "Lecture 2 · Fatty Acid & TAG Synthesis",
+"s": "Using the slide stoichiometry, how many NADPH are needed to make one palmitate from 8 acetyl-CoA?",
+"c": [
+"7",
+"8",
+"16",
+"14",
+"28"
+],
+"a": 3,
+"e": "Two NADPH per cycle × 7 cycles = 14 NADPH: acetyl-CoA + 7 malonyl CoA + 14 NADPH + 20 H⁺ → palmitate + 7 CO2 + 14 NADP⁺ + 8 CoA + 6 H2O.",
+"w": [
+"7 is the number of malonyl CoA.",
+"8 is the number of acetyl-CoA.",
+"16 is the carbon count.",
+"",
+"Too many; 2 per cycle × 7 cycles = 14."
+]
+},
+{
+"t": "Lecture 2 · Fatty Acid & TAG Synthesis",
+"s": "A patient on long-term fat-free parenteral nutrition develops scaly dermatitis. Which fatty acid must be supplied in the diet?",
+"c": [
+"Oleate",
+"Palmitate",
+"Linoleate",
+"Stearate",
+"Palmitoleate"
+],
+"a": 2,
+"e": "Human desaturases cannot act beyond C9, so linoleate (18:2 Δ9,12) and linolenate (18:3 Δ9,12,15) are essential.",
+"w": [
+"Humans can make oleate with a Δ9 desaturase.",
+"The main product of fatty acid synthase.",
+"",
+"Made by elongation of palmitate.",
+"Made by Δ9 desaturation."
+]
+},
+{
+"t": "Lecture 2 · Fatty Acid & TAG Synthesis",
+"s": "Desaturation of stearoyl CoA to oleoyl CoA needs NADH and O2 but produces no ATP. Why?",
+"c": [
+"NADH is never oxidized in it",
+"O2 is not reduced in the reaction",
+"The reaction is in the mitochondria",
+"ATP is consumed by the desaturase",
+"Electrons go to cyt b5, not the ETC"
+],
+"a": 4,
+"e": "The ER desaturase system (NADH-cytochrome b5 reductase, cytochrome b5, desaturase) is uncoupled from oxidative phosphorylation.",
+"w": [
+"NADH is used by the reductase.",
+"O2 is reduced to water.",
+"It is in the ER.",
+"No ATP is made or used.",
+""
+]
+},
+{
+"t": "Lecture 2 · Fatty Acid & TAG Synthesis",
+"s": "In adipocytes, which compound provides the glycerol backbone for TAG synthesis, given that adipose has little glycerol kinase?",
+"c": [
+"Free glycerol from the plasma",
+"Pyruvate made in glycolysis",
+"Acetyl-CoA from PDH",
+"Dihydroxyacetone phosphate",
+"Phosphatidylcholine"
+],
+"a": 3,
+"e": "Glucose → DHAP → glycerol-3-phosphate dehydrogenase → glycerol-3-phosphate, then acylation to TAG.",
+"w": [
+"Needs glycerol kinase, mainly in liver.",
+"Not used for the backbone.",
+"Used for fatty acids, not glycerol.",
+"",
+"A phospholipid, not a precursor."
+]
+},
+{
+"t": "Lecture 2 · Fatty Acid & TAG Synthesis",
+"s": "A 40-year-old man fasts for 24 hours. Which enzyme in his adipocytes converts diacylglycerol to monoacylglycerol, and in what state?",
+"c": [
+"Hormone-sensitive lipase, phosphorylated",
+"Hormone-sensitive lipase, dephosphorylated",
+"Lipoprotein lipase, phosphorylated",
+"Adipose triglyceride lipase, dephosphorylated",
+"Pancreatic lipase, phosphorylated"
+],
+"a": 0,
+"e": "Fasting: glucagon and epinephrine phosphorylate and activate hormone-sensitive lipase, which converts DAG to monoacylglycerol.",
+"w": [
+"",
+"Dephosphorylated HSL is inactive.",
+"LPL acts on lipoproteins in capillaries.",
+"ATGL acts on TAG.",
+"Acts in the gut."
+]
+},
+{
+"t": "Lecture 2 · Fatty Acid & TAG Synthesis",
+"s": "During prolonged fasting, glycerol released from adipose tissue is used mainly by which organ?",
+"c": [
+"Adipose tissue itself",
+"Skeletal muscle",
+"Liver",
+"Brain",
+"Red blood cells"
+],
+"a": 2,
+"e": "Fate of glycerol → enters the liver → phosphorylated (glycerol kinase), and can feed gluconeogenesis.",
+"w": [
+"Adipose has little glycerol kinase.",
+"Muscle uses the fatty acids.",
+"",
+"The brain does not take up glycerol for this.",
+"RBCs use glucose."
+]
+},
+{
+"t": "Lecture 2 · Fatty Acid & TAG Synthesis",
+"s": "After a meal, a man's insulin rises. Which pair of changes in his adipocytes is expected?",
+"c": [
+"HSL activated; TAG broken down",
+"ATGL activated; FFA released",
+"HSL phosphorylated; glycerol out",
+"VLDL secreted by the adipocytes",
+"HSL inhibited; TAG stored as fat"
+],
+"a": 4,
+"e": "Insulin dephosphorylates and inhibits hormone-sensitive lipase, so adipose stores TAG as depot fat.",
+"w": [
+"This is the fasting pattern.",
+"Lipolysis falls after a meal.",
+"Insulin dephosphorylates HSL.",
+"VLDL is made in the liver.",
+""
+]
 }
 ]
 },
 {
 "course": "crs",
 "subject": "Physiology",
-"name": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"name": "CRS Physiology · NBME",
 "prefix": "ncp1",
-"note": "NBME-style extra practice for Lecture 1 (Cardiac Action Potential)",
+"note": "NBME-style questions for every CRS Physiology lecture · grows each lecture",
 "qs": [
 {
-"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"t": "Lecture 1 · Cardiac Action Potential",
 "s": "A researcher bathes isolated ventricular myocytes in a Ca²⁺-free solution. The cells still fire action potentials when stimulated but no longer shorten. Which step is most directly lost?",
 "c": [
 "Opening of fast Na⁺ channels",
@@ -3806,7 +4106,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"t": "Lecture 1 · Cardiac Action Potential",
 "s": "A 58-year-old man with ventricular tachycardia after a myocardial infarction is given lidocaine. The drug acts on the channel responsible for which phase of the ventricular action potential?",
 "c": [
 "Phase 1",
@@ -3826,7 +4126,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"t": "Lecture 1 · Cardiac Action Potential",
 "s": "A 62-year-old woman with hypertension starts verapamil. Which effect on ventricular myocytes is expected?",
 "c": [
 "Faster Phase 0 upstroke",
@@ -3846,7 +4146,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"t": "Lecture 1 · Cardiac Action Potential",
 "s": "In an experiment, a ventricular myocyte is given a second stimulus at varying times after the first. A stimulus 120 ms after the first fails at any strength. One at 260 ms produces a small AP only with a strong stimulus. At 260 ms the cell is in which period?",
 "c": [
 "Absolute refractory period",
@@ -3866,7 +4166,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"t": "Lecture 1 · Cardiac Action Potential",
 "s": "A toxin prevents the h gate of the cardiac fast Na⁺ channel from reopening after inactivation. What is the most likely effect on ventricular myocytes after the first beat?",
 "c": [
 "They fire a longer plateau",
@@ -3886,7 +4186,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"t": "Lecture 1 · Cardiac Action Potential",
 "s": "A conduction study shows that impulse speed in the AV node is much slower than in ventricular muscle. Which property of nodal cells best explains this?",
 "c": [
 "A Ca²⁺-carried upstroke",
@@ -3906,7 +4206,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"t": "Lecture 1 · Cardiac Action Potential",
 "s": "A drug blocks the inward-rectifier K⁺ current (IK1) in ventricular myocytes. Which change is most likely?",
 "c": [
 "A taller Phase 0 upstroke",
@@ -3926,7 +4226,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"t": "Lecture 1 · Cardiac Action Potential",
 "s": "A drug blocks the delayed-rectifier K⁺ current in ventricular myocytes. Which change in the action potential is expected?",
 "c": [
 "Prolonged Phase 3 repolarization",
@@ -3946,7 +4246,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"t": "Lecture 1 · Cardiac Action Potential",
 "s": "A patient's ventricular myocardium has regions with very different refractory periods after an infarction. A premature beat arrives. What is the patient at greatest risk of?",
 "c": [
 "Tetanic contraction",
@@ -3966,7 +4266,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"t": "Lecture 1 · Cardiac Action Potential",
 "s": "A 70-year-old man has a degenerative lesion of the cardiac fibrous skeleton. It destroys the AV bundle of His. Why does atrial activity no longer reach the ventricles?",
 "c": [
 "The SA node is destroyed",
@@ -3986,7 +4286,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"t": "Lecture 1 · Cardiac Action Potential",
 "s": "A student compares action potentials from a motor neuron, a skeletal muscle fiber and a ventricular myocyte. Which feature unique to the myocyte accounts for its much longer AP?",
 "c": [
 "A faster Na⁺ upstroke",
@@ -4006,7 +4306,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"t": "Lecture 1 · Cardiac Action Potential",
 "s": "A physiology student asks why cardiac muscle never shows the summation of twitches seen in skeletal muscle. Which is the best explanation?",
 "c": [
 "Cardiac muscle lacks an SR",
@@ -4026,7 +4326,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"t": "Lecture 1 · Cardiac Action Potential",
 "s": "In voltage-clamp studies, ventricular Na⁺ channels are held at a depolarized potential for 200 ms, and then stepped further positive. Almost no Na⁺ current flows. What is the state of the channels?",
 "c": [
 "m closed, h open",
@@ -4046,7 +4346,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"t": "Lecture 1 · Cardiac Action Potential",
 "s": "A cardiac cell's action potential has a plateau lasting 250 ms. In what type of cell was it most likely recorded?",
 "c": [
 "Ventricular myocyte",
@@ -4066,7 +4366,7 @@ window.NBME_QUIZZES = [
 ]
 },
 {
-"t": "CRS Physiology · NBME Quiz 1 · Cardiac Action Potential",
+"t": "Lecture 1 · Cardiac Action Potential",
 "s": "After repolarization, a ventricular myocyte has extra Ca²⁺ in the cytosol and extra Na⁺. Which mechanism restores the ionic gradients?",
 "c": [
 "Opening of L-type channels",
@@ -4083,6 +4383,166 @@ window.NBME_QUIZZES = [
 "IK1 does not restore gradients.",
 "",
 "These connect cells."
+]
+},
+{
+"t": "Lecture 2 · Pacemaker Potential",
+"s": "A new drug, ivabradine, selectively blocks HCN channels in the SA node. Which effect is most likely?",
+"c": [
+"Flatter Phase 4 and lower heart rate",
+"Shorter Phase 0 and a higher heart rate",
+"Loss of the nodal Phase 2 plateau",
+"Weaker ventricular contraction only",
+"Faster conduction through the AV node"
+],
+"a": 0,
+"e": "HCN channels carry If, the funny current of Phase 4. Blocking it flattens the pacemaker potential, so threshold is reached later and heart rate falls.",
+"w": [
+"",
+"Blocking If slows, not speeds, the rate.",
+"Nodal cells have no plateau.",
+"HCN block mainly slows rate.",
+"Not the main effect."
+]
+},
+{
+"t": "Lecture 2 · Pacemaker Potential",
+"s": "A 58-year-old man with hypertension is given verapamil. His heart rate falls more than his ventricular contractility. Why?",
+"c": [
+"Ventricular Phase 0 depends on Ca²⁺",
+"Verapamil blocks T-type channels",
+"SA Phase 0 depends on L-type Ca²⁺",
+"Verapamil blocks If",
+"SA cells use fast Na⁺ channels"
+],
+"a": 2,
+"e": "Calcium channel blockers affect the SA node more than ventricular contraction: the nodal upstroke is carried by ICa-L.",
+"w": [
+"Ventricular Phase 0 is Na⁺.",
+"It does not block ICa-T.",
+"",
+"It does not block If.",
+"They are inactivated in nodal cells."
+]
+},
+{
+"t": "Lecture 2 · Pacemaker Potential",
+"s": "A 72-year-old woman has sick sinus syndrome with no SA node activity. Her ECG shows a narrow-complex rhythm at 45/min. Which tissue is setting her rate?",
+"c": [
+"Purkinje fibers",
+"AV node",
+"Atrial myocardium",
+"Ventricular myocardium",
+"Bundle branches"
+],
+"a": 1,
+"e": "When the SA node fails, the next fastest autorhythmic tissue, the AV node (40–50/min), takes over.",
+"w": [
+"Purkinje would give 30–40/min.",
+"",
+"Not autorhythmic.",
+"Not autorhythmic.",
+"Slower than the AV node."
+]
+},
+{
+"t": "Lecture 2 · Pacemaker Potential",
+"s": "A patient has complete heart block at the AV node. The atria beat at 72/min. At about what rate do the ventricles beat?",
+"c": [
+"30–40 /min",
+"72 /min",
+"40–50 /min",
+"60–80 /min",
+"0 /min"
+],
+"a": 0,
+"e": "AV node \"derailed\": the SA node keeps the atria at its rate, while the ventricles follow the Purkinje fibers at 30–40/min.",
+"w": [
+"",
+"The impulse cannot cross the block.",
+"The AV node is the blocked site.",
+"That is the SA rate.",
+"Purkinje fibers take over."
+]
+},
+{
+"t": "Lecture 2 · Pacemaker Potential",
+"s": "In a recording from an SA nodal cell, the potential rises from −60 to −50 mV. Which permeability change dominates in this segment?",
+"c": [
+"↑ PCa through L-type channels",
+"↑ PK through delayed rectifier",
+"↑ PNa through funny channels",
+"↑ PNa through fast channels",
+"↓ PNa through funny channels"
+],
+"a": 2,
+"e": "Early Phase 4: ↑PNa⁺ (f) and ↓PK⁺; T-type Ca²⁺ joins near −50/−55 mV; L-type fires at −40 mV.",
+"w": [
+"L-type opens at −40 mV.",
+"That is Phase 3.",
+"",
+"Fast Na⁺ channels are inactivated.",
+"If is rising early in Phase 4."
+]
+},
+{
+"t": "Lecture 2 · Pacemaker Potential",
+"s": "A student compares a ventricular AP with an SA node AP. Which feature is found only in the SA node AP?",
+"c": [
+"A plateau lasting 150–300 ms",
+"Spontaneous Phase 4 depolarization",
+"A stable resting membrane potential",
+"Five phases including the RMP",
+"A steep Na⁺-driven upstroke"
+],
+"a": 1,
+"e": "SA node: 3 phases, unstable Phase 4 with spontaneous depolarization, overshoot up to +10 mV, less steep Phase 0.",
+"w": [
+"That is ventricular.",
+"",
+"That is ventricular.",
+"That is ventricular.",
+"That is ventricular."
+]
+},
+{
+"t": "Lecture 2 · Pacemaker Potential",
+"s": "Why does a Purkinje cell, which can fire on its own, normally not set the heart rate?",
+"c": [
+"Purkinje cells lack HCN channels",
+"Purkinje cells cannot conduct",
+"The AV node blocks all impulses",
+"SA node fires it before its own threshold",
+"Purkinje cells are fourth-order only by location"
+],
+"a": 3,
+"e": "Overdrive suppression: the fastest pacemaker, the SA node, keeps resetting slower pacemakers before they reach threshold.",
+"w": [
+"They have automaticity.",
+"They conduct fastest.",
+"It delays, it does not block.",
+"",
+"Rate, not location, decides."
+]
+},
+{
+"t": "Lecture 2 · Pacemaker Potential",
+"s": "A drug blocks the delayed-rectifier K⁺ current in SA nodal cells. Which change is expected?",
+"c": [
+"Faster Phase 0 upstroke",
+"Steeper Phase 4 slope",
+"A new Phase 2 plateau",
+"A fall in the threshold to −65 mV",
+"Slower Phase 3 repolarization"
+],
+"a": 4,
+"e": "Phase 3 in the node: Ca²⁺ channels inactivate and delayed-rectifier K⁺ efflux returns the cell to about −60 mV. Blocking IK slows this.",
+"w": [
+"Phase 0 is ICa-L.",
+"Not the direct effect.",
+"Not the expected change.",
+"Threshold is set by L-type channels.",
+""
 ]
 }
 ]
