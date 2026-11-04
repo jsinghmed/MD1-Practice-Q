@@ -97,6 +97,16 @@ button{font:inherit;color:inherit;cursor:pointer}
 .chap.sub{font-style:italic;color:var(--muted)}
 .chap.on.sub{color:var(--blue)}
 .chap .n.done{color:var(--green)}
+.lec{display:flex;align-items:stretch;gap:0}.lec .lec-n{flex:1;min-width:0;font-weight:600;padding-left:4px}
+.lec-t{flex:none;width:26px;background:none;border:0;border-radius:6px;color:var(--muted);cursor:pointer;padding:0;margin-bottom:2px}
+.lec-t:hover{background:var(--hover)}.lec-t .chev{display:inline-block;font-size:10px;transition:transform .15s}.lec.open .lec-t .chev{transform:rotate(90deg)}
+.lec-chips{display:flex;flex-wrap:wrap;gap:6px;padding:4px 8px 10px 30px}
+.lchip{display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid var(--line);color:inherit;border-radius:999px;padding:4px 10px;font-size:12.5px;cursor:pointer}
+.lchip:hover{background:var(--hover)}.lchip.on{background:var(--blue-bg);border-color:var(--blue-line);color:var(--blue)}
+.diff-h{display:flex;align-items:center;gap:8px;padding:14px 9px 6px;color:var(--muted);font-size:11px;letter-spacing:1.2px;font-weight:600;text-transform:uppercase}
+.diff-h::after{content:"";flex:1;height:1px;background:var(--line)}
+i.d{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px;background:var(--muted)}
+.lchip i.d{margin-right:0}i.d.E{background:#2b8a3e}i.d.H{background:#e8590c}i.d.S{background:#0b7285}
 .rv{display:flex;gap:5px;flex-wrap:wrap;padding:0 3px 8px}
 .rv button{font-size:12px;padding:4px 9px;border:1px solid var(--line2);border-radius:13px;background:transparent;color:var(--muted);display:inline-flex;gap:4px;align-items:center}
 .rv button:hover{background:var(--hover);color:var(--text)}
@@ -1024,7 +1034,6 @@ button.dst:hover{background:var(--hover)}
 <div class="lightbox" id="lightbox"><img alt=""></div>
 <div class="toast" id="toast"></div>
 
-<script src="images.js?v=34"></script>
 <script src="questions.js?v=34"></script>
 <script src="histology-review.js?v=34"></script>
 <script src="physiology.js?v=34"></script>
@@ -1042,8 +1051,6 @@ button.dst:hover{background:var(--hover)}
 <script src="crs-anatomy.js?v=1"></script>
 <script src="crs-biochem.js?v=1"></script>
 <script src="crs-physiology.js?v=1"></script>
-<script src="xp-msk.js?v=1"></script>
-<script src="xp-fbs.js?v=2"></script>
 <script src="nbme.js?v=7"></script>
 <script src="xp-crs.js?v=1"></script>
 <script src="viz-links.js?v=3"></script>
@@ -1099,23 +1106,29 @@ const SECTIONS = [
      {main:true, name:"Lecture 7 · Congenital Anomalies (all lectures)", f:q=>ANOM.test(q.s+" "+(q.c?q.c[q.a]:""))}]; })()},
   {course:"crs", name:"CRS Anatomy", all:"All CRS Anatomy", prefix:"ca", topics:window.CRS_ANAT_TOPICS, hideTopics:true, qs:window.CRS_ANAT_QUESTIONS,
    // Original questions written from the Thorax study guide, grouped by the CRS102 anatomy lectures, then topic
-   extra:(window.CRS_ANAT_LECTURES||[]).flatMap(([n,ts])=>[{main:true, name:n, f:q=>ts.includes(q.t)}].concat(ts.map(t=>({name:t, f:q=>q.t===t}))))
+   extra:(window.CRS_ANAT_LECTURES||[]).flatMap(([n,ts])=>[{main:true, name:n, f:q=>ts.includes(q.t)}].concat(ts.map(t=>({name:t, f:q=>q.t===t})),
+       [{name:"Easy questions", key:n+" · Easy", f:q=>ts.includes(q.t) && q.lv==="Easy"}, {name:"Hard questions", key:n+" · Hard", f:q=>ts.includes(q.t) && q.lv==="Hard"}]))
      .concat([{main:true, name:"Easy questions", f:q=>q.lv==="Easy"}, {main:true, name:"Hard questions", f:q=>q.lv==="Hard"}])},
   {course:"crs", name:"CRS Biochemistry", all:"All CRS Biochemistry", prefix:"cb", topics:window.CRS_BC_TOPICS, hideTopics:true, qs:window.CRS_BC_QUESTIONS,
    // Grouped by lecture (Dr. Shetty), then topic; Easy/Hard filters per lecture
    extra:(()=>{ const L1 = ["Overview & Activation", "Carnitine Shuttle", "Carnitine & CPT Deficiencies", "β-Oxidation Reactions", "Energetics & Regulation", "Unsaturated & Odd-Chain Fatty Acids", "Methylmalonic Aciduria", "Peroxisomal, α- & ω-Oxidation", "MCAD Deficiency & Jamaican Vomiting Sickness", "Zellweger, X-ALD & Refsum"];
-     return [{main:true, name:"Lecture 1 · Fatty Acid Oxidation", f:q=>L1.includes(q.t)},
-       {name:"Easy questions", f:q=>L1.includes(q.t) && q.lv==="Easy"},
-       {name:"Hard questions", f:q=>L1.includes(q.t) && q.lv==="Hard"}]
-       .concat(L1.map(t=>({name:t, f:q=>q.t===t}))); })()},
+     const N1 = "Lecture 1 · Fatty Acid Oxidation";
+     return [{main:true, name:N1, f:q=>L1.includes(q.t)}]
+       .concat(L1.map(t=>({name:t, f:q=>q.t===t})),
+       [{name:"Easy questions", key:N1+" · Easy", f:q=>L1.includes(q.t) && q.lv==="Easy"},
+        {name:"Hard questions", key:N1+" · Hard", f:q=>L1.includes(q.t) && q.lv==="Hard"},
+        {main:true, name:"Easy questions", f:q=>q.lv==="Easy"}, {main:true, name:"Hard questions", f:q=>q.lv==="Hard"}]); })()},
   {course:"crs", name:"CRS Physiology", all:"All CRS Physiology", prefix:"cp", topics:window.CRS_PH_TOPICS, hideTopics:true, qs:window.CRS_PH_QUESTIONS,
    // Grouped by lecture (Dr. Sampath V.), then topic; Easy/Hard and Sampath's Q's filters per lecture
    extra:(()=>{ const L1 = (window.CRS_PH_TOPICS||[]).slice(0,11);
-     return [{main:true, name:"Lecture 1 · Cardiac Action Potential", f:q=>L1.includes(q.t)},
-       {name:"Easy questions", f:q=>L1.includes(q.t) && q.lv==="Easy"},
-       {name:"Hard questions", f:q=>L1.includes(q.t) && q.lv==="Hard"},
-       {name:"Sampath's Q's (from the slides)", f:q=>L1.includes(q.t) && q.sampath}]
-       .concat(L1.map(t=>({name:t, f:q=>q.t===t}))); })()}
+     const N1 = "Lecture 1 · Cardiac Action Potential";
+     return [{main:true, name:N1, f:q=>L1.includes(q.t)}]
+       .concat(L1.map(t=>({name:t, f:q=>q.t===t})),
+       [{name:"Easy questions", key:N1+" · Easy", f:q=>L1.includes(q.t) && q.lv==="Easy"},
+        {name:"Hard questions", key:N1+" · Hard", f:q=>L1.includes(q.t) && q.lv==="Hard"},
+        {name:"Sampath's Q's", key:N1+" · Sampath", f:q=>L1.includes(q.t) && q.sampath},
+        {main:true, name:"Easy questions", f:q=>q.lv==="Easy"}, {main:true, name:"Hard questions", f:q=>q.lv==="Hard"},
+        {main:true, name:"Sampath's Q's", f:q=>q.sampath}]); })()}
 ].concat((window.NBME_QUIZZES||[]).map(z=>({course:z.course, name:z.name, all:z.name, prefix:z.prefix, topics:[], qs:z.qs, nbme:true, subject:z.subject, note:z.note})))
  .filter(s=>s.qs && s.qs.length);
 
@@ -1126,7 +1139,7 @@ SECTIONS.forEach(sec=>{
   sec.items = qs; Q.push(...qs);
   STATIC.push({key:sec.prefix+":all", name:sec.all, sec:sec.name, pfx:sec.prefix, course:co, head:true, ids:qs.map(q=>q.id), kind:"static", nbme:!!sec.nbme});
   if (!sec.hideTopics) sec.topics.forEach(t=>{ const ids=qs.filter(q=>q.t===t).map(q=>q.id); if(ids.length) STATIC.push({key:sec.prefix+":t:"+t, name:t, sec:sec.name, pfx:sec.prefix, course:co, ids, kind:"static"}); });
-  (sec.extra||[]).forEach(x=>{ const ids=qs.filter(x.f).map(q=>q.id); if(ids.length) STATIC.push({key:sec.prefix+":x:"+x.name, name:x.name, sec:sec.name, pfx:sec.prefix, course:co, ids, sub:!x.main, kind:"static"}); });
+  (sec.extra||[]).forEach(x=>{ const ids=qs.filter(x.f).map(q=>q.id); if(ids.length) STATIC.push({key:sec.prefix+":x:"+(x.key||x.name), name:x.name, sec:sec.name, pfx:sec.prefix, course:co, ids, sub:!x.main, kind:"static"}); });
 });
 const COURSE_BY_ID = Object.fromEntries(COURSES.map(c=>[c.id,c]));
 // NBME-style quizzes live in their own bank (NBME dashboard): kept out of the course sections, counts, review lists and test builder.
@@ -1136,7 +1149,17 @@ const STATIC_BY_KEY = Object.fromEntries(STATIC.map(c=>[c.key,c]));
 const SEC_BY_PFX = Object.fromEntries(SECTIONS.map(s=>[s.prefix,s]));
 const byId = Object.fromEntries(Q.map(q=>[q.id,q]));
 // Expanded explanations (xp-*.js): q.x = full explanation HTML, q.w = longer per-choice notes.
-if (window.XP) Q.forEach(q=>{ const x = window.XP[q.id]; if (!x) return; if (x.x) q.x = x.x; if (x.w && q.c && x.w.length===q.c.length) q.w = x.w; });
+function applyXP(){ if (window.XP) Q.forEach(q=>{ const x = window.XP[q.id]; if (!x) return; if (x.x) q.x = x.x; if (x.w && q.c && x.w.length===q.c.length) q.w = x.w; }); }
+applyXP();
+// MSK and FBS expanded explanations are large, so they load in the background for the course you open.
+const XP_FILES = {msk:"xp-msk.js?v=1", fbs:"xp-fbs.js?v=2"}, xpState = {};
+function ensureXP(co){
+  const f = XP_FILES[co]; if (!f || xpState[co]) return; xpState[co] = 1;
+  const sc = document.createElement("script"); sc.src = f;
+  sc.onload = ()=>{ xpState[co] = 2; applyXP(); if (S.course===co && view==="quiz") renderAll(); };
+  sc.onerror = ()=>{ delete xpState[co]; };
+  document.head.appendChild(sc);
+}
 // Link questions to pages of "100 most important D&GA conceptions" (MSK, FBS and CRS).
 (function(){
   const C = window.C100; if (!C) return;
@@ -1389,6 +1412,34 @@ function secStats(sec){
 }
 function chapBtn(c){
   return `<button class="chap ${S.cur===c.key&&view==="quiz"?"on":""} ${c.head?"all":""} ${c.sub?"sub":""}" data-key="${esc(c.key)}"><span>${esc(c.name)}</span><span class="n">${c.ids.length}</span></button>`;
+}
+// CRS sidebar: each lecture is one row that opens to show its topics; Easy/Hard etc. sit at the bottom.
+const DIFF_RE = /^(Easy questions|Hard questions|Sampath's Q's)/;
+let LEC_OPEN = {}; try { LEC_OPEN = JSON.parse(localStorage.getItem("jj-lec-open")||"{}"); } catch(e) {}
+function lecTree(sec){
+  const all = STATIC.filter(c=>c.pfx===sec.prefix), groups = [], bottom = [];
+  let head = [];
+  all.forEach(c=>{
+    if (c.head) head.push(c);
+    else if (!c.sub && DIFF_RE.test(c.name)) bottom.push(c);
+    else if (!c.sub) groups.push({lec:c, kids:[], chips:[]});
+    else if (groups.length) (DIFF_RE.test(c.name) ? groups[groups.length-1].chips : groups[groups.length-1].kids).push(c);
+    else head.push(c);
+  });
+  let h = head.map(chapBtn).join("");
+  groups.forEach(g=>{
+    const inside = [g.lec].concat(g.kids, g.chips).some(c=>c.key===S.cur);
+    if (inside && view==="quiz" && S.cur!==g.lec.key) LEC_OPEN[g.lec.key] = true;
+    const o = !!LEC_OPEN[g.lec.key], on = S.cur===g.lec.key && view==="quiz";
+    h += `<div class="lec ${o?"open":""}"><button class="lec-t" data-lec="${esc(g.lec.key)}" aria-expanded="${o}" aria-label="${o?"Hide":"Show"} topics in ${esc(g.lec.name)}"><span class="chev">▶</span></button>`
+       + `<button class="chap lec-n ${on?"on":""}" data-key="${esc(g.lec.key)}"><span>${esc(g.lec.name)}</span><span class="n">${g.lec.ids.length}</span></button></div>`;
+    if (o) {
+      h += g.kids.map(chapBtn).join("");
+      if (g.chips.length) h += `<div class="lec-chips">` + g.chips.map(c=>`<button class="lchip ${S.cur===c.key&&view==="quiz"?"on":""}" data-key="${esc(c.key)}"><i class="d ${c.name[0]}"></i>${esc(c.name.replace(/ questions$/,""))} <b>${c.ids.length}</b></button>`).join("") + `</div>`;
+    }
+  });
+  if (bottom.length) h += `<div class="diff-h">By difficulty</div>` + bottom.map(c=>`<button class="chap ${S.cur===c.key&&view==="quiz"?"on":""}" data-key="${esc(c.key)}"><span><i class="d ${c.name[0]}"></i>${esc(c.name)}</span><span class="n">${c.ids.length}</span></button>`).join("");
+  return h;
 }
 const GUIDES = {
   fbs: [["fbs-physiology","FBS Physiology","Homeostasis, body fluids & edema, membrane transport, RMP, action potentials",4],
@@ -1667,7 +1718,7 @@ function renderChaps(){
   courseSecs().forEach(sec=>{
     const open = S.openSec===sec.prefix, st = secStats(sec);
     h += `<div class="sec ${open?"open":""}"><button class="sec-h" data-sec="${sec.prefix}" aria-expanded="${open}"><span class="chev">▶</span><span class="nm">${esc(sec.name)}</span><span class="n">${st.done}/${st.n}</span></button>`;
-    if (open) h += `<div class="secbar"><i style="width:${Math.round(st.done*100/st.n)}%"></i></div><div class="sec-b">` + rvChips(sec.prefix) + STATIC.filter(c=>c.pfx===sec.prefix).map(chapBtn).join("") + `</div>`;
+    if (open) h += `<div class="secbar"><i style="width:${Math.round(st.done*100/st.n)}%"></i></div><div class="sec-b">` + rvChips(sec.prefix) + (sec.course==="crs" ? lecTree(sec) : STATIC.filter(c=>c.pfx===sec.prefix).map(chapBtn).join("")) + `</div>`;
     h += `</div>`;
   });
   h += thxSide();
@@ -2808,6 +2859,7 @@ function rememberPlace(){
   if (view==="quiz") { const c = chap(), q = c && curQ(); if (q) S.posId[c.key] = q.id; }
 }
 function renderAll(){
+  ensureXP(S.course);
   if (S.course==="eth") view = "ethics";
   else if (view==="ethics") view = "home";
   if (view==="quiz" && !chap()) view = "home";
@@ -2905,7 +2957,9 @@ function submit(){
   save(); renderChaps(); renderRail(); renderStats(); renderCard();
 }
 // FBS and CRS images live in their own files and only download the first time one of their figures is shown.
-const LAZY_IMGS = [{re:/^fp-/, file:"images-fbs.js"}, {re:/^ce-/, file:"images-crs.js"}, {re:/^cb-/, file:"images-fbs-cb.js"}, {re:/^bc-/, file:"images-fbs-bc.js"}, {re:/^fe-/, file:"images-fbs-emb.js"}];
+// MSK images (images.js, ~13 MB) also load only when one of them is first shown, so the site opens fast.
+const MSK_IMG_KEYS = new Set(["a001.jpg","a002.jpg","a003.jpg","a004.jpg","a005.jpg","a006.jpg","a007.jpg","a008.jpg","a009.jpg","a010.jpg","a011.jpg","a012.jpg","a013.jpg","a014.jpg","a015.jpg","a016.jpg","a017.jpg","a018.jpg","a019.jpg","a020.jpg","a021.jpg","a022.jpg","a023.jpg","a024.jpg","a025.jpg","a026.jpg","a027.jpg","a028.jpg","a029.jpg","emb-cartilage.jpg","emb-endochondral.jpg","emb-fontanelles.jpg","emb-limb-buds.jpg","emb-long-bone.jpg","emb-mandible-sphenoid.jpg","emb-myotome.jpg","emb-vertebra.jpg","h01-sarcomere-labels.jpg","h02-junction-table.jpg","h03-cell-junctions.jpg","h04-osteocytes.jpg","h05-collagen-scar.jpg","h05-collagen-table.jpg","hr-basal-lamina.jpg","hr-bone-cells.jpg","hr-cardiac-labeled.jpg","hr-cardiac-marked.jpg","hr-cartilage-growth.jpg","hr-cartilage-types.jpg","hr-connexon.jpg","hr-eds-joint.jpg","hr-eds-skin.jpg","hr-em-abcdef.jpg","hr-epidermal-cells.jpg","hr-epidermis.jpg","hr-gap-junction.jpg","hr-growth-plate.jpg","hr-hemidesmosome.jpg","hr-junction-diagram.jpg","hr-junction-em.jpg","hr-junction-summary.jpg","hr-laminin.jpg","hr-long-bone.jpg","hr-melanoma.jpg","hr-muscle-types.jpg","hr-oi.jpg","hr-ossification.jpg","hr-osteoblast-arrows.jpg","hr-pemphigoid.jpg","hr-skeletal-em-labeled.jpg","hr-skeletal-em.jpg","hr-skin-12345.jpg","hr-smooth.jpg","hr-thick-skin-cgsb.jpg","hr-zones-abcd.jpg","p002.jpg","p009.jpg","p010.jpg","p014.jpg","p015.jpg","p024.jpg","p028.jpg","p029.jpg","p030.jpg","p037.jpg","p041.jpg","p045.jpg","p052.jpg","p056.jpg","p060.jpg","p061.jpg","p062.jpg","p074.jpg","p081.jpg","p088.jpg","p089.jpg","p096.jpg","p097.jpg","p104.jpg","p111.jpg","p112.jpg","p119.jpg","p120.jpg","p127.jpg","p132.jpg","p133.jpg","p140.jpg","p145.jpg","p149.jpg","p154.jpg","p155.jpg","p160.jpg","p165.jpg","p166.jpg","p167.jpg","p168.jpg","p169.jpg","p170.jpg","q01-sarcomere.jpg","q06-melanoma.jpg","q22-slide.jpg","q23-slide.jpg","q26-slide.jpg","q29-microvillus.jpg","q30-slide.jpg","q32-slide.jpg","q35-slide.jpg","q44-thin-filament-a.png","q44-thin-filament-b.png"]);
+const LAZY_IMGS = [{re:{test:k=>MSK_IMG_KEYS.has(k)}, file:"images.js"}, {re:/^fp-/, file:"images-fbs.js"}, {re:/^ce-/, file:"images-crs.js"}, {re:/^cb-/, file:"images-fbs-cb.js"}, {re:/^bc-/, file:"images-fbs-bc.js"}, {re:/^fe-/, file:"images-fbs-emb.js"}];
 const lazyState = {}; // file -> 1 loading, 2 done
 function loadLazyImgs(file){
   if (lazyState[file]) return; lazyState[file] = 1;
@@ -3024,6 +3078,8 @@ document.addEventListener("click", e=>{
   if (cb) { switchCourse(cb.dataset.course); return; }
   // home / sidebar
   if (t.closest("#homeBtn") || t.closest("#brandHome") || t.closest("#mobHome")) { view = "home"; focusOn = false; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); return; }
+  const lt = t.closest("[data-lec]");
+  if (lt) { const k = lt.dataset.lec; LEC_OPEN[k] = !LEC_OPEN[k]; try { localStorage.setItem("jj-lec-open", JSON.stringify(LEC_OPEN)); } catch(e) {} renderChaps(); return; }
   const sh = t.closest("[data-sec]");
   if (sh) { S.openSec = S.openSec===sh.dataset.sec ? null : sh.dataset.sec; save(); renderChaps(); return; }
   const os = t.closest("[data-opensec]");
@@ -3048,8 +3104,8 @@ document.addEventListener("click", e=>{
     if (!ids.length) { toast("No "+REVIEW_BY_K[m[2]].label.toLowerCase()+" questions in "+scopeName(m[1])+" right now"); return; }
     S.snap[key] = ids; openChapter(key, 0); return;
   }
-  const chapB = t.closest(".chap[data-key]");
-  if (chapB) { goKey(chapB.dataset.key); return; }
+  const chapB = t.closest(".chap[data-key],.lchip[data-key]");
+  if (chapB) { if (chapB.classList.contains("lec-n")) { LEC_OPEN[chapB.dataset.key] = true; try { localStorage.setItem("jj-lec-open", JSON.stringify(LEC_OPEN)); } catch(e) {} } goKey(chapB.dataset.key); return; }
   if (t.closest("#buildBtn")) { view = "builder"; $("side").classList.remove("open"); renderAll(); return; }
   if (t.closest("#notesBtn")) { view = "notes"; $("side").classList.remove("open"); renderAll(); return; }
   if (t.closest("#themeBtn")) { setTheme(document.documentElement.getAttribute("data-theme")==="light" ? "dark" : "light"); return; }
@@ -3348,6 +3404,7 @@ window.JJ_STATS = function(st){
 </script>
 <script>document.write('<script src="firebase-config.js?t=' + Date.now() + '"><\/script>');</script>
 <script src="auth.js?v=35"></script>
+<script src="tour.js?v=1"></script>
 <script>
 // Fail closed: if sign-in can't load (blocked, missing or failed file), the site stays locked instead of opening.
 setTimeout(function(){
