@@ -1,5 +1,5 @@
 // JJ QBank new-user tour: highlights one part of the screen at a time after sign-in.
-// Shown once per person per browser (localStorage "jj-tour-v1"); "Take the tour" in the menu replays it.
+// Shown once per person per browser (localStorage "jj-tour-v1"); "Take the tour" on the Dashboard replays it.
 (function(){
   const KEY = "jj-tour-v1";
   const $ = id => document.getElementById(id);
@@ -16,7 +16,7 @@
     {sel:"#chaps .sec", side:1, openSec:true, t:"Sections and lectures", b:"Open a section to see its lectures. Click a lecture's name to start it, or the arrow to see its topics. Easy and Hard are at the bottom."},
     {sel:".dsc", t:"Answering questions", b:"Press Start to begin. Pick an answer and Submit to see the explanation. Use Highlight, Flag and Notes as you go; your work saves to your account."},
     {sel:"#themeBtn", side:1, t:"Make it yours", b:"Switch between light and dark here. On a computer, the button at the top of the menu hides the sidebar for more room."},
-    {t:"You're all set", b:"You can take this tour again any time from “Take the tour” at the bottom of the menu. Good luck studying!"}
+    {t:"You're all set", b:"You can take this tour again any time with the “Take the tour” button on your Dashboard. Good luck studying!"}
   ];
   const css = `
   .jt-dim{position:fixed;inset:0;z-index:10000;background:transparent}
@@ -33,7 +33,6 @@
   .jt-card .ct{font-size:12px;color:var(--muted,#9aa4b2);margin-bottom:4px;letter-spacing:.04em}
   @media (max-width:900px){.jt-card{left:16px!important;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px))!important;top:auto!important;width:auto}}
   @media (prefers-reduced-motion:reduce){.jt-hole{transition:none}}
-  .sfoot .jt-replay{margin-left:auto;margin-right:8px;background:none;border:0;color:var(--muted);font:inherit;font-size:12.5px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
   `;
   let i = 0, dim, hole, card;
   function store(v){ try { v ? localStorage.setItem(KEY, "1") : localStorage.removeItem(KEY); } catch(e) {} }
@@ -105,18 +104,10 @@
   }
   window.jjStartTour = start;
   const st = document.createElement("style"); st.textContent = css; document.head.appendChild(st);
-  // "Take the tour" link in the menu footer (re-added if the menu re-renders).
-  function addReplay(){
-    const f = document.querySelector(".sfoot"); if (!f || f.querySelector(".jt-replay")) return;
-    const b = document.createElement("button"); b.className = "jt-replay"; b.type = "button"; b.textContent = "Take the tour";
-    b.addEventListener("click", ()=>{ start(); });
-    f.insertBefore(b, f.querySelector("#themeBtn"));
-  }
-  addReplay();
   // Start once the app is actually on screen (signed in, splash gone).
   const ready = () => { const g = $("jjGate"), sp = $("splash");
     return !document.documentElement.classList.contains("jjlock") && (!g || g.hidden) && (!sp || sp.classList.contains("out") || sp.hidden || getComputedStyle(sp).display === "none"); };
   let tries = 0;
-  const iv = setInterval(()=>{ addReplay(); if (++tries > 600) clearInterval(iv);
+  const iv = setInterval(()=>{ if (++tries > 600) clearInterval(iv);
     if (!seen() && !card && ready()) { clearInterval(iv); setTimeout(()=>{ if (ready()) start(); }, 700); } }, 500);
 })();
