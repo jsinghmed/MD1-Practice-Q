@@ -1,5 +1,5 @@
 // CRS Physiology — Dr. Sampath V. lecture slides. Reworked set: fewer, multi-concept, high-yield questions; lv = Easy/Hard; sampath = Challenge Yourself questions from the slides, word for word
-window.CRS_PH_TOPICS = ["Big Picture & Cardiac Cell Types", "Conduction System Anatomy", "Fast vs Slow Response", "Phase 0 & Na⁺ Channel Gates", "Phase 1 · The Notch", "Phase 2 · Plateau & E–C Coupling", "Phases 3 & 4 · Reset and Rest", "Refractory Periods", "Na⁺ Channel States", "Why the AP & Refractory Period Are Long", "Challenge Yourself · Sampath's Q's", "Pacemaker Cells, Automaticity & Key Terms", "Slow vs Fast Response APs", "Phase 4 · Pacemaker Potential", "Phase 0 · L-type Ca²⁺ Upstroke", "Phase 3 · Nodal Repolarization", "Pacemaker Hierarchy & Overdrive Suppression", "Challenge · Pacemaker Currents"];
+window.CRS_PH_TOPICS = ["Big Picture & Cardiac Cell Types", "Conduction System Anatomy", "Fast vs Slow Response", "Phase 0 & Na⁺ Channel Gates", "Phase 1 · The Notch", "Phase 2 · Plateau & E–C Coupling", "Phases 3 & 4 · Reset and Rest", "Refractory Periods", "Na⁺ Channel States", "Why the AP & Refractory Period Are Long", "Challenge Yourself · Sampath's Q's", "Pacemaker Cells, Automaticity & Key Terms", "Slow vs Fast Response APs", "Phase 4 · Pacemaker Potential", "Phase 0 · L-type Ca²⁺ Upstroke", "Phase 3 · Nodal Repolarization", "Pacemaker Hierarchy & Overdrive Suppression", "Challenge · Pacemaker Currents", "Autonomic Control: Chrono-, Dromo- & Inotropy", "Sympathetic β1 → Gs → cAMP Cascade", "Sympathetic Effects on SA Node, AV Node & Ventricle", "Parasympathetic M2 → Gi: Two Arms", "Integrated SA Node Effects & Summary", "Drugs That Hit These Channels", "Challenge · Cardiac Nerves"];
 window.CRS_PH_QUESTIONS = [
 {
 "t": "Big Picture & Cardiac Cell Types",
@@ -1610,6 +1610,491 @@ window.CRS_PH_QUESTIONS = [
 "The pump does not create the notch.",
 "That combination describes Phase 3 repolarization.",
 "HCN and T-type channels act in nodal Phase 4."
+],
+"src": "lec"
+},
+{
+"t": "Autonomic Control: Chrono-, Dromo- & Inotropy",
+"lv": "Easy",
+"s": "Which pairing of term and meaning is correct?",
+"c": [
+"Chronotropy: force of contraction",
+"Dromotropy: AV node conduction speed",
+"Inotropy: heart rate set by the SA node",
+"Dromotropy: speed of ventricular relaxation",
+"Lusitropy: conduction through the His bundle"
+],
+"a": 1,
+"e": "Chronotropy = heart rate (SA node). Dromotropy = conduction velocity (AV node). Inotropy = contractility (ventricular muscle). Lusitropy = relaxation. Sympathetic: + chrono, + dromo, + ino. Parasympathetic: − chrono, − dromo, and little direct effect on the ventricles.",
+"w": [
+"Chronotropy is heart rate; inotropy is contractility.",
+"",
+"Inotropy is contractility; chronotropy is heart rate.",
+"Relaxation is lusitropy; dromotropy is conduction velocity.",
+"Lusitropy is relaxation, not conduction."
+],
+"src": "lec"
+},
+{
+"t": "Autonomic Control: Chrono-, Dromo- & Inotropy",
+"lv": "Easy",
+"s": "According to the lecture, what does the autonomic nervous system do to the SA node's rhythm?",
+"c": [
+"It modulates the rhythm but does not create it",
+"It creates the rhythm; the SA node has no automaticity alone",
+"It rewrites the ventricular plateau to change the rate",
+"It changes the rate only by altering ventricular Na⁺ channels",
+"It has no effect at rest because vagal tone is absent"
+],
+"a": 0,
+"e": "The ANS modulates, it does not create, the SA node's rhythm. It acts on nodal tissue, so it changes rate without rewriting the ventricular plateau. At rest vagal tone dominates, holding the rate below the SA node's intrinsic rate.",
+"w": [
+"",
+"The SA node fires on its own; a transplanted, denervated heart still beats.",
+"It acts on nodal tissue and changes rate without rewriting the plateau.",
+"Rate is set in the SA node, not by ventricular Na⁺ channels.",
+"Vagal tone dominates at rest."
+],
+"src": "lec"
+},
+{
+"t": "Sympathetic β1 → Gs → cAMP Cascade",
+"lv": "Easy",
+"s": "Which sequence correctly traces the sympathetic cascade in an SA node cell?",
+"c": [
+"NE → β1 → Gi → adenylyl cyclase → ↓ cAMP → PKA",
+"NE → β1 → Gs → adenylyl cyclase → ↑ cAMP → PKA",
+"ACh → M2 → Gs → adenylyl cyclase → ↑ cAMP",
+"NE → α1 → Gq → phospholipase C → IP₃",
+"NE → β1 → Gs → guanylyl cyclase → ↑ cGMP"
+],
+"a": 1,
+"e": "Sympathetic: NE binds β1 → activates Gs (αs-GTP) → αs activates adenylyl cyclase → ATP → cAMP ↑ → PKA → phosphorylation of channels and SR proteins → physiologic actions.",
+"w": [
+"β1 couples to Gs, which raises cAMP.",
+"",
+"ACh acts on M2, which couples to Gi.",
+"That is the α1 pathway, not the cardiac β1 pathway.",
+"Gs activates adenylyl cyclase and raises cAMP."
+],
+"src": "lec"
+},
+{
+"t": "Sympathetic Effects on SA Node, AV Node & Ventricle",
+"lv": "Easy",
+"s": "In the SA node, how does β1 stimulation raise heart rate?",
+"c": [
+"More If and ICa → steeper phase 4",
+"↑ cAMP opens K⁺ channels → hyperpolarization → faster firing",
+"↑ cAMP lowers threshold from −40 to −65 mV",
+"↑ cAMP shortens the ventricular plateau",
+"↑ cAMP blocks If, so phase 4 starts from a higher voltage"
+],
+"a": 0,
+"e": "Sympathetic, step by step: (1) NE binds β1 on SA node cells; (2) ↑ cAMP → ↑ conductance of If (funny) and ICa channels; (3) steeper phase 4 slope; (4) threshold (≈ −40 mV) reached sooner; (5) ↑ firing frequency → ↑ heart rate.",
+"w": [
+"",
+"Hyperpolarization would slow the rate.",
+"Threshold stays about −40 mV; the slope changes.",
+"Rate is set in the SA node, not by the plateau.",
+"Sympathetic increases, not blocks, If."
+],
+"src": "lec"
+},
+{
+"t": "Parasympathetic M2 → Gi: Two Arms",
+"lv": "Easy",
+"s": "The Gi protein activated by M2 receptors has two actions. Which pair is correct?",
+"c": [
+"αi opens K⁺ channels; βγ activates adenylyl cyclase",
+"αi activates adenylyl cyclase; βγ closes K⁺ channels",
+"αi activates phospholipase C; βγ opens Ca²⁺ channels",
+"αi phosphorylates phospholamban; βγ opens Na⁺ channels",
+"αi inhibits adenylyl cyclase; βγ opens K⁺ channels"
+],
+"a": 4,
+"e": "ACh binds M2 → Gi. αi subunit inhibits adenylyl cyclase → ↓ cAMP (↓ If and ICa). βγ subunit opens K⁺ channels (I_K-ACh, a ligand-gated K⁺ channel) → K⁺ efflux → hyperpolarization.",
+"w": [
+"The subunit roles are swapped, and nothing activates the cyclase.",
+"αi inhibits the cyclase and βγ opens K⁺ channels.",
+"That is not the M2 pathway.",
+"Neither is a Gi action.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Parasympathetic M2 → Gi: Two Arms",
+"lv": "Easy",
+"s": "Under resting conditions, which autonomic influence dominates the heart?",
+"c": [
+"Sympathetic tone",
+"Neither; the SA node runs at its intrinsic rate",
+"Circulating adrenal epinephrine",
+"Equal sympathetic and vagal tone",
+"Vagal tone"
+],
+"a": 4,
+"e": "Effects of the brake pedal: vagal tone dominates at rest, giving − chronotropic (↓ heart rate) and − dromotropic (↓ conduction velocity) effects.",
+"w": [
+"Sympathetic tone rises during exercise and stress, not at rest.",
+"Vagal tone holds resting rate below the intrinsic rate.",
+"Not the dominant resting influence.",
+"Vagal tone dominates at rest.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Integrated SA Node Effects & Summary",
+"lv": "Easy",
+"s": "In the summary table, what is the parasympathetic effect on ventricular muscle?",
+"c": [
+"Decreased contractility of the same size as in the atria",
+"Increased contractility",
+"Minimal or no effect",
+"Decreased conduction velocity through Purkinje fibers",
+"Longer ventricular plateau"
+],
+"a": 2,
+"e": "Summary: SA node (If, ICa, IK): β1 ↑ HR, M2 ↓ HR. AV node (If, ICa, IK): β1 ↑ conduction, M2 ↓ conduction. Ventricular muscle (INa, ICa, IK): β1 ↑ contractility, M2 minimal or no effect.",
+"w": [
+"Ventricles get little parasympathetic innervation.",
+"Parasympathetic is the brake pedal.",
+"",
+"Vagal slows the AV node, not Purkinje conduction.",
+"Not a listed effect."
+],
+"src": "lec"
+},
+{
+"t": "Drugs That Hit These Channels",
+"lv": "Easy",
+"s": "Which match of drug, target and AP site is correct?",
+"c": [
+"Ivabradine: L-type Ca²⁺; nodal phase 0",
+"Amiodarone: fast Na⁺ channel; phase 0",
+"Metoprolol: β1; flatter phase 4",
+"Lidocaine: K⁺ channels; phase 3",
+"Verapamil: If channel; phase 4"
+],
+"a": 2,
+"e": "Drugs hit these channels: Class I (lidocaine, flecainide) fast Na⁺, phase 0, slow upstroke and conduction. Class II (metoprolol) β1, phase 4 slope, flatter phase 4 → ↓ HR. Class III (amiodarone, sotalol) K⁺ channels, phase 3, prolong AP and refractory period. Class IV (verapamil, diltiazem) L-type Ca²⁺, nodal phase 0/plateau, slow SA/AV firing and conduction. Ivabradine: If, phase 4, ↓ HR, plateau unchanged.",
+"w": [
+"Ivabradine blocks If in phase 4.",
+"Amiodarone and sotalol block K⁺ channels in phase 3.",
+"",
+"Lidocaine blocks fast Na⁺ channels in phase 0.",
+"Verapamil blocks L-type Ca²⁺ channels."
+],
+"src": "lec"
+},
+{
+"t": "Drugs That Hit These Channels",
+"lv": "Easy",
+"s": "Which drug class slows both SA node rate and AV node conduction by acting on the same channel?",
+"c": [
+"Funny current inhibitors such as ivabradine",
+"Class III K⁺ blockers such as sotalol",
+"Class I Na⁺ blockers such as lidocaine",
+"Non-DHP Ca²⁺ blockers like verapamil",
+"Cardiac glycosides such as digoxin"
+],
+"a": 3,
+"e": "Verapamil and diltiazem block L-type Ca²⁺ channels in the SA and AV nodes, where L-type Ca²⁺ carries phase 0 → ↓ HR and ↓ conduction (and ↓ contractility in ventricular muscle).",
+"w": [
+"Ivabradine slows the SA node only.",
+"Their main action is prolonging repolarization.",
+"They act on fast Na⁺ channels, not nodal Ca²⁺.",
+"",
+"Not part of this lecture's drug table."
+],
+"src": "lec"
+},
+{
+"t": "Sympathetic β1 → Gs → cAMP Cascade",
+"lv": "Easy",
+"s": "Which receptors are coupled to Gs?",
+"c": [
+"M2 muscarinic receptors",
+"A1 adenosine receptors",
+"α2 adrenergic receptors",
+"β1, β2 and β3",
+"Nicotinic receptors"
+],
+"a": 3,
+"e": "The β1, β2 and β3 adrenergic receptors are coupled to Gs. Activation of β receptors raises intracellular cAMP; on cardiac myocytes, β1 activation increases contractility.",
+"w": [
+"M2 couples to Gi.",
+"A1 is inhibitory, like M2.",
+"α2 couples to Gi.",
+"",
+"These are ion channels, not G-protein coupled."
+],
+"src": "lec"
+},
+{
+"t": "Autonomic Control: Chrono-, Dromo- & Inotropy",
+"lv": "Hard",
+"s": "Which row of effects is correct for sympathetic and parasympathetic stimulation?",
+"c": [
+"Sympathetic: ↑ rate, ↑ conduction, ↑ contractility; vagal: ↓ rate, ↓ conduction",
+"Sympathetic: ↑ rate, ↓ conduction; vagal: ↓ rate, ↓ contractility of ventricles",
+"Sympathetic: ↑ contractility only; vagal: ↓ rate, ↑ conduction",
+"Sympathetic: ↑ rate only; vagal: ↓ rate and ↓ ventricular contractility",
+"Both increase conduction; only vagal changes ventricular force"
+],
+"a": 0,
+"e": "Sympathetic (NE → β1) = cardiac excitation: + chronotropy, + dromotropy, + inotropy. Parasympathetic (ACh → M2) = cardiac inhibition: − chronotropy, − dromotropy, ventricles little direct effect.",
+"w": [
+"",
+"Sympathetic increases conduction, and vagal has little direct ventricular effect.",
+"Sympathetic raises rate and conduction too, and vagal slows conduction.",
+"Sympathetic also raises conduction and contractility; vagal spares ventricles.",
+"Vagal decreases conduction and has little ventricular effect."
+],
+"src": "lec"
+},
+{
+"t": "Sympathetic β1 → Gs → cAMP Cascade",
+"lv": "Hard",
+"s": "Why does vagal slowing begin faster than sympathetic acceleration?",
+"c": [
+"ACh is released in larger amounts than norepinephrine",
+"M2 receptors are on ventricles, closer to the vagus nerve",
+"Sympathetic signaling needs two parallel arms to act",
+"Gi βγ opens K⁺ channels with no cAMP step",
+"PKA phosphorylation is faster than K⁺ channel opening"
+],
+"a": 3,
+"e": "The parasympathetic pathway has two parallel arms: αi inhibits adenylyl cyclase (↓ cAMP) and βγ directly opens K⁺ channels (I_K-ACh). The direct βγ arm needs no second messenger, so vagal slowing has a faster onset. Sympathetic relies on a single cAMP/PKA arm, which takes longer.",
+"w": [
+"The amount of transmitter is not the reason taught.",
+"M2 receptors act on the SA and AV nodes; the ventricles get little vagal effect.",
+"Sympathetic uses a single cAMP/PKA arm; vagal uses two.",
+"",
+"A direct G-protein–channel link is faster than second messengers."
+],
+"src": "lec"
+},
+{
+"t": "Sympathetic Effects on SA Node, AV Node & Ventricle",
+"lv": "Hard",
+"s": "Norepinephrine acts on three cardiac tissues. Which pairing of tissue, PKA target and effect is correct?",
+"c": [
+"SA node: phospholamban → chronotropy; AV node: If → inotropy",
+"Ventricle: If channels → chronotropy; SA node: L-type → inotropy",
+"AV node: fast Na⁺ → dromotropy; ventricle: K⁺ channels → inotropy",
+"AV node: L-type Ca²⁺; ventricle: phospholamban",
+"SA node: K⁺ channels only; ventricle: troponin C → lusitropy"
+],
+"a": 3,
+"e": "The sympathetic 'triple effect' via PKA phosphorylation: SA node → If and Ca²⁺ channels → chronotropy; AV node → L-type Ca²⁺ channels → dromotropy; ventricular muscle → L-type Ca²⁺ channels + phospholamban → inotropy and lusitropy.",
+"w": [
+"Phospholamban is in ventricular muscle; If targets the SA node.",
+"If is nodal, and inotropy is a ventricular effect.",
+"PKA targets Ca²⁺ channels, not fast Na⁺, for these effects.",
+"",
+"SA node targets are If and Ca²⁺ channels."
+],
+"src": "lec"
+},
+{
+"t": "Sympathetic Effects on SA Node, AV Node & Ventricle",
+"lv": "Hard",
+"s": "How does sympathetic stimulation increase the force of ventricular contraction?",
+"c": [
+"PKA opens fast Na⁺ channels, making phase 0 longer",
+"Gi βγ opens K⁺ channels, lengthening the plateau",
+"More Ca²⁺ influx and SR release",
+"PKA blocks the Na⁺/Ca²⁺ exchanger so Ca²⁺ cannot leave",
+"cAMP binds troponin C directly instead of Ca²⁺"
+],
+"a": 2,
+"e": "cAMP/PKA in ventricular muscle: PKA phosphorylates L-type Ca²⁺ channels (↑ Ca²⁺ influx) and SR proteins (↑ Ca²⁺-induced Ca²⁺ release). Net: higher peak intracellular Ca²⁺ → more cross-bridge cycling → increased force of contraction.",
+"w": [
+"Inotropy comes from Ca²⁺, not a longer phase 0.",
+"That is the vagal arm, and it shortens, not strengthens.",
+"",
+"Not the mechanism taught.",
+"Ca²⁺, not cAMP, binds troponin C."
+],
+"src": "lec"
+},
+{
+"t": "Sympathetic Effects on SA Node, AV Node & Ventricle",
+"lv": "Hard",
+"s": "Sympathetic stimulation also speeds relaxation. Which mechanism explains this?",
+"c": [
+"PKA frees SERCA from phospholamban",
+"PKA activates phospholamban, which then inhibits SERCA",
+"Gi lowers cAMP so SERCA works faster",
+"PKA opens L-type channels longer to wash out Ca²⁺",
+"cAMP inhibits the Na⁺/K⁺ pump, raising cell Ca²⁺"
+],
+"a": 0,
+"e": "Phospholamban normally inhibits SERCA (the SR Ca²⁺ ATPase). PKA phosphorylates phospholamban → inhibition is released → SERCA pumps Ca²⁺ back into the SR faster → faster relaxation (positive lusitropy) and more Ca²⁺ stored for the next beat (helps inotropy).",
+"w": [
+"",
+"Phosphorylated phospholamban stops inhibiting SERCA.",
+"Sympathetic raises cAMP; Gi is the vagal G protein.",
+"Longer Ca²⁺ influx would not speed relaxation.",
+"That would describe digoxin, not relaxation."
+],
+"src": "lec"
+},
+{
+"t": "Parasympathetic M2 → Gi: Two Arms",
+"lv": "Hard",
+"s": "After vagal stimulation, an SA node cell fires less often. Which combination of changes explains this?",
+"c": [
+"Steeper phase 4 but a higher threshold of −20 mV",
+"Flatter phase 4 from a lower start",
+"Flatter phase 4 and a lower threshold of −65 mV",
+"Unchanged phase 4 but a longer plateau",
+"A more positive start and faster upstroke"
+],
+"a": 1,
+"e": "Parasympathetic, step by step: (1) vagus releases ACh → M2 on SA and AV node cells; (2) ↓ cAMP → ↓ If and ICa; ↑ K⁺ efflux hyperpolarizes the cell; (3) flatter phase 4 slope; (4) threshold reached later; (5) ↓ firing frequency → ↓ heart rate; ↓ conduction velocity.",
+"w": [
+"Vagal flattens phase 4; threshold stays about −40 mV.",
+"",
+"Threshold does not move to −65 mV.",
+"Nodal cells have no plateau.",
+"Vagal hyperpolarizes the cell and slows the node."
+],
+"src": "lec"
+},
+{
+"t": "Parasympathetic M2 → Gi: Two Arms",
+"lv": "Hard",
+"s": "Why does vagal stimulation have contractility effects in the atria but almost none in the ventricles?",
+"c": [
+"Ventricular myocytes have no Gi protein at all",
+"The vagus barely reaches the ventricles",
+"Ventricles lack β1 receptors, so M2 cannot act",
+"ACh is broken down before reaching the atria",
+"Vagal effects need fast Na⁺ channels, found only in atria"
+],
+"a": 1,
+"e": "Innervation pattern: sympathetic fibers supply the atria and ventricles; parasympathetic fibers supply the atria and nodes only. So ventricular muscle shows a sympathetic contractility effect but minimal or no parasympathetic effect, while vagal stimulation can reduce atrial contractility via M2.",
+"w": [
+"The key point is the innervation pattern.",
+"",
+"Ventricles do have β1 receptors.",
+"ACh does act on atrial and nodal tissue.",
+"Ventricles also have fast Na⁺ channels."
+],
+"src": "lec"
+},
+{
+"t": "Integrated SA Node Effects & Summary",
+"lv": "Hard",
+"s": "Which pairing of nerve, currents and change in the SA node pacemaker potential is correct?",
+"c": [
+"Sympathetic: ↑ IK-ACh, flatter phase 4; vagal: ↑ If, steeper phase 4",
+"Sympathetic: ↑ INa, faster phase 0 only; vagal: ↓ INa",
+"Sympathetic: ↓ ICa-T, ↑ If; vagal: ↑ ICa-T, ↓ If",
+"Sympathetic: ↑ IK1, hyperpolarizes; vagal: ↓ IK-ACh",
+"Sympathetic ↑ If and ICa-T; vagal ↓ both, ↑ IK-ACh"
+],
+"a": 4,
+"e": "Integrated effect on the SA node: sympathetic ↑ ICa-T, ↑ If → steeper phase 4, threshold reached faster → (+) chronotropic. Parasympathetic ↓ ICa-T, ↓ If, ↑ IK-ACh → shallower phase 4 and hyperpolarized cell → (−) chronotropic. Balance: ↑ cAMP vs ↓ cAMP and ↑ K⁺ efflux.",
+"w": [
+"The currents and slopes are swapped.",
+"Nodal effects are on If, ICa and IK-ACh, not fast Na⁺.",
+"Sympathetic increases both ICa-T and If.",
+"Vagal increases IK-ACh, causing hyperpolarization.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Drugs That Hit These Channels",
+"lv": "Hard",
+"s": "A patient with heart failure needs a lower heart rate without any loss of contractility or slowing of AV conduction. Which drug fits, and why?",
+"c": [
+"Ivabradine, which blocks only If in the SA node",
+"Verapamil, which blocks L-type Ca²⁺ in SA and AV nodes",
+"Metoprolol, which blocks β1 receptors",
+"Adenosine, which activates K⁺ channels in the AV node",
+"Lidocaine, which blocks fast Na⁺ channels"
+],
+"a": 0,
+"e": "Classic Step 1 discriminator: ivabradine is SA node–selective; it blocks If only → ↓ heart rate, no effect on contractility or AV conduction. Verapamil/diltiazem block L-type Ca²⁺ → affect both SA and AV node rate/conduction and reduce contractility.",
+"w": [
+"",
+"Verapamil slows AV conduction and weakens contraction.",
+"β-blockers lower contractility too.",
+"Adenosine causes transient AV block.",
+"Lidocaine slows ventricular conduction, not SA rate."
+],
+"src": "lec"
+},
+{
+"t": "Drugs That Hit These Channels",
+"lv": "Hard",
+"s": "A patient has a narrow-complex tachycardia. IV adenosine produces a few seconds of high-grade AV block. Which mechanism explains this?",
+"c": [
+"It blocks L-type Ca²⁺ channels for several hours",
+"It blocks β1 receptors in the AV node",
+"It blocks If channels in the SA node only",
+"It blocks fast Na⁺ channels in the His bundle",
+"A1 receptors open K⁺ channels like ACh"
+],
+"a": 4,
+"e": "Adenosine activates inhibitory A1 receptors on the SA and AV nodes → ↑ outward K⁺ current (like ACh) → hyperpolarization → transient AV block. Its effect is very short-lived.",
+"w": [
+"Adenosine acts briefly, through K⁺ channel activation.",
+"Adenosine is not a β-blocker.",
+"That is ivabradine, which spares the AV node.",
+"Not adenosine's mechanism.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Drugs That Hit These Channels",
+"lv": "Hard",
+"s": "A man on metoprolol for angina notices he tires easily on stairs. Which pair of effects explains his drug's action?",
+"c": [
+"↓ heart rate only, sparing contractility",
+"↓ AV conduction only, by blocking A1 receptors",
+"↓ heart rate and ↓ contractility",
+"↑ contractility with ↓ heart rate",
+"↓ contractility only, from blocked M2"
+],
+"a": 2,
+"e": "β-blockers (metoprolol) block β1 receptors, antagonizing sympathetic effects → ↓ HR (flatter phase 4) and ↓ contractility (less PKA-driven Ca²⁺ entry and release). The heart cannot raise output well with exertion.",
+"w": [
+"That is ivabradine.",
+"That describes adenosine's target.",
+"",
+"β-blockers reduce contractility.",
+"Metoprolol blocks β1, not M2."
+],
+"src": "lec"
+},
+{
+"t": "Challenge · Cardiac Nerves",
+"s": "A new drug selectively blocks If channels. Predict its effect on (a) heart rate and (b) the plateau phase of a ventricular myocyte. Justify both answers.",
+"ns": true,
+"sampath": 1,
+"c": [
+"(a) ↓ heart rate; (b) plateau unchanged",
+"(a) ↓ heart rate; (b) plateau shortened",
+"(a) No change in rate; (b) plateau lengthened",
+"(a) ↑ heart rate; (b) plateau unchanged",
+"(a) No change in rate; (b) plateau unchanged"
+],
+"a": 0,
+"e": "(a) ↓ heart rate: If, the funny current, starts phase 4 in the SA node. Blocking it flattens the phase 4 slope, so threshold (≈ −40 mV) is reached later and the SA node fires less often.\n(b) Plateau unchanged: the ventricular plateau is a balance of L-type Ca²⁺ in and K⁺ out. Ventricular myocytes do not depend on If, so a selective If blocker leaves the plateau alone. This is ivabradine: ↓ HR only, no effect on contractility or AV conduction.",
+"w": [
+"",
+"The plateau depends on ICa-L and IK, not If.",
+"Blocking If slows the SA node, and the plateau does not change.",
+"Blocking an inward pacemaker current slows, not speeds, the rate.",
+"Blocking If flattens phase 4, so the rate falls."
 ],
 "src": "lec"
 }

@@ -4544,6 +4544,146 @@ window.NBME_QUIZZES = [
 "Threshold is set by L-type channels.",
 ""
 ]
+},
+{
+"t": "Lecture 3 · Effects of Cardiac Nerves",
+"s": "A 24-year-old woman faints after seeing blood. Just before she loses consciousness her heart rate falls from 80 to 40/min. Which cellular change in her SA node cells best explains the sudden drop in rate?",
+"c": [
+"Gs activates adenylyl cyclase, raising cAMP",
+"Gi βγ opens K⁺ channels, hyperpolarizing them",
+"PKA phosphorylates L-type Ca²⁺ channels",
+"β1 receptors are internalized after binding NE",
+"Fast Na⁺ channels inactivate during phase 4"
+],
+"a": 1,
+"e": "Vasovagal syncope: a surge of vagal tone. ACh → M2 → Gi; the βγ subunit directly opens IK-ACh channels → K⁺ efflux → hyperpolarization, and αi lowers cAMP → ↓ If and ICa. The direct βγ arm acts within a beat, explaining the abrupt slowing.",
+"w": [
+"This would speed the heart.",
+"",
+"This is the sympathetic pathway.",
+"Not a cause of acute bradycardia.",
+"Nodal cells do not rely on fast Na⁺ channels."
+]
+},
+{
+"t": "Lecture 3 · Effects of Cardiac Nerves",
+"s": "A 60-year-old man with stable angina and a resting heart rate of 92/min has asthma and cannot take β-blockers. His physician wants to lower his heart rate without reducing contractility or slowing AV conduction. Which drug is most appropriate?",
+"c": [
+"Verapamil",
+"Metoprolol",
+"Adenosine",
+"Ivabradine",
+"Digoxin"
+],
+"a": 3,
+"e": "Ivabradine selectively inhibits If in the SA node → flatter phase 4 → ↓ heart rate only. No effect on contractility or AV conduction, and no β2 bronchospasm risk.",
+"w": [
+"Verapamil also slows AV conduction and reduces contractility.",
+"β-blockers are avoided in his asthma and reduce contractility.",
+"Adenosine causes only transient AV block.",
+"",
+"Digoxin is not the drug discussed for selective rate control."
+]
+},
+{
+"t": "Lecture 3 · Effects of Cardiac Nerves",
+"s": "A researcher adds a drug to isolated ventricular myocytes that prevents PKA from phosphorylating phospholamban. Norepinephrine is then applied. Compared with untreated cells, which response is most impaired?",
+"c": [
+"Heart rate",
+"Speed of relaxation",
+"AV nodal conduction velocity",
+"The phase 0 upstroke",
+"Resting membrane potential"
+],
+"a": 1,
+"e": "Phosphorylated phospholamban releases its inhibition of SERCA, so Ca²⁺ is pumped back into the SR faster → faster relaxation (positive lusitropy) and more SR Ca²⁺ for the next beat. Blocking that step mainly impairs relaxation.",
+"w": [
+"Heart rate is set in the SA node, not by ventricular phospholamban.",
+"",
+"AV conduction depends on nodal L-type Ca²⁺ channels.",
+"Phase 0 is the fast Na⁺ current.",
+"The resting potential is set by IK1."
+]
+},
+{
+"t": "Lecture 3 · Effects of Cardiac Nerves",
+"s": "A 30-year-old man has paroxysmal supraventricular tachycardia at 190/min. After an IV bolus of a drug, his ECG shows several seconds of high-grade AV block before sinus rhythm returns. The drug acts through which mechanism?",
+"c": [
+"A1 receptors increasing K⁺ efflux",
+"Block of L-type Ca²⁺ channels for several hours",
+"Block of β1 receptors on nodal cells",
+"Selective block of If in the SA node",
+"Block of fast Na⁺ channels in the His bundle"
+],
+"a": 0,
+"e": "Adenosine activates inhibitory A1 receptors on the SA and AV nodes → ↑ outward K⁺ current (like ACh) → hyperpolarization → transient high-grade AV block. Its effect lasts seconds.",
+"w": [
+"",
+"That describes verapamil, which acts longer.",
+"That describes a β-blocker.",
+"That describes ivabradine, which spares the AV node.",
+"That is a Class I action."
+]
+},
+{
+"t": "Lecture 3 · Effects of Cardiac Nerves",
+"s": "Which tissue shows a sympathetic effect but little or no direct parasympathetic effect, and why?",
+"c": [
+"Ventricles; vagal fibers reach atria and nodes",
+"The SA node, because it lacks M2 receptors",
+"The AV node, because it lacks β1 receptors",
+"Atrial muscle, because it lacks Gi proteins",
+"Purkinje fibers, because they lack adenylyl cyclase"
+],
+"a": 0,
+"e": "Summary table: ventricular muscle — sympathetic ↑ contractility; parasympathetic minimal or no effect. The innervation pattern explains it: parasympathetic fibers supply the atria and nodes, sympathetic supply atria and ventricles.",
+"w": [
+"",
+"The SA node has M2 receptors; vagal slows it.",
+"The AV node has β1 receptors; sympathetic speeds conduction.",
+"Atria have M2/Gi; vagal can reduce atrial contractility.",
+"Not the reason taught."
+]
+},
+{
+"t": "Lecture 3 · Effects of Cardiac Nerves",
+"s": "A patient's SA node recording shows the pacemaker potential starting at a more negative voltage, rising more slowly, and reaching the usual threshold later. Which combination of current changes produced this?",
+"c": [
+"↑ If, ↑ ICa-T and ↓ IK-ACh",
+"↑ INa and ↑ ICa-L",
+"↓ If, ↓ ICa-T and ↑ IK-ACh",
+"↓ IK and ↑ ICa-L",
+"↑ If only, with no change in K⁺ current"
+],
+"a": 2,
+"e": "Parasympathetic effect on the pacemaker potential: ↓ ICa-T and ↓ If flatten phase 4, and ↑ IK-ACh hyperpolarizes the cell, so it starts lower. Threshold is reached later → (−) chronotropic.",
+"w": [
+"This is the sympathetic pattern.",
+"Fast Na⁺ does not drive the nodal pacemaker potential.",
+"",
+"This would not hyperpolarize the cell.",
+"↑ If would steepen phase 4."
+]
+},
+{
+"t": "Lecture 3 · Effects of Cardiac Nerves",
+"s": "During exercise, a man's heart rate rises from 70 to 150/min and his stroke volume increases. Which single intracellular signal accounts for the increases in both rate and contractility?",
+"c": [
+"Falling cAMP from αi",
+"Opening of IK-ACh channels",
+"Rising cGMP from guanylyl cyclase",
+"IP₃-mediated Ca²⁺ release via Gq",
+"Rising cAMP activating PKA"
+],
+"a": 4,
+"e": "NE → β1 → Gs → adenylyl cyclase → ↑ cAMP → PKA. PKA phosphorylates If and Ca²⁺ channels in the SA node (rate) and L-type Ca²⁺ channels plus SR proteins/phospholamban in ventricular muscle (contractility and relaxation).",
+"w": [
+"Falling cAMP is the vagal arm.",
+"This slows the heart.",
+"Not the cardiac β1 pathway.",
+"That is the α1 pathway.",
+""
+]
 }
 ]
 }

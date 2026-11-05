@@ -102,6 +102,13 @@ button{font:inherit;color:inherit;cursor:pointer}
 .lec{display:flex;align-items:stretch;gap:0}.lec .lec-n{flex:1;min-width:0;font-weight:600;padding-left:4px}
 .lec-t{flex:none;width:26px;background:none;border:0;border-radius:6px;color:var(--muted);cursor:pointer;padding:0;margin-bottom:2px}
 .lec-t:hover{background:var(--hover)}.lec-t .chev{display:inline-block;font-size:10px;transition:transform .15s}.lec.open .lec-t .chev{transform:rotate(90deg)}
+.lchip.ank{border-color:var(--accent,#4fb8b0);color:var(--accent,#4fb8b0)}
+.ank-ov{position:fixed;inset:0;z-index:9000;background:rgba(6,10,16,.6);display:grid;place-items:center;padding:16px}
+.ank-box{width:min(520px,100%);max-height:calc(100vh - 32px);overflow:auto;background:var(--panel,#161b22);color:var(--text,#e6edf3);border:1px solid var(--line,#262d36);border-radius:14px;padding:20px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.ank-box h3{margin:0 0 4px;font-size:18px}.ank-sub{margin:0 0 12px;color:var(--muted,#9aa4b2);font-size:14px}
+.ank-steps{margin:0 0 12px;padding-left:20px;line-height:1.55;font-size:14.5px}.ank-steps li{margin:3px 0}
+.ank-q{width:100%;box-sizing:border-box;font:12.5px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--bg,#0d1117);color:inherit;border:1px solid var(--line,#262d36);border-radius:8px;padding:8px;resize:vertical;word-break:break-all}
+.ank-row{display:flex;gap:8px;margin-top:10px}.ank-tip{margin:12px 0 0;font-size:13px;color:var(--muted,#9aa4b2)}
 .lec-chips{display:flex;flex-wrap:wrap;gap:6px;padding:4px 8px 10px 30px}
 .lchip{display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid var(--line);color:inherit;border-radius:999px;padding:4px 10px;font-size:12.5px;cursor:pointer}
 .lchip:hover{background:var(--hover)}.lchip.on{background:var(--blue-bg);border-color:var(--blue-line);color:var(--blue)}
@@ -1069,8 +1076,8 @@ button.dst:hover{background:var(--hover)}
 <script src="crs-embryology.js?v=34"></script>
 <script src="crs-anatomy.js?v=1"></script>
 <script src="crs-biochem.js?v=3"></script>
-<script src="crs-physiology.js?v=4"></script>
-<script src="nbme.js?v=8"></script>
+<script src="crs-physiology.js?v=5"></script>
+<script src="nbme.js?v=9"></script>
 <script src="xp-crs.js?v=1"></script>
 <script src="viz-links.js?v=3"></script>
 <script>
@@ -1152,7 +1159,7 @@ const SECTIONS = [
   {course:"crs", name:"CRS Physiology", all:"All CRS Physiology", prefix:"cpr", topics:window.CRS_PH_TOPICS, hideTopics:true, qs:window.CRS_PH_QUESTIONS,
    // Grouped by lecture (Dr. Sampath V.), then topic. Add each new lecture as one more [name, topics] row.
    extra:(()=>{ const T = window.CRS_PH_TOPICS||[];
-     return lecExtras([["Lecture 1 · Cardiac Action Potential", T.slice(0,11)], ["Lecture 2 · Pacemaker Potential: SA & AV Nodes", T.slice(11,18)]],
+     return lecExtras([["Lecture 1 · Cardiac Action Potential", T.slice(0,11)], ["Lecture 2 · Pacemaker Potential: SA & AV Nodes", T.slice(11,18)], ["Lecture 3 · Effects of Cardiac Nerves", T.slice(18,25)]],
        [["Sampath's Q's", "Sampath", "sampath"]]); })()}
 ].concat((window.NBME_QUIZZES||[]).map(z=>({course:z.course, name:z.name, all:z.name, prefix:z.prefix, topics:[], qs:z.qs, nbme:true, subject:z.subject, note:z.note})))
  .filter(s=>s.qs && s.qs.length);
@@ -1441,6 +1448,40 @@ function chapBtn(c){
 // CRS sidebar: each lecture is one row that opens to show its topics; Easy/Hard etc. sit at the bottom.
 const DIFF_RE = /^(Easy questions|Hard questions|Sampath's Q's|Shetty Practice Q's)/;
 let LEC_OPEN = {}; try { LEC_OPEN = JSON.parse(localStorage.getItem("jj-lec-open")||"{}"); } catch(e) {}
+// AnKing Step deck notes matched to each lecture. Students paste the search into Anki's Browse window.
+// Key: section prefix + "|" + lecture name (exactly as in lecExtras).
+const ANKING = {
+  "cpr|Lecture 1 · Cardiac Action Potential": "nid:1470880209864,1470880214095,1470880221588,1470880226184,1470880235448,1470880238653,1470880245555,1470880260476,1470880302437,1470880306206,1470880314839,1470880328100,1471224406413,1471224415440,1470929313168,1470929320966,1470929327082,1470929337627,1471224477196,1471999885871",
+  "cpr|Lecture 2 · Pacemaker Potential: SA & AV Nodes": "nid:1470875818432,1470880332043,1470880335411,1470880346050,1470880350208,1470880353973,1470880356909,1470880360279,1470880367589,1470880383058,1470880386392,1470880389765,1470880397079,1470945494610,1470929277154,1470945656630",
+  "cpr|Lecture 3 · Effects of Cardiac Nerves": "nid:1470929344743,1470929360626,1470929348967,1470929475929,1470929470761,1471224490686,1470929374412,1470929422314,1470929377630,1470929429000,1477011384108,1477011497450,1477011511428,1471224519538,1471224536944,1471224590406,1475115086383,1475115092818,1477447015004,1472087031632,1472261849467,1472261890259,1502086979437,1502087058246,1472265289730,1472265296216,1472265342000"
+};
+function ankingOpen(k){
+  const q = ANKING[k]; if (!q) return;
+  const n = q.replace(/^nid:/,"").split(",").length, lec = k.split("|")[1];
+  const d = document.createElement("div"); d.className = "ank-ov";
+  d.innerHTML = `<div class="ank-box" role="dialog" aria-modal="true" aria-labelledby="ankT">
+    <h3 id="ankT">AnKing cards · ${esc(lec)}</h3>
+    <p class="ank-sub">${n} notes from the AnKing Step deck that match this lecture.</p>
+    <ol class="ank-steps">
+      <li>Open <b>Anki</b> with the <b>AnKing Step deck</b> installed.</li>
+      <li>Click <b>Browse</b> at the top of the main Anki window.</li>
+      <li>Click the <b>search bar</b> at the top of the Browse window and clear anything in it.</li>
+      <li><b>Paste</b> the search below and press <b>Enter</b>. Only this lecture's cards will show.</li>
+    </ol>
+    <textarea class="ank-q" readonly rows="4" aria-label="Anki search for this lecture">${esc(q)}</textarea>
+    <div class="ank-row"><button class="btn primary" data-ankcopy>Copy search</button><button class="btn" data-ankclose>Close</button></div>
+    <p class="ank-tip">Tip: AnKing cards often start suspended (yellow rows). Select them and press Cmd + J (Mac) or Ctrl + J (Windows) to unsuspend so they show up in your reviews.</p></div>`;
+  const close = ()=>{ d.remove(); document.removeEventListener("keydown", key, true); };
+  const key = e=>{ if (e.key==="Escape") { e.stopPropagation(); close(); } };
+  d.addEventListener("click", e=>{
+    if (e.target===d || e.target.closest("[data-ankclose]")) return close();
+    const c = e.target.closest("[data-ankcopy]"); if (!c) return;
+    const ta = d.querySelector(".ank-q"), done = ()=>{ c.textContent = "Copied ✓"; setTimeout(()=>{ c.textContent = "Copy search"; }, 2000); };
+    (navigator.clipboard ? navigator.clipboard.writeText(q) : Promise.reject()).then(done, ()=>{ ta.focus(); ta.select(); try { document.execCommand("copy"); done(); } catch(err) {} });
+  });
+  document.addEventListener("keydown", key, true);
+  document.body.appendChild(d); d.querySelector("[data-ankcopy]").focus();
+}
 function lecTree(sec){
   const all = STATIC.filter(c=>c.pfx===sec.prefix), groups = [], bottom = [];
   let head = [];
@@ -1460,7 +1501,9 @@ function lecTree(sec){
        + `<button class="chap lec-n ${on?"on":""}" data-key="${esc(g.lec.key)}"><span>${esc(g.lec.name)}</span><span class="n">${g.lec.ids.length}</span></button></div>`;
     if (o) {
       h += g.kids.map(chapBtn).join("");
-      if (g.chips.length) h += `<div class="lec-chips">` + g.chips.map(c=>`<button class="lchip ${S.cur===c.key&&view==="quiz"?"on":""}" data-key="${esc(c.key)}"><i class="d ${c.name[0]}"></i>${esc(c.name.replace(/ questions$/,""))} <b>${c.ids.length}</b></button>`).join("") + `</div>`;
+      const ak = sec.prefix+"|"+g.lec.name, akN = ANKING[ak] ? ANKING[ak].replace(/^nid:/,"").split(",").length : 0;
+      if (g.chips.length || akN) h += `<div class="lec-chips">` + g.chips.map(c=>`<button class="lchip ${S.cur===c.key&&view==="quiz"?"on":""}" data-key="${esc(c.key)}"><i class="d ${c.name[0]}"></i>${esc(c.name.replace(/ questions$/,""))} <b>${c.ids.length}</b></button>`).join("")
+        + (akN ? `<button class="lchip ank" data-anking="${esc(ak)}" title="Find this lecture's AnKing Step deck cards in Anki">🃏 AnKing cards <b>${akN}</b></button>` : "") + `</div>`;
     }
   });
   if (bottom.length) h += `<div class="diff-h">By difficulty</div>` + bottom.map(c=>`<button class="chap ${S.cur===c.key&&view==="quiz"?"on":""}" data-key="${esc(c.key)}"><span><i class="d ${c.name[0]}"></i>${esc(c.name)}</span><span class="n">${c.ids.length}</span></button>`).join("");
@@ -1476,7 +1519,7 @@ const GUIDES = {
         ["msk-biochem","MSK Biochemistry","Glycolysis, glycogen & storage diseases, GAGs, collagen & elastin",4],
         ["msk-anatomy","MSK Anatomy","Upper & lower limb: plexus, nerve injuries, compartments, joints, vessels",6],
         ["msk-embryology","MSK Embryology","Bone formation, growth plate, vertebrae, skull & sutures, limbs, skin",3]],
-  crs: [["crs-biochem","CRS Biochemistry NBME guide","High-yield, commonly tested NBME content · Lecture 1–2 · grows with each lecture",0],["crs-physiology","CRS Physiology NBME guide","High-yield, commonly tested NBME content · Lecture 1–2 · grows with each lecture",0]]
+  crs: [["crs-biochem","CRS Biochemistry NBME guide","High-yield, commonly tested NBME content · Lecture 1–2 · grows with each lecture",0],["crs-physiology","CRS Physiology NBME guide","High-yield, commonly tested NBME content · Lecture 1–3 · grows with each lecture",0]]
 };
 function guideCards(list){
   return `<div class="gdgrid">` + list.map(([f,nm,desc,pg])=>`<div class="gdcard"><div class="gdi">${NVI.guide}</div><div class="gdt"><b>${esc(nm)}</b><small>${esc(desc)}</small><span class="gdm">${pg?pg+" pages · PDF":"Read on site or save as PDF · updated each lecture"}</span></div>
@@ -1491,7 +1534,7 @@ function renderGuideView(){
     <div class="gvhead"><h2>${esc(nm)}</h2><p class="sub">${esc(desc)}</p><div class="gvleg"><span><span class="hy">Red</span> = extra high yield (classic NBME)</span><span>Black/white = core content</span><span class="mn">Italic = mnemonic</span></div></div>`;
   if (!window.GUIDE_HTML) {
     showPage(`<div class="page gview">${top}<div class="emptybox"><p>Loading study guide…</p></div></div>`);
-    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=4";
+    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=5";
       sc.onload = ()=>{ guideLoading = false; if (view==="guide") renderGuideView(); };
       sc.onerror = ()=>{ guideLoading = false; toast("Couldn't load the study guide — check your connection"); };
       document.head.appendChild(sc); }
@@ -3142,6 +3185,7 @@ document.addEventListener("click", e=>{
   if (t.closest("[data-gprint]")) { window.print(); return; }
   const gj = t.closest("[data-gjump]");
   if (gj) { e.preventDefault(); const el = document.getElementById(gj.dataset.gjump); if (el) el.scrollIntoView({behavior:"smooth", block:"start"}); return; }
+  if (t.closest("[data-anking]")) { ankingOpen(t.closest("[data-anking]").dataset.anking); return; }
   if (t.closest("[data-g3d]")) { const b = t.closest("[data-g3d]"), op = b.getAttribute("aria-expanded")!=="true"; try { localStorage.setItem("jj-3d-open", op?"1":"0"); } catch(e) {} b.setAttribute("aria-expanded", op); b.classList.toggle("on", !op && !!(b.nextElementSibling && b.nextElementSibling.querySelector(".on"))); if (b.nextElementSibling) b.nextElementSibling.hidden = !op; return; }
   if (t.closest("[data-toolstoggle]")) { const b = t.closest("[data-toolstoggle]"), op = b.getAttribute("aria-expanded")!=="true"; try { localStorage.setItem("jj-tools-open", op?"1":"0"); } catch(e) {} renderAll(); return; }
   const act = t.closest("[data-act]");
