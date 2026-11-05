@@ -1,3 +1,1152 @@
-// CRS Biochemistry — Dr. S. Shetty lecture slides. src: lec = written from the lecture slides; lv = Easy/Hard
-window.CRS_BC_TOPICS = ["Overview & Activation","Carnitine Shuttle","Carnitine & CPT Deficiencies","β-Oxidation Reactions","Energetics & Regulation","Unsaturated & Odd-Chain Fatty Acids","Methylmalonic Aciduria","Peroxisomal, α- & ω-Oxidation","MCAD Deficiency & Jamaican Vomiting Sickness","Zellweger, X-ALD & Refsum","Synthesis vs β-Oxidation & Sites","Citrate Shuttle: Acetyl-CoA to Cytosol","Sources of NADPH","Acetyl-CoA Carboxylase Reaction","Regulation of Acetyl-CoA Carboxylase","Fatty Acid Synthase Complex","FAS Cycle & Palmitate Stoichiometry","Elongation & Desaturation","Triacylglycerol Synthesis","TAG Fate & Lipolysis","Practice Questions (from the slides)"];
-window.CRS_BC_QUESTIONS = [{"t":"Overview & Activation","s":"Free fatty acids released by lipolysis in adipose tissue are carried in the plasma mainly bound to which protein?","c":["Transferrin","Albumin","Haptoglobin","Ceruloplasmin","Fibrinogen"],"a":1,"e":"Triacylglycerol in adipose tissue is broken down (lipolysis) to free fatty acids, which travel in the plasma bound to albumin to the tissues that oxidize them.","w":["Transferrin carries iron.","","Haptoglobin binds free hemoglobin.","Ceruloplasmin carries copper.","Fibrinogen is a clotting factor, not a carrier."],"src":"lec","lv":"Easy"},{"t":"Overview & Activation","s":"Which type of fatty acid oxidation is the major pathway for fatty acid breakdown?","c":["α-Oxidation","ω-Oxidation","β-Oxidation","Microsomal hydroxylation","Lipoxygenase oxidation"],"a":2,"e":"Fatty acids can undergo α-, β- and ω-oxidation. β-Oxidation is the major pathway.","w":["α-Oxidation is a minor peroxisomal pathway for branched fatty acids.","ω-Oxidation is a minor ER pathway.","","Not one of the three types named.","That makes eicosanoids, not fuel."],"src":"lec","lv":"Easy"},{"t":"Overview & Activation","s":"Which enzyme activates a free fatty acid to fatty acyl CoA?","c":["Acyl CoA dehydrogenase","Enoyl CoA hydratase","Acyl CoA synthetase","Carnitine acyltransferase I","Acyl CoA oxidase"],"a":2,"e":"Activation is catalyzed by acyl CoA synthetase, also called fatty acid thiokinase: FFA + CoA + ATP → fatty acyl CoA + AMP + PPi.","w":["That is the first enzyme of the β-oxidation cycle.","That is step 2 of the β-oxidation cycle.","","CAT-I/CPT I transfers the acyl group to carnitine after activation.","That is the first enzyme of peroxisomal β-oxidation."],"src":"lec","lv":"Easy"},{"t":"Overview & Activation","s":"Activation of long-chain fatty acids to fatty acyl CoA takes place at which location?","c":["Mitochondrial matrix","Outer mitochondrial membrane","Inner mitochondrial membrane","Peroxisomal matrix","Endoplasmic reticulum lumen"],"a":1,"e":"Fatty acids are activated in the cytosol, on the outer mitochondrial membrane, before they enter the mitochondrial matrix.","w":["Fatty acids must be activated before they enter the matrix.","","CPT II and the translocase sit here, not the activating enzyme.","Not the site given for activation of long-chain fatty acids.","The ER is the site of ω-oxidation."],"src":"lec","lv":"Easy"},{"t":"Overview & Activation","s":"β-Oxidation removes carbon units from fatty acyl CoA in which way?","c":["Two carbons at a time from the methyl end","One carbon at a time from the carboxyl end","Three carbons at a time from the carboxyl end","Two carbons at a time from the carboxyl end","One carbon at a time from the methyl end"],"a":3,"e":"Definition: β-oxidation is the sequential removal of 2-carbon units from the carboxyl end of fatty acyl CoA, released as acetyl CoA.","w":["The methyl (ω) end is attacked by ω-oxidation.","One carbon is removed by α-oxidation.","Three carbons remain only as propionyl CoA at the end of odd chains.","","Not a β-oxidation feature."],"src":"lec","lv":"Easy"},{"t":"Overview & Activation","s":"Activating one fatty acid to fatty acyl CoA costs how many high-energy phosphate bonds?","c":["2","1","3","4","0"],"a":0,"e":"FFA + CoA + ATP → fatty acyl CoA + AMP + PPi, and PPi is hydrolyzed to 2Pi. ATP → AMP uses two high-energy bonds, so 2 ATP equivalents are subtracted in the energetics.","w":["","ATP goes to AMP, not ADP, so two bonds are used.","Only ATP → AMP + PPi, then PPi → 2Pi.","Too many.","Activation requires ATP."],"src":"lec","lv":"Easy"},{"t":"Overview & Activation","s":"Besides the liver, which tissue is listed as a major site of β-oxidation?","c":["Red blood cells","Brain","Adrenal medulla","Skeletal muscle","Lens of the eye"],"a":3,"e":"Site: liver and skeletal muscle. Subcellular site: mitochondria.","w":["RBCs have no mitochondria.","The brain does not rely on fatty acids for fuel.","Not listed as a site.","","The lens has no mitochondria in its fibers."],"src":"lec","lv":"Easy"},{"t":"Overview & Activation","s":"Palmitic acid and stearic acid contain how many carbons, respectively?","c":["14 and 16","18 and 20","16 and 20","12 and 18","16 and 18"],"a":4,"e":"Palmitic acid is a saturated 16-carbon fatty acid; stearic acid is a saturated 18-carbon fatty acid.","w":["14 carbons is myristic acid.","Palmitic acid has 16.","Stearic acid has 18.","12 carbons is lauric acid.",""],"src":"lec","lv":"Easy"},{"t":"Overview & Activation","s":"Which fatty acid needs the carnitine transporter to enter the mitochondria?","c":["Palmitic acid","Octanoic acid","Butyric acid","Hexanoic acid","Decanoic acid"],"a":0,"e":"Long-chain fatty acyl CoA (for example palmitoyl CoA, 16C) needs the carnitine transporter to cross into the mitochondria. Medium-chain fatty acids do not.","w":["","Medium-chain fatty acids do not need the carnitine system.","Short-chain fatty acids enter without carnitine.","Short/medium chains enter without carnitine.","Medium-chain fatty acids do not need carnitine."],"src":"lec","lv":"Easy"},{"t":"Carnitine Shuttle","s":"Which enzyme forms acyl-carnitine on the outer mitochondrial membrane?","c":["Carnitine palmitoyltransferase II","Carnitine-acylcarnitine translocase","Carnitine palmitoyltransferase I","Acyl CoA synthetase","Carnitine acetyltransferase"],"a":2,"e":"Step 1: CPT I (CAT-I) on the outer mitochondrial membrane transfers the fatty acyl group from CoA to carnitine, forming acyl-carnitine.","w":["CPT II works on the inner membrane, removing carnitine.","CACT carries acyl-carnitine across; it does not form it.","","That activates the fatty acid to acyl CoA.","Not part of the shuttle on the slides."],"src":"lec","lv":"Easy"},{"t":"Carnitine Shuttle","s":"Carnitine-acylcarnitine translocase works as which type of transporter?","c":["Symporter","Antiporter","Uniporter","Primary active pump","Ligand-gated channel"],"a":1,"e":"CACT is an antiporter on the inner membrane: acyl-carnitine goes in while free carnitine goes out.","w":["A symporter moves both molecules the same way.","","It exchanges two molecules.","It does not hydrolyze ATP.","It is a carrier, not a channel."],"src":"lec","lv":"Easy"},{"t":"Carnitine Shuttle","s":"As acyl-carnitine enters the matrix, what does the translocase move out of the mitochondrion?","c":["Fatty acyl CoA","Free carnitine","Free coenzyme A","Acetyl CoA","Malonyl CoA"],"a":1,"e":"The translocase simultaneously shuttles free carnitine out of the mitochondria in exchange for acyl-carnitine.","w":["Fatty acyl CoA stays in the matrix for β-oxidation.","","CoA is not exchanged by CACT.","Acetyl CoA is not carried by CACT.","Malonyl CoA is a cytosolic regulator."],"src":"lec","lv":"Easy"},{"t":"Carnitine Shuttle","s":"Where does CPT II regenerate fatty acyl CoA?","c":["Outer mitochondrial membrane","Inner mitochondrial membrane","Cytosol of the hepatocyte","Mitochondrial intermembrane space","Peroxisomal limiting membrane"],"a":1,"e":"Step 3: CPT II on the inner mitochondrial membrane moves the acyl group from acyl-carnitine back to CoA, regenerating fatty acyl CoA ready for β-oxidation.","w":["That is the site of CPT I.","","Activation happens on the cytosolic side.","Acyl-carnitine only passes through.","Not part of the carnitine shuttle."],"src":"lec","lv":"Easy"},{"t":"Carnitine Shuttle","s":"Endogenous carnitine is made from which two amino acids?","c":["Glycine and serine","Arginine and ornithine","Lysine and methionine","Leucine and isoleucine","Tyrosine and phenylalanine"],"a":2,"e":"Carnitine is synthesized endogenously from lysine and methionine in the liver and kidney.","w":["Not carnitine precursors.","These are urea cycle amino acids.","","Branched-chain amino acids, not carnitine precursors.","Aromatic amino acids, not carnitine precursors."],"src":"lec","lv":"Easy"},{"t":"Carnitine Shuttle","s":"Which organs synthesize carnitine?","c":["Liver and kidney","Heart and skeletal muscle","Brain and liver","Intestine and pancreas","Adipose tissue and spleen"],"a":0,"e":"Carnitine is made in the liver and kidney. This is why liver and kidney disease cause secondary carnitine deficiency (impaired synthesis).","w":["","Muscle uses carnitine but does not make it.","The brain is not a site of synthesis.","Not sites of synthesis.","Not sites of synthesis."],"src":"lec","lv":"Easy"},{"t":"Carnitine Shuttle","s":"What is the main exogenous source of carnitine?","c":["Leafy green vegetables","Whole grains","Citrus fruits","Meat products","Legumes"],"a":3,"e":"Exogenous carnitine comes from meat products. Strict vegetarians are at risk of secondary deficiency.","w":["Plants are poor carnitine sources.","Grains are poor carnitine sources.","Fruits are poor carnitine sources.","","Legumes are poor carnitine sources."],"src":"lec","lv":"Easy"},{"t":"Carnitine & CPT Deficiencies","s":"Primary systemic carnitine deficiency is caused by mutation of which gene?","c":["ABCD1","SLC25A20","PEX7","SLC22A5","ACADM"],"a":3,"e":"Primary carnitine deficiency is autosomal recessive, due to SLC22A5 mutation (written SCL22A5 on the slide), which codes for OCTN2, the organic cation transporter 2.","w":["ABCD1 causes X-linked adrenoleukodystrophy.","SLC25A20 encodes the translocase (CACT), not OCTN2.","PEX7 is also linked to adult Refsum disease.","","ACADM encodes MCAD."],"src":"lec","lv":"Easy"},{"t":"Carnitine & CPT Deficiencies","s":"Which pattern of free carnitine is seen in primary carnitine deficiency?","c":["Low in urine, high in plasma","High in urine, high in plasma","High in urine, low in plasma","Low in urine, low in plasma","Normal in urine, low in tissue"],"a":2,"e":"Because OCTN2 cannot take carnitine back up, free carnitine increases in urine and decreases in plasma and tissues.","w":["Reversed: carnitine is lost in urine.","Plasma and tissue levels fall.","","Urinary free carnitine rises.","Urinary free carnitine rises."],"src":"lec","lv":"Easy"},{"t":"Carnitine & CPT Deficiencies","s":"In systemic carnitine deficiency, which change is seen in the heart?","c":["Progressive cardiomyopathy","Mitral valve stenosis","Recurrent pericardial effusion","Congenital septal defect","Coronary atherosclerosis"],"a":0,"e":"The 3 areas of involvement (energy deficiency): cardiac muscle (progressive cardiomyopathy), CNS (encephalopathy from hypoketotic hypoglycemia) and skeletal muscle (myopathy, myoglobinuria).","w":["","Not part of the energy-deficiency picture.","Not listed.","A structural birth defect, not metabolic.","Not listed."],"src":"lec","lv":"Easy"},{"t":"Carnitine & CPT Deficiencies","s":"Which is a cause of secondary carnitine deficiency through excessive carnitine loss?","c":["Pregnancy","Dialysis","Strict vegetarian diet","Chronic liver disease","Severe burns"],"a":1,"e":"Secondary causes: increased demand (pregnancy, trauma, burns, infection), impaired synthesis (liver and kidney disease), excessive loss (dialysis), decreased intake (malnutrition, strict vegetarians) and sodium valproate.","w":["Pregnancy increases demand.","","This decreases intake.","This impairs synthesis.","Burns increase demand."],"src":"lec","lv":"Easy"},{"t":"Carnitine & CPT Deficiencies","s":"Which drug is listed as interfering with carnitine metabolism?","c":["Phenytoin","Sodium valproate","Lithium carbonate","Metformin","Carbamazepine"],"a":1,"e":"Sodium valproate interferes with carnitine metabolism and causes secondary carnitine deficiency.","w":["Not listed.","","Not listed.","Not listed.","Not listed."],"src":"lec","lv":"Easy"},{"t":"Carnitine & CPT Deficiencies","s":"CPT I deficiency mainly affects which organ?","c":["Skeletal muscle","Heart","Liver","Brain","Kidney"],"a":2,"e":"CPT I deficiency primarily affects the liver, reducing fatty acid oxidation and ketogenesis.","w":["Muscle is a main target of CPT II deficiency.","The heart is involved in CPT II deficiency.","","Not the primary organ listed.","Not the primary organ listed."],"src":"lec","lv":"Easy"},{"t":"Carnitine & CPT Deficiencies","s":"CPT II deficiency is the most common cause of which finding?","c":["Recurrent myoglobinuria","Recurrent hemoglobinuria","Recurrent hematuria","Recurrent ketonuria","Recurrent glycosuria"],"a":0,"e":"CPT II deficiency (liver, cardiac and skeletal muscle) is the most common cause of recurrent myoglobinuria.","w":["","Hemoglobinuria comes from hemolysis.","Hematuria means intact RBCs in urine.","Ketogenesis is reduced, not increased.","Not a feature."],"src":"lec","lv":"Easy"},{"t":"Carnitine & CPT Deficiencies","s":"Which drug class can inhibit both CPT enzymes?","c":["Thiazolidinediones","Biguanides","Sulfonylureas","Statins","Fibrates"],"a":2,"e":"Both CPT I and CPT II can be inhibited by sulfonylurea drugs.","w":["Not listed.","Not listed.","","Not listed.","Not listed."],"src":"lec","lv":"Easy"},{"t":"Carnitine & CPT Deficiencies","s":"Compared with primary carnitine deficiency, secondary carnitine deficiency is:","c":["Inherited and more severe","Acquired and less severe","Acquired and more severe","Inherited and less severe","X-linked and milder"],"a":1,"e":"Secondary carnitine deficiency is due to external factors (not genetic) and is less severe than primary deficiency.","w":["Secondary deficiency is not genetic.","","It is less severe than primary.","It is not genetic.","It is not genetic."],"src":"lec","lv":"Easy"},{"t":"β-Oxidation Reactions","s":"The first reaction of each β-oxidation cycle is catalyzed by which enzyme?","c":["Acyl CoA dehydrogenase","Enoyl CoA hydratase","β-Ketoacyl CoA thiolase","3-Hydroxyacyl CoA dehydrogenase","Acyl CoA synthetase"],"a":0,"e":"Order: acyl CoA dehydrogenase (FAD → FADH2) → enoyl CoA hydratase (+H2O) → 3-hydroxyacyl CoA dehydrogenase (NAD+ → NADH) → thiolase (+CoASH).","w":["","Step 2.","Step 4.","Step 3.","Activation, before the cycle starts."],"src":"lec","lv":"Easy"},{"t":"β-Oxidation Reactions","s":"Which coenzyme is reduced by acyl CoA dehydrogenase?","c":["NAD+","NADP+","Coenzyme A","FAD","Lipoic acid"],"a":3,"e":"Acyl CoA dehydrogenase converts fatty acyl CoA to trans-2-enoyl CoA, reducing FAD to FADH2.","w":["NAD+ is used by 3-hydroxyacyl CoA dehydrogenase.","Used in synthesis, not β-oxidation.","CoA is used by thiolase.","","Not used in β-oxidation."],"src":"lec","lv":"Easy"},{"t":"β-Oxidation Reactions","s":"Which enzyme adds water to trans-2-enoyl CoA?","c":["Acyl CoA dehydrogenase","Thiolase","3-Hydroxyacyl CoA dehydrogenase","Enoyl CoA isomerase","Enoyl CoA hydratase"],"a":4,"e":"Enoyl CoA hydratase adds H2O, converting trans-2-enoyl CoA to 3-hydroxyacyl CoA.","w":["Step 1 makes the double bond.","Thiolase cleaves with CoASH.","Step 3 oxidizes the hydroxyl group.","Used for unsaturated fatty acids.",""],"src":"lec","lv":"Easy"},{"t":"β-Oxidation Reactions","s":"Which reaction produces NADH in the β-oxidation cycle?","c":["Fatty acyl CoA → trans-2-enoyl CoA","trans-2-Enoyl CoA → 3-hydroxyacyl CoA","β-Ketoacyl CoA → acetyl CoA","3-Hydroxyacyl CoA → β-ketoacyl CoA","Fatty acid → fatty acyl CoA"],"a":3,"e":"3-Hydroxyacyl CoA dehydrogenase oxidizes 3-hydroxyacyl CoA to β-ketoacyl CoA, reducing NAD+ to NADH + H+.","w":["This step produces FADH2.","This step adds water.","Thiolysis uses CoASH.","","Activation uses ATP."],"src":"lec","lv":"Easy"},{"t":"β-Oxidation Reactions","s":"Thiolase cleaves β-ketoacyl CoA using which molecule?","c":["Oxidized FAD","NAD+","Water","Lipoic acid","Coenzyme A"],"a":4,"e":"β-Ketoacyl CoA thiolase uses CoASH to release acetyl CoA plus a fatty acyl CoA that is 2 carbons shorter.","w":["Used in step 1.","Used in step 3.","Used in step 2.","Not used in β-oxidation.",""],"src":"lec","lv":"Easy"},{"t":"β-Oxidation Reactions","s":"How many cycles of β-oxidation are needed to fully degrade palmitoyl CoA?","c":["8","16","6","14","7"],"a":4,"e":"Palmitoyl CoA (16C) goes through 7 cycles; the last cycle splits a 4C unit into 2 acetyl CoA, giving 8 acetyl CoA in total.","w":["8 is the number of acetyl CoA produced.","16 is the number of carbons.","Too few.","14 is the carbon count after one cycle.",""],"src":"lec","lv":"Easy"},{"t":"β-Oxidation Reactions","s":"Medium-chain acyl CoA dehydrogenase acts on chains of what length?","c":["12 to 18 carbons","14 to 4 carbons","4 and 6 carbons","More than 20 carbons","18 to 22 carbons"],"a":1,"e":"Long-chain acyl CoA dehydrogenase: 12–18 C. Medium-chain: 14 to 4 C. Short-chain: 4- and 6-carbon chains.","w":["That is long-chain acyl CoA dehydrogenase.","","That is short-chain acyl CoA dehydrogenase.","VLCFA start in peroxisomes.","Not a listed range."],"src":"lec","lv":"Easy"},{"t":"β-Oxidation Reactions","s":"β-Oxidation alone completely degrades which fatty acids?","c":["Saturated fatty acids with even carbons","Saturated fatty acids with odd carbons","Unsaturated fatty acids with even carbons","Branched-chain fatty acids","Unsaturated fatty acids with odd carbons"],"a":0,"e":"The β-oxidation pathway leads to complete degradation of saturated fatty acids having an even number of carbons.","w":["","These leave propionyl CoA.","These also need an isomerase and/or reductase.","These need α-oxidation first.","These need extra enzymes and leave propionyl CoA."],"src":"lec","lv":"Easy"},{"t":"Energetics & Regulation","s":"Using the lecture's values, what is the net ATP yield from one palmitic acid?","c":["131","96","129","106","146"],"a":2,"e":"7 NADH × 3 = 21; 7 FADH2 × 2 = 14; 8 acetyl CoA × 12 = 96. Total 131 − 2 (activation) = 129 ATP.","w":["131 is the gross yield before subtracting 2 for activation.","96 is from acetyl CoA alone.","","106 uses newer P/O ratios, not the lecture's.","146 is the yield for stearic acid."],"src":"lec","lv":"Easy"},{"t":"Energetics & Regulation","s":"By the lecture's values, how many ATP does the citric acid cycle yield per acetyl CoA?","c":["10","15","12","8","3"],"a":2,"e":"The lecture counts 12 ATP per acetyl CoA oxidized in the citric acid cycle, 3 per NADH and 2 per FADH2.","w":["10 is the newer textbook value.","Too many.","","Too few.","3 is the value per NADH."],"src":"lec","lv":"Easy"},{"t":"Energetics & Regulation","s":"Which molecule inhibits CPT I when fuel is abundant?","c":["Acetyl CoA","Citrate","Succinyl CoA","Malonyl CoA","Propionyl CoA"],"a":3,"e":"Malonyl CoA (high when fuel molecules are abundant) inhibits CPT I, so fatty acids are not brought into mitochondria while they are being synthesized.","w":["Acetyl CoA inhibits thiolase.","Not listed as a CPT I inhibitor.","Not listed.","","Not listed."],"src":"lec","lv":"Easy"},{"t":"Energetics & Regulation","s":"NADH inhibits which β-oxidation enzyme?","c":["Acyl CoA dehydrogenase","β-Ketoacyl CoA thiolase","Enoyl CoA hydratase","Carnitine palmitoyltransferase II","3-Hydroxyacyl CoA dehydrogenase"],"a":4,"e":"When the energy charge is high, NADH inhibits 3-hydroxyacyl CoA dehydrogenase and acetyl CoA inhibits thiolase.","w":["Not the NADH-inhibited step.","Thiolase is inhibited by acetyl CoA.","Not listed as inhibited.","Not listed as inhibited.",""],"src":"lec","lv":"Easy"},{"t":"Energetics & Regulation","s":"Acetyl CoA inhibits which enzyme of β-oxidation?","c":["CPT I","Acyl CoA dehydrogenase","Enoyl CoA hydratase","Thiolase","Acyl CoA synthetase"],"a":3,"e":"Acetyl CoA, its own product, inhibits thiolase when the energy charge is high.","w":["CPT I is inhibited by malonyl CoA.","Not listed as inhibited.","Not listed as inhibited.","","Not listed as inhibited."],"src":"lec","lv":"Easy"},{"t":"Unsaturated & Odd-Chain Fatty Acids","s":"Which two extra enzymes are needed to oxidize unsaturated fatty acids?","c":["An isomerase and a reductase","A carboxylase and a mutase","A hydroxylase and an oxidase","A lyase and a dehydratase","A kinase and a phosphatase"],"a":0,"e":"Most reactions are the same as for saturated fatty acids. Only two additional enzymes, an isomerase and a reductase, are needed.","w":["","These handle propionyl CoA.","Not the extra enzymes for double bonds.","Not the extra enzymes.","Not the extra enzymes."],"src":"lec","lv":"Easy"},{"t":"Unsaturated & Odd-Chain Fatty Acids","s":"The final round of β-oxidation of an odd-chain fatty acid gives acetyl CoA and what?","c":["Malonyl CoA","Succinyl CoA","Propionyl CoA","Butyryl CoA","Acetoacetyl CoA"],"a":2,"e":"Odd-chain fatty acids are oxidized like even ones until the final round, which yields propionyl CoA (3C) and acetyl CoA.","w":["Malonyl CoA is made in fatty acid synthesis.","Propionyl CoA is later converted to this.","","A 4C intermediate of even chains.","A ketone body precursor."],"src":"lec","lv":"Easy"},{"t":"Unsaturated & Odd-Chain Fatty Acids","s":"Propionyl CoA enters the citric acid cycle as which intermediate?","c":["Succinyl CoA","Oxaloacetate","Fumarate","α-Ketoglutarate","Citrate"],"a":0,"e":"The 3-carbon unit in propionyl CoA enters the citric acid cycle after conversion to succinyl CoA.","w":["","Not the entry point for propionyl CoA.","Not the entry point.","Not the entry point.","Not the entry point."],"src":"lec","lv":"Easy"},{"t":"Unsaturated & Odd-Chain Fatty Acids","s":"Propionyl CoA carboxylase needs which vitamin?","c":["Vitamin B12","Thiamine","Pyridoxine","Biotin","Folate"],"a":3,"e":"Propionyl CoA + CO2 + ATP → D-methylmalonyl CoA, catalyzed by biotin-dependent propionyl CoA carboxylase.","w":["B12 is the coenzyme of the mutase step.","Not used in this pathway.","Not used in this pathway.","","Not used in this pathway."],"src":"lec","lv":"Easy"},{"t":"Unsaturated & Odd-Chain Fatty Acids","s":"Besides odd-chain fatty acids, which amino acids feed into propionyl CoA on the slide?","c":["Leucine and lysine","Glycine and serine","Alanine and cysteine","Valine and isoleucine","Tyrosine and tryptophan"],"a":3,"e":"The slide shows valine and isoleucine entering the pathway at propionyl CoA.","w":["These are purely ketogenic.","Not shown feeding propionyl CoA.","These form pyruvate.","","Not shown feeding propionyl CoA."],"src":"lec","lv":"Easy"},{"t":"Unsaturated & Odd-Chain Fatty Acids","s":"Which enzyme converts D-methylmalonyl CoA to L-methylmalonyl CoA?","c":["Methylmalonyl CoA mutase","Methylmalonyl CoA racemase","Propionyl CoA carboxylase","Acyl CoA synthetase","Methylmalonyl CoA decarboxylase"],"a":1,"e":"Propionyl CoA → (carboxylase, biotin) D-methylmalonyl CoA → (racemase) L-methylmalonyl CoA → (mutase/isomerase, B12) succinyl CoA.","w":["The mutase converts the L form to succinyl CoA.","","Makes D-methylmalonyl CoA.","Activates propionate.","Not a step in this pathway."],"src":"lec","lv":"Easy"},{"t":"Methylmalonic Aciduria","s":"Methylmalonic aciduria can be caused by deficiency of which vitamin?","c":["Folic acid","Biotin","Pyridoxine","Niacin","Cobalamin"],"a":4,"e":"Causes: (1) vitamin B12 deficiency, with accumulation of methylmalonyl CoA/acid; (2) mutation in methylmalonyl CoA mutase.","w":["Folate is not the coenzyme of the mutase.","Biotin deficiency affects the carboxylase step.","Not involved.","Not involved.",""],"src":"lec","lv":"Easy"},{"t":"Methylmalonic Aciduria","s":"The clinical picture of methylmalonic aciduria is best described as:","c":["A toxic encephalopathy","A hemolytic anemia","A restrictive lung disease","A bleeding disorder","A painless jaundice"],"a":0,"e":"Clinical features are those of a toxic encephalopathy: lethargy, failure to thrive, recurrent vomiting, acidosis, dehydration, respiratory distress, low muscle tone, developmental retardation, seizures and/or an enlarged liver.","w":["","Not the described picture.","Not the described picture.","Not the described picture.","Not the described picture."],"src":"lec","lv":"Easy"},{"t":"Methylmalonic Aciduria","s":"Organic acidurias such as methylmalonic aciduria involve urinary excretion of what?","c":["Free amino acids and peptides","Ketone bodies only","Reducing sugars like galactose","Non-amino organic acids","Acylglycines only"],"a":3,"e":"Organic aciduria: a group of disorders with excretion of non-amino organic acids in urine, due to a deficient enzyme step in amino acid catabolism.","w":["They are non-amino organic acids.","Not the definition.","Not the definition.","","Not the definition."],"src":"lec","lv":"Easy"},{"t":"Peroxisomal, α- & ω-Oxidation","s":"Very long chain fatty acids are first shortened in which organelle?","c":["Mitochondrion","Lysosome","Peroxisome","Smooth ER","Golgi apparatus"],"a":2,"e":"VLCFA oxidation occurs in peroxisomes as a modified β-oxidation.","w":["VLCFA are only finished in mitochondria.","Not a site of fatty acid oxidation.","","The ER performs ω-oxidation.","Not a site of fatty acid oxidation."],"src":"lec","lv":"Easy"},{"t":"Peroxisomal, α- & ω-Oxidation","s":"Which is the first enzyme of peroxisomal β-oxidation?","c":["Acyl CoA dehydrogenase","Acyl CoA oxidase","Enoyl CoA hydratase","Thiolase","Catalase"],"a":1,"e":"Peroxisomal β-oxidation is the same as mitochondrial except the first enzyme, acyl CoA oxidase.","w":["That is the mitochondrial first enzyme.","","Step 2 in both organelles.","The last step.","Catalase breaks down H2O2."],"src":"lec","lv":"Easy"},{"t":"Peroxisomal, α- & ω-Oxidation","s":"Peroxisomal oxidation of VLCFA ends with which product that is sent to mitochondria?","c":["Butyryl CoA","Palmitoyl CoA","Malonyl CoA","Propionyl CoA","Octanoyl CoA"],"a":4,"e":"End products are octanoyl CoA (written Octonyl Co-A on the slide), acetyl CoA and H2O2. Octanoyl CoA enters mitochondria for further oxidation.","w":["Too short.","Too long; shortening continues past 16C.","Not a β-oxidation product.","Comes from odd chains.",""],"src":"lec","lv":"Easy"},{"t":"Peroxisomal, α- & ω-Oxidation","s":"Which by-product is formed by peroxisomal β-oxidation but not by mitochondrial β-oxidation?","c":["NH3","Urea","CO2","GTP","H2O2"],"a":4,"e":"In peroxisomes, the FADH2 from acyl CoA oxidase passes electrons to O2, forming H2O2.","w":["Not produced.","Not produced.","Not a product of β-oxidation itself.","Not produced.",""],"src":"lec","lv":"Easy"},{"t":"Peroxisomal, α- & ω-Oxidation","s":"Why can't phytanic acid undergo β-oxidation directly?","c":["A methyl group on its β-carbon","A double bond at its α-carbon","An odd number of carbon atoms","A hydroxyl group on its ω-carbon","A chain longer than 22 carbons"],"a":0,"e":"Phytanic acid is a branched fatty acid methylated at the β-carbon, so it cannot enter the β-oxidation pathway.","w":["","Not the reason.","Odd chains can undergo β-oxidation.","Not the reason.","Not the reason."],"src":"lec","lv":"Easy"},{"t":"Peroxisomal, α- & ω-Oxidation","s":"α-Oxidation of phytanic acid starts with which enzyme?","c":["Acyl CoA oxidase","Propionyl CoA carboxylase","Methylmalonyl CoA mutase","Enoyl CoA isomerase","Phytanoyl CoA hydroxylase"],"a":4,"e":"An α-hydroxylase, phytanoyl CoA hydroxylase, adds a hydroxyl group to the α-carbon. The product is then decarboxylated and activated to become a substrate for β-oxidation.","w":["First enzyme of peroxisomal β-oxidation.","Odd-chain pathway.","Odd-chain pathway.","Unsaturated fatty acids.",""],"src":"lec","lv":"Easy"},{"t":"Peroxisomal, α- & ω-Oxidation","s":"Phytanic acid comes mainly from which foods?","c":["Cold-water fish and tree nuts","Citrus fruits and fresh berries","Whole grains and dried legumes","Eggs and skinless poultry","Dairy and ruminant meat"],"a":4,"e":"Phytanic acid is present in the tissues of ruminants and in dairy products (and plant chlorophyll, beef and dairy on the Refsum slide).","w":["Not the listed sources.","Not the listed sources.","Not the listed sources.","Not the listed sources.",""],"src":"lec","lv":"Easy"},{"t":"Peroxisomal, α- & ω-Oxidation","s":"α-Oxidation of phytanic acid takes place in which location?","c":["Mitochondria of skeletal muscle","Endoplasmic reticulum","Lysosomes of the liver","Peroxisomes of the liver","Cytosol of adipocytes"],"a":3,"e":"α-Oxidation occurs in peroxisomes of the liver.","w":["Not the site.","The ER does ω-oxidation.","Not the site.","","Not the site."],"src":"lec","lv":"Easy"},{"t":"Peroxisomal, α- & ω-Oxidation","s":"ω-Oxidation takes place in which organelle?","c":["Inner mitochondrial membrane","Endoplasmic reticulum","Peroxisomal matrix","Lysosomal lumen","Golgi apparatus"],"a":1,"e":"ω-Oxidation occurs in the endoplasmic reticulum and converts the methyl group into a carboxylic acid group.","w":["β-oxidation.","","VLCFA and α-oxidation.","Not a site.","Not a site."],"src":"lec","lv":"Easy"},{"t":"Peroxisomal, α- & ω-Oxidation","s":"ω-Oxidation converts medium-chain fatty acids into what?","c":["Ketone bodies","Dicarboxylic acids","Acyl-carnitines","Eicosanoid mediators","Membrane phospholipids"],"a":1,"e":"Medium-chain fatty acids are converted into dicarboxylic acids, which are water soluble and excreted in urine. ω-Oxidation becomes important when β-oxidation is affected.","w":["Made from acetyl CoA in liver mitochondria.","","Made by CPT I.","Made from arachidonic acid.","Not an ω-oxidation product."],"src":"lec","lv":"Easy"},{"t":"MCAD Deficiency & Jamaican Vomiting Sickness","s":"What is the most common inborn error of fatty acid oxidation?","c":["MCAD deficiency","CPT II deficiency","Primary carnitine deficiency","CPT I deficiency","LCAD deficiency"],"a":0,"e":"Medium-chain acyl CoA dehydrogenase deficiency is the most common inborn error of fatty acid oxidation.","w":["","Most common cause of recurrent myoglobinuria, not overall.","Not the most common.","Not the most common.","Not the most common."],"src":"lec","lv":"Easy"},{"t":"MCAD Deficiency & Jamaican Vomiting Sickness","s":"Which trigger commonly brings out MCAD deficiency in infants?","c":["A high-protein meal","Cold exposure","Vigorous exercise","Sun exposure","Overnight fasting"],"a":4,"e":"Infections and overnight fasting trigger the clinical features of MCAD deficiency.","w":["Not a listed trigger.","Not a listed trigger.","Exercise triggers CPT II attacks.","Not a listed trigger.",""],"src":"lec","lv":"Easy"},{"t":"MCAD Deficiency & Jamaican Vomiting Sickness","s":"Jamaican vomiting sickness is caused by which toxin?","c":["Hypoglycin","Aflatoxin","Tetrodotoxin","Amygdalin","Ciguatoxin"],"a":0,"e":"Unripe ackee fruit contains hypoglycin.","w":["","A liver carcinogen from Aspergillus.","A pufferfish toxin.","Releases cyanide.","A reef fish toxin."],"src":"lec","lv":"Easy"},{"t":"MCAD Deficiency & Jamaican Vomiting Sickness","s":"Hypoglycin inactivates which enzymes?","c":["Medium- and short-chain acyl CoA dehydrogenases","Long- and very long-chain acyl CoA dehydrogenases","Carnitine palmitoyltransferases I and II","Enoyl CoA hydratase and thiolase","Propionyl CoA carboxylase and racemase"],"a":0,"e":"Hypoglycin inactivates medium- and short-chain acyl CoA dehydrogenase.","w":["","Not the targets.","Not the targets.","Not the targets.","Not the targets."],"src":"lec","lv":"Easy"},{"t":"Zellweger, X-ALD & Refsum","s":"Zellweger syndrome results from what basic defect?","c":["Loss of a VLCFA membrane transporter","Deficient phytanoyl CoA hydroxylase","Failure of peroxisome formation","Defective mitochondrial DNA","Failure of lysosome acidification"],"a":2,"e":"Zellweger syndrome: autosomal recessive PEX gene mutations (12 different genes) causing peroxisomal abiogenesis.","w":["That is X-ALD.","That is adult Refsum disease.","","Not the cause.","Not the cause."],"src":"lec","lv":"Easy"},{"t":"Zellweger, X-ALD & Refsum","s":"Zellweger syndrome is also called what?","c":["Oculocerebrorenal syndrome","Cerebrohepatorenal syndrome","Hepatopulmonary syndrome","Cardiofaciocutaneous syndrome","Hepatorenal syndrome"],"a":1,"e":"Brain, liver and kidneys are affected, hence cerebrohepatorenal syndrome.","w":["That is Lowe syndrome.","","Not the name.","Not the name.","Not the name."],"src":"lec","lv":"Easy"},{"t":"Zellweger, X-ALD & Refsum","s":"X-linked adrenoleukodystrophy is caused by mutation of which gene?","c":["PEX7","PHYH","SLC22A5","ABCD1","ACADM"],"a":3,"e":"X-ALD: X-linked recessive, ABCD1 gene mutation causing adrenoleukodystrophy protein (ALDP) defect.","w":["Adult Refsum disease.","Adult Refsum disease.","Primary carnitine deficiency.","","MCAD deficiency."],"src":"lec","lv":"Easy"},{"t":"Zellweger, X-ALD & Refsum","s":"X-ALD damages which three sites?","c":["Brain, liver and kidneys","Brain, retina and skin","Liver, heart and muscle","Thyroid, adrenals and ovaries","Brain, adrenals and testes"],"a":4,"e":"X-ALD: demyelination in brain, adrenal cortex damage (adrenal insufficiency) and Leydig cell damage (sexual dysfunction).","w":["That triad is Zellweger syndrome.","Closer to Refsum disease.","CPT II deficiency sites.","Not the triad.",""],"src":"lec","lv":"Easy"},{"t":"Zellweger, X-ALD & Refsum","s":"Adult Refsum disease is due to deficiency of which enzyme?","c":["Acyl CoA oxidase","Methylmalonyl CoA mutase","Phytanoyl CoA hydroxylase","Carnitine palmitoyltransferase II","Medium-chain acyl CoA dehydrogenase"],"a":2,"e":"Adult Refsum disease: deficiency of phytanoyl CoA hydroxylase, an α-oxidation defect, with accumulation of phytanic acid.","w":["Not the Refsum enzyme.","Methylmalonic aciduria.","","CPT II deficiency.","MCAD deficiency."],"src":"lec","lv":"Easy"},{"t":"Zellweger, X-ALD & Refsum","s":"Infantile Refsum disease (PEX1 and PEX2) belongs to which spectrum?","c":["Adrenoleukodystrophy spectrum","Carnitine deficiency spectrum","Organic aciduria spectrum","MCAD deficiency spectrum","Zellweger spectrum"],"a":4,"e":"Infantile Refsum disease is caused by PEX1 and PEX2 mutations and is part of the Zellweger spectrum.","w":["Not the spectrum.","Not the spectrum.","Not the spectrum.","Not the spectrum.",""],"src":"lec","lv":"Easy"},{"t":"Zellweger, X-ALD & Refsum","s":"Adult Refsum disease is classified as which type of syndrome?","c":["Cerebrohepatorenal syndrome","Cardiofacial syndrome","Neurocutaneous syndrome","Hepatopulmonary syndrome","Myelodysplastic syndrome"],"a":2,"e":"Adult Refsum disease is a neurocutaneous syndrome: nerve involvement plus ichthyosis of the skin.","w":["That is Zellweger.","Not the classification.","","Not the classification.","Not the classification."],"src":"lec","lv":"Easy"},{"t":"Carnitine Shuttle","s":"A radiolabeled palmitoyl group is followed from the cytosol into the matrix. In which order does it meet the shuttle proteins?","c":["CPT I, then translocase, then CPT II","Translocase, then CPT I, then CPT II","CPT II, then translocase, then CPT I","CPT I, then CPT II, then translocase","Translocase, then CPT II, then CPT I"],"a":0,"e":"CPT I (outer membrane) forms acyl-carnitine → CACT carries it across the inner membrane in exchange for free carnitine → CPT II (inner membrane) regenerates fatty acyl CoA in the matrix.","w":["","CPT I must first form acyl-carnitine.","Reversed order.","CPT II acts after crossing the inner membrane.","CPT I acts first, on the outer membrane."],"src":"lec","lv":"Hard"},{"t":"Carnitine & CPT Deficiencies","s":"A child has systemic carnitine deficiency. Which urine finding is expected?","c":["High acylcarnitines","No acylcarnitines","High ketone bodies","High methylmalonic acid","High phytanic acid"],"a":1,"e":"Without carnitine, long-chain fatty acids cannot be shuttled and acylcarnitines are not formed, so there are no acylcarnitines in urine. Contrast with MCAD deficiency, where urinary acylcarnitines increase.","w":["Without carnitine, acylcarnitines cannot form.","","Ketogenesis is reduced.","That points to a B12 or mutase problem.","That points to Refsum disease."],"src":"lec","lv":"Hard"},{"t":"Carnitine & CPT Deficiencies","s":"Why does impaired carnitine transport cause hypoglycemia during fasting?","c":["Less acetyl CoA and ATP for gluconeogenesis","More insulin release from pancreatic β cells","Faster glycogen synthesis in the liver","Greater glucose loss through the kidneys","Higher glucose uptake by skeletal muscle"],"a":0,"e":"When β-oxidation is impaired, less acetyl CoA (the activator of pyruvate carboxylase) and less ATP are available, so gluconeogenesis falls and the patient becomes hypoglycemic.","w":["","Not the mechanism.","Not the mechanism.","Not the mechanism.","Not the mechanism."],"src":"lec","lv":"Hard"},{"t":"Carnitine & CPT Deficiencies","s":"A fasting infant has a defect in mitochondrial fatty acid uptake. Which pair of findings is expected?","c":["Low glucose with high ketones","High glucose with high ketones","Normal glucose with high ketones","Low glucose with low ketones","High glucose with low ketones"],"a":3,"e":"Ketogenesis ↓ (hypoketonia), β-oxidation ↓ (fatty acids ↑) and gluconeogenesis ↓ (hypoglycemia): hypoketotic hypoglycemia.","w":["Ketones need acetyl CoA from β-oxidation.","Not expected.","Normal fasting physiology.","","Glucose falls, not rises."],"src":"lec","lv":"Hard"},{"t":"Carnitine & CPT Deficiencies","s":"Hepatomegaly in systemic carnitine deficiency is caused by accumulation of what?","c":["Glycogen granules","Phytanic acid","Copper deposits","Iron deposits","Triglycerides"],"a":4,"e":"Fatty acids that cannot be oxidized are re-esterified, so triglycerides accumulate in muscle and liver (hepatomegaly).","w":["Not the stored material here.","Seen in Refsum disease.","Seen in Wilson disease.","Seen in hemochromatosis.",""],"src":"lec","lv":"Hard"},{"t":"Carnitine & CPT Deficiencies","s":"A 2-year-old has lethargy after fasting, hypotonia, hepatomegaly and a dilated heart. Glucose is low with no ketones. Urine free carnitine is high and plasma carnitine is low. Which protein is defective?","c":["CPT II","MCAD","OCTN2","ALDP","Phytanoyl CoA hydroxylase"],"a":2,"e":"Primary systemic carnitine deficiency: SLC22A5 mutation → OCTN2 defect. Infants and young children, worse with fasting; hypoketotic hypoglycemia, hypotonia, hepatomegaly, encephalopathy, dilated cardiomyopathy; ↑ urine and ↓ plasma free carnitine.","w":["CPT II deficiency causes exercise-induced myoglobinuria.","Urine free carnitine is not the key finding.","","X-ALD causes VLCFA buildup.","Refsum disease."],"src":"lec","lv":"Hard"},{"t":"Carnitine & CPT Deficiencies","s":"A 19-year-old has muscle pain and dark urine after a marathon. He is strong between episodes, and fasting glucose is normal. Which disorder is most likely?","c":["MCAD deficiency","CPT II deficiency","Primary carnitine deficiency","CPT I deficiency","Adult Refsum disease"],"a":1,"e":"CPT II deficiency: onset in teens or early twenties, muscle pain and myoglobinuria after prolonged exercise, episodes of rhabdomyolysis, and normal strength between attacks (unlike carnitine deficiency).","w":["Presents in infancy with fasting hypoglycemia.","","Weakness persists between attacks.","Mainly affects the liver.","Causes neuropathy and ataxia."],"src":"lec","lv":"Hard"},{"t":"Carnitine & CPT Deficiencies","s":"Which feature best separates CPT II deficiency from carnitine deficiency?","c":["Myoglobinuria after exertion","Fat buildup in muscle","Autosomal recessive inheritance","Normal strength between attacks","Low ketones during fasting"],"a":3,"e":"In contrast to carnitine deficiency, strength is normal between attacks in CPT II deficiency.","w":["Both can show myoglobinuria.","Both impair long-chain transport.","Not the stated contrast.","","Both reduce ketogenesis."],"src":"lec","lv":"Hard"},{"t":"Carnitine & CPT Deficiencies","s":"Why are medium-chain fatty acids used in the diet of patients with CPT II deficiency?","c":["They block malonyl CoA formation","They are oxidized in peroxisomes","They bypass the carnitine shuttle","They activate the CPT II enzyme directly","They are converted directly into glucose"],"a":2,"e":"Treatment: avoid fasting, high-carbohydrate diet and a low-fat diet of MCFA. Medium-chain fatty acids do not require the carnitine transport system.","w":["Not the reason.","Not the reason.","","Not the reason.","Fatty acids are not converted to glucose."],"src":"lec","lv":"Hard"},{"t":"Carnitine & CPT Deficiencies","s":"CPT I deficiency leads mainly to which problem?","c":["Rhabdomyolysis after exercise","Demyelination of the brain","Renal cysts and hepatomegaly","Low ketogenesis in the liver","Retinitis pigmentosa"],"a":3,"e":"CPT I deficiency primarily affects the liver, leading to reduced fatty acid oxidation and ketogenesis.","w":["CPT II deficiency.","X-ALD.","Zellweger syndrome.","","Refsum disease."],"src":"lec","lv":"Hard"},{"t":"β-Oxidation Reactions","s":"As palmitoyl CoA is shortened, which dehydrogenase acts on the 10-carbon acyl CoA?","c":["Long-chain acyl CoA dehydrogenase","Short-chain acyl CoA dehydrogenase","Medium-chain acyl CoA dehydrogenase","Very long-chain acyl CoA dehydrogenase","3-Hydroxyacyl CoA dehydrogenase"],"a":2,"e":"LCAD: 12–18 C; MCAD: 14 to 4 C; SCAD: 4 and 6 C. A 10-carbon chain is handled by MCAD.","w":["Acts on 12–18 carbons.","Acts on 4 and 6 carbons.","","Would not raise medium-chain acylcarnitines.","Not the first step."],"src":"lec","lv":"Hard"},{"t":"Energetics & Regulation","s":"By the lecture's values, each turn of the β-oxidation cycle yields how many ATP from its reduced coenzymes?","c":["4","6","3","5","12"],"a":3,"e":"Each turn yields 1 NADH (3 ATP) and 1 FADH2 (2 ATP) = 5 ATP, not counting the acetyl CoA.","w":["Missing one ATP.","Too many.","Counts only NADH.","","That is per acetyl CoA."],"src":"lec","lv":"Hard"},{"t":"Energetics & Regulation","s":"Using the lecture's values, what is the net ATP yield from one stearic acid?","c":["129","148","158","146","131"],"a":3,"e":"Stearic acid (18C): 8 cycles → 8 NADH (24) + 8 FADH2 (16) + 9 acetyl CoA (108) = 148 − 2 = 146 ATP.","w":["That is palmitic acid.","Forgot to subtract 2 for activation.","Too many acetyl CoA counted.","","Gross yield of palmitic acid."],"src":"lec","lv":"Hard"},{"t":"Energetics & Regulation","s":"After a carbohydrate-rich meal, why does hepatic fatty acid oxidation fall?","c":["Acetyl CoA falls and blocks thiolase","Malonyl CoA rises and blocks CPT I","Carnitine synthesis stops in the kidney","NAD+ rises and blocks the hydratase","Glucagon rises and blocks CPT II"],"a":1,"e":"When fuel is abundant, malonyl CoA (the first intermediate of fatty acid synthesis) is high and inhibits CPT I, preventing new fatty acids from being oxidized.","w":["Acetyl CoA inhibits, and low levels would not block.","","Not the mechanism.","Not the mechanism.","Glucagon is low after a meal."],"src":"lec","lv":"Hard"},{"t":"Energetics & Regulation","s":"When the NADH/NAD+ ratio is high, which β-oxidation step slows?","c":["3-Hydroxyacyl CoA → β-ketoacyl CoA","Fatty acyl CoA → trans-2-enoyl CoA","trans-2-Enoyl CoA → 3-hydroxyacyl CoA","β-Ketoacyl CoA → acetyl CoA","Acyl-carnitine → fatty acyl CoA"],"a":0,"e":"NADH inhibits 3-hydroxyacyl CoA dehydrogenase, the step that reduces NAD+.","w":["","This FAD step is not listed as inhibited.","The hydration is not listed.","Thiolase is inhibited by acetyl CoA.","CPT II is not listed."],"src":"lec","lv":"Hard"},{"t":"Unsaturated & Odd-Chain Fatty Acids","s":"Oxidation of a fatty acid with a double bond at an odd-numbered carbon needs which extra enzyme?","c":["A reductase only","An isomerase only","A reductase and an isomerase","A carboxylase and a mutase","An oxidase and a catalase"],"a":1,"e":"Odd-numbered double bonds are handled by the isomerase; even-numbered ones by the reductase and the isomerase.","w":["The reductase is needed for even-numbered bonds.","","Needed for even-numbered bonds.","Odd-chain pathway.","Peroxisomal enzymes."],"src":"lec","lv":"Hard"},{"t":"Unsaturated & Odd-Chain Fatty Acids","s":"Oxidation of a fatty acid with a double bond at an even-numbered carbon needs which extra enzymes?","c":["An isomerase only","A reductase and an isomerase","A reductase only","A carboxylase and a mutase","A hydroxylase and an oxidase"],"a":1,"e":"Even-numbered double bonds are handled by the reductase and the isomerase.","w":["Enough for odd-numbered bonds.","","The isomerase is also needed.","Odd-chain pathway.","α- and peroxisomal pathways."],"src":"lec","lv":"Hard"},{"t":"Unsaturated & Odd-Chain Fatty Acids","s":"Which order of enzymes converts propionyl CoA to succinyl CoA?","c":["Carboxylase, racemase, mutase","Racemase, carboxylase, mutase","Mutase, racemase, carboxylase","Carboxylase, mutase, racemase","Synthetase, mutase, racemase"],"a":0,"e":"Propionyl CoA carboxylase (biotin) → D-methylmalonyl CoA → racemase → L-methylmalonyl CoA → mutase/isomerase (B12) → succinyl CoA.","w":["","The carboxylase acts first.","Reversed.","The racemase precedes the mutase.","The synthetase makes propionyl CoA."],"src":"lec","lv":"Hard"},{"t":"Unsaturated & Odd-Chain Fatty Acids","s":"Complete β-oxidation of a 17-carbon saturated fatty acyl CoA yields:","c":["7 acetyl CoA and 1 propionyl CoA","8 acetyl CoA and 1 propionyl CoA","8 acetyl CoA and no propionyl CoA","6 acetyl CoA and 2 propionyl CoA","7 acetyl CoA and 1 malonyl CoA"],"a":0,"e":"17 = 7 × 2 + 3. Seven cycles release 7 acetyl CoA, and the final 3-carbon unit is propionyl CoA.","w":["","Too many carbons.","Odd chains leave a 3C unit.","Only one propionyl CoA forms.","Malonyl CoA is not produced."],"src":"lec","lv":"Hard"},{"t":"Methylmalonic Aciduria","s":"An infant has vomiting, acidosis, lethargy and hypotonia. Urine methylmalonic acid is high and B12 is normal. Which enzyme is most likely defective?","c":["Propionyl CoA carboxylase","Methylmalonyl CoA racemase","Acyl CoA synthetase","Methylmalonyl CoA mutase","Medium-chain acyl CoA dehydrogenase"],"a":3,"e":"With normal B12, the remaining listed cause is a mutation in methylmalonyl CoA mutase.","w":["Would not raise methylmalonic acid.","Not a listed cause.","Not a listed cause.","","MCAD gives dicarboxylic aciduria."],"src":"lec","lv":"Hard"},{"t":"Methylmalonic Aciduria","s":"Disease in methylmalonic aciduria results from:","c":["Autoimmune damage to the liver and kidney","Deposition of VLCFA in the myelin sheath","Failure of peroxisome formation in cells","Excess flux through the ω-oxidation pathway","Buildup of precursors and lack of products"],"a":4,"e":"Pathogenesis results from accumulation of precursors and deficiency of products.","w":["Not the mechanism.","X-ALD.","Zellweger.","Not the mechanism.",""],"src":"lec","lv":"Hard"},{"t":"Peroxisomal, α- & ω-Oxidation","s":"In peroxisomes, FADH2 from acyl CoA oxidase passes its electrons to:","c":["The electron transport chain","NAD+, forming NADH","Coenzyme Q, forming ATP","Cytochrome c, forming water","Oxygen, forming H2O2"],"a":4,"e":"Acyl CoA oxidase: FAD → FADH2, then FADH2 + O2 → FAD + H2O2. That is why H2O2 is an end product.","w":["That is the mitochondrial route.","Not this step.","Not in peroxisomes.","Not in peroxisomes.",""],"src":"lec","lv":"Hard"},{"t":"Peroxisomal, α- & ω-Oxidation","s":"Up-regulation of peroxisomal enzymes on fat-rich diets is linked to:","c":["Increased ketone body synthesis","A low-grade inflammatory state","Secondary carnitine deficiency","Increased gluconeogenesis","Reduced H2O2 production"],"a":1,"e":"Peroxisomal enzymes are up-regulated when fat-rich diets are consumed, a low-grade inflammatory state.","w":["Not stated.","","Not stated.","Not stated.","More H2O2 would form."],"src":"lec","lv":"Hard"},{"t":"Peroxisomal, α- & ω-Oxidation","s":"The main purpose of α-oxidation is to:","c":["Clear branched fatty acids from blood","Supply most of the ATP during fasting","Make ketone bodies to fuel the brain","Shorten very long chains to octanoyl CoA","Turn odd chains into succinyl CoA"],"a":0,"e":"α-Oxidation is an energy inefficient process but helps in clearing branched-chain fatty acids from circulation.","w":["","It is energy inefficient.","Not its role.","Peroxisomal β-oxidation.","Propionyl CoA pathway."],"src":"lec","lv":"Hard"},{"t":"Peroxisomal, α- & ω-Oxidation","s":"ω-Oxidation becomes more important when:","c":["Peroxisomes are absent","Malonyl CoA levels are low","β-Oxidation is impaired","Carnitine is plentiful","Blood glucose is high"],"a":2,"e":"ω-Oxidation is a minor pathway that becomes important when β-oxidation is affected, producing dicarboxylic acids.","w":["Not the trigger.","Not the trigger.","","Not the trigger.","Not the trigger."],"src":"lec","lv":"Hard"},{"t":"MCAD Deficiency & Jamaican Vomiting Sickness","s":"A 4-month-old breastfed infant has a viral illness and feeds poorly overnight. He is lethargic and vomiting; glucose is 35 mg/dL, urine ketones are negative, and urine medium-chain acylcarnitines are high. Which enzyme is deficient?","c":["Carnitine palmitoyltransferase II","Long-chain acyl CoA dehydrogenase","Medium-chain acyl CoA dehydrogenase","Very long-chain acyl CoA dehydrogenase","Phytanoyl CoA hydroxylase"],"a":2,"e":"MCAD deficiency: triggered by infection or overnight fasting, hypoketotic hypoglycemia, and ↑ acylcarnitines in urine.","w":["Presents with exercise myoglobinuria.","Would not raise medium-chain species.","","Would not raise medium-chain acylcarnitines.","Refsum disease."],"src":"lec","lv":"Hard"},{"t":"MCAD Deficiency & Jamaican Vomiting Sickness","s":"Why does the slide link MCAD deficiency to breastfed infants?","c":["Milk is very low in free carnitine","Milk is rich in phytanic acid","Milk is rich in medium-chain fats","Milk is rich in malonyl CoA","Milk is rich in odd-chain fats"],"a":2,"e":"Infants dependent on mother's milk get medium-chain fatty acids, which they cannot oxidize when MCAD is deficient.","w":["Not the stated link.","Not the stated link.","","Not the stated link.","Not the stated link."],"src":"lec","lv":"Hard"},{"t":"MCAD Deficiency & Jamaican Vomiting Sickness","s":"In MCAD deficiency, metabolic acidosis is mainly due to:","c":["Excess ketone body production","Loss of bicarbonate in stool","Buildup of phytanic acid","Excess methylmalonic acid","Buildup of dicarboxylic acids"],"a":4,"e":"↑ Medium-chain fatty acids → ↑ dicarboxylic acids (by ω-oxidation) → metabolic acidosis.","w":["Ketones are low.","Not the mechanism.","Refsum disease.","Methylmalonic aciduria.",""],"src":"lec","lv":"Hard"},{"t":"MCAD Deficiency & Jamaican Vomiting Sickness","s":"In MCAD deficiency, hyperammonemia develops mainly because:","c":["Dicarboxylic acids block arginase activity","Acylcarnitines block ornithine entry","Very long-chain fatty acids damage liver cells","Ketone bodies inhibit urea synthesis","Less acetyl CoA lowers N-acetylglutamate"],"a":4,"e":"↓ Acetyl CoA → ↓ NAG (N-acetylglutamate, the activator of CPS I) → ↓ urea cycle → hyperammonemia.","w":["Not the mechanism.","Not the mechanism.","Not the mechanism.","Ketones are low.",""],"src":"lec","lv":"Hard"},{"t":"MCAD Deficiency & Jamaican Vomiting Sickness","s":"In MCAD deficiency, which mechanism links low ATP to hypoglycemia?","c":["Less ATP increases insulin release","Less ATP speeds up glycolysis in liver","Less ATP increases urinary glucose","Less ATP blocks glucose absorption","Less ATP slows gluconeogenesis"],"a":4,"e":"↓ ATP and ↓ acetyl CoA → ↓ gluconeogenesis → hypoglycemia.","w":["Not the mechanism.","Not the mechanism.","Not the mechanism.","Not the mechanism.",""],"src":"lec","lv":"Hard"},{"t":"MCAD Deficiency & Jamaican Vomiting Sickness","s":"An infant with MCAD deficiency is found unresponsive in the crib. Which slide-listed risk could explain the event?","c":["Arrhythmia from VLCFA","Adrenal crisis","Hyperkalemic arrest","Aspiration of vomit","Intracranial bleed"],"a":3,"e":"MCAD deficiency is a leading cause of SIDS on the slide; metabolic acidosis causes nausea and vomiting, with a high chance of aspiration in the crib.","w":["Not listed.","Seen in X-ALD.","Not listed.","","Not listed."],"src":"lec","lv":"Hard"},{"t":"MCAD Deficiency & Jamaican Vomiting Sickness","s":"Hypoglycemia in MCAD deficiency causes which two types of symptoms?","c":["Cholinergic and extrapyramidal","Adrenergic and dermatologic","Neuroglycopenic and cerebellar","Myopathic and hepatocellular","Adrenergic and neuroglycopenic"],"a":4,"e":"Hypoglycemia gives adrenergic (sweating, tremor, tachycardia) and neuroglycopenic (confusion, lethargy, seizures) symptoms.","w":["Not the listed types.","Not the listed types.","Not the listed types.","Not the listed types.",""],"src":"lec","lv":"Hard"},{"t":"MCAD Deficiency & Jamaican Vomiting Sickness","s":"A child in Jamaica eats unripe ackee and develops vomiting and lethargy. What explains the very low blood glucose?","c":["Blocked β-oxidation limits gluconeogenesis","The toxin stimulates pancreatic insulin release","The toxin destroys liver glycogen","The toxin blocks glucose absorption","The toxin increases renal glucose loss"],"a":0,"e":"Hypoglycin inactivates medium- and short-chain acyl CoA dehydrogenase, blocking β-oxidation, so the patient is profoundly hypoglycemic.","w":["","Not the mechanism.","Not the mechanism.","Not the mechanism.","Not the mechanism."],"src":"lec","lv":"Hard"},{"t":"MCAD Deficiency & Jamaican Vomiting Sickness","s":"Dicarboxylic aciduria in Jamaican vomiting sickness comes from increased:","c":["α-Oxidation in peroxisomes","ω-Oxidation in the ER","β-Oxidation in peroxisomes","Ketogenesis in the liver","Lipolysis in adipose tissue"],"a":1,"e":"When β-oxidation is blocked, fatty acids are diverted to ω-oxidation in the ER, producing dicarboxylic acids that are excreted in urine.","w":["Not the source.","","Not the source.","Ketogenesis falls.","Not the direct source."],"src":"lec","lv":"Hard"},{"t":"Zellweger, X-ALD & Refsum","s":"A newborn has hypotonia, a high forehead, a large fontanel, epicanthal folds, hepatomegaly and renal cysts. Which is the underlying defect?","c":["Peroxisomal VLCFA transporter defect","Failure of peroxisome biogenesis","Phytanoyl CoA hydroxylase deficiency","Medium-chain acyl CoA dehydrogenase loss","Defective OCTN2 carnitine transporter"],"a":1,"e":"Zellweger syndrome: PEX mutations → peroxisomal abiogenesis; craniofacial dysmorphism, CNS hypomyelination, hepatomegaly and renal cysts.","w":["X-ALD; no craniofacial or renal findings.","","Adult Refsum disease.","MCAD deficiency.","Primary carnitine deficiency."],"src":"lec","lv":"Hard"},{"t":"Zellweger, X-ALD & Refsum","s":"Which lab pattern is expected in Zellweger syndrome?","c":["Low VLCFA with high plasmalogens","High VLCFA with high plasmalogens","High VLCFA with low plasmalogens","Low VLCFA with low phytanic acid","Normal VLCFA with low plasmalogens"],"a":2,"e":"Zellweger: accumulation of very long chain and branched chain fatty acids, with decreased synthesis of plasmalogens and PAF.","w":["Reversed.","Plasmalogen synthesis falls.","","Branched fatty acids rise.","VLCFA rise."],"src":"lec","lv":"Hard"},{"t":"Zellweger, X-ALD & Refsum","s":"CNS involvement in Zellweger syndrome is mainly due to:","c":["Demyelination after normal early development","Phytanic acid incorporated into nerve membranes","Hypomyelination with neuronal migration defects","Recurrent hypoglycemic injury to the cortex","Ammonia toxicity damaging the astrocytes"],"a":2,"e":"Zellweger syndrome: CNS hypomyelination with neuronal migration defects.","w":["More typical of X-ALD.","Refsum disease.","","Not the main CNS mechanism.","Not the main mechanism."],"src":"lec","lv":"Hard"},{"t":"Zellweger, X-ALD & Refsum","s":"An 8-year-old boy has declining school performance, darkened skin, fatigue and vomiting. His maternal uncle died of a similar illness. Which defect is most likely?","c":["Defective peroxisomal VLCFA transporter","Failure of peroxisome biogenesis in all cells","Deficient phytanoyl CoA hydroxylase","Deficient mitochondrial MCAD enzyme activity","Defective OCTN2 carnitine transporter"],"a":0,"e":"X-ALD: X-linked recessive (maternal uncle), ABCD1/ALDP defect; VLCFA accumulate; brain demyelination plus adrenal insufficiency (weakness, weight loss, skin changes, vomiting, coma).","w":["","Zellweger, autosomal recessive.","Adult Refsum, autosomal recessive.","Infancy with fasting hypoglycemia.","Primary carnitine deficiency."],"src":"lec","lv":"Hard"},{"t":"Zellweger, X-ALD & Refsum","s":"Sexual dysfunction in X-ALD reflects damage to which cells?","c":["Sertoli cells of the tubules","Anterior pituitary gonadotrophs","Adrenal medulla chromaffin cells","Hypothalamic neurons","Interstitial cells of Leydig"],"a":4,"e":"Damage to interstitial cells of Leydig causes sexual dysfunction in X-ALD.","w":["Not the listed site.","Not the listed site.","Not the listed site.","Not the listed site.",""],"src":"lec","lv":"Hard"},{"t":"Zellweger, X-ALD & Refsum","s":"A 30-year-old has night blindness, anosmia, scaly skin, ataxia and polyneuropathy. Plasma phytanic acid is high. Which gene is most likely mutated?","c":["PHYH","ABCD1","SLC22A5","PEX1","ACADM"],"a":0,"e":"Adult Refsum disease: autosomal recessive, PHYH (or PEX7) mutation; retinitis pigmentosa, anosmia, ichthyosis, cerebellar ataxia, peripheral polyneuropathy.","w":["","X-ALD.","Primary carnitine deficiency.","Infantile Refsum (Zellweger spectrum).","MCAD deficiency."],"src":"lec","lv":"Hard"},{"t":"Zellweger, X-ALD & Refsum","s":"How does phytanic acid buildup impair nerve conduction in Refsum disease?","c":["Hypoglycemia starves the peripheral nerve fibers","Ammonia accumulates and poisons the neurons","Methylmalonic acid injures the axons directly","Branched lipids make nerve membranes more fluid","Very long-chain fatty acids strip myelin"],"a":3,"e":"Branched chain fatty acids are incorporated into membrane lipids → increased fluidity of neuronal membranes → affected nerve conduction.","w":["Not the mechanism.","Not the mechanism.","Not the mechanism.","","X-ALD."],"src":"lec","lv":"Hard"},{"t":"Synthesis vs β-Oxidation & Sites","lv":"Easy","s":"Excess dietary carbohydrate and protein can be converted into which storage molecule?","c":["Glycogen only","Ketone bodies","Cholesterol esters","Amino acids","Fatty acids"],"a":4,"e":"Excess carbohydrates and proteins → fatty acids. Fatty acid synthesis is an anabolic process.","w":["Glycogen stores are limited; the excess is turned into fatty acids.","Ketone bodies are made in fasting, from fatty acid oxidation.","Not the storage form named on the slide.","Excess protein is not stored as amino acids.",""],"src":"lec"},{"t":"Synthesis vs β-Oxidation & Sites","lv":"Easy","s":"Which set of tissues is listed as the site of fatty acid synthesis?","c":["Brain, kidney and red blood cells","Liver, lactating breast, adipose","Skeletal muscle, heart and kidney","Liver, kidney and small intestine","Red cells, brain and the adrenals"],"a":1,"e":"Site of fatty acid synthesis: liver, lactating mammary glands and adipose tissue.","w":["These are not the sites named.","","Muscle and heart mainly oxidize fatty acids.","Lactating mammary gland and adipose are the others named.","Not the sites named."],"src":"lec"},{"t":"Synthesis vs β-Oxidation & Sites","lv":"Easy","s":"In which compartment of the cell does fatty acid synthesis take place?","c":["Mitochondrial matrix","Peroxisome","Lysosome","Nucleus","Cytoplasm"],"a":4,"e":"Fatty acid oxidation occurs in mitochondria; fatty acid synthesis occurs in the cytoplasm.","w":["β-oxidation, not synthesis, occurs in the mitochondria.","Peroxisomes oxidize very long chain fatty acids.","Lysosomes degrade, they do not synthesize.","Not a site of fatty acid metabolism.",""],"src":"lec"},{"t":"Synthesis vs β-Oxidation & Sites","lv":"Easy","s":"In fatty acid synthesis, the two-carbon units are added in the form of which molecule?","c":["Acetyl-CoA directly","Acetoacetyl CoA","Propionyl CoA","Malonyl CoA","Succinyl CoA"],"a":3,"e":"Synthesis: a cycle of reactions that add C2; the C2 atoms are added as malonyl CoA. Oxidation removes C2 as acetyl-CoA.","w":["Acetyl-CoA primes the chain once; the C2 units come from malonyl CoA.","This is an intermediate in ketogenesis.","Propionyl CoA comes from odd-chain oxidation.","","Succinyl CoA is a TCA cycle intermediate."],"src":"lec"},{"t":"Synthesis vs β-Oxidation & Sites","lv":"Easy","s":"Which reduced coenzyme does fatty acid synthesis require?","c":["NADPH","NADH","FADH2","FMNH2","Reduced glutathione"],"a":0,"e":"Fatty acid synthesis is reductive and requires NADPH. Oxidation is oxidative and produces NADH and FADH2.","w":["","NADH is produced by oxidation, not used by synthesis.","FADH2 is produced by β-oxidation.","Not the reductant for fatty acid synthesis.","Not the reductant for fatty acid synthesis."],"src":"lec"},{"t":"Synthesis vs β-Oxidation & Sites","lv":"Easy","s":"NADPH, required for fatty acid synthesis, is derived from which vitamin?","c":["Vitamin B1, thiamine","Vitamin B3, niacin","Vitamin B2, riboflavin","Vitamin B5, pantothenate","Vitamin B7, biotin"],"a":1,"e":"Lecture note: NADPH → vitamin B3 (niacin).","w":["Thiamine forms TPP.","","Riboflavin forms FAD and FMN.","Pantothenate forms CoA.","Biotin is the carboxylase cofactor."],"src":"lec"},{"t":"Synthesis vs β-Oxidation & Sites","lv":"Easy","s":"Which hormone stimulates fatty acid synthesis?","c":["Glucagon","Adrenaline","Cortisol","Insulin","Thyroxine"],"a":3,"e":"Synthesis: glucagon and adrenaline inhibit; insulin stimulates. The reverse is true for oxidation.","w":["Glucagon inhibits synthesis.","Adrenaline inhibits synthesis.","Not the hormone named on the slide.","","Not the hormone named on the slide."],"src":"lec"},{"t":"Synthesis vs β-Oxidation & Sites","lv":"Easy","s":"In fatty acid synthesis, the growing intermediates are attached to which carrier?","c":["Acyl carrier protein, ACP","Coenzyme A, as in β-oxidation","Carnitine in the inner membrane","Albumin in the cytoplasm","Lipoic acid on a dehydrogenase"],"a":0,"e":"In oxidation the intermediates are linked to CoA; in synthesis they are linked to fatty acid synthase by a carrier protein (ACP).","w":["","CoA carries the intermediates in β-oxidation.","Carnitine shuttles acyl groups into mitochondria.","Albumin carries free fatty acids in plasma.","Lipoic acid is a PDH cofactor."],"src":"lec"},{"t":"Citrate Shuttle: Acetyl-CoA to Cytosol","lv":"Easy","s":"Where is acetyl-CoA mainly formed from pyruvate?","c":["Cytosol","Mitochondria","Endoplasmic reticulum","Peroxisomes","Nucleus"],"a":1,"e":"Fatty acids are synthesized in the cytosol, whereas acetyl-CoA is formed from pyruvate in the mitochondria.","w":["Fatty acids are made in the cytosol, but acetyl-CoA forms in mitochondria.","","Not where PDH acts.","Not where pyruvate is converted to acetyl-CoA.","Not a site of PDH."],"src":"lec"},{"t":"Citrate Shuttle: Acetyl-CoA to Cytosol","lv":"Easy","s":"Which two sources mainly generate acetyl-CoA in the mitochondria?","c":["Glycogenolysis and gluconeogenesis","PDH and fatty acid oxidation","The urea cycle and the TCA cycle","The HMP shunt and glycolysis","Ketolysis and lipogenesis"],"a":1,"e":"Acetyl-CoA is generated in the mitochondria primarily from two sources: the pyruvate dehydrogenase reaction and fatty acid oxidation.","w":["Neither directly produces mitochondrial acetyl-CoA.","","The TCA cycle consumes acetyl-CoA.","These occur in the cytosol.","Not the two sources named."],"src":"lec"},{"t":"Citrate Shuttle: Acetyl-CoA to Cytosol","lv":"Easy","s":"In what form does acetyl-CoA leave the mitochondria for fatty acid synthesis?","c":["Malonyl CoA","Acetylcarnitine","Pyruvate","Free acetate","Citrate"],"a":4,"e":"Citrate is the transporter of acetyl groups from the matrix to the cytosol when acetyl-CoA levels are high.","w":["Malonyl CoA is made in the cytosol.","Carnitine carries acyl groups into, not out of, mitochondria for synthesis.","Pyruvate returns into the mitochondria.","Not the carrier on the slide.",""],"src":"lec"},{"t":"Citrate Shuttle: Acetyl-CoA to Cytosol","lv":"Easy","s":"Which mitochondrial enzyme joins acetyl-CoA with oxaloacetate to form citrate?","c":["ATP-citrate lyase","Malic enzyme","Pyruvate carboxylase","Malate dehydrogenase","Citrate synthase"],"a":4,"e":"In the matrix, citrate synthase condenses acetyl-CoA with oxaloacetate to form citrate.","w":["This splits citrate in the cytosol.","This converts malate to pyruvate.","This forms oxaloacetate from pyruvate.","This interconverts malate and oxaloacetate.",""],"src":"lec"},{"t":"Citrate Shuttle: Acetyl-CoA to Cytosol","lv":"Easy","s":"Which cytosolic enzyme splits citrate to release acetyl-CoA?","c":["Citrate synthase","ATP-citrate lyase","Aconitase","Isocitrate dehydrogenase","Acetyl-CoA carboxylase"],"a":1,"e":"In the cytosol, ATP-citrate lyase uses ATP and CoA to cleave citrate into acetyl-CoA and oxaloacetate.","w":["This makes citrate in the matrix.","","Aconitase converts citrate to isocitrate in the TCA cycle.","Not the cleavage enzyme.","This uses acetyl-CoA to make malonyl CoA."],"src":"lec"},{"t":"Citrate Shuttle: Acetyl-CoA to Cytosol","lv":"Easy","s":"Besides citrate and CoA, what does ATP-citrate lyase consume?","c":["NADPH","GTP","Biotin","NADH","ATP"],"a":4,"e":"Citrate + CoA + ATP → acetyl-CoA + oxaloacetate + ADP + Pi.","w":["NADPH is not used by ATP-citrate lyase.","Not the nucleotide used.","Biotin is used by carboxylases.","NADH is used by malate dehydrogenase.",""],"src":"lec"},{"t":"Citrate Shuttle: Acetyl-CoA to Cytosol","lv":"Easy","s":"In the cytosol, oxaloacetate from citrate cleavage is first converted to which molecule?","c":["Pyruvate","Citrate","Phosphoenolpyruvate","Aspartate","Malate"],"a":4,"e":"Cytosolic malate dehydrogenase reduces oxaloacetate to malate, using NADH.","w":["Pyruvate comes from malate, the next step.","Citrate was just cleaved.","Not the step on the slide.","Not the step on the slide.",""],"src":"lec"},{"t":"Citrate Shuttle: Acetyl-CoA to Cytosol","lv":"Easy","s":"Which enzyme converts cytosolic malate to pyruvate?","c":["Malic enzyme","Malate dehydrogenase","Pyruvate kinase","Pyruvate carboxylase","Lactate dehydrogenase"],"a":0,"e":"Malic enzyme oxidatively decarboxylates malate to pyruvate + CO2, reducing NADP⁺ to NADPH.","w":["","This converts oxaloacetate to malate.","Pyruvate kinase acts in glycolysis.","This converts pyruvate to oxaloacetate.","Not the enzyme on the slide."],"src":"lec"},{"t":"Citrate Shuttle: Acetyl-CoA to Cytosol","lv":"Easy","s":"After the shuttle, how is pyruvate converted back to oxaloacetate in the mitochondria?","c":["Pyruvate dehydrogenase","Malic enzyme","PEP carboxykinase","Citrate synthase","Pyruvate carboxylase"],"a":4,"e":"Pyruvate re-enters the mitochondria and pyruvate carboxylase, using ATP and CO2, regenerates oxaloacetate.","w":["PDH converts pyruvate to acetyl-CoA.","Malic enzyme is cytosolic and makes pyruvate.","Not the enzyme shown in the shuttle.","Citrate synthase uses oxaloacetate.",""],"src":"lec"},{"t":"Sources of NADPH","lv":"Easy","s":"Malic enzyme is also called which?","c":["NAD⁺-linked malate dehydrogenase","Malate synthase of glyoxylate","NADP⁺-linked malate enzyme","Fumarase of the TCA cycle","Malonyl transacylase of FAS"],"a":2,"e":"Malate is oxidatively decarboxylated by an NADP⁺-linked malate enzyme, also called malic enzyme.","w":["That is malate dehydrogenase.","Not the enzyme named.","","Fumarase converts fumarate to malate.","That is part of fatty acid synthase."],"src":"lec"},{"t":"Sources of NADPH","lv":"Easy","s":"How many NADPH are needed to synthesize one palmitate?","c":["7","8","14","6","16"],"a":2,"e":"14 NADPH are required for the synthesis of one fatty acid molecule (palmitate).","w":["7 is the number of malonyl CoA used.","8 is the number from malic enzyme.","","6 come from the HMP pathway.","16 is the number of carbons."],"src":"lec"},{"t":"Sources of NADPH","lv":"Easy","s":"How many NADPH per palmitate are supplied by malic enzyme?","c":["14","6","8","7","1"],"a":2,"e":"One NADPH is generated per acetyl-CoA transferred to the cytosol: 8 NADPH from 8 acetyl-CoA.","w":["14 is the total required.","6 come from the HMP pathway.","","Not the number given.","One per acetyl-CoA, so 8 in total."],"src":"lec"},{"t":"Sources of NADPH","lv":"Easy","s":"Which pathway supplies the remaining six NADPH for palmitate synthesis?","c":["Glycolysis","TCA cycle","Gluconeogenesis","HMP pathway","β-oxidation"],"a":3,"e":"The additional six molecules of NADPH come from the HMP (hexose monophosphate) pathway.","w":["Glycolysis yields NADH.","The TCA cycle yields NADH and FADH2.","Gluconeogenesis consumes energy.","","β-oxidation yields NADH and FADH2."],"src":"lec"},{"t":"Acetyl-CoA Carboxylase Reaction","lv":"Easy","s":"What is the first reaction of fatty acid synthesis?","c":["Condensing two acetyl-CoA into acetoacetyl","Carboxylating acetyl-CoA to malonyl CoA","Reducing acetoacetyl ACP with NADPH","Cleaving citrate to acetyl-CoA and OAA","Activating palmitate with coenzyme A"],"a":1,"e":"Fatty acid synthesis starts with the carboxylation of acetyl-CoA to malonyl CoA.","w":["Not the starting step.","","This comes later in the cycle.","This happens before synthesis begins.","Activation is the first step of oxidation."],"src":"lec"},{"t":"Acetyl-CoA Carboxylase Reaction","lv":"Easy","s":"Which enzyme catalyzes the committed step of fatty acid synthesis?","c":["Fatty acid synthase","ATP-citrate lyase","Palmitoyl thioesterase","Acetyl-CoA carboxylase","Cytosolic malic enzyme"],"a":3,"e":"Acetyl-CoA → malonyl CoA by acetyl-CoA carboxylase is irreversible and the committed step.","w":["FAS acts after the committed step.","This supplies acetyl-CoA.","Thioesterase releases palmitate.","","Malic enzyme supplies NADPH."],"src":"lec"},{"t":"Acetyl-CoA Carboxylase Reaction","lv":"Easy","s":"Which prosthetic group does acetyl-CoA carboxylase contain?","c":["Lipoic acid","Thiamine pyrophosphate","Biotin","Pyridoxal phosphate","FAD"],"a":2,"e":"Acetyl-CoA carboxylase contains a biotin prosthetic group. Biotin is required for carboxylase reactions.","w":["Lipoic acid is a PDH cofactor.","TPP is used by decarboxylases.","","PLP is used by transaminases.","Not the ACC prosthetic group."],"src":"lec"},{"t":"Acetyl-CoA Carboxylase Reaction","lv":"Easy","s":"What source of CO2 does acetyl-CoA carboxylase use?","c":["Free CO2 gas only","Bicarbonate","Carbamoyl phosphate","Malonyl CoA","Formate"],"a":1,"e":"Acetyl-CoA + ATP + HCO3⁻ → malonyl CoA + ADP + Pi + H⁺.","w":["The slide shows HCO3⁻.","","Used in the urea cycle.","Malonyl CoA is the product.","Not the carbon source."],"src":"lec"},{"t":"Acetyl-CoA Carboxylase Reaction","lv":"Easy","s":"How is the carboxybiotin intermediate of acetyl-CoA carboxylase formed?","c":["By oxidizing NADPH","At the expense of ATP","By hydrolyzing GTP","By reducing FAD","Without any energy input"],"a":1,"e":"A carboxybiotin intermediate is formed at the expense of the hydrolysis of a molecule of ATP; the activated CO2 is then transferred to acetyl-CoA.","w":["NADPH is not used by ACC.","","Not the nucleotide used.","FAD is not involved.","The reaction uses ATP."],"src":"lec"},{"t":"Acetyl-CoA Carboxylase Reaction","lv":"Easy","s":"The acetyl-CoA carboxylase reaction is best described as what?","c":["Reversible and regulatory","Irreversible and regulatory","Reversible and unregulated","Irreversible and unregulated","An equilibrium reaction"],"a":1,"e":"Irreversible reaction and committed step; acetyl-CoA carboxylase is the regulatory enzyme.","w":["The reaction is irreversible.","","It is both irreversible and regulated.","ACC is the regulatory enzyme.","It is irreversible."],"src":"lec"},{"t":"Regulation of Acetyl-CoA Carboxylase","lv":"Easy","s":"Which molecule allosterically activates acetyl-CoA carboxylase?","c":["Palmitoyl CoA","Citrate","AMP","Glucagon","Malonyl CoA"],"a":1,"e":"Allosteric regulation: activator citrate; inhibitors long-chain fatty acids and AMP.","w":["Long-chain fatty acyl CoA inhibits ACC.","","AMP inhibits ACC.","Glucagon is a hormone, not an allosteric activator.","Malonyl CoA is ACC's product."],"src":"lec"},{"t":"Regulation of Acetyl-CoA Carboxylase","lv":"Easy","s":"Which molecule allosterically inhibits acetyl-CoA carboxylase?","c":["Cytosolic citrate rising","Long-chain acyl CoA","Insulin signaling","A high blood glucose","Cytosolic ATP excess"],"a":1,"e":"Long-chain fatty acyl CoA (and AMP) inhibit acetyl-CoA carboxylase — feedback by the end product.","w":["Citrate activates ACC.","","Insulin activates ACC by dephosphorylation.","Glucose is not an allosteric regulator.","Not the inhibitor named."],"src":"lec"},{"t":"Regulation of Acetyl-CoA Carboxylase","lv":"Easy","s":"Citrate activates acetyl-CoA carboxylase by changing it from what form to what form?","c":["Inactive dimer to active polymer","Active polymer to inactive dimer","Monomer to inactive tetramer","Phosphorylated to dephosphorylated","Apoenzyme to holoenzyme"],"a":0,"e":"Citrate turns the inactive ACC dimer into the active polymer; long-chain fatty acyl CoA opposes this.","w":["","That is what fatty acyl CoA favors.","Not the forms shown.","That is covalent, not allosteric, regulation.","Not the change shown."],"src":"lec"},{"t":"Regulation of Acetyl-CoA Carboxylase","lv":"Easy","s":"Which form of acetyl-CoA carboxylase is active?","c":["Phosphorylated","Bound to palmitoyl CoA","Dephosphorylated","The dimer form","Bound to AMP"],"a":2,"e":"Acetyl-CoA carboxylase–P is inactive; dephosphorylated ACC is active.","w":["Phosphorylation inactivates ACC.","Fatty acyl CoA inhibits.","","The polymer is active.","AMP inhibits."],"src":"lec"},{"t":"Regulation of Acetyl-CoA Carboxylase","lv":"Easy","s":"How does insulin activate acetyl-CoA carboxylase?","c":["Via protein phosphatase","Via cAMP-dependent protein kinase","Via AMP-activated protein kinase","Via raising AMP levels","Via adenylyl cyclase"],"a":0,"e":"Insulin stimulates protein phosphatase, which removes the phosphate and activates ACC.","w":["","PKA phosphorylates and inactivates ACC.","AMPK phosphorylates and inactivates ACC.","AMP inhibits ACC.","This raises cAMP, the glucagon pathway."],"src":"lec"},{"t":"Regulation of Acetyl-CoA Carboxylase","lv":"Easy","s":"Which kinase is activated by elevated AMP levels when cellular energy is low?","c":["Protein kinase C","Insulin receptor kinase","Protein kinase G","Hexokinase","AMPK"],"a":4,"e":"AMPK (AMP-activated protein kinase) is activated by elevated AMP; it phosphorylates ACC, which inactivates it.","w":["Not the kinase named.","Not activated by AMP.","Not the kinase named.","Hexokinase phosphorylates glucose.",""],"src":"lec"},{"t":"Regulation of Acetyl-CoA Carboxylase","lv":"Easy","s":"What effect does AMPK have on acetyl-CoA carboxylase?","c":["Dephosphorylates and activates it","Phosphorylates and activates it","Phosphorylates and inactivates it","Converts it to a polymer","Increases its gene expression"],"a":2,"e":"When cellular energy is low, AMPK phosphorylates ACC, which inactivates it, saving ATP.","w":["That is protein phosphatase.","Phosphorylation inactivates ACC.","","Citrate does that.","SREBP-1c does that."],"src":"lec"},{"t":"Regulation of Acetyl-CoA Carboxylase","lv":"Easy","s":"Which hypoglycemic drug activates AMPK?","c":["Metformin","Insulin","Glipizide","Pioglitazone","Acarbose"],"a":0,"e":"Metformin (hypoglycemic drug) activates AMPK, which phosphorylates and inhibits ACC.","w":["","Insulin works through protein phosphatase.","A sulfonylurea; not named on the slide.","Not the drug named.","Not the drug named."],"src":"lec"},{"t":"Regulation of Acetyl-CoA Carboxylase","lv":"Easy","s":"Which hormones lead to phosphorylation and inhibition of acetyl-CoA carboxylase?","c":["Insulin and glucagon","Insulin and cortisol","Glucagon and epinephrine","Thyroxine and insulin","Insulin and growth hormone"],"a":2,"e":"During fasting or stress, glucagon and catecholamines lead to phosphorylation and inhibition of ACC.","w":["Insulin activates ACC.","Insulin activates ACC.","","Insulin activates ACC.","Insulin activates ACC."],"src":"lec"},{"t":"Regulation of Acetyl-CoA Carboxylase","lv":"Easy","s":"Which transcription factor rises with a high-carbohydrate diet to increase ACC?","c":["SREBP-2","CREB","NF-κB","ChREBP","FOXO1"],"a":3,"e":"High carbohydrates ↑ the transcription factor ChREBP (carbohydrate response element binding protein).","w":["SREBP-2 controls cholesterol synthesis genes.","Not the factor named.","Not the factor named.","","Not the factor named."],"src":"lec"},{"t":"Regulation of Acetyl-CoA Carboxylase","lv":"Easy","s":"Which transcription factor is activated by insulin to upregulate ACC expression?","c":["ChREBP","PPAR-alpha","SREBP-1c","SREBP-2","CREB protein"],"a":2,"e":"SREBP-1c (sterol regulatory element-binding protein 1c) is activated by insulin signaling and increases ACC levels.","w":["ChREBP responds to high carbohydrate.","Not the insulin-activated factor named.","","SREBP-2 controls cholesterol genes.","CREB is activated by cAMP."],"src":"lec"},{"t":"Regulation of Acetyl-CoA Carboxylase","lv":"Easy","s":"Which of these is an example of transcriptional regulation of ACC?","c":["SREBP-1c increasing ACC levels","Citrate polymerizing ACC","AMPK phosphorylating ACC","Insulin stimulating phosphatase","Palmitoyl CoA inhibiting ACC"],"a":0,"e":"ACC is regulated four ways: allosteric (citrate, fatty acids, AMP), covalent (AMPK), hormonal (insulin, glucagon/adrenaline) and transcriptional (SREBP-1c, PPARs).","w":["","That is allosteric regulation.","That is covalent modification.","That is hormonal regulation.","That is allosteric regulation."],"src":"lec"},{"t":"Fatty Acid Synthase Complex","lv":"Easy","s":"Fatty acid synthase makes saturated long-chain fatty acids from acetyl-CoA, malonyl CoA and what?","c":["NADPH","NADH","FADH2","ATP only","Biotin"],"a":0,"e":"The enzyme system that makes saturated long-chain fatty acids from acetyl-CoA, malonyl CoA and NADPH is fatty acid synthase.","w":["","Synthesis uses NADPH.","FADH2 is produced by oxidation.","ATP is used by ACC, not FAS.","Biotin is used by ACC."],"src":"lec"},{"t":"Fatty Acid Synthase Complex","lv":"Easy","s":"How does eukaryotic fatty acid synthase differ from that of E. coli?","c":["Its enzymes are separate proteins","It is found in the mitochondria","Its enzymes share one polypeptide","It uses NADH in place of its NADPH","It lacks any acyl carrier protein"],"a":2,"e":"Eukaryotic fatty acid synthases have the component enzymes linked in a large polypeptide chain.","w":["That describes E. coli.","Eukaryotic FAS is cytosolic.","","It uses NADPH.","It contains ACP."],"src":"lec"},{"t":"Fatty Acid Synthase Complex","lv":"Easy","s":"Which enzymes are found in domain 1 of fatty acid synthase?","c":["ACP, KR, DH and ER together","The thioesterase alone","KR and the thioesterase","AT, ACP and the thioesterase","AT, MT and condensing enzyme"],"a":4,"e":"Domain 1 (blue): acetyl transferase (AT), malonyl transferase (MT), condensing enzyme (CE).","w":["These are in domain 2.","That is domain 3.","Not grouped together.","These are in three different domains.",""],"src":"lec"},{"t":"Fatty Acid Synthase Complex","lv":"Easy","s":"Which domain of fatty acid synthase contains the thioesterase?","c":["Domain 1","Domain 2","The ACP arm","A separate protein","Domain 3"],"a":4,"e":"Domain 3 (red) contains thioesterase (TE).","w":["Domain 1 has AT, MT and CE.","Domain 2 has ACP, KR, DH and ER.","ACP is the carrier, in domain 2.","It is on the same polypeptide.",""],"src":"lec"},{"t":"Fatty Acid Synthase Complex","lv":"Easy","s":"Which group carries the growing acyl chain between the active sites of fatty acid synthase?","c":["Biotinyl lysine arm","Lipoyl lysine arm","Carnitine shuttle","Phosphopantetheinyl group","Pyridoxal phosphate group"],"a":3,"e":"The flexible phosphopantetheinyl group (green) carries the fatty acyl chain from one catalytic site to another, and between chains in the dimer.","w":["Biotin carries CO2 in ACC.","Lipoyl arms are found in PDH.","Carnitine carries acyl groups across mitochondrial membranes.","","Not an acyl carrier."],"src":"lec"},{"t":"Fatty Acid Synthase Complex","lv":"Easy","s":"How many different catalytic sites are present on a single fatty acid synthase polypeptide?","c":["3","2","14","7","4"],"a":3,"e":"Seven different catalytic sites are present on a single polypeptide: AT, MT, CE, KR, DH, ER and TE.","w":["3 is the number of domains.","2 is the number of chains in the dimer.","14 is the NADPH count for palmitate.","","Domain 2 alone has 4 components."],"src":"lec"},{"t":"Fatty Acid Synthase Complex","lv":"Easy","s":"Where is the fatty acid synthase complex localized?","c":["Mitochondrial matrix","Inner mitochondrial membrane","Nucleus","Lysosome","Cytosol"],"a":4,"e":"Fatty acid synthase is large, dimeric, multidomain, multifunctional and localized to the cytosol.","w":["β-oxidation enzymes are there.","Not where FAS is.","Not where FAS is.","Not where FAS is.",""],"src":"lec"},{"t":"FAS Cycle & Palmitate Stoichiometry","lv":"Easy","s":"What is the first step after acetyl and malonyl groups are loaded onto fatty acid synthase?","c":["Condensation","Reduction","Dehydration","Thiolytic cleavage","Thioester hydrolysis"],"a":0,"e":"Order: trans-acylation → condensation → reduction (NADPH) → dehydration → reduction (NADPH).","w":["","Reduction comes after condensation.","Dehydration is the third reaction.","Thiolysis is a β-oxidation step.","Hydrolysis by TE ends the process."],"src":"lec"},{"t":"FAS Cycle & Palmitate Stoichiometry","lv":"Easy","s":"Which product is released when acetyl ACP and malonyl ACP condense?","c":["Water","NADPH","CO2","Acetyl-CoA","ATP"],"a":2,"e":"Acetyl ACP + malonyl ACP → acetoacetyl ACP + ACP + CO2.","w":["Water is released in dehydration.","NADPH is consumed in reduction.","","Acetyl-CoA is a substrate.","No ATP is made."],"src":"lec"},{"t":"FAS Cycle & Palmitate Stoichiometry","lv":"Easy","s":"What does the condensation of acetyl ACP and malonyl ACP form?","c":["Acetoacetyl ACP","Butyryl ACP","Crotonyl ACP","D-3-hydroxybutyryl ACP","Palmitoyl ACP"],"a":0,"e":"Condensation → acetoacetyl ACP (a C4 β-ketoacyl ACP).","w":["","Butyryl ACP is the end of round one.","Crotonyl ACP forms by dehydration.","Formed by the first reduction.","The end of seven rounds."],"src":"lec"},{"t":"FAS Cycle & Palmitate Stoichiometry","lv":"Easy","s":"Acetoacetyl ACP is reduced by NADPH to form which intermediate?","c":["Crotonyl ACP, by dehydration","Butyryl ACP, the C4 product","L-3-hydroxyacyl CoA","Malonyl ACP substrate","D-3-hydroxybutyryl ACP"],"a":4,"e":"Acetoacetyl ACP → (reduction, NADPH) → D-3-hydroxybutyryl ACP.","w":["Formed by dehydration, next.","Formed by the second reduction.","This isomer is a β-oxidation intermediate.","A starting substrate.",""],"src":"lec"},{"t":"FAS Cycle & Palmitate Stoichiometry","lv":"Easy","s":"Removal of water from D-3-hydroxybutyryl ACP produces which molecule?","c":["Butyryl ACP","Acetoacetyl ACP","Malonyl ACP","Crotonyl ACP","Acetyl ACP"],"a":3,"e":"Dehydration: D-3-hydroxybutyryl ACP → crotonyl ACP + H2O.","w":["Formed by the second reduction.","Formed by condensation.","A substrate.","","A substrate."],"src":"lec"},{"t":"FAS Cycle & Palmitate Stoichiometry","lv":"Easy","s":"What is the product of the first full round of fatty acid synthesis?","c":["Crotonyl ACP","Acetoacetyl ACP","Hexanoyl ACP","Butyryl ACP","Palmitoyl ACP"],"a":3,"e":"Crotonyl ACP → (reduction, NADPH) → butyryl ACP, a C4 saturated acyl ACP.","w":["Crotonyl ACP still needs one reduction.","The product of condensation.","The product of round two.","","The product of seven rounds."],"src":"lec"},{"t":"FAS Cycle & Palmitate Stoichiometry","lv":"Easy","s":"In the second round, butyryl ACP condenses with which molecule?","c":["Malonyl ACP","Acetyl ACP","Acetyl-CoA","Butyryl ACP","Crotonyl ACP"],"a":0,"e":"Second round: butyryl ACP + malonyl ACP → C6 β-ketoacyl ACP.","w":["","Acetyl only starts the first round.","Each new C2 comes from malonyl.","Not a second butyryl.","Crotonyl is an intermediate."],"src":"lec"},{"t":"FAS Cycle & Palmitate Stoichiometry","lv":"Easy","s":"Elongation cycles of fatty acid synthase continue until which acyl ACP is formed?","c":["C18-acyl ACP","C12-acyl ACP","C16-acyl ACP","C20-acyl ACP","C14-acyl ACP"],"a":2,"e":"The elongation cycles continue until C16-acyl ACP is formed, which is a substrate for thioesterase.","w":["C18 needs ER elongation.","Elongation continues past C12.","","C20 needs ER elongation.","Elongation continues to C16."],"src":"lec"},{"t":"FAS Cycle & Palmitate Stoichiometry","lv":"Easy","s":"Which enzyme acts as a ruler to set fatty acid chain length?","c":["Thioesterase","Condensing enzyme","Enoyl reductase","Malonyl transferase","Acetyl-CoA carboxylase"],"a":0,"e":"Thioesterase hydrolyzes C16-acyl ACP to yield palmitate and ACP; it acts as a ruler to determine chain length.","w":["","It adds C2 units.","It reduces the double bond.","It loads malonyl.","It makes malonyl CoA."],"src":"lec"},{"t":"FAS Cycle & Palmitate Stoichiometry","lv":"Easy","s":"How many times is the fatty acid synthase cycle repeated to make palmitate?","c":["Eight","Six","Seven","Sixteen","Fourteen"],"a":2,"e":"These steps are repeated seven times, using 1 acetyl-CoA and 7 malonyl-CoA, to synthesize palmitate (16:0).","w":["8 acetyl units, but 7 cycles.","Six would give C14.","","16 is the number of carbons.","14 is the NADPH count."],"src":"lec"},{"t":"FAS Cycle & Palmitate Stoichiometry","lv":"Easy","s":"How many malonyl CoA are used to synthesize one palmitate?","c":["8","14","16","7","6"],"a":3,"e":"Acetyl-CoA + 7 malonyl CoA + 14 NADPH + 20 H⁺ → palmitate + 7 CO2 + 14 NADP⁺ + 8 CoA + 6 H2O.","w":["8 acetyl-CoA total: 1 primer plus 7 via malonyl.","14 is the NADPH count.","16 is the carbon count.","","Not the number."],"src":"lec"},{"t":"FAS Cycle & Palmitate Stoichiometry","lv":"Easy","s":"How many CO2 molecules are released during the synthesis of one palmitate?","c":["7","8","14","6","16"],"a":0,"e":"One CO2 is released at each condensation, one per malonyl CoA: 7 CO2.","w":["","One per malonyl CoA: 7.","Not the number.","6 is the water count.","Not the number."],"src":"lec"},{"t":"Elongation & Desaturation","lv":"Easy","s":"What is the major product of fatty acid synthase?","c":["Palmitate, 16:0","Stearate, 18:0","Oleate, 18:1","Linoleate, 18:2","Myristate, 14:0"],"a":0,"e":"The major product of the fatty acid synthase is palmitate (16:0).","w":["","Stearate needs ER elongation.","Oleate needs elongation and desaturation.","Linoleate is essential and cannot be made.","FAS continues to C16."],"src":"lec"},{"t":"Elongation & Desaturation","lv":"Easy","s":"Where does elongation of fatty acids longer than palmitate occur in eukaryotes?","c":["Mitochondrial matrix","Cytosolic face of the ER","Lumen of the ER cisterns","Peroxisomal matrix","The nuclear envelope"],"a":1,"e":"Longer fatty acids are formed by elongation reactions catalyzed by enzymes on the cytosolic face of the endoplasmic reticulum membrane.","w":["Not where elongation is described.","","Enzymes are on the cytosolic face.","Not where elongation is described.","Not a site of elongation."],"src":"lec"},{"t":"Elongation & Desaturation","lv":"Easy","s":"Which molecule donates the two carbons in fatty acid elongation?","c":["Acetyl-CoA","Propionyl CoA","Malonyl CoA","Acetoacetyl CoA","Succinyl CoA"],"a":2,"e":"Malonyl CoA is the two-carbon donor in the elongation of fatty acyl CoAs; condensation is driven by its decarboxylation.","w":["Acetyl-CoA primes FAS, but malonyl CoA donates in elongation.","Not the donor.","","Not the donor.","Not the donor."],"src":"lec"},{"t":"Elongation & Desaturation","lv":"Easy","s":"Elongation adds two-carbon units to which end of the fatty acyl CoA?","c":["The methyl end","The middle of the chain","Both ends equally","The carboxyl end","The ω carbon"],"a":3,"e":"These reactions add two-carbon units sequentially to the carboxyl ends of both saturated and unsaturated fatty acyl CoA substrates.","w":["Units are added at the carboxyl end.","Not how elongation works.","Only the carboxyl end.","","That is the methyl end."],"src":"lec"},{"t":"Elongation & Desaturation","lv":"Easy","s":"Which three membrane-bound components make up the ER desaturase complex?","c":["Cytochrome P450 and its reductase","Cyt c, cyt c1 and a desaturase","Cyt b5, b5 reductase, desaturase","ACP, KR and a lipid desaturase","Cyt a, cyt a3 and a desaturase"],"a":2,"e":"Double bonds are introduced by NADH-cytochrome b5 reductase, cytochrome b5 and a desaturase (O2, NADH, cyt b5, FAD-linked reductases).","w":["Not the complex named.","Cytochrome c is mitochondrial.","","ACP and KR are FAS components.","These are complex IV components."],"src":"lec"},{"t":"Elongation & Desaturation","lv":"Easy","s":"What type of enzymes are the fatty acyl CoA desaturases?","c":["Heme iron enzymes","Copper-containing enzymes","Biotin-dependent enzymes","Non-heme iron enzymes","Zinc metalloenzymes"],"a":3,"e":"There are 4 broad-specificity fatty acyl-CoA desaturases, non-heme iron-containing enzymes.","w":["The slide says non-heme iron.","Not the type named.","Biotin is used by carboxylases.","","Not the type named."],"src":"lec"},{"t":"Elongation & Desaturation","lv":"Easy","s":"At which carbons can human desaturases introduce double bonds?","c":["C9, C12 or C15","C12 and C15 only","Only at C9","Any carbon in the chain","C4, C5, C6 or C9"],"a":4,"e":"These enzymes introduce unsaturation at C4, C5, C6 or C9.","w":["Humans cannot desaturate beyond C9.","These positions cannot be made in humans.","C4, C5 and C6 can also be desaturated.","Not beyond C9.",""],"src":"lec"},{"t":"Elongation & Desaturation","lv":"Easy","s":"Why can humans not synthesize linoleate and linolenate?","c":["No elongation beyond C16","No malonyl CoA in the ER","No desaturation beyond C9","No cytochrome b5 in the ER","No NADH for desaturases"],"a":2,"e":"Desaturases cannot introduce double bonds beyond C9, so linoleate (18:2 Δ9,12) and linolenate (18:3 Δ9,12,15) are dietary essentials.","w":["Elongation beyond C16 is possible.","Malonyl CoA is the ER donor.","","Cytochrome b5 is present.","NADH is available."],"src":"lec"},{"t":"Elongation & Desaturation","lv":"Easy","s":"Which is the structure of linoleate?","c":["18:3 Δ9,12,15","18:1 Δ9","16:0","18:2 Δ9,12","20:4 Δ5,8,11,14"],"a":3,"e":"Linoleate is 18:2 Δ9,12; linolenate is 18:3 Δ9,12,15.","w":["That is linolenate.","That is oleate.","That is palmitate.","","That is arachidonate."],"src":"lec"},{"t":"Triacylglycerol Synthesis","lv":"Easy","s":"What is the structure of a triacylglycerol?","c":["Glycerol with two fatty acids and phosphate","Sphingosine with one fatty acid","Cholesterol with one fatty acid","Glycerol with one fatty acid","Glycerol esterified to three fatty acids"],"a":4,"e":"Triacylglycerol: glycerol with three fatty acids (R, R′, R″) attached by ester links.","w":["That is phosphatidic acid.","That is a ceramide.","That is a cholesteryl ester.","That is a monoacylglycerol.",""],"src":"lec"},{"t":"Triacylglycerol Synthesis","lv":"Easy","s":"Which glycolytic intermediate provides the glycerol backbone of TAG?","c":["Glyceraldehyde-3-phosphate","Dihydroxyacetone phosphate","Pyruvate from glycolysis","Phosphoenolpyruvate","Fructose-6-phosphate"],"a":1,"e":"Glucose → DHAP → (glycerol-3-phosphate dehydrogenase, NADH) → glycerol-3-phosphate.","w":["Not the starting point shown.","","Pyruvate is not used for the backbone.","Not the starting point.","Not the starting point."],"src":"lec"},{"t":"Triacylglycerol Synthesis","lv":"Easy","s":"Which enzyme converts DHAP to glycerol-3-phosphate?","c":["Glycerol kinase","Glycerol-3-P dehydrogenase","Glycerol-3-P acyltransferase","Phosphatidic acid phosphatase","Triose phosphate isomerase"],"a":1,"e":"DHAP + NADH → glycerol-3-phosphate + NAD⁺, by glycerol-3-phosphate dehydrogenase.","w":["Glycerol kinase phosphorylates free glycerol.","","Acyltransferases add fatty acids.","This removes phosphate later.","This interconverts DHAP and G3P in glycolysis."],"src":"lec"},{"t":"Triacylglycerol Synthesis","lv":"Easy","s":"Which enzymes attach fatty acyl CoA to glycerol-3-phosphate?","c":["Adipose lipases","Glycerol kinases","Acyltransferases","ER desaturases","FAS thioesterases"],"a":2,"e":"Glycerol-3-phosphate → (acyltransferase) monoacylglycerol-3-phosphate → (acyltransferase) phosphatidic acid.","w":["Lipases remove fatty acids.","Kinases add phosphate.","","Desaturases add double bonds.","Thioesterases release fatty acids."],"src":"lec"},{"t":"Triacylglycerol Synthesis","lv":"Easy","s":"Which intermediate has two fatty acids and a phosphate on glycerol?","c":["Phosphatidic acid","1,2-Diacylglycerol","Monoacylglycerol-3-phosphate","Triacylglycerol","Glycerol-3-phosphate"],"a":0,"e":"Phosphatidic acid = glycerol-3-phosphate with two fatty acids.","w":["","DAG has no phosphate.","This has one fatty acid.","TAG has three fatty acids and no phosphate.","This has no fatty acid."],"src":"lec"},{"t":"Triacylglycerol Synthesis","lv":"Easy","s":"Which enzyme converts phosphatidic acid to 1,2-diacylglycerol?","c":["A fatty acyltransferase","Phosphatidic acid phosphatase","Glycerol kinase","Hormone-sensitive lipase of fat","Phospholipase C of membranes"],"a":1,"e":"Phosphatidic acid + H2O → (phosphatidic acid phosphatase) → 1,2-diacylglycerol + Pi.","w":["This adds the third fatty acid next.","","This phosphorylates glycerol.","HSL breaks down DAG in lipolysis.","Not the enzyme on the slide."],"src":"lec"},{"t":"Triacylglycerol Synthesis","lv":"Easy","s":"What is the last step in triacylglycerol synthesis?","c":["Phosphorylation of glycerol","Dephosphorylation of phosphatidic acid","Reduction of DHAP","Hydrolysis of monoacylglycerol","Acylation of 1,2-diacylglycerol"],"a":4,"e":"1,2-Diacylglycerol + fatty acyl CoA → (acyltransferase) → triacylglycerol.","w":["That is an early step, in liver.","This forms DAG, before the last step.","This is the first step.","That is lipolysis.",""],"src":"lec"},{"t":"TAG Fate & Lipolysis","lv":"Easy","s":"In adipose tissue, triacylglycerol is stored as what?","c":["VLDL","Chylomicrons","Lipid rafts","Depot fat","Free fatty acids"],"a":3,"e":"In adipose tissue, TAG is stored in the cytosol as \"depot fat\" for mobilization.","w":["VLDL carries TAG from the liver.","Chylomicrons carry dietary fat.","Not a storage form.","","FFAs are the mobilized form."],"src":"lec"},{"t":"TAG Fate & Lipolysis","lv":"Easy","s":"How is triacylglycerol made in the liver transported to other tissues?","c":["Chylomicrons","HDL","VLDL","Albumin","LDL"],"a":2,"e":"In the liver, TAGs are transported by VLDL to the muscles for energy or to the adipocytes for storage.","w":["These carry dietary TAG from the intestine.","HDL carries cholesterol back to the liver.","","Albumin carries free fatty acids.","LDL carries cholesterol."],"src":"lec"},{"t":"TAG Fate & Lipolysis","lv":"Easy","s":"Which enzyme starts lipolysis by converting TAG to diacylglycerol?","c":["Hormone-sensitive lipase","Capillary lipoprotein lipase","Pancreatic lipase in the gut","Adipose triglyceride lipase","Monoacylglycerol lipase"],"a":3,"e":"Lipolysis: adipose triglyceride lipase: triacylglycerols → diacylglycerol; hormone-sensitive lipase: DAG → monoacylglycerol.","w":["HSL acts on DAG next.","LPL acts on circulating lipoproteins.","Acts in the gut.","","Acts at the last step."],"src":"lec"},{"t":"TAG Fate & Lipolysis","lv":"Easy","s":"Which enzyme converts diacylglycerol to monoacylglycerol in adipose tissue?","c":["Adipose triglyceride lipase","Hormone-sensitive lipase","Lipoprotein lipase","Pancreatic lipase","Phosphatidic acid phosphatase"],"a":1,"e":"Hormone-sensitive lipase acts on diacylglycerol → monoacylglycerol.","w":["ATGL acts on TAG.","","LPL acts in capillaries.","Acts in the intestine.","Acts in TAG synthesis."],"src":"lec"},{"t":"TAG Fate & Lipolysis","lv":"Easy","s":"Which form of hormone-sensitive lipase is active?","c":["Phosphorylated","Dephosphorylated","Bound to insulin","Polymerized","Bound to citrate"],"a":0,"e":"The phosphorylated form of the enzyme is active; insulin dephosphorylates it and inhibits it.","w":["","Dephosphorylation inhibits HSL.","Insulin inhibits HSL.","Polymerization regulates ACC.","Citrate regulates ACC."],"src":"lec"},{"t":"TAG Fate & Lipolysis","lv":"Easy","s":"Which hormones activate hormone-sensitive lipase?","c":["Insulin and glucagon","Insulin acting by itself","Insulin and epinephrine","Insulin together with cortisol","Glucagon and epinephrine"],"a":4,"e":"Glucagon and epinephrine activate the enzyme; insulin dephosphorylates it and inhibits it.","w":["Insulin inhibits HSL.","Insulin inhibits HSL.","Insulin inhibits HSL.","Insulin inhibits HSL.",""],"src":"lec"},{"t":"TAG Fate & Lipolysis","lv":"Easy","s":"Which lipid droplet proteins are listed alongside lipolysis?","c":["Perilipins","Apolipoproteins","Caveolins","Albumins","Lipocalins"],"a":0,"e":"Perilipins are listed on the lipolysis slide, with adipose triglyceride lipase.","w":["","These coat lipoproteins.","Not the proteins named.","Albumin carries FFA in plasma.","Not the proteins named."],"src":"lec"},{"t":"TAG Fate & Lipolysis","lv":"Easy","s":"What is the fate of glycerol released by lipolysis?","c":["Stays in adipose and is phosphorylated","To the liver, to be phosphorylated","Oxidized in muscle mitochondria","Excreted unchanged in the urine","Carried by plasma albumin to tissues"],"a":1,"e":"Fate of glycerol → enters the liver → phosphorylated.","w":["Adipose has little glycerol kinase.","","Not the fate on the slide.","Not the fate on the slide.","That is the fate of fatty acids."],"src":"lec"},{"t":"TAG Fate & Lipolysis","lv":"Easy","s":"How are free fatty acids from lipolysis carried in the blood?","c":["Inside VLDL particles","Inside chylomicrons","Free in the plasma water","Bound to plasma albumin","Bound to transferrin"],"a":3,"e":"Fate of fatty acids → plasma albumin → enter tissue cells → activated → oxidized for energy in mitochondria.","w":["VLDL carries TAG from the liver.","These carry dietary fat.","Fatty acids are carried bound to albumin.","","Transferrin carries iron."],"src":"lec"},{"t":"Synthesis vs β-Oxidation & Sites","lv":"Hard","s":"Which feature correctly contrasts fatty acid synthesis with β-oxidation?","c":["It is regulated directly by acetyl-CoA carboxylase","It is regulated indirectly by fatty acid availability","It occurs on separate mitochondrial enzymes","It needs only a small amount of ATP","It is stimulated by glucagon and adrenaline"],"a":0,"e":"Synthesis is regulated directly by the activity of acetyl-CoA carboxylase; oxidation is regulated indirectly by fatty acid availability in mitochondria.","w":["","That describes oxidation.","That describes oxidation; synthesis uses a cytoplasmic multi-enzyme complex.","Synthesis needs a large amount of ATP.","These hormones stimulate oxidation and inhibit synthesis."],"src":"lec"},{"t":"Synthesis vs β-Oxidation & Sites","lv":"Hard","s":"Why is insulin the hormone that drives fatty acid synthesis?","c":["It produces NADH for energy","It occurs inside the mitochondria","It uses a large amount of ATP","It releases acetyl-CoA as a product","It is an oxidative pathway"],"a":2,"e":"Lecture note: a large amount of ATP is needed for fatty acid synthesis, so it happens in the fed, insulin-stimulated state.","w":["Synthesis consumes reducing power; it does not produce NADH.","Synthesis occurs in the cytoplasm.","","Synthesis consumes acetyl-CoA.","Synthesis is reductive."],"src":"lec"},{"t":"Citrate Shuttle: Acetyl-CoA to Cytosol","lv":"Hard","s":"What condition in the mitochondria drives acetyl-CoA export to the cytosol?","c":["Low ATP levels","High acetyl-CoA levels","High AMP levels","High carnitine levels","Low citrate in the matrix"],"a":1,"e":"High level of acetyl-CoA in mitochondria → enters the cytosol for fatty acid synthesis, carried as citrate.","w":["Low energy favors oxidation, not export.","","High AMP signals low energy.","Carnitine is not the trigger.","Export happens as citrate, which must be high."],"src":"lec"},{"t":"Citrate Shuttle: Acetyl-CoA to Cytosol","lv":"Hard","s":"Which product of the citrate shuttle supplies reducing power for fatty acid synthase?","c":["NADH from malate dehydrogenase","ATP from ATP-citrate lyase","CO2 from malic enzyme","NADPH from malic enzyme","Acetyl-CoA from citrate synthase"],"a":3,"e":"Malic enzyme: malate + NADP⁺ → pyruvate + CO2 + NADPH, which is used by fatty acid synthase.","w":["Malate dehydrogenase consumes NADH in the cytosol.","ATP-citrate lyase consumes ATP.","CO2 is a byproduct, not a reductant.","","Citrate synthase uses acetyl-CoA."],"src":"lec"},{"t":"Citrate Shuttle: Acetyl-CoA to Cytosol","lv":"Hard","s":"Put the cytosolic steps of the citrate shuttle in order.","c":["Citrate → OAA → malate → pyruvate","Citrate → malate → OAA → pyruvate","Citrate → pyruvate → malate → OAA","Citrate → OAA → pyruvate → malate","Citrate → malate → pyruvate → OAA"],"a":0,"e":"Cytosol: citrate → (ATP-citrate lyase) oxaloacetate + acetyl-CoA → (malate dehydrogenase) malate → (malic enzyme) pyruvate.","w":["","OAA comes before malate.","This reverses the second half.","Malate comes before pyruvate.","OAA is formed first from citrate."],"src":"lec"},{"t":"Citrate Shuttle: Acetyl-CoA to Cytosol","lv":"Hard","s":"How many ATP are used for each acetyl group moved by the citrate shuttle?","c":["Zero","One","Three","Two","Four"],"a":3,"e":"One ATP by ATP-citrate lyase in the cytosol and one by pyruvate carboxylase in the matrix.","w":["ATP is used at two steps.","There are two ATP-using steps.","Only two ATP-using steps are shown.","","Too many."],"src":"lec"},{"t":"Citrate Shuttle: Acetyl-CoA to Cytosol","lv":"Hard","s":"A drug blocks ATP-citrate lyase. What happens in the cytosol?","c":["More malonyl CoA is formed","Citrate moves out of the cytosol","More NADPH from malic enzyme","Faster β-oxidation in the cytosol","Less acetyl-CoA for synthesis"],"a":4,"e":"ATP-citrate lyase releases acetyl-CoA from citrate in the cytosol. Blocking it starves fatty acid synthesis of its substrate.","w":["There is less acetyl-CoA to carboxylate.","Citrate would build up in the cytosol.","Less oxaloacetate, so less malate for malic enzyme.","β-oxidation is mitochondrial.",""],"src":"lec"},{"t":"Sources of NADPH","lv":"Hard","s":"In a cell with a G6PD deficiency, which NADPH source for fatty acid synthesis is reduced?","c":["The 8 from malic enzyme","All 14 equally","None of them change","The 8 from the citrate shuttle","The 6 from the HMP pathway"],"a":4,"e":"G6PD is the first enzyme of the HMP pathway, which supplies 6 of the 14 NADPH; the other 8 come from malic enzyme.","w":["Malic enzyme does not depend on G6PD.","Malic enzyme still supplies its share.","The HMP share depends on G6PD.","These come from malic enzyme, not G6PD.",""],"src":"lec"},{"t":"Acetyl-CoA Carboxylase Reaction","lv":"Hard","s":"A patient with biotin deficiency would have impaired activity of which fatty acid enzyme?","c":["Fatty acid synthase","Acetyl-CoA carboxylase","ATP-citrate lyase","Palmitoyl thioesterase","Cytosolic malic enzyme"],"a":1,"e":"Biotin is required for carboxylase reactions, including acetyl-CoA carboxylase and pyruvate carboxylase.","w":["FAS uses phosphopantetheine, not biotin.","","Not biotin dependent.","Not biotin dependent.","Not biotin dependent."],"src":"lec"},{"t":"Acetyl-CoA Carboxylase Reaction","lv":"Hard","s":"Which two biotin enzymes act in moving carbon into fatty acids?","c":["Pyruvate dehydrogenase and ACC","Malic enzyme and ACC","Citrate synthase and ACC","Pyruvate carboxylase and ACC","ATP-citrate lyase and ACC"],"a":3,"e":"Both are carboxylases: pyruvate carboxylase in the citrate shuttle and acetyl-CoA carboxylase at the committed step.","w":["PDH uses TPP and lipoic acid.","Malic enzyme does not use biotin.","Citrate synthase does not use biotin.","","ATP-citrate lyase does not use biotin."],"src":"lec"},{"t":"Regulation of Acetyl-CoA Carboxylase","lv":"Hard","s":"A man eats a large carbohydrate meal. Which change in hepatic ACC is expected?","c":["Phosphorylated by AMPK","Dephosphorylated and polymerized","Inhibited by long-chain acyl CoA","Phosphorylated by PKA","Converted to the inactive dimer"],"a":1,"e":"Fed state: insulin → protein phosphatase dephosphorylates ACC; high citrate polymerizes it; ChREBP and SREBP-1c raise its expression.","w":["AMPK is active when energy is low.","","Fatty acyl CoA is low after carbohydrate.","Glucagon and PKA are low after a meal.","Citrate favors the active polymer."],"src":"lec"},{"t":"Regulation of Acetyl-CoA Carboxylase","lv":"Hard","s":"Glucagon inactivates acetyl-CoA carboxylase through which second-messenger kinase?","c":["Protein phosphatase","Insulin receptor tyrosine kinase","cAMP-dependent protein kinase","Calmodulin kinase","Phosphoinositide 3-kinase"],"a":2,"e":"Glucagon/epinephrine → cAMP-dependent protein kinase → ACC–P (inactive). AMPK can also phosphorylate ACC.","w":["Phosphatase activates ACC.","That is insulin's pathway.","","Not shown on the slide.","Part of insulin's pathway."],"src":"lec"},{"t":"Regulation of Acetyl-CoA Carboxylase","lv":"Hard","s":"A patient starts metformin. What is its expected effect on hepatic fatty acid synthesis?","c":["Increased, through ACC dephosphorylation","Increased, through citrate","Decreased, through ACC phosphorylation","Unchanged, as it acts on muscle only","Decreased, through SREBP-1c activation"],"a":2,"e":"Metformin → AMPK → phosphorylates ACC → inactive → less malonyl CoA → less fatty acid synthesis.","w":["Metformin acts via AMPK, which phosphorylates.","Metformin does not act on citrate.","","The slide links metformin to AMPK and ACC.","SREBP-1c increases ACC."],"src":"lec"},{"t":"Regulation of Acetyl-CoA Carboxylase","lv":"Hard","s":"High AMP inhibits acetyl-CoA carboxylase in which two ways?","c":["By polymerizing ACC and activating phosphatase","By lowering citrate and raising insulin","By SREBP-1c and ChREBP","By activating PKA only","Allosterically and by activating AMPK"],"a":4,"e":"AMP is listed as an allosteric inhibitor, and elevated AMP activates AMPK, which phosphorylates and inactivates ACC.","w":["These activate ACC.","Not the AMP mechanisms.","These increase ACC.","AMP activates AMPK, not PKA.",""],"src":"lec"},{"t":"Regulation of Acetyl-CoA Carboxylase","lv":"Hard","s":"Why does a carbohydrate-rich diet increase triacylglycerol synthesis?","c":["Glucagon activates hormone-sensitive lipase","AMPK is activated by excess glucose","Insulin and ChREBP raise ACC activity","Fatty acyl CoA activates ACC","Low citrate removes ACC inhibition"],"a":2,"e":"Carbohydrate excess → insulin (phosphatase, SREBP-1c) and ChREBP → more ACC → more fatty acids → esterified to TAG.","w":["That increases lipolysis.","AMPK is active when energy is low.","","Fatty acyl CoA inhibits ACC.","Citrate activates, it does not inhibit."],"src":"lec"},{"t":"Fatty Acid Synthase Complex","lv":"Hard","s":"Domain 2 of fatty acid synthase contains ACP plus which three enzymes?","c":["AT, MT and CE","KR, DH and TE","MT, KR and ER","CE, DH and ER","KR, DH and ER"],"a":4,"e":"Domain 2 (yellow): acyl carrier protein (ACP), β-ketoacyl reductase (KR), dehydratase (DH) and enoyl reductase (ER).","w":["These are domain 1.","TE is domain 3.","MT is domain 1.","CE is domain 1.",""],"src":"lec"},{"t":"Fatty Acid Synthase Complex","lv":"Hard","s":"In the fatty acid synthase dimer, which two –SH groups hold the acyl chain?","c":["Cysteine–SH and pantetheine–SH","Two cysteine–SH groups","Two CoA–SH groups","Glutathione–SH and cysteine–SH","Lipoic acid–SH and cysteine–SH"],"a":0,"e":"The condensing enzyme carries a cysteine–SH and ACP carries the phosphopantetheine–SH; the chain moves between them.","w":["","One is the ACP pantetheine.","CoA is not part of FAS.","Glutathione is not part of FAS.","Lipoic acid is not part of FAS."],"src":"lec"},{"t":"Fatty Acid Synthase Complex","lv":"Hard","s":"Why does fatty acid synthase work as a head-to-tail dimer?","c":["The functional unit uses parts of both chains","Each monomer makes a different fatty acid","One chain makes acyl groups, one releases them","The dimer is needed to bind citrate","Monomers are only found in E. coli"],"a":0,"e":"In the dimer, the condensing site of one chain works with the ACP of the other; the green functional unit spans both chains.","w":["","Both make palmitate.","Each chain has all seven sites.","Citrate acts on ACC.","E. coli uses separate enzymes."],"src":"lec"},{"t":"FAS Cycle & Palmitate Stoichiometry","lv":"Hard","s":"How many water molecules are produced in the synthesis of one palmitate?","c":["7","6","8","14","20"],"a":1,"e":"Stoichiometry: … → palmitate + 7 CO2 + 14 NADP⁺ + 8 CoA + 6 H2O.","w":["Not the number in the equation.","","8 is the number of CoA released.","Not the number.","20 is the number of H⁺ used."],"src":"lec"},{"t":"FAS Cycle & Palmitate Stoichiometry","lv":"Hard","s":"Which step of each fatty acid synthase cycle immediately precedes dehydration?","c":["The second NADPH reduction","Thioester hydrolysis by TE","Trans-acylation of acetyl","Condensation with malonyl","The first NADPH reduction"],"a":4,"e":"Cycle order: condensation → reduction (NADPH) → dehydration → reduction (NADPH).","w":["This follows dehydration.","This happens only at the end.","This occurs before condensation.","Condensation is followed by reduction.",""],"src":"lec"},{"t":"FAS Cycle & Palmitate Stoichiometry","lv":"Hard","s":"What drives the condensation step of fatty acid synthase?","c":["Hydrolysis of ATP","Oxidation of NADPH","Hydrolysis of the thioester to ACP","Release of water","Decarboxylation of malonyl"],"a":4,"e":"Condensation is driven by the decarboxylation of malonyl CoA (CO2 release), which repays the ATP spent by ACC.","w":["ATP was used earlier, by ACC.","NADPH is used in the reductions.","Not the driving force.","Water is released in dehydration.",""],"src":"lec"},{"t":"FAS Cycle & Palmitate Stoichiometry","lv":"Hard","s":"Which stereoisomer of 3-hydroxyacyl intermediate is formed in fatty acid synthesis?","c":["L-isomer","D-isomer","A racemic mixture","The cis isomer","No chiral center"],"a":1,"e":"Fatty acid synthesis forms D-3-hydroxybutyryl ACP, whereas β-oxidation forms the L-3-hydroxyacyl CoA.","w":["The L-isomer occurs in β-oxidation.","","FAS is stereospecific.","Cis and trans refer to double bonds.","The 3-carbon is chiral."],"src":"lec"},{"t":"Elongation & Desaturation","lv":"Hard","s":"Do the electrons removed during fatty acid desaturation produce ATP?","c":["Yes, about 2.5 ATP per electron pair","Yes, about 1.5 ATP per electron pair","No, they are uncoupled from ox-phos","Only when it occurs in mitochondria","Only when oxygen supply is low"],"a":2,"e":"The electrons go from the desaturase to cytochrome b5 and NADH-cytochrome b5 reductase; they are uncoupled from mitochondrial oxidative phosphorylation and do not yield ATP.","w":["They are not passed to the respiratory chain.","They do not reach oxidative phosphorylation.","","Desaturation is in the ER.","Desaturation needs O2 and still yields no ATP."],"src":"lec"},{"t":"Elongation & Desaturation","lv":"Hard","s":"Which fatty acid can humans make from stearate by their own desaturases?","c":["Linoleate, 18:2 Δ9,12","Linolenate, 18:3 Δ9,12,15","Any ω-3 fatty acid","Oleate, 18:1 Δ9","Any ω-6 fatty acid"],"a":3,"e":"Humans can desaturate at C9, so stearate (18:0) → oleate (18:1 Δ9). Positions beyond C9 must come from the diet.","w":["Needs a Δ12 desaturase, absent in humans.","Needs Δ12 and Δ15 desaturases.","Needs desaturation beyond C9.","","Needs desaturation beyond C9."],"src":"lec"},{"t":"Elongation & Desaturation","lv":"Hard","s":"How do fatty acid synthase and ER elongation compare?","c":["Both use malonyl CoA as C2 donor","Both occur in the mitochondria","Both use ACP-linked substrates","Both stop at the C16 chain length","Both introduce new double bonds"],"a":0,"e":"Malonyl CoA is the two-carbon donor in both; condensation is driven by its decarboxylation each time.","w":["","FAS is cytosolic, elongation is on the ER.","ER elongation uses fatty acyl CoA.","ER elongation goes beyond C16.","Desaturases do that."],"src":"lec"},{"t":"Triacylglycerol Synthesis","lv":"Hard","s":"Why is triacylglycerol called a neutral fat?","c":["It has no fatty acids attached","It contains a phosphate group","It has a positive head group","Its carboxyl groups are esterified","Its fatty acids are all unsaturated"],"a":3,"e":"Fatty acids are esterified through their carboxyl groups → loss of negative charge, and a \"neutral fat\" is formed.","w":["TAG has three fatty acids.","TAG has no phosphate.","TAG has no charged head group.","","Saturation does not decide charge."],"src":"lec"},{"t":"Triacylglycerol Synthesis","lv":"Hard","s":"Order the intermediates of TAG synthesis from DHAP.","c":["G3P → PA → MAG-3-P → DAG → TAG","G3P → MAG-3-P → PA → DAG → TAG","G3P → DAG → PA → MAG-3-P → TAG","G3P → MAG-3-P → DAG → PA → TAG","G3P → PA → DAG → MAG-3-P → TAG"],"a":1,"e":"DHAP → glycerol-3-P → monoacylglycerol-3-P → phosphatidic acid → 1,2-diacylglycerol → triacylglycerol.","w":["MAG-3-P comes before PA.","","DAG comes after PA.","PA comes before DAG.","MAG-3-P comes before PA."],"src":"lec"},{"t":"Triacylglycerol Synthesis","lv":"Hard","s":"Which reducing cofactor is used to make the glycerol backbone of TAG from glucose?","c":["NADPH","FADH2","NADH","NAD⁺","Reduced glutathione"],"a":2,"e":"Glycerol-3-phosphate dehydrogenase reduces DHAP using NADH.","w":["NADPH is used by fatty acid synthase.","Not used in this step.","","NAD⁺ is produced, not used.","Not used in this step."],"src":"lec"},{"t":"TAG Fate & Lipolysis","lv":"Hard","s":"A patient is fasting. What is the state of adipose hormone-sensitive lipase?","c":["Phosphorylated and active","Dephosphorylated and active","Phosphorylated and inactive","Dephosphorylated and inactive","Absent from adipocytes"],"a":0,"e":"Fasting: glucagon and epinephrine → HSL phosphorylated → active → lipolysis.","w":["","Dephosphorylation inhibits HSL.","Phosphorylated HSL is active.","Fasting hormones phosphorylate HSL.","HSL is present."],"src":"lec"},{"t":"TAG Fate & Lipolysis","lv":"Hard","s":"Insulin dephosphorylates both ACC and HSL. What are the effects?","c":["ACC is activated, HSL inhibited","Both enzymes are activated","Both enzymes are inhibited","ACC inhibited, HSL activated","Neither enzyme activity changes"],"a":0,"e":"Insulin promotes storage: it activates ACC (synthesis) and inhibits HSL (breakdown), both by dephosphorylation.","w":["","HSL is inhibited by dephosphorylation.","ACC is activated by dephosphorylation.","This is the fasting pattern.","Both are regulated by phosphorylation."],"src":"lec"},{"t":"TAG Fate & Lipolysis","lv":"Hard","s":"After lipolysis, where are the released fatty acids oxidized?","c":["Cytosol of adipocytes","ER membrane of liver cells","The plasma, bound to albumin","Mitochondria of tissue cells","Lysosomes of tissue cells"],"a":3,"e":"Fatty acids → plasma albumin → enter tissue cells → activated → oxidized for energy in mitochondria.","w":["They leave adipose and are oxidized in mitochondria.","Desaturation and elongation occur in the ER.","They are carried, not oxidized, in plasma.","","Not the site of oxidation."],"src":"lec"},{"t":"Practice Questions (from the slides)","s":"Biosynthesis of fatty acids takes place in the cytoplasmic region of certain organs/tissues. Acetyl CoA, which is generated in mitochondria, is the starting substance for fatty acid biosynthesis. However, acetyl CoA can never cross the inner mitochondrial membrane as such. Through which of the following compounds the acetyl CoA is transported from mitochondria to cytoplasm?","ns":true,"shetty":1,"c":["Pyruvate","Malonyl CoA","Citrate","Oxaloacetate","Malate"],"a":2,"e":"Acetyl-CoA joins oxaloacetate to form citrate (citrate synthase), citrate crosses to the cytosol, and ATP-citrate lyase releases acetyl-CoA there. Citrate is the transporter from matrix to cytosol when acetyl-CoA is high.","w":["Pyruvate moves back into the mitochondria at the end of the shuttle.","Malonyl CoA is made in the cytosol, from acetyl-CoA, by ACC.","","Oxaloacetate does not cross; it is converted to malate in the cytosol.","Malate is converted to pyruvate by malic enzyme in the cytosol."],"src":"lec"},{"t":"Practice Questions (from the slides)","s":"Hormonal imbalance between insulin and glucagon affects not only cardohydrate metabolism but also lipid metabolism. While insulin promotes the biosynthesis of fatty acid, glucagon exerts opposite effect. Both hormones are known to influence the major regulatory (key) enzyme of biosynthesis of fatty acid. Identify this regulatory enzyme from the following:","ns":true,"shetty":1,"c":["Acetyl transacylase","Citrate synthase","Acetyl CoA carboxylase","Thiolase","Malonyl transacylase"],"a":2,"e":"Acetyl-CoA carboxylase catalyzes the irreversible, committed step and is the regulatory enzyme. Insulin activates it through protein phosphatase; glucagon inhibits it by phosphorylation.","w":["A fatty acid synthase activity, not the regulatory step.","Citrate synthase forms citrate in the TCA cycle.","","Thiolase acts in β-oxidation and ketone metabolism.","A fatty acid synthase activity, not the regulatory step."],"src":"lec"},{"t":"Practice Questions (from the slides)","s":"A 45-year-old woman is fasting overnight. Her blood tests show low insulin levels and increased levels of glucagon and epinephrine. These hormonal changes would likely result in acetyl-CoA carboxylase (ACC) being:","ns":true,"shetty":1,"c":["Activated by increased citrate","Inhibited by phosphorylation through AMP-activated protein kinase (AMPK)","Activated by dephosphorylation via protein phosphatase 2A","Activated by elevated levels of long-chain fatty acyl-CoA","Activated by increased glucose levels"],"a":1,"e":"During fasting or stress, glucagon and catecholamines activate AMPK, which phosphorylates and inhibits ACC.","w":["Citrate is high in the fed state, not during fasting.","","Dephosphorylation by phosphatase is the insulin, fed-state signal.","Long-chain fatty acyl-CoA inhibits ACC.","Glucose is low during fasting, and is not an ACC activator."],"src":"lec"},{"t":"Practice Questions (from the slides)","s":"A researcher is studying the effects of high-fat diets on lipid metabolism. She observes that in hepatocytes exposed to elevated citrate concentrations, acetyl-CoA carboxylase (ACC) activity increases. Which of the following is the most likely effect of this increase in ACC activity?","ns":true,"shetty":1,"c":["Decreased fatty acid synthesis","Increased fatty acid oxidation","Increased production of malonyl-CoA","Inhibition of fatty acid storage in adipocytes","Decreased levels of circulating glucose"],"a":2,"e":"Citrate allosterically activates ACC (inactive dimer → active polymer), so more acetyl-CoA is carboxylated to malonyl CoA, the committed step of fatty acid synthesis.","w":["More ACC activity increases fatty acid synthesis.","Malonyl CoA inhibits CPT I, so oxidation falls.","","More fatty acids are made for storage, not less.","ACC does not directly lower blood glucose."],"src":"lec"}];
+// CRS Biochemistry — Dr. S. Shetty lecture slides. Reworked set: fewer, multi-concept, high-yield questions; lv = Easy/Hard; shetty = practice questions from the slides, word for word
+window.CRS_BC_TOPICS = ["Overview & Activation", "Carnitine Shuttle", "Carnitine & CPT Deficiencies", "β-Oxidation Reactions", "Energetics & Regulation", "Unsaturated & Odd-Chain Fatty Acids", "Methylmalonic Aciduria", "Peroxisomal, α- & ω-Oxidation", "MCAD Deficiency & Jamaican Vomiting Sickness", "Zellweger, X-ALD & Refsum", "Synthesis vs β-Oxidation & Sites", "Citrate Shuttle: Acetyl-CoA to Cytosol", "Sources of NADPH", "Acetyl-CoA Carboxylase Reaction", "Regulation of Acetyl-CoA Carboxylase", "Fatty Acid Synthase Complex", "FAS Cycle & Palmitate Stoichiometry", "Elongation & Desaturation", "Triacylglycerol Synthesis", "TAG Fate & Lipolysis", "Practice Questions (from the slides)"];
+window.CRS_BC_QUESTIONS = [
+{
+"t": "Overview & Activation",
+"lv": "Easy",
+"s": "A long-chain fatty acid released from adipose tissue reaches a muscle cell. Before it can enter the mitochondrion, it is activated. Which statement about this activation is correct?",
+"c": [
+"Carnitine acyltransferase I uses 1 ATP, forming acyl-carnitine",
+"Acyl CoA synthetase uses 2 ATP equivalents, ATP → AMP + PPi",
+"Acyl CoA synthetase uses 1 ATP, ATP → ADP + Pi in the matrix",
+"Thiolase uses 2 ATP to attach CoA in the mitochondrial matrix",
+"No ATP is needed; albumin delivers fatty acyl CoA ready-made"
+],
+"a": 1,
+"e": "Activation: FFA + CoA + ATP → acyl CoA + AMP + PPi, by acyl CoA synthetase (thiokinase) in the cytosol / outer mitochondrial membrane. PPi is split to 2 Pi, so the cost is 2 ATP equivalents. This is why the net yield of palmitate is 131 − 2 = 129 ATP.",
+"w": [
+"CPT I transfers an already activated acyl group to carnitine; it uses no ATP.",
+"",
+"Activation happens in the cytosol / outer membrane, and ATP goes to AMP, costing 2 ATP equivalents.",
+"Thiolase is the last step of each β-oxidation cycle and uses no ATP.",
+"Albumin carries free fatty acids; they must still be activated to acyl CoA."
+],
+"src": "lec"
+},
+{
+"t": "Overview & Activation",
+"lv": "Easy",
+"s": "Which pair correctly describes where β-oxidation happens?",
+"c": [
+"Mainly brain and red cells; in the cytosol",
+"Liver and muscle; mitochondrial matrix",
+"Mainly adipose tissue; in the endoplasmic reticulum",
+"Mainly liver; in the cytosol",
+"Mainly kidney; in lysosomes"
+],
+"a": 1,
+"e": "β-oxidation, the major pathway, removes 2-carbon units as acetyl CoA from the carboxyl end. Main tissues: liver and skeletal muscle (and heart). Subcellular site: mitochondria. Fatty acids reach them from adipose lipolysis, carried in plasma on albumin.",
+"w": [
+"Red cells lack mitochondria, and the brain does not use fatty acids for fuel.",
+"",
+"Adipose stores fat; the ER is the site of ω-oxidation and elongation.",
+"Fatty acid synthesis is cytosolic; oxidation is mitochondrial.",
+"Lysosomes do not carry out β-oxidation."
+],
+"src": "lec"
+},
+{
+"t": "Carnitine Shuttle",
+"lv": "Easy",
+"s": "Which pairing of carnitine-shuttle component and its location or job is correct?",
+"c": [
+"CACT: inner-membrane antiporter, carnitine out",
+"CPT I: inner membrane, makes acyl CoA in the matrix",
+"CPT II: outer membrane, inhibited by malonyl CoA",
+"CACT: outer-membrane symporter moving acyl CoA inward",
+"CPT I: matrix enzyme that is activated by malonyl CoA"
+],
+"a": 0,
+"e": "Carnitine shuttle, outside → in: CPT I (outer membrane) acyl CoA → acyl-carnitine, inhibited by malonyl CoA; CACT (inner membrane) antiporter, acyl-carnitine in / free carnitine out; CPT II (inner membrane) acyl-carnitine → acyl CoA in the matrix. Only long-chain fatty acids need it; medium-chain fatty acids enter freely.",
+"w": [
+"",
+"That is CPT II. CPT I is on the outer membrane and makes acyl-carnitine.",
+"CPT I is the outer-membrane enzyme that malonyl CoA inhibits.",
+"Acyl CoA itself never crosses; CACT is an inner-membrane antiporter.",
+"CPT I is on the outer membrane and malonyl CoA inhibits it."
+],
+"src": "lec"
+},
+{
+"t": "Carnitine Shuttle",
+"lv": "Easy",
+"s": "Which fatty acids can enter the mitochondrial matrix without the carnitine shuttle?",
+"c": [
+"Long-chain fatty acids such as palmitate",
+"Very long chain fatty acids over 20 carbons",
+"Phytanic acid",
+"Stearic acid",
+"Medium-chain fatty acids"
+],
+"a": 4,
+"e": "Medium-chain fatty acids cross the inner membrane freely, so they bypass CPT I, CACT and CPT II. This is why MCFA are given in CPT II deficiency. Long-chain acyl CoA (palmitate 16C, stearate 18C) must use the carnitine shuttle.",
+"w": [
+"Long chains need carnitine to cross the inner membrane.",
+"These go to peroxisomes first.",
+"Phytanic acid is handled by peroxisomal α-oxidation.",
+"Stearate, 18 carbons, is long-chain and needs carnitine.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Carnitine Shuttle",
+"lv": "Hard",
+"s": "A patient on a sulfonylurea is given a meal rich in carbohydrate. Which pair of factors would both lower long-chain fatty acid entry into the mitochondria?",
+"c": [
+"High insulin activating CPT I and sulfonylurea activating CPT II",
+"Low malonyl CoA and sulfonylurea inhibiting the CACT antiporter",
+"Medium-chain fatty acids competing with carnitine for CPT I",
+"Glucagon phosphorylating CPT I and NADH inhibiting CPT II",
+"Malonyl CoA and the sulfonylurea, both blocking CPT"
+],
+"a": 4,
+"e": "Two layers: (1) In the fed state insulin activates acetyl-CoA carboxylase, raising malonyl CoA, which inhibits CPT I, so the cell does not oxidize fat while it is making it. (2) Sulfonylureas inhibit both CPT I and CPT II. Together they shut down long-chain fatty acid entry into the matrix.",
+"w": [
+"Insulin raises malonyl CoA, which inhibits CPT I; sulfonylureas inhibit, not activate, the CPTs.",
+"Malonyl CoA is high in the fed state, and sulfonylureas act on CPT I and II, not CACT.",
+"MCFA bypass the shuttle and do not compete for CPT I.",
+"Glucagon is low after a carbohydrate meal, and NADH inhibits 3-hydroxyacyl CoA DH, not CPT II.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Carnitine & CPT Deficiencies",
+"lv": "Easy",
+"s": "Which patient is most likely to develop SECONDARY carnitine deficiency?",
+"c": [
+"An infant with an SLC22A5 mutation",
+"A teen with exercise-induced myoglobinuria",
+"A child who ate unripe ackee fruit",
+"A man on dialysis taking valproate",
+"A boy with an ABCD1 mutation"
+],
+"a": 3,
+"e": "Secondary carnitine deficiency is acquired and milder. Causes: ↑ demand (pregnancy, trauma, burns, infection), ↓ synthesis (liver or kidney disease, since carnitine is made from lysine + methionine there), loss through dialysis, ↓ intake (malnutrition, strict vegetarians) and drugs such as valproate. This patient has two causes.",
+"w": [
+"That is primary, genetic carnitine deficiency.",
+"That pattern fits CPT II deficiency.",
+"Ackee causes Jamaican vomiting sickness by blocking acyl CoA dehydrogenases.",
+"",
+"That is X-linked adrenoleukodystrophy."
+],
+"src": "lec"
+},
+{
+"t": "Carnitine & CPT Deficiencies",
+"lv": "Easy",
+"s": "Systemic carnitine deficiency causes hypoglycemia without ketones. Which statement links the two?",
+"c": [
+"Carnitine is a direct cofactor of glucose-6-phosphatase",
+"Excess acylcarnitine in urine pulls glucose out with it",
+"Insulin rises because carnitine normally inhibits its release",
+"Ketone bodies are made from carnitine directly",
+"Less FAO → less ATP and acetyl CoA for both"
+],
+"a": 4,
+"e": "Without carnitine, long-chain fatty acids cannot enter mitochondria → ↓ β-oxidation → ↓ acetyl CoA (no ketogenesis) and ↓ ATP to power gluconeogenesis. Result: hypoketotic hypoglycemia, encephalopathy, triglyceride accumulation in muscle, hepatomegaly; heart → cardiomyopathy; skeletal muscle → myopathy and myoglobinuria. Note: no acylcarnitines in urine.",
+"w": [
+"Carnitine is not a cofactor of gluconeogenic enzymes.",
+"There are no acylcarnitines in urine in systemic deficiency.",
+"Hypoglycemia here is not due to insulin.",
+"Ketones are made from acetyl CoA.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Carnitine & CPT Deficiencies",
+"lv": "Hard",
+"s": "A 2-year-old has hypotonia, hepatomegaly and a dilated cardiomyopathy. After a fasting illness she is drowsy with low glucose and no urine ketones. Urine free carnitine is high but plasma carnitine is very low. Which defect best explains this?",
+"c": [
+"CPT II deficiency from prolonged exercise",
+"Secondary carnitine deficiency from a vegan diet",
+"MCAD deficiency with medium-chain acylcarnitines",
+"OCTN2 carnitine transporter mutation, SLC22A5",
+"Methylmalonyl CoA mutase deficiency"
+],
+"a": 3,
+"e": "Primary systemic carnitine deficiency: AR mutation of SLC22A5 → OCTN2, the plasma-membrane carnitine transporter. The kidney cannot reabsorb carnitine, so urine free carnitine ↑ while plasma/tissue carnitine ↓. Without carnitine, long-chain fatty acids cannot enter mitochondria → ↓ FAO and ↓ gluconeogenesis → hypoketotic hypoglycemia and encephalopathy, worse with fasting. Muscle and heart rely on fat → myopathy and dilated cardiomyopathy.",
+"w": [
+"CPT II deficiency presents in teens with exercise-induced myoglobinuria, not infant cardiomyopathy with renal carnitine loss.",
+"Secondary deficiency is milder and would not cause urinary carnitine wasting.",
+"MCAD gives high urine acylcarnitines and normal free carnitine handling.",
+"",
+"This causes methylmalonic acidemia, not carnitine wasting or cardiomyopathy."
+],
+"src": "lec"
+},
+{
+"t": "Carnitine & CPT Deficiencies",
+"lv": "Hard",
+"s": "A 20-year-old has muscle pain and dark urine after a long hike. Between episodes his strength is normal. Which enzyme is deficient and what dietary advice fits?",
+"c": [
+"CPT I; eat a high-fat, low-carbohydrate diet",
+"CPT II; avoid fasting, high carb, use MCFA",
+"MCAD; give long-chain fats and fast overnight",
+"Myophosphorylase; eat sugar only before exercise",
+"OCTN2; give carnitine and fast between meals"
+],
+"a": 1,
+"e": "CPT II deficiency is the most common cause of recurrent myoglobinuria. It affects liver, heart and skeletal muscle and shows up in the teens/20s as pain and myoglobinuria after prolonged exercise (when muscle relies on fat), with normal strength between attacks. Treatment: avoid fasting, high carbohydrate, low fat, using medium-chain fatty acids, which bypass the carnitine shuttle.",
+"w": [
+"CPT I deficiency is mainly hepatic; a high-fat diet would worsen any FAO defect.",
+"",
+"MCAD presents in infants with fasting hypoglycemia; fasting is the trigger to avoid.",
+"Glycogen storage disease is not part of this lecture; the pattern of prolonged exercise points to CPT II.",
+"Primary carnitine deficiency presents in early childhood, and fasting must be avoided."
+],
+"src": "lec"
+},
+{
+"t": "β-Oxidation Reactions",
+"lv": "Easy",
+"s": "Which sequence of β-oxidation reactions is correct, with the coenzyme used at each oxidation?",
+"c": [
+"Dehydrogenation with NAD⁺, hydration, dehydrogenation with FAD, thiolysis",
+"Hydration, dehydrogenation with FAD, thiolysis, dehydrogenation with NAD⁺",
+"Condensation, reduction with NADPH, dehydration, reduction with NADPH",
+"Dehydrogenation with FAD, hydration, dehydrogenation with NAD⁺, thiolysis",
+"Dehydrogenation with FAD, thiolysis, hydration, dehydrogenation with NAD⁺"
+],
+"a": 3,
+"e": "β-oxidation, 4 steps per cycle: (1) acyl CoA dehydrogenase, FAD → FADH₂, forms trans-Δ²-enoyl CoA; (2) enoyl CoA hydratase adds water → L-3-hydroxyacyl CoA; (3) 3-hydroxyacyl CoA dehydrogenase, NAD⁺ → NADH → β-ketoacyl CoA; (4) thiolase + CoA → acetyl CoA + an acyl CoA 2 carbons shorter. Synthesis runs the mirror image with NADPH.",
+"w": [
+"The first oxidation uses FAD and the second uses NAD⁺.",
+"The cycle starts with acyl CoA dehydrogenase and ends with thiolase.",
+"This is the fatty acid synthase cycle, the reverse process.",
+"",
+"Thiolysis is last; it cleaves off acetyl CoA after both oxidations."
+],
+"src": "lec"
+},
+{
+"t": "β-Oxidation Reactions",
+"lv": "Easy",
+"s": "Which acyl CoA dehydrogenase handles fatty acyl chains from 14 down to 4 carbons?",
+"c": [
+"Long-chain acyl CoA dehydrogenase, LCAD",
+"Short-chain acyl CoA dehydrogenase, SCAD",
+"Medium-chain acyl CoA DH, MCAD",
+"Very-long-chain acyl CoA oxidase",
+"3-Hydroxyacyl CoA dehydrogenase"
+],
+"a": 2,
+"e": "Acyl CoA dehydrogenases are chain-length specific: LCAD 12–18C, MCAD 14→4C, SCAD 4 and 6C. Because MCAD covers such a wide middle range, its deficiency, the most common FAO disorder, stalls oxidation of most of the chain.",
+"w": [
+"LCAD acts on 12 to 18 carbons.",
+"SCAD acts only on 4- and 6-carbon chains.",
+"",
+"This peroxisomal enzyme handles chains over 20 carbons.",
+"This is step 3 of β-oxidation, not chain-length specific in this way."
+],
+"src": "lec"
+},
+{
+"t": "Energetics & Regulation",
+"lv": "Easy",
+"s": "Which fatty acids can β-oxidation degrade completely without any extra enzymes?",
+"c": [
+"Unsaturated fatty acids with an odd number of carbons",
+"Saturated fatty acids with an even number of carbons",
+"Branched fatty acids such as phytanic acid",
+"Very long chain fatty acids of 26 carbons",
+"Any fatty acid under 20 carbons"
+],
+"a": 1,
+"e": "Complete degradation by the 4 standard steps works only for saturated, even-carbon fatty acids. Unsaturated → isomerase/reductase; odd-chain → propionyl CoA pathway (biotin, B12); VLCFA → peroxisomes; branched → α-oxidation.",
+"w": [
+"These need both an isomerase or reductase and the propionyl CoA pathway.",
+"",
+"Branched chains need α-oxidation first.",
+"These must first be shortened in peroxisomes.",
+"Unsaturation or an odd chain still needs extra enzymes."
+],
+"src": "lec"
+},
+{
+"t": "Energetics & Regulation",
+"lv": "Hard",
+"s": "Complete oxidation of one palmitoyl CoA is followed. Which set of products and net ATP from free palmitate, using 3 ATP per NADH, 2 per FADH₂ and 12 per acetyl CoA, is correct?",
+"c": [
+"8 FADH₂, 8 NADH, 8 acetyl CoA; net 131 ATP",
+"7 FADH₂, 7 NADH, 7 acetyl CoA; net 117 ATP",
+"7 FADH₂, 7 NADH, 8 acetyl CoA; net 131 ATP",
+"7 FADH₂, 7 NADH, 8 acetyl CoA; net 129 ATP",
+"16 FADH₂, 16 NADH, 8 acetyl CoA; net 146 ATP"
+],
+"a": 3,
+"e": "Palmitate C16: n/2 − 1 = 7 cycles → 7 FADH₂ (×2 = 14), 7 NADH (×3 = 21) and 8 acetyl CoA (×12 = 96). Gross 131; minus 2 ATP equivalents for activation = 129 ATP. Stearate C18 gives 146.",
+"w": [
+"A 16-carbon chain needs only 7 cycles; the last cycle releases 2 acetyl CoA.",
+"Seven cycles release 8 acetyl CoA, not 7.",
+"131 is the gross yield; 2 ATP equivalents are spent on activation.",
+"",
+"One FADH₂ and one NADH per cycle, not per carbon; 146 is the figure for stearate."
+],
+"src": "lec"
+},
+{
+"t": "Energetics & Regulation",
+"lv": "Hard",
+"s": "In a well-fed liver, which combination of signals slows β-oxidation, and at which steps?",
+"c": [
+"Malonyl CoA blocks thiolase; NADH blocks CPT I; acetyl CoA blocks CPT II",
+"Malonyl CoA ⊣ CPT I, NADH ⊣ 3-OH-acyl DH, acetyl CoA ⊣ thiolase",
+"Insulin phosphorylates acyl CoA dehydrogenase; citrate blocks CACT",
+"Glucagon activates CPT I; AMP blocks enoyl CoA hydratase",
+"FADH₂ blocks thiolase; malonyl CoA blocks CPT II"
+],
+"a": 1,
+"e": "Regulation of β-oxidation: the main control is indirect, malonyl CoA ⊣ CPT I (high when ACC is active in the fed state). Product inhibition also slows it: NADH ⊣ 3-hydroxyacyl CoA dehydrogenase and acetyl CoA ⊣ thiolase.",
+"w": [
+"Each inhibitor is matched to the wrong step.",
+"",
+"These are not the regulatory points taught for β-oxidation.",
+"Glucagon promotes, not slows, fat oxidation.",
+"Malonyl CoA acts on CPT I, and acetyl CoA, not FADH₂, inhibits thiolase."
+],
+"src": "lec"
+},
+{
+"t": "Unsaturated & Odd-Chain Fatty Acids",
+"lv": "Easy",
+"s": "Why does oxidation of an unsaturated fatty acid need extra enzymes compared with a saturated one?",
+"c": [
+"It cannot be activated by acyl CoA synthetase",
+"Its cis double bonds need an isomerase or reductase",
+"It needs peroxisomes because it is always over 20 carbons",
+"It yields propionyl CoA in its final cycle",
+"It cannot use the carnitine shuttle"
+],
+"a": 1,
+"e": "Natural double bonds are cis and often in the wrong position for enoyl CoA hydratase. Odd-numbered double bonds need an isomerase; even-numbered ones need a reductase + isomerase. Complete degradation by the standard 4 steps works only for saturated, even-carbon chains.",
+"w": [
+"Unsaturated fatty acids are activated normally.",
+"",
+"Length, not unsaturation, sends chains to peroxisomes.",
+"That is odd-chain fatty acids.",
+"Long-chain unsaturated fatty acids use the shuttle like saturated ones."
+],
+"src": "lec"
+},
+{
+"t": "Unsaturated & Odd-Chain Fatty Acids",
+"lv": "Hard",
+"s": "Oxidation of a 17-carbon fatty acid ends with a 3-carbon fragment. Which sequence handles it, and which vitamins are needed?",
+"c": [
+"Propionyl → D- → L-methylmalonyl → succinyl CoA; biotin, B12",
+"Propionyl CoA → acetyl CoA → citrate; thiamine, lipoate",
+"Malonyl CoA → acetyl CoA → succinyl CoA; biotin, folate",
+"Propionyl CoA → L- → D-methylmalonyl CoA → fumarate; B6, B12",
+"Propionyl CoA → succinyl CoA directly; B12 only"
+],
+"a": 0,
+"e": "Odd-chain fatty acids: the final thiolase step gives propionyl CoA + acetyl CoA (valine and isoleucine also feed propionyl CoA). Propionyl CoA carboxylase (biotin) → D-methylmalonyl CoA → racemase → L-methylmalonyl CoA → methylmalonyl CoA mutase (B12) → succinyl CoA → TCA. This is the only part of a fatty acid that can become glucose.",
+"w": [
+"",
+"Propionyl CoA is carboxylated, not converted to acetyl CoA.",
+"Malonyl CoA is a synthesis intermediate, and folate is not used here.",
+"The racemase converts D to L, and the product is succinyl CoA.",
+"Two steps come first: biotin-dependent carboxylation and racemization."
+],
+"src": "lec"
+},
+{
+"t": "Methylmalonic Aciduria",
+"lv": "Hard",
+"s": "A 4-month-old has vomiting, poor feeding, hypotonia and metabolic acidosis. Urine methylmalonic acid is high. Which pair of causes could each produce this?",
+"c": [
+"Biotin deficiency or propionyl CoA carboxylase mutation",
+"Folate deficiency or MCAD mutation",
+"B12 deficiency or methylmalonyl CoA mutase mutation",
+"Carnitine deficiency or CPT II mutation",
+"Racemase excess or high succinyl CoA levels"
+],
+"a": 2,
+"e": "Methylmalonic aciduria: L-methylmalonyl CoA cannot become succinyl CoA because of B12 deficiency or a mutase mutation. Precursors build up (methylmalonic acid → acidosis) and products are lacking. Presentation is a toxic encephalopathy: lethargy, failure to thrive, vomiting, dehydration, respiratory distress, hypotonia, delay, seizures, hepatomegaly.",
+"w": [
+"These block the step before methylmalonyl CoA, so it would not build up.",
+"Neither blocks conversion of methylmalonyl CoA.",
+"",
+"These block fatty acid entry, not propionate metabolism.",
+"Neither is a recognized cause of methylmalonic aciduria."
+],
+"src": "lec"
+},
+{
+"t": "Peroxisomal, α- & ω-Oxidation",
+"lv": "Easy",
+"s": "Which statement about peroxisomal β-oxidation is correct?",
+"c": [
+"It oxidizes chains completely to acetyl CoA without mitochondria",
+"Its first enzyme, acyl CoA dehydrogenase, feeds FADH₂ to the ETC",
+"It is the main pathway for medium-chain fatty acids",
+"It is inhibited by fat-rich diets",
+"It shortens VLCFA and its oxidase makes H₂O₂"
+],
+"a": 4,
+"e": "Very long chain fatty acids (>20C) are shortened in peroxisomes. The first enzyme, acyl CoA oxidase, hands electrons from FADH₂ to O₂ → H₂O₂ (no ATP). Oxidation stops at octanoyl CoA, which moves to mitochondria. Fat-rich diets up-regulate it.",
+"w": [
+"It stops at octanoyl CoA, which goes to mitochondria.",
+"In peroxisomes, acyl CoA oxidase passes electrons straight to O₂, making H₂O₂.",
+"Medium chains go straight into mitochondria.",
+"Fat-rich diets up-regulate it, causing low-grade inflammation.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Peroxisomal, α- & ω-Oxidation",
+"lv": "Easy",
+"s": "Which statement about α-oxidation is correct?",
+"c": [
+"In peroxisomes, it removes one carbon",
+"It occurs in the ER and makes dicarboxylic acids",
+"It is the main energy-producing pathway for fat",
+"It shortens very long chains to octanoyl CoA",
+"It needs vitamin B12 to form succinyl CoA"
+],
+"a": 0,
+"e": "α-oxidation in liver peroxisomes clears branched fatty acids. Phytanic acid has a methyl on the β-carbon, which blocks β-oxidation; phytanoyl CoA hydroxylase hydroxylates the α-carbon, which is removed as CO₂. The product then enters β-oxidation. Energy-inefficient, but needed to clear branched FAs.",
+"w": [
+"",
+"That describes ω-oxidation.",
+"It is energy-inefficient; β-oxidation is the main pathway.",
+"That is peroxisomal β-oxidation.",
+"That is propionyl CoA metabolism."
+],
+"src": "lec"
+},
+{
+"t": "Peroxisomal, α- & ω-Oxidation",
+"lv": "Hard",
+"s": "A patient's β-oxidation is blocked. Which pathway takes over for medium-chain fatty acids, where does it occur, and what appears in urine?",
+"c": [
+"α-oxidation in peroxisomes, producing phytanic acid",
+"ω-oxidation in the ER, producing dicarboxylic acids",
+"ω-oxidation in mitochondria, producing ketone bodies",
+"Peroxisomal β-oxidation, producing octanoyl carnitine only",
+"α-oxidation in the ER, producing propionyl CoA"
+],
+"a": 1,
+"e": "ω-oxidation is a minor pathway in the ER that oxidizes the methyl (ω) end to a carboxyl group. It matters when β-oxidation fails, producing dicarboxylic acids that spill into urine. This is the dicarboxylic aciduria of MCAD deficiency and Jamaican vomiting sickness.",
+"w": [
+"α-oxidation clears branched phytanic acid; it does not produce it.",
+"",
+"ω-oxidation is in the ER, and blocked β-oxidation lowers ketones.",
+"That pathway handles very long chains, not medium chains.",
+"α-oxidation is peroxisomal and removes one carbon as CO₂."
+],
+"src": "lec"
+},
+{
+"t": "MCAD Deficiency & Jamaican Vomiting Sickness",
+"lv": "Hard",
+"s": "A 9-month-old breastfed infant is found limp after sleeping through the night with a cold. Glucose is very low, urine ketones are absent, ammonia is high and urine shows dicarboxylic acids and medium-chain acylcarnitines. Why is ammonia high?",
+"c": [
+"Carnitine is lost in urine, blocking the urea cycle",
+"Low acetyl CoA → less NAG → slower urea cycle",
+"High ketones inhibit carbamoyl phosphate synthetase I",
+"Excess acetyl CoA inhibits ornithine transcarbamylase",
+"Dicarboxylic acids directly inactivate arginase"
+],
+"a": 1,
+"e": "This is MCAD deficiency, the most common FAO inborn error, a cause of SIDS. Triggers: infection and overnight fasting; breast milk is rich in MCFA. Block → MCFA build up → ↑ urine acylcarnitines and dicarboxylic acids (via ω-oxidation; acidosis). ↓ ATP and acetyl CoA → ↓ gluconeogenesis (hypoglycemia), ↓ ketones, and ↓ N-acetylglutamate, the activator of CPS I → ↓ urea cycle → hyperammonemia.",
+"w": [
+"Carnitine loss does not directly control the urea cycle.",
+"",
+"Ketones are low, not high, in this disorder.",
+"Acetyl CoA is low because β-oxidation is blocked.",
+"This is not the mechanism taught."
+],
+"src": "lec"
+},
+{
+"t": "MCAD Deficiency & Jamaican Vomiting Sickness",
+"lv": "Hard",
+"s": "A child in Jamaica eats unripe ackee fruit and develops vomiting and profound hypoglycemia. Which feature does this share with MCAD deficiency?",
+"c": [
+"An autosomal recessive PEX gene mutation",
+"Accumulation of phytanic acid in tissues",
+"Very high ketone bodies during the episode",
+"Absent carnitine in plasma from renal wasting",
+"Blocked acyl CoA DH and dicarboxylic aciduria"
+],
+"a": 4,
+"e": "Unripe ackee contains hypoglycin, which inactivates medium- and short-chain acyl CoA dehydrogenases. Like MCAD deficiency, fat cannot be oxidized, so there is profound hypoglycemia, low ketones and dicarboxylic aciduria from ω-oxidation. Jamaican vomiting sickness adds vomiting, abdominal pain and lethargy.",
+"w": [
+"PEX mutations cause Zellweger; ackee poisoning is acquired.",
+"That is Refsum disease, a defect of α-oxidation.",
+"Both block β-oxidation, so ketones are low.",
+"That is primary carnitine deficiency.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Zellweger, X-ALD & Refsum",
+"lv": "Easy",
+"s": "Adult Refsum disease is caused by a block in which pathway, and which key finding results?",
+"c": [
+"ω-oxidation; dicarboxylic acids build up in urine",
+"Peroxisomal β-oxidation; VLCFA build up in adrenals",
+"α-oxidation; phytanic acid builds up",
+"Mitochondrial β-oxidation; hypoketotic hypoglycemia",
+"Propionate metabolism; methylmalonic acid in urine"
+],
+"a": 2,
+"e": "Adult Refsum: AR, PHYH or PEX7 → phytanoyl CoA hydroxylase deficiency → α-oxidation fails. Phytanic acid (a β-methyl branched FA from dairy and ruminant fat) accumulates, increasing membrane fluidity and slowing conduction. Features: weakness, polyneuropathy, cerebellar ataxia, ichthyosis, retinitis pigmentosa, anosmia.",
+"w": [
+"That fits MCAD deficiency and Jamaican vomiting sickness.",
+"That fits X-ALD.",
+"",
+"That fits carnitine and MCAD defects.",
+"That is methylmalonic aciduria."
+],
+"src": "lec"
+},
+{
+"t": "Zellweger, X-ALD & Refsum",
+"lv": "Hard",
+"s": "A newborn has a high forehead, flat midface, large fontanel, hypotonia, hepatomegaly and renal cysts. Plasma VLCFA and branched fatty acids are high and plasmalogens are low. What is the defect?",
+"c": [
+"ABCD1 mutation in the peroxisomal VLCFA transporter",
+"PHYH mutation in phytanoyl CoA hydroxylase",
+"PEX gene mutation preventing peroxisome formation",
+"SLC22A5 mutation in the carnitine transporter",
+"MCAD mutation in medium-chain dehydrogenase"
+],
+"a": 2,
+"e": "Zellweger syndrome: AR mutations in PEX genes (12 known) → peroxisomes fail to form. Every peroxisomal job is lost: ↑ VLCFA (no peroxisomal β-oxidation), ↑ branched fatty acids (no α-oxidation), ↓ plasmalogens and PAF. Cerebrohepatorenal: CNS hypomyelination, hepatomegaly, renal cysts, dysmorphic face.",
+"w": [
+"X-ALD raises VLCFA but does not cause these newborn facial and renal features.",
+"Adult Refsum raises phytanic acid only and presents later.",
+"",
+"This causes primary carnitine deficiency, not peroxisomal failure.",
+"MCAD affects mitochondrial oxidation, not VLCFA or plasmalogens."
+],
+"src": "lec"
+},
+{
+"t": "Zellweger, X-ALD & Refsum",
+"lv": "Hard",
+"s": "A 7-year-old boy has worsening school performance, behavior change and skin darkening with low cortisol. VLCFA are high. Which set is correct?",
+"c": [
+"Autosomal recessive PEX defect; renal cysts and hepatomegaly",
+"X-linked PHYH defect; retinitis pigmentosa and ichthyosis",
+"Autosomal dominant ALDP excess; peripheral neuropathy",
+"X-linked ABCD1; brain, adrenal and Leydig cells",
+"X-linked MCAD defect; fasting hypoglycemia"
+],
+"a": 3,
+"e": "X-linked adrenoleukodystrophy: mutation of ABCD1 → ALDP, the peroxisomal membrane transporter that brings VLCFA in. VLCFA accumulate in brain white matter (demyelination, cognitive decline), adrenal cortex (adrenal insufficiency, hyperpigmentation) and Leydig cells (sexual dysfunction).",
+"w": [
+"That is Zellweger syndrome in newborns.",
+"PHYH is autosomal and causes Refsum disease.",
+"ALDP is deficient, not excessive, and the gene is X-linked.",
+"",
+"MCAD is autosomal and does not raise VLCFA."
+],
+"src": "lec"
+},
+{
+"t": "Synthesis vs β-Oxidation & Sites",
+"lv": "Easy",
+"s": "Which comparison between fatty acid synthesis and β-oxidation is correct?",
+"c": [
+"Synthesis: mitochondria, NADH, CoA; oxidation: cytosol, NADPH, ACP",
+"Synthesis: cytosol, FADH₂, CoA; oxidation: mitochondria, NADPH, ACP",
+"Synthesis: cytosol, NADPH, ACP; oxidation: matrix, NAD⁺, CoA",
+"Both use separate enzymes and the same L-3-hydroxy intermediate",
+"Both are stimulated by insulin and inhibited by glucagon"
+],
+"a": 2,
+"e": "The table they test: Synthesis — cytoplasm of liver, lactating mammary gland, adipose; C₂ added as malonyl CoA; uses NADPH (niacin, B3); carrier ACP; one multi-enzyme complex; large ATP use; regulated directly at ACC; insulin ↑; D-3-hydroxy. Oxidation — mitochondria; C₂ removed as acetyl CoA; makes NADH/FADH₂; carrier CoA; separate enzymes; regulated indirectly (malonyl CoA ⊣ CPT I); glucagon/epinephrine ↑; L-3-hydroxy.",
+"w": [
+"Every pairing is reversed.",
+"Synthesis uses NADPH and ACP; oxidation makes FADH₂ and uses CoA.",
+"",
+"Synthesis uses one multi-enzyme complex and a D-isomer.",
+"Insulin stimulates synthesis; glucagon and epinephrine stimulate oxidation."
+],
+"src": "lec"
+},
+{
+"t": "Synthesis vs β-Oxidation & Sites",
+"lv": "Easy",
+"s": "In which tissues does fatty acid synthesis mainly occur?",
+"c": [
+"Liver, lactating breast and adipose",
+"Brain, kidney and red blood cells",
+"Skeletal muscle, heart and kidney",
+"Small intestine, pancreas and spleen",
+"Adrenal cortex, gonads and skin only"
+],
+"a": 0,
+"e": "Fatty acid synthesis takes place in the cytoplasm of the liver, lactating mammary gland and adipose tissue. Excess dietary carbohydrate and protein are converted to fatty acids there.",
+"w": [
+"",
+"These are not sites of fatty acid synthesis.",
+"Muscle and heart mainly oxidize fatty acids.",
+"Not the sites listed.",
+"These use lipids for steroids, but are not the main synthesis sites."
+],
+"src": "lec"
+},
+{
+"t": "Citrate Shuttle: Acetyl-CoA to Cytosol",
+"lv": "Easy",
+"s": "Which enzyme in the citrate shuttle produces NADPH?",
+"c": [
+"Malate dehydrogenase, OAA → malate",
+"ATP-citrate lyase, citrate → acetyl CoA + OAA",
+"Malic enzyme, malate → pyruvate + CO₂",
+"Pyruvate carboxylase, pyruvate → OAA",
+"Citrate synthase, acetyl CoA + OAA → citrate"
+],
+"a": 2,
+"e": "In the cytosol, OAA → malate dehydrogenase (uses NADH) → malate → malic enzyme → pyruvate + CO₂ + NADPH. One NADPH per acetyl CoA transported: 8 of the 14 needed for palmitate.",
+"w": [
+"This step uses NADH; it does not make NADPH.",
+"This step uses ATP and makes no NADPH.",
+"",
+"This uses ATP and biotin.",
+"This makes citrate in the matrix."
+],
+"src": "lec"
+},
+{
+"t": "Citrate Shuttle: Acetyl-CoA to Cytosol",
+"lv": "Hard",
+"s": "Acetyl CoA made in the mitochondria must reach the cytosol to make fatty acids. Which sequence is correct?",
+"c": [
+"Acetyl CoA crosses on carnitine; CPT I releases it in the cytosol",
+"Malonyl CoA leaves; acetyl-CoA carboxylase reverses it in the cytosol",
+"Citrate leaves; citrate synthase splits it in the cytosol",
+"Acetyl CoA crosses freely; no carrier is needed",
+"Citrate exits; ATP-citrate lyase frees acetyl CoA + OAA"
+],
+"a": 4,
+"e": "Citrate shuttle: acetyl CoA (from PDH and FAO) cannot cross the inner membrane. Matrix: acetyl CoA + OAA → citrate synthase → citrate, which exits. Cytosol: citrate + CoA + ATP → ATP-citrate lyase → acetyl CoA + OAA. OAA → malate dehydrogenase (NADH) → malate → malic enzyme → pyruvate + CO₂ + NADPH. Pyruvate re-enters → pyruvate carboxylase (biotin, ATP) → OAA. Cost: 2 ATP per acetyl moved.",
+"w": [
+"Carnitine carries acyl groups into, not acetyl groups out of, mitochondria for synthesis.",
+"Malonyl CoA is made in the cytosol, and ACC is irreversible.",
+"ATP-citrate lyase, not citrate synthase, splits citrate in the cytosol.",
+"Acetyl CoA cannot cross the inner mitochondrial membrane.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Citrate Shuttle: Acetyl-CoA to Cytosol",
+"lv": "Hard",
+"s": "After a large carbohydrate meal, mitochondrial citrate rises in a liver cell. Which two effects does citrate have that both favor fatty acid synthesis?",
+"c": [
+"It inhibits ATP-citrate lyase and activates CPT I",
+"It carries acetyl groups into mitochondria and inhibits ACC",
+"It activates HSL and inhibits fatty acid synthase",
+"It carries acetyl groups out and activates ACC",
+"It is reduced to malate, which directly supplies FAS with NADH"
+],
+"a": 3,
+"e": "Citrate has a double role in the fed state: (1) it is the vehicle — it exits the mitochondrion and ATP-citrate lyase releases acetyl CoA in the cytosol (with malic enzyme then supplying NADPH); (2) it is a signal — it allosterically activates ACC, polymerizing the inactive dimer into an active polymer.",
+"w": [
+"Citrate is the substrate of ATP-citrate lyase, and CPT I opposes synthesis.",
+"Citrate carries acetyl groups out of mitochondria and activates ACC.",
+"Neither is a citrate effect.",
+"",
+"FAS uses NADPH, made by malic enzyme from malate."
+],
+"src": "lec"
+},
+{
+"t": "Sources of NADPH",
+"lv": "Hard",
+"s": "A man with G6PD deficiency has normal malic enzyme. Making one palmitate needs 14 NADPH. Which share of that supply is reduced in him?",
+"c": [
+"The 8 NADPH from malic enzyme, not the 6 from the HMP",
+"The 6 NADPH from the HMP pathway, not the 8 from malic enzyme",
+"All 14 NADPH, since G6PD makes every NADPH",
+"None, since NADPH for synthesis comes only from the citrate shuttle",
+"The 7 NADPH used by ketoacyl reductase only"
+],
+"a": 1,
+"e": "NADPH for one palmitate = 14: 8 from malic enzyme, one per acetyl CoA carried out by the citrate shuttle, and 6 from the HMP (pentose phosphate) pathway, whose first enzyme is G6PD. Exam twist: G6PD deficiency cuts the HMP share, not the malic enzyme share.",
+"w": [
+"Malic enzyme is unaffected by G6PD deficiency.",
+"",
+"Malic enzyme supplies most of the NADPH independently.",
+"The HMP pathway supplies 6 of the 14.",
+"The two reductases are not supplied by separate pathways."
+],
+"src": "lec"
+},
+{
+"t": "Acetyl-CoA Carboxylase Reaction",
+"lv": "Easy",
+"s": "Which statement about the acetyl-CoA carboxylase reaction is correct?",
+"c": [
+"Thiamine enzyme; acetyl CoA + CO₂ → malonyl CoA; reversible",
+"Biotin enzyme; makes malonyl CoA; irreversible",
+"Biotin enzyme; malonyl CoA → acetyl CoA + CO₂ in the FAS",
+"B12 enzyme; propionyl CoA → methylmalonyl CoA",
+"No cofactor; the rate-limiting step of β-oxidation"
+],
+"a": 1,
+"e": "Acetyl-CoA carboxylase is the committed, regulated step of fatty acid synthesis: acetyl CoA + HCO₃⁻ + ATP → malonyl CoA, irreversible. Its prosthetic group is biotin; ATP forms a carboxybiotin intermediate. Remember the biotin carboxylases together: ACC and pyruvate carboxylase (and propionyl CoA carboxylase from lecture 1).",
+"w": [
+"ACC uses biotin and is irreversible.",
+"",
+"That decarboxylation happens on fatty acid synthase, not ACC.",
+"That is propionyl CoA carboxylase and mutase chemistry.",
+"ACC is the committed step of synthesis, not oxidation."
+],
+"src": "lec"
+},
+{
+"t": "Acetyl-CoA Carboxylase Reaction",
+"lv": "Hard",
+"s": "A child with biotin deficiency is fasting and then fed. Which two reactions are directly impaired?",
+"c": [
+"Pyruvate carboxylase and ACC",
+"ATP-citrate lyase and malic enzyme",
+"Fatty acid synthase and thioesterase",
+"Methylmalonyl CoA mutase and HSL",
+"Citrate synthase and malate dehydrogenase"
+],
+"a": 0,
+"e": "Biotin carboxylases to remember together: acetyl-CoA carboxylase (committed step of fatty acid synthesis) and pyruvate carboxylase (gluconeogenesis and the citrate shuttle's return of OAA). Propionyl CoA carboxylase also needs biotin.",
+"w": [
+"",
+"Neither uses biotin.",
+"FAS uses NADPH and pantetheine, not biotin.",
+"The mutase uses B12; HSL has no vitamin cofactor.",
+"Neither uses biotin."
+],
+"src": "lec"
+},
+{
+"t": "Regulation of Acetyl-CoA Carboxylase",
+"lv": "Hard",
+"s": "Which set of conditions would all switch acetyl-CoA carboxylase ON?",
+"c": [
+"High AMP, glucagon, long-chain acyl CoA",
+"Metformin, epinephrine, phosphorylation by AMPK",
+"Citrate, insulin, a high-carb diet",
+"Citrate, glucagon, cAMP-dependent kinase",
+"Long-chain acyl CoA, insulin, SREBP-1c"
+],
+"a": 2,
+"e": "ACC control: allosteric — citrate activates (inactive dimer → active polymer); long-chain fatty acyl CoA and AMP inhibit. Covalent — dephosphorylation (protein phosphatase, insulin) = ON; phosphorylation by AMPK (high AMP) or PKA (glucagon, epinephrine) = OFF. Transcriptional — high carbohydrate → ChREBP; insulin → SREBP-1c. Metformin activates AMPK → ACC off. Rule: dephosphorylated ACC = active (fed).",
+"w": [
+"All three inhibit ACC.",
+"Phosphorylation and AMPK turn ACC off; metformin activates AMPK.",
+"",
+"Glucagon and PKA phosphorylate ACC, turning it off.",
+"Long-chain acyl CoA inhibits ACC even though the others activate it."
+],
+"src": "lec"
+},
+{
+"t": "Regulation of Acetyl-CoA Carboxylase",
+"lv": "Hard",
+"s": "A runner is mid-marathon. Which combination describes his acetyl-CoA carboxylase and fatty acid handling?",
+"c": [
+"Insulin dephosphorylates ACC → ↑ malonyl CoA → ↑ fatty acid synthesis",
+"AMPK dephosphorylates ACC → ↑ malonyl CoA → CPT I blocked",
+"AMPK phosphorylates ACC → ↓ malonyl CoA → CPT I disinhibited → ↑ FAO",
+"Citrate polymerizes ACC → ↑ malonyl CoA → ↓ fatty acid oxidation",
+"Glucagon dephosphorylates ACC → ↓ malonyl CoA → ↑ synthesis"
+],
+"a": 2,
+"e": "Exercise → ATP used → AMP rises → AMPK phosphorylates ACC (inactive). Malonyl CoA falls, so its brake on CPT I is released and long-chain fatty acids enter mitochondria for β-oxidation. One molecule, malonyl CoA, links synthesis and oxidation so they never run at the same time.",
+"w": [
+"Insulin is low during prolonged exercise.",
+"AMPK phosphorylates ACC, inactivating it.",
+"",
+"Citrate activation is a fed-state signal.",
+"Glucagon causes phosphorylation, and synthesis falls."
+],
+"src": "lec"
+},
+{
+"t": "Regulation of Acetyl-CoA Carboxylase",
+"lv": "Hard",
+"s": "A patient with type 2 diabetes starts metformin. Which chain explains its effect on hepatic fat metabolism?",
+"c": [
+"Metformin inhibits AMPK → ACC dephosphorylated → ↑ fatty acid synthesis",
+"Metformin activates PKA → HSL dephosphorylated → ↓ lipolysis",
+"Metformin binds citrate → ACC polymerizes → ↑ malonyl CoA",
+"AMPK on → ACC phosphorylated → ↓ malonyl CoA → ↑ FAO",
+"Metformin blocks CPT I directly → ↓ fat oxidation"
+],
+"a": 3,
+"e": "Metformin activates AMPK. AMPK phosphorylates ACC, inactivating it → ↓ malonyl CoA → less fatty acid synthesis, and CPT I is no longer inhibited → more β-oxidation. Same direction as exercise or a high AMP state.",
+"w": [
+"Metformin activates AMPK.",
+"Not the mechanism taught; PKA phosphorylates HSL.",
+"Citrate activation would increase synthesis.",
+"",
+"Its effect via AMPK releases CPT I."
+],
+"src": "lec"
+},
+{
+"t": "Fatty Acid Synthase Complex",
+"lv": "Easy",
+"s": "Which feature of human fatty acid synthase is correct?",
+"c": [
+"One polypeptide, a head-to-tail dimer, 7 sites",
+"Seven separate enzymes floating free in the mitochondrial matrix",
+"A single monomer with one active site that uses CoA as carrier",
+"A membrane enzyme of the ER that elongates past C16",
+"A peroxisomal complex that releases octanoyl CoA"
+],
+"a": 0,
+"e": "Eukaryotic FAS: one large multifunctional polypeptide, functioning as a head-to-tail dimer in the cytosol, with 7 catalytic sites. Domain 1: acetyl and malonyl transferases, condensing enzyme (Cys–SH). Domain 2: ACP, ketoacyl reductase, dehydratase, enoyl reductase. Domain 3: thioesterase. The phosphopantetheine arm of ACP swings the chain between sites.",
+"w": [
+"",
+"That describes bacteria and the wrong compartment.",
+"It is a dimer with 7 sites, and its carrier is ACP.",
+"Elongation beyond C16 is a separate ER system.",
+"That is peroxisomal β-oxidation."
+],
+"src": "lec"
+},
+{
+"t": "Fatty Acid Synthase Complex",
+"lv": "Easy",
+"s": "What is the role of the phosphopantetheine arm on fatty acid synthase?",
+"c": [
+"It is the cysteine that cuts the finished chain off",
+"It binds biotin to carry CO₂",
+"It reduces the keto group using NADPH",
+"It swings the chain between active sites",
+"It moves fatty acids into mitochondria"
+],
+"a": 3,
+"e": "Acyl carrier protein (ACP) holds the growing chain on its long, flexible phosphopantetheine arm (derived from pantothenate, B5). The arm swings the chain between the 7 catalytic sites of FAS, so intermediates never leave the complex.",
+"w": [
+"Thioesterase releases the chain; the condensing enzyme has the Cys–SH.",
+"That is the biotin of ACC.",
+"That is ketoacyl reductase.",
+"",
+"That is the carnitine shuttle."
+],
+"src": "lec"
+},
+{
+"t": "FAS Cycle & Palmitate Stoichiometry",
+"lv": "Hard",
+"s": "Fatty acid synthase completes its first full cycle. Which order of steps is correct, and what decides that the final product is palmitate?",
+"c": [
+"Condense, reduce, dehydrate, reduce; thioesterase at C16",
+"Reduce, condense, reduce, dehydrate; ACP releases the C18 chain",
+"Dehydrate, reduce, condense, reduce; malonyl transferase stops at C16",
+"Condense, oxidize, hydrate, thiolyze; NADPH runs out at C16",
+"Condense, reduce, dehydrate, reduce; ER elongase cuts at C16"
+],
+"a": 0,
+"e": "Each FAS cycle: condensation (malonyl decarboxylation releases CO₂ and drives it) → reduction (NADPH) → dehydration → reduction (NADPH). Round 1: acetoacetyl → D-3-hydroxybutyryl → crotonyl → butyryl-ACP. After 7 rounds the chain is C16 and thioesterase, the ruler, releases palmitate 16:0.",
+"w": [
+"",
+"Condensation comes first, and the product is C16.",
+"Thioesterase, not the transferase, ends the chain.",
+"These are oxidation steps, and thioesterase is the ruler.",
+"The ER system lengthens chains; it does not release palmitate."
+],
+"src": "lec"
+},
+{
+"t": "FAS Cycle & Palmitate Stoichiometry",
+"lv": "Hard",
+"s": "Which is the correct overall equation for synthesis of one palmitate?",
+"c": [
+"Acetyl CoA + 7 malonyl CoA + 14 NADPH → palmitate",
+"8 acetyl CoA + 7 NADPH → palmitate + 8 CoA",
+"Acetyl CoA + 8 malonyl CoA + 16 NADPH → palmitate + 8 CO₂",
+"Acetyl CoA + 7 malonyl CoA + 7 NADPH → palmitate + 7 CO₂",
+"8 malonyl CoA + 14 NADH → palmitate + 8 CO₂ + 8 CoA"
+],
+"a": 0,
+"e": "Acetyl CoA + 7 malonyl CoA + 14 NADPH + 20 H⁺ → palmitate + 7 CO₂ + 14 NADP⁺ + 8 CoA + 6 H₂O. One acetyl CoA primes; 7 rounds each add a malonyl (losing CO₂) and use 2 NADPH. Making 7 malonyl CoA also costs 7 ATP at ACC.",
+"w": [
+"",
+"Malonyl CoA donates 7 of the 2-carbon units, and 14 NADPH are needed.",
+"Only 7 malonyl CoA are added, using 2 NADPH each.",
+"Each round uses 2 NADPH, so 14 in total.",
+"Synthesis uses NADPH, and acetyl CoA primes the chain."
+],
+"src": "lec"
+},
+{
+"t": "Elongation & Desaturation",
+"lv": "Easy",
+"s": "Where does elongation of palmitate to longer fatty acids occur, and what is the 2-carbon donor?",
+"c": [
+"Cytosolic face of the ER; malonyl CoA",
+"Mitochondrial matrix; acetyl CoA only",
+"Peroxisome; acetyl CoA",
+"Fatty acid synthase in the cytosol; malonyl CoA",
+"Golgi apparatus; propionyl CoA"
+],
+"a": 0,
+"e": "Elongation beyond C16 happens on the cytosolic face of the ER; malonyl CoA donates 2 carbons to the carboxyl end, again with NADPH. Desaturation also happens in the ER.",
+"w": [
+"",
+"Mitochondrial elongation is not the system taught here.",
+"Peroxisomes shorten, not lengthen, chains.",
+"FAS stops at C16; elongation past that is in the ER.",
+"Not the site or donor."
+],
+"src": "lec"
+},
+{
+"t": "Elongation & Desaturation",
+"lv": "Hard",
+"s": "A patient on long-term fat-free parenteral nutrition develops scaly dermatitis. Which explanation is correct?",
+"c": [
+"No desaturase acts beyond C9, so linoleate is essential",
+"Humans cannot desaturate at C9, so oleate is essential",
+"Humans cannot elongate past C16, so stearate is essential",
+"Desaturases need ATP from oxidative phosphorylation, which fails without fat",
+"Palmitate cannot be released without dietary fat activating thioesterase"
+],
+"a": 0,
+"e": "ER desaturation uses NADH-cytochrome b5 reductase + cytochrome b5 + desaturase (O₂, NADH; non-heme iron; no ATP made). Human desaturases act only at C4, C5, C6 and C9, so we can make oleate 18:1 Δ9 but not linoleate 18:2 Δ9,12 or linolenate 18:3 Δ9,12,15. These essential fatty acids must come from the diet; deficiency (e.g. fat-free TPN) → scaly dermatitis.",
+"w": [
+"",
+"Humans can make oleate 18:1 Δ9 themselves.",
+"ER elongation makes stearate from palmitate.",
+"Desaturation uses O₂ and NADH and makes no ATP; it is not the cause.",
+"Thioesterase does not need dietary fat."
+],
+"src": "lec"
+},
+{
+"t": "Triacylglycerol Synthesis",
+"lv": "Easy",
+"s": "Why is triacylglycerol called a neutral fat?",
+"c": [
+"It contains only saturated fatty acids",
+"It is stored only in neutral pH lysosomes",
+"It has a phosphate group that balances the charge",
+"It carries an equal number of positive and negative charges",
+"Its carboxyl groups are all esterified"
+],
+"a": 4,
+"e": "In TAG the carboxyl groups of three fatty acids are esterified to glycerol, so there is no charge: a neutral fat. That makes it hydrophobic and ideal for compact storage.",
+"w": [
+"TAG can contain unsaturated fatty acids.",
+"TAG is stored in lipid droplets.",
+"That would be a phospholipid.",
+"It carries no charges at all.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Triacylglycerol Synthesis",
+"lv": "Hard",
+"s": "In adipose tissue after a carbohydrate meal, where does the glycerol backbone of new triacylglycerol come from, and why?",
+"c": [
+"Free glycerol → glycerol kinase → glycerol-3-P; adipose has plenty",
+"Pyruvate → glycerol directly by pyruvate carboxylase",
+"Acetyl CoA → glycerol-3-P by ATP-citrate lyase",
+"Phosphatidic acid from the diet supplies it",
+"Glucose → DHAP → glycerol-3-P; adipose has little glycerol kinase"
+],
+"a": 4,
+"e": "Glycerol-3-phosphate is made from glucose: glycolysis → DHAP → glycerol-3-P dehydrogenase (NADH) → glycerol-3-P. Adipose relies on this because it has little glycerol kinase (the liver can use free glycerol). Then acyltransferase ×2 → phosphatidic acid → phosphatase → 1,2-DAG → acyltransferase → TAG. Insulin also brings glucose into adipocytes via GLUT4.",
+"w": [
+"Adipose has little glycerol kinase, so it relies on glucose.",
+"Pyruvate carboxylase makes OAA.",
+"ATP-citrate lyase makes acetyl CoA and OAA.",
+"The backbone is made from glycolytic DHAP.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Triacylglycerol Synthesis",
+"lv": "Hard",
+"s": "A man eats a very high-carbohydrate diet for weeks. Which chain of events leads to more triacylglycerol leaving his liver?",
+"c": [
+"Glucagon ↑ HSL → fatty acids → TAG exported in chylomicrons",
+"Insulin ↑ CPT I → ↑ β-oxidation → TAG exported in LDL",
+"AMPK ↑ ACC → ↑ malonyl CoA → TAG stored in liver only",
+"ChREBP ↓ ACC → ↓ fatty acids → TAG exported in HDL",
+"Insulin, ChREBP, SREBP-1c ↑ ACC → TAG out in VLDL"
+],
+"a": 4,
+"e": "High carbohydrate → insulin plus transcription factors ChREBP and SREBP-1c → more and more active ACC → ↑ fatty acid synthesis → ↑ TAG, packaged and sent out of the liver as VLDL to muscle and adipose. This is how carbohydrate becomes body fat.",
+"w": [
+"Glucagon is low; chylomicrons carry dietary fat from the gut.",
+"Insulin inhibits CPT I via malonyl CoA, and the liver exports VLDL.",
+"AMPK inhibits ACC.",
+"ChREBP increases ACC.",
+""
+],
+"src": "lec"
+},
+{
+"t": "TAG Fate & Lipolysis",
+"lv": "Easy",
+"s": "Which enzymes break down stored triacylglycerol in adipose tissue, in order?",
+"c": [
+"HSL, TAG → DAG; then lipoprotein lipase, DAG → MAG",
+"Pancreatic lipase, TAG → MAG; then HSL",
+"ATGL, TAG → DAG; then HSL, DAG → MAG",
+"Phosphatidic acid phosphatase, TAG → DAG",
+"Thioesterase, TAG → free fatty acids"
+],
+"a": 2,
+"e": "Lipolysis: adipose triglyceride lipase (ATGL), TAG → DAG (perilipins on the droplet regulate access) → hormone-sensitive lipase, DAG → MAG → MAG lipase. Glycerol goes to the liver (which has glycerol kinase); fatty acids travel on albumin to tissues to be activated and oxidized.",
+"w": [
+"ATGL starts lipolysis; lipoprotein lipase acts on circulating lipoproteins.",
+"Pancreatic lipase digests dietary fat in the gut.",
+"",
+"This enzyme acts in TAG synthesis.",
+"Thioesterase releases palmitate from FAS."
+],
+"src": "lec"
+},
+{
+"t": "TAG Fate & Lipolysis",
+"lv": "Easy",
+"s": "After lipolysis in adipose tissue, what happens to the glycerol released?",
+"c": [
+"It is reused in the adipocyte by glycerol kinase",
+"It is carried on albumin to muscle for oxidation",
+"It is converted to malonyl CoA in adipose",
+"Liver glycerol kinase phosphorylates it",
+"It is excreted unchanged in urine"
+],
+"a": 3,
+"e": "Lipolysis products: glycerol goes to the liver, which has glycerol kinase to phosphorylate it (for gluconeogenesis or TAG synthesis). Fatty acids travel on albumin to tissues, where they are activated and oxidized in mitochondria.",
+"w": [
+"Adipose has little glycerol kinase.",
+"Fatty acids, not glycerol, are carried on albumin.",
+"Not a fate of glycerol.",
+"",
+"It is used by the liver."
+],
+"src": "lec"
+},
+{
+"t": "TAG Fate & Lipolysis",
+"lv": "Hard",
+"s": "After a 16-hour fast, epinephrine and glucagon act on an adipocyte and a hepatocyte. Which pairing is correct?",
+"c": [
+"HSL dephosphorylated and ON; ACC dephosphorylated and ON",
+"HSL phosphorylated and OFF; ACC phosphorylated and ON",
+"HSL phosphorylated and ON; ACC phosphorylated and OFF",
+"HSL dephosphorylated and OFF; ACC phosphorylated and OFF",
+"HSL phosphorylated and ON; ACC dephosphorylated and ON"
+],
+"a": 2,
+"e": "Same signal, opposite effect: fasting hormones → cAMP → PKA phosphorylates both. HSL becomes active → fat released; ACC becomes inactive → no malonyl CoA → CPT I free → fat burned. Insulin does the reverse through dephosphorylation. Classic NBME trap.",
+"w": [
+"Fasting hormones phosphorylate both enzymes.",
+"Phosphorylation turns HSL on and ACC off.",
+"",
+"HSL is phosphorylated and active in fasting.",
+"ACC is phosphorylated and inactive in fasting."
+],
+"src": "lec"
+},
+{
+"t": "Practice Questions (from the slides)",
+"s": "Biosynthesis of fatty acids takes place in the cytoplasmic region of certain organs/tissues. Acetyl CoA, which is generated in mitochondria, is the starting substance for fatty acid biosynthesis. However, acetyl CoA can never cross the inner mitochondrial membrane as such. Through which of the following compounds the acetyl CoA is transported from mitochondria to cytoplasm?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Pyruvate",
+"Malonyl CoA",
+"Citrate",
+"Oxaloacetate",
+"Malate"
+],
+"a": 2,
+"e": "Acetyl-CoA joins oxaloacetate to form citrate (citrate synthase), citrate crosses to the cytosol, and ATP-citrate lyase releases acetyl-CoA there. Citrate is the transporter from matrix to cytosol when acetyl-CoA is high.",
+"w": [
+"Pyruvate moves back into the mitochondria at the end of the shuttle.",
+"Malonyl CoA is made in the cytosol, from acetyl-CoA, by ACC.",
+"",
+"Oxaloacetate does not cross; it is converted to malate in the cytosol.",
+"Malate is converted to pyruvate by malic enzyme in the cytosol."
+],
+"src": "lec"
+},
+{
+"t": "Practice Questions (from the slides)",
+"s": "Hormonal imbalance between insulin and glucagon affects not only cardohydrate metabolism but also lipid metabolism. While insulin promotes the biosynthesis of fatty acid, glucagon exerts opposite effect. Both hormones are known to influence the major regulatory (key) enzyme of biosynthesis of fatty acid. Identify this regulatory enzyme from the following:",
+"ns": true,
+"shetty": 1,
+"c": [
+"Acetyl transacylase",
+"Citrate synthase",
+"Acetyl CoA carboxylase",
+"Thiolase",
+"Malonyl transacylase"
+],
+"a": 2,
+"e": "Acetyl-CoA carboxylase catalyzes the irreversible, committed step and is the regulatory enzyme. Insulin activates it through protein phosphatase; glucagon inhibits it by phosphorylation.",
+"w": [
+"A fatty acid synthase activity, not the regulatory step.",
+"Citrate synthase forms citrate in the TCA cycle.",
+"",
+"Thiolase acts in β-oxidation and ketone metabolism.",
+"A fatty acid synthase activity, not the regulatory step."
+],
+"src": "lec"
+},
+{
+"t": "Practice Questions (from the slides)",
+"s": "A 45-year-old woman is fasting overnight. Her blood tests show low insulin levels and increased levels of glucagon and epinephrine. These hormonal changes would likely result in acetyl-CoA carboxylase (ACC) being:",
+"ns": true,
+"shetty": 1,
+"c": [
+"Activated by increased citrate",
+"Inhibited by phosphorylation through AMP-activated protein kinase (AMPK)",
+"Activated by dephosphorylation via protein phosphatase 2A",
+"Activated by elevated levels of long-chain fatty acyl-CoA",
+"Activated by increased glucose levels"
+],
+"a": 1,
+"e": "During fasting or stress, glucagon and catecholamines activate AMPK, which phosphorylates and inhibits ACC.",
+"w": [
+"Citrate is high in the fed state, not during fasting.",
+"",
+"Dephosphorylation by phosphatase is the insulin, fed-state signal.",
+"Long-chain fatty acyl-CoA inhibits ACC.",
+"Glucose is low during fasting, and is not an ACC activator."
+],
+"src": "lec"
+},
+{
+"t": "Practice Questions (from the slides)",
+"s": "A researcher is studying the effects of high-fat diets on lipid metabolism. She observes that in hepatocytes exposed to elevated citrate concentrations, acetyl-CoA carboxylase (ACC) activity increases. Which of the following is the most likely effect of this increase in ACC activity?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Decreased fatty acid synthesis",
+"Increased fatty acid oxidation",
+"Increased production of malonyl-CoA",
+"Inhibition of fatty acid storage in adipocytes",
+"Decreased levels of circulating glucose"
+],
+"a": 2,
+"e": "Citrate allosterically activates ACC (inactive dimer → active polymer), so more acetyl-CoA is carboxylated to malonyl CoA, the committed step of fatty acid synthesis.",
+"w": [
+"More ACC activity increases fatty acid synthesis.",
+"Malonyl CoA inhibits CPT I, so oxidation falls.",
+"",
+"More fatty acids are made for storage, not less.",
+"ACC does not directly lower blood glucose."
+],
+"src": "lec"
+}
+];

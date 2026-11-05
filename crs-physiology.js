@@ -1,3 +1,1211 @@
-// CRS Physiology — Dr. Sampath V. lecture slides. src: lec = written from the lecture slides; lv = Easy/Hard; sampath = Challenge Yourself questions from the slides
-window.CRS_PH_TOPICS = ["Big Picture & Cardiac Cell Types","Conduction System Anatomy","Fast vs Slow Response","Phase 0 & Na⁺ Channel Gates","Phase 1 · The Notch","Phase 2 · Plateau & E–C Coupling","Phases 3 & 4 · Reset and Rest","Refractory Periods","Na⁺ Channel States","Why the AP & Refractory Period Are Long","Challenge Yourself · Sampath's Q's","Pacemaker Cells, Automaticity & Key Terms","Slow vs Fast Response APs","Phase 4 · Pacemaker Potential","Phase 0 · L-type Ca²⁺ Upstroke","Phase 3 · Nodal Repolarization","Pacemaker Hierarchy & Overdrive Suppression","Challenge · Pacemaker Currents"];
-window.CRS_PH_QUESTIONS = [{"t":"Big Picture & Cardiac Cell Types","lv":"Easy","s":"According to the big picture of cardiac electrophysiology, the heart's electrical activity dictates which of the following?","c":["Its coronary blood flow pattern","Its heart valve structure","Its mechanical function as a pump","Its venous return to the atria","The layout of its fibrous skeleton"],"a":2,"e":"The heart's electrical activity dictates its mechanical function — the pump. It does two jobs: generate a rhythm and coordinate contraction.","w":["Coronary flow is not what the electrical system dictates.","Valves are passive structures, not set by electrical activity.","","Venous return is set mainly by the veins and the pressure gradient.","The fibrous skeleton is connective tissue, not set by electrical activity."],"src":"lec"},{"t":"Big Picture & Cardiac Cell Types","lv":"Easy","s":"Which cells create the impulse that generates the heart's rhythm?","c":["Pacemaker cells","Ventricular myocytes","Atrial myocytes","Endothelial cells","Cardiac fibroblasts"],"a":0,"e":"Job 1 of the electrical system is to generate a rhythm: pacemaker cells create the impulse. Job 2 is to coordinate contraction through the conduction system.","w":["","Ventricular myocytes need an external stimulus; they have no automaticity.","Atrial myocytes are contractile workers, not pacemakers.","Endothelial cells line the chambers and play no part in the rhythm.","Fibroblasts make connective tissue; they do not fire impulses."],"src":"lec"},{"t":"Big Picture & Cardiac Cell Types","lv":"Easy","s":"The cardiac conduction system spreads the impulse so that which sequence of contraction occurs?","c":["Ventricles contract before atria","Atria contract before ventricles","Atria and ventricles contract together","Right heart contracts before left","Apex contracts after the base"],"a":1,"e":"The conduction system spreads the impulse so atria contract before ventricles, giving the ventricles time to fill before they eject.","w":["This reverses the normal order; ventricles fill from the atria first.","","Simultaneous contraction would leave no time for atrial filling of the ventricles.","The two sides contract together; the key order is atria then ventricles.","Ventricular contraction actually spreads from apex toward base."],"src":"lec"},{"t":"Big Picture & Cardiac Cell Types","lv":"Easy","s":"Antiarrhythmic drugs mainly act on which targets?","c":["Cardiac gap junctions","Myosin cross-bridges","Cardiac fibrous skeleton","Coronary endothelium","Specific ion channels"],"a":4,"e":"Arrhythmias are diseases of the electrical system. Antiarrhythmic drugs target the specific Na⁺, Ca²⁺ and K⁺ channels covered in this lecture.","w":["Gap junctions are not the stated target of antiarrhythmics.","Cross-bridges are contractile proteins, not the electrical system.","The fibrous skeleton is insulating connective tissue, not a drug target.","The endothelium is not where antiarrhythmics act.",""],"src":"lec"},{"t":"Big Picture & Cardiac Cell Types","lv":"Easy","s":"Contractile myocytes, the \"workers\" of the heart, are found in which location?","c":["SA node and AV node only","Bundle of His and bundle branches","Purkinje fibers of the ventricles","Atrial and ventricular myocardium","The cardiac fibrous skeleton"],"a":3,"e":"Contractile myocytes sit in the atrial and ventricular myocardium. Their function is force production and contraction — mechanical work.","w":["These are pacemaker/conducting cells, the \"managers\".","These are conducting cells, not contractile workers.","Purkinje fibers are conducting cells, specialised for rapid conduction.","","The fibrous skeleton is connective tissue, not myocytes."],"src":"lec"},{"t":"Big Picture & Cardiac Cell Types","lv":"Easy","s":"Which type of action potential do contractile cardiac myocytes produce?","c":["Slow response","Pacemaker potential","Graded potential","Plateau-free spike","Fast response"],"a":4,"e":"The electrical property of contractile myocytes is the \"fast response\" action potential, with a fast Na⁺ upstroke.","w":["Slow response APs belong to the SA and AV nodes.","A pacemaker potential is the spontaneous Phase 4 of nodal cells.","Myocytes fire an all-or-none AP, not a graded one.","The ventricular AP has a long plateau, not a brief spike.",""],"src":"lec"},{"t":"Big Picture & Cardiac Cell Types","lv":"Easy","s":"Cardiac myocytes are connected to each other by gap junctions located within which structures?","c":["Transverse tubules","Sarcoplasmic reticulum","Z discs","Desmosome-free sarcolemma","Intercalated discs"],"a":4,"e":"Myocytes are connected by gap junctions within intercalated discs, forming a functional syncytium.","w":["T tubules carry the AP into the cell; they do not join neighbouring cells.","The SR stores Ca²⁺ inside the cell.","Z discs anchor actin within a sarcomere.","Gap junctions sit in intercalated discs, which also hold desmosomes.",""],"src":"lec"},{"t":"Big Picture & Cardiac Cell Types","lv":"Easy","s":"Gap junctions allow the atrial or ventricular myocardium to contract as a single unit. This arrangement is called a what?","c":["Motor unit","Anatomical syncytium","Functional syncytium","Sarcomere","Neuromuscular junction"],"a":2,"e":"Gap junctions within intercalated discs form a functional syncytium, so the entire atrial or ventricular myocardium contracts as a single unit.","w":["A motor unit is a skeletal motor neuron plus its fibers.","Cardiac cells stay separate cells; they are functionally, not anatomically, fused.","","A sarcomere is the contractile unit inside one cell.","Cardiac myocytes are not activated through motor end plates."],"src":"lec"},{"t":"Conduction System Anatomy","lv":"Easy","s":"Which of the following is a pacemaker/conducting cell location rather than contractile myocardium?","c":["Ventricular free wall","Interventricular septal myocardium","Atrial appendage","Bundle of His","Papillary muscle"],"a":3,"e":"Pacemaker/conducting cells (\"managers\") are located in the SA node, AV node, bundle of His and Purkinje fibers.","w":["The ventricular wall is contractile myocardium.","Septal muscle is contractile, though the bundle runs within the septum.","Atrial muscle is contractile myocardium.","","Papillary muscles are contractile ventricular muscle."],"src":"lec"},{"t":"Conduction System Anatomy","lv":"Easy","s":"What is the defining key feature of pacemaker/conducting cells?","c":["A stable resting potential","Spontaneous depolarization","A long Phase 2 plateau","Large force production","A fast Na⁺ upstroke"],"a":1,"e":"Pacemaker/conducting cells have the ability to spontaneously depolarize. Their function is automaticity (self-excitation) and rapid impulse conduction.","w":["A stable rest is a feature of contractile myocytes.","","Nodal cells lack a plateau.","Force production is the job of contractile workers.","SA and AV nodal cells use a slow Ca²⁺ upstroke."],"src":"lec"},{"t":"Conduction System Anatomy","lv":"Easy","s":"Where is the sinoatrial node located?","c":["Interatrial septum near the coronary sinus","Right atrial wall below the SVC opening","Interventricular septum","Left atrial wall near the pulmonary veins","Right ventricle near the tricuspid valve"],"a":1,"e":"The SA node lies in the right atrial wall, inferior to the opening of the superior vena cava.","w":["This describes the AV node.","","This is where the bundle of His runs.","The SA node is in the right atrium.","The SA node is atrial, not ventricular."],"src":"lec"},{"t":"Conduction System Anatomy","lv":"Easy","s":"Where is the atrioventricular node located?","c":["Right atrial wall below the SVC opening","Interventricular septum below the fibrous skeleton","Subendocardium of both ventricles","Left atrial wall near the mitral valve","Interatrial septum near the coronary sinus"],"a":4,"e":"The AV node lies in the interatrial septum, anterior to the opening of the coronary sinus.","w":["This is the SA node.","This is the bundle of His.","This is where Purkinje fibers spread.","The AV node sits in the interatrial septum.",""],"src":"lec"},{"t":"Conduction System Anatomy","lv":"Easy","s":"What is the only muscular connection between the atria and the ventricles?","c":["AV bundle of His","Internodal pathways","Right bundle branch","Purkinje fibers","Cardiac fibrous skeleton"],"a":0,"e":"The AV bundle of His, running in the interventricular septum, is the ONLY muscular connection between the atria and the ventricles; the fibrous skeleton insulates everywhere else.","w":["","Internodal pathways connect SA and AV nodes within the atria.","Bundle branches lie below the bundle, within the ventricles.","Purkinje fibers spread through the ventricles.","The fibrous skeleton is insulating connective tissue, not muscle."],"src":"lec"},{"t":"Conduction System Anatomy","lv":"Easy","s":"Which structures carry the impulse from the SA node to the AV node?","c":["Internodal pathways","Left bundle branch","Purkinje fiber network","Bundle of His","Coronary sinus wall"],"a":0,"e":"The conduction order on the slide is: 1 SA node → 2 internodal pathways → 3 AV node → 4 AV bundle of His → 5a/5b left and right bundle branches → 6 Purkinje fibers.","w":["","The bundle branches lie below the bundle of His.","Purkinje fibers are ventricular.","The bundle lies after the AV node.","The coronary sinus is a vein, a landmark for the AV node."],"src":"lec"},{"t":"Conduction System Anatomy","lv":"Easy","s":"Which structure is the last part of the conduction pathway before the ventricular muscle?","c":["AV node","Bundle of His","Purkinje fibers","Left bundle branch","Internodal pathways"],"a":2,"e":"SA node → internodal pathways → AV node → bundle of His → right and left bundle branches → Purkinje fibers, which spread through the ventricles.","w":["The AV node is early in the path, in the interatrial septum.","The bundle comes before the bundle branches.","","Bundle branches feed into the Purkinje fibers.","These are within the atria."],"src":"lec"},{"t":"Fast vs Slow Response","lv":"Easy","s":"What is the resting membrane potential of a fast response ventricular myocyte?","c":["Unstable, with no true rest","Stable, about −60 mV","Stable, about −90 mV","Stable, about −40 mV","Stable, about −70 mV"],"a":2,"e":"Fast response (ventricular myocardium): stable resting potential ≈ −90 mV. Slow response (SA/AV node): unstable, no true resting potential.","w":["This describes slow response SA/AV nodal cells.","Too depolarized for a ventricular myocyte.","","This is close to the nodal threshold, not a ventricular rest.","−70 mV is a typical neuron value, not ventricular."],"src":"lec"},{"t":"Fast vs Slow Response","lv":"Easy","s":"What current produces the Phase 0 upstroke of a slow response SA or AV nodal cell?","c":["Fast Na⁺ influx","Slow Ca²⁺ influx","Transient K⁺ efflux","Cl⁻ influx","K⁺ efflux via IK1"],"a":1,"e":"Slow response cells depolarize by slow Ca²⁺ influx through L-type Ca²⁺ channels. Memory hook: Fast = Na⁺ upstroke · Slow = Ca²⁺ upstroke.","w":["Fast Na⁺ influx drives the fast response upstroke.","","Transient K⁺ efflux causes the Phase 1 notch.","Cl⁻ is not the upstroke current in either cell type.","IK1 holds rest; it does not depolarize."],"src":"lec"},{"t":"Fast vs Slow Response","lv":"Easy","s":"Which channel carries the Phase 0 upstroke current in ventricular myocardium?","c":["Voltage-gated Na⁺ channel","L-type Ca²⁺ channel","Inward-rectifier K⁺ channel","Delayed-rectifier K⁺ channel","Transient outward K⁺ channel"],"a":0,"e":"Fast response cells (ventricular myocardium) depolarize through fast Na⁺ influx via voltage-gated Na⁺ channels.","w":["","L-type channels carry the nodal upstroke and the plateau current.","IK1 holds the resting potential.","This repolarizes the cell in Phase 3.","This causes the Phase 1 notch."],"src":"lec"},{"t":"Fast vs Slow Response","lv":"Easy","s":"Which cardiac cell type has a Phase 2 plateau?","c":["SA nodal cell","Ventricular myocyte","AV nodal cell","Both SA and AV nodal cells","None of the cardiac cells"],"a":1,"e":"Plateau (Phase 2): present in fast response ventricular myocardium, absent in slow response SA/AV nodal cells.","w":["Slow response cells have no plateau.","","Slow response cells have no plateau.","The plateau is absent in both nodal cell types.","Fast response ventricular cells do have a plateau."],"src":"lec"},{"t":"Fast vs Slow Response","lv":"Easy","s":"Ventricular myocytes lack automaticity. What do they need in order to fire?","c":["A spontaneous Phase 4 drift","Sympathetic stimulation","An external stimulus","A falling extracellular K⁺","A fall in intracellular Ca²⁺"],"a":2,"e":"Automaticity is absent in fast response cells — they need an external stimulus. Slow response cells have automaticity, driven by Phase 4. Only the slow ones fire on their own.","w":["Only slow response nodal cells drift on their own.","Sympathetic input changes rate and force but is not required to fire.","","That is not what triggers a ventricular AP.","That is not the trigger for depolarization."],"src":"lec"},{"t":"Phase 0 & Na⁺ Channel Gates","lv":"Easy","s":"In which cardiac cells does the ventricular-type action potential occur?","c":["Only the ventricular myocytes","Only SA and AV nodal cells","Only the Purkinje fibers in the ventricles","Only the atrial myocytes and SA node","All myocytes except SA and AV nodes"],"a":4,"e":"The ventricular action potential occurs in all cardiac myocytes except for those in the SA and AV nodes.","w":["Atrial myocytes and Purkinje fibers also have this type of AP.","Nodal cells are the exception; they fire slow response APs.","It occurs in all cardiac myocytes, not only Purkinje fibers.","Atrial myocytes, yes, but the SA node is the exception.",""],"src":"lec"},{"t":"Phase 0 & Na⁺ Channel Gates","lv":"Easy","s":"Which ion movement causes the Phase 0 upstroke of the ventricular AP?","c":["K⁺ efflux","Ca²⁺ influx","Cl⁻ influx","Na⁺ influx","Na⁺ efflux"],"a":3,"e":"Phase 0: rapid upstroke and depolarization as voltage-gated Na⁺ channels open and Na⁺ rushes in (INa).","w":["K⁺ efflux repolarizes the cell.","Ca²⁺ influx sustains the plateau.","Cl⁻ is not the upstroke current.","","Na⁺ moves into the cell, down its gradient."],"src":"lec"},{"t":"Phase 0 & Na⁺ Channel Gates","lv":"Easy","s":"At about what membrane potential is threshold crossed to trigger the ventricular Phase 0 upstroke?","c":["−90 mV","−40 mV","0 mV","−65 mV","+30 mV"],"a":3,"e":"Phase 0: a neighbour depolarizes the cell past threshold (≈ −65 mV) → fast voltage-gated Na⁺ channels open → rapid Na⁺ influx → TMP rises to just above 0 mV.","w":["−90 mV is the resting potential.","−40 mV is closer to a nodal cell threshold.","0 mV is reached at the peak, not at threshold.","","+30 mV is around the overshoot peak."],"src":"lec"},{"t":"Phase 0 & Na⁺ Channel Gates","lv":"Easy","s":"In a ventricular myocyte, what normally depolarizes the cell to threshold?","c":["Its own spontaneous Phase 4 drift","The funny current in the cell","Ca²⁺ release from its own SR","A neighbouring depolarized cell","A Phase 3 burst of K⁺ efflux"],"a":3,"e":"A neighbour depolarizes the cell past threshold through gap junctions, opening fast voltage-gated Na⁺ channels.","w":["Ventricular myocytes have no spontaneous Phase 4 depolarization.","The funny current is a nodal pacemaker current.","SR Ca²⁺ release follows the AP; it does not start it.","","K⁺ efflux repolarizes, it does not depolarize."],"src":"lec"},{"t":"Phase 0 & Na⁺ Channel Gates","lv":"Easy","s":"In the voltage-gated Na⁺ channel, the m gate is which type of gate?","c":["Inactivation gate","Ligand gate","Activation gate","Recovery gate","Selectivity filter"],"a":2,"e":"Na⁺ channel gates: M → activation gates; H → inactivation gates. At rest m is closed and h is open; in Phase 0 both are open.","w":["That is the h gate.","Not the m gate; these channels are voltage gated.","","Not a gate named in the lecture.","The filter is part of the pore, not a gate."],"src":"lec"},{"t":"Phase 0 & Na⁺ Channel Gates","lv":"Easy","s":"What property of the ventricular upstroke gives it fast conduction?","c":["A steep Na⁺ upstroke","A long Phase 2 plateau","A large Phase 3 K⁺ efflux","A slow Ca²⁺ upstroke","A Phase 4 drift"],"a":0,"e":"Steep Na⁺ upstroke → fast conduction. Nodal cells lack it, so they conduct slowly.","w":["","The plateau sets AP length, not conduction speed.","Phase 3 repolarizes; it does not set conduction speed.","A slow Ca²⁺ upstroke is why nodal cells conduct slowly.","Ventricular cells have no Phase 4 drift."],"src":"lec"},{"t":"Phase 1 · The Notch","lv":"Easy","s":"What causes Phase 1, the notch of the ventricular AP?","c":["Ca²⁺ channels open and all K⁺ channels close","Na⁺ channels inactivate, transient K⁺ opens","The Na⁺/K⁺ ATPase pumps K⁺ back into the cell","Inward-rectifier K⁺ channels open fully again","The Na⁺/Ca²⁺ exchanger reverses its direction"],"a":1,"e":"Phase 1: Na⁺ channels inactivate and transient K⁺ channels open (Ito) → a brief, partial repolarization toward 0 mV — the notch.","w":["This is not the notch mechanism.","","The pump restores gradients; it does not make the notch.","IK1 dominates Phase 4, not Phase 1.","The exchanger is not the cause of the notch."],"src":"lec"},{"t":"Phase 1 · The Notch","lv":"Easy","s":"Phase 1 brings the membrane potential toward approximately what value?","c":["~0 mV","−90 mV","−65 mV","+60 mV","−50 mV"],"a":0,"e":"Phase 1 is a brief, partial repolarization (the notch) from the peak toward ~0 mV.","w":["","−90 mV is the resting potential, reached in Phase 4.","−65 mV is the threshold for Phase 0.","The AP never reaches the Na⁺ equilibrium potential.","−50 mV is where the ARP ends, in Phase 3."],"src":"lec"},{"t":"Phase 1 · The Notch","lv":"Easy","s":"Which statement best describes the ionic event of Phase 1?","c":["Na⁺ rushes in","Transient K⁺ out","Ca²⁺ in ≈ K⁺ out","K⁺ out > Ca²⁺ in","IK1 holds −90 mV"],"a":1,"e":"Summary: 0 Na⁺ rushes in — upstroke; 1 transient K⁺ out — the notch; 2 Ca²⁺ in ≈ K⁺ out — plateau; 3 K⁺ out > Ca²⁺ in — repolarization; 4 IK1 holds −90 mV — rest.","w":["That is Phase 0.","","That is Phase 2.","That is Phase 3.","That is Phase 4."],"src":"lec"},{"t":"Phase 2 · Plateau & E–C Coupling","lv":"Easy","s":"How long does the Phase 2 plateau last?","c":["150–300 ms","1–2 ms","10–20 ms","500–800 ms","50–80 ms"],"a":0,"e":"Phase 2, the plateau, lasts 150–300 ms with TMP held near 0 mV.","w":["","This is the length of a whole neuron AP.","This is about a skeletal muscle AP.","Longer than the plateau.","Too short for the cardiac plateau."],"src":"lec"},{"t":"Phase 2 · Plateau & E–C Coupling","lv":"Easy","s":"Through which channels does Ca²⁺ enter the ventricular myocyte during the plateau?","c":["T-type Ca²⁺ channels","L-type Ca²⁺ channels","Ryanodine receptors","Voltage-gated Na⁺ channels","Store-operated Ca²⁺ channels"],"a":1,"e":"Phase 2: L-type Ca²⁺ channels open → Ca²⁺ influx, which is balanced by K⁺ efflux.","w":["T-type channels are not the plateau channel named.","","Ryanodine receptors release Ca²⁺ from the SR, not from outside.","These are inactivated during the plateau.","Not the plateau channel."],"src":"lec"},{"t":"Phase 2 · Plateau & E–C Coupling","lv":"Easy","s":"During the Phase 2 plateau, Ca²⁺ influx is balanced by which ion movement?","c":["Na⁺ influx","Cl⁻ efflux","Ca²⁺ efflux","K⁺ influx","K⁺ efflux"],"a":4,"e":"Plateau: Ca²⁺ in ≈ K⁺ out, holding the transmembrane potential near 0 mV.","w":["Fast Na⁺ channels are inactivated during the plateau.","Cl⁻ is not the balancing current named.","Ca²⁺ is moving in during Phase 2.","K⁺ moves out of the cell, not in.",""],"src":"lec"},{"t":"Phase 2 · Plateau & E–C Coupling","lv":"Easy","s":"What does the Ca²⁺ that enters during the plateau trigger inside the myocyte?","c":["Ca²⁺ release from the SR","Na⁺ channel recovery","Opening of IK1 channels","Phase 4 depolarization","Closure of gap junctions"],"a":0,"e":"Ca²⁺ influx through L-type channels triggers Ca²⁺-induced Ca²⁺ release from the sarcoplasmic reticulum, which leads to myocyte contraction.","w":["","Na⁺ channels recover in late Phase 3.","IK1 is not triggered by Ca²⁺ entry.","Ventricular myocytes have no Phase 4 depolarization.","Not the effect of plateau Ca²⁺."],"src":"lec"},{"t":"Phase 2 · Plateau & E–C Coupling","lv":"Easy","s":"What is the correct order of events beginning with the plateau?","c":["SR Ca²⁺ release → Ca²⁺ influx → contraction","Contraction → Ca²⁺ influx → SR Ca²⁺ release","Ca²⁺ influx → contraction → SR Ca²⁺ release","Na⁺ influx → contraction → Ca²⁺ influx","Ca²⁺ influx → SR Ca²⁺ release → contraction"],"a":4,"e":"1) L-type Ca²⁺ channels open → Ca²⁺ influx; 2) Ca²⁺-induced Ca²⁺ release from the SR; 3) myocyte contraction.","w":["Influx from outside comes first and triggers SR release.","Contraction is the last step.","SR release has to come before contraction.","Contraction requires Ca²⁺ first.",""],"src":"lec"},{"t":"Phase 2 · Plateau & E–C Coupling","lv":"Easy","s":"For boards: what do cardiac myocytes require that skeletal muscle does not, in order to release SR Ca²⁺?","c":["Intracellular Na⁺","ATP from glycolysis","Acetylcholine at a motor end plate","Extracellular Ca²⁺","Extracellular K⁺"],"a":3,"e":"Cardiac myocytes REQUIRE extracellular Ca²⁺ to release SR Ca²⁺ — skeletal muscle does not.","w":["Na⁺ is not the trigger for SR release.","Not the distinguishing requirement.","That is how skeletal muscle is activated.","","K⁺ does not trigger SR release."],"src":"lec"},{"t":"Phases 3 & 4 · Reset and Rest","lv":"Easy","s":"What is the net current in Phase 3 of the ventricular AP?","c":["Net inward, Ca²⁺ > K⁺","Net outward, K⁺ > Ca²⁺","Zero net current, Ca²⁺ = K⁺","Net inward Na⁺ current","Net outward Cl⁻ current"],"a":1,"e":"Phase 3: K⁺ > Ca²⁺ — a net outward current brings the cell back to −90 mV.","w":["Inward Ca²⁺ is falling as the channels close.","","A zero net current is the plateau balance.","Na⁺ channels are inactivated or recovering.","Not the Phase 3 current."],"src":"lec"},{"t":"Phases 3 & 4 · Reset and Rest","lv":"Easy","s":"Which K⁺ channels produce the massive K⁺ efflux of Phase 3?","c":["Voltage-gated slow K⁺ channels","Transient outward K⁺ channels","ATP-sensitive K⁺ channels","Ca²⁺-activated K⁺ channels","Inward-rectifier K1 channels only"],"a":0,"e":"Phase 3: massive K⁺ efflux due to opening of voltage-gated slow (delayed-rectifier) K⁺ channels and closure of voltage-gated Ca²⁺ channels.","w":["","These open briefly in Phase 1.","Not the channel named for Phase 3.","Not the channel named for Phase 3.","IK1 holds rest in Phase 4; the slow K⁺ channels drive Phase 3."],"src":"lec"},{"t":"Phases 3 & 4 · Reset and Rest","lv":"Easy","s":"Which transporters restore ionic gradients during and after Phase 3?","c":["Gap junctions and their connexins","L-type channels and ryanodine receptors","Na⁺/Ca²⁺ exchanger and ATPases","Fast voltage-gated Na⁺ channels","Inward-rectifier K⁺ channels"],"a":2,"e":"Phase 3: Ca²⁺ channels inactivate; sustained K⁺ efflux exceeds Ca²⁺ influx. The Na⁺/Ca²⁺ exchanger and ATPases restore ionic gradients.","w":["These connect cells; they do not restore gradients.","These let Ca²⁺ move down gradients; they do not restore them.","","Channels let ions move down gradients.","IK1 holds rest; it does not restore gradients."],"src":"lec"},{"t":"Phases 3 & 4 · Reset and Rest","lv":"Easy","s":"Which channel holds the resting membrane potential of the ventricular myocyte?","c":["Voltage-gated Na⁺ channel","L-type Ca²⁺ channel","Inward-rectifier K⁺ channel","Transient outward K⁺ channel","HCN funny channel"],"a":2,"e":"Phase 4: constant K⁺ efflux through inward-rectifier channels (IK1) holds the RMP; Na⁺ and Ca²⁺ channels are closed.","w":["Na⁺ channels are closed at rest.","Ca²⁺ channels are closed at rest.","","Ito acts in Phase 1.","Funny channels are nodal pacemaker channels."],"src":"lec"},{"t":"Phases 3 & 4 · Reset and Rest","lv":"Easy","s":"Which property explains why the Phase 4 resting potential is close to the K⁺ equilibrium potential?","c":["High Na⁺ permeability","High Ca²⁺ permeability","High Cl⁻ permeability","Low K⁺ permeability","High K⁺ permeability"],"a":4,"e":"Phase 4: resting potential with high K⁺ permeability through K⁺ channels (IK1).","w":["High Na⁺ permeability would pull the cell toward +60 mV.","Ca²⁺ channels are closed at rest.","Not the dominant permeability at rest.","K⁺ permeability is high at rest.",""],"src":"lec"},{"t":"Phases 3 & 4 · Reset and Rest","lv":"Easy","s":"What happens in Phase 4 of a ventricular myocyte between beats?","c":["It drifts upward toward threshold","It waits at a stable −90 mV","It fires spontaneous APs","It stays near 0 mV","It hyperpolarizes to −120 mV"],"a":1,"e":"No spontaneous Phase 4 depolarization → myocytes wait for an external stimulus at a stable −90 mV.","w":["There is no spontaneous Phase 4 depolarization in myocytes.","","Myocytes lack automaticity.","0 mV is the plateau.","Not described; rest is about −90 mV."],"src":"lec"},{"t":"Refractory Periods","lv":"Easy","s":"Which phases correspond to the absolute refractory period?","c":["Phases 0 and 1 only","Phase 4 and the start of Phase 0","Phases 0, 1, 2 and half of 3","Only the second half of Phase 3","All of Phases 3 and 4"],"a":2,"e":"Absolute refractory period: Phases 0, 1, 2 and half of Phase 3. Relative refractory period: second half of Phase 3. Then a very short supranormal period.","w":["The ARP lasts through the plateau and into Phase 3.","Phase 4 is rest, when the cell is excitable.","","This is the relative refractory period.","Too late; the ARP starts with Phase 0."],"src":"lec"},{"t":"Refractory Periods","lv":"Easy","s":"Which part of the AP corresponds to the relative refractory period?","c":["The Phase 2 plateau","The Phase 1 notch","The whole of Phase 4 at rest","The Phase 0 upstroke","Second half of Phase 3"],"a":4,"e":"Relative refractory period = second half of Phase 3.","w":["Phase 2 is within the absolute refractory period.","Phase 1 is within the absolute refractory period.","At rest the cell is fully excitable.","Phase 0 is within the absolute refractory period.",""],"src":"lec"},{"t":"Refractory Periods","lv":"Easy","s":"How long is the supranormal excitability period?","c":["As long as the plateau","All of Phase 4","All of Phase 3","Very short","About 300 ms"],"a":3,"e":"Supranormal excitability period: very short — a brief window of heightened excitability during repolarization.","w":["Much shorter than the plateau.","It is a brief window at the end of repolarization.","Phase 3 holds the ARP end and the RRP.","","That is the length of the whole AP."],"src":"lec"},{"t":"Refractory Periods","lv":"Easy","s":"Why can't cardiac muscle generate tetanic contractions?","c":["Its lack of gap junctions","Its lack of SR","Its short action potential","Its fast Na⁺ upstroke","Its long refractory period"],"a":4,"e":"Due to long refractory periods, cardiac muscle cannot be re-excited during contraction — the inability to generate tetanic contractions. Heart tetany would be fatal.","w":["Myocytes have gap junctions.","Cardiac myocytes have an SR.","The cardiac AP is long, not short.","The upstroke does not prevent tetanus.",""],"src":"lec"},{"t":"Refractory Periods","lv":"Easy","s":"During the absolute refractory period, what is the state of the fast Na⁺ channels?","c":["Resting and available","Open and activated","Fully recovered","Permanently blocked","Inactivated"],"a":4,"e":"ARP: Phases 0–2 and part of 3. Fast Na⁺ channels are inactivated → no new AP, whatever the stimulus.","w":["Resting channels could fire a new AP.","They are open only during Phase 0.","Recovery happens in late Phase 3.","They recover with repolarization.",""],"src":"lec"},{"t":"Na⁺ Channel States","lv":"Easy","s":"In Phase 4, what is the state of the fast Na⁺ channel?","c":["Open and activated","Closed and inactivated","Recovering from inactivation","Resting and available","Permanently blocked"],"a":3,"e":"Phase 4: resting/available — closed, but able to open when stimulated (m closed · h open).","w":["That is Phase 0.","That is Phases 1–2.","That is late Phase 3.","","Not a normal channel state."],"src":"lec"},{"t":"Na⁺ Channel States","lv":"Easy","s":"What are the positions of the m and h gates of the Na⁺ channel in Phase 0?","c":["m closed, h open","m open, h closed","m closed, h closed","m open, h open","Only the h gate open"],"a":3,"e":"Phase 0: open/activated — m open · h open → rapid Na⁺ influx.","w":["That is the resting state.","That is the inactivated state.","Not a listed state.","","Both gates are open in Phase 0."],"src":"lec"},{"t":"Na⁺ Channel States","lv":"Easy","s":"Which describes the Na⁺ channel during Phases 1–2?","c":["Resting, m closed and h open","Inactivated, m open and h closed","Activated, m open and h open","Recovering, with the h gate reopening","Resting, m closed and h closed"],"a":1,"e":"Phases 1–2: inactivated — closed and unavailable, regardless of stimulus strength (m open · h closed).","w":["That is Phase 4.","","That is Phase 0.","That is late Phase 3.","Not a listed state; inactivation leaves m open."],"src":"lec"},{"t":"Na⁺ Channel States","lv":"Easy","s":"What happens to Na⁺ channels during late Phase 3?","c":["The h gate reopens","The m gate opens","The h gate closes","They open for Na⁺ influx","They stay inactivated"],"a":0,"e":"Late Phase 3: recovering — channels progressively return to resting/available as repolarization completes (h gate reopening).","w":["","m opens in Phase 0.","h closes to inactivate in Phase 1.","Influx happens in Phase 0.","They progressively recover in late Phase 3."],"src":"lec"},{"t":"Why the AP & Refractory Period Are Long","lv":"Easy","s":"About how long is a cardiac muscle action potential?","c":["300 ms","1 ms","10 ms","30 ms","3,000 ms"],"a":0,"e":"Approximate AP durations: neuron 1 ms, skeletal muscle 10 ms, cardiac muscle 300 ms.","w":["","This is a neuron AP.","This is a skeletal muscle AP.","Too short for a cardiac AP.","Too long for a cardiac AP."],"src":"lec"},{"t":"Why the AP & Refractory Period Are Long","lv":"Easy","s":"The cardiac AP is about how many times longer than a skeletal muscle or nerve AP?","c":["2–3×","5–10×","30–300×","1,000–3,000×","Equal in length"],"a":2,"e":"The cardiac AP is 30–300× longer than a skeletal muscle (10 ms) or nerve (1 ms) AP.","w":["Far too small a difference.","Too small; even skeletal muscle is 30× shorter.","","Too large a difference.","The cardiac AP is much longer."],"src":"lec"},{"t":"Why the AP & Refractory Period Are Long","lv":"Easy","s":"Which single phase stretches the cardiac AP to about 300 ms?","c":["Phase 0","Phase 1","Phase 2","Phase 3","Phase 4"],"a":2,"e":"The Phase 2 plateau — L-type Ca²⁺ influx balanced by delayed-rectifier K⁺ efflux, holding TMP near 0 mV — is the single phase that stretches the AP to ~300 ms.","w":["Phase 0 is a rapid upstroke.","Phase 1 is a brief notch.","","Phase 3 is rapid repolarization.","Phase 4 is rest, between APs."],"src":"lec"},{"t":"Why the AP & Refractory Period Are Long","lv":"Easy","s":"Which benefit in diastole comes from the long plateau and long refractory period?","c":["Faster AV nodal conduction","A higher maximal heart rate","Sustained tetanic contraction","Time for ventricular filling","A shorter relaxation phase"],"a":3,"e":"Diastole: guaranteed relaxation → adequate time for ventricular filling.","w":["The refractory period does not speed AV conduction.","A long refractory period limits rate, not raises it.","The long refractory period prevents tetanus.","","Relaxation is guaranteed, not shortened."],"src":"lec"},{"t":"Why the AP & Refractory Period Are Long","lv":"Easy","s":"Which benefit in systole comes from the long refractory period?","c":["Full ejection before the next impulse","Re-excitation partway through contraction","Faster ventricular filling in systole","A stronger fast Na⁺ current each beat","A continuous tetanic squeeze"],"a":0,"e":"Systole: contraction runs to completion → full ejection before the next impulse.","w":["","The refractory period prevents re-excitation.","Filling is a diastolic benefit.","Not a systolic benefit of refractoriness.","Tetanus is prevented, and would be fatal."],"src":"lec"},{"t":"Why the AP & Refractory Period Are Long","lv":"Easy","s":"What is the flip side of having refractory periods that vary between regions?","c":["Heart tetany","Loss of automaticity","Skeletal muscle cramps","Re-entrant arrhythmias","Absent plateau"],"a":3,"e":"Flip side: heterogeneous refractory periods make re-entrant arrhythmias possible when an impulse arrives at the wrong time.","w":["Tetany is prevented by the long refractory period.","Not the flip side described.","Not related to cardiac refractory periods.","","The plateau is present."],"src":"lec"},{"t":"Big Picture & Cardiac Cell Types","lv":"Hard","s":"A cell with a fast response action potential whose main role is force production would be found where?","c":["SA node in the right atrium","AV node in the interatrial septum","Internodal pathway","Left ventricular free wall","Bundle of His in the septum"],"a":3,"e":"Workers (contractile myocytes) = atrial and ventricular myocardium, fast response AP, force production. Managers = SA node, AV node, His, Purkinje.","w":["SA nodal cells are slow response managers.","AV nodal cells are slow response managers.","These are conducting cells, not force producers.","","The bundle conducts; it is not for force."],"src":"lec"},{"t":"Big Picture & Cardiac Cell Types","lv":"Hard","s":"A drug that closes all gap junctions in the ventricles would most directly impair which property?","c":["Phase 0 Na⁺ influx in each cell","SR Ca²⁺ storage","The resting potential of each cell","Spontaneous SA node firing","Contraction as a single unit"],"a":4,"e":"Gap junctions in intercalated discs form a functional syncytium so the myocardium contracts as a single unit. Without them, the impulse cannot spread cell to cell.","w":["Each cell's Na⁺ channels still work.","SR storage does not depend on gap junctions.","IK1 still holds rest in each cell.","SA node automaticity does not depend on ventricular gap junctions.",""],"src":"lec"},{"t":"Conduction System Anatomy","lv":"Hard","s":"If the AV bundle of His were cut, why could the atrial impulse not reach the ventricles by another muscular path?","c":["The internodal pathways end at the SA node","Purkinje fibers conduct only backward","The fibrous skeleton insulates the rest","The bundle branches are in the atria","Ventricular myocytes lack gap junctions"],"a":2,"e":"The AV bundle is the ONLY muscular connection between atria and ventricles; the cardiac fibrous skeleton separates them everywhere else.","w":["They run from the SA node to the AV node.","Not the reason.","","Bundle branches are ventricular.","Ventricular myocytes do have gap junctions."],"src":"lec"},{"t":"Conduction System Anatomy","lv":"Hard","s":"During surgery near the opening of the coronary sinus in the interatrial septum, which conducting structure is most at risk?","c":["SA node","Bundle of His","Right bundle branch","AV node","Purkinje fibers"],"a":3,"e":"AV node: interatrial septum, anterior to the opening of the coronary sinus. SA node: right atrial wall, inferior to the SVC opening.","w":["The SA node is near the SVC opening.","The bundle is in the interventricular septum.","This lies in the ventricles.","","These are ventricular."],"src":"lec"},{"t":"Fast vs Slow Response","lv":"Hard","s":"A cell has an unstable resting potential, no plateau, and an upstroke carried by L-type channels. Which statement is true of it?","c":["It fires without an external stimulus","It is a ventricular contractile myocyte","Its upstroke uses fast Na⁺ channels","It rests stably at −90 mV","It conducts the impulse fastest"],"a":0,"e":"This is a slow response SA/AV nodal cell: unstable rest, slow Ca²⁺ upstroke, no plateau, automaticity driven by Phase 4. Only the slow ones fire on their own.","w":["","Ventricular cells have a stable rest and a plateau.","Its upstroke is Ca²⁺ carried.","It has no true resting potential.","Slow upstroke means slow conduction."],"src":"lec"},{"t":"Fast vs Slow Response","lv":"Hard","s":"Why does the impulse spread more slowly through the AV node than through ventricular muscle?","c":["Nodal cells have a longer Phase 2 plateau","Nodal cells rest stably at −90 mV","Nodal cells have more gap junctions","Nodal cells depolarize with fast Na⁺ channels","Nodal cells lack a steep Na⁺ upstroke"],"a":4,"e":"Steep Na⁺ upstroke → fast conduction. Nodal cells lack it (slow Ca²⁺ upstroke), so they conduct slowly.","w":["Nodal cells have no plateau.","They have no stable rest.","More gap junctions would speed conduction.","They use slow L-type Ca²⁺ channels.",""],"src":"lec"},{"t":"Phase 0 & Na⁺ Channel Gates","lv":"Hard","s":"Which sequence describes ventricular Phase 0 in order?","c":["Na⁺ influx → threshold → Na⁺ channels open → TMP above 0","Na⁺ channels open → threshold → TMP above 0 → Na⁺ influx","Threshold → Na⁺ channels open → Na⁺ influx → TMP above 0","Threshold → K⁺ channels open → Na⁺ influx → TMP above 0","Ca²⁺ influx → threshold → Na⁺ influx → TMP above 0"],"a":2,"e":"A neighbour depolarizes the cell past threshold → fast voltage-gated Na⁺ channels open → rapid Na⁺ influx → TMP rises to just above 0 mV.","w":["Channels must open before Na⁺ rushes in.","Threshold comes first.","","K⁺ channels open in Phase 1.","Ca²⁺ influx is the plateau current."],"src":"lec"},{"t":"Phase 0 & Na⁺ Channel Gates","lv":"Hard","s":"At the start of Phase 0, a ventricular Na⁺ channel goes from resting to open. Which gate changes position?","c":["Only the h gate opens","Both gates open from closed","The h gate closes","Both gates close","Only the m gate opens"],"a":4,"e":"Resting: m closed · h open. Open: m open · h open. So only the m (activation) gate changes when the channel opens.","w":["h is already open at rest.","h is already open at rest.","h closes later, in Phase 1.","Both are open in Phase 0.",""],"src":"lec"},{"t":"Phase 0 & Na⁺ Channel Gates","lv":"Hard","s":"On the ventricular AP, the overshoot is the portion of the AP that does what?","c":["Falls below −90 mV","Rises above 0 mV","Stays at the threshold","Plateaus near −40 mV","Repolarizes in Phase 3"],"a":1,"e":"Phase 0 drives the TMP to just above 0 mV, peaking near +30 mV; the part above 0 is the overshoot.","w":["That would be an afterhyperpolarization.","","Threshold is about −65 mV.","The plateau is near 0 mV.","Phase 3 is repolarization."],"src":"lec"},{"t":"Phase 1 · The Notch","lv":"Hard","s":"A drug blocks the transient outward K⁺ current. Which part of the ventricular AP would be most directly reduced?","c":["The Phase 0 upstroke","The Phase 2 Ca²⁺ influx","The Phase 1 notch","The Phase 4 rest","The Phase 3 delayed-rectifier efflux"],"a":2,"e":"Phase 1, the notch, is made by Na⁺ channel inactivation plus transient K⁺ channels opening (Ito). Blocking Ito blunts the notch.","w":["The upstroke is a Na⁺ current.","The plateau Ca²⁺ is through L-type channels.","","IK1, not Ito, holds the rest.","That is the slow K⁺ current."],"src":"lec"},{"t":"Phase 2 · Plateau & E–C Coupling","lv":"Hard","s":"Why does the plateau keep the TMP near 0 mV for 150–300 ms?","c":["All the ion channels are closed","Na⁺ influx is still high through fast channels","The Na⁺/K⁺ ATPase stops pumping","Ca²⁺ influx roughly equals K⁺ efflux","Gap junctions close between the cells"],"a":3,"e":"Plateau: L-type Ca²⁺ influx is balanced by delayed-rectifier K⁺ efflux — Ca²⁺ in ≈ K⁺ out — holding TMP near 0 mV.","w":["Channels are open; the currents balance.","Na⁺ channels are inactivated.","The pump does not cause the plateau.","","Gap junctions do not hold the plateau."],"src":"lec"},{"t":"Phase 2 · Plateau & E–C Coupling","lv":"Hard","s":"The lecture describes Phase 2 as \"not just an electrical plateau\". What else is it?","c":["The pacemaker potential","The relative refractory period","The Na⁺ recovery phase","The resting state","The contraction trigger"],"a":4,"e":"Key focus: Phase 2 Ca²⁺ influx links directly to SR Ca²⁺ release (excitation–contraction coupling) — it is not just an electrical plateau, it is the contraction trigger.","w":["The pacemaker potential is Phase 4 in nodal cells.","Phase 2 is within the absolute refractory period.","Na⁺ channels recover in late Phase 3.","Rest is Phase 4.",""],"src":"lec"},{"t":"Phase 2 · Plateau & E–C Coupling","lv":"Hard","s":"A heart is perfused with a solution containing no Ca²⁺. Skeletal muscle in the same bath still contracts. Why does the heart stop contracting?","c":["No Ca²⁺ influx triggers SR release","Fast Na⁺ channels cannot open","The SR has no Ca²⁺ stored in it","IK1 holds the cell near 0 mV instead","Gap junctions need Ca²⁺ to open"],"a":0,"e":"Cardiac myocytes REQUIRE extracellular Ca²⁺ influx through L-type channels to trigger Ca²⁺-induced Ca²⁺ release from the SR. Skeletal muscle does not.","w":["","Na⁺ channels do not need extracellular Ca²⁺ to open.","The SR still has stores; it is not triggered to release them.","IK1 holds −90 mV.","Not the mechanism given."],"src":"lec"},{"t":"Phase 2 · Plateau & E–C Coupling","lv":"Hard","s":"An L-type Ca²⁺ channel blocker is given. Which change in the ventricular myocyte is expected?","c":["A faster Phase 0 upstroke","Weaker contraction","A higher resting potential","A longer Phase 2 plateau","Spontaneous Phase 4 firing"],"a":1,"e":"Less Ca²⁺ influx through L-type channels → less Ca²⁺-induced Ca²⁺ release from the SR → weaker myocyte contraction.","w":["Phase 0 is a Na⁺ current.","","Rest is held by IK1.","Less inward Ca²⁺ would shorten, not lengthen, the plateau.","Ventricular cells do not gain automaticity."],"src":"lec"},{"t":"Phases 3 & 4 · Reset and Rest","lv":"Hard","s":"In Phase 3, why does the membrane repolarize?","c":["Na⁺ channels reopen and let Na⁺ out","The Na⁺/K⁺ ATPase stops working","Transient outward K⁺ channels reopen","Ca²⁺ channels close; K⁺ efflux goes on","Ca²⁺ influx grows larger than K⁺ efflux"],"a":3,"e":"Phase 3: Ca²⁺ channels inactivate; sustained K⁺ efflux exceeds Ca²⁺ influx → a net outward current returns the cell to −90 mV.","w":["Na⁺ moves in, not out, and those channels are not open.","The pump keeps running and helps restore gradients.","Ito acts in Phase 1.","","That would depolarize, not repolarize."],"src":"lec"},{"t":"Phases 3 & 4 · Reset and Rest","lv":"Hard","s":"Match the phase to its main current: which pairing is correct?","c":["Phase 4 · IK1","Phase 0 · ICa","Phase 1 · IK1","Phase 2 · INa","Phase 3 · ICa"],"a":0,"e":"Phase 0 · INa; Phase 1 · Ito/IK; Phase 2 · ICa and IK; Phase 3 · IK; Phase 4 · IK1.","w":["","Phase 0 of the ventricular AP is INa.","Phase 1 is Ito.","Phase 2 is ICa balanced by IK.","Phase 3 is IK."],"src":"lec"},{"t":"Phases 3 & 4 · Reset and Rest","lv":"Hard","s":"A ventricular myocyte at rest is not stimulated. Why does it not fire?","c":["Its Na⁺ channels are all inactivated","There is no Phase 4 depolarization","Its threshold sits at −90 mV","Its IK1 channels are closed at rest","Its resting potential is unstable"],"a":1,"e":"No spontaneous Phase 4 depolarization → myocytes wait for an external stimulus.","w":["At rest they are available.","","Threshold is about −65 mV.","IK1 is open at rest.","Its rest is stable."],"src":"lec"},{"t":"Refractory Periods","lv":"Hard","s":"A stimulus arrives during the Phase 2 plateau. What happens?","c":["A normal AP fires","A smaller AP fires at once","An AP fires if the stimulus is strong","A larger-than-normal AP fires","No new AP, whatever its strength"],"a":4,"e":"The plateau is within the absolute (effective) refractory period. Fast Na⁺ channels are inactivated → no new AP, whatever the stimulus.","w":["Na⁺ channels are inactivated.","That happens in the relative refractory period.","Even strong stimuli fail during the ARP.","That is not possible during the ARP.",""],"src":"lec"},{"t":"Refractory Periods","lv":"Hard","s":"A stronger-than-normal stimulus arrives in late Phase 3. What is the result?","c":["No AP of any size can fire","A normal full-size AP","A new AP of lower amplitude","An AP larger than normal","A sustained tetanic contraction"],"a":2,"e":"Relative refractory period (second half of Phase 3): some Na⁺ channels have recovered → a stronger-than-normal stimulus is needed, and the AP has lower amplitude.","w":["Some Na⁺ channels have recovered.","Not all channels have recovered.","","Fewer available channels give a smaller AP.","Cardiac muscle cannot tetanize."],"src":"lec"},{"t":"Refractory Periods","lv":"Hard","s":"On the refractory period figure, roughly what voltage marks the end of the absolute refractory period?","c":["−50 mV","−90 mV","−70 mV","0 mV","+20 mV"],"a":0,"e":"On the figure, the ARP ends around −50 mV in Phase 3, the RRP runs to about −70 mV, and the supranormal period follows.","w":["","−90 mV is rest.","−70 mV is about where the RRP ends.","0 mV is the plateau.","+20 mV is near the peak."],"src":"lec"},{"t":"Refractory Periods","lv":"Hard","s":"During which period can a slightly weaker-than-normal stimulus fire an AP?","c":["Absolute refractory period","Relative refractory period","Supranormal period","The plateau","Phase 0"],"a":2,"e":"Supranormal: a brief window of heightened excitability during repolarization, so a weaker stimulus can fire.","w":["No stimulus fires an AP then.","A stronger stimulus is needed then.","","The plateau is in the ARP.","The cell is already firing."],"src":"lec"},{"t":"Na⁺ Channel States","lv":"Hard","s":"The lecture states that excitability depends on Na⁺ channel state, not just on membrane voltage. Which example shows this?","c":["Inactivated channels fail at any stimulus","At rest the cell holds a stable potential","Plateau Ca²⁺ influx is balanced by K⁺ efflux","The cardiac AP is longer than a nerve AP","Gap junctions link neighbouring myocytes"],"a":0,"e":"Phases 1–2: channels are inactivated — closed and unavailable, regardless of stimulus strength. Excitability depends on Na⁺ channel state, not just voltage.","w":["","This does not involve channel state.","That describes the plateau, not excitability.","This is about duration.","Not about channel state."],"src":"lec"},{"t":"Na⁺ Channel States","lv":"Hard","s":"Both the Phase 4 and the Phases 1–2 Na⁺ channel are closed to Na⁺ flow. What differs?","c":["The membrane is at the same voltage","Which gate is closed","Both m and h are open in each","Neither can ever open again","Both are in late Phase 3"],"a":1,"e":"Resting: m closed · h open — able to open. Inactivated: m open · h closed — unavailable. The closed gate decides whether the channel can respond.","w":["The voltages differ: −90 mV vs near 0 mV.","","Each has one gate closed.","The resting channel can open.","These are Phase 4 and Phases 1–2."],"src":"lec"},{"t":"Na⁺ Channel States","lv":"Hard","s":"Why is the AP fired in the relative refractory period smaller than normal?","c":["All the K⁺ channels are closed","The L-type Ca²⁺ channels are inactivated","The m gates are all stuck shut","Only some Na⁺ channels have recovered","Extracellular Na⁺ has been depleted"],"a":3,"e":"Late Phase 3: channels progressively return to resting/available (h gate reopening). Fewer available channels → smaller Na⁺ current → lower-amplitude AP.","w":["K⁺ channels are open during Phase 3.","Ca²⁺ is not the upstroke current.","The recovering channels can open their m gates.","","The Na⁺ gradient is intact."],"src":"lec"},{"t":"Why the AP & Refractory Period Are Long","lv":"Hard","s":"Which two currents together set the length of the cardiac plateau?","c":["Fast Na⁺ and transient outward K⁺","L-type Ca²⁺ and delayed-rectifier K⁺","Inward-rectifier K⁺ and the Na⁺/K⁺ ATPase","Fast Na⁺ and L-type Ca²⁺","Funny current and T-type Ca²⁺"],"a":1,"e":"L-type Ca²⁺ influx is balanced by delayed-rectifier K⁺ efflux, holding TMP near 0 mV — the single phase that stretches the AP to ~300 ms.","w":["These are Phases 0 and 1.","","IK1 holds rest.","Fast Na⁺ channels are inactivated in Phase 2.","These are nodal pacemaker currents."],"src":"lec"},{"t":"Why the AP & Refractory Period Are Long","lv":"Hard","s":"Which chain correctly links the long cardiac AP to its protective effect?","c":["Long refractory → no re-excitation → no tetany","Long refractory → re-excitation → tetany","Short refractory → no re-excitation → no tetany","Long plateau → faster heart rate → tetany","Short plateau → full ejection → no tetany"],"a":0,"e":"Long plateau + long refractory period → no re-excitation mid-contraction → no tetanic contraction.","w":["","Re-excitation is prevented.","The refractory period is long.","Tetany is prevented.","The plateau is long."],"src":"lec"},{"t":"Why the AP & Refractory Period Are Long","lv":"Hard","s":"Two neighbouring ventricular regions recover at different times. An early impulse reaches them. Why can a re-entrant arrhythmia start?","c":["Equal refractory periods everywhere","Unequal refractory periods","Loss of the plateau","Heart tetany","Fast Na⁺ upstroke"],"a":1,"e":"Flip side: heterogeneous refractory periods make re-entrant arrhythmias possible when an impulse arrives at the wrong time.","w":["Uniform recovery protects against re-entry.","","Not the mechanism named.","Cardiac muscle cannot tetanize.","The upstroke is not the problem named."],"src":"lec"},{"t":"Challenge Yourself · Sampath's Q's","s":"Questions 3–4<br>Correlate the ionic mechanism to the appropriate phase (labeled A–E)<br><br>3. High Na⁺ conductance","html":true,"img":"cp-fig1.svg","ns":true,"sampath":1,"c":["Phase labeled A","Phase labeled B","Phase labeled C","Phase labeled D","Phase labeled E"],"a":0,"e":"A is Phase 0, the rapid upstroke: fast voltage-gated Na⁺ channels open and Na⁺ rushes in.","w":["A is the Phase 0 upstroke.","B is the peak and Phase 1 notch.","C is the Phase 2 plateau.","D is Phase 3 repolarization.","E is the Phase 4 resting potential."],"src":"lec"},{"t":"Challenge Yourself · Sampath's Q's","s":"Questions 3–4<br>Correlate the ionic mechanism to the appropriate phase (labeled A–E)<br><br>4. High Ca²⁺ conductance","html":true,"img":"cp-fig1.svg","ns":true,"sampath":1,"c":["Phase labeled A","Phase labeled B","Phase labeled C","Phase labeled D","Phase labeled E"],"a":2,"e":"C is Phase 2, the plateau: L-type Ca²⁺ channels are open and Ca²⁺ influx balances K⁺ efflux.","w":["A is the Phase 0 upstroke.","B is the peak and Phase 1 notch.","C is the Phase 2 plateau.","D is Phase 3 repolarization.","E is the Phase 4 resting potential."],"src":"lec"},{"t":"Challenge Yourself · Sampath's Q's","s":"Is it an AP of a slow or a fast fiber?","html":true,"img":"cp-fig1.svg","ns":true,"sampath":1,"c":["Slow fiber, an SA nodal cell","Slow fiber, an AV nodal cell","Fast fiber, a ventricular myocyte","Fast fiber, a motor neuron","Fast fiber, a skeletal muscle cell"],"a":2,"e":"It is a fast fiber: a stable rest near −80 to −90 mV, a steep Phase 0 upstroke, a notch and a long plateau. That is the fast response AP of a ventricular myocyte.","w":["An SA nodal cell has no stable rest and no plateau.","An AV nodal cell has no stable rest and no plateau.","","A neuron AP lasts ~1 ms with no plateau.","A skeletal AP lasts ~10 ms with no plateau."],"src":"lec"},{"t":"Challenge Yourself · Sampath's Q's","s":"What criterion you should use to distinguish between fast and slow fibers?","html":true,"img":"cp-fig1.svg","ns":true,"sampath":1,"c":["The height of the overshoot peak","The ion that carries the Phase 0 upstroke","The number of gap junctions per cell","The value of the K⁺ equilibrium potential","The amount of Ca²⁺ stored in the SR"],"a":1,"e":"Fast = Na⁺ upstroke · Slow = Ca²⁺ upstroke. A steep Na⁺-driven Phase 0 marks a fast fiber; a slow Ca²⁺-driven upstroke marks a slow fiber.","w":["Overshoot height is not the defining criterion.","","Gap junctions are not the criterion used.","EK is similar in both.","SR stores are not the criterion used."],"src":"lec"},{"t":"Challenge Yourself · Sampath's Q's","s":"Explain the function of each ionic current. Know when it is turned on and off.<br><br>Which current is turned on only briefly at the very start of the AP and produces the upstroke?","html":true,"img":"cp-fig2.svg","ns":true,"sampath":1,"c":["INa","ICa","IK1","IK","ITO"],"a":0,"e":"INa is a large, very brief inward spike at time 0 — the fast Na⁺ current of Phase 0. It then turns off as the channels inactivate.","w":["","ICa turns on after the upstroke and lasts through the plateau.","IK1 is the resting current.","IK rises slowly during the plateau.","ITO is a brief outward current right after the upstroke."],"src":"lec"},{"t":"Challenge Yourself · Sampath's Q's","s":"Explain the function of each ionic current. Know when it is turned on and off.<br><br>Which inward current turns on after the upstroke and slowly decays during the plateau?","html":true,"img":"cp-fig2.svg","ns":true,"sampath":1,"c":["INa","ICa","IK1","IK","ITO"],"a":1,"e":"ICa is the L-type Ca²⁺ current: it turns on after Phase 0 and slowly decays through the plateau, triggering SR Ca²⁺ release.","w":["INa lasts only a few ms.","","IK1 is outward and resting.","IK is outward.","ITO is outward and brief."],"src":"lec"},{"t":"Challenge Yourself · Sampath's Q's","s":"Explain the function of each ionic current. Know when it is turned on and off.<br><br>Which current is on at rest, turns off during the plateau, and turns back on at the end of repolarization?","html":true,"img":"cp-fig2.svg","ns":true,"sampath":1,"c":["INa","ICa","IK1","IK","ITO"],"a":2,"e":"IK1, the inward rectifier, holds the resting potential. It shuts off when the cell depolarizes and turns back on during late Phase 3, helping finish repolarization.","w":["INa is off at rest.","ICa is off at rest.","","IK is off at rest and rises during the plateau.","ITO is off at rest."],"src":"lec"},{"t":"Challenge Yourself · Sampath's Q's","s":"Explain the function of each ionic current. Know when it is turned on and off.<br><br>Which outward current slowly increases during the plateau and peaks as Phase 3 begins?","html":true,"img":"cp-fig2.svg","ns":true,"sampath":1,"c":["INa","ICa","IK1","IK","ITO"],"a":3,"e":"IK, the delayed rectifier, slowly builds during the plateau and drives the massive K⁺ efflux of Phase 3, then turns off at rest.","w":["INa is inward and brief.","ICa is inward.","IK1 is off during the plateau.","","ITO is brief and early."],"src":"lec"},{"t":"Challenge Yourself · Sampath's Q's","s":"Explain the function of each ionic current. Know when it is turned on and off.<br><br>Which outward current turns on briefly just after the upstroke and makes the notch?","html":true,"img":"cp-fig2.svg","ns":true,"sampath":1,"c":["INa","ICa","IK1","IK","ITO"],"a":4,"e":"ITO, the transient outward K⁺ current, turns on briefly at the start of the AP and produces the Phase 1 notch, then turns off.","w":["INa is inward.","ICa is inward.","IK1 is off during the AP.","IK is slow, not transient.",""],"src":"lec"},{"t":"Challenge Yourself · Sampath's Q's","s":"Which current can be blocked by local anesthetic antiarrhythmic drugs (i.e., lidocaine)?","html":true,"img":"cp-fig2.svg","ns":true,"sampath":1,"c":["INa","ICa","IK1","IK","ITO"],"a":0,"e":"Lidocaine, a local anesthetic antiarrhythmic, blocks the fast Na⁺ current, INa, which carries the Phase 0 upstroke.","w":["","Ca²⁺ channels are blocked by drugs such as verapamil.","Not the lidocaine target.","Not the lidocaine target.","Not the lidocaine target."],"src":"lec"},{"t":"Challenge Yourself · Sampath's Q's","s":"What are the effects of Ca++ blockers on the heart and blood vessels?","html":true,"img":"cp-fig2.svg","ns":true,"sampath":1,"c":["More force and vasoconstriction","Less force and vasodilation","More force and vasodilation","Less force and vasoconstriction","No change in force or tone"],"a":1,"e":"Ca²⁺ blockers reduce L-type Ca²⁺ influx. In the heart this weakens contraction, since less trigger Ca²⁺ means less SR Ca²⁺ release; they also slow SA and AV nodal cells, whose upstroke is Ca²⁺ carried. In blood vessels they relax smooth muscle, causing vasodilation.","w":["Less Ca²⁺ means less force, and vessels relax.","","Less Ca²⁺ means less, not more, force.","Vascular smooth muscle relaxes.","Both heart and vessels respond."],"src":"lec"},{"t":"Pacemaker Cells, Automaticity & Key Terms","lv":"Easy","s":"According to the lecture notes, which ion is the coupler between the chemical and mechanical processes of the heart?","c":["Calcium","Sodium","Potassium","Chloride","Magnesium"],"a":0,"e":"Lecture note (starred): calcium is the coupler between the chemical (electrical) and mechanical process — Ca²⁺ entry triggers contraction.","w":["","Na⁺ drives the ventricular upstroke, not the coupling.","K⁺ repolarizes the cell.","Not the coupling ion.","Not the coupling ion."],"src":"lec"},{"t":"Pacemaker Cells, Automaticity & Key Terms","lv":"Easy","s":"What does chronotropy refer to?","c":["Force of contraction","Conduction velocity","Heart rate","Relaxation speed","Excitability"],"a":2,"e":"Lecture note: chronotropy → heart beating (rate).","w":["That is inotropy.","That is dromotropy.","","That is lusitropy.","That is bathmotropy."],"src":"lec"},{"t":"Pacemaker Cells, Automaticity & Key Terms","lv":"Easy","s":"A positive inotropic effect means what?","c":["Faster heart rate","Faster AV conduction","Lower contractility","Longer refractory period","More contractility"],"a":4,"e":"Lecture note: positive inotropy → more contractility.","w":["That is positive chronotropy.","That is positive dromotropy.","That is negative inotropy.","Not inotropy.",""],"src":"lec"},{"t":"Pacemaker Cells, Automaticity & Key Terms","lv":"Easy","s":"Phase 4 of the cardiac action potential is also known as what in pacemaker cells?","c":["The pacemaker potential","The Phase 2 plateau","The Phase 0 upstroke","The Phase 1 notch","The overshoot above zero"],"a":0,"e":"Lecture notes: Phase 4 → resting membrane potential in working cells; in nodal cells Phase 4 is the pacemaker potential (prepotential).","w":["","The plateau is Phase 2 of ventricular cells.","The upstroke is Phase 0.","The notch is Phase 1.","The overshoot is the part above 0 mV."],"src":"lec"},{"t":"Pacemaker Cells, Automaticity & Key Terms","lv":"Easy","s":"What is the function of pacemaker/conducting cells?","c":["Force production for ejection","Holding a stable −90 mV rest","Producing a long Phase 2 plateau","Automaticity and fast conduction","Storing Ca²⁺ in the SR for release"],"a":3,"e":"Managers: SA node, AV node, His, Purkinje. Function: automaticity (self-excitation) and rapid impulse conduction.","w":["That is the role of contractile workers.","That is ventricular myocytes.","Nodal cells have no plateau.","","Not the defining function."],"src":"lec"},{"t":"Pacemaker Cells, Automaticity & Key Terms","lv":"Easy","s":"Automaticity is best defined as what?","c":["Need for an external stimulus","A long refractory period","Fast Na⁺ conduction","Self-excitation","Force generation"],"a":3,"e":"Automaticity = self-excitation: a self-generated, unstable Phase 4, no external stimulus required. Only the slow ones fire on their own.","w":["That is the opposite.","Not automaticity.","Not automaticity.","","Not automaticity."],"src":"lec"},{"t":"Slow vs Fast Response APs","lv":"Easy","s":"Which cells fire a slow response action potential?","c":["Ventricular myocytes","Atrial myocytes","Purkinje fibers","Skeletal muscle fibers","SA and AV nodal cells"],"a":4,"e":"Fast response: ventricular myocardium. Slow response: SA/AV node.","w":["They fire fast response APs.","They fire fast response APs.","They fire fast response APs.","Not cardiac slow response cells.",""],"src":"lec"},{"t":"Slow vs Fast Response APs","lv":"Easy","s":"According to the starred lecture notes, Phase 0 in the SA node is due to which ion?","c":["Na⁺","K⁺","Ca²⁺","Cl⁻","Mg²⁺"],"a":2,"e":"Starred notes: Phase 0 in ventricular contraction is due to Na⁺; Phase 0 in the SA node is due to Ca²⁺.","w":["Na⁺ drives Phase 0 in ventricular cells.","K⁺ repolarizes.","","Not the upstroke ion.","Not the upstroke ion."],"src":"lec"},{"t":"Slow vs Fast Response APs","lv":"Easy","s":"According to the starred lecture notes, Phase 0 in ventricular cells is due to which ion?","c":["Ca²⁺","K⁺","Cl⁻","HCO3⁻","Na⁺"],"a":4,"e":"Phase 0 in ventricular contraction → Na⁺. Phase 0 in the SA node → Ca²⁺.","w":["Ca²⁺ drives the nodal upstroke.","K⁺ repolarizes.","Not the upstroke ion.","Not the upstroke ion.",""],"src":"lec"},{"t":"Slow vs Fast Response APs","lv":"Easy","s":"How many phases does the SA node action potential have?","c":["5","4","2","3","1"],"a":3,"e":"SA node AP: 3 phases (0, 3, 4); Phases 1 and 2 are absent.","w":["5 is the ventricular count, including rest.","The SA node lacks Phases 1 and 2.","Phases 0, 3 and 4 are present.","","Phases 0, 3 and 4 are present."],"src":"lec"},{"t":"Slow vs Fast Response APs","lv":"Easy","s":"About how high is the overshoot of the SA node action potential?","c":["Up to +50 mV","Up to +30 mV","Up to +10 mV","Up to −20 mV","Up to +100 mV"],"a":2,"e":"Overshoot is up to +10 mV and the spike is absent → AP amplitude is less than in contractile cells.","w":["Too high for a nodal AP.","Closer to the ventricular peak.","","The nodal AP does cross 0 mV.","Far too high."],"src":"lec"},{"t":"Slow vs Fast Response APs","lv":"Easy","s":"How does the slope of Phase 0 in the SA node compare with ventricular cells?","c":["Steeper","The same","Vertical, near-instant","Downward sloping","Less steep"],"a":4,"e":"The slope of Phase 0 (dV/dt) in nodal cells is less steep than in contractile cells.","w":["The Ca²⁺ upstroke is slower.","It is less steep.","That describes the Na⁺ upstroke.","Phase 0 depolarizes, so it rises.",""],"src":"lec"},{"t":"Slow vs Fast Response APs","lv":"Easy","s":"Which feature belongs to the working myocardium AP rather than the SA node AP?","c":["Spontaneous Phase 4 depolarization","A long plateau of 150–300 ms","An overshoot of only +10 mV","A less steep Phase 0","Only three phases"],"a":1,"e":"Working myocardium: 4 phases (5 including RMP), plateau, long duration (150–300 ms), stable RMP.","w":["That is the SA node.","","That is the SA node.","That is the SA node.","That is the SA node."],"src":"lec"},{"t":"Phase 4 · Pacemaker Potential","lv":"Easy","s":"Which current causes the slow spontaneous depolarization of Phase 4?","c":["The L-type Ca²⁺ current","The delayed-rectifier K⁺ current","The funny current, If","The fast Na⁺ current","The inward-rectifier K⁺ current"],"a":2,"e":"Phase 4: slow spontaneous depolarization due to If, the funny current (inward Na⁺).","w":["L-type channels open at threshold, for Phase 0.","IK repolarizes in Phase 3.","","Not active in nodal cells.","IK1 holds ventricular rest."],"src":"lec"},{"t":"Phase 4 · Pacemaker Potential","lv":"Easy","s":"The funny current is carried by which channels?","c":["L-type Ca²⁺ channels","T-type Ca²⁺ channels","Delayed-rectifier K⁺ channels","HCN channels","Fast voltage-gated Na⁺ channels"],"a":3,"e":"Lecture notes: funny sodium channels open at repolarization (HCN channels).","w":["These carry the nodal upstroke.","These add Ca²⁺ late in Phase 4.","These repolarize.","","These are inactivated in nodal cells."],"src":"lec"},{"t":"Phase 4 · Pacemaker Potential","lv":"Easy","s":"What turns on the funny current?","c":["Depolarization to threshold","Hyperpolarization","Ca²⁺ release from the SR","Reaching +10 mV","Stretch of the atrium"],"a":1,"e":"These inward currents are turned on by repolarization (hyperpolarization) from the preceding AP — the \"funny\" response.","w":["That opens L-type channels.","","Not the trigger.","Not the trigger.","Not the trigger."],"src":"lec"},{"t":"Phase 4 · Pacemaker Potential","lv":"Easy","s":"What does the \"T\" in T-type Ca²⁺ channel stand for?","c":["Threshold","Tonic","Trigger","Transient","Tubular"],"a":3,"e":"T-type = transient Ca²⁺ channels; L-type = long-lasting.","w":["Not what T stands for.","Not what T stands for.","Not what T stands for.","","Not what T stands for."],"src":"lec"},{"t":"Phase 4 · Pacemaker Potential","lv":"Easy","s":"What does the \"L\" in L-type Ca²⁺ channel stand for?","c":["Low-threshold","Late-opening","Ligand-gated","Long-lasting","Leak channel"],"a":3,"e":"ICa-L = long-lasting current; do not confuse with ICa-T (transient).","w":["Not what L stands for.","Not what L stands for.","Not what L stands for.","","Not what L stands for."],"src":"lec"},{"t":"Phase 4 · Pacemaker Potential","lv":"Easy","s":"At about what membrane potential does the T-type Ca²⁺ current become increasingly activated?","c":["−90 mV","−40 mV","0 mV","+10 mV","−55 mV"],"a":4,"e":"ICa-T becomes increasingly activated when membrane potential reaches about −55 mV (shown as −50 mV on the automaticity slide).","w":["−90 mV is ventricular rest.","−40 mV is the nodal threshold.","The peak of the nodal AP.","The nodal overshoot.",""],"src":"lec"},{"t":"Phase 4 · Pacemaker Potential","lv":"Easy","s":"What is the threshold potential of the SA node?","c":["About −40 mV","About −65 mV","About −90 mV","About −60 mV","About 0 mV"],"a":0,"e":"Phase 0: L-type Ca²⁺ upstroke through threshold (≈ −40 mV).","w":["","That is the ventricular threshold.","That is ventricular rest.","That is where funny channels open.","That is the peak."],"src":"lec"},{"t":"Phase 4 · Pacemaker Potential","lv":"Easy","s":"Put the Phase 4 events of a pacemaker cell in order.","c":["T-type opens → If opens → drift → threshold","Threshold → If opens → T-type opens → drift","If opens → T-type opens → threshold → drift","If opens → drift → T-type opens → threshold","Drift → threshold → If opens → T-type opens"],"a":3,"e":"−60 mV funny channels open → spontaneous depolarization → −50 mV T-type Ca²⁺ open → −40 mV threshold, L-type fires.","w":["If opens first, at −60 mV.","Threshold comes last.","The drift precedes T-type opening.","","If starts the drift."],"src":"lec"},{"t":"Phase 4 · Pacemaker Potential","lv":"Easy","s":"According to the lecture notes, what are the three reasons Phase 4 is unstable?","c":["IK1, If and L-type Ca²⁺ current","K⁺ decay, If and T-type Ca²⁺","Fast Na⁺, If and delayed-rectifier IK","L-type Ca²⁺, IK and the transient Ito","K⁺ decay, IK1 and the transient Ito"],"a":1,"e":"Lecture notes: 3 reasons for unstable repolarization (Phase 4): 1) K⁺ decay, 2) If, 3) T-type Ca²⁺ channels.","w":["IK1 is not a nodal Phase 4 reason.","","Not the three listed.","Not the three listed.","If and T-type are the others."],"src":"lec"},{"t":"Phase 4 · Pacemaker Potential","lv":"Easy","s":"What is meant by \"potassium decay\" in Phase 4 of the SA node?","c":["K⁺ channels shut after repolarizing","K⁺ channels open more and more widely","Extracellular K⁺ is gradually lost","K⁺ is pumped into the cell faster","IK1 holds the cell at −90 mV"],"a":0,"e":"Lecture notes (starred): K⁺ channels shut immediately — potassium decay — so less K⁺ efflux and the membrane drifts upward.","w":["","They close, which lets the cell drift up.","Not the meaning.","Not the meaning.","Nodal cells lack this hold."],"src":"lec"},{"t":"Phase 4 · Pacemaker Potential","lv":"Easy","s":"Which statement about Phase 4 in nodal cells is true?","c":["It is a stable rest at about −90 mV","It is held steady by the IK1 current","There is no true resting potential","It contains a Phase 2-like plateau","It needs an external stimulus to fire"],"a":2,"e":"No Phase 1 or 2 and no true resting potential in nodal cells.","w":["That is ventricular Phase 4.","That is ventricular Phase 4.","","Plateaus are Phase 2 in ventricles.","Nodal cells fire on their own."],"src":"lec"},{"t":"Phase 0 · L-type Ca²⁺ Upstroke","lv":"Easy","s":"Which channels open to produce Phase 0 of the SA node action potential?","c":["T-type Ca²⁺ channels","Fast voltage-gated Na⁺ channels","L-type Ca²⁺ channels","HCN funny channels","Delayed-rectifier K⁺ channels"],"a":2,"e":"Phase 0: prepotential reaches threshold → ↑ inward ICa-L, long-lasting current.","w":["These act late in Phase 4.","Inactivated in nodal cells.","","These drive Phase 4.","These repolarize."],"src":"lec"},{"t":"Phase 0 · L-type Ca²⁺ Upstroke","lv":"Easy","s":"Verapamil blocks which nodal current?","c":["ICa-L","ICa-T","If","IK","INa"],"a":0,"e":"Calcium channel blockers (verapamil) block ICa-L but do not block the transient ICa-T current.","w":["","Ca²⁺ channel blockers do not block the transient current.","Not blocked by verapamil.","Not blocked by verapamil.","Not blocked by verapamil."],"src":"lec"},{"t":"Phase 0 · L-type Ca²⁺ Upstroke","lv":"Easy","s":"According to the lecture notes, where does depolarization in the SA node stop?","c":["Around +30 mV","Around −40 mV","Around −60 mV","Around +60 mV","Around 0 mV"],"a":4,"e":"Lecture notes: depolarization in the SA node stops at around 0 mV (overshoot up to about +10 mV).","w":["Closer to the ventricular peak.","That is threshold.","That is the reset point.","Far too high.",""],"src":"lec"},{"t":"Phase 0 · L-type Ca²⁺ Upstroke","lv":"Easy","s":"Which nodal phases are absent?","c":["Phases 0 and 3","Phase 4 only","Phase 3 only","Phases 1 and 2","Phase 0 only"],"a":3,"e":"Phases 1 and 2 are absent in nodal cells — there is no plateau.","w":["These are present.","Phase 4 is the pacemaker potential.","Phase 3 is repolarization.","","Phase 0 is the Ca²⁺ upstroke."],"src":"lec"},{"t":"Phase 3 · Nodal Repolarization","lv":"Easy","s":"Which current repolarizes the SA node in Phase 3?","c":["IK, outward K⁺","If, inward Na⁺","ICa-L, inward Ca²⁺","ICa-T, inward Ca²⁺","IK1, inward rectifier"],"a":0,"e":"Phase 3: ↑ K⁺ permeability → ↑ IK current out of the cell (similar to the contractile cells).","w":["","If drives Phase 4.","ICa-L drives Phase 0.","ICa-T acts in Phase 4.","Not the nodal Phase 3 current."],"src":"lec"},{"t":"Phase 3 · Nodal Repolarization","lv":"Easy","s":"To about what voltage does the SA node repolarize, where the cycle restarts?","c":["About −60 mV","About −90 mV","About −40 mV","About 0 mV","About −80 mV"],"a":0,"e":"Phase 3: delayed-rectifier K⁺ repolarizes to ≈ −60 mV — the reset point, the cycle restarts.","w":["","That is ventricular rest.","That is threshold.","That is the peak.","Below the nodal reset point."],"src":"lec"},{"t":"Phase 3 · Nodal Repolarization","lv":"Easy","s":"Which two events cause Phase 3 in the SA node?","c":["Na⁺ channels open; Ca²⁺ channels close","Funny channels open; K⁺ channels close","Ca²⁺ channels close; K⁺ efflux rises","T-type channels open; L-type channels close","Ca²⁺ influx rises; K⁺ efflux falls"],"a":2,"e":"Phase 3: inactivation of Ca²⁺ channels and increased activation of K⁺ channels, which leads to increased K⁺ efflux.","w":["Not the nodal Phase 3 events.","These start Phase 4.","","Not Phase 3.","That would depolarize."],"src":"lec"},{"t":"Pacemaker Hierarchy & Overdrive Suppression","lv":"Easy","s":"Which structure is the first-order, dominant pacemaker of the heart?","c":["AV node","SA node","Bundle of His","Purkinje fibers","Atrial myocardium"],"a":1,"e":"SA node = first-order (dominant) pacemaker; AV node second; His and bundle branches third; Purkinje fourth.","w":["The AV node is the second-order pacemaker.","","Third-order pacemaker.","Fourth-order pacemaker.","Not a pacemaker."],"src":"lec"},{"t":"Pacemaker Hierarchy & Overdrive Suppression","lv":"Easy","s":"Rank the pacemaker hierarchy by intrinsic rate.","c":["AV > SA > His-Purkinje","SA > AV > His-Purkinje","His-Purkinje > AV > SA","SA > His-Purkinje > AV","AV > His-Purkinje > SA"],"a":1,"e":"Pacemaker hierarchy by intrinsic rate: SA > AV > His-Purkinje.","w":["The SA node is fastest.","","This is reversed.","The AV node is faster than His-Purkinje.","The SA node is fastest."],"src":"lec"},{"t":"Pacemaker Hierarchy & Overdrive Suppression","lv":"Easy","s":"What is the intrinsic rate of the SA node?","c":["40–50 /min","30–40 /min","100–120 /min","10–20 /min","60–80 /min"],"a":4,"e":"SA node: 60–80/min, the fastest intrinsic rate.","w":["That is the AV node.","That is His/Purkinje.","Not the intrinsic rate given.","Too slow.",""],"src":"lec"},{"t":"Pacemaker Hierarchy & Overdrive Suppression","lv":"Easy","s":"What is the intrinsic rate of the AV node?","c":["40–50 /min","60–80 /min","30–40 /min","80–100 /min","15–20 /min"],"a":0,"e":"AV node: 40–50/min, with the slowest conduction.","w":["","That is the SA node.","That is His/Purkinje.","Not given.","Too slow."],"src":"lec"},{"t":"Pacemaker Hierarchy & Overdrive Suppression","lv":"Easy","s":"What is the intrinsic rate of the His–Purkinje system?","c":["60–80 /min","30–40 /min","40–50 /min","70–90 /min","5–10 /min"],"a":1,"e":"His/Purkinje: 30–40/min, with the fastest conduction.","w":["That is the SA node.","","That is the AV node.","Not given.","Too slow."],"src":"lec"},{"t":"Pacemaker Hierarchy & Overdrive Suppression","lv":"Easy","s":"Where is the crucial delay in conduction?","c":["SA node","AV node","Bundle of His","Purkinje fibers","Atrial muscle"],"a":1,"e":"AV node: second-order pacemaker, conduction of impulses with a delay — the crucial delay. Path: SA → atria → AV node (delay) → His → Purkinje → ventricles.","w":["The SA node starts the impulse.","","Conducts fast.","Fastest conduction.","Not the crucial delay."],"src":"lec"},{"t":"Pacemaker Hierarchy & Overdrive Suppression","lv":"Easy","s":"Which part of the conduction system conducts fastest?","c":["AV node","His–Purkinje","SA node","Atrial muscle","Ventricular muscle"],"a":1,"e":"His/Purkinje: fastest conduction. AV node: slowest conduction.","w":["Slowest conduction.","","Not the fastest conductor.","Not the fastest.","Not the fastest."],"src":"lec"},{"t":"Pacemaker Hierarchy & Overdrive Suppression","lv":"Easy","s":"Why does the SA node control heart rhythm over the other pacemakers?","c":["It has the largest plateau","It uses fast Na⁺ channels","Overdrive suppression","It conducts the fastest","It has the most negative rest"],"a":2,"e":"The SA node dominates rhythm by overdrive suppression: as the fastest pacemaker, it fires the slower ones before they reach threshold on their own.","w":["It has no plateau.","It uses Ca²⁺.","","His-Purkinje conducts fastest.","Its Phase 4 is less negative."],"src":"lec"},{"t":"Pacemaker Cells, Automaticity & Key Terms","lv":"Hard","s":"Which statement best explains where automaticity \"lives\" in a pacemaker cell?","c":["In its Phase 2 plateau","In its Phase 1 notch","In its unstable Phase 4","In its fast Na⁺ upstroke","In its stable resting potential"],"a":2,"e":"Automaticity = a self-generated, unstable Phase 4 — no external stimulus required.","w":["Nodal cells have no plateau.","Nodal cells have no Phase 1.","","Nodal cells have no fast Na⁺ upstroke.","Nodal cells have no stable rest."],"src":"lec"},{"t":"Slow vs Fast Response APs","lv":"Hard","s":"Why is the Phase 4 membrane of the SA node described as unstable?","c":["It is more negative than −90 mV","It is held steady by the IK1 current","It contains a long Phase 2 plateau","It needs a neighbour to depolarize it","It is less negative and drifts up"],"a":4,"e":"SA node: the plasma membrane in Phase 4 is less negatively charged and is not stable — spontaneous depolarization.","w":["It is less negative.","IK1 holds ventricular rest.","There is no plateau.","Nodal cells fire on their own.",""],"src":"lec"},{"t":"Slow vs Fast Response APs","lv":"Hard","s":"Why do nodal cells conduct the impulse more slowly than ventricular cells?","c":["Their Phase 2 plateau is much longer","Their rest is more negative than −90 mV","They lack all K⁺ channels","Their upstroke is slow Ca²⁺ influx","Their Na⁺ upstroke is much steeper"],"a":3,"e":"Fast Na⁺ channels are inactivated in nodal cells. Slow Ca²⁺ influx → slower conduction between atria and ventricles.","w":["Nodal cells have no plateau.","Nodal Phase 4 is less negative.","They repolarize through K⁺ channels.","","They have no fast Na⁺ upstroke."],"src":"lec"},{"t":"Phase 4 · Pacemaker Potential","lv":"Hard","s":"Early in Phase 4, which permeability changes start the pacemaker potential?","c":["↑ PCa through L, ↓ PCa through T","↑ PNa through f, ↓ PK","↑ PK, ↓ PCa through L","↑ PCa through T, ↓ PNa through f","↑ PNa through fast channels"],"a":1,"e":"Figure: ↑PNa⁺ (f) and ↓PK⁺ start the drift; then ↑PCa²⁺ (T), ↓PNa⁺ (f); at threshold ↑PCa²⁺ (L), ↓PCa²⁺ (T); at the peak ↑PK⁺, ↓PCa²⁺ (L).","w":["This happens at threshold.","","This happens at the peak.","This happens later in Phase 4.","Fast Na⁺ channels are inactivated."],"src":"lec"},{"t":"Phase 4 · Pacemaker Potential","lv":"Hard","s":"At the threshold of a pacemaker cell, which pair of permeability changes occurs?","c":["↑ PNa through f, ↓ PK through K⁺","↑ PK through K⁺, ↓ PCa through L","↑ PCa through T, ↓ PNa through f","↑ PCa through L, ↓ PCa through T","↑ PK through K1, ↓ PNa through f"],"a":3,"e":"At threshold (−40 mV): ↑PCa²⁺ (L), ↓PCa²⁺ (T) → Phase 0 upstroke.","w":["This starts Phase 4.","This is at the peak.","This is late Phase 4.","","Not shown."],"src":"lec"},{"t":"Phase 4 · Pacemaker Potential","lv":"Hard","s":"Why is the funny current called \"funny\"?","c":["It carries only Ca²⁺","It is found only in ventricular cells","It is turned on by hyperpolarization","It is turned on by depolarization","It is blocked by verapamil"],"a":2,"e":"Funny: inward currents turned on by repolarization (hyperpolarization) from the preceding AP — the opposite of most channels.","w":["It is an inward Na⁺ (Na⁺/K⁺) current.","It is a nodal current.","","Most channels open with depolarization; this one opens with repolarization.","Verapamil blocks ICa-L."],"src":"lec"},{"t":"Phase 4 · Pacemaker Potential","lv":"Hard","s":"The funny current carries mainly which ion into the cell?","c":["Na⁺","Ca²⁺","Cl⁻","K⁺ only","Mg²⁺"],"a":0,"e":"Opening of Na⁺ channels → inward Na⁺ current, If (slow inward Na⁺/K⁺ current).","w":["","Ca²⁺ enters through T and L channels.","Not the If ion.","It is mainly Na⁺, with some K⁺.","Not the If ion."],"src":"lec"},{"t":"Phase 0 · L-type Ca²⁺ Upstroke","lv":"Hard","s":"According to the lecture notes, which tissue do calcium channel blockers affect more?","c":["SA node more than ventricles","Ventricles more than the SA node","Both exactly equally","Skeletal muscle most","Purkinje fibers most"],"a":0,"e":"Lecture notes: calcium channel blockers affect the SA node more than ventricular contraction, because nodal Phase 0 is Ca²⁺-dependent.","w":["","The SA node depends on Ca²⁺ for its upstroke.","The notes say SA node more.","Not in the notes.","Purkinje uses a Na⁺ upstroke."],"src":"lec"},{"t":"Phase 0 · L-type Ca²⁺ Upstroke","lv":"Hard","s":"Why are fast Na⁺ channels unavailable in nodal cells?","c":["Inactivated at nodal voltages","Nodal cells have no Na⁺ gradient","Verapamil keeps them blocked","They open only at −120 mV and below","The funny current blocks their pore"],"a":0,"e":"Fast Na⁺ channels are inactivated in nodal cells, so the upstroke depends on slow Ca²⁺ influx.","w":["","The gradient is normal.","Verapamil blocks ICa-L.","Not the reason.","Not the reason."],"src":"lec"},{"t":"Phase 0 · L-type Ca²⁺ Upstroke","lv":"Hard","s":"A patient on verapamil still shows a pacemaker drift in Phase 4. Why?","c":["Verapamil opens T-type channels","ICa-T and If are not blocked","Verapamil blocks IK only","Verapamil increases If","Phase 4 uses L-type channels"],"a":1,"e":"Calcium channel blockers block ICa-L but do not block transient ICa-T, and If is unaffected, so the drift continues.","w":["It neither opens nor blocks them.","","It blocks ICa-L.","Not its action.","Phase 4 uses If and ICa-T."],"src":"lec"},{"t":"Phase 3 · Nodal Repolarization","lv":"Hard","s":"How does the end of Phase 3 set up the next Phase 4?","c":["Repolarization opens L-type channels","Repolarization opens fast Na⁺ channels","K⁺ channels stay fully open","Repolarization opens HCN channels","It produces a plateau"],"a":3,"e":"Lecture notes: the repolarization current opens the funny sodium (HCN) channels, and K⁺ channels shut, so Phase 4 begins again.","w":["L-type opens at threshold.","These stay inactivated.","They shut — potassium decay.","","There is no plateau."],"src":"lec"},{"t":"Pacemaker Hierarchy & Overdrive Suppression","lv":"Hard","s":"If the SA node fails, which tissue sets the heart rate and at roughly what rate?","c":["Purkinje fibers, about 30–40 /min","Bundle of His, about 60–80 /min","AV node, about 40–50 /min","Atrial muscle, about 70 /min","Ventricles, about 70 /min"],"a":2,"e":"SA node \"derailed\": the next fastest autorhythmic tissue, the AV node, sets the heart rate (50 mph in the train analogy; 40–50/min).","w":["The AV node is next in line.","His is third-order and slower.","","Atrial muscle is not a pacemaker.","Not the escape rate."],"src":"lec"},{"t":"Pacemaker Hierarchy & Overdrive Suppression","lv":"Hard","s":"If the AV node fails while the SA node still works, what happens to the ventricles?","c":["SA node still drives them at 70 /min","Purkinje drives them at 30–40 /min","They stop beating entirely and stay still","The AV node still drives them at 50 /min","The atria drive them at about 50 /min"],"a":1,"e":"AV node \"derailed\": the SA node still drives the atria at 70, but the ventricles follow the Purkinje fibers at 30.","w":["The impulse cannot pass the AV node.","","Purkinje fibers take over.","The AV node has failed.","The atria cannot pass the AV node."],"src":"lec"},{"t":"Pacemaker Hierarchy & Overdrive Suppression","lv":"Hard","s":"In the train analogy, why does the whole heart beat at 70 when every pacemaker is working?","c":["The slowest pacemaker sets the rate","The average of all rates is used","The Purkinje rate is used","The AV rate is used","The fastest pacemaker sets the rate"],"a":4,"e":"Normal pacemaker activity: the whole train goes 70 mph — heart rate is set by the SA node, the fastest autorhythmic tissue.","w":["The fastest one wins.","The fastest one wins.","Purkinje is slowest.","The AV node is second.",""],"src":"lec"},{"t":"Challenge · Pacemaker Currents","s":"Which current/currents depolarize the membrane of pacemaker cells?","img":"cp-fig3.svg","ns":true,"sampath":1,"c":["If, ICa-T and ICa-L","If only","INa and ICa-L","IK and If","ICa-L only"],"a":0,"e":"Phase 4 is depolarized by If (funny Na⁺) and ICa-T (transient Ca²⁺); Phase 0 by ICa-L (long-lasting Ca²⁺). IK repolarizes in Phase 3.","w":["","If starts the drift, but ICa-T and ICa-L also depolarize.","Fast INa is inactivated in nodal cells.","IK is an outward, repolarizing current.","ICa-L drives Phase 0, but Phase 4 depolarization comes from If and ICa-T."],"src":"lec"},{"t":"Challenge · Pacemaker Currents","s":"Current? — the arrow on Phase 4","img":"cp-fig3.svg","ns":true,"sampath":1,"c":["If and ICa-T","ICa-L","IK","Fast INa","IK1"],"a":0,"e":"Phase 4: the funny current If, then the T-type transient Ca²⁺ current near −55 mV.","w":["","ICa-L opens at threshold for Phase 0.","IK repolarizes in Phase 3.","Fast Na⁺ channels are inactivated in nodal cells.","IK1 holds ventricular rest."],"src":"lec"},{"t":"Challenge · Pacemaker Currents","s":"Current? — the arrow on Phase 0","img":"cp-fig3.svg","ns":true,"sampath":1,"c":["If","ICa-T","ICa-L","IK","Fast INa"],"a":2,"e":"Phase 0: at threshold (≈ −40 mV), the long-lasting L-type Ca²⁺ current gives the upstroke.","w":["If acts in Phase 4.","ICa-T acts late in Phase 4.","","IK repolarizes.","Fast Na⁺ channels are inactivated in nodal cells."],"src":"lec"},{"t":"Challenge · Pacemaker Currents","s":"Current? — the arrow on Phase 3","img":"cp-fig3.svg","ns":true,"sampath":1,"c":["If","ICa-T","ICa-L","IK","INa"],"a":3,"e":"Phase 3: Ca²⁺ channels inactivate and the delayed-rectifier K⁺ current IK repolarizes the cell to about −60 mV.","w":["If is inward and acts in Phase 4.","ICa-T is inward and acts in Phase 4.","ICa-L inactivates in Phase 3.","","Not active in nodal cells."],"src":"lec"}];
+// CRS Physiology — Dr. Sampath V. lecture slides. Reworked set: fewer, multi-concept, high-yield questions; lv = Easy/Hard; sampath = Challenge Yourself questions from the slides, word for word
+window.CRS_PH_TOPICS = ["Big Picture & Cardiac Cell Types", "Conduction System Anatomy", "Fast vs Slow Response", "Phase 0 & Na⁺ Channel Gates", "Phase 1 · The Notch", "Phase 2 · Plateau & E–C Coupling", "Phases 3 & 4 · Reset and Rest", "Refractory Periods", "Na⁺ Channel States", "Why the AP & Refractory Period Are Long", "Challenge Yourself · Sampath's Q's", "Pacemaker Cells, Automaticity & Key Terms", "Slow vs Fast Response APs", "Phase 4 · Pacemaker Potential", "Phase 0 · L-type Ca²⁺ Upstroke", "Phase 3 · Nodal Repolarization", "Pacemaker Hierarchy & Overdrive Suppression", "Challenge · Pacemaker Currents"];
+window.CRS_PH_QUESTIONS = [
+{
+"t": "Big Picture & Cardiac Cell Types",
+"lv": "Easy",
+"s": "Which pairing of cardiac cell type with its job and AP type is correct?",
+"c": [
+"Ventricular myocyte: automaticity, slow response; SA node: force, fast response",
+"Purkinje fiber: force production, slow response",
+"AV node: force production, fast response",
+"Atrial myocyte: automaticity, slow response",
+"Myocyte: force, fast response; SA node: rhythm, slow"
+],
+"a": 4,
+"e": "Two archetypes: contractile myocytes (\"workers\": atrial and ventricular) produce force, have fast-response APs and are joined by gap junctions into a functional syncytium. Pacemaker/conducting cells (\"managers\": SA node, AV node, His, Purkinje) provide automaticity and conduction; the SA and AV nodes have slow-response APs.",
+"w": [
+"The roles and AP types are swapped.",
+"Purkinje fibers conduct rapidly; they are not the force producers.",
+"The AV node is a slow-response pacemaker/conducting cell.",
+"Atrial myocytes are contractile, fast-response cells.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Big Picture & Cardiac Cell Types",
+"lv": "Easy",
+"s": "Why does the ventricle contract as a single unit?",
+"c": [
+"Every myocyte receives its own nerve fiber",
+"Gap junctions in intercalated discs pass current",
+"Each myocyte depolarizes on its own at the same time",
+"The fibrous skeleton conducts the impulse through the ventricle",
+"Calcium diffuses from cell to cell through desmosomes"
+],
+"a": 1,
+"e": "Gap junctions in the intercalated discs electrically couple myocytes, so depolarization spreads cell to cell and the myocardium behaves as a functional syncytium, contracting as one unit.",
+"w": [
+"Cardiac muscle is not individually innervated like skeletal muscle.",
+"",
+"Working myocytes have no automaticity.",
+"The fibrous skeleton insulates; it does not conduct.",
+"Desmosomes give mechanical strength; gap junctions pass current."
+],
+"src": "lec"
+},
+{
+"t": "Big Picture & Cardiac Cell Types",
+"lv": "Easy",
+"s": "The heart's two electrical jobs are generating a rhythm and coordinating contraction. Which pairing is correct?",
+"c": [
+"Rhythm: ventricular myocytes; coordination: fibrous skeleton",
+"Rhythm: Purkinje fibers only; coordination: gap junctions alone",
+"Rhythm: autonomic nerves; coordination: the SR",
+"Rhythm: pacemaker cells; coordination: conduction system",
+"Rhythm: AV node; coordination: ventricles before atria"
+],
+"a": 3,
+"e": "Electrical activity dictates mechanical function. Job 1, generate a rhythm: pacemaker cells. Job 2, coordinate contraction: the conduction system makes the atria contract before the ventricles. Arrhythmias are diseases of this system.",
+"w": [
+"Myocytes cannot generate a rhythm, and the skeleton insulates.",
+"The SA node normally sets the rhythm.",
+"Nerves modify rate but do not generate the rhythm.",
+"",
+"The SA node leads, and atria contract first."
+],
+"src": "lec"
+},
+{
+"t": "Conduction System Anatomy",
+"lv": "Easy",
+"s": "What is the only muscular electrical connection between the atria and the ventricles?",
+"c": [
+"The coronary sinus",
+"The AV bundle of His",
+"The internodal pathways",
+"The cardiac fibrous skeleton",
+"The right bundle branch"
+],
+"a": 1,
+"e": "The AV bundle of His is the only muscular connection between atria and ventricles; the cardiac fibrous skeleton insulates everywhere else. That forces every impulse through the AV node and His bundle.",
+"w": [
+"The coronary sinus is a vein.",
+"",
+"These run within the atria.",
+"It insulates the atria from the ventricles.",
+"Bundle branches are within the ventricles, below the His bundle."
+],
+"src": "lec"
+},
+{
+"t": "Conduction System Anatomy",
+"lv": "Hard",
+"s": "A surgeon is working near the opening of the coronary sinus in the interatrial septum. Damage here would most directly disrupt which function?",
+"c": [
+"The SA node's role as the heart's primary pacemaker",
+"Fast conduction down the interventricular septum",
+"Excitation of the papillary muscles by Purkinje fibers",
+"Insulation of the atria from the ventricles",
+"The AV delay that lets atria contract first"
+],
+"a": 4,
+"e": "The AV node sits in the interatrial septum, anterior to the opening of the coronary sinus. It has the slowest conduction, creating the crucial delay so the atria finish contracting before the ventricles. Path: SA node (right atrium, below SVC opening) → internodal pathways → AV node → His (septum) → bundle branches → Purkinje.",
+"w": [
+"The SA node lies in the right atrial wall below the SVC opening.",
+"That is the bundle of His and bundle branches.",
+"Purkinje fibers are in the ventricular walls.",
+"The fibrous skeleton does that, not the AV node.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Fast vs Slow Response",
+"lv": "Easy",
+"s": "Which feature belongs only to slow-response cells?",
+"c": [
+"Automaticity from phase 4",
+"A plateau phase",
+"A stable resting potential near −90 mV",
+"A Na⁺-driven upstroke",
+"Fast conduction"
+],
+"a": 0,
+"e": "Slow-response (SA/AV node): unstable phase 4 → automaticity, Ca²⁺ upstroke, no plateau, slow conduction. Fast-response cells have a stable −90 mV rest and need an external stimulus.",
+"w": [
+"",
+"Plateaus belong to fast-response cells.",
+"That is the fast-response cell.",
+"Slow-response upstrokes are Ca²⁺-driven.",
+"Slow-response cells conduct slowly."
+],
+"src": "lec"
+},
+{
+"t": "Fast vs Slow Response",
+"lv": "Hard",
+"s": "Two recordings are compared. Cell X rests at −90 mV, has a steep Na⁺ upstroke and a plateau. Cell Y has no stable rest, a slow Ca²⁺ upstroke and no plateau. Which statement is correct?",
+"c": [
+"X has automaticity and conducts slowly; Y needs an outside stimulus",
+"Y has automaticity and conducts slowly; X does not",
+"Both fire on their own, but Y is faster",
+"X is an SA node cell and Y is a Purkinje fiber",
+"Y conducts fastest because its upstroke uses Ca²⁺"
+],
+"a": 1,
+"e": "Fast response (ventricular myocyte, X): stable rest ≈ −90 mV, Na⁺ upstroke, plateau, no automaticity. Slow response (SA/AV node, Y): unstable rest, Ca²⁺ upstroke (L-type), no plateau, automaticity driven by phase 4. A steep phase 0 means fast conduction; a shallow one means slow conduction. Memory hook: Fast = Na⁺ · Slow = Ca²⁺ · only the slow ones fire on their own.",
+"w": [
+"The fast-response cell X has no automaticity.",
+"",
+"Only slow-response cells fire on their own, and they conduct slowly.",
+"X is a working myocyte; Y is an SA or AV nodal cell.",
+"A shallow Ca²⁺ upstroke conducts slowly."
+],
+"src": "lec"
+},
+{
+"t": "Phase 0 & Na⁺ Channel Gates",
+"lv": "Easy",
+"s": "A ventricular myocyte is depolarized by its neighbour to about −65 mV. What happens next?",
+"c": [
+"L-type Ca²⁺ channels open and drive the upstroke",
+"Inward-rectifier K⁺ channels open to start the plateau",
+"Fast Na⁺ channels open and Na⁺ rushes in",
+"Transient K⁺ channels open, causing the upstroke",
+"Funny current HCN channels open"
+],
+"a": 2,
+"e": "Threshold ≈ −65 mV: fast voltage-gated Na⁺ channels open, Na⁺ floods in and the membrane shoots to just above 0 mV (peak about +30 mV). This steep phase 0 gives fast conduction.",
+"w": [
+"That is the nodal upstroke; in myocytes Ca²⁺ enters during the plateau.",
+"I_K1 holds the resting potential and shuts off on depolarization.",
+"",
+"I_TO causes the phase 1 notch.",
+"HCN channels drive nodal phase 4, opened by hyperpolarization."
+],
+"src": "lec"
+},
+{
+"t": "Phase 1 · The Notch",
+"lv": "Easy",
+"s": "What causes the brief notch of phase 1 in a ventricular myocyte?",
+"c": [
+"L-type Ca²⁺ channels open fully",
+"Inward-rectifier K⁺ channels reopen",
+"The Na⁺/K⁺ ATPase speeds up",
+"Funny current Na⁺ channels close",
+"Na⁺ channels inactivate; I_TO opens"
+],
+"a": 4,
+"e": "Phase 1: fast Na⁺ channels inactivate (h gates close) and transient outward K⁺ channels (I_TO) briefly open → small partial repolarization toward 0 mV: the notch.",
+"w": [
+"Ca²⁺ influx supports the plateau, phase 2.",
+"I_K1 returns at rest and late phase 3.",
+"The pump restores gradients; it does not create the notch.",
+"Funny current is a nodal phase 4 current.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Phase 2 · Plateau & E–C Coupling",
+"lv": "Easy",
+"s": "During the phase 2 plateau, which two currents are roughly balanced?",
+"c": [
+"Inward Na⁺ and outward Ca²⁺",
+"Inward funny current and outward K⁺",
+"Inward K⁺ and outward Na⁺",
+"Inward L-type Ca²⁺ and outward K⁺",
+"Inward Cl⁻ and outward Ca²⁺"
+],
+"a": 3,
+"e": "Plateau, 150–300 ms near 0 mV: I_Ca ≈ I_K. Inward L-type Ca²⁺ is balanced by outward delayed-rectifier K⁺, so voltage stays flat.",
+"w": [
+"Na⁺ channels are inactivated during the plateau.",
+"Funny current is nodal phase 4.",
+"Current directions are reversed.",
+"",
+"Not the currents taught for the plateau."
+],
+"src": "lec"
+},
+{
+"t": "Phase 2 · Plateau & E–C Coupling",
+"lv": "Hard",
+"s": "An isolated heart is moved into a Ca²⁺-free bath. Action potentials still fire, but contraction stops. Which explanation is correct?",
+"c": [
+"Without Ca²⁺, fast Na⁺ channels cannot open for phase 0",
+"The SR in cardiac muscle stores no Ca²⁺ at all",
+"Plateau Ca²⁺ influx triggers SR Ca²⁺ release",
+"Ca²⁺ is needed only to repolarize the cell in phase 3",
+"Troponin in cardiac muscle binds Na⁺ instead of Ca²⁺"
+],
+"a": 2,
+"e": "Excitation–contraction coupling: during the phase 2 plateau, L-type Ca²⁺ enters and triggers Ca²⁺-induced Ca²⁺ release from the SR → contraction. Cardiac myocytes require extracellular Ca²⁺; skeletal muscle does not. So in a Ca²⁺-free bath the electrical AP persists but contraction fails. The plateau is a contraction trigger, not just an electrical feature.",
+"w": [
+"APs still fire, so the Na⁺ upstroke is intact.",
+"The SR holds most of the Ca²⁺; it needs a trigger to release it.",
+"",
+"Repolarization uses K⁺ efflux.",
+"Troponin binds Ca²⁺."
+],
+"src": "lec"
+},
+{
+"t": "Phase 2 · Plateau & E–C Coupling",
+"lv": "Hard",
+"s": "A patient is given verapamil, an L-type Ca²⁺ channel blocker. Which set of effects is expected?",
+"c": [
+"Stronger contraction, faster rate, faster AV conduction",
+"Weaker contraction only; nodal cells are unaffected",
+"Weaker contraction, slower rate and AV conduction",
+"Loss of the phase 0 upstroke in ventricular myocytes",
+"Longer phase 1 notch and vasoconstriction"
+],
+"a": 2,
+"e": "Verapamil blocks L-type Ca²⁺: (1) less plateau Ca²⁺ → less SR release → weaker contraction; (2) the SA and AV nodal upstroke is Ca²⁺-carried → slower rate and slower AV conduction; (3) vasodilation in vascular smooth muscle.",
+"w": [
+"Less Ca²⁺ entry weakens contraction and slows the nodes.",
+"Nodal upstrokes are Ca²⁺-carried, so the nodes slow too.",
+"",
+"Ventricular phase 0 is Na⁺, so it is preserved.",
+"Ca²⁺ blockers dilate vessels and do not act on I_TO."
+],
+"src": "lec"
+},
+{
+"t": "Phases 3 & 4 · Reset and Rest",
+"lv": "Easy",
+"s": "After phase 3, which mechanisms restore the ion gradients?",
+"c": [
+"Fast Na⁺ channels reopening",
+"L-type Ca²⁺ channels pumping Ca²⁺ out",
+"Gap junctions removing excess ions",
+"Na⁺/Ca²⁺ exchanger and ATPase pumps",
+"Funny current channels"
+],
+"a": 3,
+"e": "Ion channels only let ions flow down their gradients. The Na⁺/Ca²⁺ exchanger and ATPases (Na⁺/K⁺ pump, Ca²⁺ pumps) restore the gradients after each beat.",
+"w": [
+"Channels let ions run down gradients; they do not restore them.",
+"Channels are passive and are closing in phase 3.",
+"Gap junctions pass current between cells.",
+"",
+"These are nodal phase 4 channels."
+],
+"src": "lec"
+},
+{
+"t": "Phases 3 & 4 · Reset and Rest",
+"lv": "Hard",
+"s": "Which pairing of phase, dominant current and what happens is correct?",
+"c": [
+"Phase 3: Na⁺ influx returns; phase 4: Ca²⁺ influx holds −90 mV",
+"Phase 3: transient K⁺ notch; phase 4: funny current drifts up",
+"Phase 3: Ca²⁺ channels open more; phase 4: K⁺ permeability is low",
+"Phase 3: I_K1 starts the plateau; phase 4: Na⁺ channels stay open",
+"Phase 3: K⁺ efflux wins; phase 4: I_K1 holds −90 mV"
+],
+"a": 4,
+"e": "Phase 3: L-type Ca²⁺ channels inactivate while delayed-rectifier K⁺ channels open widely → net outward current → back to −90 mV. Na⁺/Ca²⁺ exchanger and ATPases restore gradients. Phase 4: constant K⁺ efflux through inward-rectifier (I_K1) channels keeps a stable −90 mV; high K⁺ permeability; no spontaneous depolarization, so the cell waits for a stimulus.",
+"w": [
+"Phase 3 is K⁺ efflux, and phase 4 is held by I_K1.",
+"Those describe phase 1 and nodal phase 4.",
+"Ca²⁺ channels inactivate in phase 3, and K⁺ permeability is high at rest.",
+"Na⁺ and Ca²⁺ channels are closed at rest.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Refractory Periods",
+"lv": "Easy",
+"s": "During the effective refractory period, why can no new AP fire whatever the stimulus strength?",
+"c": [
+"The cell is hyperpolarized below −90 mV",
+"K⁺ channels are all closed",
+"Na⁺ channels are inactivated, h closed",
+"Ca²⁺ stores are empty",
+"Gap junctions close during the plateau"
+],
+"a": 2,
+"e": "Excitability depends on Na⁺ channel state, not just voltage. From phase 0 to about −50 mV in phase 3, the channels are inactivated (h gate closed) and cannot reopen, so no stimulus can trigger a new AP.",
+"w": [
+"The cell is depolarized during this period.",
+"K⁺ channels are opening as the cell repolarizes.",
+"",
+"Refractoriness depends on Na⁺ channel state.",
+"Gap junctions stay open."
+],
+"src": "lec"
+},
+{
+"t": "Refractory Periods",
+"lv": "Hard",
+"s": "A strong stimulus reaches a ventricular myocyte during the plateau, and a second one in late phase 3 at about −60 mV. What happens?",
+"c": [
+"A full AP from both",
+"A full AP from the first; none from the second",
+"No AP from either because Na⁺ channels never recover",
+"None from the first; a smaller AP from the second",
+"A larger-than-normal AP from the second"
+],
+"a": 3,
+"e": "Absolute (effective) refractory period: phases 0, 1, 2 and the first half of 3 (to about −50 mV); Na⁺ channels inactivated, so no AP whatever the stimulus. Relative: second half of phase 3 (−50 to −70 mV); some channels recovered, so a stronger stimulus gives an AP of lower amplitude. Supranormal: a brief window at the end where a weaker stimulus can fire.",
+"w": [
+"The plateau is in the absolute refractory period.",
+"The order is reversed.",
+"Na⁺ channels recover during late phase 3.",
+"",
+"That would be the supranormal period, at the very end of repolarization."
+],
+"src": "lec"
+},
+{
+"t": "Na⁺ Channel States",
+"lv": "Easy",
+"s": "Lidocaine is used as an antiarrhythmic. Which current does it block, and what does that affect most?",
+"c": [
+"I_Ca-L, the plateau Ca²⁺ current",
+"I_K, the phase 3 repolarizing current",
+"I_f, the nodal funny current",
+"I_K1, the resting K⁺ current",
+"I_Na, the fast Na⁺ current of phase 0"
+],
+"a": 4,
+"e": "Lidocaine, a local anesthetic antiarrhythmic, blocks I_Na, the fast Na⁺ current of phase 0 in fast-response cells. Antiarrhythmic drugs work by targeting specific Na⁺, Ca²⁺ and K⁺ channels.",
+"w": [
+"That is verapamil's target.",
+"Not lidocaine's target.",
+"That is ivabradine's target.",
+"Not lidocaine's target.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Na⁺ Channel States",
+"lv": "Hard",
+"s": "Which gate positions match the Na⁺ channel during phase 4, phase 0 and the plateau?",
+"c": [
+"m closed h open; m open h open; m open h closed",
+"m open h closed; m open h open; m closed h open",
+"m closed h closed; m open h open; m closed h closed",
+"m closed h open; m open h closed; m open h open",
+"m open h open; m closed h open; m closed h closed"
+],
+"a": 0,
+"e": "m = activation gate, h = inactivation gate. Phase 4 resting/available: m closed, h open. Phase 0 open: m open, h open → Na⁺ rushes in. Phases 1–2 inactivated: m open, h closed → no current whatever the stimulus. Late phase 3: h reopens (recovery). Lecture note: h gates close on their own shortly after opening and reopen only as the cell repolarizes.",
+"w": [
+"",
+"The order is reversed: rest has m closed and h open.",
+"At rest the h gate is open, making the channel available.",
+"During phase 0 both gates are open; during the plateau h is closed.",
+"At rest the m gate is closed."
+],
+"src": "lec"
+},
+{
+"t": "Why the AP & Refractory Period Are Long",
+"lv": "Hard",
+"s": "Why can't the heart go into tetanic contraction like skeletal muscle, and which phase is responsible?",
+"c": [
+"Phase 0 is too slow to allow summation",
+"Phase 4 drifts up between beats",
+"Phase 1 lets Ca²⁺ leave before contraction",
+"The plateau keeps it refractory",
+"Phase 3 is too fast for a second AP to land"
+],
+"a": 3,
+"e": "Cardiac AP ≈ 300 ms vs neuron ≈ 1 ms and skeletal muscle ≈ 10 ms. The single phase responsible is the phase 2 plateau. Long AP + long refractory period → no re-excitation mid-contraction → no tetany. Benefits: guaranteed relaxation and time for ventricular filling in diastole; full ejection in systole. Downside: uneven refractory periods can set up re-entrant arrhythmias.",
+"w": [
+"Phase 0 in ventricular cells is fast.",
+"Working myocytes have a stable phase 4.",
+"The notch is brief and is not the reason.",
+"",
+"The long refractory period, not a fast phase 3, prevents it."
+],
+"src": "lec"
+},
+{
+"t": "Why the AP & Refractory Period Are Long",
+"lv": "Hard",
+"s": "A ventricular cell's refractory periods become uneven: some regions recover early and others late. What problem can this cause?",
+"c": [
+"Tetanic contraction of the ventricle",
+"A re-entrant arrhythmia",
+"Complete loss of automaticity in the SA node",
+"Faster conduction through the AV node",
+"A shorter phase 0 in every cell"
+],
+"a": 1,
+"e": "The flip side of a long refractory period: if refractory periods are heterogeneous, an impulse arriving at the wrong time can travel through recovered tissue and loop back into tissue that has since recovered: a re-entrant arrhythmia.",
+"w": [
+"The long plateau still prevents tetany.",
+"",
+"Uneven ventricular refractoriness does not stop the SA node.",
+"Not the consequence taught.",
+"Not the consequence taught."
+],
+"src": "lec"
+},
+{
+"t": "Challenge Yourself · Sampath's Q's",
+"s": "Questions 3–4<br>Correlate the ionic mechanism to the appropriate phase (labeled A–E)<br><br>3. High Na⁺ conductance",
+"html": true,
+"img": "cp-fig1.svg",
+"ns": true,
+"sampath": 1,
+"c": [
+"Phase labeled A",
+"Phase labeled B",
+"Phase labeled C",
+"Phase labeled D",
+"Phase labeled E"
+],
+"a": 0,
+"e": "A is Phase 0, the rapid upstroke: fast voltage-gated Na⁺ channels open and Na⁺ rushes in.",
+"w": [
+"A is the Phase 0 upstroke.",
+"B is the peak and Phase 1 notch.",
+"C is the Phase 2 plateau.",
+"D is Phase 3 repolarization.",
+"E is the Phase 4 resting potential."
+],
+"src": "lec"
+},
+{
+"t": "Challenge Yourself · Sampath's Q's",
+"s": "Questions 3–4<br>Correlate the ionic mechanism to the appropriate phase (labeled A–E)<br><br>4. High Ca²⁺ conductance",
+"html": true,
+"img": "cp-fig1.svg",
+"ns": true,
+"sampath": 1,
+"c": [
+"Phase labeled A",
+"Phase labeled B",
+"Phase labeled C",
+"Phase labeled D",
+"Phase labeled E"
+],
+"a": 2,
+"e": "C is Phase 2, the plateau: L-type Ca²⁺ channels are open and Ca²⁺ influx balances K⁺ efflux.",
+"w": [
+"A is the Phase 0 upstroke.",
+"B is the peak and Phase 1 notch.",
+"C is the Phase 2 plateau.",
+"D is Phase 3 repolarization.",
+"E is the Phase 4 resting potential."
+],
+"src": "lec"
+},
+{
+"t": "Challenge Yourself · Sampath's Q's",
+"s": "Is it an AP of a slow or a fast fiber?",
+"html": true,
+"img": "cp-fig1.svg",
+"ns": true,
+"sampath": 1,
+"c": [
+"Slow fiber, an SA nodal cell",
+"Slow fiber, an AV nodal cell",
+"Fast fiber, a ventricular myocyte",
+"Fast fiber, a motor neuron",
+"Fast fiber, a skeletal muscle cell"
+],
+"a": 2,
+"e": "It is a fast fiber: a stable rest near −80 to −90 mV, a steep Phase 0 upstroke, a notch and a long plateau. That is the fast response AP of a ventricular myocyte.",
+"w": [
+"An SA nodal cell has no stable rest and no plateau.",
+"An AV nodal cell has no stable rest and no plateau.",
+"",
+"A neuron AP lasts ~1 ms with no plateau.",
+"A skeletal AP lasts ~10 ms with no plateau."
+],
+"src": "lec"
+},
+{
+"t": "Challenge Yourself · Sampath's Q's",
+"s": "What criterion you should use to distinguish between fast and slow fibers?",
+"html": true,
+"img": "cp-fig1.svg",
+"ns": true,
+"sampath": 1,
+"c": [
+"The height of the overshoot peak",
+"The ion that carries the Phase 0 upstroke",
+"The number of gap junctions per cell",
+"The value of the K⁺ equilibrium potential",
+"The amount of Ca²⁺ stored in the SR"
+],
+"a": 1,
+"e": "Fast = Na⁺ upstroke · Slow = Ca²⁺ upstroke. A steep Na⁺-driven Phase 0 marks a fast fiber; a slow Ca²⁺-driven upstroke marks a slow fiber.",
+"w": [
+"Overshoot height is not the defining criterion.",
+"",
+"Gap junctions are not the criterion used.",
+"EK is similar in both.",
+"SR stores are not the criterion used."
+],
+"src": "lec"
+},
+{
+"t": "Challenge Yourself · Sampath's Q's",
+"s": "Explain the function of each ionic current. Know when it is turned on and off.<br><br>Which current is turned on only briefly at the very start of the AP and produces the upstroke?",
+"html": true,
+"img": "cp-fig2.svg",
+"ns": true,
+"sampath": 1,
+"c": [
+"INa",
+"ICa",
+"IK1",
+"IK",
+"ITO"
+],
+"a": 0,
+"e": "INa is a large, very brief inward spike at time 0 — the fast Na⁺ current of Phase 0. It then turns off as the channels inactivate.",
+"w": [
+"",
+"ICa turns on after the upstroke and lasts through the plateau.",
+"IK1 is the resting current.",
+"IK rises slowly during the plateau.",
+"ITO is a brief outward current right after the upstroke."
+],
+"src": "lec"
+},
+{
+"t": "Challenge Yourself · Sampath's Q's",
+"s": "Explain the function of each ionic current. Know when it is turned on and off.<br><br>Which inward current turns on after the upstroke and slowly decays during the plateau?",
+"html": true,
+"img": "cp-fig2.svg",
+"ns": true,
+"sampath": 1,
+"c": [
+"INa",
+"ICa",
+"IK1",
+"IK",
+"ITO"
+],
+"a": 1,
+"e": "ICa is the L-type Ca²⁺ current: it turns on after Phase 0 and slowly decays through the plateau, triggering SR Ca²⁺ release.",
+"w": [
+"INa lasts only a few ms.",
+"",
+"IK1 is outward and resting.",
+"IK is outward.",
+"ITO is outward and brief."
+],
+"src": "lec"
+},
+{
+"t": "Challenge Yourself · Sampath's Q's",
+"s": "Explain the function of each ionic current. Know when it is turned on and off.<br><br>Which current is on at rest, turns off during the plateau, and turns back on at the end of repolarization?",
+"html": true,
+"img": "cp-fig2.svg",
+"ns": true,
+"sampath": 1,
+"c": [
+"INa",
+"ICa",
+"IK1",
+"IK",
+"ITO"
+],
+"a": 2,
+"e": "IK1, the inward rectifier, holds the resting potential. It shuts off when the cell depolarizes and turns back on during late Phase 3, helping finish repolarization.",
+"w": [
+"INa is off at rest.",
+"ICa is off at rest.",
+"",
+"IK is off at rest and rises during the plateau.",
+"ITO is off at rest."
+],
+"src": "lec"
+},
+{
+"t": "Challenge Yourself · Sampath's Q's",
+"s": "Explain the function of each ionic current. Know when it is turned on and off.<br><br>Which outward current slowly increases during the plateau and peaks as Phase 3 begins?",
+"html": true,
+"img": "cp-fig2.svg",
+"ns": true,
+"sampath": 1,
+"c": [
+"INa",
+"ICa",
+"IK1",
+"IK",
+"ITO"
+],
+"a": 3,
+"e": "IK, the delayed rectifier, slowly builds during the plateau and drives the massive K⁺ efflux of Phase 3, then turns off at rest.",
+"w": [
+"INa is inward and brief.",
+"ICa is inward.",
+"IK1 is off during the plateau.",
+"",
+"ITO is brief and early."
+],
+"src": "lec"
+},
+{
+"t": "Challenge Yourself · Sampath's Q's",
+"s": "Explain the function of each ionic current. Know when it is turned on and off.<br><br>Which outward current turns on briefly just after the upstroke and makes the notch?",
+"html": true,
+"img": "cp-fig2.svg",
+"ns": true,
+"sampath": 1,
+"c": [
+"INa",
+"ICa",
+"IK1",
+"IK",
+"ITO"
+],
+"a": 4,
+"e": "ITO, the transient outward K⁺ current, turns on briefly at the start of the AP and produces the Phase 1 notch, then turns off.",
+"w": [
+"INa is inward.",
+"ICa is inward.",
+"IK1 is off during the AP.",
+"IK is slow, not transient.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Challenge Yourself · Sampath's Q's",
+"s": "Which current can be blocked by local anesthetic antiarrhythmic drugs (i.e., lidocaine)?",
+"html": true,
+"img": "cp-fig2.svg",
+"ns": true,
+"sampath": 1,
+"c": [
+"INa",
+"ICa",
+"IK1",
+"IK",
+"ITO"
+],
+"a": 0,
+"e": "Lidocaine, a local anesthetic antiarrhythmic, blocks the fast Na⁺ current, INa, which carries the Phase 0 upstroke.",
+"w": [
+"",
+"Ca²⁺ channels are blocked by drugs such as verapamil.",
+"Not the lidocaine target.",
+"Not the lidocaine target.",
+"Not the lidocaine target."
+],
+"src": "lec"
+},
+{
+"t": "Challenge Yourself · Sampath's Q's",
+"s": "What are the effects of Ca++ blockers on the heart and blood vessels?",
+"html": true,
+"img": "cp-fig2.svg",
+"ns": true,
+"sampath": 1,
+"c": [
+"More force and vasoconstriction",
+"Less force and vasodilation",
+"More force and vasodilation",
+"Less force and vasoconstriction",
+"No change in force or tone"
+],
+"a": 1,
+"e": "Ca²⁺ blockers reduce L-type Ca²⁺ influx. In the heart this weakens contraction, since less trigger Ca²⁺ means less SR Ca²⁺ release; they also slow SA and AV nodal cells, whose upstroke is Ca²⁺ carried. In blood vessels they relax smooth muscle, causing vasodilation.",
+"w": [
+"Less Ca²⁺ means less force, and vessels relax.",
+"",
+"Less Ca²⁺ means less, not more, force.",
+"Vascular smooth muscle relaxes.",
+"Both heart and vessels respond."
+],
+"src": "lec"
+},
+{
+"t": "Pacemaker Cells, Automaticity & Key Terms",
+"lv": "Easy",
+"s": "Which pair of terms is defined correctly?",
+"c": [
+"Chronotropy: contractility; inotropy: heart rate",
+"Automaticity: conduction speed; chronotropy: AP length",
+"Inotropy: AV delay; chronotropy: refractory period",
+"Chronotropy: rate; inotropy: contractility",
+"Automaticity: needing a stimulus; inotropy: heart rate"
+],
+"a": 3,
+"e": "Chronotropy = heart rate. Positive inotropy = more contractility. Automaticity = self-excitation, a self-generated unstable phase 4. Calcium is the coupler between the electrical and mechanical processes.",
+"w": [
+"The definitions are swapped.",
+"Automaticity is self-excitation.",
+"Not the definitions taught.",
+"",
+"Automaticity means firing without a stimulus."
+],
+"src": "lec"
+},
+{
+"t": "Pacemaker Cells, Automaticity & Key Terms",
+"lv": "Easy",
+"s": "In which cells is phase 4 a pacemaker potential rather than a resting potential?",
+"c": [
+"Ventricular myocytes",
+"Atrial myocytes",
+"Skeletal muscle fibers",
+"Neurons of the vagus nerve",
+"SA and AV nodal cells"
+],
+"a": 4,
+"e": "Phase 4 is the resting membrane potential in working cells but the pacemaker potential (prepotential) in nodal cells, where it drifts up on its own toward threshold.",
+"w": [
+"Their phase 4 is a stable resting potential.",
+"Their phase 4 is a stable resting potential.",
+"Skeletal muscle has no pacemaker potential.",
+"Not the cells discussed.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Pacemaker Cells, Automaticity & Key Terms",
+"lv": "Easy",
+"s": "Which statement about calcium in the heart is the key lecture point?",
+"c": [
+"Ca²⁺ carries the ventricular upstroke",
+"Ca²⁺ sets the resting potential",
+"It couples electrical and mechanical work",
+"Ca²⁺ is needed only in skeletal muscle",
+"Ca²⁺ blocks gap junctions between myocytes"
+],
+"a": 2,
+"e": "Calcium is the coupler between electrical (chemical) and mechanical events: it carries the nodal upstroke and, in myocytes, enters during the plateau and triggers SR release and contraction.",
+"w": [
+"The ventricular upstroke is Na⁺.",
+"K⁺ sets the resting potential.",
+"",
+"Cardiac muscle needs extracellular Ca²⁺.",
+"Not the lecture point."
+],
+"src": "lec"
+},
+{
+"t": "Slow vs Fast Response APs",
+"lv": "Easy",
+"s": "Which nodal AP feature explains why nodal cells have no true resting potential?",
+"c": [
+"Phase 4 drifts up on its own",
+"Phase 0 uses Na⁺ instead of Ca²⁺",
+"Phase 2 lasts longer than in myocytes",
+"Phase 1 notch is deeper",
+"I_K1 holds them at −90 mV"
+],
+"a": 0,
+"e": "Nodal cells have only phases 0, 3 and 4. Their phase 4 is unstable: K⁺ decay, funny current and T-type Ca²⁺ make it drift up to threshold, so there is no stable resting potential. That drift is automaticity.",
+"w": [
+"",
+"Nodal phase 0 uses Ca²⁺.",
+"Nodal cells have no phase 2.",
+"Nodal cells have no phase 1.",
+"Strong I_K1 belongs to working myocytes."
+],
+"src": "lec"
+},
+{
+"t": "Slow vs Fast Response APs",
+"lv": "Hard",
+"s": "Which comparison between a ventricular AP and an SA node AP is correct?",
+"c": [
+"Ventricle: Ca²⁺ upstroke, 3 phases; SA node: Na⁺ upstroke, 5 phases",
+"Both have a plateau, but the SA node's is shorter",
+"Ventricle: Na⁺, 5 phases; SA node: Ca²⁺, 3 phases",
+"Ventricle: unstable rest; SA node: stable −90 mV rest",
+"Both reach +30 mV with a steep phase 0"
+],
+"a": 2,
+"e": "Ventricular (working): Na⁺ phase 0, 5 phases (0–4), stable −90 mV rest, plateau 150–300 ms, overshoot to about +30 mV, steep slope → fast conduction. SA node: Ca²⁺ phase 0, 3 phases (0, 3, 4), unstable rest drifting up, no plateau, peak about +10 mV, shallow slope → slow conduction.",
+"w": [
+"The ions and phase counts are swapped.",
+"The SA node has no plateau.",
+"",
+"The ventricle has the stable rest.",
+"The SA node upstroke is shallow and peaks near +10 mV."
+],
+"src": "lec"
+},
+{
+"t": "Slow vs Fast Response APs",
+"lv": "Hard",
+"s": "A drug slows conduction through the AV node but does not change ventricular phase 0. Which drug class and reason fit?",
+"c": [
+"Na⁺ channel blocker; both upstrokes use Na⁺",
+"Ca²⁺ blocker; only nodal phase 0 uses Ca²⁺",
+"K⁺ channel blocker; it removes the AV plateau",
+"HCN blocker; it slows the ventricular upstroke",
+"Na⁺ channel opener; it inactivates nodal channels"
+],
+"a": 1,
+"e": "Nodal (SA, AV) phase 0 is carried by L-type Ca²⁺; ventricular phase 0 by fast Na⁺. So an L-type Ca²⁺ channel blocker such as verapamil slows AV conduction and SA rate while leaving the ventricular upstroke intact.",
+"w": [
+"A Na⁺ blocker would slow ventricular phase 0, and nodal phase 0 is Ca²⁺.",
+"",
+"The AV node has no plateau.",
+"HCN blockers act on nodal phase 4, not ventricular phase 0.",
+"Not a drug class taught here."
+],
+"src": "lec"
+},
+{
+"t": "Phase 4 · Pacemaker Potential",
+"lv": "Easy",
+"s": "What opens the HCN (funny) channels in nodal cells?",
+"c": [
+"Depolarization to threshold at −40 mV",
+"Hyperpolarization near −60 mV",
+"Ca²⁺ released from the SR",
+"Stretch of the atrial wall",
+"Depolarization to +10 mV at the peak"
+],
+"a": 1,
+"e": "HCN channels are unusual: they are opened by hyperpolarization, so they open as the cell repolarizes to about −60 mV, letting Na⁺ in. That is why the current is called \"funny\".",
+"w": [
+"That opens L-type Ca²⁺ channels.",
+"",
+"Not the trigger for HCN channels.",
+"Not the trigger taught.",
+"At the peak K⁺ channels open."
+],
+"src": "lec"
+},
+{
+"t": "Phase 4 · Pacemaker Potential",
+"lv": "Hard",
+"s": "In an SA node cell just after repolarizing to about −60 mV, which sequence drives phase 4 toward threshold?",
+"c": [
+"Fast Na⁺ channels open, then L-type Ca²⁺ channels open",
+"I_K1 increases, then L-type Ca²⁺ triggers the plateau",
+"K⁺ efflux decays, funny current rises, then T-type Ca²⁺",
+"T-type Ca²⁺ opens first, then funny current, then K⁺ rises",
+"Transient K⁺ current opens, then funny current closes"
+],
+"a": 2,
+"e": "Three reasons phase 4 is unstable: (1) K⁺ decay — K⁺ channels shut after repolarization; (2) I_f, the funny Na⁺ current through HCN channels, opened by hyperpolarization at about −60 mV; (3) T-type Ca²⁺ joins near −55 to −50 mV and pushes to threshold (≈ −40 mV), where L-type channels open.",
+"w": [
+"Fast Na⁺ channels are inactivated in nodal cells; L-type opens at threshold.",
+"Nodal cells lack I_K1 dominance and have no plateau.",
+"",
+"Funny current comes first, and K⁺ efflux is falling.",
+"I_TO is a phase 1 current of myocytes."
+],
+"src": "lec"
+},
+{
+"t": "Phase 4 · Pacemaker Potential",
+"lv": "Hard",
+"s": "A patient with heart failure is given ivabradine, which blocks HCN channels. Which chain of effects follows?",
+"c": [
+"Less I_Ca-L → weaker contraction → lower stroke volume",
+"Less I_f → steeper phase 4 → faster heart rate",
+"Less I_Na → slower ventricular phase 0",
+"Less I_K → longer plateau → slower rate",
+"Less I_f → flatter phase 4 → slower heart rate"
+],
+"a": 4,
+"e": "HCN channels carry I_f, the inward funny Na⁺ current that starts the pacemaker potential. Blocking it (ivabradine) flattens the phase 4 slope, so threshold is reached later and the heart rate falls, without weakening contraction.",
+"w": [
+"That describes an L-type Ca²⁺ blocker.",
+"Blocking an inward current flattens phase 4.",
+"Ivabradine does not block the fast Na⁺ channel.",
+"Ivabradine does not block K⁺ channels, and nodal cells have no plateau.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Phase 4 · Pacemaker Potential",
+"lv": "Hard",
+"s": "Which sequence of permeability changes describes one SA node cycle, starting just after repolarization?",
+"c": [
+"↑P_Na f, ↓P_K → ↑P_Ca T → ↑P_Ca L → ↑P_K",
+"↑P_Ca L → ↑P_Na f → ↑P_K → ↑P_Ca T",
+"↑P_K → ↑P_Na fast → ↑P_Ca L plateau → ↓P_K",
+"↑P_Na fast → ↑P_K transient → ↑P_Ca L → ↑P_K1",
+"↓P_Na f → ↑P_K → ↑P_Ca T → ↓P_Ca L"
+],
+"a": 0,
+"e": "Lecture sequence: ↑P_Na (f), ↓P_K → ↑P_Ca (T), ↓P_Na (f) → at threshold ↑P_Ca (L), ↓P_Ca (T) → at the peak ↑P_K, ↓P_Ca (L). Phase 4 → phase 0 → phase 3, then repeat.",
+"w": [
+"",
+"Funny Na⁺ comes first after repolarization, and L-type opens at threshold.",
+"That mixes in fast Na⁺ and a plateau, which nodal cells lack.",
+"This is the ventricular sequence.",
+"Funny current rises, and K⁺ permeability falls, in early phase 4."
+],
+"src": "lec"
+},
+{
+"t": "Phase 0 · L-type Ca²⁺ Upstroke",
+"lv": "Easy",
+"s": "At about what voltage is threshold reached in an SA node cell, and which channel then opens?",
+"c": [
+"About −40 mV; L-type Ca²⁺ channels",
+"About −65 mV; fast Na⁺ channels",
+"About −90 mV; HCN channels",
+"About −55 mV; delayed-rectifier K⁺ channels",
+"About 0 mV; T-type Ca²⁺ channels"
+],
+"a": 0,
+"e": "Nodal threshold ≈ −40 mV, where L-type Ca²⁺ channels open and produce the slow phase 0 upstroke. Compare: ventricular threshold ≈ −65 mV with fast Na⁺ channels.",
+"w": [
+"",
+"That is ventricular myocyte threshold.",
+"HCN channels open near −60 mV on hyperpolarization.",
+"K⁺ channels open at the peak to repolarize.",
+"T-type open near −55 to −50 mV."
+],
+"src": "lec"
+},
+{
+"t": "Phase 0 · L-type Ca²⁺ Upstroke",
+"lv": "Hard",
+"s": "Why does the SA node upstroke rise slowly and conduct slowly compared with a ventricular myocyte?",
+"c": [
+"L-type Ca²⁺ carries it; fast Na⁺ is inactivated",
+"It is carried by T-type Ca²⁺, which conducts better than Na⁺",
+"It is carried by fast Na⁺ channels with fewer h gates",
+"It is carried by funny current, which is slow",
+"It starts from −90 mV, so it has farther to go"
+],
+"a": 0,
+"e": "Nodal cells sit at less negative voltages, so their fast Na⁺ channels are inactivated. At threshold ≈ −40 mV, L-type (long-lasting) Ca²⁺ channels open. Ca²⁺ current is smaller and slower → shallow dV/dt, peak only about 0 to +10 mV, and slow conduction.",
+"w": [
+"",
+"T-type channels help phase 4; L-type carry phase 0.",
+"Fast Na⁺ channels are inactivated at nodal voltages.",
+"Funny current drives phase 4, not phase 0.",
+"Nodal cells never reach −90 mV; they reset at about −60 mV."
+],
+"src": "lec"
+},
+{
+"t": "Phase 0 · L-type Ca²⁺ Upstroke",
+"lv": "Hard",
+"s": "Which statement correctly contrasts the two Ca²⁺ channels in nodal cells and the target of verapamil?",
+"c": [
+"L-type helps phase 4; T-type carries phase 0; verapamil blocks T-type",
+"T-type: late phase 4; L-type: phase 0 and verapamil",
+"Both carry phase 0 equally; verapamil blocks both",
+"T-type carries the plateau; L-type carries phase 4",
+"L-type is opened by hyperpolarization like HCN"
+],
+"a": 1,
+"e": "T-type (transient) Ca²⁺ channels open near −55 to −50 mV and add to late phase 4. L-type (long-lasting) open at threshold ≈ −40 mV and carry phase 0. Verapamil and other Ca²⁺ blockers act on I_Ca-L, not I_Ca-T, and hit the SA node more than ventricular contraction.",
+"w": [
+"The roles are swapped, and verapamil blocks L-type.",
+"",
+"T-type acts in phase 4; verapamil blocks L-type, not T-type.",
+"Nodal cells have no plateau.",
+"L-type opens on depolarization to threshold."
+],
+"src": "lec"
+},
+{
+"t": "Phase 3 · Nodal Repolarization",
+"lv": "Easy",
+"s": "What happens during phase 3 of the nodal AP?",
+"c": [
+"Fast Na⁺ channels close and the cell returns to −90 mV",
+"Funny current opens and the cell depolarizes",
+"Ca²⁺ inactivates; K⁺ efflux resets it to −60 mV",
+"The plateau ends as Ca²⁺ and K⁺ stop balancing",
+"T-type Ca²⁺ channels open and repolarize the cell"
+],
+"a": 2,
+"e": "Nodal phase 3: L-type Ca²⁺ channels inactivate and delayed-rectifier K⁺ efflux repolarizes the cell to about −60 mV, the reset point where HCN channels open again. Nodal APs have only phases 0, 3 and 4.",
+"w": [
+"Nodal cells reset to about −60 mV, not −90 mV.",
+"That is phase 4.",
+"",
+"Nodal cells have no plateau.",
+"T-type channels depolarize, in phase 4."
+],
+"src": "lec"
+},
+{
+"t": "Pacemaker Hierarchy & Overdrive Suppression",
+"lv": "Easy",
+"s": "Why does the SA node, not the AV node, normally set the heart rate?",
+"c": [
+"It is the only cell with automaticity",
+"It fires fastest and resets slower pacemakers",
+"It has the fastest conduction velocity",
+"It has the most negative resting potential",
+"The fibrous skeleton blocks all other pacemakers"
+],
+"a": 1,
+"e": "Overdrive suppression: the fastest pacemaker, the SA node, depolarizes the slower ones before their own phase 4 reaches threshold, resetting them. So the fastest pacemaker sets the rate.",
+"w": [
+"The AV node and Purkinje fibers have automaticity too.",
+"",
+"His-Purkinje conducts fastest; the SA node is slow.",
+"Nodal cells are less negative than myocytes.",
+"The skeleton insulates atria from ventricles only."
+],
+"src": "lec"
+},
+{
+"t": "Pacemaker Hierarchy & Overdrive Suppression",
+"lv": "Easy",
+"s": "Which part of the conduction system conducts slowest, and why does that matter?",
+"c": [
+"The AV node, so the atria finish first",
+"The Purkinje fibers, so the ventricle contracts slowly",
+"The SA node, which sets a slow rate",
+"The bundle of His, to protect the septum",
+"The internodal pathways, to delay the SA node"
+],
+"a": 0,
+"e": "Path: SA → atria → AV node (delay) → His → Purkinje → ventricles. The AV node conducts slowest, giving time for the atria to empty into the ventricles before ventricular contraction. His-Purkinje conducts fastest.",
+"w": [
+"",
+"Purkinje fibers conduct fastest.",
+"The SA node sets the fastest rate.",
+"His conducts fast.",
+"The AV node is the slowest."
+],
+"src": "lec"
+},
+{
+"t": "Pacemaker Hierarchy & Overdrive Suppression",
+"lv": "Hard",
+"s": "A patient's SA node stops firing. Later the AV node also fails, leaving complete block. What rates result at each stage?",
+"c": [
+"First Purkinje escape at 30–40/min; then ventricles at 60–80/min",
+"First AV escape at 60–80/min; then whole heart stops",
+"First His escape at 40–50/min; then atria and ventricles both 30–40/min",
+"AV escape 40–50/min; then ventricles at 30–40/min",
+"First AV escape at 40–50/min; then ventricles speed up to 60–80/min"
+],
+"a": 3,
+"e": "Pacemaker hierarchy: SA 60–80/min → AV 40–50/min → His/bundle branches → Purkinje 30–40/min. If the SA node fails, the AV node escapes at 40–50/min. (The question's second scenario assumes the SA node recovers.) In complete AV block, the atria keep the SA rate while the ventricles follow a Purkinje escape at 30–40/min.",
+"w": [
+"The AV node escapes first, and in complete block the ventricles are slow.",
+"The AV node rate is 40–50, and Purkinje fibers still escape.",
+"After SA failure the AV node escapes; in AV block the atria keep the SA rate.",
+"",
+"The ventricles fall to the Purkinje rate."
+],
+"src": "lec"
+},
+{
+"t": "Pacemaker Hierarchy & Overdrive Suppression",
+"lv": "Hard",
+"s": "A patient has a slow ventricular rate of 35/min with P waves at 75/min that bear no relation to the QRS complexes. Which explanation fits?",
+"c": [
+"Complete AV block with a Purkinje escape",
+"SA node failure with AV junctional escape",
+"Overdrive suppression of the SA node by Purkinje fibers",
+"Normal AV delay, which halves the ventricular rate",
+"Atrial myocytes firing independently at 75/min"
+],
+"a": 0,
+"e": "In complete AV block no impulses pass the AV node. The atria keep the SA rate (60–80/min), and the ventricles are driven by a Purkinje escape at 30–40/min, so P waves and QRS complexes are dissociated.",
+"w": [
+"",
+"Junctional escape would be 40–50/min with no independent P waves at 75.",
+"The fastest pacemaker suppresses slower ones, not the reverse.",
+"The AV delay slows conduction but does not dissociate atria and ventricles.",
+"Atrial myocytes lack automaticity; P waves come from the SA node."
+],
+"src": "lec"
+},
+{
+"t": "Challenge · Pacemaker Currents",
+"s": "Which current/currents depolarize the membrane of pacemaker cells?",
+"img": "cp-fig3.svg",
+"ns": true,
+"sampath": 1,
+"c": [
+"If, ICa-T and ICa-L",
+"If only",
+"INa and ICa-L",
+"IK and If",
+"ICa-L only"
+],
+"a": 0,
+"e": "Phase 4 is depolarized by If (funny Na⁺) and ICa-T (transient Ca²⁺); Phase 0 by ICa-L (long-lasting Ca²⁺). IK repolarizes in Phase 3.",
+"w": [
+"",
+"If starts the drift, but ICa-T and ICa-L also depolarize.",
+"Fast INa is inactivated in nodal cells.",
+"IK is an outward, repolarizing current.",
+"ICa-L drives Phase 0, but Phase 4 depolarization comes from If and ICa-T."
+],
+"src": "lec"
+},
+{
+"t": "Challenge · Pacemaker Currents",
+"s": "Current? — the arrow on Phase 4",
+"img": "cp-fig3.svg",
+"ns": true,
+"sampath": 1,
+"c": [
+"If and ICa-T",
+"ICa-L",
+"IK",
+"Fast INa",
+"IK1"
+],
+"a": 0,
+"e": "Phase 4: the funny current If, then the T-type transient Ca²⁺ current near −55 mV.",
+"w": [
+"",
+"ICa-L opens at threshold for Phase 0.",
+"IK repolarizes in Phase 3.",
+"Fast Na⁺ channels are inactivated in nodal cells.",
+"IK1 holds ventricular rest."
+],
+"src": "lec"
+},
+{
+"t": "Challenge · Pacemaker Currents",
+"s": "Current? — the arrow on Phase 0",
+"img": "cp-fig3.svg",
+"ns": true,
+"sampath": 1,
+"c": [
+"If",
+"ICa-T",
+"ICa-L",
+"IK",
+"Fast INa"
+],
+"a": 2,
+"e": "Phase 0: at threshold (≈ −40 mV), the long-lasting L-type Ca²⁺ current gives the upstroke.",
+"w": [
+"If acts in Phase 4.",
+"ICa-T acts late in Phase 4.",
+"",
+"IK repolarizes.",
+"Fast Na⁺ channels are inactivated in nodal cells."
+],
+"src": "lec"
+},
+{
+"t": "Challenge · Pacemaker Currents",
+"s": "Current? — the arrow on Phase 3",
+"img": "cp-fig3.svg",
+"ns": true,
+"sampath": 1,
+"c": [
+"If",
+"ICa-T",
+"ICa-L",
+"IK",
+"INa"
+],
+"a": 3,
+"e": "Phase 3: Ca²⁺ channels inactivate and the delayed-rectifier K⁺ current IK repolarizes the cell to about −60 mV.",
+"w": [
+"If is inward and acts in Phase 4.",
+"ICa-T is inward and acts in Phase 4.",
+"ICa-L inactivates in Phase 3.",
+"",
+"Not active in nodal cells."
+],
+"src": "lec"
+}
+];

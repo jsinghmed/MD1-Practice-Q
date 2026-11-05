@@ -1068,8 +1068,8 @@ button.dst:hover{background:var(--hover)}
 <script src="fbs-anki.js?v=34"></script>
 <script src="crs-embryology.js?v=34"></script>
 <script src="crs-anatomy.js?v=1"></script>
-<script src="crs-biochem.js?v=2"></script>
-<script src="crs-physiology.js?v=2"></script>
+<script src="crs-biochem.js?v=3"></script>
+<script src="crs-physiology.js?v=3"></script>
 <script src="nbme.js?v=8"></script>
 <script src="xp-crs.js?v=1"></script>
 <script src="viz-links.js?v=3"></script>
@@ -1122,11 +1122,15 @@ const SECTIONS = [
    extra:(()=>{ const NAS = q=>/nasal|paranasal|sinusitis/i.test(q.s);
      const ANOM = /defect|\bASD\b|\bVSD\b|tetralogy|coarctation|patent|persistent|hernia|atresia|fistula|transposition|anomal|stenosis|ectopi|dextro|hypoplas|agenesis|cleft/i;
      return [
-     {main:true, name:"Lecture 1 · Heart Tubes & Atrial Chambers", f:q=>["Heart Origin & Heart Tubes","Sinus Venosus & Heart Tube Fate","Atrial Septation & ASDs"].includes(q.t)},
-     {name:"Heart origin & heart tubes", f:q=>q.t==="Heart Origin & Heart Tubes"},
-     {name:"Sinus venosus & fate of the heart tube", f:q=>q.t==="Sinus Venosus & Heart Tube Fate"},
+     // Lecture 1 covered the heart's origin through the segments of the single tube (Q1–22 minus 9, 18, 19);
+     // the next class finishes the heart tube (Q23–48) before moving on to the ventricles
+     {main:true, name:"Lecture 1 · Heart Tubes & Atrial Chambers", f:q=>q.num<=22 && ![9,18,19].includes(q.num)},
+     {name:"Heart origin & heart tubes", f:q=>q.num<=22 && ![9,18,19].includes(q.num) && q.t==="Heart Origin & Heart Tubes"},
+     {name:"Single heart tube & its segments", f:q=>q.num>=20 && q.num<=22},
+     {main:true, name:"Lecture 2 · Ventricles & Truncus Arteriosus (with anomalies)", f:q=>(q.num>=23 && q.num<=48) || q.t==="Ventricles, Outflow & Tetralogy"},
+     {name:"Folding & fate of the heart tube", f:q=>q.num>=23 && q.t==="Sinus Venosus & Heart Tube Fate"},
      {name:"Atrial septation & ASDs", f:q=>q.t==="Atrial Septation & ASDs"},
-     {main:true, name:"Lecture 2 · Ventricles & Truncus Arteriosus (with anomalies)", f:q=>q.t==="Ventricles, Outflow & Tetralogy"},
+     {name:"Ventricles, outflow & tetralogy", f:q=>q.t==="Ventricles, Outflow & Tetralogy"},
      {main:true, name:"Lecture 3 · Fetal Circulation, Artery & Vein Development", f:q=>["Fetal Circulation & Birth","Arterial Arches & Arteries","Veins"].includes(q.t)},
      {name:"Fetal circulation & changes at birth", f:q=>q.t==="Fetal Circulation & Birth"},
      {name:"Arterial (aortic) arches & arteries", f:q=>q.t==="Arterial Arches & Arteries"},
@@ -1140,12 +1144,12 @@ const SECTIONS = [
    extra:(window.CRS_ANAT_LECTURES||[]).flatMap(([n,ts])=>[{main:true, name:n, f:q=>ts.includes(q.t)}].concat(ts.map(t=>({name:t, f:q=>q.t===t})),
        [{name:"Easy questions", key:n+" · Easy", f:q=>ts.includes(q.t) && q.lv==="Easy"}, {name:"Hard questions", key:n+" · Hard", f:q=>ts.includes(q.t) && q.lv==="Hard"}]))
      .concat([{main:true, name:"Easy questions", f:q=>q.lv==="Easy"}, {main:true, name:"Hard questions", f:q=>q.lv==="Hard"}])},
-  {course:"crs", name:"CRS Biochemistry", all:"All CRS Biochemistry", prefix:"cb", topics:window.CRS_BC_TOPICS, hideTopics:true, qs:window.CRS_BC_QUESTIONS,
+  {course:"crs", name:"CRS Biochemistry", all:"All CRS Biochemistry", prefix:"cbr", topics:window.CRS_BC_TOPICS, hideTopics:true, qs:window.CRS_BC_QUESTIONS,
    // Grouped by lecture (Dr. Shetty), then topic. Add each new lecture as one more [name, topics] row.
    extra:(()=>{ const T = window.CRS_BC_TOPICS||[];
      return lecExtras([["Lecture 1 · Fatty Acid Oxidation", T.slice(0,10)], ["Lecture 2 · Fatty Acid & TAG Synthesis", T.slice(10,21)]],
        [["Shetty Practice Q's", "Shetty", "shetty"]]); })()},
-  {course:"crs", name:"CRS Physiology", all:"All CRS Physiology", prefix:"cp", topics:window.CRS_PH_TOPICS, hideTopics:true, qs:window.CRS_PH_QUESTIONS,
+  {course:"crs", name:"CRS Physiology", all:"All CRS Physiology", prefix:"cpr", topics:window.CRS_PH_TOPICS, hideTopics:true, qs:window.CRS_PH_QUESTIONS,
    // Grouped by lecture (Dr. Sampath V.), then topic. Add each new lecture as one more [name, topics] row.
    extra:(()=>{ const T = window.CRS_PH_TOPICS||[];
      return lecExtras([["Lecture 1 · Cardiac Action Potential", T.slice(0,11)], ["Lecture 2 · Pacemaker Potential: SA & AV Nodes", T.slice(11,18)]],
