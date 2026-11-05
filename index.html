@@ -1069,7 +1069,7 @@ button.dst:hover{background:var(--hover)}
 <script src="crs-embryology.js?v=34"></script>
 <script src="crs-anatomy.js?v=1"></script>
 <script src="crs-biochem.js?v=3"></script>
-<script src="crs-physiology.js?v=3"></script>
+<script src="crs-physiology.js?v=4"></script>
 <script src="nbme.js?v=8"></script>
 <script src="xp-crs.js?v=1"></script>
 <script src="viz-links.js?v=3"></script>
@@ -1923,7 +1923,7 @@ function renderStats(){
   $("stats").innerHTML = `<b>${done.length}</b> / ${qs.length} answered · <span class="g">${ok} correct</span> · <span class="r">${bad} incorrect</span> · ${pct}%${note}`;
 }
 function srcBadge(q){
-  return (q.xp?' <span class="badge xp">Exam Point</span>':"")+(q.shetty?' <span class="badge shetty">Shetty Practice Q</span>':"")+(q.sampath?' <span class="badge sampath">Sampath\'s Q\'s</span>':"")+(q.src==="lec"?' <span class="badge">Lecture slides</span>':"")+(q.src==="guide"?' <span class="badge">Study guide</span>':"")+(q.lv?' <span class="badge lv'+q.lv[0]+'">'+q.lv+'</span>':"")+(q.src==="new"?' <span class="badge">Blueprint practice</span>':"")+(q.src==="rev"?' <span class="badge">Review slides</span>':"")+
+  return (q.xp?' <span class="badge xp">Exam Point</span>':"")+(q.shetty?' <span class="badge shetty">Shetty Practice Q</span>':"")+(q.sampath?' <span class="badge sampath">Sampath\'s Q\'s</span>':"")+(q.src==="lec" && !q.sampath && !q.shetty?' <span class="badge">Lecture slides</span>':"")+(q.src==="guide"?' <span class="badge">Study guide</span>':"")+(q.lv?' <span class="badge lv'+q.lv[0]+'">'+q.lv+'</span>':"")+(q.src==="new"?' <span class="badge">Blueprint practice</span>':"")+(q.src==="rev"?' <span class="badge">Review slides</span>':"")+
     (q.src==="rev3"?' <span class="badge">MSK Review 3</span>':"")+(q.src==="rev4"?' <span class="badge">MSK Review 4</span>':"");
 }
 function renderCard(){
