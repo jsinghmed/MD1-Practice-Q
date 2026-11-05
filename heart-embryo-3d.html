@@ -1,0 +1,520 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Heart Development 3D · JJ QBank</title>
+<script>function jjTheme(){try{var th=localStorage.getItem("msk-theme");document.documentElement.setAttribute("data-theme",th==="light"?"light":"dark");}catch(e){}}jjTheme();window.addEventListener("storage",function(e){if(e.key==="msk-theme")jjTheme();});window.addEventListener("message",function(e){if(e.data==="jj-theme")jjTheme();});</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--bg:#e7ecee;--panel:#f7f9f9;--ink:#1b2427;--muted:#56666b;--line:#cfd8db;--accent:#1d6c75;--accent-ink:#fff;--scene:#cfd8dc;--chip:#e9eff0;
+ --ok:#2b8a3e;--bad:#c92a2a;--f-display:"Spectral",Georgia,serif;--f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1517;--panel:#161e21;--ink:#e2eaec;--muted:#93a4a9;--line:#283437;--accent:#62bcc4;--accent-ink:#0b1416;--scene:#0c1214;--chip:#1d272a;--ok:#51cf66;--bad:#ff6b6b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1517;--panel:#161e21;--ink:#e2eaec;--muted:#93a4a9;--line:#283437;--accent:#62bcc4;--accent-ink:#0b1416;--scene:#0c1214;--chip:#1d272a;--ok:#51cf66;--bad:#ff6b6b;color-scheme:dark}
+*{box-sizing:border-box}[hidden]{display:none!important}html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.45}
+.app{height:100%;display:grid;grid-template-columns:360px minmax(0,1fr);gap:14px;padding:12px max(16px,env(safe-area-inset-right,0px)) 12px max(16px,env(safe-area-inset-left,0px))}
+.side{min-width:0;overflow:auto;display:flex;flex-direction:column;gap:12px;padding-right:2px}
+.stage{position:relative;min-width:0;min-height:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--scene);display:flex;flex-direction:column}
+.cvwrap{position:relative;flex:1;min-height:0}
+#cv{display:block;width:100%;height:100%;touch-action:none;cursor:grab}#cv:active{cursor:grabbing}
+header h1{font-family:var(--f-display);font-weight:600;font-size:26px;line-height:1.1;margin:0;letter-spacing:-.01em}
+header p{margin:4px 0 0;font-family:var(--f-mono);font-size:11.5px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px}
+.label{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+#info .kind{display:flex;align-items:center;justify-content:space-between;gap:8px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+#info h2{font-family:var(--f-display);font-weight:600;font-size:22px;line-height:1.15;margin:6px 0 10px;text-wrap:balance}
+#info ul{margin:0;padding-left:18px}#info li{margin:4px 0}
+#info .note{margin:12px 0 0;padding:9px 11px;border-left:3px solid var(--accent);background:var(--chip);border-radius:0 6px 6px 0;font-size:13px}
+#info .note b{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:2px;font-weight:500}
+button{font:inherit;font-size:12.5px;border:1px solid var(--line);background:var(--chip);color:var(--ink);border-radius:6px;padding:6px 10px;cursor:pointer}
+button:hover{border-color:var(--accent)}button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.row{display:flex;gap:6px;flex-wrap:wrap}
+#steps{display:grid;grid-template-columns:1fr;gap:3px;margin:0;padding:0;list-style:none}
+#steps button{width:100%;text-align:left;display:grid;grid-template-columns:24px 1fr auto;gap:8px;align-items:baseline;background:none;border-color:transparent;padding:5px 8px}
+#steps button:hover{background:var(--chip)}
+#steps button .n{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+#steps button .d{font-family:var(--f-mono);font-size:10.5px;color:var(--muted)}
+#steps button[aria-current="step"]{background:var(--chip);border-color:var(--accent)}
+#steps button[aria-current="step"] .n{color:var(--accent)}
+.bar{display:grid;grid-template-columns:auto auto auto minmax(0,1fr) auto;gap:8px;align-items:center;padding:10px 12px;border-top:1px solid var(--line);background:var(--panel)}
+.bar input{width:100%;accent-color:var(--accent)}
+.bar .pos{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);white-space:nowrap;min-width:92px;text-align:right}
+.tools{position:absolute;top:10px;left:10px;right:10px;display:flex;gap:6px;flex-wrap:wrap;pointer-events:none}
+.tools button{pointer-events:auto;background:color-mix(in srgb,var(--panel) 88%,transparent);backdrop-filter:blur(4px);font-size:12px;padding:5px 9px}
+.tools button[aria-pressed="true"]{background:var(--accent)}
+.hint{position:absolute;bottom:10px;left:10px;right:10px;font-size:12px;color:var(--muted);pointer-events:none;text-align:center}
+#tags{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.tag{position:absolute;transform:translate(-50%,-50%);font-family:var(--f-mono);font-size:11px;padding:2px 6px;border-radius:4px;background:color-mix(in srgb,var(--panel) 85%,transparent);border:1px solid var(--line);white-space:nowrap;color:var(--ink);transition:opacity .25s}
+.tag i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:0}
+.legend{display:flex;flex-wrap:wrap;gap:5px 12px;font-size:12.5px;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:10px;height:10px;border-radius:50%;flex:none;display:inline-block}
+#check .q{font-weight:600;margin:0 0 8px}#check .opts{display:grid;gap:6px}#check .opts button{text-align:left}
+#check .opts button.ok{border-color:var(--ok);color:var(--ok)}#check .opts button.bad{border-color:var(--bad);color:var(--bad)}
+#check .fb{font-size:13px;margin-top:8px;min-height:18px}
+@media (max-width:820px){.app{grid-template-columns:1fr;grid-template-rows:auto;height:auto;min-height:100%}.stage{order:-1;height:64vh}.side{overflow:visible}.bar{grid-template-columns:auto auto auto minmax(0,1fr)}.bar .pos{display:none}}
+@media (prefers-reduced-motion:reduce){.tag{transition:none}}
+</style></head><body>
+<div class="app">
+<aside class="side">
+ <header><h1>Heart Development</h1><p>Trilaminar disc → four-chambered fetal heart</p></header>
+ <section class="card" id="info" aria-live="polite"></section>
+ <section class="card"><p class="label">Stages</p><ol id="steps"></ol></section>
+ <section class="card"><p class="label">Colours in this stage</p><div class="legend" id="legend"></div></section>
+ <section class="card" id="check"><p class="label">Quick check</p><div id="ckBody"></div></section>
+</aside>
+<main class="stage">
+ <div class="cvwrap">
+  <canvas id="cv" aria-label="Interactive 3D model of heart development"></canvas>
+  <div id="tags"></div>
+  <div class="tools"><button id="tLabels" aria-pressed="true">Labels</button><button id="tFlow" aria-pressed="true">Blood flow</button><button id="tBeat" aria-pressed="true">Heartbeat</button><button id="tReset">Reset view</button></div>
+  <div class="hint" id="hint">Drag to rotate · scroll or pinch to zoom · press play or pick a stage</div>
+ </div>
+ <div class="bar">
+  <button id="bPrev" aria-label="Previous stage">◀</button>
+  <button id="bPlay" aria-label="Play the whole sequence" style="min-width:74px">▶ Play</button>
+  <button id="bNext" aria-label="Next stage">▶︎▶︎</button>
+  <input type="range" id="tl" min="0" max="11.999" step="0.001" value="0" aria-label="Timeline">
+  <span class="pos" id="pos"></span>
+ </div>
+</main>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const sm=x=>{x=clamp(x);return x*x*(3-2*x);};
+const R=(t,a,b)=>sm((t-a)/(b-a));           // 0→1 as t goes a→b
+const V=(x,y,z)=>new THREE.Vector3(x,y,z);
+const lerp=(a,b,k)=>a+(b-a)*k;
+const REDUCE=window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches;
+
+// ---------- stages ----------
+const STAGES=[
+{t:"Trilaminar disc & notochordal process",d:"Week 3 · ~day 16–18",
+ pts:["Three germ layers: <b>ectoderm</b> on top (facing the amniotic cavity), <b>mesoderm</b> in the middle, <b>endoderm</b> below (facing the yolk sac)","The <b>notochordal process</b> grows in the midline from the primitive node toward the cranial end","The ectoderm above it thickens into the <b>neural plate</b> → neural folds → neural tube","At the cranial end the <b>oropharyngeal membrane</b>: ectoderm and endoderm touch with no mesoderm between"],
+ note:["Remember","The heart and every blood vessel come from <b>mesoderm</b>. Everything that follows happens in the cranial end of this disc."],
+ q:["Which germ layer gives rise to the heart?",["Mesoderm","Endoderm","Ectoderm"],0,"The cardiovascular system is mesodermal (endoderm → gut and lungs, ectoderm → skin and nervous system)."]},
+{t:"Intraembryonic coelom & cardiogenic area",d:"Week 3 · ~day 18–19",
+ pts:["Spaces in the lateral plate mesoderm join into a <b>horseshoe-shaped intraembryonic coelomic cavity</b>","It splits the mesoderm into <b>somatopleuric</b> (parietal, toward the ectoderm) and <b>splanchnopleuric</b> (visceral, toward the endoderm) layers","The apex of the horseshoe becomes the <b>pericardial cavity</b>; the limbs become the pleural and peritoneal cavities","The <b>septum transversum</b> sits just above (cranial to) the apex","Cardiogenic cells gather in the <b>splanchnopleuric</b> mesoderm at the apex"],
+ note:["Mnemonic","Splanchno = the organ side. The heart is an organ, so it comes from splanchnopleuric mesoderm."],
+ q:["Exactly which layer of mesoderm forms the heart?",["Somatopleuric (parietal)","Splanchnopleuric (visceral)","Intermediate mesoderm"],1,"The heart forms in the splanchnopleuric (visceral) layer, on the endoderm side of the coelom."]},
+{t:"Two endothelial heart tubes",d:"Week 3 · ~day 19–20",
+ pts:["The cardiogenic cells undergo <b>grouping / compaction</b> into two cords that hollow out","The first layer to form is the innermost one: <b>2 endothelial heart tubes</b>","A mass of mesoderm, the <b>myoepicardial mantle</b>, wraps each tube: <i>myo</i> → myocardium, <i>epi</i> → epicardium (visceral pericardium)","The developing tubes are embedded in the septum transversum region, in front of the pericardial cavity"],
+ note:["Layers","Endothelium, endocardium, myocardium and visceral pericardium are all splanchnopleuric. Only the <b>parietal pericardium</b> is somatopleuric."],
+ q:["Which layer of the heart wall forms first?",["Myocardium","Endothelium","Epicardium"],1,"The two endothelial heart tubes come first; the myoepicardial mantle then wraps them."]},
+{t:"Folding of the embryo",d:"Week 4 · ~day 21–22",
+ pts:["<b>Cranio-caudal folding</b> swings the cranial end (heart and septum transversum) ventrally and caudally, about 180°","<b>Lateral folding</b> rolls the sides under, closing the gut tube and bringing the two heart tubes toward the midline","Before folding the heart tubes lie <b>behind</b> the developing gut; after folding they lie <b>in front</b> of it","The septum transversum ends up <b>below</b> the heart, where it forms part of the diaphragm and the liver","The ectoderm wrapping around brings somatopleuric mesoderm with it → <b>parietal pericardium</b>"],
+ note:["Mnemonic","Before = Behind, After = Anterior."],
+ q:["After folding, the heart lies ___ to the gut.",["Posterior","Anterior","Lateral"],1,"Before = Behind, After = Anterior."]},
+{t:"One fused heart tube",d:"Week 4 · ~day 21–22",
+ pts:["The two tubes meet in the midline and <b>fuse into a single heart tube</b>","It bulges into the pericardial cavity, hung from the back wall by the <b>dorsal mesocardium</b>","Its venous end (sinus venosus) stays <b>submerged in the septum transversum</b>","The tube starts beating around <b>day 22</b>: the heart is the first organ to work"],
+ note:["Picture it","Endothelial tube inside, cardiac jelly, then the myoepicardial mantle outside: a tube within a tube."],
+ q:["Where is the venous end of the heart tube embedded?",["Dorsal mesocardium","Septum transversum","Foregut"],1,"The sinus venosus, with both horns, is submerged in the septum transversum."]},
+{t:"Segments of the heart tube",d:"Week 4",
+ pts:["Blood enters at the venous end and leaves at the arterial end:","<b>Sinus venosus</b> → <b>primitive atrium</b> → <b>primitive ventricle</b> → <b>bulbus cordis</b> (conus below, truncus arteriosus above) → <b>aortic sac</b> → right and left horns → <b>right and left dorsal aortas</b>","The sinus venosus has right and left horns; each receives the vitelline, umbilical and common cardinal veins","Between the primitive atrium and ventricle is the <b>atrioventricular canal</b>"],
+ note:["Mnemonic","Some People Prefer Coffee To Ale: Sinus · Primitive atrium · Primitive ventricle · Conus · Truncus · Aortic sac."],
+ q:["Which part lies between the primitive ventricle and the aortic sac?",["Bulbus cordis","Sinus venosus","Primitive atrium"],0,"The bulbus cordis: conus below, truncus arteriosus above."]},
+{t:"Looping of the heart tube",d:"Week 4 · ~day 23–28",
+ pts:["The venous end is gradually <b>released</b> from the septum transversum and moves <b>superiorly and posteriorly</b>","The tube grows faster than the pericardial cavity, so it bends into a <b>bulboventricular loop</b> to the right","The atria end up <b>above and behind</b> the ventricles; the primitive ventricle moves left, the bulbus cordis right and forward","The heart leans to the left, so the <b>right dorsal aorta is obliterated</b>; the left dorsal aorta remains as the descending aorta"],
+ note:["Clinical","If the loop bends to the left instead, the heart ends up on the right side: dextrocardia."],
+ q:["Which dorsal aorta remains as the descending aorta?",["Right","Left","Both fuse equally"],1,"The heart leans left, the right dorsal aorta is obliterated, and the left one remains."]},
+{t:"Fate of the sinus venosus",d:"Weeks 4–8",
+ pts:["The <b>left horn</b> narrows (retrogression) and empties into the right horn → <b>coronary sinus</b>","The <b>right horn</b> enlarges and is incorporated into the <b>right atrium</b> as its smooth part; it receives the SVC and IVC","The venous valve → <b>valve of the IVC</b>, <b>crista terminalis</b> (a boundary ridge, not a valve) and <b>valve of the coronary sinus</b>","Smooth wall = sinus venosus (a vein); rough pectinate wall = primitive atrium; the crista terminalis marks the border"],
+ note:["High yield","The sinus venosus forms part of the <b>right</b> atrium only. It does not contribute to the left atrium."],
+ q:["The left horn of the sinus venosus becomes the…",["Superior vena cava","Coronary sinus","Crista terminalis"],1,"After retrogression it empties into the right horn and becomes the coronary sinus."]},
+{t:"Endocardial cushions & AV canals",d:"Weeks 4–5",
+ pts:["The <b>atrioventricular canal</b> joins the common atrium to the common ventricle","<b>Endocardial cushions</b> grow from its dorsal and ventral walls","They fuse into the <b>septum intermedium</b>, splitting the canal into <b>right and left AV canals</b>","The heart now looks like an hourglass: common atrium above, common ventricle below"],
+ note:["Where the atria come from","Right atrium = sinus venosus + right AV canal + right half of the common atrium. Left atrium = left AV canal + left half of the common atrium + a small part of the pulmonary vein."],
+ q:["Fused endocardial cushions form the…",["Septum primum","Septum intermedium","Septum secundum"],1,"Cushions proliferate → fuse → septum intermedium → right and left AV canals."]},
+{t:"Septation of the atria",d:"Weeks 4–6",
+ pts:["The thin <b>septum primum</b> grows down from the roof toward the cushions; the gap left is the <b>foramen (ostium) primum</b>","Before that gap closes, holes in the upper septum primum join into the <b>foramen (ostium) secundum</b>","The thick <b>septum secundum</b> grows down on the <b>right</b> side but stops short; the passage below its edge is the <b>foramen ovale</b>","Fetal blood: right atrium → foramen ovale → up between the two septa → foramen secundum → left atrium","After birth, left atrial pressure rises and presses the septum primum flap against the septum secundum, so they fuse"],
+ note:["Defects","Patent foramen ovale: the flap fails to fuse with the septum secundum. Ostium secundum defect: excess resorption of the septum primum. Ostium primum defect: the septum primum fails to fuse with the cushions."],
+ q:["The foramen primum and foramen secundum are both openings in the…",["Septum secundum","Septum primum","Septum intermedium"],1,"Primum = the flap with the holes; secundum = the wall."]},
+{t:"Septation of the ventricles",d:"Weeks 4–7",
+ pts:["The floor of the common ventricle folds up into the <b>muscular interventricular septum</b> (the larger, lower part)","It does not reach the septum intermedium, leaving the <b>interventricular foramen</b>","The gap is closed by the <b>membranous interventricular septum</b>, from the <b>endocardial cushions</b> plus the <b>trunco-conal swellings</b>","Most of the primitive ventricle → <b>left ventricle</b>; part of it plus the <b>conus</b> → <b>right ventricle</b>"],
+ note:["Clinical","A gap in the membranous part is a membranous VSD, seen in tetralogy of Fallot and always in persistent truncus arteriosus."],
+ q:["The membranous interventricular septum comes from…",["The floor of the ventricle","Endocardial cushions + trunco-conal swellings","The septum secundum"],1,"The muscular part rises from the floor; the membranous part closes the last gap."]},
+{t:"Spiral septum & the fetal heart",d:"Weeks 5–8",
+ pts:["<b>Neural crest cells</b> migrate to the heart and form the <b>trunco-conal swellings</b>","They fuse in a twisting way into the <b>spiral septum</b>, the only septum that spirals","It splits the conus and truncus: right → <b>pulmonary trunk</b> (outlet of the RV), left → <b>aorta</b> (outlet of the LV), twisted around each other","The swellings also help form the aortic and pulmonic valves and the last part of the membranous septum","Fetal shunts: the <b>foramen ovale</b> and the <b>ductus arteriosus</b> (left 6th arch) from the pulmonary trunk to the aorta"],
+ note:["Clinical","No neural crest → no spiral septum → <b>persistent truncus arteriosus</b> (always with a membranous VSD). Incomplete migration → <b>tetralogy of Fallot</b>: Pulmonic stenosis, RV hypertrophy, Overriding aorta, VSD (PROVe)."],
+ q:["The trunco-conal swellings are made by…",["Endocardial cushions","Neural crest cells","Septum transversum"],1,"Neural crest cells migrate to the heart and form the trunco-conal swellings."]}
+];
+
+// ---------- colours ----------
+const C={ecto:0x5b8fd9,meso:0xd9665b,endo:0xe8c25a,noto:0x9d7be8,plate:0x3f6fc0,streak:0x2e4a7a,orom:0xf09ab0,coel:0x6fd3e0,st:0xb48a5c,cell:0xff7a8a,endoT:0xffb3bc,mantle:0xc8505a,
+ sv:0x7c8ce0,atr:0x4fb8b0,avc:0x7fc9a8,ven:0xe36464,conus:0xe8a34a,trunc:0xe6c84f,sac:0xc97bd6,aoD:0xd96b78,vein:0x5b7fd6,
+ wall:0xc65660,back:0x6e2a33,cush:0xf3d27a,sp1:0xf3a7b8,sp2:0xb85a7c,muscIVS:0xa83f49,ncc:0x9d7be8,aorta:0xe04848,pt:0x4a78d9,flow:0xffffff};
+const hex=c=>"#"+c.toString(16).padStart(6,"0");
+const LEG=[
+ [["ecto","Ectoderm"],["meso","Mesoderm"],["endo","Endoderm"],["noto","Notochordal process"],["plate","Neural plate"],["orom","Oropharyngeal membrane"]],
+ [["ecto","Ectoderm"],["endo","Endoderm"],["coel","Intraembryonic coelom"],["st","Septum transversum"],["cell","Cardiogenic cells"],["noto","Notochordal process"]],
+ [["endoT","Endothelial heart tubes"],["mantle","Myoepicardial mantle"],["coel","Pericardial cavity (apex)"],["st","Septum transversum"]],
+ [["ecto","Ectoderm"],["endo","Endoderm → gut"],["mantle","Heart tubes"],["coel","Pericardial cavity"],["st","Septum transversum"]],
+ [["mantle","Single heart tube"],["coel","Pericardial cavity"],["st","Septum transversum"],["endo","Foregut"]],
+ [["sv","Sinus venosus"],["atr","Primitive atrium"],["ven","Primitive ventricle"],["conus","Conus"],["trunc","Truncus arteriosus"],["sac","Aortic sac"],["aoD","Dorsal aortas"],["vein","Veins"]],
+ [["sv","Sinus venosus"],["atr","Primitive atrium"],["ven","Primitive ventricle"],["conus","Conus"],["trunc","Truncus arteriosus"],["aoD","Dorsal aortas"]],
+ [["sv","Right horn → sinus venarum"],["vein","SVC / IVC / coronary sinus"],["atr","Primitive atrium"],["ven","Ventricle"]],
+ [["wall","Heart wall (cut open)"],["cush","Endocardial cushions"]],
+ [["cush","Septum intermedium"],["sp1","Septum primum"],["sp2","Septum secundum"],["flow","Fetal blood flow"]],
+ [["muscIVS","Muscular IVS"],["cush","Membranous IVS / cushions"],["sp1","Septum primum"],["sp2","Septum secundum"]],
+ [["ncc","Trunco-conal swellings (neural crest)"],["pt","Pulmonary trunk"],["aorta","Aorta"],["sp2","Atrial septa"],["muscIVS","Ventricular septum"]]
+];
+
+// ---------- scene ----------
+const canvas=$("cv");
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true});
+renderer.setPixelRatio(Math.min(2,window.devicePixelRatio||1));
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(35,1,0.05,400);
+const controls=new THREE.OrbitControls(camera,canvas);controls.enableDamping=true;controls.dampingFactor=0.12;controls.minDistance=2.5;controls.maxDistance=60;
+scene.add(new THREE.HemisphereLight(0xffffff,0x3a3330,0.8));
+const key=new THREE.DirectionalLight(0xffffff,0.75);key.position.set(6,10,14);scene.add(key);
+const rim=new THREE.DirectionalLight(0xe6eeff,0.35);rim.position.set(-8,-4,-12);scene.add(rim);
+function mat(c,op=1,extra){const m=new THREE.MeshStandardMaterial(Object.assign({color:c,roughness:.55,metalness:0.02,side:THREE.DoubleSide},extra||{}));m.userData.op0=op;m.opacity=op;m.transparent=op<1;if(op<1)m.depthWrite=false;return m;}
+const G={A:new THREE.Group(),B:new THREE.Group(),C:new THREE.Group()};for(const k in G)scene.add(G[k]);
+function fade(group,k){group.visible=k>0.01;group.traverse(o=>{if(!o.material)return;const m=o.material,op0=m.userData.op0==null?1:m.userData.op0;const lk=o.userData.lk==null?1:o.userData.lk;const op=op0*k*lk;m.opacity=op;m.transparent=op<0.999;m.depthWrite=op>=0.999||(op0>=1&&k>0.9&&lk>0.9);o.visible=op>0.005;});}
+function setGeo(mesh,g){if(mesh.geometry)mesh.geometry.dispose();mesh.geometry=g;}
+function tubeMesh(c,op){const m=new THREE.Mesh(new THREE.BufferGeometry(),mat(c,op));return m;}
+function setTube(mesh,pts,r,segs=48){if(pts.length<2){mesh.userData.lk=0;return;}mesh.userData.lk=mesh.userData.lk0==null?1:mesh.userData.lk0;const cv=new THREE.CatmullRomCurve3(pts,false,"centripetal");setGeo(mesh,new THREE.TubeGeometry(cv,segs,r,12,false));mesh.userData.curve=cv;}
+
+// ====================================================================
+// PHASE A: the embryonic disc, folded by F(u,v,o).  u = cranio-caudal (cranial +), v = across, o = dorsal(+)/ventral(-) offset
+// ====================================================================
+const UL=4.2;const Wof=u=>1.65*Math.sqrt(Math.max(0.02,1-(u/(UL+0.12))**2));
+const P={pl:0,ph:0,pt:0};
+function F(u,v,o,out){
+ const W=Wof(u);let x,w;const kl=P.pl*Math.PI*0.9/Math.max(W,0.35);
+ if(kl<1e-4){x=v;w=o;}else{const a=v*kl;x=Math.sin(a)/kl+o*Math.sin(a);w=-(1-Math.cos(a))/kl+o*Math.cos(a);}
+ let y,z;const U0=1.35,U1=-2.6;
+ if(u>U0&&P.ph>1e-4){const kh=P.ph*1.18*Math.PI/(UL-U0),th=(u-U0)*kh;y=U0+Math.sin(th)/kh+w*Math.sin(th);z=-(1-Math.cos(th))/kh+w*Math.cos(th);}
+ else if(u<U1&&P.pt>1e-4){const kt=P.pt*0.75*Math.PI/(UL+U1),th=(U1-u)*kt;y=U1-Math.sin(th)/kt-w*Math.sin(th);z=-(1-Math.cos(th))/kt+w*Math.cos(th);}
+ else{y=u;z=w;}
+ return (out||new THREE.Vector3()).set(x,y,z);}
+// a sheet patch: u0..u1, half-width fn, offset fn
+function patch(u0,u1,half,off,c,op,nu=60,nv=18){
+ const g=new THREE.BufferGeometry();const pos=new Float32Array((nu+1)*(nv+1)*3);const idx=[];
+ for(let i=0;i<nu;i++)for(let j=0;j<nv;j++){const a=i*(nv+1)+j,b=a+nv+1;idx.push(a,b,a+1,b,b+1,a+1);}
+ g.setAttribute("position",new THREE.BufferAttribute(pos,3));g.setIndex(idx);
+ const m=new THREE.Mesh(g,mat(c,op));m.userData.upd=()=>{const tmp=new THREE.Vector3();const o=typeof off==="function"?off():off;
+  for(let i=0;i<=nu;i++){const u=lerp(u0,u1,i/nu),h=half(u);for(let j=0;j<=nv;j++){const v=lerp(-h,h,j/nv);F(u,v,o,tmp);const k=(i*(nv+1)+j)*3;pos[k]=tmp.x;pos[k+1]=tmp.y;pos[k+2]=tmp.z;}}
+  g.attributes.position.needsUpdate=true;g.computeVertexNormals();g.computeBoundingSphere();};
+ G.A.add(m);return m;}
+let gap=0.42;
+const ecto=patch(-UL,UL,u=>Wof(u),()=>gap,C.ecto,0.42,70,22);
+const endo=patch(-UL,UL,u=>Wof(u)*1.0,()=>-gap,C.endo,0.45,70,22);
+const meso=patch(-3.0,3.95,u=>Wof(u)*0.96,0,C.meso,0.65,60,20);
+const plate=patch(-2.75,2.3,u=>0.34*(u>1.6?1-(u-1.6)/0.9:1)+0.02,()=>gap+0.02,C.plate,0.9,40,6);
+const streak=patch(-3.95,-2.75,u=>0.08,()=>gap+0.02,C.streak,0.95,10,3);
+const orom=patch(2.5,2.78,u=>0.3*Math.sin(Math.PI*(u-2.5)/0.28)+0.01,0,C.orom,0.95,8,6);
+const stA=patch(3.72,4.12,u=>Wof(u)*0.86,-0.02,C.st,0.92,10,10);
+const stA2=patch(3.72,4.12,u=>Wof(u)*0.86,0.12,C.st,0.92,10,10);
+const noto=tubeMesh(C.noto,1);G.A.add(noto);
+const coel=tubeMesh(C.coel,0.75);coel.userData.lk0=1;G.A.add(coel);
+const horse=[];{for(let i=0;i<=14;i++){horse.push([-0.6+i*(2.75+0.6)/14,-1.02+0.06*(i/14)]);}
+ for(let i=1;i<20;i++){const a=-Math.PI/2+Math.PI*i/20;horse.push([2.75+0.88*Math.cos(a),0.96*Math.sin(a)]);}
+ for(let i=14;i>=0;i--){horse.push([-0.6+i*(2.75+0.6)/14,1.02-0.06*(i/14)]);}}
+const tubesA=[tubeMesh(C.endoT,1),tubeMesh(C.endoT,1)],mantA=[tubeMesh(C.mantle,0.45),tubeMesh(C.mantle,0.45)];tubesA.concat(mantA).forEach(m=>G.A.add(m));
+const cells=[];{const cg=new THREE.SphereGeometry(0.045,8,6);let s=7;const rnd=()=>{s=(s*16807)%2147483647;return s/2147483647;};
+ for(let i=0;i<70;i++){const side=i%2?1:-1;const a=-Math.PI/2+Math.PI*rnd();const rr=0.55+0.5*rnd();const m=new THREE.Mesh(cg,mat(C.cell,1));
+  m.userData.from=[2.75+rr*Math.cos(a)*0.95,rr*Math.sin(a)*1.0,-0.07];m.userData.to=[lerp(2.85,3.55,rnd()),side*0.6+(rnd()-.5)*0.08,-0.07];if(Math.sign(m.userData.from[1])!==side)m.userData.from[1]*=-1;cells.push(m);G.A.add(m);}}
+const tmpV=new THREE.Vector3();
+let fuseK=0;
+function updateA(t){
+ gap=lerp(0.42,0.17,R(t,0.55,1.15));
+ P.ph=P.pl=R(t,3.05,3.8);P.pt=P.ph*0.85;
+ fuseK=R(t,4.05,4.6);
+ for(const m of [ecto,endo,meso,plate,streak,orom,stA,stA2])m.userData.upd();
+ meso.userData.lk=lerp(1,0.25,R(t,0.6,1.1));
+ orom.userData.lk=1;stA.userData.lk=stA2.userData.lk=R(t,0.9,1.3);
+ // notochordal process grows cranially from the node
+ const ng=R(t,0.05,0.7),nEnd=-2.7+(2.35+2.7)*ng;const np=[];for(let i=0;i<=12;i++){const u=lerp(-2.7,nEnd,i/12);np.push(F(u,0,-0.04));}
+ setTube(noto,ng>0.02?np:[],0.07,40);
+ // horseshoe coelom grows outward from the apex
+ const cg=R(t,1.0,1.55);if(cg>0.02){const n=horse.length,mid=(n-1)/2,half=mid*cg;const pts=[];for(let i=Math.floor(mid-half);i<=Math.ceil(mid+half);i++){if(i<0||i>=n)continue;pts.push(F(horse[i][0],horse[i][1],0.05));}setTube(coel,pts,0.1+0.05*R(t,3.5,4.5),80);}else setTube(coel,[],0.1);
+ // cardiogenic cells → compaction → two endothelial tubes
+ const cIn=R(t,1.3,1.65),cMove=R(t,2.0,2.45),cOut=1-R(t,2.4,2.62);
+ for(const m of cells){const a=m.userData.from,b=m.userData.to;F(lerp(a[0],b[0],cMove),lerp(a[1],b[1],cMove),-0.07,m.position);m.userData.lk=cIn*cOut;}
+ const tIn=R(t,2.3,2.55),mIn=R(t,2.5,2.8);
+ for(let s=0;s<2;s++){const side=s?1:-1;const vt=side*0.6*(1-fuseK);const pts=[];for(let i=0;i<=8;i++)pts.push(F(lerp(2.85,3.55,i/8),vt,-0.07));
+  setTube(tubesA[s],tIn>0.01?pts:[],0.07+0.05*fuseK,32);tubesA[s].userData.lk=tIn;setTube(mantA[s],mIn>0.01?pts:[],0.13+0.07*fuseK,32);mantA[s].userData.lk=mIn;}
+}
+
+// ====================================================================
+// PHASE B: the heart tube, straight → looped, with horns, veins and dorsal aortas
+// ====================================================================
+const SEG=[[0,"sv"],[0.13,"atr"],[0.3,"avc"],[0.37,"ven"],[0.6,"conus"],[0.76,"trunc"],[0.9,"sac"]];
+const RAD=[[0,.36],[.08,.4],[.2,.62],[.3,.36],[.36,.36],[.47,.7],[.58,.46],[.66,.46],[.76,.36],[.88,.33],[.95,.42],[1,.34]];
+function radAt(s){for(let i=1;i<RAD.length;i++)if(s<=RAD[i][0]){const a=RAD[i-1],b=RAD[i],k=sm((s-a[0])/(b[0]-a[0]));return lerp(a[1],b[1],k);}return .34;}
+function segAt(s){let k=SEG[0][1];for(const x of SEG)if(s>=x[0])k=x[1];return k;}
+const STRAIGHT=[[0,-3.0,0],[0,-2.25,0],[0,-1.5,0],[0,-1.0,0],[0,-0.2,0],[0,0.6,0],[0,1.3,0],[0,2.05,0],[0,2.7,0],[0,3.15,0]];
+const LOOPED=[[0.1,1.3,-1.7],[0.3,1.55,-1.0],[0.55,1.0,-0.45],[0.8,0.25,-0.1],[1.15,-0.9,0.35],[0.45,-1.75,0.85],[-0.75,-1.15,1.0],[-0.65,0.3,1.0],[-0.2,1.35,0.9],[0,2.15,0.6]];
+const heartB=new THREE.Mesh(new THREE.BufferGeometry(),new THREE.MeshStandardMaterial({vertexColors:true,roughness:.5,metalness:.02,side:THREE.DoubleSide}));heartB.material.userData.op0=1;G.B.add(heartB);
+let curveB=null;
+function buildHeart(L,beat){const pts=STRAIGHT.map((p,i)=>{const q=LOOPED[i];const k=sm(clamp(L*1.15-0.15*(i/9)));return V(lerp(p[0],q[0],k),lerp(p[1],q[1],k),lerp(p[2],q[2],k));});
+ // keep the looping smooth: push the middle forward while it bends
+ const bend=Math.sin(Math.PI*clamp(L));for(let i=3;i<8;i++)pts[i].z+=0.35*bend*Math.sin(Math.PI*(i-3)/4);
+ curveB=new THREE.CatmullRomCurve3(pts,false,"centripetal");
+ const nS=140,nR=18,fr=curveB.computeFrenetFrames(nS,false);const pos=[],col=[],idx=[];const c=new THREE.Color(),c2=new THREE.Color();
+ for(let i=0;i<=nS;i++){const s=i/nS,p=curveB.getPointAt(s);const r=radAt(s)*(1+beat*(s>0.12&&s<0.75?0.12:0.05));const sk=segAt(s);c.setHex(C[sk]);
+  // soft blend at boundaries
+  for(const x of SEG){const d=s-x[0];if(Math.abs(d)<0.018&&x[0]>0){c2.setHex(C[segAt(x[0]-0.02)]);c.lerp(c2,0.5-d/0.036);}}
+  for(let j=0;j<=nR;j++){const a=j/nR*Math.PI*2,n=fr.normals[i].clone().multiplyScalar(Math.cos(a)).addScaledVector(fr.binormals[i],Math.sin(a));pos.push(p.x+n.x*r,p.y+n.y*r,p.z+n.z*r);col.push(c.r,c.g,c.b);}}
+ for(let i=0;i<nS;i++)for(let j=0;j<nR;j++){const a=i*(nR+1)+j,b=a+nR+1;idx.push(a,b,a+1,b,b+1,a+1);}
+ const g=new THREE.BufferGeometry();g.setAttribute("position",new THREE.Float32BufferAttribute(pos,3));g.setAttribute("color",new THREE.Float32BufferAttribute(col,3));g.setIndex(idx);g.computeVertexNormals();setGeo(heartB,g);}
+const hornR=tubeMesh(C.sv,1),hornL=tubeMesh(C.sv,1);G.B.add(hornR,hornL);
+const veinsB=[];for(let i=0;i<6;i++){const m=tubeMesh(C.vein,1);veinsB.push(m);G.B.add(m);}
+const svc=tubeMesh(C.vein,1),ivc=tubeMesh(C.vein,1),csB=tubeMesh(C.vein,1);G.B.add(svc,ivc,csB);
+const aoR=tubeMesh(C.aoD,1),aoL=tubeMesh(C.aoD,1);G.B.add(aoR,aoL);
+const stB=new THREE.Mesh(new THREE.BoxGeometry(4.6,0.9,2.2),mat(C.st,0.55));stB.position.set(0,-3.75,-0.2);G.B.add(stB);
+const periB=new THREE.Mesh(new THREE.SphereGeometry(1,40,28),mat(C.coel,0.12));periB.scale.set(2.3,3.6,2.0);periB.position.set(0,0.1,0.2);periB.material.depthWrite=false;G.B.add(periB);
+const mesoB=new THREE.Mesh(new THREE.PlaneGeometry(0.12,1),mat(C.mantle,0.5));G.B.add(mesoB);
+let hornPts={};
+function updateB(t,beat){
+ const L=R(t,6.0,6.8);buildHeart(L,beat);
+ const p0=curveB.getPointAt(0),dn=curveB.getTangentAt(0).negate();
+ const svF=R(t,7.0,7.55);   // sinus venosus remodelling
+ const side=V(1,0,0);
+ const mk=(sx)=>{const a=p0.clone(),b=p0.clone().addScaledVector(dn,0.25).addScaledVector(side,0.62*sx),c=p0.clone().addScaledVector(dn,0.55).addScaledVector(side,1.3*sx);return [a,b,c];};
+ const r0=mk(-1),l0=mk(1);
+ // left horn retrogresses: becomes a thin coronary sinus running behind to the right horn
+ const lcs=[p0.clone().addScaledVector(side,-0.35),p0.clone().addScaledVector(side,0.35).add(V(0,-0.15,-0.45)),p0.clone().addScaledVector(side,1.1).add(V(0,-0.05,-0.55)),p0.clone().addScaledVector(side,1.55).add(V(0,0.35,-0.25))];
+ setTube(hornR,r0.map(p=>p.clone().addScaledVector(side,-0.15*svF)),0.27+0.16*svF,24);
+ setTube(hornL,l0,0.27*(1-svF*0.7),24);hornL.userData.lk=1-svF;
+ setTube(csB,svF>0.02?lcs:[],0.1,32);csB.userData.lk=svF;
+ hornPts={R:r0[2],L:l0[2],p0,cs:lcs[2]};
+ // three veins into each horn: vitelline, umbilical, common cardinal
+ const vIn=1-R(t,6.85,7.25);
+ for(let s=0;s<2;s++){const end=s?l0[2]:r0[2],sx=s?1:-1;
+  const dirs=[V(0.2*sx,-1,0.3),V(0.8*sx,-0.6,0.5),V(0.7*sx,0.3,-0.9)];
+  dirs.forEach((d,k)=>{const m=veinsB[s*3+k];setTube(m,[end.clone(),end.clone().addScaledVector(d.normalize(),0.6),end.clone().addScaledVector(d,1.3).add(V(0,-0.3,0))],0.08,16);m.userData.lk=vIn;});}
+ const rh=hornR.userData.curve.getPointAt(1);
+ setTube(svc,svF>0.02?[rh.clone(),rh.clone().add(V(-0.1,1.0,0.1)),rh.clone().add(V(-0.15,2.3,0.15))]:[],0.17,20);svc.userData.lk=svF;
+ setTube(ivc,svF>0.02?[rh.clone(),rh.clone().add(V(-0.05,-1.0,0)),rh.clone().add(V(0,-2.2,0.05))]:[],0.19,20);ivc.userData.lk=svF;
+ // dorsal aortas from the aortic sac
+ const pe=curveB.getPointAt(1);
+ const ao=sx=>[pe.clone(),pe.clone().add(V(0.55*sx,0.45,-0.2)),pe.clone().add(V(0.75*sx,0.55,-1.2)),V(0.65*sx,pe.y-0.2,-2.3),V(0.6*sx,-1.5,-2.5),V(0.55*sx,-3.6,-2.5)];
+ setTube(aoR,ao(-1),0.16,48);setTube(aoL,ao(1),0.16,48);aoR.userData.lk=1-R(t,6.55,7.0);
+ stB.userData.lk=1-R(t,6.0,6.6);
+ mesoB.userData.lk=0.9*(1-R(t,5.8,6.3));const pm=curveB.getPointAt(0.5);mesoB.position.set(pm.x,pm.y,pm.z-0.95);mesoB.scale.set(1,3.6,1);mesoB.lookAt(pm.x,pm.y,10);
+ periB.userData.lk=1-R(t,6.6,7.0);
+}
+
+// ====================================================================
+// PHASE C: the heart cut open in a frontal plane, with cushions and septa
+// ====================================================================
+const ZB=-0.72,ZF=0.18;  // back and front of the cut slab
+function outline(sh,ins){const pts=[];const vr=[0,-1.22,2.05-ins,1.4-ins],ar=[0,1.35,2.15-ins,1.02-ins],wx=1.02-ins*0.9,wy=0.28;
+ const va0=Math.asin(clamp((-0.18+1.22)/vr[3],-1,1)),aa0=-Math.asin(clamp((1.35-0.68)/ar[3],-1,1));
+ // ventricle arc from right-top, around the bottom, to left-top (apex a little to the left)
+ for(let i=0;i<=40;i++){const a=va0-(Math.PI+2*va0)*i/40;let x=vr[2]*Math.cos(a),y=vr[1]+vr[3]*Math.sin(a);if(y<-1.2)x+=0.25*Math.sin(Math.PI*(x+2)/4)*((-1.2-y)/1.4);pts.push([x,y]);}
+ pts.push([-wx,wy]);
+ for(let i=0;i<=40;i++){const a=Math.PI-aa0-(Math.PI-2*aa0)*i/40;pts.push([ar[2]*Math.cos(a),ar[1]+ar[3]*Math.sin(a)]);}
+ pts.push([wx,wy]);
+ sh.moveTo(pts[0][0],pts[0][1]);for(let i=1;i<pts.length;i++)sh.lineTo(pts[i][0],pts[i][1]);sh.closePath();return pts;}
+const outerS=new THREE.Shape();const OUT=outline(outerS,0);const innerP=new THREE.Path();const IN=outline(innerP,0.2);outerS.holes.push(innerP);
+const wallC=new THREE.Mesh(new THREE.ExtrudeGeometry(outerS,{depth:ZF-ZB,bevelEnabled:false,curveSegments:4}),mat(C.wall,1,{roughness:.6}));wallC.position.z=ZB;G.C.add(wallC);
+const backS=new THREE.Shape();outline(backS,0);
+const backC=new THREE.Mesh(new THREE.ExtrudeGeometry(backS,{depth:0.1,bevelEnabled:false}),mat(C.back,1,{roughness:.8}));backC.position.z=ZB-0.1;G.C.add(backC);
+function ext(shape,depth){return new THREE.ExtrudeGeometry(shape,{depth,bevelEnabled:false,curveSegments:10});}
+const cushD=new THREE.Mesh(new THREE.SphereGeometry(1,28,18),mat(C.cush,1)),cushV=new THREE.Mesh(new THREE.SphereGeometry(1,28,18),mat(C.cush,1));G.C.add(cushD,cushV);
+const sepI=new THREE.Mesh(new THREE.BufferGeometry(),mat(C.cush,1));G.C.add(sepI);
+const sp1=new THREE.Mesh(new THREE.BufferGeometry(),mat(C.sp1,0.92));G.C.add(sp1);
+const sp2=new THREE.Mesh(new THREE.BufferGeometry(),mat(C.sp2,1));G.C.add(sp2);
+const ivsM=new THREE.Mesh(new THREE.BufferGeometry(),mat(C.muscIVS,1));G.C.add(ivsM);
+const ivsMem=new THREE.Mesh(new THREE.BufferGeometry(),mat(C.cush,1));G.C.add(ivsMem);
+// septum sheet in the y-z plane at x0: profile in (z,y) with optional holes, extruded along x
+function sheetYZ(mesh,x0,th,ylo,yhi,holes,concave){const s=new THREE.Shape();const zb=ZB+0.02,zf=ZF-0.02;
+ s.moveTo(zb,yhi);s.lineTo(zb,ylo);const n=12;for(let i=1;i<=n;i++){const z=lerp(zb,zf,i/n);s.lineTo(z,ylo+(concave||0)*Math.sin(Math.PI*i/n));}s.lineTo(zf,yhi);s.closePath();
+ for(const h of holes||[]){if(h[2]<0.01)continue;const p=new THREE.Path();p.absellipse(h[0],h[1],h[2],h[3]||h[2],0,Math.PI*2,true);s.holes.push(p);}
+ const g=ext(s,th);g.rotateY(-Math.PI/2);g.translate(x0+th/2,0,0);setGeo(mesh,g);}
+const truncC=tubeMesh(C.trunc,0.45),ridge1=tubeMesh(C.ncc,1),ridge2=tubeMesh(C.ncc,1),ptC=tubeMesh(C.pt,1),aoC=tubeMesh(C.aorta,1),ptS=tubeMesh(C.pt,1),aoS=tubeMesh(C.aorta,1),arch=tubeMesh(C.aorta,1),lpa=tubeMesh(C.pt,1),rpa=tubeMesh(C.pt,1),duct=tubeMesh(0x9a7bd0,1);
+G.C.add(truncC,ridge1,ridge2,ptC,aoC,ptS,aoS,arch,lpa,rpa,duct);
+const OZ=0.95,Y0=-0.2,Y1=2.55;
+function helix(r,ps,n=24){const pts=[];for(let i=0;i<=n;i++){const f=i/n,y=lerp(Y0,Y1,f),a=ps-Math.PI*f;pts.push(V(r*Math.cos(a),y,OZ+r*Math.sin(a)));}return pts;}
+function partial(pts,f){const n=Math.max(2,Math.round(pts.length*f));return f<0.02?[]:pts.slice(0,n);}
+function updateC(t){
+ // cushions: grow from the back and front walls of the AV canal, then fuse
+ const cg=R(t,8.1,8.55),cf=R(t,8.5,8.8);
+ const yc=0.28;
+ cushD.scale.set(0.5+0.12*cg,0.2+0.08*cg,0.15+0.3*cg);cushD.position.set(0,yc,lerp(ZB+0.05,-0.4,cf));
+ cushV.scale.set(0.5+0.12*cg,0.2+0.08*cg,0.15+0.3*cg);cushV.position.set(0,yc,lerp(ZF-0.05,-0.12,cf));
+ cushD.userData.lk=cushV.userData.lk=R(t,8.05,8.3)*(1-R(t,8.75,8.85));
+ if(!sepI.userData.done){const s=new THREE.Shape();s.absellipse(0,yc,0.66,0.3,0,Math.PI*2);const g=ext(s,ZF-ZB-0.04);g.translate(0,0,ZB+0.02);setGeo(sepI,g);sepI.userData.done=1;}
+ sepI.userData.lk=R(t,8.75,8.85);
+ // septum primum: grows down; foramen primum closes; perforations → foramen secundum
+ const top=2.2,low=lerp(top,yc+0.3,R(t,9.0,9.35)),fp=R(t,9.35,9.55);
+ const yl=lerp(low,yc+0.22,fp);
+ const perf=R(t,9.3,9.5),big=R(t,9.48,9.62);
+ const holes=big<0.01?[[-0.5,1.75,0.07*perf],[-0.22,1.88,0.06*perf],[-0.08,1.62,0.065*perf]]:[[-0.28,1.75,0.3*big+0.05,0.22*big+0.04]];
+ if(t>=9)sheetYZ(sp1,0.04,0.05,yl,top,t>=9.3?holes:[],fp<1?0.18*(1-fp):0);sp1.userData.lk=R(t,9.0,9.1);
+ // septum secundum: thick, on the right, stops short → foramen ovale
+ const s2=lerp(top,1.22,R(t,9.55,9.8));if(t>=9.5)sheetYZ(sp2,-0.24,0.18,s2,top,[],0.12);sp2.userData.lk=R(t,9.55,9.62);
+ // muscular IVS rises from the floor; membranous IVS closes the gap
+ const iv=R(t,10.0,10.45),ytop=lerp(-2.45,-0.62,iv);
+ if(t>=10){const s=new THREE.Shape();s.moveTo(-0.2,-2.6);s.lineTo(0.2,-2.6);s.quadraticCurveTo(0.14,ytop-0.1,0.02,ytop);s.lineTo(-0.02,ytop);s.quadraticCurveTo(-0.14,ytop-0.1,-0.2,-2.6);const g=ext(s,ZF-ZB-0.04);g.translate(0,0,ZB+0.02);setGeo(ivsM,g);}
+ ivsM.userData.lk=R(t,10.0,10.08);
+ const mm=R(t,10.55,10.85);if(t>=10.5){const s=new THREE.Shape();const yb=lerp(yc-0.25,-0.66,mm);s.moveTo(-0.06,yc-0.1);s.lineTo(0.06,yc-0.1);s.lineTo(0.06,yb);s.lineTo(-0.06,yb);s.closePath();const g=ext(s,ZF-ZB-0.04);g.translate(0,0,ZB+0.02);setGeo(ivsMem,g);}
+ ivsMem.userData.lk=R(t,10.5,10.6);
+ // outflow: truncus with spiralling ridges → twisted pulmonary trunk and aorta
+ const showO=R(t,10.9,11.1);
+ setTube(truncC,[V(0,Y0-0.4,OZ-0.35),V(0,Y0,OZ),V(0,(Y0+Y1)/2,OZ),V(0,Y1,OZ),V(0,Y1+0.3,OZ-0.1)],0.46,32);truncC.userData.lk=showO*(1-R(t,11.42,11.55));
+ const rg=R(t,11.0,11.3),rin=R(t,11.25,11.45);
+ setTube(ridge1,partial(helix(0.38*(1-rin),Math.PI/2),rg).reverse(),0.04+0.1*rin,40);setTube(ridge2,partial(helix(0.38*(1-rin),-Math.PI/2),rg).reverse(),0.04+0.1*rin,40);
+ ridge1.userData.lk=ridge2.userData.lk=R(t,11.0,11.05)*(1-R(t,11.45,11.55));
+ // reverse so the ridges grow from the top down (they meet in a twist)
+ if(rg>0.02){const p1=helix(0.38*(1-rin),Math.PI/2).reverse(),p2=helix(0.38*(1-rin),-Math.PI/2).reverse();setTube(ridge1,partial(p1,rg),0.04+0.1*rin,40);setTube(ridge2,partial(p2,rg),0.04+0.1*rin,40);}
+ const sp=R(t,11.45,11.65);const r=0.08+0.32*sp;
+ setTube(ptC,helix(r,Math.PI),0.28,40);setTube(aoC,helix(r,0),0.28,40);ptC.userData.lk=aoC.userData.lk=R(t,11.42,11.5);
+ const pb=V(r*Math.cos(Math.PI),Y0,OZ),ab=V(r,Y0,OZ);
+ setTube(ptS,[V(-0.7,-0.75,-0.1),V(-0.55,-0.5,OZ*0.6),pb],0.27,16);setTube(aoS,[V(0.6,-0.7,-0.3),V(0.45,-0.5,OZ*0.5),ab],0.27,16);
+ ptS.userData.lk=aoS.userData.lk=R(t,11.45,11.55);
+ const ex=R(t,11.65,11.85);
+ const aoTop=V(-r,Y1,OZ),ptTop=V(r,Y1,OZ);
+ setTube(arch,ex>0.02?partial([aoTop,aoTop.clone().add(V(0,0.5,-0.1)),V(-0.1,Y1+0.95,0.2),V(0.55,Y1+0.85,-0.6),V(0.8,Y1+0.2,-1.3),V(0.8,0.5,-1.45),V(0.75,-2.6,-1.45)],ex):[],0.27,60);
+ setTube(lpa,ex>0.02?partial([ptTop,ptTop.clone().add(V(0.15,0.35,-0.3)),V(1.15,Y1+0.3,-0.7),V(1.9,Y1+0.1,-0.9)],ex):[],0.2,24);
+ setTube(rpa,ex>0.02?partial([ptTop,ptTop.clone().add(V(-0.05,0.38,-0.4)),V(-0.6,Y1+0.32,-0.95),V(-1.9,Y1+0.15,-1.0)],ex):[],0.2,24);
+ const dx=R(t,11.8,11.95);setTube(duct,dx>0.02?[ptTop.clone().add(V(0.12,0.42,-0.35)),V(0.55,Y1+0.62,-0.5),V(0.62,Y1+0.72,-0.66)]:[],0.12,16);duct.userData.lk=dx;
+}
+
+// ---------- blood-flow particles ----------
+const flowG=new THREE.Group();scene.add(flowG);const NP=36;const parts=[];
+for(let i=0;i<NP;i++){const m=new THREE.Mesh(new THREE.SphereGeometry(0.06,8,6),new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.9,depthTest:false}));m.renderOrder=5;flowG.add(m);parts.push(m);}
+const FO_PATH=new THREE.CatmullRomCurve3([V(-1.5,0.95,-0.3),V(-0.7,0.85,-0.3),V(-0.12,0.95,-0.3),V(-0.1,1.55,-0.3),V(0.1,1.78,-0.3),V(0.8,1.6,-0.3),V(1.4,1.2,-0.3)]);
+function updateFlow(t,clock){
+ let path=null,lenK=1;
+ if(t>=5&&t<8&&st.flow&&curveB){path=curveB;}
+ else if(t>=9.8&&st.flow){path=FO_PATH;}
+ flowG.visible=!!path;if(!path)return;
+ const fadeIn=t>=9.8?R(t,9.8,9.9):R(t,5.1,5.3)*(1-R(t,7.8,8.0));
+ for(let i=0;i<NP;i++){const s=((clock*0.12+i/NP)%1);const p=path.getPointAt(s);parts[i].position.copy(p);
+  if(path===curveB){const off=0.12*Math.sin(i*2.3);parts[i].position.x+=off;parts[i].position.z+=0.12*Math.cos(i*1.7);}
+  parts[i].material.opacity=0.9*fadeIn*Math.min(1,Math.min(s,1-s)*8);parts[i].material.color.setHex(path===curveB?(s<0.3?0x9fb6ff:s<0.6?0xffb3b3:0xffd9a0):(s<0.5?0xb5c6ff:0xffc2c2));}
+}
+
+// ---------- labels ----------
+const tagsEl=$("tags");const TAGS=[];
+function tag(text,col,a,b,pos){const el=document.createElement("div");el.className="tag";el.innerHTML=(col!=null?`<i style="background:${hex(col)}"></i>`:"")+text;tagsEl.appendChild(el);TAGS.push({el,a,b,pos});}
+const oA=()=>gap;
+tag("Ectoderm",C.ecto,0,1,()=>F(-1.5,Wof(-1.5)*0.92,gap));
+tag("Mesoderm",C.meso,0,0.95,()=>F(-0.6,Wof(-0.6)*0.92,0));
+tag("Endoderm",C.endo,0,1,()=>F(0.4,Wof(0.4)*0.92,-gap));
+tag("Notochordal process",C.noto,0.35,2,()=>F(-0.4,0,-0.04));
+tag("Neural plate",C.plate,0,3,()=>F(-1.6,-0.15,gap+0.03));
+tag("Primitive streak & node",C.streak,0,1,()=>F(-3.35,0,gap+0.03));
+tag("Oropharyngeal membrane",C.orom,0,4,()=>F(2.64,0,0));
+tag("Horseshoe intraembryonic coelom",C.coel,1.4,3,()=>F(0.7,-1.0,0.05));
+tag("Pericardial cavity (apex)",C.coel,1.4,5,()=>F(3.63,0,0.05));
+tag("Septum transversum",C.st,1.1,5,()=>F(3.95,0.55,0));
+tag("Cardiogenic cells (splanchnopleuric)",C.cell,1.4,2.4,()=>F(3.2,0.95,-0.07));
+tag("Endothelial heart tubes",C.endoT,2.45,3.9,()=>F(3.1,-0.6*(1-fuseK),-0.07));
+tag("Myoepicardial mantle",C.mantle,2.7,3.9,()=>F(3.45,0.6*(1-fuseK),-0.07));
+tag("Foregut",C.endo,3.6,5,()=>F(1.0,0,-0.6));
+tag("Single heart tube",C.mantle,4.5,5,()=>F(3.2,0,-0.07));
+tag("Dorsal mesocardium",C.mantle,5.05,5.8,()=>{const p=curveB.getPointAt(0.5);return p.clone().add(V(0,-0.4,-1.0));});
+tag("Pericardial cavity",C.coel,5.05,6.6,()=>V(1.9,1.8,0.4));
+const sP=s=>()=>curveB.getPointAt(s);
+tag("Sinus venosus",C.sv,5.05,7.0,sP(0.05));
+tag("Primitive atrium",C.atr,5.05,8,()=>curveB.getPointAt(0.2).add(V(0.0,0,0)));
+tag("AV canal",C.avc,5.05,8,sP(0.33));
+tag("Primitive ventricle",C.ven,5.05,8,sP(0.48));
+tag("Conus",C.conus,5.05,8,sP(0.67));
+tag("Truncus arteriosus",C.trunc,5.05,8,sP(0.83));
+tag("Aortic sac",C.sac,5.05,8,sP(0.97));
+tag("Right horn",C.sv,5.05,7.0,()=>hornPts.R.clone().add(V(-0.3,0,0)));
+tag("Left horn",C.sv,5.05,7.0,()=>hornPts.L.clone().add(V(0.3,0,0)));
+tag("Vitelline, umbilical & cardinal veins",C.vein,5.05,6.9,()=>hornPts.L.clone().add(V(0.7,-1.0,0.2)));
+tag("Septum transversum",C.st,5.05,6.3,()=>V(1.5,-3.6,0.9));
+tag("Right & left dorsal aortas",C.aoD,5.05,6.55,()=>V(0,-2.6,-2.5));
+tag("Right dorsal aorta obliterated",C.aoD,6.55,7.0,()=>V(-0.6,-2.6,-2.5));
+tag("Left dorsal aorta → descending aorta",C.aoD,6.7,8,()=>V(0.6,-2.9,-2.5));
+tag("Right horn → smooth part of RA",C.sv,7.3,8,()=>hornPts.R.clone().add(V(-0.5,0.0,0.3)));
+tag("Left horn → coronary sinus",C.vein,7.3,8,()=>hornPts.cs.clone().add(V(0.6,0,-0.2)));
+tag("SVC",C.vein,7.4,8,()=>hornPts.R.clone().add(V(-0.3,2.0,0.2)));
+tag("IVC",C.vein,7.4,8,()=>hornPts.R.clone().add(V(-0.2,-2.0,0.1)));
+tag("Common atrium",C.wall,8.05,9.0,()=>V(0,1.95,-0.3));
+tag("Common ventricle",C.wall,8.05,10.0,()=>V(0,-1.6,-0.3));
+tag("Dorsal cushion",C.cush,8.1,8.75,()=>cushD.position.clone().add(V(0.9,0.05,0)));
+tag("Ventral cushion",C.cush,8.1,8.75,()=>cushV.position.clone().add(V(0.9,-0.2,0)));
+tag("Septum intermedium",C.cush,8.75,10.5,()=>V(0,0.28,0.2));
+tag("Right AV canal",null,8.8,9.6,()=>V(-0.95,-0.05,-0.3));
+tag("Left AV canal",null,8.8,9.6,()=>V(0.95,-0.05,-0.3));
+tag("Septum primum",C.sp1,9.05,11,()=>V(0.3,1.15,-0.1));
+tag("Foramen primum",null,9.05,9.5,()=>V(0.55,0.75,-0.3));
+tag("Foramen secundum",null,9.5,11,()=>V(0.55,1.8,-0.28));
+tag("Septum secundum",C.sp2,9.6,11,()=>V(-0.7,1.9,-0.1));
+tag("Foramen ovale",null,9.8,12,()=>V(-0.5,0.9,-0.3));
+tag("Right atrium",null,9.8,12,()=>V(-1.25,1.5,-0.3));
+tag("Left atrium",null,9.8,12,()=>V(1.25,1.5,-0.3));
+tag("Muscular IVS",C.muscIVS,10.1,11,()=>V(0.45,-1.55,0.1));
+tag("Interventricular foramen",null,10.3,10.6,()=>V(0.6,-0.35,-0.3));
+tag("Membranous IVS",C.cush,10.6,11,()=>V(0.7,-0.3,0.1));
+tag("Right ventricle",null,10.3,12,()=>V(-1.1,-1.3,-0.3));
+tag("Left ventricle",null,10.3,12,()=>V(1.1,-1.3,-0.3));
+tag("Truncus arteriosus",C.trunc,10.95,11.45,()=>V(0.55,1.2,OZ+0.2));
+tag("Trunco-conal swellings",C.ncc,11.05,11.5,()=>V(-0.6,2.0,OZ+0.2));
+tag("Pulmonary trunk",C.pt,11.5,12,()=>V(-0.55,0.5,OZ+0.35));
+tag("Aorta",C.aorta,11.5,12,()=>V(-0.6,Y1+0.7,0.4));
+tag("Ductus arteriosus",0x9a7bd0,11.85,12,()=>V(1.0,Y1+0.85,-0.4));
+function placeTags(t){const r=canvas.getBoundingClientRect();const v=new THREE.Vector3();
+ for(const g of TAGS){const on=st.labels&&t>=g.a&&t<g.b;if(!on){g.el.style.display="none";continue;}
+  let p;try{p=g.pos();}catch(e){p=null;}if(!p){g.el.style.display="none";continue;}
+  v.copy(p).project(camera);if(v.z>1||Math.abs(v.x)>1.1||Math.abs(v.y)>1.1){g.el.style.display="none";continue;}
+  g.el.style.display="";g.el.style.left=((v.x+1)/2*r.width)+"px";g.el.style.top=((1-v.y)/2*r.height)+"px";}}
+
+// ---------- camera presets per stage: [pos, target] ----------
+const CAM=[[[5.5,-7.5,6.5],[0,0,0]],[[3.8,-2.5,7.6],[0,1.6,0]],[[2.6,1.0,5.2],[0,3.1,0]],[[11.5,1.5,1.5],[0,0.6,-0.6]],[[6.5,3.2,0.6],[0,1.7,-1.2]],
+ [[4.5,1.0,11.5],[0,0,-0.3]],[[7.5,3.5,9.5],[0,0,-0.2]],[[-9,3,-5.5],[0,0.6,-0.6]],[[3.5,1.5,8.5],[0,0,-0.3]],[[1.5,0.8,7.5],[0,0.9,-0.3]],[[1.8,-0.1,9.6],[0,-0.25,-0.3]],[[5.5,2.0,10.5],[0,0.6,0]]];
+let tween=null;
+function goCam(i,instant){const c=CAM[i];const to=V(...c[0]),tg=V(...c[1]);if(instant||REDUCE){camera.position.copy(to);controls.target.copy(tg);tween=null;return;}
+ tween={p0:camera.position.clone(),p1:to,t0:controls.target.clone(),t1:tg,k:0};}
+
+// ---------- state & UI ----------
+const st={t:0,play:false,stopAt:null,labels:true,flow:true,beat:true,stage:-1};
+$("steps").innerHTML=STAGES.map((s,i)=>`<li><button data-s="${i}"><span class="n">${String(i+1).padStart(2,"0")}</span><span>${s.t}</span><span class="d">${s.d.replace(/^Weeks? [0-9–]+ · /,"")}</span></button></li>`).join("");
+function showStage(i){const s=STAGES[i];
+ $("info").innerHTML=`<div class="kind"><span>Stage ${i+1} of ${STAGES.length}</span><span>${s.d}</span></div><h2>${s.t}</h2><ul>${s.pts.map(x=>`<li>${x}</li>`).join("")}</ul>${s.note?`<div class="note"><b>${s.note[0]}</b>${s.note[1]}</div>`:""}`;
+ for(const b of $("steps").querySelectorAll("button"))b.toggleAttribute("aria-current",false),b.removeAttribute("aria-current");
+ const cur=$("steps").querySelector(`[data-s="${i}"]`);if(cur)cur.setAttribute("aria-current","step");
+ $("legend").innerHTML=LEG[i].map(([k,n])=>`<span><i class="dot" style="background:${hex(C[k])}"></i>${n}</span>`).join("");
+ const q=s.q;$("ckBody").innerHTML=`<p class="q">${q[0]}</p><div class="opts">${q[1].map((o,j)=>`<button data-o="${j}">${o}</button>`).join("")}</div><div class="fb" id="ckFb"></div>`;}
+$("ckBody").addEventListener("click",e=>{const b=e.target.closest("[data-o]");if(!b)return;const q=STAGES[st.stage].q;const j=+b.dataset.o;
+ for(const x of $("ckBody").querySelectorAll("[data-o]"))x.classList.remove("ok","bad");
+ b.classList.add(j===q[2]?"ok":"bad");if(j!==q[2])$("ckBody").querySelector(`[data-o="${q[2]}"]`).classList.add("ok");$("ckFb").textContent=(j===q[2]?"Correct. ":"Not quite. ")+q[3];});
+function setT(t){st.t=clamp(t,0,11.999);$("tl").value=st.t;const i=Math.floor(st.t);if(i!==st.stage){st.stage=i;showStage(i);goCam(i);}
+ $("pos").textContent=`Stage ${i+1} · ${Math.round((st.t-i)*100)}%`;}
+function playStage(i){st.play=true;st.stopAt=i+0.9;setT(i);updPlay();}
+function updPlay(){$("bPlay").textContent=st.play?"❚❚ Pause":"▶ Play";$("bPlay").setAttribute("aria-label",st.play?"Pause":"Play the whole sequence");}
+$("steps").addEventListener("click",e=>{const b=e.target.closest("[data-s]");if(b)playStage(+b.dataset.s);});
+$("bPrev").onclick=()=>playStage(Math.max(0,st.stage-(st.t-st.stage<0.15?1:0)));
+$("bNext").onclick=()=>playStage(Math.min(11,st.stage+1));
+$("bPlay").onclick=()=>{if(st.play){st.play=false;}else{if(st.t>=11.95)setT(0);st.play=true;st.stopAt=null;}updPlay();};
+$("tl").addEventListener("input",e=>{st.play=false;updPlay();setT(+e.target.value);});
+function tog(id,k){const b=$(id);b.onclick=()=>{st[k]=!st[k];b.setAttribute("aria-pressed",st[k]);};}
+tog("tLabels","labels");tog("tFlow","flow");tog("tBeat","beat");
+$("tReset").onclick=()=>goCam(st.stage);
+document.addEventListener("keydown",e=>{if(e.target.closest("input,textarea"))return;if(e.key===" "){e.preventDefault();$("bPlay").click();}else if(e.key==="ArrowRight")$("bNext").click();else if(e.key==="ArrowLeft")$("bPrev").click();});
+
+// ---------- resize & loop ----------
+function resize(){const r=canvas.parentElement.getBoundingClientRect();renderer.setSize(r.width,r.height,false);camera.aspect=r.width/Math.max(1,r.height);camera.updateProjectionMatrix();}
+window.addEventListener("resize",resize);
+function bg(){scene.background=new THREE.Color(css("--scene")||"#0c1214");}
+window.addEventListener("message",e=>{if(e.data==="jj-theme")setTimeout(bg,30);});window.addEventListener("storage",()=>setTimeout(bg,30));
+let last=performance.now(),clock=0;const SPEED=1/7;   // one stage every ~7 s
+function frame(now){requestAnimationFrame(frame);const dt=Math.min(0.05,(now-last)/1000);last=now;clock+=dt;
+ if(st.play){let t=st.t+dt*SPEED*(REDUCE?3:1);if(st.stopAt!=null&&t>=st.stopAt){t=st.stopAt;st.play=false;updPlay();}if(t>=11.999){t=11.999;st.play=false;updPlay();}setT(t);}
+ const t=st.t;
+ const beat=st.beat&&t>=4.4&&!REDUCE?Math.pow(Math.max(0,Math.sin(clock*Math.PI*2*1.1)),6):0;
+ const kA=1-R(t,5.0,5.3),kB=R(t,5.0,5.3)*(1-R(t,8.0,8.3)),kC=R(t,8.0,8.3);
+ if(kA>0.01)updateA(t);if(kB>0.01)updateB(t,beat);if(kC>0.01)updateC(t);
+ fade(G.A,kA);fade(G.B,kB);fade(G.C,kC);
+ G.C.scale.setScalar(1+0.025*beat);
+ updateFlow(t,clock);
+ if(tween){tween.k=Math.min(1,tween.k+dt/1.2);const k=sm(tween.k);camera.position.lerpVectors(tween.p0,tween.p1,k);controls.target.lerpVectors(tween.t0,tween.t1,k);if(tween.k>=1)tween=null;}
+ controls.update();renderer.render(scene,camera);placeTags(t);}
+controls.addEventListener("start",()=>{tween=null;});
+// deep link: #stage=7 (1-based)
+function route(){const h=new URLSearchParams(location.hash.slice(1));const s=parseInt(h.get("stage")||"1",10);const i=clamp(isNaN(s)?0:s-1,0,11);
+ st.stage=-1;setT(i+0.9);goCam(i,true);}
+bg();resize();route();window.addEventListener("hashchange",()=>{route();});requestAnimationFrame(frame);
+</script></body></html>
