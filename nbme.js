@@ -4684,6 +4684,146 @@ window.NBME_QUIZZES = [
 "That is the α1 pathway.",
 ""
 ]
+},
+{
+"t": "Lecture 4 · The Cardiac Cycle",
+"s": "A 66-year-old man has an echocardiogram after a myocardial infarction. Left ventricular end-diastolic volume is 160 mL and end-systolic volume is 104 mL. Which value best indicates his ejection fraction?",
+"c": [
+"35%",
+"56%",
+"65%",
+"54%",
+"25%"
+],
+"a": 0,
+"e": "SV = EDV − ESV = 160 − 104 = 56 mL. EF = SV/EDV = 56/160 = 35%, which is reduced (normal about 55–70%) and indicates impaired contractility.",
+"w": [
+"",
+"56 is the stroke volume in mL, not the EF.",
+"65% would be ESV/EDV, the fraction left behind.",
+"54% is not SV/EDV for these values.",
+"25% understates the ratio 56/160."
+]
+},
+{
+"t": "Lecture 4 · The Cardiac Cycle",
+"s": "During a cardiac catheterization, the pressure recorded in the left ventricle is falling rapidly and is 30 mm Hg, while aortic pressure is 95 mm Hg and left atrial pressure is 9 mm Hg. Which heart sound was most recently heard?",
+"c": [
+"S2",
+"S1",
+"S3",
+"S4",
+"An opening snap"
+],
+"a": 0,
+"e": "LV pressure is falling and is below aortic pressure but still above LA pressure → isovolumetric relaxation. This phase begins with aortic (and pulmonic) valve closure, which produces S2.",
+"w": [
+"",
+"S1 comes at the start of isovolumetric contraction, when LV pressure rises.",
+"S3 occurs in rapid filling, after the mitral valve opens.",
+"S4 occurs with atrial systole, at the end of diastole.",
+"An opening snap would follow mitral opening, which has not happened yet."
+]
+},
+{
+"t": "Lecture 4 · The Cardiac Cycle",
+"s": "A healthy volunteer's heart rate rises from 60/min to 150/min during exercise. Which phase of the cardiac cycle is shortened the most?",
+"c": [
+"Isovolumetric contraction",
+"Rapid ventricular ejection",
+"Reduced filling",
+"Isovolumetric relaxation",
+"Atrial systole"
+],
+"a": 2,
+"e": "As heart rate rises, diastole shortens much more than systole. The longest phase, reduced filling (diastasis), is cut first. Because it adds little volume, EDV is largely preserved until very high rates.",
+"w": [
+"Isovolumetric contraction is brief and changes little.",
+"Ejection time is relatively preserved.",
+"",
+"Isovolumetric relaxation is brief.",
+"Atrial systole is preserved and becomes more important at high rates."
+]
+},
+{
+"t": "Lecture 4 · The Cardiac Cycle",
+"s": "A 70-year-old woman has a pressure tracing from the aortic root. A small notch interrupts the downstroke of the curve. Which event coincides with this notch?",
+"c": [
+"Opening of the aortic valve",
+"Closure of the aortic valve",
+"Peak of rapid ejection",
+"Closure of the mitral valve",
+"Opening of the mitral valve"
+],
+"a": 1,
+"e": "The dicrotic notch marks aortic valve closure and the end of ventricular systole. Blood briefly falls back toward the ventricle, snapping the valve shut, and then rebounds off it (dicrotic wave). It coincides with S2.",
+"w": [
+"Aortic opening is at the foot of the upstroke.",
+"",
+"Peak ejection is at the top of the curve.",
+"Mitral closure occurs before the aortic upstroke.",
+"Mitral opening occurs after isovolumetric relaxation, later than the notch."
+]
+},
+{
+"t": "Lecture 4 · The Cardiac Cycle",
+"s": "A 52-year-old man is examined while his jugular venous pulse and ECG are recorded together. Which jugular wave immediately follows the P wave?",
+"c": [
+"The c wave, from tricuspid bulging",
+"The v wave, from atrial filling",
+"The x descent, from atrial relaxation",
+"The a wave, from atrial contraction",
+"The y descent, from tricuspid opening"
+],
+"a": 3,
+"e": "Atrial depolarization (P wave) is followed by atrial contraction, which sends a retrograde pressure pulse up the valveless jugular vein: the a wave. The c wave follows the QRS (tricuspid bulging), and the v wave builds during late systole as the atrium fills.",
+"w": [
+"The c wave follows the QRS, in early ventricular contraction.",
+"The v wave peaks in late systole, before the tricuspid opens.",
+"The x descent follows the a and c waves.",
+"",
+"The y descent follows the v wave, after tricuspid opening."
+]
+},
+{
+"t": "Lecture 4 · The Cardiac Cycle",
+"s": "A 34-year-old woman receives 1 L of IV saline. Her end-diastolic volume rises from 120 mL to 150 mL, and her ejection fraction is unchanged at 58%. Which change is most likely?",
+"c": [
+"Stroke volume decreases",
+"Stroke volume increases",
+"Contractility decreases",
+"End-systolic volume decreases",
+"Stroke volume is unchanged"
+],
+"a": 1,
+"e": "More preload (↑EDV) with an unchanged EF means SV = EF × EDV rises (about 70 → 87 mL), the Frank–Starling effect. Contractility is unchanged, as shown by the constant EF.",
+"w": [
+"More filling with the same EF raises SV.",
+"",
+"An unchanged EF means contractility is unchanged.",
+"ESV rises in proportion (about 50 → 63 mL).",
+"SV = EF × EDV, so it must rise."
+]
+},
+{
+"t": "Lecture 4 · The Cardiac Cycle",
+"s": "A 25-year-old man's left ventricular pressure is rising steeply while ventricular volume remains constant. Which pair of valve states is present?",
+"c": [
+"Mitral open and aortic closed",
+"Mitral closed and aortic open",
+"Mitral open and aortic open",
+"Mitral closed and pulmonic open",
+"Mitral closed and aortic closed"
+],
+"a": 4,
+"e": "Pressure rising at constant volume is isovolumetric contraction: the mitral valve has closed (S1) and the aortic valve has not yet opened. It ends when LV pressure exceeds aortic pressure (≈ 80 mm Hg).",
+"w": [
+"An open mitral valve means filling, with rising volume.",
+"An open aortic valve means ejection, with falling volume.",
+"Both valves are never open together in a normal heart.",
+"The pulmonic valve belongs to the right ventricle.",
+""
+]
 }
 ]
 }

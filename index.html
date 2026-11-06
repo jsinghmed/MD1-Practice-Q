@@ -1076,8 +1076,8 @@ button.dst:hover{background:var(--hover)}
 <script src="crs-embryology.js?v=34"></script>
 <script src="crs-anatomy.js?v=1"></script>
 <script src="crs-biochem.js?v=3"></script>
-<script src="crs-physiology.js?v=5"></script>
-<script src="nbme.js?v=9"></script>
+<script src="crs-physiology.js?v=6"></script>
+<script src="nbme.js?v=10"></script>
 <script src="xp-crs.js?v=1"></script>
 <script src="viz-links.js?v=3"></script>
 <script>
@@ -1159,7 +1159,7 @@ const SECTIONS = [
   {course:"crs", name:"CRS Physiology", all:"All CRS Physiology", prefix:"cpr", topics:window.CRS_PH_TOPICS, hideTopics:true, qs:window.CRS_PH_QUESTIONS,
    // Grouped by lecture (Dr. Sampath V.), then topic. Add each new lecture as one more [name, topics] row.
    extra:(()=>{ const T = window.CRS_PH_TOPICS||[];
-     return lecExtras([["Lecture 1 · Cardiac Action Potential", T.slice(0,11)], ["Lecture 2 · Pacemaker Potential: SA & AV Nodes", T.slice(11,18)], ["Lecture 3 · Effects of Cardiac Nerves", T.slice(18,25)]],
+     return lecExtras([["Lecture 1 · Cardiac Action Potential", T.slice(0,11)], ["Lecture 2 · Pacemaker Potential: SA & AV Nodes", T.slice(11,18)], ["Lecture 3 · Effects of Cardiac Nerves", T.slice(18,25)], ["Lecture 4 · The Cardiac Cycle", T.slice(25,32)]],
        [["Sampath's Q's", "Sampath", "sampath"]]); })()}
 ].concat((window.NBME_QUIZZES||[]).map(z=>({course:z.course, name:z.name, all:z.name, prefix:z.prefix, topics:[], qs:z.qs, nbme:true, subject:z.subject, note:z.note})))
  .filter(s=>s.qs && s.qs.length);
@@ -1453,7 +1453,8 @@ let LEC_OPEN = {}; try { LEC_OPEN = JSON.parse(localStorage.getItem("jj-lec-open
 const ANKING = {
   "cpr|Lecture 1 · Cardiac Action Potential": "nid:1470880209864,1470880214095,1470880221588,1470880226184,1470880235448,1470880238653,1470880245555,1470880260476,1470880302437,1470880306206,1470880314839,1470880328100,1471224406413,1471224415440,1470929313168,1470929320966,1470929327082,1470929337627,1471224477196,1471999885871",
   "cpr|Lecture 2 · Pacemaker Potential: SA & AV Nodes": "nid:1470875818432,1470880332043,1470880335411,1470880346050,1470880350208,1470880353973,1470880356909,1470880360279,1470880367589,1470880383058,1470880386392,1470880389765,1470880397079,1470945494610,1470929277154,1470945656630",
-  "cpr|Lecture 3 · Effects of Cardiac Nerves": "nid:1470929344743,1470929360626,1470929348967,1470929475929,1470929470761,1471224490686,1470929374412,1470929422314,1470929377630,1470929429000,1477011384108,1477011497450,1477011511428,1471224519538,1471224536944,1471224590406,1475115086383,1475115092818,1477447015004,1472087031632,1472261849467,1472261890259,1502086979437,1502087058246,1472265289730,1472265296216,1472265342000"
+  "cpr|Lecture 3 · Effects of Cardiac Nerves": "nid:1470929344743,1470929360626,1470929348967,1470929475929,1470929470761,1471224490686,1470929374412,1470929422314,1470929377630,1470929429000,1477011384108,1477011497450,1477011511428,1471224519538,1471224536944,1471224590406,1475115086383,1475115092818,1477447015004,1472087031632,1472261849467,1472261890259,1502086979437,1502087058246,1472265289730,1472265296216,1472265342000",
+  "cpr|Lecture 4 · The Cardiac Cycle": "nid:1471273372497,1471274287185,1471274292765,1471274300627,1471274306843,1471294123323,1471294159863,1471294329467,1471294340099,1471294379192,1471294396422,1472146997848,1471289939766,1471294040253,1471294113945,1471294272870,1471294355563,1471294084533,1471447132876,1471447242243,1471447248110,1470850191684,1471224759732,1471224766592,1471224770350,1471274319093,1471274352443,1471274377554"
 };
 function ankingOpen(k){
   const q = ANKING[k]; if (!q) return;
@@ -1519,7 +1520,7 @@ const GUIDES = {
         ["msk-biochem","MSK Biochemistry","Glycolysis, glycogen & storage diseases, GAGs, collagen & elastin",4],
         ["msk-anatomy","MSK Anatomy","Upper & lower limb: plexus, nerve injuries, compartments, joints, vessels",6],
         ["msk-embryology","MSK Embryology","Bone formation, growth plate, vertebrae, skull & sutures, limbs, skin",3]],
-  crs: [["crs-biochem","CRS Biochemistry NBME guide","High-yield, commonly tested NBME content · Lecture 1–2 · grows with each lecture",0],["crs-physiology","CRS Physiology NBME guide","High-yield, commonly tested NBME content · Lecture 1–3 · grows with each lecture",0]]
+  crs: [["crs-biochem","CRS Biochemistry NBME guide","High-yield, commonly tested NBME content · Lecture 1–2 · grows with each lecture",0],["crs-physiology","CRS Physiology NBME guide","High-yield, commonly tested NBME content · Lecture 1–4 · grows with each lecture",0]]
 };
 function guideCards(list){
   return `<div class="gdgrid">` + list.map(([f,nm,desc,pg])=>`<div class="gdcard"><div class="gdi">${NVI.guide}</div><div class="gdt"><b>${esc(nm)}</b><small>${esc(desc)}</small><span class="gdm">${pg?pg+" pages · PDF":"Read on site or save as PDF · updated each lecture"}</span></div>
@@ -1534,7 +1535,7 @@ function renderGuideView(){
     <div class="gvhead"><h2>${esc(nm)}</h2><p class="sub">${esc(desc)}</p><div class="gvleg"><span><span class="hy">Red</span> = extra high yield (classic NBME)</span><span>Black/white = core content</span><span class="mn">Italic = mnemonic</span></div></div>`;
   if (!window.GUIDE_HTML) {
     showPage(`<div class="page gview">${top}<div class="emptybox"><p>Loading study guide…</p></div></div>`);
-    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=5";
+    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=6";
       sc.onload = ()=>{ guideLoading = false; if (view==="guide") renderGuideView(); };
       sc.onerror = ()=>{ guideLoading = false; toast("Couldn't load the study guide — check your connection"); };
       document.head.appendChild(sc); }
@@ -2152,6 +2153,7 @@ const VIZ_RULES = [
   [/tetralogy|overriding aorta|pulmonary (valve )?stenosis|infundibul|truncus/i, "heart3d", "sel=pulmonary&view=Anterior", "Pulmonary valve and the RV outflow tract"],
   [/interventricular septum|ventricular septal|membranous septum|\bVSD\b/i, "heart3d", "sel=IVS&view=4-chamber", "The interventricular septum, opened up"],
   [/foramen ovale|septum (primum|secundum)|atrial septal|\bASD\b/i, "heart3d", "view=4-chamber&mode=cut", "The atria, opened up"],
+  [/wiggers|dicrotic|isovolumetric|ejection fraction|end-diastolic|diastasis|jugular venous|venous pulse|rapid (ejection|filling)|reduced (ejection|filling)/i, "pvl", "", "Cardiac cycle & PV loop"],
   [/mitral/i, "heart3d", "sel=mitral&view=4-chamber", "The mitral valve"],
   [/tricuspid/i, "heart3d", "sel=tricuspid&view=4-chamber", "The tricuspid valve"],
   [/aortic (valve|stenosis|regurg)/i, "heart3d", "sel=aortic&view=4-chamber", "The aortic valve"],
