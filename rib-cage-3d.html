@@ -37,6 +37,9 @@ button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);bor
 #tags{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 .tag{position:absolute;transform:translate(-50%,-50%);font-family:var(--f-mono);font-size:11px;padding:2px 6px;border-radius:4px;background:color-mix(in srgb,var(--panel) 85%,transparent);border:1px solid var(--line);white-space:nowrap;color:var(--ink)}
 .tag.lm{border-color:var(--accent);color:var(--accent)}
+.tag.pt{border-color:#e0708c;color:var(--ink);z-index:2}
+#tags .pdot{position:absolute;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:#e0708c;border:1.5px solid #fff;z-index:1}
+#tags .pline{position:absolute;height:1.5px;background:#e0708c;transform-origin:0 50%;opacity:.85}
 #quiz .q{font-size:15px;font-weight:600;margin:4px 0 8px}#quiz .fb{font-size:13px;min-height:20px}#quiz .fb.ok{color:var(--ok)}#quiz .fb.bad{color:var(--bad)}
 #quiz .score{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
 .van{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;margin-top:8px;font-size:12.5px}.van b{font-family:var(--f-mono);font-weight:500;color:var(--accent)}
@@ -57,6 +60,7 @@ button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);bor
    <button data-t="clavicles" aria-pressed="true">Clavicles</button>
    <button data-t="spine" aria-pressed="false">Vertebral levels</button>
    <button data-t="space" aria-pressed="false">Intercostal space</button>
+   <button data-t="parts" aria-pressed="false">Rib &amp; vertebra parts</button>
   </div>
   <div class="slider" id="spaceRow" hidden><span>Space</span><input type="range" min="1" max="11" value="4" id="spaceN" aria-label="Intercostal space number"><b id="spaceLbl">4th</b></div>
   <div id="spaceInfo" hidden class="van"><b>Named</b><span id="spaceName"></span><b>Bundle</b><span>Vein, Artery, Nerve (VAN) top to bottom, in the costal groove of the rib above</span><b>Needle</b><span>Just above the upper border of the rib below</span><b>Layers</b><span>External, internal, innermost intercostals; bundle between internal and innermost</span></div>
@@ -142,6 +146,9 @@ function vertInfo(k){const pts=["Heart-shaped body with costal facets for the ri
  if(k===1)pts.push("Forms the back of the superior thoracic aperture");if(k===12)pts.push("Forms the back of the inferior thoracic aperture");
  return {kind:"Thoracic vertebra",name:"T"+k,pts,note:LEVEL[k]?["Level marker",LEVEL[k]]:null};}
 
+// Tip of the transverse process of Tk: T1–T10 reach just behind their rib's tubercle (costotransverse joint); T11–T12 are short.
+function tpTip(k,s){if(k>=11){const r=0.62+0.035*k;return new THREE.Vector3(s*1.15,yv(k)+0.1,zv(k)-0.75-r*0.9);}
+ const P=ribPoints(k,s)[1];return new THREE.Vector3(P.x*0.97,P.y-0.08,P.z-0.34);}
 // ---------- build: vertebrae ----------
 for(let k=1;k<=12;k++){
  const r=0.62+0.035*k, y=yv(k), z=zv(k);
@@ -150,7 +157,7 @@ for(let k=1;k<=12;k++){
  const arch=new THREE.Mesh(new THREE.TorusGeometry(r*0.78,0.17,8,18,Math.PI),mat(COL.bone));arch.rotation.x=Math.PI/2;arch.rotation.z=Math.PI;arch.position.set(0,y+0.05,z-r*0.95);addPart("T"+k,arch);
  const spT=new THREE.Vector3(0,y+0.1,z-r*1.7), spE=new THREE.Vector3(0,y-0.9-0.03*k,z-r*1.7-1.9);
  addPart("T"+k,boxBetween(spT,spE,0.22,0.42,COL.bone));
- for(const s of [-1,1]){const tl=k>=11?1.15:1.75;addPart("T"+k,boxBetween(new THREE.Vector3(s*0.45,y+0.15,z-r*1.15),new THREE.Vector3(s*tl,y+0.1,z-0.75-r*0.9),0.32,0.32,COL.bone));}
+ for(const s of [-1,1]){addPart("T"+k,boxBetween(new THREE.Vector3(s*0.45,y+0.15,z-r*1.15),tpTip(k,s),0.32,0.32,COL.bone));}
  if(k<12){const d=new THREE.Mesh(new THREE.CylinderGeometry(r*1.02,r*1.02,0.42,20),mat(COL.disc));d.position.set(0,yDisc(k),(zv(k)+zv(k+1))/2);addPart(k===4?"disc45":"disc"+k,d,{kind:"Intervertebral disc",name:"T"+k+"/T"+(k+1)+" disc",pts:k===4?["Level of the sternal angle","Rib heads also articulate across the disc above them"]:k===2?["Level of the jugular notch"]:["Rib heads articulate with the disc above their own vertebra"],note:k===4?["Transverse thoracic plane","Divides superior from inferior mediastinum."]:null});}
 }
 // ---------- sternum ----------
@@ -213,10 +220,42 @@ function buildSpace(n){const pos=[],idx=[];const N=40;
 const spineMarks=new THREE.Group();spineMarks.visible=false;scene.add(spineMarks);
 for(const k of [2,3,4,7,8,9,10,12]){const m=new THREE.Mesh(new THREE.SphereGeometry(0.16,10,8),new THREE.MeshBasicMaterial({color:0x62bcc4}));m.position.set(-1.6,k===2?yDisc(2):k===4?yDisc(4):yv(k),zv(k));m.userData.label="T"+(k===2?"2/3":k===4?"4/5":k)+" · "+LEVEL[k].replace(/ at the.*| of the diaphragm/,"");spineMarks.add(m);}
 
+// ---------- rib & vertebra parts: costal facets, transverse processes, tubercles ----------
+// Shown with the "Rib & vertebra parts" toggle. Facets are drawn on every level; the labels sit on the left 6th rib and T5/T6.
+const partsG=new THREE.Group();partsG.visible=false;scene.add(partsG);
+const FACET=0xe0708c, PM={};
+function facetAt(pos,normal,rad){const m=new THREE.Mesh(new THREE.CircleGeometry(rad,20),new THREE.MeshStandardMaterial({color:FACET,roughness:.5,side:THREE.DoubleSide}));
+ m.position.copy(pos).addScaledVector(normal,0.02);m.lookAt(pos.clone().add(normal));partsG.add(m);return m;}
+function nearestT(curve,p){let bt=0,bd=1e9;for(let i=0;i<=200;i++){const d=curve.getPoint(i/200).distanceTo(p);if(d<bd){bd=d;bt=i/200;}}return bt;}
+for(const s of [-1,1])for(let k=1;k<=12;k++){
+ const r=0.62+0.035*k, y=yv(k), z=zv(k);
+ // direction of this level's rib head from the body axis
+ const head=ribCurve[k+"_"+s].getPoint(0), d=new THREE.Vector3(head.x,0,head.z-z).normalize();
+ const sup=new THREE.Vector3(0,k>=10?y+0.15:y+0.36,z).addScaledVector(d,r*1.02);
+ facetAt(sup,d,k===1||k>=10?0.24:0.17);PM["sup"+k+s]=sup;            // superior costal (demi)facet: full facet on T1, T10, T11, T12
+ if(k>=1&&k<=8){const hb=ribCurve[(k+1)+"_"+s].getPoint(0),db=new THREE.Vector3(hb.x,0,hb.z-z).normalize();
+  const inf=new THREE.Vector3(0,y-0.4,z).addScaledVector(db,r*1.03);facetAt(inf,db,0.17);PM["inf"+k+s]=inf;}   // inferior costal demifacet for the rib below (T1–T8)
+ if(k<=10){const tip=tpTip(k,s);
+  const cv=ribCurve[k+"_"+s], tt=nearestT(cv,tip), tub=cv.getPoint(tt), n=tub.clone().sub(tip).normalize();
+  facetAt(tip.clone().addScaledVector(n,0.16),n,0.15);PM["tp"+k+s]=tip;   // transverse costal facet
+  const b=new THREE.Mesh(new THREE.SphereGeometry(k===1?0.3:0.26,14,10),mat(0xd9c79c));b.position.copy(tub).addScaledVector(n,-0.06);partsG.add(b);PM["tub"+k+s]=tub;PM["tubT"+k+s]=tt;}
+}
+// rib 1: scalene tubercle on the inner border (attachment of scalenus anterior)
+for(const s of [-1,1]){const p=ribCurve["1_"+s].getPoint(0.72);const b=new THREE.Mesh(new THREE.SphereGeometry(0.2,12,8),mat(0xd9c79c));b.position.copy(p).add(new THREE.Vector3(-s*0.12,0.22,0));partsG.add(b);PM["scal"+s]=b.position.clone();}
+parts.ribjoint={meshes:[],info:{kind:"Rib–vertebra joints",name:"How a typical rib meets the spine",pts:[
+ "Head of rib (two facets) → superior costal facet of its own vertebra + inferior costal facet of the vertebra above, across the disc: costovertebral joint",
+ "Tubercle of rib → transverse costal facet on the transverse process of its own vertebra: costotransverse joint",
+ "Example shown: left 6th rib → T6 superior facet, T5 inferior facet, T6 transverse process",
+ "Neck lies between head and tubercle; the angle is just lateral to the tubercle; the costal groove runs on the inner lower border",
+ "Atypical: rib 1, 10, 11, 12 heads have a single facet (one vertebra); ribs 11–12 have no neck or tubercle, so T11 and T12 have no transverse costal facets"],
+ note:["Pink patches","Each pink patch is an articular facet. Rib 1 also shows the scalene tubercle (scalenus anterior), between the grooves for the subclavian vein in front and artery behind."]}};
+
 // ---------- labels ----------
 const tagsEl=$("tags");const TAGS=[];
-function tagAt(text,getPos,cls){const el=document.createElement("div");el.className="tag"+(cls?" "+cls:"");el.textContent=text;tagsEl.appendChild(el);TAGS.push({el,getPos,cls});}
-const st={labels:true,planes:false,apertures:false,clavicles:true,spine:false,space:false,color:"type",sel:null,quiz:null};
+function tagAt(text,getPos,cls,off){const el=document.createElement("div");el.className="tag"+(cls?" "+cls:"");el.textContent=text;tagsEl.appendChild(el);
+ let dot=null,line=null;if(off){dot=document.createElement("i");dot.className="pdot";line=document.createElement("i");line.className="pline";tagsEl.append(line,dot);}
+ TAGS.push({el,getPos,cls,off,dot,line});}
+const st={labels:true,planes:false,apertures:false,clavicles:true,spine:false,space:false,parts:false,color:"type",sel:null,quiz:null};
 tagAt("Manubrium",()=>sP((Y.notch+Y.angle)/2).add(new THREE.Vector3(0,0,0.5)));
 tagAt("Sternal angle",()=>sP(Y.angle).add(new THREE.Vector3(2.1,0,0.4)));
 tagAt("Body of sternum",()=>sP(0).add(new THREE.Vector3(0,0,0.5)));
@@ -226,12 +265,35 @@ tagAt("Costal margin",()=>cartCurve["9_1"].getPoint(.4).add(new THREE.Vector3(1.
 tagAt("T1",()=>new THREE.Vector3(1.6,yv(1)+0.4,zv(1)));tagAt("T12",()=>new THREE.Vector3(1.4,yv(12),zv(12)));
 for(const p of planes.children)tagAt(p.userData.label,()=>new THREE.Vector3(7.8,p.position.y,3.2),"lm planes");
 for(const l of aps.children)tagAt(l.userData.label,()=>l.userData.label.startsWith("Sup")?new THREE.Vector3(0,yv(1)+1.4,1.2):new THREE.Vector3(0,-9.9,2.6),"lm apertures");
+{const s=1,cv=ribCurve["6_1"],tt=PM["tubT6"+s],r6=0.62+0.035*6,y6=yv(6),z6=zv(6);
+ // pointer labels: a dot on the exact spot, the label offset on screen (px) with a leader line
+ const P=(t,f,dx,dy)=>tagAt(t,f,"pt parts",[dx,dy]);
+ P("Inferior costal facet · T5",()=>PM["inf5"+s],-170,-36);
+ P("Superior costal facet · T6",()=>PM["sup6"+s],-180,18);
+ P("Head of rib",()=>cv.getPoint(0.025),-190,40);
+ P("Neck of rib",()=>cv.getPoint(tt*0.55),40,-80);
+ P("Tubercle of rib",()=>PM["tub6"+s],120,-50);
+ P("Angle of rib",()=>cv.getPoint(Math.min(1,tt+0.12)),140,0);
+ P("Shaft of rib",()=>cv.getPoint(0.55),-60,-60);
+ P("Costal groove (inner lower border)",()=>cv.getPoint(0.45).add(new THREE.Vector3(0,-0.2,0)),80,90);
+ P("Transverse costal facet · T6",()=>PM["tp6"+s],150,40);
+ P("Transverse process · T7",()=>PM["tp7"+s],140,50);
+ P("Spinous process · T6",()=>new THREE.Vector3(0,y6-0.5,z6-r6*1.7-1.0),110,-30);
+ P("Lamina · T6",()=>new THREE.Vector3(0.5,y6+0.05,z6-r6*1.6),120,-60);
+ P("Body · T6",()=>new THREE.Vector3(r6*0.75,y6-0.15,z6-r6*0.6),-210,-110);
+ P("Single facet · T11, T12",()=>PM["sup11"+s],-170,0);
+ P("Scalene tubercle · rib 1",()=>PM["scal"+s],0,-45);}
 for(const m of spineMarks.children)tagAt(m.userData.label,()=>m.position.clone().add(new THREE.Vector3(-3.4,0,0)),"lm spine");
 const vtmp=new THREE.Vector3();
 function placeTags(){const r=canvas.getBoundingClientRect();for(const t of TAGS){
  const grp=t.cls?t.cls.split(" ")[1]:"labels";const on=grp==="labels"?st.labels:st[grp];
- if(!on){t.el.style.display="none";continue;}vtmp.copy(t.getPos()).project(camera);
- if(vtmp.z>1){t.el.style.display="none";continue;}t.el.style.display="";t.el.style.left=((vtmp.x+1)/2*r.width)+"px";t.el.style.top=((1-vtmp.y)/2*r.height)+"px";}}
+ const hide=()=>{t.el.style.display="none";if(t.dot){t.dot.style.display=t.line.style.display="none";}};
+ if(!on){hide();continue;}vtmp.copy(t.getPos()).project(camera);
+ if(vtmp.z>1){hide();continue;}const x=(vtmp.x+1)/2*r.width,y=(1-vtmp.y)/2*r.height;
+ if(!t.off){t.el.style.display="";t.el.style.left=x+"px";t.el.style.top=y+"px";continue;}
+ const lx=x+t.off[0],ly=y+t.off[1];t.el.style.display=t.dot.style.display=t.line.style.display="";
+ t.el.style.left=lx+"px";t.el.style.top=ly+"px";t.dot.style.left=x+"px";t.dot.style.top=y+"px";
+ const dx=lx-x,dy=ly-y;t.line.style.left=x+"px";t.line.style.top=y+"px";t.line.style.width=Math.hypot(dx,dy)+"px";t.line.style.transform="rotate("+Math.atan2(dy,dx)+"rad)";}}
 
 // ---------- colouring & selection ----------
 function baseColor(m){const id=m.userData.id;
@@ -247,18 +309,20 @@ function showInfo(id){const p=parts[id];const el=$("info");
 function select(id){st.sel=id;recolor();showInfo(id);}
 
 // ---------- views ----------
-const VIEWS={Anterior:[0,1,42],Posterior:[0,1,-42],Right:[-42,1,0],Left:[42,1,0],Superior:[0,44,3],Inferior:[0,-44,3],Oblique:[26,10,32]};
-let tween=null;function setView(v){const p=VIEWS[v];if(!p)return;tween={from:camera.position.clone(),to:new THREE.Vector3(...p),t:0};controls.target.set(0,0,0.3);}
+const VIEWS={Anterior:[0,1,42],Posterior:[0,1,-42],Right:[-42,1,0],Left:[42,1,0],Superior:[0,44,3],Inferior:[0,-44,3],Oblique:[26,10,32],"Rib joint":[7.6,3.4,-12.4]};
+const VIEW_T={"Rib joint":[1.6,0.8,-3.6]};   // close-up target for the rib–vertebra joints (left side, T5–T7)
+let tween=null;function setView(v){const p=VIEWS[v];if(!p)return;tween={from:camera.position.clone(),to:new THREE.Vector3(...p),t:0};controls.target.set(...(VIEW_T[v]||[0,0,0.3]));}
 $("views").innerHTML=Object.keys(VIEWS).map(v=>`<button data-v="${v}">${v}</button>`).join("");
 $("views").addEventListener("click",e=>{const b=e.target.closest("[data-v]");if(b)setView(b.dataset.v);});
 
 // ---------- controls ----------
 $("colorBy").addEventListener("click",e=>{const b=e.target.closest("[data-c]");if(!b)return;st.color=b.dataset.c;for(const x of $("colorBy").children)x.setAttribute("aria-pressed",x===b);recolor();});
 function setToggle(k,v){st[k]=v;const b=document.querySelector(`[data-t="${k}"]`);if(b)b.setAttribute("aria-pressed",v);
- planes.visible=st.planes;aps.visible=st.apertures;spineMarks.visible=st.spine;spaceMesh.visible=st.space;
+ planes.visible=st.planes;aps.visible=st.apertures;spineMarks.visible=st.spine;spaceMesh.visible=st.space;partsG.visible=st.parts;
  for(const s of ["R","L"])parts["clav"+s].meshes.forEach(m=>m.visible=st.clavicles);
  $("spaceRow").hidden=$("spaceInfo").hidden=!st.space;if(st.space)updSpace();}
-$("toggles").addEventListener("click",e=>{const b=e.target.closest("[data-t]");if(b)setToggle(b.dataset.t,!st[b.dataset.t]);});
+$("toggles").addEventListener("click",e=>{const b=e.target.closest("[data-t]");if(!b)return;setToggle(b.dataset.t,!st[b.dataset.t]);
+ if(b.dataset.t==="parts"){if(st.parts){setView("Rib joint");select("ribjoint");}else{setView("Oblique");select(null);}}});
 function updSpace(){const n=+$("spaceN").value;$("spaceLbl").textContent=ord(n);buildSpace(n);
  $("spaceName").textContent=`${ord(n)} intercostal space lies below the ${ord(n)} rib`+(n>=10?" · open in front (ribs 11–12 float)":"");}
 $("spaceN").addEventListener("input",updSpace);
