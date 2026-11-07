@@ -1,5 +1,5 @@
 // CRS Biochemistry — Dr. S. Shetty lecture slides. Reworked set: fewer, multi-concept, high-yield questions; lv = Easy/Hard; shetty = practice questions from the slides, word for word
-window.CRS_BC_TOPICS = ["Overview & Activation", "Carnitine Shuttle", "Carnitine & CPT Deficiencies", "β-Oxidation Reactions", "Energetics & Regulation", "Unsaturated & Odd-Chain Fatty Acids", "Methylmalonic Aciduria", "Peroxisomal, α- & ω-Oxidation", "MCAD Deficiency & Jamaican Vomiting Sickness", "Zellweger, X-ALD & Refsum", "Synthesis vs β-Oxidation & Sites", "Citrate Shuttle: Acetyl-CoA to Cytosol", "Sources of NADPH", "Acetyl-CoA Carboxylase Reaction", "Regulation of Acetyl-CoA Carboxylase", "Fatty Acid Synthase Complex", "FAS Cycle & Palmitate Stoichiometry", "Elongation & Desaturation", "Triacylglycerol Synthesis", "TAG Fate & Lipolysis", "Practice Questions (from the slides)"];
+window.CRS_BC_TOPICS = ["Overview & Activation", "Carnitine Shuttle", "Carnitine & CPT Deficiencies", "β-Oxidation Reactions", "Energetics & Regulation", "Unsaturated & Odd-Chain Fatty Acids", "Methylmalonic Aciduria", "Peroxisomal, α- & ω-Oxidation", "MCAD Deficiency & Jamaican Vomiting Sickness", "Zellweger, X-ALD & Refsum", "Synthesis vs β-Oxidation & Sites", "Citrate Shuttle: Acetyl-CoA to Cytosol", "Sources of NADPH", "Acetyl-CoA Carboxylase Reaction", "Regulation of Acetyl-CoA Carboxylase", "Fatty Acid Synthase Complex", "FAS Cycle & Palmitate Stoichiometry", "Elongation & Desaturation", "Triacylglycerol Synthesis", "TAG Fate & Lipolysis", "Practice Questions (from the slides)", "Fuel Fate & Why the Liver Makes Ketones", "Ketogenesis: Pathway & HMG-CoA Synthase", "The Three Ketone Bodies", "Ketolysis: Thiophorase & Extrahepatic Use", "Brain Fuel During Fasting & Starvation", "Ketosis: Hormones, Levels & Causes", "Diabetic Ketoacidosis", "Practice Question · Ketone Bodies (from the slides)"];
 window.CRS_BC_QUESTIONS = [
 {
 "t": "Overview & Activation",
@@ -1146,6 +1146,513 @@ window.CRS_BC_QUESTIONS = [
 "",
 "More fatty acids are made for storage, not less.",
 "ACC does not directly lower blood glucose."
+],
+"src": "lec"
+},
+{
+"t": "Fuel Fate & Why the Liver Makes Ketones",
+"lv": "Easy",
+"s": "During a prolonged fast, fatty acids flood the liver and β-oxidation produces large amounts of acetyl-CoA. Why is much of this acetyl-CoA diverted into ketone body synthesis instead of the citric acid cycle?",
+"c": [
+"Glucagon activates acetyl-CoA carboxylase in the mitochondria",
+"High acetyl-CoA stimulates pyruvate dehydrogenase",
+"Insulin increases hepatic β-oxidation during fasting",
+"Hepatocytes stop expressing citrate synthase when fasting",
+"Oxaloacetate goes to gluconeogenesis, so less citrate forms"
+],
+"a": 4,
+"e": "Reasons the fasting liver makes ketone bodies (from the lecture):\n• Fat mobilized from adipose floods the liver → acetyl-CoA rises → inhibits pyruvate dehydrogenase and activates pyruvate carboxylase → gluconeogenesis increases.\n• Oxaloacetate is being used for gluconeogenesis, so less is available to condense with acetyl-CoA to form citrate.\n• β-oxidation produces NADH and ATP, which inhibit the citric acid cycle at isocitrate dehydrogenase.\nResult: acetyl-CoA exceeds the liver's oxidative capacity and is shunted into ketogenesis. The ketones then feed the brain, which cannot use fatty acids.",
+"w": [
+"Glucagon inhibits acetyl-CoA carboxylase, and that enzyme is cytosolic.",
+"Acetyl-CoA inhibits pyruvate dehydrogenase; it activates pyruvate carboxylase.",
+"Insulin is low in fasting, and it suppresses β-oxidation.",
+"Citrate synthase is present; its substrate oxaloacetate is what runs short.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Ketogenesis: Pathway & HMG-CoA Synthase",
+"lv": "Easy",
+"s": "Which enzyme catalyzes the rate-limiting step of ketogenesis, and where is it located?",
+"c": [
+"HMG-CoA reductase in the liver cytosol",
+"HMG-CoA synthase in liver mitochondria",
+"HMG-CoA lyase in the liver cytosol",
+"Thiolase in skeletal muscle mitochondria",
+"HMG-CoA synthase in the liver cytosol"
+],
+"a": 1,
+"e": "Ketogenesis occurs only in liver mitochondria:\n2 acetyl-CoA → (thiolase) → acetoacetyl-CoA → (HMG-CoA synthase, rate-limiting) → HMG-CoA → (HMG-CoA lyase) → acetoacetate + acetyl-CoA.\nAcetoacetate is then reduced to β-hydroxybutyrate (dehydrogenase, uses NADH) or spontaneously decarboxylated to acetone.",
+"w": [
+"HMG-CoA reductase is the rate-limiting enzyme of cholesterol synthesis.",
+"",
+"Lyase acts after the rate-limiting step, and ketogenesis is mitochondrial.",
+"Thiolase starts the pathway but is not rate-limiting, and muscle uses ketones.",
+"The cytosolic isoform supplies cholesterol synthesis, not ketogenesis."
+],
+"src": "lec"
+},
+{
+"t": "Ketogenesis: Pathway & HMG-CoA Synthase",
+"lv": "Easy",
+"s": "Which sequence of enzymes converts acetyl-CoA into acetoacetate in the liver?",
+"c": [
+"HMG-CoA synthase, then thiolase, then HMG-CoA lyase",
+"Thiolase, then HMG-CoA synthase, then HMG-CoA lyase",
+"Thiolase, then HMG-CoA lyase, then HMG-CoA synthase",
+"Thiolase, then HMG-CoA reductase, then HMG-CoA lyase",
+"Thiophorase, then HMG-CoA synthase, then HMG-CoA lyase"
+],
+"a": 1,
+"e": "• Thiolase: 2 acetyl-CoA → acetoacetyl-CoA.\n• HMG-CoA synthase (rate-limiting): acetoacetyl-CoA + acetyl-CoA → HMG-CoA.\n• HMG-CoA lyase: HMG-CoA → acetoacetate + acetyl-CoA.\nThen: acetoacetate ⇄ β-hydroxybutyrate (dehydrogenase, NADH → NAD⁺), or acetoacetate → acetone (spontaneous decarboxylation).",
+"w": [
+"Thiolase must first join two acetyl-CoA into acetoacetyl-CoA.",
+"",
+"HMG-CoA must be made by the synthase before the lyase can cleave it.",
+"Reductase sends HMG-CoA toward cholesterol, not ketones.",
+"Thiophorase is the ketolysis enzyme in extrahepatic tissues."
+],
+"src": "lec"
+},
+{
+"t": "The Three Ketone Bodies",
+"lv": "Easy",
+"s": "In a patient with ketosis, which ketone body is present in the greatest amount in blood and urine, and which one cannot be metabolized for energy?",
+"c": [
+"Acetoacetate predominates; acetone is not metabolized",
+"Acetone predominates; β-hydroxybutyrate is not metabolized",
+"β-Hydroxybutyrate predominates; acetoacetate is not metabolized",
+"Acetoacetate predominates; β-hydroxybutyrate is not metabolized",
+"β-Hydroxybutyrate predominates; acetone is not metabolized"
+],
+"a": 4,
+"e": "The three ketone bodies:\n• Acetoacetate: gives 2 acetyl-CoA in extrahepatic tissues.\n• β-Hydroxybutyrate: formed by reduction of acetoacetate; quantitatively the predominant ketone body in blood and urine in ketosis; stores energy equivalent to an NADH and is stable for export.\n• Acetone: formed by decarboxylation of acetoacetate; non-metabolizable and volatile, exhaled (fruity breath).",
+"w": [
+"β-hydroxybutyrate, not acetoacetate, is quantitatively predominant.",
+"Acetone is a minor, volatile product; β-hydroxybutyrate is used for fuel.",
+"Acetoacetate yields 2 acetyl-CoA in extrahepatic tissues.",
+"β-hydroxybutyrate is converted back to acetoacetate and used.",
+""
+],
+"src": "lec"
+},
+{
+"t": "The Three Ketone Bodies",
+"lv": "Easy",
+"s": "Unlike free fatty acids, ketone bodies travel in plasma without albumin or lipoproteins. Which property explains this?",
+"c": [
+"Their low pKa makes them soluble in aqueous solution",
+"They bind albumin in the same way as free fatty acids",
+"They are packaged into VLDL particles by the liver",
+"They are carried bound to carnitine in plasma",
+"They are very lipophilic and dissolve in membranes"
+],
+"a": 0,
+"e": "Ketone bodies are small, water-soluble organic acids. Their low pKa keeps them ionized and soluble in aqueous solution, so they do not require carriers (lipoproteins or albumin) for transport from the liver to peripheral tissues. Long-chain fatty acids, by contrast, travel bound to albumin.",
+"w": [
+"",
+"Ketone bodies do not need albumin; fatty acids do.",
+"VLDL carries triacylglycerol, not ketone bodies.",
+"Carnitine shuttles acyl groups into mitochondria, not through plasma.",
+"They are water-soluble small acids, which is why no carrier is needed."
+],
+"src": "lec"
+},
+{
+"t": "Ketolysis: Thiophorase & Extrahepatic Use",
+"lv": "Easy",
+"s": "The liver makes ketone bodies but cannot use them for fuel. Which enzyme does the liver lack?",
+"c": [
+"HMG-CoA synthase, the rate-limiting enzyme of ketogenesis",
+"Succinyl-CoA:acetoacetate CoA transferase, or thiophorase",
+"β-Hydroxybutyrate dehydrogenase in the mitochondria",
+"Thiolase, which splits acetoacetyl-CoA into acetyl-CoA",
+"A plasma membrane transporter for ketone bodies"
+],
+"a": 1,
+"e": "Only extrahepatic tissues can use acetoacetate, because only they have succinyl-CoA:acetoacetate CoA transferase (thiophorase).\nThiophorase transfers CoA from succinyl-CoA to acetoacetate → acetoacetyl-CoA + succinate. Thiolase then splits acetoacetyl-CoA into 2 acetyl-CoA, which enter the TCA cycle.\nThe liver lacks thiophorase, so it exports the ketone bodies it makes instead of burning them.",
+"w": [
+"The liver has HMG-CoA synthase; that is how it makes ketone bodies.",
+"",
+"The liver uses this enzyme to make β-hydroxybutyrate.",
+"The liver has thiolase; it uses it in both β-oxidation and ketogenesis.",
+"The block is enzymatic activation of acetoacetate, not uptake."
+],
+"src": "lec"
+},
+{
+"t": "Ketolysis: Thiophorase & Extrahepatic Use",
+"lv": "Easy",
+"s": "Which cell type cannot use ketone bodies for energy even during prolonged starvation, and why?",
+"c": [
+"Red blood cells, because they lack mitochondria",
+"Hepatocytes, because they lack mitochondria",
+"Neurons, because ketone bodies cannot cross the blood–brain barrier",
+"Cardiac myocytes, because they lack thiophorase",
+"Skeletal muscle cells, because they rely only on glucose"
+],
+"a": 0,
+"e": "Ketolysis (thiophorase, thiolase, TCA cycle) takes place in mitochondria. Red blood cells have no mitochondria, so they depend entirely on glucose (anaerobic glycolysis). The liver has mitochondria but lacks thiophorase.\nUsers of ketone bodies: muscle, heart, kidney and other tissues, and the brain in later stages of starvation.",
+"w": [
+"",
+"Hepatocytes have mitochondria; they cannot use ketones because they lack thiophorase.",
+"The brain adapts to ketone use in prolonged starvation.",
+"Heart muscle readily oxidizes ketone bodies.",
+"Muscle is a major user of ketone bodies."
+],
+"src": "lec"
+},
+{
+"t": "Brain Fuel During Fasting & Starvation",
+"lv": "Easy",
+"s": "As a fast continues, the brain gets a growing share of its energy from ketone bodies. Which sequence matches the lecture?",
+"c": [
+"~25% by day 3, ~50% by day 7, ~2/3 by weeks 2–3",
+"About 50% by day 3, 75% by day 7, all by weeks 2–3",
+"About 10% by day 3, 25% by day 7, 50% by weeks 2–3",
+"About two-thirds by day 1, the same through weeks 2–3",
+"About 25% by day 3, 25% by day 7, 25% by weeks 2–3"
+],
+"a": 0,
+"e": "Brain during fasting (lecture):\n• First days: glucose from glycogenolysis and gluconeogenesis; the brain has an obligatory requirement for glucose.\n• 3 days: ~25% of energy from ketone bodies.\n• 7 days: ~50%.\n• 2–3 weeks of prolonged starvation: ~2/3.\nKetone use by the brain spares muscle protein that would otherwise be broken down for gluconeogenesis.",
+"w": [
+"",
+"The brain always needs some glucose; ketones never supply all of it.",
+"These figures understate how much the brain adapts.",
+"On the first days the brain still runs mainly on glucose.",
+"The ketone share keeps rising as starvation continues."
+],
+"src": "lec"
+},
+{
+"t": "Ketosis: Hormones, Levels & Causes",
+"lv": "Easy",
+"s": "Which pair of hormonal effects on ketogenesis is correct?",
+"c": [
+"Insulin stimulates ketogenesis; glucagon inhibits it",
+"Both insulin and glucagon stimulate ketogenesis",
+"Both insulin and glucagon inhibit ketogenesis",
+"Insulin inhibits ketogenesis; glucagon stimulates it",
+"Insulin has no effect; glucagon inhibits ketogenesis"
+],
+"a": 3,
+"e": "• Insulin inhibits ketogenesis and ketosis: it suppresses hormone-sensitive lipase (less fatty acid reaches the liver) and keeps malonyl-CoA high, which inhibits CPT-I and β-oxidation.\n• Glucagon stimulates ketogenesis and ketosis: it increases lipolysis and β-oxidation.\nA low insulin:glucagon ratio, as in fasting or type 1 diabetes, drives ketogenesis.",
+"w": [
+"The roles are reversed.",
+"Insulin suppresses lipolysis and ketogenesis.",
+"Glucagon promotes lipolysis and ketogenesis.",
+"",
+"Insulin is the main brake, and glucagon is a stimulus."
+],
+"src": "lec"
+},
+{
+"t": "Ketosis: Hormones, Levels & Causes",
+"lv": "Easy",
+"s": "Which set of blood ketone body levels matches the lecture's values for the normal state, physiological ketosis and diabetic ketoacidosis?",
+"c": [
+"Below 1 mM; up to 20–25 mM; up to 2–3 mM",
+"Up to 2–3 mM; below 0.1 mM; up to 20–25 mM",
+"Below 0.1 mM; up to 20–25 mM; above 100 mM",
+"Below 0.1 mM; up to 2–3 mM; up to 20–25 mM",
+"Up to 5 mM; up to 10 mM; up to 15 mM"
+],
+"a": 3,
+"e": "• Normal: < 0.1 mmol/L (about 1 mg/dL).\n• Physiological ketosis (fasting, high-fat or ketogenic diet): up to 2–3 mM.\n• Diabetic ketoacidosis: up to 20–25 mM.\nKetosis = ketone production (ketogenesis) faster than use (ketolysis) → ketonemia, ketonuria, and acetone on the breath.",
+"w": [
+"Physiological ketosis and DKA are swapped.",
+"The normal level is the lowest, below 0.1 mM.",
+"Physiological ketosis reaches only about 2–3 mM.",
+"",
+"These figures do not match the lecture's ranges."
+],
+"src": "lec"
+},
+{
+"t": "Diabetic Ketoacidosis",
+"lv": "Easy",
+"s": "Which laboratory pattern is typical of diabetic ketoacidosis?",
+"c": [
+"Glucose under 70 mg/dL, pH under 7.2, HCO₃⁻ under 15 mEq/L",
+"Glucose over 300 mg/dL, pH over 7.45, HCO₃⁻ over 30 mEq/L",
+"Glucose over 300 mg/dL, pH under 7.2, HCO₃⁻ under 15 mEq/L",
+"Glucose over 300 mg/dL, pH under 7.2, normal anion gap",
+"Glucose normal, pH normal, ketones over 20 mM"
+],
+"a": 2,
+"e": "DKA (lecture):\n• Hyperglycemia > 300 mg/dL.\n• Dehydration: glucosuria and ketonuria (osmotic diuresis).\n• High anion gap metabolic acidosis, pH < 7.2, due to ketoacids.\n• Low bicarbonate < 15 mEq/L, used up buffering the ketoacids.\nMainly seen in type 1 diabetes.",
+"w": [
+"DKA is hyperglycemic, not hypoglycemic.",
+"That is an alkalosis; DKA is a metabolic acidosis.",
+"",
+"Ketoacids are unmeasured anions, so the anion gap is high.",
+"Ketones this high cause acidosis, and glucose is high in DKA."
+],
+"src": "lec"
+},
+{
+"t": "Diabetic Ketoacidosis",
+"lv": "Easy",
+"s": "A 16-year-old boy in DKA breathes deeply and rapidly, and his breath smells fruity. Which pairing explains these two signs?",
+"c": [
+"Kussmaul breathing causes acidosis; β-hydroxybutyrate gives the odor",
+"Hypoventilation retains CO₂; acetoacetate gives the odor",
+"Kussmaul breathing compensates acidosis; acetone gives the odor",
+"Kussmaul breathing compensates alkalosis; glucose gives the odor",
+"Anxiety drives the breathing; ethanol gives the odor"
+],
+"a": 2,
+"e": "• Kussmaul breathing: deep, rapid respirations that blow off CO₂ as respiratory compensation for the metabolic acidosis.\n• Fruity (nail-polish) odor: acetone, the volatile ketone formed by decarboxylation of acetoacetate and exhaled through the lungs.\nOther features: nausea and vomiting, abdominal pain, dehydration with hypotension, and coma if untreated.",
+"w": [
+"Deep breathing is the response to acidosis, and β-hydroxybutyrate is not volatile.",
+"Breathing increases to blow off CO₂, and the volatile ketone is acetone.",
+"",
+"DKA is an acidosis, and glucose has no odor.",
+"Both signs come from the metabolic state, not anxiety or alcohol."
+],
+"src": "lec"
+},
+{
+"t": "Fuel Fate & Why the Liver Makes Ketones",
+"lv": "Hard",
+"s": "A 40-year-old man has eaten nothing for 4 days. Which combination of changes in his hepatic mitochondria best explains the rise in ketone body production?",
+"c": [
+"PDH inhibited, pyruvate carboxylase on, TCA slowed by NADH",
+"PDH active, pyruvate carboxylase off, TCA sped up by NAD⁺",
+"PDH inhibited, pyruvate carboxylase off, TCA sped up by ADP",
+"ACC activated, CPT-I inhibited, TCA slowed by NADH",
+"PDH active, isocitrate dehydrogenase on, citrate export up"
+],
+"a": 0,
+"e": "Fasting liver, step by step:\n• Lipolysis → fatty acids → β-oxidation → ↑ acetyl-CoA, ↑ NADH, ↑ ATP.\n• Acetyl-CoA inhibits PDH (pyruvate is spared) and activates pyruvate carboxylase → oxaloacetate is pulled into gluconeogenesis.\n• NADH and ATP inhibit isocitrate dehydrogenase → the TCA cycle slows.\n• With little oxaloacetate and a slowed cycle, acetyl-CoA exceeds the liver's oxidative capacity → HMG-CoA synthase pathway → ketone bodies.",
+"w": [
+"",
+"This is closer to the fed pattern, which sends acetyl-CoA into the TCA cycle.",
+"Acetyl-CoA activates pyruvate carboxylase, and NADH/ATP slow the TCA cycle.",
+"ACC on and CPT-I off is the fed state, which suppresses β-oxidation.",
+"Citrate export for fatty acid synthesis is a fed-state process."
+],
+"src": "lec"
+},
+{
+"t": "Ketogenesis: Pathway & HMG-CoA Synthase",
+"lv": "Hard",
+"s": "HMG-CoA is an intermediate in both cholesterol synthesis and ketogenesis. In a fasting patient, hepatic HMG-CoA is directed toward ketone bodies rather than cholesterol. Which statement best explains the separation of the two pathways?",
+"c": [
+"Ketogenic HMG-CoA is cytosolic and is reduced by HMG-CoA reductase",
+"Both pathways share one HMG-CoA pool, switched by insulin alone",
+"Cholesterol synthesis happens in mitochondria during fasting",
+"Ketone bodies are made from mevalonate in the cytosol",
+"Ketogenic HMG-CoA is mitochondrial and is cleaved by HMG-CoA lyase"
+],
+"a": 4,
+"e": "Fate of lipid metabolism (lecture slide):\n• Well-fed: acetyl-CoA accumulates in the cytosol → fatty acid synthesis and cholesterol synthesis (cytosolic HMG-CoA synthase → HMG-CoA reductase → mevalonate).\n• Fasting: acetyl-CoA accumulates in mitochondria → β-oxidation and ketogenesis (mitochondrial HMG-CoA synthase → HMG-CoA lyase → acetoacetate).\nSame intermediate, different compartments and enzymes.",
+"w": [
+"Reduction by HMG-CoA reductase in the cytosol leads to cholesterol.",
+"They use separate compartments and separate HMG-CoA synthase isoforms.",
+"Cholesterol synthesis is cytosolic and favored in the well-fed state.",
+"Mevalonate is the cholesterol intermediate, made by HMG-CoA reductase.",
+""
+],
+"src": "lec"
+},
+{
+"t": "The Three Ketone Bodies",
+"lv": "Hard",
+"s": "A 19-year-old woman with type 1 diabetes is admitted in DKA. Serum β-hydroxybutyrate is markedly elevated, but her urine ketone dipstick is only weakly positive. Six hours after insulin and fluids, she is clinically better, yet the dipstick is more strongly positive. Which explanation best fits?",
+"c": [
+"Insulin briefly increases hepatic ketogenesis early in treatment",
+"The kidney converts acetone into acetoacetate during recovery",
+"The dipstick detects β-hydroxybutyrate, which rises with insulin",
+"The dipstick sees acetoacetate, which rises as NADH/NAD⁺ falls",
+"IV saline concentrates the urine and raises the reading"
+],
+"a": 3,
+"e": "Two concepts combine:\n• The ratio of β-hydroxybutyrate to acetoacetate depends on the mitochondrial NADH/NAD⁺ ratio. In DKA, NADH is high, so most ketone bodies are β-hydroxybutyrate.\n• Urine dipsticks (nitroprusside) detect acetoacetate (and acetone) but not β-hydroxybutyrate.\nEarly on, the dipstick underestimates ketosis. As treatment restores NAD⁺, β-hydroxybutyrate is converted back to acetoacetate, so the dipstick can look worse while the patient is improving. Serum β-hydroxybutyrate is the better test to follow.",
+"w": [
+"Insulin suppresses ketogenesis from the start of treatment.",
+"Acetone is not converted back; it is exhaled.",
+"Nitroprusside dipsticks do not detect β-hydroxybutyrate.",
+"",
+"Fluids dilute the urine; they do not concentrate it."
+],
+"src": "lec"
+},
+{
+"t": "Ketolysis: Thiophorase & Extrahepatic Use",
+"lv": "Hard",
+"s": "In cardiac muscle, β-hydroxybutyrate taken up from the blood is oxidized for ATP. Which description of this pathway is correct?",
+"c": [
+"NAD⁺ is reduced, succinyl-CoA gives CoA, thiolase makes 2 acetyl-CoA",
+"NADH is oxidized, acetyl-CoA gives CoA, HMG-CoA lyase makes 2 acetyl-CoA",
+"NAD⁺ is reduced, ATP activates acetoacetate, HMG-CoA synthase splits it",
+"FAD is reduced, succinyl-CoA gives CoA, the products go to gluconeogenesis",
+"NAD⁺ is reduced, succinyl-CoA gives CoA, pyruvate carboxylase acts next"
+],
+"a": 0,
+"e": "Ketolysis in extrahepatic tissue:\n1. β-Hydroxybutyrate + NAD⁺ → acetoacetate + NADH (β-hydroxybutyrate dehydrogenase). This is why β-hydroxybutyrate 'stores' an NADH equivalent.\n2. Acetoacetate + succinyl-CoA → acetoacetyl-CoA + succinate (thiophorase, absent in liver). This bypasses a TCA substrate-level phosphorylation step.\n3. Acetoacetyl-CoA + CoA-SH → 2 acetyl-CoA (thiolase) → TCA cycle.\nAcetyl-CoA cannot be used for net glucose synthesis.",
+"w": [
+"",
+"Oxidizing β-hydroxybutyrate reduces NAD⁺, and lyase is a ketogenesis enzyme.",
+"Activation uses succinyl-CoA, not ATP, and synthase is a ketogenesis enzyme.",
+"The dehydrogenase uses NAD⁺, and acetyl-CoA cannot make glucose.",
+"Thiolase, not pyruvate carboxylase, splits acetoacetyl-CoA."
+],
+"src": "lec"
+},
+{
+"t": "Brain Fuel During Fasting & Starvation",
+"lv": "Hard",
+"s": "A 35-year-old man on a 3-week hunger strike, taking only water, has falling urinary nitrogen excretion even though he is still not eating. Which adaptation best explains this?",
+"c": [
+"The brain switches to burning fatty acids taken up from albumin",
+"Muscle stops all protein breakdown once glycogen runs out",
+"Brain ketone use cuts glucose need, sparing muscle protein",
+"The liver starts using ketone bodies, freeing amino acids",
+"Red blood cells switch to ketones, lowering glucose demand"
+],
+"a": 2,
+"e": "Early in a fast, the brain's obligatory glucose need is met partly by gluconeogenesis from amino acids released by muscle protein breakdown (urinary nitrogen ↑).\nThe brain cannot burn fatty acids, but with prolonged starvation it adapts to ketone bodies (~2/3 of its energy by 2–3 weeks). Its glucose requirement falls, so less amino acid is needed for gluconeogenesis → muscle protein is spared and urinary nitrogen falls.",
+"w": [
+"The brain cannot use fatty acids for energy, which is why it needs ketones.",
+"Protein breakdown slows but does not stop; the brain's switch drives it.",
+"",
+"The liver lacks thiophorase and cannot use ketone bodies.",
+"RBCs have no mitochondria and must use glucose."
+],
+"src": "lec"
+},
+{
+"t": "Ketosis: Hormones, Levels & Causes",
+"lv": "Hard",
+"s": "A 6-month-old infant becomes lethargic after an overnight fast during a viral illness. Blood glucose is 35 mg/dL, and urine ketones are negative. Which pattern is this, and which group of causes fits it?",
+"c": [
+"Hyperketotic hypoglycemia, from von Gierke disease or alcoholism",
+"Hyperketotic hyperglycemia, from type 1 diabetes",
+"Hypoketotic hypoglycemia, from a block in fatty acid oxidation",
+"Hypoketotic hypoglycemia, from pyruvate carboxylase deficiency",
+"Normal fasting ketosis, from a high-fat diet"
+],
+"a": 2,
+"e": "Glucose + ketone patterns (lecture slide):\n• Hypoglycemia + hypoketosis: carnitine deficiency, MCAD deficiency, CPT-I deficiency, carnitine translocase deficiency. β-oxidation is blocked, so the liver cannot make acetyl-CoA for ketones or the ATP for gluconeogenesis.\n• Hypoglycemia + hyperketosis: von Gierke disease, hereditary fructose intolerance, classical galactosemia, alcoholism, pyruvate carboxylase deficiency.\n• Hyperglycemia + hyperketosis: type 1 diabetes (DKA).\nFasting plus an infection in an infant with hypoketotic hypoglycemia is classic for MCAD deficiency.",
+"w": [
+"Those disorders cause hypoglycemia with high ketones.",
+"Glucose is low here, and ketones are absent.",
+"",
+"The lecture places pyruvate carboxylase deficiency with hyperketosis.",
+"Normal fasting raises ketones; here they are absent."
+],
+"src": "lec"
+},
+{
+"t": "Ketosis: Hormones, Levels & Causes",
+"lv": "Hard",
+"s": "A 50-year-old man with alcohol use disorder has been drinking heavily and eating little for a week. Blood glucose is 48 mg/dL with marked ketonemia. Which mechanism best explains both findings?",
+"c": [
+"Ethanol directly activates HMG-CoA reductase in the liver",
+"Low NADH speeds the TCA cycle and consumes all glucose",
+"Insulin excess drives fatty acids into ketone bodies",
+"High NADH shunts oxaloacetate to malate",
+"Acetaldehyde converts glycogen directly into ketones"
+],
+"a": 3,
+"e": "Ethanol metabolism (alcohol and acetaldehyde dehydrogenases) produces NADH → high NADH/NAD⁺ ratio:\n• Oxaloacetate is shunted to malate → too little oxaloacetate for gluconeogenesis → fasting hypoglycemia (worse when glycogen is depleted by poor intake).\n• Low oxaloacetate and high NADH slow the TCA cycle → acetyl-CoA from β-oxidation goes to ketogenesis, and high NADH favors β-hydroxybutyrate.\nThis is why chronic alcoholism appears in the 'hypoglycemia + hyperketosis' group.",
+"w": [
+"HMG-CoA reductase is the cholesterol enzyme, not ketogenic.",
+"Ethanol raises, not lowers, the NADH/NAD⁺ ratio.",
+"Insulin suppresses ketogenesis; fasting insulin is low.",
+"",
+"Ketones come from acetyl-CoA, not from glycogen."
+],
+"src": "lec"
+},
+{
+"t": "Diabetic Ketoacidosis",
+"lv": "Hard",
+"s": "In a patient with untreated type 1 diabetes, hepatic β-oxidation accelerates sharply. Which change at the mitochondrial membrane best explains why fatty acids enter the mitochondria so readily?",
+"c": [
+"High malonyl-CoA from active ACC stimulates CPT-I",
+"Low malonyl-CoA from inactive ACC releases CPT-I",
+"Insulin activates the carnitine translocase directly",
+"Low glucagon removes inhibition of CPT-II",
+"Excess citrate activates CPT-I in the fasting liver"
+],
+"a": 1,
+"e": "Pathogenesis of DKA (lecture): decreased insulin:glucagon ratio → increased fatty acid oxidation → acetyl-CoA exceeds the liver's oxidative capacity → increased ketone production.\nThe membrane step:\n• Without insulin, acetyl-CoA carboxylase is phosphorylated and inactive (glucagon/AMPK), so malonyl-CoA falls.\n• Malonyl-CoA normally inhibits CPT-I. With it gone, CPT-I is fully active and long-chain fatty acids flood into mitochondria.\n• At the same time hormone-sensitive lipase is uninhibited, so more fatty acids reach the liver.",
+"w": [
+"Malonyl-CoA inhibits CPT-I, and ACC is inactive without insulin.",
+"",
+"Insulin is absent in untreated type 1 diabetes.",
+"Glucagon is high, and CPT-II is not the regulated step.",
+"Citrate activates ACC, the opposite of what is happening here."
+],
+"src": "lec"
+},
+{
+"t": "Diabetic Ketoacidosis",
+"lv": "Hard",
+"s": "A 22-year-old woman in DKA has severe abdominal pain, and her plasma is lipemic with very high triglycerides. Which mechanism best links her diabetes to the pain?",
+"c": [
+"Ketone bodies directly digest the pancreatic ducts",
+"High insulin activates lipoprotein lipase and causes ileus",
+"Chronic pancreatitis from years of hyperglycemia",
+"Acetone irritates the gastric mucosa and causes ulcers",
+"Low insulin cuts LPL activity; high TG cause pancreatitis"
+],
+"a": 4,
+"e": "Clinical features of DKA (lecture): nausea and vomiting, and abdominal pain due to acute pancreatitis caused by hypertriglyceridemia.\nWhy triglycerides rise: insulin is needed for lipoprotein lipase activity. Without it, VLDL and chylomicron triglycerides are not cleared, while the liver keeps receiving and re-esterifying fatty acids from uncontrolled lipolysis. Very high triglycerides can trigger acute pancreatitis.",
+"w": [
+"Ketones do not cause pancreatic autodigestion.",
+"Insulin is low in DKA, and LPL activity falls.",
+"The lecture links the pain to acute pancreatitis from hypertriglyceridemia.",
+"Acetone is exhaled; it does not explain the lipemic plasma.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Diabetic Ketoacidosis",
+"lv": "Hard",
+"s": "A 14-year-old boy in DKA has serum K⁺ of 5.3 mEq/L. Two hours after IV fluids and regular insulin, his K⁺ is 3.1 mEq/L. Which statement best explains this?",
+"c": [
+"Insulin increases renal K⁺ excretion within two hours",
+"Insulin shifts K⁺ into cells, unmasking a total-body deficit",
+"IV saline contains no potassium and dilutes the first sample",
+"Correction of acidosis moves K⁺ from cells into plasma",
+"His initial K⁺ was high because of extra total-body K⁺"
+],
+"a": 1,
+"e": "In DKA, insulin deficiency and acidosis shift K⁺ out of cells, while osmotic diuresis (glucosuria) wastes K⁺ in the urine. Serum K⁺ can look normal or high even though total-body K⁺ is low.\nTreatment with IV isotonic fluids and IV regular insulin drives K⁺ back into cells (insulin activates Na⁺/K⁺-ATPase) and correcting acidosis adds to the shift, so serum K⁺ falls. Potassium must be monitored and replaced during DKA management.",
+"w": [
+"The fall is mainly a shift into cells, not urinary loss.",
+"",
+"Dilution cannot explain a drop this large.",
+"Correcting acidosis moves K⁺ into cells, not out.",
+"Total-body K⁺ is depleted in DKA despite a normal or high serum level."
+],
+"src": "lec"
+},
+{
+"t": "Practice Question · Ketone Bodies (from the slides)",
+"s": "A 12-year-old boy presents with fatigue, polydipsia, polyuria, and polyphagia. A fingerstick glucose measurement shows a glucose level of 350mg/dL in his serum. He is diagnosed with type 1 diabetes mellitus, a disease characterized by a deficiency of insulin. Which one of the following is most likely occurring in this patient?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Increased fatty acid synthesis from glucose in liver",
+"Decreased conversion of fatty acids to ketone bodies",
+"Increased stores of Triacylglycerol in adipose tissue",
+"Increased production of acetone",
+"Chronic pancreatitis"
+],
+"a": 3,
+"e": "With insulin deficiency, the insulin:glucagon ratio is low → hormone-sensitive lipase is active → fatty acids flood the liver → β-oxidation produces acetyl-CoA faster than the liver can oxidize it → ketogenesis increases. Acetoacetate is partly decarboxylated to acetone, which is exhaled (fruity breath). So production of acetone, along with acetoacetate and β-hydroxybutyrate, increases.",
+"w": [
+"Without insulin, acetyl-CoA carboxylase is inactive, so hepatic fatty acid synthesis falls.",
+"Fatty acid conversion to ketone bodies increases, not decreases, without insulin.",
+"Low insulin activates lipolysis, so adipose TAG stores shrink.",
+"",
+"The lecture links DKA to acute pancreatitis from hypertriglyceridemia, not chronic pancreatitis."
 ],
 "src": "lec"
 }

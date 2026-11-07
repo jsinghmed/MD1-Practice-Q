@@ -4075,6 +4075,126 @@ window.NBME_QUIZZES = [
 "VLDL is made in the liver.",
 ""
 ]
+},
+{
+"t": "Lecture 3 · Ketone Body Metabolism",
+"s": "A 9-month-old girl is brought in after an overnight fast during a febrile illness. She is lethargic, with blood glucose of 38 mg/dL and no ketones in the urine. Urine organic acids show dicarboxylic acids. Which enzyme is most likely deficient?",
+"c": [
+"Medium-chain acyl-CoA dehydrogenase",
+"HMG-CoA reductase",
+"Hepatic glucose-6-phosphatase",
+"Succinyl-CoA:acetoacetate transferase",
+"Mitochondrial pyruvate carboxylase"
+],
+"a": 0,
+"e": "Hypoketotic hypoglycemia after fasting plus dicarboxylic aciduria (ω-oxidation of medium-chain fatty acids) points to MCAD deficiency, the most common fatty acid oxidation disorder. Without β-oxidation the liver cannot make acetyl-CoA for ketones or ATP for gluconeogenesis.",
+"w": [
+"",
+"HMG-CoA reductase is the cholesterol synthesis enzyme.",
+"Glucose-6-phosphatase deficiency (von Gierke) gives hypoglycemia with high ketones and lactate.",
+"Thiophorase deficiency impairs ketone use, so ketones accumulate.",
+"Pyruvate carboxylase deficiency is listed with hyperketosis."
+]
+},
+{
+"t": "Lecture 3 · Ketone Body Metabolism",
+"s": "In which tissue can acetoacetate NOT be oxidized for energy, despite the tissue having mitochondria?",
+"c": [
+"Heart",
+"Skeletal muscle",
+"Kidney cortex",
+"Liver",
+"Brain"
+],
+"a": 3,
+"e": "The liver lacks succinyl-CoA:acetoacetate CoA transferase (thiophorase), so it cannot activate acetoacetate to acetoacetyl-CoA. It exports ketone bodies to extrahepatic tissues instead.",
+"w": [
+"The heart readily oxidizes ketone bodies.",
+"Muscle uses ketone bodies.",
+"The kidney uses ketone bodies.",
+"",
+"The brain uses ketones in prolonged starvation."
+]
+},
+{
+"t": "Lecture 3 · Ketone Body Metabolism",
+"s": "A 30-year-old woman has fasted for 3 weeks. Compared with day 1 of the fast, which change in brain fuel use is most likely?",
+"c": [
+"The brain uses fatty acids for most of its energy",
+"Ketones supply about two-thirds of brain energy",
+"The brain uses glucose for all of its energy",
+"Ketone bodies supply about 10% of brain energy",
+"The brain uses amino acids for most of its energy"
+],
+"a": 1,
+"e": "With prolonged starvation the brain adapts to ketone bodies: ~25% by day 3, ~50% by day 7, and ~2/3 by 2–3 weeks. This lowers its glucose need and spares muscle protein.",
+"w": [
+"The brain cannot use fatty acids as a fuel.",
+"",
+"By 3 weeks most energy comes from ketones.",
+"10% understates the adaptation.",
+"Amino acids feed gluconeogenesis; they are not the brain's main fuel."
+]
+},
+{
+"t": "Lecture 3 · Ketone Body Metabolism",
+"s": "Which enzyme catalyzes the rate-limiting step of hepatic ketone body synthesis?",
+"c": [
+"Mitochondrial HMG-CoA synthase",
+"Cytosolic HMG-CoA reductase",
+"HMG-CoA lyase",
+"Acetoacetyl-CoA thiolase",
+"β-Hydroxybutyrate dehydrogenase"
+],
+"a": 0,
+"e": "Mitochondrial HMG-CoA synthase (acetoacetyl-CoA + acetyl-CoA → HMG-CoA) is the rate-limiting step of ketogenesis. HMG-CoA lyase then releases acetoacetate.",
+"w": [
+"",
+"HMG-CoA reductase is rate-limiting for cholesterol synthesis.",
+"Lyase acts after the rate-limiting step.",
+"Thiolase starts the pathway but is not rate-limiting.",
+"This enzyme interconverts acetoacetate and β-hydroxybutyrate."
+]
+},
+{
+"t": "Lecture 3 · Ketone Body Metabolism",
+"s": "A 17-year-old boy with type 1 diabetes has glucose of 480 mg/dL, pH 7.12, HCO₃⁻ 9 mEq/L, and a urine dipstick only weakly positive for ketones. Which ketone body is most likely present in the greatest amount in his blood?",
+"c": [
+"Acetoacetate",
+"Acetone",
+"Acetoacetyl-CoA",
+"Hydroxymethylglutaryl-CoA",
+"β-Hydroxybutyrate"
+],
+"a": 4,
+"e": "In DKA the high mitochondrial NADH/NAD⁺ ratio favors reduction of acetoacetate to β-hydroxybutyrate, the predominant ketone body in blood and urine. Nitroprusside dipsticks detect acetoacetate, not β-hydroxybutyrate, so they can underestimate ketosis.",
+"w": [
+"Acetoacetate is present but is outnumbered by β-hydroxybutyrate when NADH is high.",
+"Acetone is a minor, volatile product.",
+"Acetoacetyl-CoA is an intracellular intermediate, not a circulating ketone body.",
+"HMG-CoA is an intracellular intermediate of ketogenesis.",
+""
+]
+},
+{
+"t": "Lecture 3 · Ketone Body Metabolism",
+"s": "A 45-year-old man with chronic alcohol use is admitted after a binge with poor food intake. Glucose is 45 mg/dL and serum ketones are elevated. Which change most directly contributes to his hypoglycemia?",
+"c": [
+"Increased insulin secretion by ethanol",
+"Increased activity of pyruvate carboxylase",
+"↑NADH/NAD⁺ shifting oxaloacetate to malate",
+"Decreased hepatic β-oxidation",
+"Increased glycogen stores in the liver"
+],
+"a": 2,
+"e": "Ethanol metabolism raises the NADH/NAD⁺ ratio, pushing oxaloacetate to malate (and pyruvate to lactate) and starving gluconeogenesis. With glycogen depleted, he becomes hypoglycemic, while acetyl-CoA is diverted to ketones, so this is hypoglycemia with hyperketosis.",
+"w": [
+"Ethanol does not raise insulin; low insulin is why ketones rise.",
+"The problem is a lack of oxaloacetate, not low carboxylase activity.",
+"",
+"β-oxidation continues and supplies the acetyl-CoA for ketones.",
+"Poor intake depletes, rather than builds, glycogen."
+]
 }
 ]
 },
