@@ -421,6 +421,10 @@ table.rt tr.click:hover td{background:var(--hover)}
 [hidden]{display:none!important}
 
 /* course tabs */
+.ytabs{display:flex;gap:4px;padding:0 12px 6px}
+.ytab{flex:1;background:transparent;border:1px solid var(--line2);border-radius:999px;padding:4px 6px;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--muted)}
+.ytab:hover{background:var(--hover);color:var(--text)}
+.ytab.on{background:var(--acc-bg,var(--blue-bg));border-color:var(--acc,var(--blue-line));color:var(--text)}
 .ctabs{display:flex;gap:4px;padding:0 12px 12px}
 .ctab{flex:1;background:transparent;border:1px solid var(--line2);border-radius:8px;padding:8px 4px;font-size:14px;font-weight:700;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:1px}
 .ctab small{font-size:10.5px;font-weight:600;color:var(--dim)}
@@ -1026,6 +1030,7 @@ button.dst:hover{background:var(--hover)}
 <div class="app" id="app">
   <aside class="side" id="side">
     <div class="brand" id="brandHome" title="Home"><button class="sidecol-btn" id="sideColBtn" type="button" title="Collapse the menu (\)" aria-label="Collapse the menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/><path d="M20 4v16"/></svg></button><div class="jjlogo" aria-label="JJ QBank"><span class="lg-mark"><i class="t"></i><i class="w"></i></span><span class="lg-word"><i class="t"></i><i class="w"></i></span></div><div class="bcourse"><h1 id="brandTitle">MSK Summative</h1><p id="brandSub"></p></div></div>
+    <div class="ytabs" id="ytabs"></div>
     <div class="ctabs" id="ctabs"></div>
     <div class="stools">
       <div class="search" id="searchWrap">
@@ -1088,11 +1093,16 @@ button.dst:hover{background:var(--hover)}
 // ---- Courses (summatives). To add one, add it here, then give its sections course:"<id>". ----
 // Each section's prefix must be unique across the whole site (it's part of every saved question ID).
 const COURSES = [
-  {id:"fbs", name:"FBS", full:"Foundations of Basic Sciences"},
-  {id:"msk", name:"MSK", full:"Musculoskeletal"},
-  {id:"crs", name:"CRS", full:"Cardiovascular & Respiratory Systems"},
-  {id:"eth", name:"Ethics", full:"Medical Ethics", special:"ethics", count:102}
+  {id:"fbs", name:"FBS", full:"Foundations of Basic Sciences", year:"MD1"},
+  {id:"msk", name:"MSK", full:"Musculoskeletal", year:"MD1"},
+  {id:"crs", name:"CRS", full:"Cardiovascular & Respiratory Systems", year:"MD1"},
+  {id:"eth", name:"Ethics", full:"Medical Ethics", special:"ethics", count:102, year:"MD1"},
+  // MD2 modules: empty until questions are added (give sections course:"rns" / "ghs" / "ers").
+  {id:"rns", name:"RNS", full:"MD2 module", year:"MD2"},
+  {id:"ghs", name:"GHS", full:"MD2 module", year:"MD2"},
+  {id:"ers", name:"ERS", full:"MD2 module", year:"MD2"}
 ];
+const YEARS = [...new Set(COURSES.map(c=>c.year))];
 // Lecture-grouped sidebar entries: each lecture, its topics, then its Easy/Hard (and slide practice Q) chips; course-wide filters at the bottom.
 function lecExtras(lectures, tags){
   tags = tags || [];
@@ -1800,7 +1810,9 @@ function renderChaps(){
   });
   h += thxSide();
   $("chaps").innerHTML = h;
-  $("ctabs").innerHTML = COURSES.map(c=>`<button class="ctab ${c.id===S.course?"on":""}" data-course="${c.id}" title="${esc(c.full)}">${esc(c.name)}<small>${c.count ? c.count+" Qs" : c.items.length ? c.items.length+" Qs" : "empty"}</small></button>`).join("");
+  const yr = course().year;
+  $("ytabs").innerHTML = YEARS.map(y=>`<button class="ytab ${y===yr?"on":""}" data-year="${y}">${y}</button>`).join("");
+  $("ctabs").innerHTML = COURSES.filter(c=>c.year===yr).map(c=>`<button class="ctab ${c.id===S.course?"on":""}" data-course="${c.id}" title="${esc(c.full)}">${esc(c.name)}<small>${c.count ? c.count+" Qs" : c.items.length ? c.items.length+" Qs" : "empty"}</small></button>`).join("");
   $("brandTitle").textContent = course().name + " Summative";
   $("brandSub").textContent = (course().full !== course().name ? course().full + " · " : "") + (course().count ? course().count + " questions" : course().items.length ? course().items.length + " questions" : "no questions yet");
   document.title = "JJ QBank · " + course().name;
@@ -2365,8 +2377,8 @@ function renderHome(){
   const all = courseQ(), done = all.filter(q=>answered(q,S)), ok = done.filter(q=>status(q,S)==="ok").length;
   if (!all.length) {
     showPage(`<div class="page"><div class="hero"><div><h2>${esc(course().name)} Summative</h2><p class="sub">${esc(course().full)}</p></div></div>${homeSearchBox()}${homeGoogleBox()}
-      <div class="emptybox"><h3>No ${esc(course().name)} questions yet</h3>
-      <p>This summative is set up and ready. Once questions are added, its sections, review lists, tests, search and notes will all appear here — kept separate from your other summatives.</p></div></div>`);
+      <div class="emptybox"><h3>${course().year==="MD2" ? esc(course().name)+" questions are coming soon" : "No "+esc(course().name)+" questions yet"}</h3>
+      <p>${course().year==="MD2" ? "This MD2 module is set up and ready. Questions, NBME practice and study guides will be added as the module's lectures begin." : "This summative is set up and ready."} Once questions are added, its sections, review lists, tests, search and notes will all appear here — kept separate from your other summatives.</p></div></div>`);
     return;
   }
   const acc = done.length ? Math.round(ok*100/done.length) : 0, bad = done.length - ok;
@@ -3171,6 +3183,8 @@ document.addEventListener("click", e=>{
   const zb = t.closest("[data-zoom]");
   if (zb) { zoomV = +zb.dataset.zoom; try { localStorage.setItem("msk-zoom", zoomV); } catch(e){} renderAll(); toast("Text size: "+ZOOMS.find(z=>Math.abs(z[0]-zoomV)<.001)[1]); return; }
   if (t.closest("#focusBtn")) { setFocus(!focusOn); return; }
+  const yb = t.closest("[data-year]");
+  if (yb) { const y = yb.dataset.year; if (y!==course().year) { const k = "jj-last-"+y, last = (()=>{ try { return localStorage.getItem(k); } catch(e) { return null; } })(); try { localStorage.setItem("jj-last-"+course().year, S.course); } catch(e) {} const tgt = COURSES.find(c=>c.id===last && c.year===y) || COURSES.find(c=>c.year===y); switchCourse(tgt.id); } return; }
   const cb = t.closest("[data-course]");
   if (cb) { switchCourse(cb.dataset.course); return; }
   // home / sidebar
