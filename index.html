@@ -421,6 +421,12 @@ table.rt tr.click:hover td{background:var(--hover)}
 [hidden]{display:none!important}
 
 /* course tabs */
+.mdinfo{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:0 0 14px}
+.mdinfo>div{background:var(--card,var(--bg2));padding:12px 14px;display:flex;flex-direction:column;gap:3px}
+.mdinfo>div.wide{grid-column:1/-1}
+.mdinfo span{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--dim)}
+.mdinfo b{font-size:14px;font-weight:600;color:var(--text)}
+@media(max-width:800px){.mdinfo{grid-template-columns:1fr 1fr}}
 .ytabs{display:flex;gap:4px;padding:0 12px 6px}
 .ytab{flex:1;background:transparent;border:1px solid var(--line2);border-radius:999px;padding:4px 6px;font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--muted)}
 .ytab:hover{background:var(--hover);color:var(--text)}
@@ -1098,9 +1104,12 @@ const COURSES = [
   {id:"crs", name:"CRS", full:"Cardiovascular & Respiratory Systems", year:"MD1"},
   {id:"eth", name:"Ethics", full:"Medical Ethics", special:"ethics", count:102, year:"MD1"},
   // MD2 modules: empty until questions are added (give sections course:"rns" / "ghs" / "ers").
-  {id:"rns", name:"RNS", full:"MD2 module", year:"MD2"},
-  {id:"ghs", name:"GHS", full:"MD2 module", year:"MD2"},
-  {id:"ers", name:"ERS", full:"MD2 module", year:"MD2"}
+  {id:"rns", name:"RNS", full:"Renal and Nervous System I", year:"MD2", info:{code:"RNS203", when:"Weeks 1–6 · Jan 11 – Feb 19, 2027", exams:"Review & exam week Feb 22–26 · End Module Exam + NBME 1", director:"Dr. Sampath Venkataswamy",
+    subjects:["Anatomy","Physiology","Neuroscience","Biochemistry","Embryology","Histology"]}},
+  {id:"ghs", name:"GHS", full:"GI and Hepatobiliary System I", year:"MD2", info:{code:"GHS201", when:"Weeks 8–10 · Mar 1 – Mar 19, 2027", exams:"End Module Exam in week 11 · NBME 2 (with ERS) in week 15", director:"Dr. Somashekar Shetty",
+    subjects:["Anatomy","Biochemistry","Physiology","Histology","Neuroscience","Embryology"]}},
+  {id:"ers", name:"ERS", full:"Endocrine and Reproductive System I", year:"MD2", info:{code:"ERS202", when:"Weeks 11–14 · Mar 22 – Apr 16, 2027", exams:"Review & exam week Apr 19–23 · End Module Exam + NBME 2 (GHS & ERS)", director:"Dr. Maria Bayubay",
+    subjects:["Physiology","Anatomy","Histology","Neuroscience","Biochemistry","Embryology"]}}
 ];
 const YEARS = [...new Set(COURSES.map(c=>c.year))];
 // Lecture-grouped sidebar entries: each lecture, its topics, then its Easy/Hard (and slide practice Q) chips; course-wide filters at the bottom.
@@ -2377,6 +2386,7 @@ function renderHome(){
   const all = courseQ(), done = all.filter(q=>answered(q,S)), ok = done.filter(q=>status(q,S)==="ok").length;
   if (!all.length) {
     showPage(`<div class="page"><div class="hero"><div><h2>${esc(course().name)} Summative</h2><p class="sub">${esc(course().full)}</p></div></div>${homeSearchBox()}${homeGoogleBox()}
+      ${course().info ? `<div class="mdinfo"><div><span>Course</span><b>${esc(course().info.code)}</b></div><div><span>Dates</span><b>${esc(course().info.when)}</b></div><div><span>Exams</span><b>${esc(course().info.exams)}</b></div><div><span>Module director</span><b>${esc(course().info.director)}</b></div><div class="wide"><span>Subjects</span><b>${course().info.subjects.map(esc).join(" · ")}</b></div></div>` : ""}
       <div class="emptybox"><h3>${course().year==="MD2" ? esc(course().name)+" questions are coming soon" : "No "+esc(course().name)+" questions yet"}</h3>
       <p>${course().year==="MD2" ? "This MD2 module is set up and ready. Questions, NBME practice and study guides will be added as the module's lectures begin." : "This summative is set up and ready."} Once questions are added, its sections, review lists, tests, search and notes will all appear here — kept separate from your other summatives.</p></div></div>`);
     return;
