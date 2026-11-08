@@ -2409,20 +2409,20 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Key Volumes: EDV, ESV, SV & EF",
 "lv": "Hard",
-"s": "Two patients are compared. Patient A receives 1 L of IV saline; his EDV rises from 120 to 150 mL and his ESV from 50 to 62 mL. Patient B has had a large anterior MI; her EDV is 120 mL and her ESV is 80 mL. Which statement is correct?",
+"s": "Two patients are compared. Patient A receives 1 L of IV saline; his EDV rises from 120 to 150 mL while his ESV stays at 50 mL. Patient B has had a large anterior MI; her EDV is 120 mL and her ESV is 80 mL. Which statement is correct?",
 "c": [
 "Both have pump dysfunction, because stroke volume changed in both",
 "Only Patient B has true pump dysfunction, shown by her low EF",
-"Patient A has reduced contractility, because his ESV rose",
+"Patient A has increased contractility, because his EF rose",
 "Patient B has normal contractility, because her EDV is normal",
 "Only Patient A has pump dysfunction, because his EDV is higher"
 ],
 "a": 1,
-"e": "Work it out:\n• A: SV = 150 − 62 = 88 mL (up from 70); EF = 88/150 ≈ 59%, unchanged → preload effect (Frank–Starling).\n• B: SV = 120 − 80 = 40 mL; EF = 40/120 ≈ 33% with the same EDV → contractility is down.\nThis is the lecture's key focus: an isolated ↑ preload (↑EDV) raises SV with EF preserved, while an isolated ↓ contractility lowers SV and EF at the same EDV. Only the second reflects true pump dysfunction, which is why EF, not SV or EDV alone, is the preferred index of contractility.",
+"e": "Work it out:\n• A: SV = 150 − 50 = 100 mL (up from 70); EF = 100/150 ≈ 67% (up from 58%). ESV did not change, so contractility did not change: the extra filling simply comes out as extra stroke volume (Frank–Starling). EF rises a little because EF = SV/EDV is somewhat preload-dependent.\n• B: SV = 120 − 80 = 40 mL; EF = 40/120 ≈ 33% with the same EDV → the ventricle can no longer empty to a normal ESV → contractility is down.\nThis is the lecture's key focus: an isolated ↑ preload (↑EDV) raises SV, with EF the same or slightly higher and ESV unchanged, while an isolated ↓ contractility raises ESV and lowers SV and EF at the same EDV. Only the second reflects true pump dysfunction, which is why a low EF is the marker of a failing pump.",
 "w": [
-"A's SV rose from more preload with an unchanged EF, which is not dysfunction.",
+"A's SV rose from more preload with no change in contractility, which is not dysfunction.",
 "",
-"His ESV rose only in proportion to his EDV; his EF stayed about 58–59%.",
+"His EF rose only because more filling raised SV against the same ESV; contractility is unchanged.",
 "Same EDV but a much larger ESV: EF is only 33%, so contractility is down.",
 "A higher EDV is more preload; it raised his SV and is not dysfunction."
 ],

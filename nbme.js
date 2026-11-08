@@ -4907,22 +4907,22 @@ window.NBME_QUIZZES = [
 },
 {
 "t": "Lecture 4 · The Cardiac Cycle",
-"s": "A 34-year-old woman receives 1 L of IV saline. Her end-diastolic volume rises from 120 mL to 150 mL, and her ejection fraction is unchanged at 58%. Which change is most likely?",
+"s": "A 34-year-old woman receives 1 L of IV saline. Her end-diastolic volume rises from 120 mL to 150 mL, while her end-systolic volume stays at 50 mL. Which change is most likely?",
 "c": [
 "Stroke volume decreases",
 "Stroke volume increases",
 "Contractility decreases",
-"End-systolic volume decreases",
+"Ejection fraction decreases",
 "Stroke volume is unchanged"
 ],
 "a": 1,
-"e": "More preload (↑EDV) with an unchanged EF means SV = EF × EDV rises (about 70 → 87 mL), the Frank–Starling effect. Contractility is unchanged, as shown by the constant EF.",
+"e": "More preload (↑EDV) with an unchanged ESV raises SV from 70 to 100 mL, the Frank–Starling effect. EF rises a little (58% → 67%) because the extra filling is all ejected, but contractility is unchanged.",
 "w": [
-"More filling with the same EF raises SV.",
+"More filling against the same ESV raises SV.",
 "",
-"An unchanged EF means contractility is unchanged.",
-"ESV rises in proportion (about 50 → 63 mL).",
-"SV = EF × EDV, so it must rise."
+"ESV is unchanged, so the ventricle still empties normally: contractility is unchanged.",
+"EF = SV/EDV rises from about 58% to 67%, since SV grows and ESV is unchanged.",
+"SV = EDV − ESV = 150 − 50 = 100 mL, up from 70 mL."
 ]
 },
 {
