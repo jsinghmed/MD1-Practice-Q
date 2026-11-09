@@ -1109,8 +1109,8 @@ button.dst:hover{background:var(--hover)}
 <script src="crs-embryology.js?v=34"></script>
 <script src="crs-anatomy.js?v=1"></script>
 <script src="crs-biochem.js?v=5"></script>
-<script src="crs-physiology.js?v=8"></script>
-<script src="nbme.js?v=14"></script>
+<script src="crs-physiology.js?v=9"></script>
+<script src="nbme.js?v=15"></script>
 <script src="xp-crs.js?v=1"></script>
 <script src="viz-links.js?v=3"></script>
 <script>
@@ -1198,7 +1198,7 @@ const SECTIONS = [
   {course:"crs", name:"CRS Physiology", all:"All CRS Physiology", prefix:"cpr", topics:window.CRS_PH_TOPICS, hideTopics:true, qs:window.CRS_PH_QUESTIONS,
    // Grouped by lecture (Dr. Sampath V.), then topic. Add each new lecture as one more [name, topics] row.
    extra:(()=>{ const T = window.CRS_PH_TOPICS||[];
-     return lecExtras([["Lecture 1 · Cardiac Action Potential", T.slice(0,11)], ["Lecture 2 · Pacemaker Potential: SA & AV Nodes", T.slice(11,18)], ["Lecture 3 · Effects of Cardiac Nerves", T.slice(18,25)], ["Lecture 4 · The Cardiac Cycle", T.slice(25,32)]],
+     return lecExtras([["Lecture 1 · Cardiac Action Potential", T.slice(0,11)], ["Lecture 2 · Pacemaker Potential: SA & AV Nodes", T.slice(11,18)], ["Lecture 3 · Effects of Cardiac Nerves", T.slice(18,25)], ["Lecture 4 · The Cardiac Cycle", T.slice(25,32)], ["Lecture 5 · Cardiac Output & Pressure-Volume Loops", T.slice(32,39)]],
        [["Sampath's Q's", "Sampath", "sampath"]]); })()}
 ].concat((window.NBME_QUIZZES||[]).map(z=>({course:z.course, name:z.name, all:z.name, prefix:z.prefix, topics:[], qs:z.qs, nbme:true, subject:z.subject, note:z.note})))
  .filter(s=>s.qs && s.qs.length);
@@ -1494,6 +1494,7 @@ const ANKING = {
   "cpr|Lecture 2 · Pacemaker Potential: SA & AV Nodes": "nid:1470875818432,1470880332043,1470880335411,1470880346050,1470880350208,1470880353973,1470880356909,1470880360279,1470880367589,1470880383058,1470880386392,1470880389765,1470880397079,1470945494610,1470929277154,1470945656630",
   "cpr|Lecture 3 · Effects of Cardiac Nerves": "nid:1470929344743,1470929360626,1470929348967,1470929475929,1470929470761,1471224490686,1470929374412,1470929422314,1470929377630,1470929429000,1477011384108,1477011497450,1477011511428,1471224519538,1471224536944,1471224590406,1475115086383,1475115092818,1477447015004,1472087031632,1472261849467,1472261890259,1502086979437,1502087058246,1472265289730,1472265296216,1472265342000,1470929459008,1470929480095,1470929487277,1470929495087,1470929500032",
   "cpr|Lecture 4 · The Cardiac Cycle": "nid:1471273372497,1471274287185,1471274292765,1471274300627,1471274306843,1471294123323,1471294159863,1471294329467,1471294340099,1471294379192,1471294396422,1472146997848,1471289939766,1471294040253,1471294113945,1471294272870,1471294355563,1471294084533,1471447132876,1471447242243,1471447248110,1470850191684,1471224759732,1471224766592,1471224770350,1471274319093,1471274352443,1471274377554,1471224754332,1471274371357,1471274390554,1471294094703,1471294168451,1471294211328,1471294222786,1471294240036,1471294248788,1471294282027,1471294347577,1471294310881",
+  "cpr|Lecture 5 · Cardiac Output & Pressure-Volume Loops": "nid:1470836378217,1470839275182,1470839277805,1471224777726,1471224759732,1477011516755,1470850238495,1471274319093,1471274322460,1471224803014,1477011414189,1471378820049,1472147101610,1472747787801,1472747806470,1472146997848,1471274325193,1471274328220,1471276938496,1471276964931,1471276953481,1471276982372,1472058826585,1471224490686,1471224508109,1471224512101,1471224515467,1471224440268,1471224519538,1471224536944,1471224406413,1471224415440,1471224689513,1471224713065,1471224723342,1471224741979,1472487477564,1472487509113,1472487520111,1472147065831,1472147075502,1472147082508,1472147158498,1471914914774,1472502520244,1477011839741,1471224780838,1471224807904,1471224820932,1471273372497,1471274287185,1471274292765,1471274300627,1471274306843,1471274312788,1471274331054,1471274338690,1471274345796,1471274352443,1471274358522,1471274365484,1471274371357,1471274377554,1471274390554,1471224757056,1471224766592,1471224770350,1471276994963",
   "cbr|Lecture 1 · Fatty Acid Oxidation": "nid:1475982750794,1475982762670,1475982767539,1475982771690,1475982775743,1475982778100,1475982788529,1475982793287,1475982797947,1475982808199,1475982812947,1475982818772,1475982840885,1475982843945,1475982846226,1475982865813,1475982869464,1475982871689,1475982873945,1475982880984,1475982885857,1475982895318,1475982896654,1468101834431,1517253383601,1517254433684,1517255304520,1517255368067,1517255547011,1517255620193,1517255729542,1517255893612,1517256108793,1517257080530,1517257121267,1517257285153,1476328373332,1476328373333,1476328378328,1476502597826,1476328391687,1476328399503,1481836311617,1481836318446,1481836327594,1481836333262",
   "cbr|Lecture 2 · Fatty Acid & TAG Synthesis": "nid:1475894369854,1475896504605,1475896509771,1475896514243,1475896519521,1475896526687,1475896531425,1475896534611,1475896540810,1475896543773,1475896551561,1475896559049,1475896564265,1475896576427,1475896586329,1475896591933,1475896598992,1475896613407,1475896642626,1475896650810,1475896675086,1475982732554,1475982737323,1475982741557,1475982746310,1475966773797,1477011550067",
   "cbr|Lecture 3 · Ketone Body Metabolism": "nid:1476146871125,1476154069517,1476154085131,1476154090457,1476154095169,1476154107246,1476154113019,1476154118823,1476154123577,1476154128899,1476154138229,1476154152770,1476154175158,1476154185261,1476154190117,1476154196909,1476154207990,1476154211536,1476502591395,1476502674112,1476502551897,1462128264089,1462128449086,1462131849821,1462327211125,1462327286091,1462327309654,1462327320519,1462327363797,1462327370877,1475178090922,1584375201003,1502564341435,1462849140370,1502414496794,1476652222871",
@@ -1504,6 +1505,7 @@ const UWORLD = {
   "cpr|Lecture 1 · Cardiac Action Potential": "144,159,1382,1508,1513,1558,1931,1974,2007,6426,11956,15197",
   "cpr|Lecture 2 · Pacemaker Potential: SA & AV Nodes": "1513,1531,1973,1975,1976,6426",
   "cpr|Lecture 4 · The Cardiac Cycle": "138,227,246,945,1510,1511,1517,1530,2070,6645,6799,7238,11836,15199,15526,19574,21037",
+  "cpr|Lecture 5 · Cardiac Output & Pressure-Volume Loops": "75,92,137,138,141,144,148,181,1364,1367,1510,1511,1512,1517,1529,1624,1652,11836,11925,14966,15196,15391,15526,15542,15650,19337,19567,19574,20966,108070,118246",
   "cpr|Lecture 3 · Effects of Cardiac Nerves": "898,1367,1975,6491,8289,11925,15306,15515,18498",
   "cbr|Lecture 1 · Fatty Acid Oxidation": "1120,1341,1886,1888,6610,6762,11918",
   "cbr|Lecture 2 · Fatty Acid & TAG Synthesis": "1063,1066,1889,11917",
@@ -1536,6 +1538,7 @@ const MEHL = [
   ["cardio", /sick sinus/i, 44, "Sick sinus syndrome"],
   ["cardio", /adenosine|supraventricular tachycardia|narrow-complex tachycardia|\bSVT\b/i, 19, "SVT: vagal maneuvers, then adenosine"],
   ["cardio", /baroreceptor|carotid sinus/i, 64, "Carotid sinus baroreceptors"],
+  ["cardio", /dobutamine/i, 39, "Dobutamine & other inotropes"],
   ["biochem", /carnitine|MCAD|LCAD|acyl-?CoA dehydrogenase|hypoketotic|\bCPT\b|medium-chain/i, 15, "Fatty acid oxidation defects: carnitine, MCAD, LCAD (pp. 15–16)"],
   ["biochem", /adrenoleuko|Zellweger|Refsum|peroxisom|VLCFA|phytanic/i, 8, "Peroxisome: VLCFA, Refsum, ALD, Zellweger"],
   ["biochem", /\bB12\b|methylmalon/i, 32, "Vitamin B12 & methylmalonyl-CoA mutase"],
@@ -1651,7 +1654,7 @@ const GUIDES = {
         ["msk-biochem","MSK Biochemistry","Glycolysis, glycogen & storage diseases, GAGs, collagen & elastin",4],
         ["msk-anatomy","MSK Anatomy","Upper & lower limb: plexus, nerve injuries, compartments, joints, vessels",6],
         ["msk-embryology","MSK Embryology","Bone formation, growth plate, vertebrae, skull & sutures, limbs, skin",3]],
-  crs: [["crs-biochem","CRS Biochemistry NBME guide","High-yield, commonly tested NBME content · Lecture 1–3 · grows with each lecture",0],["crs-physiology","CRS Physiology NBME guide","High-yield, commonly tested NBME content · Lecture 1–4 · grows with each lecture",0]]
+  crs: [["crs-biochem","CRS Biochemistry NBME guide","High-yield, commonly tested NBME content · Lecture 1–3 · grows with each lecture",0],["crs-physiology","CRS Physiology NBME guide","High-yield, commonly tested NBME content · Lecture 1–5 · grows with each lecture",0]]
 };
 function guideCards(list){
   return `<div class="gdgrid">` + list.map(([f,nm,desc,pg])=>`<div class="gdcard"><div class="gdi">${NVI.guide}</div><div class="gdt"><b>${esc(nm)}</b><small>${esc(desc)}</small><span class="gdm">${pg?pg+" pages · PDF":"Read on site or save as PDF · updated each lecture"}</span></div>
@@ -1666,7 +1669,7 @@ function renderGuideView(){
     <div class="gvhead"><h2>${esc(nm)}</h2><p class="sub">${esc(desc)}</p><div class="gvleg"><span><span class="hy">Red</span> = extra high yield (classic NBME)</span><span>Black/white = core content</span><span class="mn">Italic = mnemonic</span></div></div>`;
   if (!window.GUIDE_HTML) {
     showPage(`<div class="page gview">${top}<div class="emptybox"><p>Loading study guide…</p></div></div>`);
-    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=8";
+    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=9";
       sc.onload = ()=>{ guideLoading = false; if (view==="guide") renderGuideView(); };
       sc.onerror = ()=>{ guideLoading = false; toast("Couldn't load the study guide — check your connection"); };
       document.head.appendChild(sc); }
@@ -2296,7 +2299,7 @@ const VIZ_RULES = [
   [/coronary sinus/i, "heart3d", "sel=cs&view=Posterior", "The coronary sinus"],
   [/\bSA node|sinoatrial|AV node|atrioventricular node|purkinje|bundle branch/i, "heart3d", "mode=beat,ghost&sel=avnode", "The conduction system firing in sequence"],
   [/plateau|phase 0|phase 4|funny current|pacemaker potential|L-type/i, "cap", "", "Cardiac action potentials"],
-  [/pressure[- ]volume|isovolumetric|stroke volume|preload|afterload|\bS1\b|\bS2\b|cardiac cycle/i, "pvl", "", "Cardiac cycle & PV loop"],
+  [/pressure[- ]volume|isovolumetric|stroke volume|preload|afterload|frank|starling|contractility|stroke work|\bS1\b|\bS2\b|cardiac cycle/i, "pvl", "", "Cardiac cycle & PV loop"],
   [/blood flow|pulmonary circulation|deoxygenated/i, "heart3d", "mode=follow", "Follow a drop of blood through the heart"],
   [/intercostal space|neurovascular bundle|costal groove/i, "ribcage", "view=Left&show=space&space=5", "An intercostal space on the 3D thoracic cage"],
   [/sternal angle|jugular notch|xiphisternal/i, "ribcage", "view=Anterior&show=planes&sel=angle", "Sternal levels on the 3D thoracic cage"],

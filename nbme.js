@@ -5044,6 +5044,166 @@ window.NBME_QUIZZES = [
 "The pulmonic valve belongs to the right ventricle.",
 ""
 ]
+},
+{
+"t": "Lecture 5 · Cardiac Output & Pressure-Volume Loops",
+"s": "A 61-year-old man with dilated cardiomyopathy is started on a dobutamine infusion. Heart rate, end-diastolic volume and mean arterial pressure stay about the same. Compared with before the infusion, which change in his left ventricular pressure-volume loop is most likely?",
+"c": [
+"Larger EDV and larger stroke volume",
+"Smaller ESV and larger stroke volume",
+"Larger ESV and smaller stroke volume",
+"Same width, shifted to the right",
+"Lower peak systolic pressure"
+],
+"a": 1,
+"e": "Step 1: dobutamine is a β1 agonist, so it raises contractility (positive inotropy).\nStep 2: preload (EDV) and afterload are unchanged, so the right side of the loop stays put.\nStep 3: a stronger ventricle ejects further at the same afterload, so the end-systolic point moves left: ESV falls and the loop gets wider (↑SV, ↑EF).",
+"w": [
+"EDV is unchanged; a larger EDV would mean higher preload.",
+"",
+"That is the pattern of reduced contractility.",
+"A rightward shift at the same width means more preload, not inotropy.",
+"Stronger ejection raises or keeps peak pressure; it doesn't lower it."
+]
+},
+{
+"t": "Lecture 5 · Cardiac Output & Pressure-Volume Loops",
+"s": "A 70-kg man consumes 300 mL of O₂ per minute. Arterial O₂ content is 20 mL/dL and mixed venous O₂ content from the pulmonary artery is 15 mL/dL. What is his cardiac output?",
+"c": [
+"1.5 L/min",
+"15 L/min",
+"8.6 L/min",
+"6 L/min",
+"4 L/min"
+],
+"a": 3,
+"e": "Fick principle: CO = O₂ consumption ÷ (arterial O₂ − mixed venous O₂).\nThe A–V difference is 20 − 15 = 5 mL/dL = 50 mL/L.\nCO = 300 mL/min ÷ 50 mL/L = 6 L/min.",
+"w": [
+"This divides 300 by 200 and forgets the A–V difference.",
+"This uses the content in mL/dL as if it were mL/L.",
+"This adds the two contents instead of subtracting them.",
+"",
+"This is not 300 divided by 50 mL/L."
+]
+},
+{
+"t": "Lecture 5 · Cardiac Output & Pressure-Volume Loops",
+"s": "A 22-year-old man is stabbed and quickly loses about 1 L of blood. Before any reflexes act, how does his left ventricular pressure-volume loop change?",
+"c": [
+"Smaller EDV and smaller SV",
+"Larger EDV and larger stroke volume",
+"Higher peak systolic pressure",
+"Smaller ESV at the same EDV",
+"Wider loop with larger ESV"
+],
+"a": 0,
+"e": "Step 1: losing blood lowers venous return, so ventricular filling falls.\nStep 2: lower filling = lower EDV = lower preload, so the bottom-right corner of the loop moves left.\nStep 3: by the Frank–Starling law, less stretch gives a weaker beat, so stroke volume falls: the loop is narrower.",
+"w": [
+"",
+"That is what more venous return would do.",
+"Less filling lowers, not raises, the pressure generated.",
+"A smaller ESV at the same EDV means more contractility.",
+"Less preload makes the loop narrower, not wider."
+]
+},
+{
+"t": "Lecture 5 · Cardiac Output & Pressure-Volume Loops",
+"s": "In an experiment, a healthy subject receives phenylephrine, which raises aortic pressure. Reflex changes in heart rate and contractility are blocked. Compared with baseline, which change in the next few beats is expected?",
+"c": [
+"Smaller ESV and larger stroke volume",
+"Smaller EDV with the same ESV",
+"Ejection fraction rises",
+"Isovolumetric contraction gets shorter",
+"Larger ESV and smaller stroke volume"
+],
+"a": 4,
+"e": "Step 1: phenylephrine is an α1 agonist, so it constricts arterioles and raises aortic pressure = higher afterload.\nStep 2: the aortic valve opens later at a higher pressure, and the ventricle can't shorten as far against it.\nStep 3: so ejection stops at a larger ESV. With EDV and contractility unchanged, stroke volume and EF fall.",
+"w": [
+"That pattern means more contractility or less afterload.",
+"Afterload doesn't change EDV in the next beats; ESV rises.",
+"EF falls because SV falls at the same EDV.",
+"It gets longer, because pressure must climb higher to open the valve.",
+""
+]
+},
+{
+"t": "Lecture 5 · Cardiac Output & Pressure-Volume Loops",
+"s": "During a passive leg raise, a healthy person's end-diastolic volume rises and stroke volume rises with it, with no change in sympathetic tone. At the level of the cardiac muscle cell, what mainly explains the stronger beat?",
+"c": [
+"β1 receptors raise intracellular cAMP",
+"More L-type Ca²⁺ channels open per beat",
+"Myofilaments grow more Ca²⁺-sensitive",
+"The SA node fires at a faster rate",
+"Phospholamban releases its brake on SERCA"
+],
+"a": 2,
+"e": "Step 1: more venous return stretches the ventricle, so sarcomeres start the beat longer.\nStep 2: this is the Frank–Starling law, which is intrinsic and needs no nerves.\nStep 3: longer sarcomeres have better actin–myosin overlap and troponin C binds Ca²⁺ more readily, so the same Ca²⁺ gives more force.",
+"w": [
+"That is sympathetic inotropy; sympathetic tone didn't change.",
+"That is also a sympathetic, cAMP-driven effect.",
+"",
+"Heart rate doesn't change stroke volume this way.",
+"That is a PKA effect after β1 stimulation."
+]
+},
+{
+"t": "Lecture 5 · Cardiac Output & Pressure-Volume Loops",
+"s": "Two interventions raise left ventricular stroke work by the same amount. One raises mean aortic pressure, the other raises stroke volume. Which statement about myocardial O₂ use is correct?",
+"c": [
+"Volume work costs more O₂",
+"Pressure work costs more O₂",
+"Both cost exactly the same O₂",
+"Neither changes O₂ use",
+"Only volume work needs more O₂"
+],
+"a": 1,
+"e": "Stroke work ≈ stroke volume × mean aortic pressure, so both changes raise external work equally.\nBut O₂ consumption tracks wall tension. Raising pressure raises tension much more than raising volume does.\nThat is why pressure work, as in hypertension or aortic stenosis, is far more costly in O₂ than volume work, as in exercise.",
+"w": [
+"Volume work is the cheaper kind.",
+"",
+"Wall tension, not just total work, sets O₂ use.",
+"Both raise O₂ use; more work needs more ATP.",
+"Both need more O₂, and pressure work needs the most."
+]
+},
+{
+"t": "Lecture 5 · Cardiac Output & Pressure-Volume Loops",
+"s": "A patient's cardiac output is 4.2 L/min at a heart rate of 70/min. His left ventricular end-diastolic volume is 120 mL. What is his ejection fraction?",
+"c": [
+"58%",
+"35%",
+"71%",
+"50%",
+"60%"
+],
+"a": 3,
+"e": "Step 1: SV = CO ÷ HR = 4200 mL ÷ 70 = 60 mL.\nStep 2: EF = SV ÷ EDV = 60 ÷ 120 = 50%.\nThis is mildly reduced; normal is about 55–70%.",
+"w": [
+"58% is the textbook normal, not this patient's value.",
+"35% would need an SV of 42 mL.",
+"71% would need an SV of 85 mL.",
+"",
+"60 is the stroke volume in mL, not the EF."
+]
+},
+{
+"t": "Lecture 5 · Cardiac Output & Pressure-Volume Loops",
+"s": "A 30-year-old woman develops supraventricular tachycardia at 190/min and becomes light-headed and hypotensive. Her contractility is normal. Why has her cardiac output fallen despite the fast rate?",
+"c": [
+"Shortened diastole lowers EDV",
+"Contractility falls at high rates",
+"Afterload rises sharply",
+"Ejection stops at a larger ESV",
+"The atrial kick becomes too strong"
+],
+"a": 0,
+"e": "Step 1: CO = SV × HR, so a faster rate should raise CO only if SV holds up.\nStep 2: diastole shortens much more than systole as heart rate rises, so filling time is cut.\nStep 3: less filling = lower EDV = lower preload, so SV falls by Frank–Starling. At 190/min, SV falls more than HR rises, so CO drops.",
+"w": [
+"",
+"Faster rates actually raise contractility slightly, the treppe effect.",
+"Nothing here raises aortic pressure.",
+"Contractility is normal, so ESV isn't the problem.",
+"Atrial systole is squeezed out, not strengthened."
+]
 }
 ]
 }

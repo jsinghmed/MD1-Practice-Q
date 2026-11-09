@@ -1,5 +1,5 @@
 // CRS Physiology — Dr. Sampath V. lecture slides. Reworked set: fewer, multi-concept, high-yield questions; lv = Easy/Hard; sampath = Challenge Yourself questions from the slides, word for word
-window.CRS_PH_TOPICS = ["Big Picture & Cardiac Cell Types", "Conduction System Anatomy", "Fast vs Slow Response", "Phase 0 & Na⁺ Channel Gates", "Phase 1 · The Notch", "Phase 2 · Plateau & E–C Coupling", "Phases 3 & 4 · Reset and Rest", "Refractory Periods", "Na⁺ Channel States", "Why the AP & Refractory Period Are Long", "Challenge Yourself · Sampath's Q's", "Pacemaker Cells, Automaticity & Key Terms", "Slow vs Fast Response APs", "Phase 4 · Pacemaker Potential", "Phase 0 · L-type Ca²⁺ Upstroke", "Phase 3 · Nodal Repolarization", "Pacemaker Hierarchy & Overdrive Suppression", "Challenge · Pacemaker Currents", "Autonomic Control: Chrono-, Dromo- & Inotropy", "Sympathetic β1 → Gs → cAMP Cascade", "Sympathetic Effects on SA Node, AV Node & Ventricle", "Parasympathetic M2 → Gi: Two Arms", "Integrated SA Node Effects & Summary", "Drugs That Hit These Channels", "Challenge · Cardiac Nerves", "Cardiac Cycle Timing: Systole vs Diastole", "Key Volumes: EDV, ESV, SV & EF", "Wiggers Diagram: Phases A–G, Valves & Heart Sounds", "Atrial Systole & Ventricular Filling", "Isovolumetric Phases & Ejection", "Jugular Venous Pulse & Aortic Pressure Curve", "Pressure Map: Normal Chamber Pressures"];
+window.CRS_PH_TOPICS = ["Big Picture & Cardiac Cell Types", "Conduction System Anatomy", "Fast vs Slow Response", "Phase 0 & Na⁺ Channel Gates", "Phase 1 · The Notch", "Phase 2 · Plateau & E–C Coupling", "Phases 3 & 4 · Reset and Rest", "Refractory Periods", "Na⁺ Channel States", "Why the AP & Refractory Period Are Long", "Challenge Yourself · Sampath's Q's", "Pacemaker Cells, Automaticity & Key Terms", "Slow vs Fast Response APs", "Phase 4 · Pacemaker Potential", "Phase 0 · L-type Ca²⁺ Upstroke", "Phase 3 · Nodal Repolarization", "Pacemaker Hierarchy & Overdrive Suppression", "Challenge · Pacemaker Currents", "Autonomic Control: Chrono-, Dromo- & Inotropy", "Sympathetic β1 → Gs → cAMP Cascade", "Sympathetic Effects on SA Node, AV Node & Ventricle", "Parasympathetic M2 → Gi: Two Arms", "Integrated SA Node Effects & Summary", "Drugs That Hit These Channels", "Challenge · Cardiac Nerves", "Cardiac Cycle Timing: Systole vs Diastole", "Key Volumes: EDV, ESV, SV & EF", "Wiggers Diagram: Phases A–G, Valves & Heart Sounds", "Atrial Systole & Ventricular Filling", "Isovolumetric Phases & Ejection", "Jugular Venous Pulse & Aortic Pressure Curve", "Pressure Map: Normal Chamber Pressures", "Cardiac Output & Cardiac Reserve", "Preload, Afterload & Contractility", "Frank–Starling Law", "PV Loop: Phases & Valve Events", "PV Loop Shifts: Preload, Afterload, Contractility", "Cardiac Work", "Measuring CO: Indicator Dilution & Fick"];
 window.CRS_PH_QUESTIONS = [
 {
 "t": "Big Picture & Cardiac Cell Types",
@@ -3039,6 +3039,447 @@ window.CRS_PH_QUESTIONS = [
 "Thiazides also waste K⁺.",
 "The cause is K⁺ competition at the pump, not β₁ activity.",
 "She needs more K⁺, not less."
+],
+"src": "lec"
+}
+,
+{
+"t": "Cardiac Output & Cardiac Reserve",
+"lv": "Easy",
+"s": "A resting adult has a heart rate of 60/min and an end-diastolic volume of 140 mL. His left ventricle still holds 60 mL at the end of systole. What is his cardiac output?",
+"c": [
+"8.4 L/min",
+"3.6 L/min",
+"12.0 L/min",
+"4.8 L/min",
+"5.0 L/min"
+],
+"a": 3,
+"e": "• SV = EDV − ESV = 140 − 60 = 80 mL.\n• CO = SV × HR = 80 mL × 60/min = 4,800 mL/min ≈ 4.8 L/min.\nNormal resting CO is about 5 L/min (70 mL × 72/min). CO is the output of each ventricle, not both added together.",
+"w": [
+"That multiplies EDV, not stroke volume, by heart rate.",
+"That multiplies ESV by heart rate.",
+"That adds EDV and ESV instead of subtracting.",
+"",
+"That's the textbook resting value, not this patient's."
+],
+"src": "lec"
+},
+{
+"t": "Cardiac Output & Cardiac Reserve",
+"lv": "Hard",
+"s": "A 24-year-old marathon runner has a resting heart rate of 45/min and a resting cardiac output of 5 L/min. At peak exercise his heart rate reaches 180/min with a stroke volume of 170 mL. A sedentary classmate also has a resting output of 5 L/min and reaches a maximal output of 15 L/min. How much larger is the runner's cardiac reserve than the classmate's?",
+"c": [
+"30.6 L/min",
+"25.6 L/min",
+"10.0 L/min",
+"7.65 L/min",
+"15.6 L/min"
+],
+"a": 4,
+"e": "• Runner's maximal CO = 180/min × 0.17 L = 30.6 L/min.\n• Cardiac reserve = maximal CO − resting CO. Runner: 30.6 − 5 = 25.6 L/min. Classmate: 15 − 5 = 10 L/min.\n• Difference = 25.6 − 10 = 15.6 L/min.\nMaximal CO reaches 20–35 L/min in trained athletes, and training raises it, mostly through a bigger stroke volume.",
+"w": [
+"That's the runner's maximal output, not the difference in reserve.",
+"That's the runner's own reserve.",
+"That's the classmate's reserve.",
+"That uses the resting heart rate with the exercise stroke volume.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Preload, Afterload & Contractility",
+"lv": "Easy",
+"s": "After losing blood, the body squeezes blood out of its large venous reservoir toward the heart. Which change raises preload this way?",
+"c": [
+"Nitrate-induced venous pooling",
+"α1-mediated venoconstriction",
+"A faster heart rate",
+"Arteriolar vasodilation",
+"β1-receptor blockade"
+],
+"a": 1,
+"e": "• Veins hold a large share of the blood volume.\n• Sympathetic stimulation of α1 receptors in veins constricts them, pushing that blood toward the heart → more venous return → higher EDV (preload). This is the normal response to blood loss.\nOther ways to raise preload: add volume (blood, IV fluids) or slow the heart rate so there's more filling time.",
+"w": [
+"Pooling in the veins lowers preload.",
+"",
+"A faster rate shortens filling and lowers preload.",
+"Arteriolar tone changes afterload, not venous return.",
+"β1 blockade lowers contractility and rate."
+],
+"src": "lec"
+},
+{
+"t": "Preload, Afterload & Contractility",
+"lv": "Hard",
+"s": "A 58-year-old man with stable angina gets chest pain while climbing stairs. Sublingual nitroglycerin relieves it within 2 minutes, and his blood pressure barely changes. Which change most directly explains the relief?",
+"c": [
+"Stronger contraction from more Ca²⁺ entry",
+"Slower heart rate from reflex vagal firing",
+"Higher afterload from arterial constriction",
+"Smaller end-diastolic volume and stretch",
+"More venous return to the right atrium"
+],
+"a": 3,
+"e": "• Nitrates are mainly venodilators: blood pools in the veins.\n• Less venous return → lower preload (smaller LVEDV, less wall stretch).\n• Lower preload → less work and less O₂ demand → the angina is relieved.\nThe steady blood pressure fits a mostly venous effect rather than arteriolar dilation.",
+"w": [
+"Nitrates don't raise contractility; that would add O₂ demand.",
+"If anything, the baroreflex speeds the heart after a nitrate.",
+"Nitrates relax vessels; higher afterload would worsen angina.",
+"",
+"Nitrates pool blood in the veins, so venous return falls."
+],
+"src": "lec"
+},
+{
+"t": "Preload, Afterload & Contractility",
+"lv": "Hard",
+"s": "A researcher perfuses an isolated heart and lowers the Na⁺ in the bath while keeping K⁺ and Ca²⁺ constant. Heart rate and end-diastolic volume don't change, but stroke volume rises. Which mechanism explains this?",
+"c": [
+"Fast Na⁺ channels open more widely in phase 0",
+"The Na⁺/K⁺ pump runs faster and adds K⁺",
+"Preload rises because EDV increases",
+"β1 receptors are phosphorylated by PKA",
+"Na⁺/Ca²⁺ exchanger removes less Ca²⁺"
+],
+"a": 4,
+"e": "• HR and EDV are unchanged, yet SV rises → contractility has increased, not preload.\n• The Na⁺/Ca²⁺ exchanger uses the inward Na⁺ gradient to push Ca²⁺ out (3 Na⁺ in, 1 Ca²⁺ out). Lower extracellular Na⁺ weakens that gradient → less Ca²⁺ is removed.\n• More Ca²⁺ stays in the cell and is stored in the SR → stronger contraction.\nDigitalis works the same way, by raising intracellular Na⁺.",
+"w": [
+"Lower Na⁺ would weaken, not strengthen, phase 0.",
+"Pump speed doesn't set contractile force here.",
+"EDV didn't change, so preload is the same.",
+"No catecholamine was given.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Preload, Afterload & Contractility",
+"lv": "Easy",
+"s": "A patient in respiratory failure has a PaCO₂ of 75 mm Hg and a pH of 7.12. How do these values directly affect his ventricular muscle?",
+"c": [
+"Contractility rises",
+"EDV rises sharply",
+"Contractility falls",
+"Afterload doubles",
+"No direct effect on force"
+],
+"a": 2,
+"e": "• Hypercapnia (high PaCO₂) and the acidosis it causes both lower contractility.\nOther causes of lower contractility: β1 blockade (↓ cAMP), heart failure with systolic dysfunction, hypoxia, and non-dihydropyridine Ca²⁺ channel blockers (verapamil, diltiazem).",
+"w": [
+"Acidosis and hypercapnia weaken, not strengthen, contraction.",
+"Hypercapnia doesn't directly fill the ventricle.",
+"",
+"These values act on the muscle itself, not on outflow resistance.",
+"Acidosis and hypercapnia are listed causes of lower contractility."
+],
+"src": "lec"
+},
+{
+"t": "Preload, Afterload & Contractility",
+"lv": "Easy",
+"s": "Which condition raises left ventricular afterload without having to raise mean arterial pressure?",
+"c": [
+"Hemorrhage",
+"Nitrate therapy",
+"Bradycardia",
+"Aortic stenosis",
+"Hypercapnia"
+],
+"a": 3,
+"e": "Afterload is the resistance the ventricle must overcome to eject blood. It rises when:\n• mean blood pressure is high, or\n• the outflow is obstructed: a stiff aortic valve (aortic stenosis), hypertrophic cardiomyopathy or a subaortic membrane.\nWith stenosis the ventricle must generate a much higher pressure even when aortic pressure is normal.",
+"w": [
+"Blood loss lowers preload.",
+"Nitrates lower preload, and at higher doses afterload.",
+"A slow rate raises preload through longer filling.",
+"",
+"Hypercapnia lowers contractility."
+],
+"src": "lec"
+},
+{
+"t": "Preload, Afterload & Contractility",
+"lv": "Hard",
+"s": "A 68-year-old woman has had untreated hypertension for 20 years. Echo shows a thick left ventricular wall with a normal chamber size. Why did her ventricle remodel this way?",
+"c": [
+"A thicker wall raises preload",
+"A thicker wall lowers wall tension",
+"Dilation lowers end-systolic volume",
+"Hypertrophy raises heart rate",
+"More muscle lowers aortic pressure"
+],
+"a": 1,
+"e": "• Chronic hypertension → persistently high afterload.\n• To generate that pressure, each fiber faces more wall tension (tension rises with pressure × radius and falls with wall thickness).\n• The LV compensates by thickening (concentric hypertrophy), which spreads the load and lowers wall tension.\nThe cost: more muscle needs more O₂, and more afterload means more work.",
+"w": [
+"Thickening makes the ventricle stiffer, not fuller.",
+"",
+"Her chamber isn't dilated.",
+"Wall thickness doesn't set heart rate.",
+"Hypertrophy doesn't treat the hypertension."
+],
+"src": "lec"
+},
+{
+"t": "Frank–Starling Law",
+"lv": "Easy",
+"s": "A healthy person lies down and raises both legs, sending more venous blood to the heart. Contractility, afterload and heart rate stay the same. What happens to stroke volume?",
+"c": [
+"It falls because ESV rises",
+"It stays the same",
+"It rises because ESV falls",
+"It falls because HR slows",
+"It rises because EDV rises"
+],
+"a": 4,
+"e": "Frank–Starling law: the more the ventricle fills in diastole, the stronger it contracts in systole.\n• More venous return → higher EDV (preload) → more fiber stretch → stronger contraction → bigger SV.\n• ESV stays about the same, so the extra filling is ejected.",
+"w": [
+"ESV rises with afterload, which is unchanged.",
+"More filling means more stretch and a stronger beat.",
+"A falling ESV is the contractility pattern.",
+"Heart rate is unchanged.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Frank–Starling Law",
+"lv": "Hard",
+"s": "For a few beats, a patient's right ventricle pumps 2 mL more per beat than his left ventricle. Over the next several beats the two outputs match again, with no change in nerve or hormone input. Which mechanism matches them?",
+"c": [
+"Greater LV filling raises LV stroke volume",
+"Sympathetic input boosts LV contractility",
+"Vagal input slows the right ventricle",
+"The pulmonary veins constrict to cut return",
+"Baroreceptors speed up the heart rate"
+],
+"a": 0,
+"e": "• Extra RV output → more blood reaches the lungs and returns to the left atrium.\n• Left ventricular filling (EDV) rises → more stretch.\n• Frank–Starling → stronger LV contraction → LV stroke volume rises until it matches the right.\nThis intrinsic mechanism keeps right and left outputs equal and prevents blood from damming up in the veins: venous return (70 mL) = SV (70 mL).",
+"w": [
+"",
+"No nerve or hormone input changed.",
+"Vagal input acts on the nodes, and none changed here.",
+"That would make the mismatch worse.",
+"Rate changes affect both ventricles equally."
+],
+"src": "lec"
+},
+{
+"t": "PV Loop: Phases & Valve Events",
+"lv": "Easy",
+"s": "On a left ventricular pressure-volume loop, the bottom-right corner is where the loop turns straight upward at its largest volume. Which valve event happens there?",
+"c": [
+"Aortic valve opens",
+"Aortic valve closes",
+"Mitral valve closes",
+"Mitral valve opens",
+"Pulmonic valve opens"
+],
+"a": 2,
+"e": "Reading the loop counterclockwise from the bottom right:\n• Bottom right = EDV: the mitral valve closes (S1) → isovolumetric contraction (straight up).\n• Top right: the aortic valve opens → rapid then slow ejection (volume falls).\n• Top left = ESV: the aortic valve closes (S2) → isovolumetric relaxation (straight down).\n• Bottom left: the mitral valve opens → rapid and reduced filling, then active filling (atrial systole).",
+"w": [
+"That's the top-right corner, at the start of ejection.",
+"That's the top-left corner, at the end of ejection.",
+"",
+"That's the bottom-left corner, at the start of filling.",
+"The pulmonic valve belongs to the right ventricle."
+],
+"src": "lec"
+},
+{
+"t": "PV Loop: Phases & Valve Events",
+"lv": "Hard",
+"s": "On a patient's left ventricular pressure-volume loop, volume falls from 130 mL to 55 mL along the top of the loop. The loop then drops straight down at 55 mL before moving right along the bottom. What is his ejection fraction?",
+"c": [
+"About 42%",
+"About 73%",
+"About 50%",
+"About 58%",
+"About 75%"
+],
+"a": 3,
+"e": "• The top of the loop is ejection: it starts at EDV (130 mL) and ends at ESV (55 mL).\n• The straight drop at 55 mL is isovolumetric relaxation, which confirms ESV = 55 mL.\n• SV = 130 − 55 = 75 mL. EF = SV / EDV = 75 / 130 ≈ 58%.",
+"w": [
+"55/130 is the fraction left behind, ESV/EDV.",
+"That divides ESV by stroke volume.",
+"This doesn't match the volumes on the loop.",
+"",
+"75 is the stroke volume in mL, not a percent."
+],
+"src": "lec"
+},
+{
+"t": "PV Loop Shifts: Preload, Afterload, Contractility",
+"lv": "Easy",
+"s": "A drug increases contractility while preload and afterload stay the same. How does the left ventricular pressure-volume loop change?",
+"c": [
+"Wider loop with a larger EDV",
+"Narrower loop with a larger ESV",
+"Taller loop with a larger ESV",
+"No change in width or ESV",
+"Wider loop with a smaller ESV"
+],
+"a": 4,
+"e": "Higher contractility:\n• EDV unchanged (same preload).\n• The ventricle empties further → ESV falls.\n• SV and EF rise → the loop gets wider, extending to the left.",
+"w": [
+"A larger EDV is the preload pattern.",
+"That's the higher-afterload pattern.",
+"More contractility shrinks ESV.",
+"Stronger contraction ejects more blood.",
+""
+],
+"src": "lec"
+},
+{
+"t": "PV Loop Shifts: Preload, Afterload, Contractility",
+"lv": "Hard",
+"s": "A 74-year-old man has exertional syncope and a harsh crescendo–decrescendo systolic murmur at the right upper sternal border. His preload and contractility are unchanged. Compared with normal, which change is expected on his left ventricular pressure-volume loop?",
+"c": [
+"Larger EDV with an unchanged ESV",
+"Higher peak pressure, larger ESV",
+"Smaller ESV with a wider loop",
+"Lower peak pressure and a larger SV",
+"Unchanged pressure and a smaller SV"
+],
+"a": 1,
+"e": "• Exertional syncope with a crescendo–decrescendo murmur at the right upper sternal border → aortic stenosis.\n• Aortic stenosis = higher afterload: the ventricle must reach a higher pressure during isovolumetric contraction and ejection.\n• Against that resistance it ejects less → SV and EF fall, and more blood is left behind → ESV rises. The loop gets taller and narrower.",
+"w": [
+"That's the higher-preload pattern.",
+"",
+"That's the higher-contractility pattern.",
+"Obstruction raises pressure and lowers SV.",
+"The ventricle must generate a higher pressure."
+],
+"src": "lec"
+},
+{
+"t": "PV Loop Shifts: Preload, Afterload, Contractility",
+"lv": "Hard",
+"s": "A 45-year-old man with Marfan syndrome has a blowing early diastolic murmur and a wide pulse pressure. His contractility and afterload are about normal. Which change dominates his left ventricular pressure-volume loop?",
+"c": [
+"Smaller ESV with EDV unchanged",
+"Larger ESV with a narrower loop",
+"Larger EDV with ESV about unchanged",
+"Smaller EDV and a narrower loop",
+"Lower pressure in isovolumetric contraction"
+],
+"a": 2,
+"e": "• Marfan syndrome with a blowing early diastolic murmur and wide pulse pressure → aortic insufficiency (regurgitation).\n• Blood leaks back from the aorta into the LV during diastole → extra filling → higher preload.\n• Higher preload: EDV rises, SV rises, ESV doesn't change. The loop widens to the right.",
+"w": [
+"That's the higher-contractility pattern.",
+"That's the higher-afterload pattern.",
+"",
+"Regurgitation adds volume, so EDV rises.",
+"Contractility and afterload are normal here."
+],
+"src": "lec"
+},
+{
+"t": "Cardiac Work",
+"lv": "Easy",
+"s": "Mean aortic pressure is 100 mm Hg and stroke volume is 70 mL. If heart rate rises from 70 to 140/min with the same pressure and stroke volume, what happens to minute work?",
+"c": [
+"It halves",
+"It stays the same",
+"It quadruples",
+"It doubles",
+"It rises by 40%"
+],
+"a": 3,
+"e": "• Stroke work = aortic pressure × SV (unchanged here).\n• Minute work = stroke work × HR = aortic pressure × CO.\n• Doubling HR with the same stroke work doubles minute work.",
+"w": [
+"Faster beating adds work.",
+"Minute work multiplies stroke work by heart rate.",
+"Heart rate enters once, not squared.",
+"",
+"The rate doubled, so work doubles."
+],
+"src": "lec"
+},
+{
+"t": "Cardiac Work",
+"lv": "Hard",
+"s": "Two patients each have a stroke volume of 70 mL and a mean aortic pressure of 95 mm Hg. Patient A has severe aortic stenosis with a very high ejection velocity; patient B has a normal valve. Which part of stroke work is much larger in patient A?",
+"c": [
+"Pressure-volume work against the aorta",
+"Volume work set by cardiac output",
+"Pressure work set by arterial BP",
+"Work done during ventricular filling",
+"Kinetic energy of the ejected blood"
+],
+"a": 4,
+"e": "Stroke work has two parts:\n• Pressure-volume work (about 99%): moving blood from low-pressure veins to high-pressure arteries. Same SV and aortic pressure → the same in both.\n• Kinetic energy (about 1% normally): accelerating blood through the valve. It's proportional to the mass ejected × velocity².\n• A stenotic valve forces a much higher ejection velocity, so the kinetic part rises sharply in aortic or pulmonary stenosis.",
+"w": [
+"Same SV and aortic pressure give the same pressure-volume work.",
+"Their stroke volumes are equal.",
+"Their aortic pressures are equal.",
+"Stroke work is done during ejection.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Measuring CO: Indicator Dilution & Fick",
+"lv": "Easy",
+"s": "A patient consumes 250 mL of O₂ per minute. His arterial O₂ content is 200 mL/L and his pulmonary artery O₂ content is 150 mL/L. What is his cardiac output?",
+"c": [
+"1.25 L/min",
+"5 L/min",
+"50 L/min",
+"1.7 L/min",
+"0.5 L/min"
+],
+"a": 1,
+"e": "Fick principle: CO = O₂ consumption / (arterial O₂ − venous O₂).\n• A–V difference = 200 − 150 = 50 mL/L = 0.05 mL/mL.\n• CO = 250 mL/min ÷ 0.05 mL/mL = 5,000 mL/min = 5 L/min.\nPay attention to the units: content in mL/L must match the mL of consumption.",
+"w": [
+"That divides by arterial content alone.",
+"",
+"Check the units: 50 mL/L is 0.05 mL/mL.",
+"That divides by venous content alone.",
+"The units were converted the wrong way."
+],
+"src": "lec"
+},
+{
+"t": "Measuring CO: Indicator Dilution & Fick",
+"lv": "Hard",
+"s": "During cardiac catheterization, a resident measures O₂ consumption of 240 mL/min and arterial O₂ content of 0.19 mL/mL. For the venous sample she draws blood from a peripheral arm vein, which reads 0.17 mL/mL, and calculates a cardiac output of 12 L/min. The true output is about 5 L/min. What was her error?",
+"c": [
+"O₂ consumption must be per kilogram",
+"Arterial blood must come from the aorta only",
+"Venous sample wasn't mixed venous blood",
+"Fick needs CO₂, not O₂ values",
+"Units must be in mL/L, not mL/mL"
+],
+"a": 2,
+"e": "• Fick: CO = O₂ consumption ÷ (arterial O₂ − venous O₂).\n• The venous value must be mixed venous blood, from the pulmonary artery or right ventricle, which reflects the whole body's O₂ extraction.\n• A single arm vein drains one resting limb, so it's misleadingly O₂-rich → the A–V difference looks too small (0.02) → CO looks too large (240 / 0.02 = 12 L/min).\nWith a true output of 5 L/min, mixed venous content would be about 0.19 − 0.048 ≈ 0.14 mL/mL.",
+"w": [
+"Fick uses whole-body consumption in mL/min.",
+"Any systemic artery gives the same arterial O₂.",
+"",
+"The slide's Fick method uses O₂ consumption.",
+"Either works if both are consistent."
+],
+"src": "lec"
+},
+{
+"t": "Measuring CO: Indicator Dilution & Fick",
+"lv": "Easy",
+"s": "In an indicator dilution test, 5 mg of dye is injected into a vein. Arterial sampling over one complete circulation of 30 s gives a mean dye concentration of 2 mg/L. What is the cardiac output?",
+"c": [
+"5 L/min",
+"2.5 L/min",
+"10 L/min",
+"0.2 L/min",
+"0.08 L/min"
+],
+"a": 0,
+"e": "CO = amount of indicator injected ÷ (mean concentration × duration of one circulation).\n• Duration: 30 s = 0.5 min.\n• CO = 5 mg ÷ (2 mg/L × 0.5 min) = 5 L/min.",
+"w": [
+"",
+"That ignores the duration of the circulation.",
+"30 s is half a minute, not a quarter.",
+"The formula is inverted.",
+"That uses 30 s without converting to minutes."
 ],
 "src": "lec"
 }
