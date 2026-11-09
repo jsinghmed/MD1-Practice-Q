@@ -4058,21 +4058,21 @@ window.NBME_QUIZZES = [
 },
 {
 "t": "Lecture 2 · Fatty Acid & TAG Synthesis",
-"s": "After a meal, a man's insulin rises. Which pair of changes in his adipocytes is expected?",
+"s": "After a meal, a man's insulin rises. What happens to hormone-sensitive lipase in his adipocytes?",
 "c": [
-"HSL activated; TAG broken down",
-"ATGL activated; FFA released",
-"HSL phosphorylated; glycerol out",
-"VLDL secreted by the adipocytes",
-"HSL inhibited; TAG stored as fat"
+"It is phosphorylated and activated",
+"It's dephosphorylated and activated",
+"It is phosphorylated and inhibited",
+"It moves out to the capillary endothelium",
+"It is dephosphorylated and inhibited"
 ],
 "a": 4,
-"e": "Insulin dephosphorylates and inhibits hormone-sensitive lipase, so adipose stores TAG as depot fat.",
+"e": "Insulin dephosphorylates and inhibits hormone-sensitive lipase, so adipose stores TAG as depot fat instead of releasing fatty acids.",
 "w": [
-"This is the fasting pattern.",
-"Lipolysis falls after a meal.",
-"Insulin dephosphorylates HSL.",
-"VLDL is made in the liver.",
+"That's the fasting response to glucagon and epinephrine.",
+"Dephosphorylation turns HSL off.",
+"Phosphorylation turns HSL on.",
+"That's lipoprotein lipase, not HSL.",
 ""
 ]
 },

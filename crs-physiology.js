@@ -48,22 +48,22 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Big Picture & Cardiac Cell Types",
 "lv": "Easy",
-"s": "The heart's two electrical jobs are generating a rhythm and coordinating contraction. Which pairing is correct?",
+"s": "In a patient, each chamber of the heart contracts with normal force at a normal rate, but the atria and ventricles contract at the same moment instead of the atria first, so ventricular filling suffers. Which part of the heart's electrical system is failing?",
 "c": [
-"Rhythm: ventricular myocytes; coordination: fibrous skeleton",
-"Rhythm: Purkinje fibers only; coordination: gap junctions alone",
-"Rhythm: autonomic nerves; coordination: the SR",
-"Rhythm: pacemaker cells; coordination: conduction system",
-"Rhythm: AV node; coordination: ventricles before atria"
+"The pacemaker cells that generate the rhythm",
+"The contractile myocytes that generate force",
+"The sarcoplasmic reticulum that releases Ca²⁺",
+"The conduction system that times contraction",
+"The autonomic nerves that set the rate"
 ],
 "a": 3,
-"e": "Electrical activity dictates mechanical function. Job 1, generate a rhythm: pacemaker cells. Job 2, coordinate contraction: the conduction system makes the atria contract before the ventricles. Arrhythmias are diseases of this system.",
+"e": "The heart has two electrical jobs:\n• Generate a rhythm: pacemaker cells.\n• Coordinate contraction: the conduction system, so the atria contract before the ventricles.\nHere the rate and force are normal, so rhythm generation and the myocytes are fine. What fails is the atria-before-ventricles timing, which is the conduction system's job. Arrhythmias are diseases of this electrical system.",
 "w": [
-"Myocytes cannot generate a rhythm, and the skeleton insulates.",
-"The SA node normally sets the rhythm.",
-"Nerves modify rate but do not generate the rhythm.",
+"A normal rate means the rhythm is still being generated.",
+"Each chamber contracts with normal force.",
+"SR Ca²⁺ release sets force within a cell, not the order of the chambers.",
 "",
-"The SA node leads, and atria contract first."
+"Nerves adjust rate and speed; they are not the pathway that coordinates the chambers."
 ],
 "src": "lec"
 },
@@ -290,21 +290,21 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Phases 3 & 4 · Reset and Rest",
 "lv": "Hard",
-"s": "Which pairing of phase, dominant current and what happens is correct?",
+"s": "A researcher records action potentials from an isolated ventricular myocyte. After drug X is added, phase 0, the plateau and phase 3 look unchanged. Between beats, however, the membrane no longer sits at −90 mV; it slowly creeps toward −70 mV. Which current did drug X most likely block?",
 "c": [
-"Phase 3: Na⁺ influx returns; phase 4: Ca²⁺ influx holds −90 mV",
-"Phase 3: transient K⁺ notch; phase 4: funny current drifts up",
-"Phase 3: Ca²⁺ channels open more; phase 4: K⁺ permeability is low",
-"Phase 3: I_K1 starts the plateau; phase 4: Na⁺ channels stay open",
-"Phase 3: K⁺ efflux wins; phase 4: I_K1 holds −90 mV"
+"Delayed-rectifier K⁺ current, I_K",
+"Transient outward K⁺ current, I_to",
+"L-type Ca²⁺ current, I_Ca-L",
+"Funny Na⁺ current, I_f",
+"Inward-rectifier K⁺ current, I_K1"
 ],
 "a": 4,
-"e": "Phase 3: L-type Ca²⁺ channels inactivate while delayed-rectifier K⁺ channels open widely → net outward current → back to −90 mV. Na⁺/Ca²⁺ exchanger and ATPases restore gradients. Phase 4: constant K⁺ efflux through inward-rectifier (I_K1) channels keeps a stable −90 mV; high K⁺ permeability; no spontaneous depolarization, so the cell waits for a stimulus.",
+"e": "Read the tracing in steps:\n• Phases 0–3 are unchanged, so the Na⁺, Ca²⁺ and delayed-rectifier K⁺ channels work.\n• Only phase 4 is lost. A stable −90 mV rest comes from constant K⁺ efflux through inward-rectifier (I_K1) channels, which give the resting cell its high K⁺ permeability.\n• Block I_K1 and less K⁺ leaves, so the membrane depolarizes.\nPhase 3 repolarization is a different current: delayed-rectifier K⁺ channels open as L-type Ca²⁺ channels inactivate.",
 "w": [
-"Phase 3 is K⁺ efflux, and phase 4 is held by I_K1.",
-"Those describe phase 1 and nodal phase 4.",
-"Ca²⁺ channels inactivate in phase 3, and K⁺ permeability is high at rest.",
-"Na⁺ and Ca²⁺ channels are closed at rest.",
+"Blocking it would slow phase 3 repolarization, which is unchanged.",
+"I_to makes the phase 1 notch, not the resting potential.",
+"This would shorten the plateau, which is unchanged.",
+"Ventricular cells don't rely on I_f; blocking it wouldn't depolarize them.",
 ""
 ],
 "src": "lec"
@@ -378,22 +378,22 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Na⁺ Channel States",
 "lv": "Hard",
-"s": "Which gate positions match the Na⁺ channel during phase 4, phase 0 and the plateau?",
+"s": "A ventricular myocyte is stimulated 150 ms after its upstroke, while L-type Ca²⁺ channels are still carrying inward current. Even a stimulus three times threshold fails to trigger a new upstroke. Which gate positions in most fast Na⁺ channels explain this?",
 "c": [
-"m closed h open; m open h open; m open h closed",
-"m open h closed; m open h open; m closed h open",
-"m closed h closed; m open h open; m closed h closed",
-"m closed h open; m open h closed; m open h open",
-"m open h open; m closed h open; m closed h closed"
+"m gate open, h gate closed",
+"m gate closed, h gate open",
+"m gate open, h gate open",
+"Both gates open, Na⁺ gradient lost",
+"Channels open but blocked by Ca²⁺"
 ],
 "a": 0,
-"e": "m = activation gate, h = inactivation gate. Phase 4 resting/available: m closed, h open. Phase 0 open: m open, h open → Na⁺ rushes in. Phases 1–2 inactivated: m open, h closed → no current whatever the stimulus. Late phase 3: h reopens (recovery). Lecture note: h gates close on their own shortly after opening and reopen only as the cell repolarizes.",
+"e": "• L-type Ca²⁺ current 150 ms after the upstroke places the cell in the plateau (phase 2).\n• The plateau falls in the absolute refractory period: no stimulus of any strength can fire the cell.\n• That's because the Na⁺ channels are inactivated: m (activation) gate open, h (inactivation) gate closed.\nh gates close on their own shortly after opening and reopen only as the cell repolarizes in late phase 3. The channel must reset to m closed, h open before another phase 0.",
 "w": [
 "",
-"The order is reversed: rest has m closed and h open.",
-"At rest the h gate is open, making the channel available.",
-"During phase 0 both gates are open; during the plateau h is closed.",
-"At rest the m gate is closed."
+"This is the resting, available state; a strong stimulus would open them.",
+"This is the open state of phase 0, when Na⁺ rushes in.",
+"The Na⁺ gradient is preserved; the channel itself is the problem.",
+"Ca²⁺ doesn't block Na⁺ channels; the inactivation gate does."
 ],
 "src": "lec"
 },
@@ -719,22 +719,22 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Pacemaker Cells, Automaticity & Key Terms",
 "lv": "Easy",
-"s": "Which pair of terms is defined correctly?",
+"s": "A new drug raises the heart rate from 70 to 90/min but leaves the force of each ventricular contraction unchanged. How is its effect best described?",
 "c": [
-"Chronotropy: contractility; inotropy: heart rate",
-"Automaticity: conduction speed; chronotropy: AP length",
-"Inotropy: AV delay; chronotropy: refractory period",
-"Chronotropy: rate; inotropy: contractility",
-"Automaticity: needing a stimulus; inotropy: heart rate"
+"Positive inotropic, no chronotropic effect",
+"Positive dromotropic, no chronotropic effect",
+"Negative chronotropic, positive inotropic",
+"Positive chronotropic, no inotropic effect",
+"Increased automaticity of ventricular myocytes"
 ],
 "a": 3,
-"e": "Chronotropy = heart rate. Positive inotropy = more contractility. Automaticity = self-excitation, a self-generated unstable phase 4. Calcium is the coupler between the electrical and mechanical processes.",
+"e": "• Chronotropy = heart rate.\n• Inotropy = contractility (force).\n• Dromotropy = conduction speed.\nA drug that raises only the rate is positive chronotropic with no inotropic effect. Automaticity is self-excitation from an unstable phase 4, a property of pacemaker cells, not working ventricular myocytes.",
 "w": [
-"The definitions are swapped.",
-"Automaticity is self-excitation.",
-"Not the definitions taught.",
+"Inotropy is force, which this drug leaves unchanged.",
+"Dromotropy is conduction speed, and the rate did change.",
+"The rate rose, so chronotropy is positive.",
 "",
-"Automaticity means firing without a stimulus."
+"Working ventricular myocytes have a stable phase 4 and no automaticity."
 ],
 "src": "lec"
 },
@@ -807,44 +807,44 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Slow vs Fast Response APs",
 "lv": "Hard",
-"s": "Which comparison between a ventricular AP and an SA node AP is correct?",
+"s": "Two cardiac cells are impaled. Cell X rests at a steady −90 mV and overshoots to +30 mV with a steep upstroke. Cell Y has no stable resting potential; it drifts upward from about −60 mV and peaks near +10 mV with a slow upstroke. Extracellular Na⁺ is then lowered sharply. Whose phase 0 upstroke slows markedly?",
 "c": [
-"Ventricle: Ca²⁺ upstroke, 3 phases; SA node: Na⁺ upstroke, 5 phases",
-"Both have a plateau, but the SA node's is shorter",
-"Ventricle: Na⁺, 5 phases; SA node: Ca²⁺, 3 phases",
-"Ventricle: unstable rest; SA node: stable −90 mV rest",
-"Both reach +30 mV with a steep phase 0"
+"Cell Y only",
+"Both cells equally",
+"Cell X only",
+"Neither cell",
+"Cell Y more than cell X"
 ],
 "a": 2,
-"e": "Ventricular (working): Na⁺ phase 0, 5 phases (0–4), stable −90 mV rest, plateau 150–300 ms, overshoot to about +30 mV, steep slope → fast conduction. SA node: Ca²⁺ phase 0, 3 phases (0, 3, 4), unstable rest drifting up, no plateau, peak about +10 mV, shallow slope → slow conduction.",
+"e": "• Identify the cells. Stable −90 mV rest, +30 mV overshoot and a steep upstroke = a fast-response working ventricular cell (5 phases). Unstable drifting rest, a +10 mV peak and a slow upstroke = a slow-response SA node cell (3 phases: 0, 3, 4).\n• Recall the phase 0 current. Fast response: fast Na⁺ channels. Slow response: L-type Ca²⁺ channels.\n• Lowering extracellular Na⁺ shrinks the Na⁺ driving force, so only cell X's upstroke slows.",
 "w": [
-"The ions and phase counts are swapped.",
-"The SA node has no plateau.",
+"Cell Y's phase 0 is carried by L-type Ca²⁺, not Na⁺.",
+"Only cell X depends on fast Na⁺ for phase 0.",
 "",
-"The ventricle has the stable rest.",
-"The SA node upstroke is shallow and peaks near +10 mV."
+"Cell X's phase 0 is a fast Na⁺ current, so it slows.",
+"Cell Y's upstroke uses Ca²⁺; cell X is the Na⁺-dependent one."
 ],
 "src": "lec"
 },
 {
 "t": "Slow vs Fast Response APs",
 "lv": "Hard",
-"s": "A drug slows conduction through the AV node but does not change ventricular phase 0. Which drug class and reason fit?",
+"s": "A 58-year-old man with atrial fibrillation has a ventricular rate of 140/min. After an IV drug his rate falls to 90/min. Once he returns to sinus rhythm, his PR interval is longer than before, but his QRS width is unchanged. Which drug was he most likely given?",
 "c": [
-"Na⁺ channel blocker; both upstrokes use Na⁺",
-"Ca²⁺ blocker; only nodal phase 0 uses Ca²⁺",
-"K⁺ channel blocker; it removes the AV plateau",
-"HCN blocker; it slows the ventricular upstroke",
-"Na⁺ channel opener; it inactivates nodal channels"
+"Lidocaine",
+"Verapamil",
+"Flecainide",
+"Ivabradine",
+"Atropine"
 ],
 "a": 1,
-"e": "Nodal (SA, AV) phase 0 is carried by L-type Ca²⁺; ventricular phase 0 by fast Na⁺. So an L-type Ca²⁺ channel blocker such as verapamil slows AV conduction and SA rate while leaving the ventricular upstroke intact.",
+"e": "• A longer PR means slower AV nodal conduction; an unchanged QRS means the ventricular phase 0 is intact.\n• AV nodal phase 0 is carried by L-type Ca²⁺; ventricular phase 0 by fast Na⁺.\n• A drug that hits only the nodal upstroke is an L-type Ca²⁺ channel blocker (class IV: verapamil, diltiazem). It slows SA firing and AV conduction, which controls the ventricular rate in atrial fibrillation.",
 "w": [
-"A Na⁺ blocker would slow ventricular phase 0, and nodal phase 0 is Ca²⁺.",
+"A class I Na⁺ blocker acts on fast Na⁺ in the ventricle, not AV nodal Ca²⁺ conduction.",
 "",
-"The AV node has no plateau.",
-"HCN blockers act on nodal phase 4, not ventricular phase 0.",
-"Not a drug class taught here."
+"A class I Na⁺ blocker slows ventricular conduction and widens the QRS.",
+"It blocks I_f to slow the SA rate; it doesn't slow AV conduction.",
+"Blocking vagal M2 input speeds AV conduction and shortens the PR."
 ],
 "src": "lec"
 },
@@ -939,22 +939,22 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Phase 0 · L-type Ca²⁺ Upstroke",
 "lv": "Easy",
-"s": "At about what voltage is threshold reached in an SA node cell, and which channel then opens?",
+"s": "During phase 4, an SA node cell's membrane drifts up to about −40 mV and the cell fires. Which channels carry the upstroke that follows?",
 "c": [
-"About −40 mV; L-type Ca²⁺ channels",
-"About −65 mV; fast Na⁺ channels",
-"About −90 mV; HCN channels",
-"About −55 mV; delayed-rectifier K⁺ channels",
-"About 0 mV; T-type Ca²⁺ channels"
+"L-type Ca²⁺ channels",
+"Fast voltage-gated Na⁺ channels",
+"T-type Ca²⁺ channels",
+"HCN funny channels",
+"Delayed-rectifier K⁺ channels"
 ],
 "a": 0,
-"e": "Nodal threshold ≈ −40 mV, where L-type Ca²⁺ channels open and produce the slow phase 0 upstroke. Compare: ventricular threshold ≈ −65 mV with fast Na⁺ channels.",
+"e": "Nodal threshold is about −40 mV, where L-type (long-lasting) Ca²⁺ channels open and produce the slow phase 0 upstroke. Ventricular cells reach threshold at about −65 mV and fire with fast Na⁺ channels.",
 "w": [
 "",
-"That is ventricular myocyte threshold.",
-"HCN channels open near −60 mV on hyperpolarization.",
-"K⁺ channels open at the peak to repolarize.",
-"T-type open near −55 to −50 mV."
+"These carry the ventricular upstroke, at a threshold of about −65 mV.",
+"These open earlier, near −55 to −50 mV, and add to late phase 4.",
+"I_f starts phase 4; it doesn't carry the upstroke.",
+"These repolarize the cell in phase 3."
 ],
 "src": "lec"
 },
@@ -983,22 +983,22 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Phase 0 · L-type Ca²⁺ Upstroke",
 "lv": "Hard",
-"s": "Which statement correctly contrasts the two Ca²⁺ channels in nodal cells and the target of verapamil?",
+"s": "A 62-year-old woman takes verapamil for hypertension, and her resting heart rate is 54/min. On an SA node recording, which part of the action potential does the drug most directly blunt?",
 "c": [
-"L-type helps phase 4; T-type carries phase 0; verapamil blocks T-type",
-"T-type: late phase 4; L-type: phase 0 and verapamil",
-"Both carry phase 0 equally; verapamil blocks both",
-"T-type carries the plateau; L-type carries phase 4",
-"L-type is opened by hyperpolarization like HCN"
+"Early phase 4 funny current",
+"The phase 0 upstroke",
+"Late phase 4 T-type Ca²⁺ current",
+"The phase 2 plateau",
+"Phase 3 K⁺ repolarization"
 ],
 "a": 1,
-"e": "T-type (transient) Ca²⁺ channels open near −55 to −50 mV and add to late phase 4. L-type (long-lasting) open at threshold ≈ −40 mV and carry phase 0. Verapamil and other Ca²⁺ blockers act on I_Ca-L, not I_Ca-T, and hit the SA node more than ventricular contraction.",
+"e": "• Verapamil is a class IV L-type Ca²⁺ channel blocker.\n• In nodal cells, T-type (transient) Ca²⁺ channels open near −55 to −50 mV and help late phase 4. L-type (long-lasting) channels open at threshold, about −40 mV, and carry phase 0.\n• So verapamil acts on I_Ca-L: it slows the nodal upstroke, slowing SA firing and AV conduction, and hits the SA node more than ventricular contraction.",
 "w": [
-"The roles are swapped, and verapamil blocks L-type.",
+"That's the target of ivabradine, not verapamil.",
 "",
-"T-type acts in phase 4; verapamil blocks L-type, not T-type.",
-"Nodal cells have no plateau.",
-"L-type opens on depolarization to threshold."
+"Verapamil acts on L-type, not T-type, Ca²⁺ channels.",
+"SA node cells have no plateau.",
+"K⁺ channels are the target of class III drugs."
 ],
 "src": "lec"
 },
@@ -1071,22 +1071,22 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Pacemaker Hierarchy & Overdrive Suppression",
 "lv": "Hard",
-"s": "A patient's SA node stops firing. Later the AV node also fails, leaving complete block. What rates result at each stage?",
+"s": "A 72-year-old woman faints at home. Her telemetry shows sinus rhythm at 70/min that suddenly stops. After a 2.5-second pause, narrow QRS complexes appear at 45/min with no P waves before them. When her sinus rhythm returns at 70/min, these 45/min beats disappear. Which best explains why the 45/min rhythm wasn't seen before the pause?",
 "c": [
-"First Purkinje escape at 30–40/min; then ventricles at 60–80/min",
-"First AV escape at 60–80/min; then whole heart stops",
-"First His escape at 40–50/min; then atria and ventricles both 30–40/min",
-"AV escape 40–50/min; then ventricles at 30–40/min",
-"First AV escape at 40–50/min; then ventricles speed up to 60–80/min"
+"Purkinje fibers suppressed the AV node until the SA node stopped",
+"The AV node fires only when vagal tone is high",
+"The AV node was refractory during the long ventricular plateau",
+"Faster SA firing kept the AV node overdrive-suppressed",
+"Atrial myocytes took over pacing once the SA node failed"
 ],
 "a": 3,
-"e": "Pacemaker hierarchy: SA 60–80/min → AV 40–50/min → His/bundle branches → Purkinje 30–40/min. If the SA node fails, the AV node escapes at 40–50/min. (The question's second scenario assumes the SA node recovers.) In complete AV block, the atria keep the SA rate while the ventricles follow a Purkinje escape at 30–40/min.",
+"e": "• Narrow QRS with no P waves at 45/min = an AV junctional escape rhythm (AV node intrinsic rate 40–50/min).\n• Hierarchy: SA 60–80 → AV 40–50 → Purkinje 30–40/min.\n• While the SA node fires faster, it keeps depolarizing the slower latent pacemakers before they reach threshold and suppresses them: overdrive suppression. When the SA node stops, the AV node needs a moment to recover (the pause), then escapes. When sinus rhythm returns at 70/min, it overdrives the AV node again and the escape beats vanish.",
 "w": [
-"The AV node escapes first, and in complete block the ventricles are slow.",
-"The AV node rate is 40–50, and Purkinje fibers still escape.",
-"After SA failure the AV node escapes; in AV block the atria keep the SA rate.",
+"Suppression runs downhill: the fastest pacemaker suppresses slower ones, so Purkinje fibers can't suppress the faster AV node.",
+"AV escape doesn't need vagal tone; it appears whenever faster input stops.",
+"The AV node recovers between beats; it was suppressed, not refractory, and the pause reflects recovery from suppression.",
 "",
-"The ventricles fall to the Purkinje rate."
+"Atrial myocytes lack automaticity, and a narrow QRS with no P waves points to a junctional source."
 ],
 "src": "lec"
 },
@@ -1704,21 +1704,21 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Parasympathetic M2 → Gi: Two Arms",
 "lv": "Easy",
-"s": "The Gi protein activated by M2 receptors has two actions. Which pair is correct?",
+"s": "A drug that blocks the βγ subunit of Gi is given before the vagus nerve is stimulated. Which vagal effect on the SA node is lost?",
 "c": [
-"αi opens K⁺ channels; βγ activates adenylyl cyclase",
-"αi activates adenylyl cyclase; βγ closes K⁺ channels",
-"αi activates phospholipase C; βγ opens Ca²⁺ channels",
-"αi phosphorylates phospholamban; βγ opens Na⁺ channels",
-"αi inhibits adenylyl cyclase; βγ opens K⁺ channels"
+"The fall in cAMP from adenylyl cyclase inhibition",
+"The drop in I_f from lower cAMP",
+"Release of ACh from vagal nerve endings",
+"Binding of ACh to M2 receptors",
+"Hyperpolarization through I_K-ACh opening"
 ],
 "a": 4,
-"e": "ACh binds M2 → Gi. αi subunit inhibits adenylyl cyclase → ↓ cAMP (↓ If and ICa). βγ subunit opens K⁺ channels (I_K-ACh, a ligand-gated K⁺ channel) → K⁺ efflux → hyperpolarization.",
+"e": "ACh binds M2 → Gi splits into two arms:\n• αi inhibits adenylyl cyclase → ↓ cAMP → ↓ I_f and ↓ Ca²⁺ currents → flatter phase 4.\n• βγ opens the ligand-gated K⁺ channel I_K-ACh → K⁺ efflux → hyperpolarization.\nBlocking βγ removes only the hyperpolarizing arm; the cAMP arm still works.",
 "w": [
-"The subunit roles are swapped, and nothing activates the cyclase.",
-"αi inhibits the cyclase and βγ opens K⁺ channels.",
-"That is not the M2 pathway.",
-"Neither is a Gi action.",
+"That's the αi arm, which still works.",
+"Lower cAMP comes from the αi arm, which still works.",
+"ACh release is upstream of the G protein.",
+"Receptor binding happens before Gi splits.",
 ""
 ],
 "src": "lec"
@@ -1770,22 +1770,22 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Drugs That Hit These Channels",
 "lv": "Easy",
-"s": "Which match of drug, target and AP site is correct?",
+"s": "A new drug flattens SA node phase 4 and slows the heart rate. It leaves the ventricular phase 0 and plateau unchanged, and it doesn't bind any ion channel directly. Which drug fits?",
 "c": [
-"Ivabradine: L-type Ca²⁺; nodal phase 0",
-"Amiodarone: fast Na⁺ channel; phase 0",
-"Metoprolol: β1; flatter phase 4",
-"Lidocaine: K⁺ channels; phase 3",
-"Verapamil: If channel; phase 4"
+"Ivabradine",
+"Verapamil",
+"Metoprolol",
+"Lidocaine",
+"Amiodarone"
 ],
 "a": 2,
-"e": "Drugs hit these channels: Class I (lidocaine, flecainide) fast Na⁺, phase 0, slow upstroke and conduction. Class II (metoprolol) β1, phase 4 slope, flatter phase 4 → ↓ HR. Class III (amiodarone, sotalol) K⁺ channels, phase 3, prolong AP and refractory period. Class IV (verapamil, diltiazem) L-type Ca²⁺, nodal phase 0/plateau, slow SA/AV firing and conduction. Ivabradine: If, phase 4, ↓ HR, plateau unchanged.",
+"e": "• Flatter phase 4 + slower rate = less I_f and Ca²⁺ drive in the SA node.\n• A drug that does this without binding an ion channel must act upstream, at a receptor.\n• Metoprolol, a class II β1 blocker, lowers cAMP and flattens phase 4.\nOther classes: I (lidocaine, flecainide) fast Na⁺, phase 0; III (amiodarone, sotalol) K⁺, phase 3; IV (verapamil, diltiazem) L-type Ca²⁺; ivabradine I_f directly.",
 "w": [
-"Ivabradine blocks If in phase 4.",
-"Amiodarone and sotalol block K⁺ channels in phase 3.",
+"It also flattens phase 4, but by blocking I_f channels directly.",
+"A class IV drug that blocks L-type Ca²⁺ channels directly.",
 "",
-"Lidocaine blocks fast Na⁺ channels in phase 0.",
-"Verapamil blocks L-type Ca²⁺ channels."
+"A class I drug that blocks fast Na⁺ channels in phase 0.",
+"A class III drug that blocks K⁺ channels and prolongs phase 3."
 ],
 "src": "lec"
 },
@@ -1836,22 +1836,22 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Autonomic Control: Chrono-, Dromo- & Inotropy",
 "lv": "Hard",
-"s": "Which row of effects is correct for sympathetic and parasympathetic stimulation?",
+"s": "A 25-year-old marathon runner has a resting heart rate of 50/min and a PR interval of 0.20 s. He is given atropine to block muscarinic receptors. Which parameter changes the least?",
 "c": [
-"Sympathetic: ↑ rate, ↑ conduction, ↑ contractility; vagal: ↓ rate, ↓ conduction",
-"Sympathetic: ↑ rate, ↓ conduction; vagal: ↓ rate, ↓ contractility of ventricles",
-"Sympathetic: ↑ contractility only; vagal: ↓ rate, ↑ conduction",
-"Sympathetic: ↑ rate only; vagal: ↓ rate and ↓ ventricular contractility",
-"Both increase conduction; only vagal changes ventricular force"
+"Ventricular contractility",
+"SA node firing rate",
+"AV nodal conduction speed",
+"PR interval duration",
+"Resting heart rate"
 ],
 "a": 0,
-"e": "Sympathetic (NE → β1) = cardiac excitation: + chronotropy, + dromotropy, + inotropy. Parasympathetic (ACh → M2) = cardiac inhibition: − chronotropy, − dromotropy, ventricles little direct effect.",
+"e": "• Atropine blocks M2 receptors, removing vagal tone.\n• Vagal (ACh → M2) effects are − chronotropy and − dromotropy at the SA and AV nodes, and a trained athlete has a lot of vagal tone at rest. Removing it speeds the rate and AV conduction and shortens the PR.\n• The ventricles get little direct parasympathetic effect, so contractility barely changes.\nSympathetic (NE → β1) is the full set: + chronotropy, + dromotropy, + inotropy.",
 "w": [
 "",
-"Sympathetic increases conduction, and vagal has little direct ventricular effect.",
-"Sympathetic raises rate and conduction too, and vagal slows conduction.",
-"Sympathetic also raises conduction and contractility; vagal spares ventricles.",
-"Vagal decreases conduction and has little ventricular effect."
+"Removing vagal tone speeds the SA node.",
+"Removing vagal tone speeds AV conduction.",
+"Faster AV conduction shortens the PR.",
+"The rate rises once vagal tone is removed."
 ],
 "src": "lec"
 },
@@ -1880,22 +1880,22 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Sympathetic Effects on SA Node, AV Node & Ventricle",
 "lv": "Hard",
-"s": "Norepinephrine acts on three cardiac tissues. Which pairing of tissue, PKA target and effect is correct?",
+"s": "Norepinephrine is given to an isolated heart from a mouse that lacks phospholamban. Which normal response to norepinephrine is missing?",
 "c": [
-"SA node: phospholamban → chronotropy; AV node: If → inotropy",
-"Ventricle: If channels → chronotropy; SA node: L-type → inotropy",
-"AV node: fast Na⁺ → dromotropy; ventricle: K⁺ channels → inotropy",
-"AV node: L-type Ca²⁺; ventricle: phospholamban",
-"SA node: K⁺ channels only; ventricle: troponin C → lusitropy"
+"The rise in SA node firing rate",
+"The rise in AV conduction velocity",
+"The rise in Ca²⁺ entry during the plateau",
+"The speed-up of ventricular relaxation",
+"The steepening of phase 4"
 ],
 "a": 3,
-"e": "The sympathetic 'triple effect' via PKA phosphorylation: SA node → If and Ca²⁺ channels → chronotropy; AV node → L-type Ca²⁺ channels → dromotropy; ventricular muscle → L-type Ca²⁺ channels + phospholamban → inotropy and lusitropy.",
+"e": "PKA targets after NE → β1 → cAMP:\n• SA node: I_f and Ca²⁺ channels → chronotropy.\n• AV node: L-type Ca²⁺ → dromotropy.\n• Ventricle: L-type Ca²⁺ → inotropy, and phospholamban → lusitropy.\nPhosphorylating phospholamban releases its brake on SERCA, so Ca²⁺ returns to the SR faster and the ventricle relaxes sooner. With no phospholamban, NE has nothing to act on there, so the speed-up of relaxation is missing; the other effects are intact.",
 "w": [
-"Phospholamban is in ventricular muscle; If targets the SA node.",
-"If is nodal, and inotropy is a ventricular effect.",
-"PKA targets Ca²⁺ channels, not fast Na⁺, for these effects.",
+"This works through I_f and Ca²⁺ channels, which are intact.",
+"This works through AV nodal L-type Ca²⁺ channels.",
+"This works through ventricular L-type Ca²⁺ channels.",
 "",
-"SA node targets are If and Ca²⁺ channels."
+"This is the SA node's I_f and Ca²⁺ effect."
 ],
 "src": "lec"
 },
@@ -1990,21 +1990,21 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Integrated SA Node Effects & Summary",
 "lv": "Hard",
-"s": "Which pairing of nerve, currents and change in the SA node pacemaker potential is correct?",
+"s": "During exercise a man's heart rate climbs from 70 to 150/min. SA node recordings show that the maximum diastolic potential hasn't changed. Which change mainly brings each cell to threshold sooner?",
 "c": [
-"Sympathetic: ↑ IK-ACh, flatter phase 4; vagal: ↑ If, steeper phase 4",
-"Sympathetic: ↑ INa, faster phase 0 only; vagal: ↓ INa",
-"Sympathetic: ↓ ICa-T, ↑ If; vagal: ↑ ICa-T, ↓ If",
-"Sympathetic: ↑ IK1, hyperpolarizes; vagal: ↓ IK-ACh",
-"Sympathetic ↑ If and ICa-T; vagal ↓ both, ↑ IK-ACh"
+"More negative maximum diastolic potential",
+"Opening of more I_K-ACh channels",
+"Faster fast Na⁺ channel upstroke",
+"Threshold shifted to about −65 mV",
+"Steeper phase 4 from more I_f and I_Ca-T"
 ],
 "a": 4,
-"e": "Integrated effect on the SA node: sympathetic ↑ ICa-T, ↑ If → steeper phase 4, threshold reached faster → (+) chronotropic. Parasympathetic ↓ ICa-T, ↓ If, ↑ IK-ACh → shallower phase 4 and hyperpolarized cell → (−) chronotropic. Balance: ↑ cAMP vs ↓ cAMP and ↑ K⁺ efflux.",
+"e": "• The rate rises but the MDP is unchanged, so the cell starts from the same place; it just gets to threshold faster.\n• That means a steeper phase 4.\n• Sympathetic NE → β1 → ↑ cAMP → ↑ I_f and ↑ I_Ca-T → steeper slope → (+) chronotropy.\nThe vagal side does the opposite: ↓ I_f and I_Ca-T plus ↑ I_K-ACh, which also hyperpolarizes the cell.",
 "w": [
-"The currents and slopes are swapped.",
-"Nodal effects are on If, ICa and IK-ACh, not fast Na⁺.",
-"Sympathetic increases both ICa-T and If.",
-"Vagal increases IK-ACh, causing hyperpolarization.",
+"That's a vagal effect, and the MDP didn't change.",
+"I_K-ACh is opened by vagal βγ and slows the rate.",
+"SA node phase 0 uses L-type Ca²⁺, and upstroke speed doesn't set the rate.",
+"−65 mV is the ventricular threshold; nodal threshold stays near −40 mV.",
 ""
 ],
 "src": "lec"
@@ -2101,66 +2101,66 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Cardiac Cycle Timing: Systole vs Diastole",
 "lv": "Easy",
-"s": "At a heart rate of 75/min, one cardiac cycle lasts about 0.8 s. Which pairing of ventricular phase durations is correct, and which phase gives up the most time when the heart rate rises?",
+"s": "At 75/min a cardiac cycle lasts 0.8 s, and ventricular systole takes 0.3 s. If the heart rate rises to 150/min and systole shortens only slightly, to about 0.25 s, how much time is left for ventricular diastole?",
 "c": [
-"Systole 0.5 s, diastole 0.3 s; systole shortens more",
-"Systole 0.3 s, diastole 0.5 s; diastole shortens more",
-"Systole 0.1 s, diastole 0.7 s; diastole shortens more",
-"Systole 0.4 s, diastole 0.4 s; both shorten equally",
-"Systole 0.3 s, diastole 0.5 s; systole shortens more"
+"About 0.5 s",
+"About 0.15 s",
+"About 0.25 s",
+"About 0.4 s",
+"About 0.05 s"
 ],
 "a": 1,
-"e": "Cycle at 75/min = 0.8 s.\n• Atria: systole 0.1 s, diastole 0.7 s.\n• Ventricles: systole 0.3 s, diastole 0.5 s.\nKey concept from the lecture: at higher heart rates, diastole shortens more than systole, and this limits ventricular filling time. The part of diastole that is cut first is reduced filling (diastasis), the longest phase of the cycle.",
+"e": "• Cycle length = 60 / HR = 60 / 150 = 0.4 s.\n• Diastole = 0.4 − 0.25 = 0.15 s, down from 0.5 s at rest.\nSystole barely shortens, so diastole gives up most of the time. This limits ventricular filling at high rates, and reduced filling (diastasis) is cut first.",
 "w": [
-"The ventricles spend more time relaxed (0.5 s) than contracting (0.3 s), and diastole is what gets cut.",
+"That's diastole at 75/min.",
 "",
-"0.1 s and 0.7 s are the atrial systole and atrial diastole times, not ventricular.",
-"The phases are not equal, and they do not shorten equally: diastole shrinks far more.",
-"Durations are right, but systole is fairly fixed; diastole absorbs most of the shortening."
+"That's the systolic time.",
+"That's the whole cycle at 150/min.",
+"Subtract systole from the 0.4 s cycle."
 ],
 "src": "lec"
 },
 {
 "t": "Key Volumes: EDV, ESV, SV & EF",
 "lv": "Easy",
-"s": "A healthy adult has a left ventricular end-diastolic volume of 120 mL and an end-systolic volume of 50 mL. What are the stroke volume and the ejection fraction?",
+"s": "A left ventricle ejects 60 mL with each beat and holds 50 mL at the end of systole. What is its ejection fraction?",
 "c": [
-"Stroke volume 70 mL; ejection fraction about 42%",
-"Stroke volume 70 mL; ejection fraction about 58%",
-"Stroke volume 50 mL; ejection fraction about 42%",
-"Stroke volume 170 mL; ejection fraction about 70%",
-"Stroke volume 120 mL; ejection fraction about 100%"
+"About 45%",
+"About 55%",
+"About 120%",
+"About 83%",
+"About 65%"
 ],
 "a": 1,
-"e": "• SV = EDV − ESV = 120 − 50 = 70 mL.\n• EF = SV / EDV = 70 / 120 ≈ 58%.\nNormal values from the lecture: EDV ≈ 120 mL (maximum volume, the preload), ESV ≈ 50 mL (minimum volume). A normal EF is roughly 55–70%.",
+"e": "• EDV = SV + ESV = 60 + 50 = 110 mL.\n• EF = SV / EDV = 60 / 110 ≈ 55%, the low end of the normal 55–70%.\nNormal values from the lecture: EDV ≈ 120 mL, ESV ≈ 50 mL, SV ≈ 70 mL, EF ≈ 58%.",
 "w": [
-"42% is ESV/EDV (50/120), the fraction left behind, not the fraction ejected.",
+"50/110 is the fraction left behind, ESV/EDV.",
 "",
-"50 mL is the ESV, the volume left after systole, not the volume ejected.",
-"SV is EDV minus ESV, not EDV plus ESV.",
-"120 mL is the EDV; the ventricle never empties completely."
+"SV/ESV isn't EF; divide by EDV.",
+"ESV/SV isn't EF; divide SV by EDV.",
+"That would need an EDV of about 92 mL."
 ],
 "src": "lec"
 },
 {
 "t": "Key Volumes: EDV, ESV, SV & EF",
 "lv": "Easy",
-"s": "Which volume is used as the measure of preload, and which value is the preferred index of contractility?",
+"s": "Two patients each have a stroke volume of 70 mL. Patient A's end-diastolic volume is 120 mL; patient B's is 200 mL. Which statement is correct?",
 "c": [
-"ESV for preload; stroke volume for contractility",
-"Stroke volume for preload; EDV for contractility",
-"EDV for preload; stroke volume for contractility",
-"EDV for preload; ejection fraction for contractility",
-"ESV for preload; ejection fraction for contractility"
+"Their contractility is equal, since SV is equal",
+"Patient A has the larger preload",
+"Patient B has the higher ejection fraction",
+"Patient B has the weaker contractility",
+"Patient A has the larger end-systolic volume"
 ],
 "a": 3,
-"e": "• Preload ≈ EDV, the volume at the end of diastole (the maximum ventricular volume).\n• Contractility is best indexed by EF = SV/EDV, because EF corrects for how full the ventricle was.\n• SV rises with more preload (Frank–Starling) even when contractility is unchanged, so SV alone cannot tell the two apart.",
+"e": "EF = SV / EDV corrects stroke volume for how full the ventricle was, so it is the preferred index of contractility.\n• A: 70 / 120 ≈ 58%, normal.\n• B: 70 / 200 = 35%, low. B needs a much bigger preload (EDV) to get the same SV, so its contractility is weaker.\nSV rises with preload (Frank–Starling) even when contractility is unchanged, so SV alone can't tell the two apart.",
 "w": [
-"ESV is the minimum volume after ejection; preload is the filled volume, EDV.",
-"SV is the output of a beat, and EDV reflects filling, not contractility.",
-"SV also rises with preload alone, so it cannot isolate contractility.",
+"SV alone can't separate preload from contractility.",
+"Preload ≈ EDV, and B's is larger.",
+"B's EF is 35%; A's is about 58%.",
 "",
-"EF is right, but preload is the volume at the end of filling, EDV."
+"A's ESV is 50 mL; B's is 130 mL."
 ],
 "src": "lec"
 },
@@ -2189,43 +2189,43 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Wiggers Diagram: Phases A–G, Valves & Heart Sounds",
 "lv": "Easy",
-"s": "Which pair of valve events marks the start and the end of isovolumetric relaxation in the left heart?",
+"s": "On a Wiggers diagram, left ventricular volume is flat at about 120 mL while LV pressure rises steeply. Which valve event ends this phase?",
 "c": [
-"Starts at aortic valve closure; ends at mitral valve opening",
-"Starts at mitral valve closure; ends at aortic valve opening",
-"Starts at aortic valve opening; ends at aortic valve closure",
-"Starts at mitral valve opening; ends at mitral valve closure",
-"Starts at mitral valve closure; ends at aortic valve closure"
+"Aortic valve opening",
+"Mitral valve opening",
+"Aortic valve closing",
+"Mitral valve closing",
+"Pulmonic valve closing"
 ],
 "a": 0,
-"e": "• Isovolumetric contraction: mitral closes → aortic opens (all valves closed, P rises, volume constant).\n• Ejection: aortic opens → aortic closes.\n• Isovolumetric relaxation: aortic closes → mitral opens (all valves closed, P falls, volume constant at ESV).\n• Filling: mitral opens → mitral closes.\nIn both isovolumetric phases there is no blood flow to or from the ventricles.",
+"e": "• Volume constant at about EDV (120 mL) with pressure rising steeply = isovolumetric contraction, with all valves closed. It begins when the mitral valve closes (S1).\n• It ends when LV pressure exceeds aortic pressure (about 80 mm Hg) and the aortic valve opens, starting rapid ejection.\nThe mirror phase, isovolumetric relaxation, runs from aortic closure to mitral opening at ESV.",
 "w": [
 "",
-"That pair bounds isovolumetric contraction.",
-"That pair bounds ventricular ejection.",
-"That pair bounds ventricular filling.",
-"This spans all of systole, not a single isovolumetric phase."
+"This ends isovolumetric relaxation, at ESV.",
+"This ends ejection.",
+"This starts the phase, at S1.",
+"This is part of S2, at the end of ejection."
 ],
 "src": "lec"
 },
 {
 "t": "Wiggers Diagram: Phases A–G, Valves & Heart Sounds",
 "lv": "Easy",
-"s": "On the Wiggers diagram, which valve events produce the first and second heart sounds?",
+"s": "A student listening with a stethoscope times a heart sound that occurs just after the QRS complex. Which valve event produces it?",
 "c": [
-"S1: semilunar valves closing; S2: AV valves closing",
-"S1: AV valves opening; S2: semilunar valves opening",
-"S1: atrial contraction; S2: rapid ventricular filling",
-"S1: semilunar valves opening; S2: AV valves opening",
-"S1: AV valves closing; S2: semilunar valves closing"
+"Semilunar valves closing",
+"AV valves opening",
+"Semilunar valves opening",
+"Atrial contraction",
+"AV valves closing"
 ],
 "a": 4,
-"e": "• S1 = mitral and tricuspid closure, at the start of isovolumetric contraction (start of ventricular systole, just after the QRS).\n• S2 = aortic and pulmonic closure, at the start of isovolumetric relaxation (end of systole, at the dicrotic notch, near the end of the T wave).\n• S3 = rapid ventricular filling (early diastole). S4 = atrial systole (late diastole).",
+"e": "The QRS starts ventricular contraction. As ventricular pressure exceeds atrial pressure, the mitral and tricuspid valves close: S1, at the start of isovolumetric contraction.\n• S2 = aortic and pulmonic closure, at the dicrotic notch, near the end of the T wave.\n• S3 = rapid ventricular filling. S4 = atrial systole.",
 "w": [
-"The order is reversed: AV closure starts systole (S1); semilunar closure ends it (S2).",
-"Healthy valve opening is silent; the sounds come from closure.",
-"Those events relate to the extra sounds S4 and S3.",
-"Valve opening is normally silent.",
+"That's S2, near the end of the T wave.",
+"Valve opening is silent; it starts rapid filling.",
+"Valve opening is silent; it starts ejection.",
+"That's S4, in late diastole after the P wave.",
 ""
 ],
 "src": "lec"
@@ -2233,22 +2233,22 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Atrial Systole & Ventricular Filling",
 "lv": "Easy",
-"s": "The atria have no valves at the openings of the great veins. What prevents blood from flowing back into the veins during atrial systole, and what share of EDV does atrial systole normally add?",
+"s": "A patient develops atrial fibrillation, so his atria no longer contract effectively. At rest, about how much of his normal end-diastolic volume is lost?",
 "c": [
-"Venous valves at the caval openings; about 20–30%",
-"Contraction of atrial muscle around the vein openings; about 70–80%",
-"Contraction of atrial muscle around the vein openings; about 20–30%",
-"Closure of the AV valves during atrial systole; about 70–80%",
-"Higher venous than atrial pressure throughout; about 5%"
+"About 70–80%",
+"About 50%",
+"About 20–30%",
+"Almost none",
+"About 5%"
 ],
 "a": 2,
-"e": "Atrial systole: atrial pressure rises (≈ 8 mm Hg RA, 10 mm Hg LA) and pushes blood through the open AV valves → rapid active filling.\n• Backflow into the veins is limited by contraction of the atrial muscle around the venous orifices.\n• Atrial systole adds about 20–30% (≈ 25 mL) of EDV; the other 70–80% fills passively during general diastole.\n• Because there are no inlet valves, the atrial pressure rise is transmitted up the jugular vein as the a wave.",
+"e": "Atrial systole adds about 20–30% (about 25 mL) of EDV; the other 70–80% fills passively during general diastole. Lose atrial contraction and that share is lost.\nThere are no valves at the venous inlets, so backflow during atrial systole is limited by contraction of the atrial muscle around the venous openings.",
 "w": [
-"There are no valves on the inlet side of the atria.",
-"70–80% of EDV fills passively during general diastole.",
+"That's the passive filling, which still happens.",
+"Atrial systole adds much less than half.",
 "",
-"The AV valves are open in atrial systole; that is how blood reaches the ventricles.",
-"Atrial pressure rises in atrial systole, and the atrial share is larger."
+"Atrial systole normally adds a real share of EDV.",
+"This underestimates the atrial contribution."
 ],
 "src": "lec"
 },
@@ -2277,22 +2277,22 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Isovolumetric Phases & Ejection",
 "lv": "Easy",
-"s": "Which description of isovolumetric contraction in the left ventricle is correct?",
+"s": "A ventricle's pressure rises from about 10 to 80 mm Hg during the phase that follows S1. What is its volume doing during this phase?",
 "c": [
-"Aortic valve open, volume falls; ends when LV falls below aortic pressure",
-"Mitral valve open, pressure rises; ends when the mitral valve closes",
-"All valves closed, pressure rises; ends when LV exceeds aortic pressure",
-"All valves closed, pressure falls; ends when LV falls below LA pressure",
-"Aortic valve closed, volume rises; ends when the atrium contracts"
+"Falling from 120 to 50 mL",
+"Rising from 50 to 120 mL",
+"Constant at about 120 mL",
+"Constant at about 50 mL",
+"Falling by about 25 mL"
 ],
 "a": 2,
-"e": "Isovolumetric (isometric, isovolumic) contraction, phase B:\n• Starts when rising LV pressure exceeds LA pressure and closes the mitral valve (S1).\n• All valves closed → volume constant (≈ EDV), no blood flow in or out, pressure climbs steeply.\n• Ends when LV pressure exceeds aortic pressure (≈ 80 mm Hg; RV must exceed ≈ 10 mm Hg in the pulmonary artery) and the semilunar valves open.",
+"e": "• S1 is mitral and tricuspid closure, so the phase right after it is isovolumetric contraction.\n• All valves are closed, so no blood enters or leaves: volume stays at EDV (about 120 mL) while pressure climbs steeply.\nIt ends when LV pressure exceeds aortic pressure (about 80 mm Hg) and the aortic valve opens.",
 "w": [
-"That describes ejection.",
-"The mitral valve has already closed when this phase starts.",
+"That's ejection, after the aortic valve opens.",
+"That's filling, with the mitral valve open.",
 "",
-"That describes isovolumetric relaxation.",
-"Volume is constant in an isovolumetric phase."
+"Constant at ESV is isovolumetric relaxation, after S2.",
+"25 mL is about what atrial systole adds during filling."
 ],
 "src": "lec"
 },
@@ -2321,66 +2321,66 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Jugular Venous Pulse & Aortic Pressure Curve",
 "lv": "Easy",
-"s": "Which pairing of jugular venous waves with their mechanical cause is correct?",
+"s": "A student watches the jugular venous pulse alongside an ECG. One wave appears just after each P wave. What produces it?",
 "c": [
-"a: atrial filling; c: atrial contraction; v: tricuspid bulging",
-"a: tricuspid bulging; c: atrial filling; v: atrial contraction",
-"a: atrial contraction; c: atrial filling; v: tricuspid bulging",
-"a: atrial contraction; c: tricuspid bulging; v: atrial filling",
-"a: ventricular ejection; c: atrial contraction; v: tricuspid closing"
+"Tricuspid valve bulging back",
+"Atrial filling against a closed valve",
+"Ventricular ejection into the aorta",
+"Atrial contraction",
+"Tricuspid valve opening"
 ],
 "a": 3,
-"e": "No valves guard the atrial inlets, so atrial pressure changes are seen in the neck:\n• a wave: atrial systole sends a retrograde pressure pulse up the jugular vein.\n• c wave: the closed tricuspid valve bulges back into the atrium as ventricular pressure rises in early contraction.\n• v wave: atrial pressure rises gradually as the atrium fills during reduced ejection and isovolumetric relaxation, before the AV valve opens.",
+"e": "The P wave is atrial depolarization, so the wave right after it is the a wave from atrial systole. With no valves at the venous inlets, the pressure rise travels up the jugular vein.\n• c wave: the closed tricuspid bulges back as ventricular pressure rises.\n• v wave: the atrium fills while the tricuspid is closed, then falls when it opens.",
 "w": [
-"The labels are shuffled: a is contraction, v is filling.",
-"The a wave is atrial systole, not valve bulging.",
-"c and v are swapped: c is bulging in early systole, v is filling.",
+"That's the c wave, early in ventricular contraction.",
+"That's the v wave, in late systole.",
+"Ejection doesn't produce a jugular wave.",
 "",
-"Ejection does not make a jugular wave, and a is atrial systole."
+"Opening makes the v wave fall."
 ],
 "src": "lec"
 },
 {
 "t": "Jugular Venous Pulse & Aortic Pressure Curve",
 "lv": "Easy",
-"s": "On an aortic pressure tracing, what does the dicrotic notch mark, and which heart sound occurs at the same time?",
+"s": "An aortic pressure tracing shows a brief dip at the end of ejection. Which heart sound occurs at the same moment?",
 "c": [
-"Aortic valve closure at the end of systole; S2",
-"Aortic valve opening at the start of ejection; S1",
-"Peak ejection during rapid ejection; S1",
-"Mitral valve closure at the start of systole; S1",
-"Atrial contraction at the end of diastole; S4"
+"S2",
+"S1",
+"S3",
+"S4",
+"No sound"
 ],
 "a": 0,
-"e": "The dicrotic notch is the brief dip as the aortic valve closes, marking the end of ventricular systole (end of reduced ejection, start of isovolumetric relaxation). Closure of the aortic and pulmonic valves makes S2 at the same moment.",
+"e": "The brief dip is the dicrotic notch: the aortic valve closing at the end of ventricular systole (end of reduced ejection, start of isovolumetric relaxation). Aortic and pulmonic closure makes S2 at the same moment.",
 "w": [
 "",
-"Opening occurs at the foot of the upstroke, and S1 is AV closure.",
-"Peak ejection is at the top of the curve, not the notch.",
-"Mitral closure occurs before the aortic upstroke.",
-"Atrial events do not appear as a notch on the aortic curve."
+"S1 is AV valve closure, at the start of systole.",
+"S3 comes from rapid filling, in early diastole.",
+"S4 comes from atrial systole, in late diastole.",
+"Semilunar valve closure is audible as S2."
 ],
 "src": "lec"
 },
 {
 "t": "Pressure Map: Normal Chamber Pressures",
 "lv": "Easy",
-"s": "Which pair of normal pressure ranges (minimum to maximum) is correct?",
+"s": "A catheter is advanced from a vein through the right heart. The pressures read 0–8, then 5–25, then 8–25 mm Hg. Where is the catheter tip at the last reading?",
 "c": [
-"Right ventricle 10–120 mm Hg; aorta 8–25 mm Hg",
-"Right ventricle 5–25 mm Hg; pulmonary artery 8–25 mm Hg",
-"Right atrium 2–12 mm Hg; left atrium 0–8 mm Hg",
-"Left ventricle 80–120 mm Hg; aorta 10–120 mm Hg",
-"Right ventricle 5–25 mm Hg; pulmonary artery 80–120 mm Hg"
+"Right ventricle",
+"Pulmonary trunk",
+"Left atrium",
+"Pulmonary vein",
+"Left ventricle"
 ],
 "a": 1,
-"e": "Normal pressures, minimum–maximum (mm Hg):\n• RA 0–8 · RV 5–25 · Pulmonary artery 8–25\n• LA 2–12 · LV 10–120 · Aorta 80–120\nThe right heart is a low-pressure circuit; the systolic peaks of each ventricle match the artery it ejects into.",
+"e": "Normal min–max pressures (mm Hg): RA 0–8 · RV 5–25 · pulmonary artery 8–25 · LA 2–12 · LV 10–120 · aorta 80–120.\nThe step from RV to pulmonary artery keeps the same systolic peak (25) but has a higher minimum (8 vs 5): the closed pulmonic valve holds pressure in the artery during diastole while the ventricle drops to fill.",
 "w": [
-"10–120 is the LV, and 8–25 is the pulmonary artery.",
+"The RV reads 5–25; its minimum drops near zero to fill.",
 "",
-"Swapped: RA is 0–8 and LA is 2–12 mm Hg.",
-"Swapped: the LV falls to about 10, the aorta stays above about 80.",
-"80–120 is the aorta; the pulmonary artery is 8–25."
+"The LA isn't reached from the right heart, and reads 2–12.",
+"Pulmonary veins drain to the LA, past the lungs.",
+"The LV reads 10–120."
 ],
 "src": "lec"
 },
@@ -2453,44 +2453,44 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Wiggers Diagram: Phases A–G, Valves & Heart Sounds",
 "lv": "Hard",
-"s": "On a Wiggers diagram, a snapshot shows left ventricular pressure of 40 mm Hg and falling, aortic pressure of 100 mm Hg, left atrial pressure of 8 mm Hg, and a left ventricular volume holding steady at 50 mL. Which phase is this, and which valve event comes next?",
+"s": "During cardiac catheterization in a healthy volunteer, simultaneous tracings show left ventricular pressure of 40 mm Hg and falling, aortic pressure of 100 mm Hg, left atrial pressure of 8 mm Hg, and a left ventricular volume holding steady at 50 mL. Which valve event will happen next?",
 "c": [
-"Isovolumetric contraction; the aortic valve opens next",
-"Reduced ejection; the aortic valve closes next",
-"Rapid filling; the mitral valve closes next",
-"Isovolumetric relaxation; the mitral valve opens next",
-"Isovolumetric relaxation; the aortic valve closes next"
+"The aortic valve opens",
+"The aortic valve closes",
+"The mitral valve closes",
+"The mitral valve opens",
+"The tricuspid valve closes"
 ],
 "a": 3,
-"e": "Read the snapshot:\n• Volume constant at a low value (≈ ESV 50 mL) → an isovolumetric phase after ejection.\n• LV pressure falling and far below aortic (100) → the aortic valve is already closed.\n• LV pressure (40) still above LA (8) → the mitral valve is still closed.\nSo this is isovolumetric relaxation (phase E). When LV pressure drops below LA pressure, the mitral valve opens and rapid filling (F) begins.",
+"e": "Read the snapshot:\n• Volume constant at a low value (about ESV, 50 mL) → an isovolumetric phase after ejection.\n• LV pressure falling and far below aortic (100) → the aortic valve is already closed.\n• LV pressure (40) still above LA (8) → the mitral valve is still closed.\nSo this is isovolumetric relaxation (phase E). When LV pressure drops below LA pressure, the mitral valve opens and rapid filling (F) begins.",
 "w": [
-"In contraction LV pressure rises; here it is falling.",
-"During ejection LV volume falls; here it is constant, and LV is far below aortic pressure.",
-"During filling volume rises; here it is constant and LV pressure is still above LA.",
+"LV pressure is falling far below aortic pressure.",
+"It has already closed; LV is far below aortic pressure.",
+"It's already closed; it opens next.",
 "",
-"The aortic valve has already closed, which is why volume is constant."
+"That happens at S1, at the start of systole."
 ],
 "src": "lec"
 },
 {
 "t": "Wiggers Diagram: Phases A–G, Valves & Heart Sounds",
 "lv": "Hard",
-"s": "On a Wiggers diagram, a snapshot shows left ventricular pressure just above aortic pressure and both rising toward their peaks, left ventricular volume falling steeply, and the QRS complex just completed. Which phase is this, and which valve event marked its start?",
+"s": "During cardiac catheterization in a healthy volunteer, the tracings show left ventricular pressure just above aortic pressure, with both rising toward their peaks. Left ventricular volume is falling steeply, and the QRS complex has just finished. Which valve event marked the start of this phase?",
 "c": [
-"Rapid ejection; it began when the aortic valve opened",
-"Isovolumetric contraction; it began when the mitral valve closed",
-"Reduced ejection; it began when ventricular pressure peaked",
-"Rapid filling; it began when the mitral valve opened",
-"Rapid ejection; it began when the mitral valve closed"
+"Aortic valve opening",
+"Mitral valve closing",
+"Mitral valve opening",
+"Aortic valve closing",
+"Pulmonic valve closing"
 ],
 "a": 0,
-"e": "• LV P > aortic P with the aortic valve open → ejection.\n• Volume falling steeply and pressures rising → the first third of ejection, rapid ejection (phase C), which moves about 70% of the stroke volume.\n• It began when LV pressure exceeded aortic pressure (≈ 80 mm Hg) and the aortic valve opened, ending isovolumetric contraction.\n• Reduced ejection (D) is the last two-thirds, with falling ejection rate and pressure.",
+"e": "• LV pressure above aortic pressure with volume falling → ejection.\n• Volume falling steeply and pressures still rising → rapid ejection (phase C), the first third of ejection, which moves about 70% of the stroke volume.\n• It began when LV pressure exceeded aortic pressure (about 80 mm Hg) and the aortic valve opened, ending isovolumetric contraction.",
 "w": [
 "",
-"Volume cannot fall during an isovolumetric phase.",
-"Pressures are still rising toward their peaks and volume is falling steeply.",
-"Volume is falling, not rising, so blood is leaving the ventricle.",
-"Mitral closure starts isovolumetric contraction, not ejection."
+"That starts isovolumetric contraction, before ejection.",
+"That starts rapid filling.",
+"That ends ejection.",
+"That's part of S2, at the end of ejection."
 ],
 "src": "lec"
 },
@@ -2585,21 +2585,21 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Jugular Venous Pulse & Aortic Pressure Curve",
 "lv": "Hard",
-"s": "A physician watches the jugular venous pulse in a healthy volunteer. One wave rises slowly through late systole and peaks just before an AV valve opens. Which wave is this, what produces it, and what makes it fall?",
+"s": "A physician examines the jugular venous pulse of a healthy 22-year-old lying at 45°. One wave rises slowly through late systole, peaks just before an AV valve opens, and then falls. What produces this wave?",
 "c": [
-"The a wave from atrial contraction; it falls as the tricuspid closes",
-"The c wave from tricuspid bulging; it falls as the pulmonic opens",
-"The v wave from RV contraction; it falls as the pulmonic valve closes",
-"The a wave from atrial filling; it falls as the mitral valve opens",
-"The v wave from atrial filling; it falls as the tricuspid opens"
+"Atrial contraction",
+"Tricuspid bulging into the atrium",
+"Right ventricular ejection",
+"Pulmonic valve closure",
+"Venous filling of the atrium"
 ],
 "a": 4,
-"e": "• v wave: venous return keeps filling the right atrium while the tricuspid is closed, during reduced ejection and isovolumetric relaxation, so pressure rises gradually.\n• It peaks just before the tricuspid opens; when it opens, the atrium empties into the ventricle and the pressure falls (rapid filling).\nThis is why the v wave is a filling wave and the a wave, timed just after the P wave, is the one that reflects atrial contraction.",
+"e": "• Rises through late systole and peaks just before the tricuspid opens → the v wave.\n• While the tricuspid is closed during reduced ejection and isovolumetric relaxation, venous return keeps filling the right atrium, so pressure rises gradually.\n• When the tricuspid opens, the atrium empties into the ventricle and the pressure falls (rapid filling).\nThe v wave is a filling wave; the a wave reflects atrial contraction.",
 "w": [
-"The a wave follows the P wave in late diastole, not late systole.",
-"The c wave is a brief early-systolic bump, not a slow late rise.",
-"The v wave comes from atrial filling against a closed tricuspid valve.",
-"Jugular waves reflect the right atrium and tricuspid, and a is contraction.",
+"That's the a wave, just after the P wave.",
+"That's the c wave, early in ventricular contraction.",
+"Ejection doesn't push blood back into the jugular vein.",
+"Pulmonic closure produces part of S2, not a jugular wave.",
 ""
 ],
 "src": "lec"
@@ -2935,43 +2935,43 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Na⁺ Channel States",
 "lv": "Hard",
-"s": "Two patients have hyperkalemia. Patient 1 has K⁺ 5.8 mEq/L and more frequent ectopic beats; patient 2 has K⁺ 8.2 mEq/L, a wide QRS and slowed conduction. Both resting potentials are less negative than normal. Which statement best explains why excitability rises in one but falls in the other?",
+"s": "Two patients have hyperkalemia, and both resting potentials are less negative than normal. Patient 1 has K⁺ 5.8 mEq/L and more frequent ectopic beats. Patient 2 has K⁺ 8.2 mEq/L, a wide QRS and slowed conduction. Which best explains patient 2's slowed conduction?",
 "c": [
-"Mild hyperkalemia hyperpolarizes cells; severe hyperkalemia depolarizes them",
-"Severe hyperkalemia opens more Na⁺ channels, causing block",
-"Mild depolarization nears threshold; severe inactivates Na⁺ channels",
-"High K⁺ blocks L-type Ca²⁺ channels only at the higher level",
-"Mild hyperkalemia speeds the Na⁺/K⁺ pump; severe stops it"
+"The cell is hyperpolarized far from threshold",
+"Na⁺ channels open more and stay open",
+"Many Na⁺ channels are held inactivated",
+"L-type Ca²⁺ channels are blocked by K⁺",
+"The Na⁺/K⁺ pump runs faster"
 ],
 "a": 2,
-"e": "• Mild ↑K⁺: the resting potential moves a little closer to threshold while most Na⁺ channels are still available → it takes less to fire → excitability rises.\n• Severe ↑K⁺: the larger depolarization closes the inactivation (h) gates of many Na⁺ channels. The cell is near threshold, but too few channels are available for a normal Phase 0 → slower upstroke, slow conduction, wide QRS, block, and risk of VF or asystole.\nIV calcium stabilizes the membrane while K⁺ is lowered.",
+"e": "• Mild ↑K⁺: the resting potential moves a little closer to threshold while most Na⁺ channels are still available, so it takes less to fire and excitability rises (patient 1).\n• Severe ↑K⁺: the larger depolarization closes the inactivation (h) gates of many Na⁺ channels. Too few channels are available for a normal phase 0, so the upstroke is slower, conduction slows and the QRS widens (patient 2), with risk of block, VF or asystole.\nIV calcium stabilizes the membrane while K⁺ is lowered.",
 "w": [
-"Both levels depolarize; the difference is how far.",
-"More open Na⁺ channels would speed conduction, not block it.",
+"High K⁺ depolarizes cells; both are less negative than normal.",
+"Depolarization closes h gates, so fewer channels are available.",
 "",
-"The key change is Na⁺ channel availability, not Ca²⁺ block.",
-"Pump activity does not explain the shift in excitability."
+"K⁺ doesn't block Ca²⁺ channels; the problem is Na⁺ channel availability.",
+"Pump speed doesn't explain the slow upstroke."
 ],
 "src": "lec"
 },
 {
 "t": "Integrated SA Node Effects & Summary",
 "lv": "Hard",
-"s": "A researcher records SA node action potentials, first during norepinephrine infusion and then during vagal stimulation. Which pairing is correct for norepinephrine, and which parameter changes only with vagal input?",
+"s": "A researcher records SA node action potentials during a norepinephrine infusion and then during vagal stimulation. Both recordings show a changed phase 4 slope and a changed firing rate. Which parameter changes only during vagal stimulation?",
 "c": [
-"NE: flatter slope, same MDP; only vagal changes the slope",
-"NE: steeper slope, more negative MDP; only vagal flattens the slope",
-"NE: same slope, less negative MDP; only vagal changes the slope",
-"NE: steeper slope, same MDP; only vagal makes the slope steeper",
-"NE: steeper slope, same MDP; only vagal makes MDP more negative"
+"Slope of the phase 4 depolarization",
+"Interval between action potentials",
+"Threshold voltage for phase 0",
+"Overshoot of the phase 0 peak",
+"Maximum diastolic potential"
 ],
 "a": 4,
-"e": "• Sympathetic (NE → β₁ → ↑ cAMP → ↑ I_f and Ca²⁺ currents): Phase 4 steeper, maximum diastolic potential essentially unchanged → threshold sooner → faster rate.\n• Parasympathetic (ACh → M2 → Gi): αi ↓ cAMP → flatter slope; βγ opens I_K-ACh → MDP more negative.\nSlope changes in both (opposite directions). The hyperpolarized MDP is unique to vagal stimulation, and it is the parameter that differentiates the two.",
+"e": "• Sympathetic: NE → β₁ → ↑ cAMP → ↑ I_f and Ca²⁺ currents → steeper phase 4; the MDP is essentially unchanged.\n• Parasympathetic: ACh → M2 → Gi. αi ↓ cAMP → flatter slope. βγ opens I_K-ACh → MDP more negative.\nThe slope changes with both, in opposite directions. The hyperpolarized MDP is unique to vagal stimulation.",
 "w": [
-"NE steepens Phase 4, and both systems change the slope.",
-"NE does not hyperpolarize the cell; vagal I_K-ACh does.",
-"NE's main effect is a steeper Phase 4 slope.",
-"Vagal input flattens the slope.",
+"The slope changes with both: steeper with NE, flatter with vagal input.",
+"The rate changes with both nerves.",
+"Threshold stays near −40 mV with both.",
+"Neither nerve is defined by a change in the peak.",
 ""
 ],
 "src": "lec"
@@ -3023,22 +3023,22 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Phase 2 · Plateau & E–C Coupling",
 "lv": "Hard",
-"s": "A 75-year-old woman on digoxin is started on high-dose furosemide, and her serum K⁺ falls to 2.9 mEq/L. She develops nausea and bigeminy. Which statement best explains her toxicity and the change her regimen needs?",
+"s": "A 75-year-old woman on digoxin is started on high-dose furosemide, and her serum K⁺ falls to 2.9 mEq/L. She develops nausea and bigeminy. Which change to her treatment best addresses the cause of her toxicity?",
 "c": [
-"Low K⁺ boosts digoxin binding; she needs K⁺ replaced",
-"Low K⁺ lowers digoxin binding, so her dose should be increased",
-"Furosemide blocks digoxin excretion; switch to a thiazide",
-"Low K⁺ activates β₁ receptors; add a β-blocker",
-"Digoxin raises K⁺ inside cells; stop all potassium"
+"Correct her serum potassium",
+"Increase her digoxin dose",
+"Switch furosemide to a thiazide",
+"Add a β-blocker for the bigeminy",
+"Stop all potassium intake"
 ],
 "a": 0,
-"e": "• Digoxin and K⁺ compete for the same site on the Na⁺/K⁺-ATPase. With low K⁺, more digoxin binds → more pump inhibition → ↑ intracellular Na⁺ → less Ca²⁺ extrusion by NCX → Ca²⁺ overload → delayed afterdepolarizations (bigeminy, ventricular arrhythmias).\n• Loop diuretics waste K⁺. She needs K⁺ monitoring and replacement, or a K⁺-sparing diuretic such as spironolactone, while on digoxin.",
+"e": "• Loop diuretics waste K⁺ → hypokalemia.\n• Digoxin and K⁺ compete for the same site on the Na⁺/K⁺-ATPase. With low K⁺, more digoxin binds → more pump inhibition → ↑ intracellular Na⁺ → less Ca²⁺ extrusion by NCX → Ca²⁺ overload → delayed afterdepolarizations (bigeminy, ventricular arrhythmias).\n• So the fix is to replace K⁺ (or use a K⁺-sparing diuretic such as spironolactone) and monitor it while she's on digoxin.",
 "w": [
 "",
-"Low K⁺ increases, not decreases, digoxin binding.",
-"Thiazides also waste K⁺, and the main issue is K⁺ competition at the pump.",
-"Hypokalemia does not act through β₁ receptors.",
-"Toxicity comes from Ca²⁺ overload, and she needs K⁺ replaced."
+"More digoxin would worsen the toxicity.",
+"Thiazides also waste K⁺.",
+"The cause is K⁺ competition at the pump, not β₁ activity.",
+"She needs more K⁺, not less."
 ],
 "src": "lec"
 }
