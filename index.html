@@ -102,6 +102,9 @@ button{font:inherit;color:inherit;cursor:pointer}
 .lec{display:flex;align-items:stretch;gap:0}.lec .lec-n{flex:1;min-width:0;font-weight:600;padding-left:4px}
 .lec-t{flex:none;width:26px;background:none;border:0;border-radius:6px;color:var(--muted);cursor:pointer;padding:0;margin-bottom:2px}
 .lec-t:hover{background:var(--hover)}.lec-t .chev{display:inline-block;font-size:10px;transition:transform .15s}.lec.open .lec-t .chev{transform:rotate(90deg)}
+.lchip.uw{border-color:#4c8bf5;color:#4c8bf5}
+.mehl{display:flex;flex-direction:column;gap:6px;margin:4px 0 10px}.mehl small{color:var(--muted);font-size:12px}
+.mehlref{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:8px 12px}.mehlref .pg{font-weight:700;color:#e8590c;white-space:nowrap}
 .lchip.ank{border-color:var(--accent,#4fb8b0);color:var(--accent,#4fb8b0)}
 .ank-ov{position:fixed;inset:0;z-index:9000;background:rgba(6,10,16,.6);display:grid;place-items:center;padding:16px}
 .ank-box{width:min(520px,100%);max-height:calc(100vh - 32px);overflow:auto;background:var(--panel,#161b22);color:var(--text,#e6edf3);border:1px solid var(--line,#262d36);border-radius:14px;padding:20px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
@@ -1471,6 +1474,70 @@ const ANKING = {
   "cbr|Lecture 3 · Ketone Body Metabolism": "nid:1476146871125,1476154069517,1476154085131,1476154090457,1476154095169,1476154107246,1476154113019,1476154118823,1476154123577,1476154128899,1476154138229,1476154152770,1476154175158,1476154185261,1476154190117,1476154196909,1476154207990,1476154211536,1476502591395,1476502674112,1476502551897,1462128264089,1462128449086,1462131849821,1462327211125,1462327286091,1462327309654,1462327320519,1462327363797,1462327370877,1475178090922,1584375201003,1502564341435,1462849140370,1502414496794,1476652222871",
   "ca|Lecture 1 · Introduction to Thorax & Intercostal Spaces": "nid:1474511972236,1496608604412,1496608680946,1496608819674,1496608419803,1522427952831,1522428732333,1474511953060,1474511955568,1522986512395,1524251536027,1484016863153,1473303030795,1473303017758,1521261423613,1521261423614,1484016858132,1484016867460,1506291111598,1495489589270,1506291152635,1506291250234"
 };
+// UWorld Step 1 question IDs that AnKing tags on this lecture's cards. Key matches ANKING.
+const UWORLD = {
+  "cpr|Lecture 1 · Cardiac Action Potential": "144,159,1382,1508,1513,1558,1931,1974,2007,6426,11956,15197",
+  "cpr|Lecture 2 · Pacemaker Potential: SA & AV Nodes": "1513,1531,1973,1975,1976,6426",
+  "cpr|Lecture 4 · The Cardiac Cycle": "138,227,246,945,1510,1511,1517,1530,2070,6645,6799,7238,11836,15199,15526,19574,21037",
+  "cpr|Lecture 3 · Effects of Cardiac Nerves": "898,1367,1975,6491,8289,11925,15306,15515,18498",
+  "cbr|Lecture 1 · Fatty Acid Oxidation": "1120,1341,1886,1888,6610,6762,11918",
+  "cbr|Lecture 2 · Fatty Acid & TAG Synthesis": "1063,1066,1889,11917",
+  "cbr|Lecture 3 · Ketone Body Metabolism": "600,1540,1886,1887,2014,2073,6601",
+  "ca|Lecture 1 · Introduction to Thorax & Intercostal Spaces": "647,648,1552,1829,11778,15158,19274"
+};
+// Mehlman HY Cardio page pointers, matched on the question stem and correct answer
+const MEHL = [
+  [/torsades|QT prolong/i, 24, "Torsades, QT prolongation & ECG waves"],
+  [/hyperkal|peaked T|calcium gluconate/i, 24, "Hyperkalemia on ECG & IV calcium"],
+  [/complete (AV |heart )?block|third[- ]degree|Mobitz|Wenckebach|escape rhythm|junctional escape|Purkinje escape/i, 25, "Heart block: 1st degree, Mobitz I/II, 3rd degree (pp. 25–26)"],
+  [/digoxin/i, 61, "Digoxin: mechanism, toxicity & low K⁺"],
+  [/lidocaine|flecainide|quinidine|procainamide|class I[ABC]?\b/i, 61, "Class I Na⁺ channel blockers"],
+  [/metoprolol|propranolol|atenolol|esmolol|β-?blocker|beta-?blocker|class II\b|β1 blocker/i, 62, "Beta-blockers (class II)"],
+  [/amiodarone|sotalol|class III\b/i, 63, "Amiodarone & class III"],
+  [/verapamil|diltiazem|class IV\b|L-type Ca²⁺ channel blocker/i, 63, "Class IV: verapamil & diltiazem"],
+  [/ivabradine/i, 63, "Ivabradine"],
+  [/atrial fibrillation/i, 17, "Atrial fibrillation & flutter"],
+  [/\bS3\b|\bS4\b/, 11, "S3 vs S4"],
+  [/split(ting)?\b.*S2|\bA2\b|\bP2\b/i, 49, "Splitting of S2 (pp. 49–50)"],
+  [/Valsalva|squat|handgrip/i, 50, "Maneuvers that change preload"],
+  [/jugular venous|\bJVP\b|\bJVD\b|wedge|PCWP/i, 3, "JVP, JVD & PCWP"],
+  [/ejection fraction|\bEF\b/, 26, "EF: normal 55–70% & the heart-failure arrows"],
+  [/sick sinus/i, 44, "Sick sinus syndrome"],
+  [/adenosine|supraventricular tachycardia|narrow-complex tachycardia|\bSVT\b/i, 19, "SVT: vagal maneuvers, then adenosine"],
+  [/baroreceptor|carotid sinus/i, 64, "Carotid sinus baroreceptors"]
+];
+function mehlFor(q){
+  if (!(q.pfx==="cpr" || q.pfx==="ncp1")) return [];
+  const t = q.s + " " + (q.c && q.c[q.a] || ""), out = [], seen = {};
+  for (const [re,p,l] of MEHL) { if (re.test(t) && !seen[l]) { seen[l]=1; out.push([p,l]); if (out.length===2) break; } }
+  return out;
+}
+function uwOpen(k){
+  const ids = UWORLD[k]; if (!ids) return;
+  const n = ids.split(",").length, lec = k.split("|")[1];
+  const d = document.createElement("div"); d.className = "ank-ov";
+  d.innerHTML = `<div class="ank-box" role="dialog" aria-modal="true" aria-labelledby="uwT">
+    <h3 id="uwT">UWorld questions · ${esc(lec)}</h3>
+    <p class="ank-sub">${n} UWorld Step 1 question IDs linked to this lecture's AnKing cards.</p>
+    <ol class="ank-steps">
+      <li>Open your <b>UWorld Step 1</b> QBank and click <b>Create Test</b>.</li>
+      <li>Switch to the <b>Custom</b> option that lets you enter question IDs.</li>
+      <li><b>Paste</b> the IDs below and create the test.</li>
+    </ol>
+    <textarea class="ank-q" readonly rows="3" aria-label="UWorld question IDs for this lecture">${esc(ids)}</textarea>
+    <div class="ank-row"><button class="btn primary" data-ankcopy>Copy IDs</button><button class="btn" data-ankclose>Close</button></div>
+    <p class="ank-tip">These come from the UWorld tags on the AnKing cards, so they're the core questions for this lecture, not every UWorld question on the topic. UWorld skips any ID it no longer has, and some questions may go beyond what this lecture covers.</p></div>`;
+  const close = ()=>{ d.remove(); document.removeEventListener("keydown", key, true); };
+  const key = e=>{ if (e.key==="Escape") { e.stopPropagation(); close(); } };
+  d.addEventListener("click", e=>{
+    if (e.target===d || e.target.closest("[data-ankclose]")) return close();
+    const c = e.target.closest("[data-ankcopy]"); if (!c) return;
+    const ta = d.querySelector(".ank-q"), done = ()=>{ c.textContent = "Copied ✓"; setTimeout(()=>{ c.textContent = "Copy IDs"; }, 2000); };
+    (navigator.clipboard ? navigator.clipboard.writeText(ids) : Promise.reject()).then(done, ()=>{ ta.focus(); ta.select(); try { document.execCommand("copy"); done(); } catch(err) {} });
+  });
+  document.addEventListener("keydown", key, true);
+  document.body.appendChild(d); d.querySelector("[data-ankcopy]").focus();
+}
 function ankingOpen(k){
   const q = ANKING[k]; if (!q) return;
   const n = q.replace(/^nid:/,"").split(",").length, lec = k.split("|")[1];
@@ -1517,9 +1584,10 @@ function lecTree(sec){
        + `<button class="chap lec-n ${on?"on":""}" data-key="${esc(g.lec.key)}"><span>${esc(g.lec.name)}</span><span class="n">${g.lec.ids.length}</span></button></div>`;
     if (o) {
       h += g.kids.map(chapBtn).join("");
-      const ak = sec.prefix+"|"+g.lec.name, akN = ANKING[ak] ? ANKING[ak].replace(/^nid:/,"").split(",").length : 0;
-      if (g.chips.length || akN) h += `<div class="lec-chips">` + g.chips.map(c=>`<button class="lchip ${S.cur===c.key&&view==="quiz"?"on":""}" data-key="${esc(c.key)}"><i class="d ${c.name[0]}"></i>${esc(c.name.replace(/ questions$/,""))} <b>${c.ids.length}</b></button>`).join("")
-        + (akN ? `<button class="lchip ank" data-anking="${esc(ak)}" title="Find this lecture's AnKing Step deck cards in Anki">🃏 AnKing cards <b>${akN}</b></button>` : "") + `</div>`;
+      const ak = sec.prefix+"|"+g.lec.name, akN = ANKING[ak] ? ANKING[ak].replace(/^nid:/,"").split(",").length : 0, uwN = UWORLD[ak] ? UWORLD[ak].split(",").length : 0;
+      if (g.chips.length || akN || uwN) h += `<div class="lec-chips">` + g.chips.map(c=>`<button class="lchip ${S.cur===c.key&&view==="quiz"?"on":""}" data-key="${esc(c.key)}"><i class="d ${c.name[0]}"></i>${esc(c.name.replace(/ questions$/,""))} <b>${c.ids.length}</b></button>`).join("")
+        + (akN ? `<button class="lchip ank" data-anking="${esc(ak)}" title="Find this lecture's AnKing Step deck cards in Anki">🃏 AnKing cards <b>${akN}</b></button>` : "")
+        + (uwN ? `<button class="lchip uw" data-uworld="${esc(ak)}" title="UWorld Step 1 question IDs for this lecture">🌍 UWorld <b>${uwN}</b></button>` : "") + `</div>`;
     }
   });
   if (bottom.length) h += `<div class="diff-h">By difficulty</div>` + bottom.map(c=>`<button class="chap ${S.cur===c.key&&view==="quiz"?"on":""}" data-key="${esc(c.key)}"><span><i class="d ${c.name[0]}"></i>${esc(c.name)}</span><span class="n">${c.ids.length}</span></button>`).join("");
@@ -2247,6 +2315,8 @@ function explanation(q, o, s){
   }
   if (q.c100) h += `<h4>📘 100 D&amp;GA Conceptions (Mavrych)</h4><div class="c100links">` + q.c100.map(p=>{ const c = c100Concept(p);
       return `<button class="c100btn" data-c100p="${p}"><span class="cn">#${c?c[0]:"?"}</span><span class="ct"><b>${esc(c100Topic(p)||c[1])}</b><small>${c?esc(c[1])+" · ":""}page ${p}</small></span><span class="go">Open ›</span></button>`; }).join("") + `</div>`;
+  const mh = mehlFor(q);
+  if (mh.length) h += `<h4>📕 Mehlman HY Cardio</h4><div class="mehl">` + mh.map(([p,l])=>`<div class="mehlref"><span class="pg">p. ${p}</span><span>${esc(l)}</span></div>`).join("") + `<small>Open your Mehlman HY Cardio PDF to this page.</small></div>`;
   const vz = vizFor(q);
   if (vz) h += `<button class="vizbtn" data-viz="${vz.page}" data-vizh="${esc(vz.hash||"")}" data-vizt="${esc(vz.label)}" data-vizs="${esc("On the "+vz.name)}"><span class="vi" aria-hidden="true">${vz.icon}</span><span><b>See it on the ${esc(vz.name)}</b><small>${esc(vz.label)}</small></span><span class="go">Open ›</span></button>`;
   if (q.key) h += `<div class="keynote">${esc(q.key)}</div>`;
@@ -3206,6 +3276,7 @@ document.addEventListener("click", e=>{
   if (t.closest("[data-gprint]")) { window.print(); return; }
   const gj = t.closest("[data-gjump]");
   if (gj) { e.preventDefault(); const el = document.getElementById(gj.dataset.gjump); if (el) el.scrollIntoView({behavior:"smooth", block:"start"}); return; }
+  if (t.closest("[data-uworld]")) { uwOpen(t.closest("[data-uworld]").dataset.uworld); return; }
   if (t.closest("[data-anking]")) { ankingOpen(t.closest("[data-anking]").dataset.anking); return; }
   if (t.closest("[data-g3d]")) { const b = t.closest("[data-g3d]"), op = b.getAttribute("aria-expanded")!=="true"; try { localStorage.setItem("jj-3d-open", op?"1":"0"); } catch(e) {} b.setAttribute("aria-expanded", op); b.classList.toggle("on", !op && !!(b.nextElementSibling && b.nextElementSibling.querySelector(".on"))); if (b.nextElementSibling) b.nextElementSibling.hidden = !op; return; }
   if (t.closest("[data-toolstoggle]")) { const b = t.closest("[data-toolstoggle]"), op = b.getAttribute("aria-expanded")!=="true"; try { localStorage.setItem("jj-tools-open", op?"1":"0"); } catch(e) {} renderAll(); return; }
