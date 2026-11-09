@@ -104,7 +104,9 @@ button{font:inherit;color:inherit;cursor:pointer}
 .lec-t:hover{background:var(--hover)}.lec-t .chev{display:inline-block;font-size:10px;transition:transform .15s}.lec.open .lec-t .chev{transform:rotate(90deg)}
 .lchip.uw{border-color:#4c8bf5;color:#4c8bf5}
 .mehl{display:flex;flex-direction:column;gap:6px;margin:4px 0 10px}.mehl small{color:var(--muted);font-size:12px}
-.mehlref{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:8px 12px}.mehlref .pg{font-weight:700;color:#e8590c;white-space:nowrap}
+.mehlref{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:9px 12px;background:var(--card);color:var(--text);cursor:pointer;text-align:left;width:100%;font:inherit}.mehlref:hover{border-color:#e8590c;background:var(--hover)}.mehlref .ml{flex:1}.mehlref .go{color:#e8590c;font-weight:700;font-size:13px}
+.mehlv{position:fixed;inset:0;z-index:85;background:rgba(10,12,16,.82);display:flex;flex-direction:column}.mehlv iframe{flex:1;border:0;background:#fff;width:100%}
+.mehlv .c100bar a{margin-left:auto}.mehlref .pg{font-weight:700;color:#e8590c;white-space:nowrap}
 .lchip.ank{border-color:var(--accent,#4fb8b0);color:var(--accent,#4fb8b0)}
 .ank-ov{position:fixed;inset:0;z-index:9000;background:rgba(6,10,16,.6);display:grid;place-items:center;padding:16px}
 .ank-box{width:min(520px,100%);max-height:calc(100vh - 32px);overflow:auto;background:var(--panel,#161b22);color:var(--text,#e6edf3);border:1px solid var(--line,#262d36);border-radius:14px;padding:20px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
@@ -2316,7 +2318,7 @@ function explanation(q, o, s){
   if (q.c100) h += `<h4>📘 100 D&amp;GA Conceptions (Mavrych)</h4><div class="c100links">` + q.c100.map(p=>{ const c = c100Concept(p);
       return `<button class="c100btn" data-c100p="${p}"><span class="cn">#${c?c[0]:"?"}</span><span class="ct"><b>${esc(c100Topic(p)||c[1])}</b><small>${c?esc(c[1])+" · ":""}page ${p}</small></span><span class="go">Open ›</span></button>`; }).join("") + `</div>`;
   const mh = mehlFor(q);
-  if (mh.length) h += `<h4>📕 Mehlman HY Cardio</h4><div class="mehl">` + mh.map(([p,l])=>`<div class="mehlref"><span class="pg">p. ${p}</span><span>${esc(l)}</span></div>`).join("") + `<small>Open your Mehlman HY Cardio PDF to this page.</small></div>`;
+  if (mh.length) h += `<h4>📕 Mehlman HY Cardio</h4><div class="mehl">` + mh.map(([p,l])=>`<button class="mehlref" data-mehlp="${p}"><span class="pg">p. ${p}</span><span class="ml">${esc(l)}</span><span class="go">Open ›</span></button>`).join("") + `</div>`;
   const vz = vizFor(q);
   if (vz) h += `<button class="vizbtn" data-viz="${vz.page}" data-vizh="${esc(vz.hash||"")}" data-vizt="${esc(vz.label)}" data-vizs="${esc("On the "+vz.name)}"><span class="vi" aria-hidden="true">${vz.icon}</span><span><b>See it on the ${esc(vz.name)}</b><small>${esc(vz.label)}</small></span><span class="go">Open ›</span></button>`;
   if (q.key) h += `<div class="keynote">${esc(q.key)}</div>`;
@@ -2337,6 +2339,59 @@ function showPage(html){
 }
 
 // ---------- Home ----------
+// ---------- Mehlman PDF: each user adds their own copy once; it stays in this browser (IndexedDB) ----------
+const MEHL_BOOK = "HY Cardio";
+function pdfDB(){ return new Promise((res,rej)=>{ const r = indexedDB.open("jj-pdfs",1); r.onupgradeneeded = ()=>r.result.createObjectStore("f"); r.onsuccess = ()=>res(r.result); r.onerror = ()=>rej(r.error); }); }
+async function pdfGet(k){ try { const db = await pdfDB(); return await new Promise(res=>{ const q = db.transaction("f").objectStore("f").get(k); q.onsuccess = ()=>res(q.result||null); q.onerror = ()=>res(null); }); } catch(e) { return null; } }
+async function pdfPut(k,b){ const db = await pdfDB(); return new Promise((res,rej)=>{ const t = db.transaction("f","readwrite"); t.objectStore("f").put(b,k); t.oncomplete = ()=>res(); t.onerror = ()=>rej(t.error); }); }
+let mehlUrl = null;
+async function mehlOpen(p){
+  const b = await pdfGet("mehl:"+MEHL_BOOK);
+  if (!b) return mehlAsk(p);
+  if (!mehlUrl) mehlUrl = URL.createObjectURL(b);
+  mehlShow(p);
+}
+function mehlShow(p){
+  let v = document.getElementById("mehlv"); if (v) v.remove();
+  v = document.createElement("div"); v.id = "mehlv"; v.className = "mehlv"; v.setAttribute("role","dialog"); v.setAttribute("aria-label","Mehlman "+MEHL_BOOK);
+  const u = mehlUrl + "#page=" + p;
+  v.innerHTML = `<div class="c100bar"><div class="c100t"><b>Mehlman ${esc(MEHL_BOOK)}</b><small>Page ${p}</small></div><a class="btn" href="${u}" target="_blank" rel="noopener">Open in new tab ↗</a><button class="btn" data-mehlchange>Change PDF</button><button class="btn" data-mehlclose title="Close (Esc)">✕</button></div><iframe title="Mehlman ${esc(MEHL_BOOK)} page ${p}" src="${u}"></iframe>`;
+  document.body.appendChild(v);
+}
+function mehlAsk(p){
+  const d = document.createElement("div"); d.className = "ank-ov";
+  d.innerHTML = `<div class="ank-box" role="dialog" aria-modal="true" aria-labelledby="mhT">
+    <h3 id="mhT">Add your Mehlman ${esc(MEHL_BOOK)} PDF</h3>
+    <p class="ank-sub">Pick your copy of the PDF once. It's saved in this browser on this device only, and after that every Mehlman link opens straight to its page.</p>
+    <ol class="ank-steps"><li>Don't have it? Mehlman's PDFs are free at <a href="https://mehlmanmedical.com" target="_blank" rel="noopener">mehlmanmedical.com</a>.</li><li>Click <b>Choose PDF</b> and select <b>${esc(MEHL_BOOK)}</b>.</li></ol>
+    <input type="file" accept="application/pdf,.pdf" hidden data-mehlfile>
+    <div class="ank-row"><button class="btn primary" data-mehlpick>Choose PDF</button><button class="btn" data-ankclose>Cancel</button></div>
+    <p class="ank-tip" data-mehlmsg></p></div>`;
+  const close = ()=>{ d.remove(); document.removeEventListener("keydown", key, true); };
+  const key = e=>{ if (e.key==="Escape") { e.stopPropagation(); close(); } };
+  d.addEventListener("click", e=>{
+    if (e.target===d || e.target.closest("[data-ankclose]")) return close();
+    if (e.target.closest("[data-mehlpick]")) d.querySelector("[data-mehlfile]").click();
+  });
+  d.querySelector("[data-mehlfile]").addEventListener("change", async e=>{
+    const f = e.target.files && e.target.files[0]; if (!f) return;
+    const msg = d.querySelector("[data-mehlmsg]");
+    if (!/pdf$/i.test(f.type||f.name)) { msg.textContent = "That isn't a PDF. Please pick the Mehlman PDF."; return; }
+    try { await pdfPut("mehl:"+MEHL_BOOK, f); } catch(err) { msg.textContent = "Couldn't save the PDF in this browser. You can still open it from your files."; return; }
+    if (mehlUrl) { URL.revokeObjectURL(mehlUrl); mehlUrl = null; }
+    close(); if (p) mehlOpen(p);
+  });
+  document.addEventListener("keydown", key, true);
+  document.body.appendChild(d); d.querySelector("[data-mehlpick]").focus();
+}
+document.addEventListener("click", e=>{
+  const b = e.target.closest && e.target.closest("[data-mehlp]");
+  if (b) { mehlOpen(+b.dataset.mehlp); return; }
+  if (e.target.closest && e.target.closest("[data-mehlclose]")) { const v = document.getElementById("mehlv"); v && v.remove(); return; }
+  if (e.target.closest && e.target.closest("[data-mehlchange]")) { const v = document.getElementById("mehlv"); const pg = v ? +(v.querySelector("small").textContent.replace(/\D/g,"")) : 0; v && v.remove(); mehlAsk(pg); return; }
+});
+document.addEventListener("keydown", e=>{ if (e.key==="Escape") { const v = document.getElementById("mehlv"); if (v) { v.remove(); e.stopPropagation(); } } });
+
 // ---------- 100 D&GA Conceptions viewer ----------
 let c100Page = 1;
 const c100State = {};
