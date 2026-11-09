@@ -1169,22 +1169,23 @@ const SECTIONS = [
      const ANOM = /defect|\bASD\b|\bVSD\b|tetralogy|coarctation|patent|persistent|hernia|atresia|fistula|transposition|anomal|stenosis|ectopi|dextro|hypoplas|agenesis|cleft/i;
      return [
      // Lecture 1 covered the heart's origin through the segments of the single tube (Q1–22 minus 9, 18, 19);
-     // the next class finishes the heart tube (Q23–48) before moving on to the ventricles
+     // Lecture 2 finished the heart tube and atrial septation (Q23–48); Lecture 3 starts at the ventricles
      {main:true, name:"Lecture 1 · Heart Tubes & Atrial Chambers", f:q=>q.num<=22 && ![9,18,19].includes(q.num)},
      {name:"Heart origin & heart tubes", f:q=>q.num<=22 && ![9,18,19].includes(q.num) && q.t==="Heart Origin & Heart Tubes"},
      {name:"Single heart tube & its segments", f:q=>q.num>=20 && q.num<=22},
-     {main:true, name:"Lecture 2 · Ventricles & Truncus Arteriosus (with anomalies)", f:q=>(q.num>=23 && q.num<=48) || q.t==="Ventricles, Outflow & Tetralogy"},
-     {name:"Folding & fate of the heart tube", f:q=>q.num>=23 && q.t==="Sinus Venosus & Heart Tube Fate"},
-     {name:"Atrial septation & ASDs", f:q=>q.t==="Atrial Septation & ASDs"},
+     {main:true, name:"Lecture 2 · Heart Tube Fate & Atrial Septation", f:q=>q.num>=23 && q.num<=48},
+     {name:"Folding & fate of the heart tube", f:q=>q.num>=23 && q.num<=48 && q.t==="Sinus Venosus & Heart Tube Fate"},
+     {name:"Atrial septation & ASDs", f:q=>q.num>=23 && q.num<=48 && q.t==="Atrial Septation & ASDs"},
+     {main:true, name:"Lecture 3 · Ventricles, Truncus Arteriosus & Fetal Circulation", f:q=>["Ventricles, Outflow & Tetralogy","Fetal Circulation & Birth"].includes(q.t)},
      {name:"Ventricles, outflow & tetralogy", f:q=>q.t==="Ventricles, Outflow & Tetralogy"},
-     {main:true, name:"Lecture 3 · Fetal Circulation, Artery & Vein Development", f:q=>["Fetal Circulation & Birth","Arterial Arches & Arteries","Veins"].includes(q.t)},
      {name:"Fetal circulation & changes at birth", f:q=>q.t==="Fetal Circulation & Birth"},
+     {main:true, name:"Lecture 4 · Arterial Arches, Arteries & Veins", f:q=>["Arterial Arches & Arteries","Veins"].includes(q.t)},
      {name:"Arterial (aortic) arches & arteries", f:q=>q.t==="Arterial Arches & Arteries"},
      {name:"Development of the veins", f:q=>q.t==="Veins"},
-     {main:true, name:"Lecture 4 · Nasal Cavity & Paranasal Sinuses", f:NAS},
-     {main:true, name:"Lecture 5 · Development of the Respiratory System", f:q=>q.t==="Respiratory Development" && !NAS(q)},
-     {main:true, name:"Lecture 6 · Formation of the Diaphragm", f:q=>q.t==="Body Cavities & Diaphragm"},
-     {main:true, name:"Lecture 7 · Congenital Anomalies (all lectures)", f:q=>ANOM.test(q.s+" "+(q.c?q.c[q.a]:""))}]; })()},
+     {main:true, name:"Lecture 5 · Nasal Cavity & Paranasal Sinuses", f:NAS},
+     {main:true, name:"Lecture 6 · Development of the Respiratory System", f:q=>q.t==="Respiratory Development" && !NAS(q)},
+     {main:true, name:"Lecture 7 · Formation of the Diaphragm", f:q=>q.t==="Body Cavities & Diaphragm"},
+     {main:true, name:"Lecture 8 · Congenital Anomalies (all lectures)", f:q=>ANOM.test(q.s+" "+(q.c?q.c[q.a]:""))}]; })()},
   {course:"crs", name:"CRS Anatomy", all:"All CRS Anatomy", prefix:"ca", topics:window.CRS_ANAT_TOPICS, hideTopics:true, qs:window.CRS_ANAT_QUESTIONS,
    // Original questions written from the Thorax study guide, grouped by the CRS102 anatomy lectures, then topic
    extra:(window.CRS_ANAT_LECTURES||[]).flatMap(([n,ts])=>[{main:true, name:n, f:q=>ts.includes(q.t)}].concat(ts.map(t=>({name:t, f:q=>q.t===t})),
