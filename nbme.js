@@ -4195,6 +4195,106 @@ window.NBME_QUIZZES = [
 "β-oxidation continues and supplies the acetyl-CoA for ketones.",
 "Poor intake depletes, rather than builds, glycogen."
 ]
+},
+{
+"t": "Lecture 1 · Fatty Acid Oxidation",
+"s": "A 3-month-old boy has had seizures since birth, poor feeding and profound hypotonia. He has a high forehead, a wide anterior fontanelle and an enlarged liver. Plasma very-long-chain fatty acids and phytanic acid are both high, and his cultured fibroblasts cannot oxidize very-long-chain fatty acids. A defect in which organelle best explains his condition?",
+"c": [
+"Lysosome",
+"Mitochondrion",
+"Smooth endoplasmic reticulum",
+"Peroxisome",
+"Golgi apparatus"
+],
+"a": 3,
+"e": "• Both VLCFA and phytanic acid are high, so two pathways are down at once: β-oxidation of VLCFA and α-oxidation of branched phytanic acid.\n• Both happen in peroxisomes, so the whole organelle is failing: a peroxisome biogenesis (PEX) disorder.\n• Neonatal seizures, profound hypotonia, craniofacial features and hepatomegaly in early infancy fit Zellweger syndrome.\nCompare: X-ALD raises only VLCFA (ABCD1 transporter); adult Refsum disease raises only phytanic acid (PHYH).",
+"w": [
+"Lysosomal storage diseases build up undigested macromolecules, not VLCFA and phytanic acid.",
+"Mitochondria oxidize short-, medium- and long-chain fatty acids, not VLCFA or branched chains.",
+"The smooth ER makes lipids and steroids; it doesn't oxidize VLCFA.",
+"",
+"The Golgi modifies and sorts proteins."
+]
+},
+{
+"t": "Lecture 1 · Fatty Acid Oxidation",
+"s": "A 6-day-old girl has become too sleepy to feed and has started vomiting. She is breathing fast. An older brother died in infancy during an episode of low blood sugar. Blood gas shows a metabolic acidosis, and urine methylmalonic acid is very high. Which other set of findings is most likely?",
+"c": [
+"Normal glucose, no ketones, high ammonia",
+"Low glucose, high ketones, high ammonia",
+"Low glucose, no ketones, high ammonia",
+"High glucose, high ketones, normal ammonia",
+"Low glucose, high ketones, normal ammonia"
+],
+"a": 1,
+"e": "• High methylmalonic acid in a newborn → methylmalonic acidemia: a defect in methylmalonyl-CoA mutase (or its B12 cofactor) in the propionate pathway, propionyl-CoA → methylmalonyl-CoA → succinyl-CoA.\n• Organic acids pile up → metabolic acidosis, with fast breathing to compensate; propionic acid rises too.\n• They also impair gluconeogenesis → hypoglycemia with increased ketones, and inhibit the urea cycle → hyperammonemia.\nSo: low glucose, high ketones, high ammonia. Propionic acidemia looks the same but without methylmalonic acid.",
+"w": [
+"That's a urea cycle defect: no hypoglycemia or ketosis.",
+"",
+"Hypoketotic hypoglycemia points to a fatty acid oxidation defect.",
+"That's diabetic ketoacidosis, not a newborn organic acidemia.",
+"Organic acids also block the urea cycle, so ammonia rises."
+]
+},
+{
+"t": "Lecture 1 · Fatty Acid Oxidation",
+"s": "A 5-year-old girl tires after a few minutes of walking and has had mild motor delay. She has an S3 gallop. Her fasting glucose is 37 mg/dL with no ketones in the urine, and her CK is mildly high. A muscle biopsy shows very low carnitine. Production of which substance is most directly impaired?",
+"c": [
+"Palmitate",
+"Lactate",
+"Acetoacetate",
+"Glutathione",
+"Arachidonic acid"
+],
+"a": 2,
+"e": "• Weakness with exertion, cardiomyopathy (S3) and fasting hypoglycemia without ketones → muscle and liver can't burn fat.\n• Low muscle carnitine → primary carnitine deficiency: long-chain fatty acids can't cross the inner mitochondrial membrane as acylcarnitine.\n• No β-oxidation → no acetyl-CoA → the liver can't make ketone bodies such as acetoacetate, and heart and muscle lose their main fuel.",
+"w": [
+"Fatty acid synthesis is cytosolic and doesn't need carnitine.",
+"Lactate comes from pyruvate and is made normally.",
+"",
+"Glutathione is made from glutamate, cysteine and glycine.",
+"Arachidonic acid comes from the diet and membrane phospholipids."
+]
+},
+{
+"t": "Lecture 1 · Fatty Acid Oxidation",
+"s": "A 7-year-old boy goes about 24 hours without food on a camping trip. He becomes weak, vomits and grows lethargic. His glucose is 24 mg/dL, acetoacetate is undetectable, and his liver is mildly enlarged with slightly raised transaminases. He has a seizure in the emergency department. Which enzyme is most likely deficient?",
+"c": [
+"Glucose-6-phosphatase",
+"Glycogen phosphorylase",
+"Acetyl-CoA carboxylase",
+"Acid α-glucosidase",
+"Acyl-CoA dehydrogenase"
+],
+"a": 4,
+"e": "• A long fast → hypoglycemia with no ketones → the liver can't oxidize fatty acids. A glycogen disorder would still make ketones.\n• A β-oxidation defect that shows up in childhood after a long fast, with hepatomegaly and seizures, is classically medium-chain acyl-CoA dehydrogenase (MCAD) deficiency, the first β-oxidation step for medium chains.\n• Treatment: avoid fasting and give glucose promptly during illness.",
+"w": [
+"Glycogen storage disorders still make ketones during a fast.",
+"Glycogen phosphorylase defects leave ketogenesis intact.",
+"ACC makes fatty acids and is switched off during fasting.",
+"Pompe disease is a lysosomal glycogen disease with cardiomyopathy, not fasting hypoglycemia.",
+""
+]
+},
+{
+"t": "Lecture 2 · Fatty Acid & TAG Synthesis",
+"s": "Rats are fed a high-carbohydrate, high-protein diet for several weeks. Their liver cells show active fatty acid synthesis and almost no β-oxidation. A rise in which molecule most directly blocks β-oxidation in these cells?",
+"c": [
+"Malonyl-CoA",
+"Citrate",
+"Carnitine",
+"NADPH",
+"Acetoacetate"
+],
+"a": 0,
+"e": "• Fed state → insulin and high citrate activate acetyl-CoA carboxylase → malonyl-CoA, the committed step of fatty acid synthesis.\n• Malonyl-CoA inhibits carnitine acyltransferase I (CPT I), the gate into the mitochondria.\n• So newly made fatty acids aren't burned right away.",
+"w": [
+"",
+"Citrate activates ACC but doesn't block fatty acid entry itself.",
+"Carnitine carries fatty acids in; more would help β-oxidation.",
+"NADPH drives synthesis; it doesn't inhibit β-oxidation.",
+"Ketones rise in fasting, not on a high-carbohydrate diet."
+]
 }
 ]
 },

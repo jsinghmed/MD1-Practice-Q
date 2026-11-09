@@ -705,6 +705,29 @@ html.jjlock #app{visibility:hidden!important}
 .xexp .hy{background:var(--key-bg);color:var(--key-fg);border-radius:8px;padding:10px 14px;margin:14px 0 4px}
 .xexp .hy b{color:inherit}
 /* ===== USMLE-style interface ===== */
+/* ===== Exam look (light theme): navy bars, status list, boxed choices, result bar, Explanation tab ===== */
+:root[data-theme="light"] .ubar,:root[data-theme="light"] .ufoot{background:#1c4a72;border-color:#1c4a72}
+:root[data-theme="light"] .uitem{border:1px solid #fff;padding:4px 10px;align-self:stretch;justify-content:center}
+:root[data-theme="light"] .app.usmle .rail{background:#fff;border-right:1px solid #cfd6e4}
+:root[data-theme="light"] .app.usmle .rail::before{content:"Question Status";display:block;padding:8px 6px;text-align:center;font-size:12.5px;font-weight:700;line-height:1.2;color:#1c2733;white-space:normal}
+:root[data-theme="light"] .app.usmle .tile{font-size:15px}
+:root[data-theme="light"] .app.usmle .tile.ok,:root[data-theme="light"] .app.usmle .tile.bad,:root[data-theme="light"] .app.usmle .tile.pick{background:#e2e2e2!important}
+:root[data-theme="light"] .app.usmle .tile.cur{background:#1c4a72!important;color:#fff!important;font-weight:600}
+:root[data-theme="light"] .app.usmle .tile.cur::before{color:#fff}
+:root[data-theme="light"] .app.usmle .main{background:linear-gradient(#f7f8fb,#e3e5f2);background-attachment:fixed}
+:root[data-theme="light"] .app.usmle .stem{color:#1c2733;line-height:1.75}
+:root[data-theme="light"] .app.usmle .choices{display:inline-flex;min-width:380px;background:#f1f2f9;border:1px solid #1c4a72;border-bottom-width:5px;border-radius:0;padding:8px 10px}
+:root[data-theme="light"] .app.usmle .ch .x{opacity:1;font-size:0;padding:2px 8px}
+:root[data-theme="light"] .app.usmle .ch .x::after{content:"ab";font-size:14px;text-decoration:line-through;color:#333}
+:root[data-theme="light"] .app.usmle .ustrip{background:#e8e9f4;border:none;border-left:6px solid #5cb85c;border-radius:0;box-shadow:0 1px 3px rgba(0,0,0,.13);max-width:900px;margin:22px 0 26px}
+:root[data-theme="light"] .app.usmle .ustrip:has(.us.r){border-left-color:#d9534f}
+:root[data-theme="light"] .app.usmle .ustrip .us{background:transparent!important;border-left:none;padding:16px 26px}
+:root[data-theme="light"] .app.usmle .ustrip .us:first-child b{font-size:22px;font-weight:400}
+:root[data-theme="light"] .app.usmle .ustrip .us.g b{color:#4aaa3c} :root[data-theme="light"] .app.usmle .ustrip .us.r b{color:#d9534f}
+:root[data-theme="light"] .app.usmle .exp{position:relative;margin-top:64px;border-top:1px solid #d5d8e6;padding-top:6px}
+:root[data-theme="light"] .app.usmle .exp::before{content:"Explanation";position:absolute;top:-51px;left:0;padding:13px 28px;border:1px solid #d5d8e6;border-bottom:0;background:#f2f3fa;font-size:17px;color:#1c2733}
+:root[data-theme="light"] .app.usmle .exp p{line-height:1.75}
+
 .ubar,.ufoot{position:fixed;left:0;right:0;z-index:30;background:#1b3550;color:#fff;display:flex;align-items:center;gap:10px;padding:0 14px}
 :root:not([data-theme="light"]) .ubar,:root:not([data-theme="light"]) .ufoot{background:#14243a;border-color:#2a3a52}
 .ubar{top:0;min-height:58px;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.08)}
@@ -1087,7 +1110,7 @@ button.dst:hover{background:var(--hover)}
 <script src="crs-anatomy.js?v=1"></script>
 <script src="crs-biochem.js?v=5"></script>
 <script src="crs-physiology.js?v=8"></script>
-<script src="nbme.js?v=13"></script>
+<script src="nbme.js?v=14"></script>
 <script src="xp-crs.js?v=1"></script>
 <script src="viz-links.js?v=3"></script>
 <script>
@@ -1491,7 +1514,8 @@ const UWORLD = {
 const MEHL_BOOKS = {
   cardio: {name:"HY Cardio", url:"mehlman/HY%20Cardio.pdf", pfx:["cpr","ncp1"]},
   biochem: {name:"HY Biochem", url:"mehlman/HY%20Biochem.pdf", pfx:["cbr","ncb1"]},
-  pulm: {name:"HY Pulmonary", url:"mehlman/HY%20Pulmonary.pdf", pfx:[]}
+  pulm: {name:"HY Pulmonary", url:"mehlman/HY%20Pulmonary.pdf", pfx:[]},
+  arrows: {name:"HY Arrows", url:"mehlman/HY%20Arrows.pdf", pfx:["cpr","ncp1","cbr","ncb1"]}
 };
 const MEHL = [
   ["cardio", /torsades|QT prolong/i, 24, "Torsades, QT prolongation & ECG waves"],
@@ -1519,12 +1543,22 @@ const MEHL = [
   ["biochem", /NADPH|pentose phosphate|G6PD/i, 20, "NADPH, the HMP shunt & G6PD"],
   ["biochem", /hormone-sensitive|\bHSL\b|lipolysis/i, 16, "Hormone-sensitive lipase"],
   ["biochem", /ketoacidosis|\bDKA\b/i, 65, "Diabetic ketoacidosis"],
+  ["arrows", /dilated cardiomyopathy|systolic dysfunction|ejection fraction|\bEF\b|end-diastolic|\bEDV\b/i, 277, "Q137 · Dilated LV: ↓EF, ↑LVEDP, ↑LVEDV (answer p. 278)"],
+  ["arrows", /\bS4\b|diastolic dysfunction|stiff/i, 279, "Q138 · Stiff LV: EF unchanged, ↑LVEDP (answer p. 280)"],
+  ["arrows", /propranolol|metoprolol|atenolol|β-?blocker|beta-?blocker|β1 blocker/i, 271, "Q134 · β-blocker: ↑LVEDV, ↓CO, ↑SVR (answer p. 272)"],
+  ["arrows", /nitrate|venous return|venodilat/i, 273, "Q135 · Nitrates: ↓venous return, ↑HR, ↓CO (answer p. 274)"],
+  ["arrows", /nifedipine|afterload|arteriol/i, 275, "Q136 · Nifedipine: ↓SVR, ↑HR, ↑EF (answer p. 276)"],
+  ["arrows", /baroreceptor|carotid sinus|standing|orthostatic/i, 269, "Q133 · Standing up: venous return & baroreceptors (answer p. 270)"],
+  ["arrows", /runner|marathon|exercise|vagal tone/i, 251, "Q124 · Baroreceptor, vagal & SA sympathetic firing (answer p. 252)"],
+  ["arrows", /ketoacidosis|\bDKA\b/i, 205, "Q101–103 · DKA arrows: pH, ketones, Na⁺, K⁺ (pp. 205–210)"],
+  ["arrows", /lipolysis|GLUT-?4|insulin/i, 327, "Q162 · Insulin deficiency: GLUT-4, lipolysis, proteolysis (answer p. 328)"],
   ["biochem", /malonyl|acetyl-?CoA carboxylase|\bACC\b|ketogenesis|glucagon/i, 61, "Catabolic state: ACC, malonyl-CoA & ketogenesis"]
 ];
 function mehlFor(q){
   const t = q.s + " " + (q.c && q.c[q.a] || ""), out = [], seen = {};
-  for (const [bk,re,p,l] of MEHL) { if (!MEHL_BOOKS[bk].pfx.includes(q.pfx)) continue; if (re.test(t) && !seen[l]) { seen[l]=1; out.push([bk,p,l]); if (out.length===2) break; } }
-  return out;
+  const n = {};
+  for (const [bk,re,p,l] of MEHL) { if (!MEHL_BOOKS[bk].pfx.includes(q.pfx)) continue; if ((n[bk]||0) >= (bk==="arrows"?1:2)) continue; if (re.test(t) && !seen[l]) { seen[l]=1; n[bk]=(n[bk]||0)+1; out.push([bk,p,l]); } }
+  return out.sort((a,b)=>(a[0]==="arrows")-(b[0]==="arrows"));
 }
 function uwOpen(k){
   const ids = UWORLD[k]; if (!ids) return;
@@ -2330,7 +2364,7 @@ function explanation(q, o, s){
   if (q.c100) h += `<h4>📘 100 D&amp;GA Conceptions (Mavrych)</h4><div class="c100links">` + q.c100.map(p=>{ const c = c100Concept(p);
       return `<button class="c100btn" data-c100p="${p}"><span class="cn">#${c?c[0]:"?"}</span><span class="ct"><b>${esc(c100Topic(p)||c[1])}</b><small>${c?esc(c[1])+" · ":""}page ${p}</small></span><span class="go">Open ›</span></button>`; }).join("") + `</div>`;
   const mh = mehlFor(q);
-  if (mh.length) h += `<h4>📕 Mehlman ${esc(MEHL_BOOKS[mh[0][0]].name)}</h4><div class="mehl">` + mh.map(([bk,p,l])=>`<button class="mehlref" data-mehlb="${bk}" data-mehlp="${p}"><span class="pg">p. ${p}</span><span class="ml">${esc(l)}</span><span class="go">Open ›</span></button>`).join("") + `</div>`;
+  if (mh.length) h += `<h4>📕 Mehlman</h4><div class="mehl">` + mh.map(([bk,p,l])=>`<button class="mehlref" data-mehlb="${bk}" data-mehlp="${p}"><span class="pg">${esc(MEHL_BOOKS[bk].name)} · p. ${p}</span><span class="ml">${esc(l)}</span><span class="go">Open ›</span></button>`).join("") + `</div>`;
   const vz = vizFor(q);
   if (vz) h += `<button class="vizbtn" data-viz="${vz.page}" data-vizh="${esc(vz.hash||"")}" data-vizt="${esc(vz.label)}" data-vizs="${esc("On the "+vz.name)}"><span class="vi" aria-hidden="true">${vz.icon}</span><span><b>See it on the ${esc(vz.name)}</b><small>${esc(vz.label)}</small></span><span class="go">Open ›</span></button>`;
   if (q.key) h += `<div class="keynote">${esc(q.key)}</div>`;
