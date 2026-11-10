@@ -303,6 +303,10 @@ i.d{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px
 .notes .nh b{letter-spacing:1.4px;font-size:12.5px}
 .notes textarea{width:100%;min-height:110px;background:var(--choice);border:1px solid var(--line2);border-radius:7px;color:var(--text);padding:12px 14px;font:inherit;font-size:15px;resize:vertical}
 .notes textarea:focus{outline:none;border-color:var(--blue)}
+.cpct{align-self:center;margin-left:auto;padding:0 8px;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.classline{font-size:13.5px;color:var(--muted);margin:6px 0 4px}.classline b{color:var(--text)}
+.app.usmle .classline{display:none}
+.dclass{font-size:12.5px;color:var(--muted);margin:2px 0 6px}.dclass b{color:var(--teal,#4fb8b0)}
 .nimgs{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}.nimgs:empty{display:none}
 .nimg{position:relative;width:150px;height:110px;border:1px solid var(--line2);border-radius:8px;overflow:hidden;background:var(--choice)}
 .nimg img{width:100%;height:100%;object-fit:cover;cursor:zoom-in;display:block}
@@ -1996,6 +2000,7 @@ function uStrip(q, o, s){
   const a = s.ans[q.id], letter = LET[o.indexOf(q.a)], tt = S.qtime[q.id] || 0;
   const st = a===undefined ? ["m","Not answered"] : a===q.a ? ["g","Correct"] : ["r","Incorrect"];
   return `<div class="ustrip"><div class="us ${st[0]}"><b>${st[1]}</b><span>Correct answer: ${letter}</span></div>`
+    + (classQ(q.id) ? `<div class="us"><b>${Math.round(classQ(q.id)[1]*100/classQ(q.id)[0])}%</b><span>Class correct</span></div>` : "")
     + `<div class="us"><b>${fmtTime(tt)}</b><span>Time spent</span></div>`
     + `<div class="us"><b>${esc(secLabel(q, chap()))}</b><span>${esc(q.t)}</span></div></div>`;
 }
@@ -2175,7 +2180,8 @@ function renderCard(){
         const wt = String(q.w[oi]).replace(/^\s*correct\s*(?:[.—–:-]\s*|$)/i, "").trim();
         if (wt) { why = `<span class="wi">${esc(wt.charAt(0).toUpperCase() + wt.slice(1))}</span>`; cls += " hasw"; }
       }
-      return `<div class="${cls}" data-oi="${oi}"><span class="L">${LET[k]}</span><span class="T"><span class="tx">${cTxt(q,oi)}</span>${why}</span>${tag}<button class="x" data-strike="${oi}" title="Cross out">✕</button></div>`;
+      const cq = done && !timed ? classQ(q.id) : null, cp = cq ? `<span class="cpct" title="Share of the class who picked this">${Math.round((cq[2+oi]||0)*100/cq[0])}%</span>` : "";
+      return `<div class="${cls}" data-oi="${oi}"><span class="L">${LET[k]}</span><span class="T"><span class="tx">${cTxt(q,oi)}</span>${why}</span>${cp}${tag}<button class="x" data-strike="${oi}" title="Cross out">✕</button></div>`;
     }).join("") + `</div>`;
     if (timed) {
       h += `<div class="nav">
@@ -2363,6 +2369,8 @@ function explanation(q, o, s){
     const a = s.ans[q.id], letter = LET[o.indexOf(q.a)];
     if (a === undefined) h += `<div class="verdict m">Not answered. The answer is ${letter}. ${cTxt(q,q.a)}</div>`;
     else { const right = a === q.a; h += `<div class="verdict ${right?"g":"r"}">${right?"Correct.":"Incorrect."} The answer is ${letter}. ${cTxt(q,q.a)}</div>`; }
+    const cq = classQ(q.id);
+    if (cq) h += `<div class="classline">👥 <b>${Math.round(cq[1]*100/cq[0])}%</b> of the class got this right · ${cq[0]} students answered</div>`;
     const ch = (s.chgq||{})[q.id], tt = S.qtime[q.id];
     if (ch || tt) {
       let line = "";
@@ -2564,7 +2572,9 @@ function renderHome(){
   h += `<div class="dl dsech">Sections</div><div class="dsecg">` + courseSecs().map(sec=>{
     const st = secStats(sec), a2 = st.done ? Math.round(st.ok*100/st.done) : null, incN = sec.items.filter(REVIEW_BY_K.inc.f).length;
     return `<div class="dsc"><div class="dsct"><b>${esc(sec.name)}</b><span>${a2===null?"—":a2+"%"}</span></div>
-      <div class="dscs">${st.done} of ${st.n} answered</div>
+      <div class="dscs">${st.done} of ${st.n} answered</div>${(()=>{ const cs = classSec(sec.prefix); if (!cs) return ""; const avg = Math.round(cs.reduce((x,y)=>x+y,0)/cs.length);
+        const mine = st.done >= 10 ? a2 : null, pct = mine===null ? null : Math.round(cs.filter(v=>v<mine).length*100/cs.length);
+        return `<div class="dclass">👥 Class average ${avg}%${pct===null ? "" : ` · you're ahead of <b>${pct}%</b> of the class`}</div>`; })()}
       <div class="dbar"><i class="ok" style="width:${st.ok*100/st.n}%"></i><i class="bad" style="width:${st.bad*100/st.n}%"></i></div>
       <div class="dsca"><button class="dpill" data-go="${sec.prefix}:all">${st.done?"Continue":"Start"}</button>${incN?`<button class="dpill r" data-rv="${sec.prefix}:rv:inc" title="Review incorrect">✗ ${incN}</button>`:""}<button class="dpill g" data-opensec="${sec.prefix}">Topics</button></div></div>`;
   }).join("");
@@ -3591,6 +3601,49 @@ document.addEventListener("mouseup", e=>{
   const mk = e.target.closest("#stem mark");
   if (mk) { mk.replaceWith(...mk.childNodes); $("stem").normalize(); saveStem(); }
 });
+// ---------- Class stats ----------
+// An admin's browser adds up everyone's saved answers (read-only) into one anonymous summary, classStats/v1,
+// at most every 3 hours. Everyone signed in reads only that summary. Nothing is shown until 5+ people answered.
+var CLASS = null;
+const CLASS_MIN = 5;
+function fbUser(){ try { return window.firebase && firebase.apps && firebase.apps.length && firebase.auth().currentUser; } catch(e) { return null; } }
+function isAdminUser(u){ return !!(u && u.email && (window.JJ_ADMINS||[]).map(e=>String(e).toLowerCase()).includes(u.email.toLowerCase())); }
+async function loadClass(){
+  const u = fbUser(); if (!u) return;
+  const ref = firebase.firestore().collection("classStats").doc("v1");
+  try { const d = await ref.get(); if (d.exists) { CLASS = d.data(); renderAll(); } } catch(e) { console.warn("JJ class stats read", e); }
+  if (isAdminUser(u) && (!CLASS || Date.now() - (CLASS.at||0) > 3*3600e3)) buildClass(ref);
+}
+async function buildClass(ref){
+  try {
+    const db = firebase.firestore(), us = await db.collection("users").get();
+    const SECOF = {}; SECTIONS.forEach(s=>s.items.forEach(q=>{ SECOF[q.id] = s.prefix; }));
+    const qs = {}, sec = {}; let users = 0;
+    for (const d of us.docs) {
+      if (d.data().blocked) continue;
+      let st = null;
+      try { const p = await db.collection("users").doc(d.id).collection("private").doc("progress").get(); if (p.exists) st = JSON.parse(p.data().data || "{}"); } catch(e) {}
+      if (!st || !st.ans) continue;
+      let any = false; const per = {};
+      for (const [id,a] of Object.entries(st.ans)) {
+        const q = byId[id]; if (!q || q.type==="reveal" || typeof a !== "number") continue; any = true;
+        const r = qs[id] || (qs[id] = [0,0,0,0,0,0,0]); r[0]++; if (a===q.a) r[1]++; if (a>=0 && a<5) r[2+a]++;
+        const sp = SECOF[id]; if (sp) { const x = per[sp] || (per[sp] = [0,0]); x[0]++; if (a===q.a) x[1]++; }
+      }
+      if (any) users++;
+      for (const [sp,[n,c]] of Object.entries(per)) if (n >= 10) (sec[sp] ||= []).push(Math.round(c*100/n));
+    }
+    Object.values(sec).forEach(a=>a.sort((x,y)=>x-y));
+    const out = {at:Date.now(), users, q:JSON.stringify(qs), sec:JSON.stringify(sec)};
+    await ref.set(out); CLASS = out; renderAll();
+  } catch(e) { console.warn("JJ class stats build", e); }
+}
+function classQ(id){ if (!CLASS) return null; if (!CLASS._q) { try { CLASS._q = JSON.parse(CLASS.q||"{}"); } catch(e) { CLASS._q = {}; } } const r = CLASS._q[id]; return r && r[0] >= CLASS_MIN ? r : null; }
+function classSec(p){ if (!CLASS) return null; if (!CLASS._s) { try { CLASS._s = JSON.parse(CLASS.sec||"{}"); } catch(e) { CLASS._s = {}; } } const a = CLASS._s[p]; return a && a.length >= CLASS_MIN ? a : null; }
+(function classWatch(){
+  if (!(window.firebase && firebase.apps && firebase.apps.length && firebase.auth)) { setTimeout(classWatch, 800); return; }
+  firebase.auth().onAuthStateChanged(u=>{ if (u) setTimeout(loadClass, 1500); else CLASS = null; });
+})();
 // ---------- Images in notes ----------
 // The picture itself is kept in this browser (IndexedDB) and, when signed in, in its own Firestore doc
 // (users/{uid}/private/img-<id>), so the main progress record stays small. S.nimg[questionId] lists the image ids.
