@@ -273,7 +273,7 @@ i.d{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px
 @media (max-width:760px){.vizm{padding:0}.vizm .box{border-radius:0;height:100%}.vizm .bar small{display:none}}
 .ethnote{margin:10px 14px;color:var(--muted);font-size:12.5px;line-height:1.45}
 .page.ethpage{max-width:none}.ethframe{height:calc(100vh - 120px)!important}
-.thxlock{font-size:11px}.page.thxpage{max-width:none}.thxframe{height:calc(100vh - 120px)!important}.thxmsg{border:1px solid var(--line2);border-radius:12px;padding:22px;background:var(--card);max-width:620px}
+.thxlock{font-size:11px}.labtabs{display:flex;gap:6px;margin-right:auto}.chap.lablink{font-weight:600;color:var(--teal)}.page.thxpage{max-width:none}.thxframe{height:calc(100vh - 120px)!important}.thxmsg{border:1px solid var(--line2);border-radius:12px;padding:22px;background:var(--card);max-width:620px}
 .exp{margin-top:22px;border-top:1px solid var(--line);padding-top:20px}
 .verdict{font-weight:700;font-size:16px;margin-bottom:6px}
 .verdict.g{color:var(--green)} .verdict.r{color:var(--red)} .verdict.m{color:var(--muted)}
@@ -1858,6 +1858,7 @@ function osceSide(){
   if (!osceAllowed || S.course!=="crs") return "";
   return `<div class="chap-h">OSCE ROOM <span class="thxlock" title="Only visible to approved accounts">🔒</span></div><div class="sec open"><div class="sec-b"><button class="chap ${view==="osce"?"on":""}" data-osce="1"><span>🩺 Cardiovascular OSCE stations</span></button></div></div>`;
 }
+document.addEventListener("click", e=>{ const b = e.target.closest && e.target.closest("[data-labtab]"); if (!b) return; try { localStorage.setItem("jj-lab-tab", b.dataset.labtab); } catch(e) {} view = "viva"; renderAll(); });
 document.addEventListener("click", e=>{ const b = e.target.closest && e.target.closest("[data-osce]"); if (!b) return; $("side").classList.remove("open"); view = "osce"; renderAll(); });
 function thxState(){ try { return JSON.parse(localStorage.getItem("jj-thorax-v1")||"{}"); } catch(e) { return {}; } }
 function thxSide(){
@@ -1917,7 +1918,7 @@ function renderChaps(){
       + `<div class="g3dbody"${op?"":" hidden"}>` + rows.map(r=>navRow(`data-act="${r[0]}"`, r[1], r[2], "", r[3], "sub")).join("") + `</div>`; };
   if (S.course==="msk") tools += g3d([["limb3d", "💪", "Upper limb", view==="limb3d"], ["leg3d", "🦵", "Lower limb", view==="leg3d"]]) + navRow('data-act="plexus"', NVI.plexus, "Brachial plexus", "", view==="plexus");
   if (S.course==="crs") tools += g3d([["heart3d", "🫀", "Heart atlas", view==="heart3d"], ["heartemb", "🧬", "Heart development (embryo)", view==="heartemb"], ["heartinj", "🩹", "Heart injuries", view==="heartinj"], ["ribcage", "🦴", "Thoracic cage", view==="ribcage"]])
-    + navRow('data-act="cap"', NVI.ap, "Cardiac action potentials", "", view==="cap") + navRow('data-act="pvl"', NVI.pv, "Cardiac cycle & PV loop", "", view==="pvl") + navRow('data-act="viva"', NVI.notes, "Viva Practice", "25", view==="viva");
+    + navRow('data-act="cap"', NVI.ap, "Cardiac action potentials", "", view==="cap") + navRow('data-act="pvl"', NVI.pv, "Cardiac cycle & PV loop", "", view==="pvl") + navRow('data-act="viva"', NVI.notes, "Anatomy Lab: spotter & viva", "", view==="viva");
   if (S.anki && S.anki.length) tools += navRow('data-act="anki"', NVI.anki, "Anki export", S.anki.length, view==="anki");
   if (tools) {
     const nT = (tools.match(/data-act=/g)||[]).length, onTool = /data-act="[^"]+"[^>]*class="[^"]*\bon\b|class="[^"]*\bon\b[^"]*"[^>]*data-act=/.test(tools);
@@ -1939,7 +1940,7 @@ function renderChaps(){
   courseSecs().forEach(sec=>{
     const open = S.openSec===sec.prefix, st = secStats(sec);
     h += `<div class="sec ${open?"open":""}"><button class="sec-h" data-sec="${sec.prefix}" aria-expanded="${open}"><span class="chev">▶</span><span class="nm">${esc(sec.name)}</span><span class="n">${st.done}/${st.n}</span></button>`;
-    if (open) h += `<div class="secbar"><i style="width:${Math.round(st.done*100/st.n)}%"></i></div><div class="sec-b">` + rvChips(sec.prefix) + (sec.course==="crs" ? lecTree(sec) : STATIC.filter(c=>c.pfx===sec.prefix).map(chapBtn).join("")) + `</div>`;
+    if (open) h += `<div class="secbar"><i style="width:${Math.round(st.done*100/st.n)}%"></i></div><div class="sec-b">` + rvChips(sec.prefix) + (sec.prefix==="ca" ? `<button class="chap lablink ${view==="viva"?"on":""}" data-act="viva"><span>🔬 Anatomy Lab: spotter &amp; viva questions</span></button>` : "") + (sec.course==="crs" ? lecTree(sec) : STATIC.filter(c=>c.pfx===sec.prefix).map(chapBtn).join("")) + `</div>`;
     h += `</div>`;
   });
   h += thxSide();
@@ -3149,7 +3150,9 @@ function renderAll(){
   else if (view==="leg3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>3D lower limb atlas</h2><a class="btn" href="lower-limb-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="lower-limb-3d.html?v=1" title="Interactive 3D lower limb atlas"></iframe></div>`);
   else if (view==="thorax") thxPage();
   else if (view==="osce") { if (!osceAllowed) { view = "home"; renderAll(); } else showPage(`<div class="page plexpage thxpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>OSCE Room</h2></div><iframe class="plexframe thxframe" src="osce.html?v=1" title="OSCE Room" allow="microphone; autoplay"></iframe></div>`); }
-  else if (view==="viva") showPage(`<div class="page plexpage thxpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Viva Practice</h2><a class="btn" href="viva.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe thxframe" src="viva.html?v=2" allow="microphone" title="Viva practice"></iframe></div>`);
+  else if (view==="viva") { let lt = "spotter"; try { lt = localStorage.getItem("jj-lab-tab") || "spotter"; } catch(e) {}
+    const LT = {spotter:["Spotter Questions","spotter.html?v=1"], viva:["Viva Questions","viva.html?v=2"]};
+    showPage(`<div class="page plexpage thxpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Anatomy Lab</h2><div class="labtabs">${Object.entries(LT).map(([k,[l]])=>`<button class="btn ${k===lt?"primary":""}" data-labtab="${k}">${l}</button>`).join("")}</div><a class="btn" href="${LT[lt][1]}" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe thxframe" src="${LT[lt][1]}" allow="microphone" title="${LT[lt][0]}"></iframe></div>`); }
   else if (view==="ethics") showPage(`<div class="page plexpage ethpage"><div class="plextop"><h2>Medical Ethics</h2><a class="btn" href="ethics.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe ethframe" src="ethics.html?v=3" title="Ethics practice questions"></iframe></div>`);
   else if (view==="guides") renderGuides();
   else if (view==="guide") renderGuideView();
