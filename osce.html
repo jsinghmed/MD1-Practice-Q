@@ -142,16 +142,65 @@ const HOW = {
 };
 
 /* ============================================================
+   KEY WORDS — a question counts if it contains any of these words, however it's phrased.
+   ============================================================ */
+const KW = {
+  name:/\bnames?\b|call you|who (am i|are you)|introduce yourself/i,
+  age:/\bage\b|how old|years old|\bborn\b|birth|\bdob\b/i,
+  dob:/birth|\bdob\b|\bborn\b|birthday/i,
+  gender:/gender|\bsex\b(?!ual)|identify|\bmale\b|\bfemale\b|pronoun/i,
+  occupation:/\bwork|\bjob\b|occupation|profession|employ|career|for a living|\bretired\b|what do you do\b/i,
+  address:/address|where.*\b(live|living|stay|staying|from|reside)\b|\breside|neighbou?rhood|what (area|town|city)/i,
+  cc:/brings? you|brought you|help you|how can i help|problem|concern|\bissue|going on|\bwrong\b|happened|\breason\b|complain|what.*\btoday\b|feeling today|\bhere today/i,
+  location:/where.*\b(pain|hurt|hurts|feel|it|discomfort|located)\b|locat|point|show me|which (part|side|area)|exactly where/i,
+  onset:/\bwhen\b.*\b(start|begin|began|first|notice)|\bstart(ed)?\b|\bbegin|\bbegan\b|onset|first (notice|time|happen|start)|how long ago|since when|how long have you/i,
+  duration:/how long (does|do|did|is)|\blast(s|ing)?\b|duration|how many minutes|each (time|episode)|constant|come and go|comes and goes/i,
+  frequency:/how often|frequen|how many times|every day|daily|per week|a week/i,
+  radiation:/radiat|spread|\bmove|\bmoves|travel(s|ling)? (to|any)|go(es)? anywhere|anywhere else|\barm\b|\bjaw\b|\bneck\b|\bback\b|shoulder/i,
+  precip:/trigger|bring.*\bon\b|brings? it|precipitat|what were you doing|doing when|set.*\boff\b|\bcause|happen(s)? when|come(s)? on when|exert|activity/i,
+  progression:/over time|\bchang|progress|getting (worse|better|more)|worse (since|over)|more (often|frequent)|\bat rest\b|same as|since it (start|began)|evolv|stayed the same/i,
+  quality:/describe|feel like|kind of|type of|\bsharp|\bdull|quality|charact|burn|stab|pressure|squeez|tight|\bache|crush|what does it feel/i,
+  severity:/scale|out of|severe|how bad|how much (pain|does it hurt)|intens|\brate\b|\bstrong|1 to 10|one to ten|zero to ten|\bnumber\b|worst/i,
+  scale:/scale|out of|\brate\b|1 to 10|one to ten|zero to ten|\bnumber\b/i,
+  aggravating:/worse|aggravat|exacerbat|anything.*\bworse|intensif/i,
+  relieving:/better|reliev|allevia|go away|goes away|\bease|\bhelps?\b|\bstop|improv|settle/i,
+  treatments:/tried|medicat|medicine|\bmeds?\b|\bpills?\b|tablet|\btreat|\btaking\b|take anything|prescri|over the counter/i,
+  associated:/other symptom|anything else|along with|associated|accompan|breath|\bsob\b|sweat|nause|vomit|throw(ing)? up|dizz|light.?head|palpitat|faint|pass(ed)? out|racing|heart pound/i,
+  time:/time of day|what time|\bmorning|evening|\bnight|wake you|woken|day or night|during the day/i,
+  pmh:/medical (history|problem|condition|issue)|past medical|any medical|condition|illness|disease|diagnos|health (problem|issue)|\bhospital|history of|blood pressure|diabet|cholesterol|anything else medical/i,
+  childhood:/\bchild|\bkid\b|as a kid|growing up|when you were young/i,
+  surgery:/surger|operation|operated|procedure/i,
+  transfusion:/transfus|blood product|received blood|blood given|given blood/i,
+  immun:/vaccin|immuni|\bshots?\b|\bjabs?\b|tetanus|flu shot|booster/i,
+  family:/family|father|mother|\bdad\b|\bmom\b|\bmum\b|parent|sibling|brother|sister|relative|run in|inherit|genetic/i,
+  travel:/travel|\btrip|abroad|vacation|holiday|flight|\bfl(y|ew|own)\b|out of the country|been away/i,
+  marital:/marital|married|single|spouse|\bwife|husband|relationship|divorc|widow/i,
+  education:/educat|school|degree|college|universit|studied|graduat/i,
+  housing:/live (alone|with|by yourself)|who.*\blive|\bhouse|\bhome\b|apartment|housing|stairs at home|living situation/i,
+  religion:/religio|faith|church|spiritual|\bpray|belief|believe in|mosque|temple|gurdwara/i,
+  trauma:/trauma|injur|accident|\bfall|\bfell\b|crash|hit your/i,
+  safesex:/condom|safe sex|protection|protected|contracepti/i,
+  social:/married|\bwife|spouse|\bkids|children|stress|lifestyle|social|support|home life|who.*\blive/i,
+  habits:/smok|cigar|tobacco|vape|vaping|alcohol|drink|beer|wine|liquor|drugs|substance|recreational|marijuana|weed|cannabis|cocaine/i,
+  sexual:/\bsex|intimate|partners?\b|condom|protection/i,
+  partners:/partners|how many (people|women|men)|more than one/i,
+  diet:/diet|\beat|food|meal|exercise|physical|work ?out|\bgym|\bsport|(?<!sexually )\bactive/i,
+  allergies:/allerg|reaction to/i,
+  ros:/review of systems|any other (problem|issue|symptom|concern)|cough|fever|chills|weight|swell|\bleg|ankle|headache|urin|bowel|stool|vision|sleep|rash|appetite/i,
+  gyn:/gyn|period|menstrua|pregnan|pap smear/i
+};
+
+/* ============================================================
    SCHOOL MNEMONICS: NAME · GHORD · CC LORD AFACAST · PCAST · BIG DT
    Each item is credited when anything you said matches it (not part of the rubric score).
    ============================================================ */
 const MNEMO = [
-  ["NAME", [["N","Name",/(your|full) name|what.*call you/i],["A","Age",/how old|your age/i],["M","Marital status",/marital|married|single|spouse|partner/i],["E","Educational status",/education|school|degree|college|university|studied/i]]],
-  ["GHORD", [["G","Gender",/gender|identify as|\bsex\b(?!ual)/i],["H","Housing status",/live alone|live with|housing|apartment|house|home situation/i],["O","Occupation",/occupation|for (a )?(living|work)|your (job|work)|do you work|employ/i],["R","Religion",/religio|faith|church|spiritual/i],["D","Date of birth",/date of birth|\bdob\b|born|birthday/i]]],
-  ["CC LORD", [["CC","Chief complaint",/what brings you|brought you|how can i help|what seems to be|what.*(problem|concern)|what's going on|what happened/i],["L","Location",/where (is|do you feel|does it hurt|exactly)|point to|show me where|location/i],["O","Onset",/when did (it|this|the pain)|first (start|notice|happen)|how long ago|onset/i],["R","Radiation",/radiat|spread|move anywhere|go anywhere|travel to/i],["D","Duration",/how long does|how long do|last(s)? for|how long.*last|duration/i]]],
-  ["AFACAST", [["A","Alleviating factors",/(make|makes|making) (it|the pain) better|reliev|allevia|go away|ease|help (it|the pain)/i],["F","Frequency",/how often|how many times|frequen/i],["A","Aggravating factors",/(make|makes|making) (it|the pain) worse|aggravat|anything worse|worsen/i],["C","Characterization",/describe|feel like|what kind of|sharp|dull|quality|character/i],["A","Associated symptoms",/other symptoms|anything else (with|when|along)|short(ness)? of breath|sweat|nause|dizz|palpitat|faint|associated/i],["S","Severity (1–10)",/scale|out of (10|ten)|rate (it|the pain)/i],["T","Time",/time of day|what time|morning|evening|at night|wake you/i]]],
-  ["PCAST", [["P","Past medical history",/past medical|medical (history|conditions|problems)|any (conditions|illness)|diagnosed|hospital/i],["P","Family history",/family|father|mother|parents|siblings|run in/i],["P","Travel history",/travel|trip|abroad|flight|flown|out of the country/i],["C","Childhood history",/child|kid|growing up/i],["A","Allergies",/allerg/i],["S","Surgical history",/surger|operation|operated/i],["T","Transfusion history",/transfus|blood product|received blood|given blood/i]]],
-  ["BIG DT", [["B","Sexually active",/sexual|sexually active|intimate/i],["B","Number of partners",/partners|how many people/i],["B","Safe sex",/condom|safe sex|protection/i],["I","Immunizations",/vaccin|immuni|shots|flu shot|tetanus/i],["G","Gynecological history",/gyn|period|menstrua|pregnan|pap smear/i],["D","Diet and exercise",/diet|eat|food|exercise|physical activity|work out|active/i],["T","Trauma history",/trauma|injur|accident|any falls|fallen/i]]]
+  ["NAME", [["N","Name",KW.name],["A","Age",KW.age],["M","Marital status",KW.marital],["E","Educational status",KW.education]]],
+  ["GHORD", [["G","Gender",KW.gender],["H","Housing status",KW.housing],["O","Occupation",KW.occupation],["R","Religion",KW.religion],["D","Date of birth",KW.dob]]],
+  ["CC LORD", [["CC","Chief complaint",KW.cc],["L","Location",KW.location],["O","Onset",KW.onset],["R","Radiation",KW.radiation],["D","Duration",KW.duration]]],
+  ["AFACAST", [["A","Alleviating factors",KW.relieving],["F","Frequency",KW.frequency],["A","Aggravating factors",KW.aggravating],["C","Characterization",KW.quality],["A","Associated symptoms",KW.associated],["S","Severity (1–10)",KW.scale],["T","Time",KW.time]]],
+  ["PCAST", [["P","Past medical history",KW.pmh],["P","Family history",KW.family],["P","Travel history",KW.travel],["C","Childhood history",KW.childhood],["A","Allergies",KW.allergies],["S","Surgical history",KW.surgery],["T","Transfusion history",KW.transfusion]]],
+  ["BIG DT", [["B","Sexually active",KW.sexual],["B","Number of partners",KW.partners],["B","Safe sex",KW.safesex],["I","Immunizations",KW.immun],["G","Gynecological history",KW.gyn],["D","Diet and exercise",KW.diet],["T","Trauma history",KW.trauma]]]
 ];
 function mnemoResults(c){
   const said=S.log.filter(([w])=>w==="You").map(([,t])=>t);
@@ -173,42 +222,47 @@ const CASES = [{
   },
   opening:"Hello, doctor.",
   intents:[
-    ["name",/(your|full) name|what.*call you|who am i speaking/i,"It's Robert Hayes."],
-    ["age",/how old|your age|date of birth|\bdob\b|when were you born|birthday/i,"I'm 58. Born March 4th, 1968."],
-    ["gender",/gender|identify as|\bsex\b(?!ual)/i,"Male."],
-    ["occupation",/occupation|for (a )?(living|work)|your (job|work)|do you work|employ/i,"I'm an accountant. Mostly desk work."],
-    ["address",/where do you live|your address|where.*(you )?(reside|staying)|home address/i,"14 Maple Road, here in town."],
-    ["cc",/what brings you|brought you|how can i help|what seems to be|what.*(problem|concern)|what's going on|how are you feeling today|what happened/i,"I've been getting this chest pain whenever I walk uphill or climb stairs."],
-    ["onset",/when did (it|this|the pain)|first (start|notice|happen)|how long ago|start(ed)? (it|this)|onset/i,"About three months ago. The first time was carrying groceries up the stairs."],
-    ["location",/where (is|do you feel|does it hurt|exactly)|point to|show me where|location/i,"Right here, in the middle of my chest, behind the breastbone."],
-    ["timing",/how long does (it|the pain|each)|duration|how often|how many times|last(s)? for|constant|come and go/i,"It lasts about three to five minutes. It happens two or three times a week."],
-    ["radiation",/radiat|spread|move anywhere|go anywhere|travel|(arm|jaw|neck|back|shoulder)/i,"Sometimes it goes into my left arm, and up to my jaw."],
-    ["precip",/trigger|brings? (it|the pain) on|precipitat|what were you doing|set(s)? it off|cause[sd]? it|happen(s)? when/i,"Climbing stairs, walking fast. Once when I was arguing with my brother."],
-    ["progression",/since (it|then)|over time|changed|progress|getting (worse|better|more)|more (often|frequent)|at rest|same as/i,"It's about the same as when it started. It's never come on at rest."],
-    ["quality",/describe|feel like|what kind of|sharp|dull|quality|character|burning|stabbing|pressure/i,"It's a heavy, squeezing pressure. Like something sitting on my chest."],
-    ["severity",/scale|out of (10|ten)|how (bad|severe|strong|intense)|severity|rate (it|the pain)/i,"About six out of ten.",/scale|out of (10|ten)|rate/i],
-    ["aggravating",/(make|makes|making) (it|the pain) worse|aggravat|anything worse|worsen/i,"Anything that gets me moving. Stairs, walking fast, carrying things."],
-    ["relieving",/(make|makes|making) (it|the pain) better|reliev|go away|ease|help (it|the pain)|stop(s)? it/i,"Stopping and resting. It goes away in a few minutes."],
-    ["treatments",/tried|take anything|taking anything|medicat|medicine|pills|treat/i,"I tried an antacid once. It didn't help. I take amlodipine for my blood pressure."],
-    ["associated",/other symptoms|anything else (with|when|along)|short(ness)? of breath|breathless|sweat|nause|dizz|light.?headed|palpitat|faint|pass out|associated/i,"I get a bit short of breath and sweaty with it. No fainting, no palpitations, no nausea."],
-    ["pmh",/past medical|medical (history|conditions|problems)|any (conditions|illness)|diagnosed|childhood|as a (child|kid)|hospital|surger|operation/i,"High blood pressure and high cholesterol, for about ten years. Nothing serious as a child, just chickenpox. No surgeries."],
-    ["immun",/vaccin|immuni|shots|flu shot|tetanus/i,"I think I'm up to date. I had my flu shot this year."],
-    ["fhx",/family|father|mother|dad|mom|parents|siblings|brother|sister|run in/i,"My father had a heart attack at 54. My mother has diabetes."],
-    ["x-marital",/marital|married|single|spouse/i,"I'm married. Thirty years now."],
-    ["x-edu",/education|school|degree|college|university|studied/i,"I have a bachelor's degree in accounting."],
-    ["x-housing",/live alone|live with|housing|apartment|house|home situation|stairs at home/i,"I live with my wife in a two-story house. The bedroom is upstairs."],
-    ["x-religion",/religio|faith|church|spiritual|pray/i,"I'm Christian. We go to church most Sundays."],
-    ["x-time",/time of day|what time|morning|evening|at night|wake you/i,"Usually in the evening, climbing the stairs at home. It's never woken me up at night."],
-    ["x-travel",/travel|trip|abroad|flight|flown|out of the country/i,"No, I haven't travelled anywhere recently."],
-    ["x-transf",/transfus|blood product|received blood|given blood/i,"No, I've never had a blood transfusion."],
-    ["x-trauma",/trauma|injur|accident|any falls|fallen/i,"No injuries or accidents."],
-    ["x-safesex",/condom|safe sex|protection/i,"We don't use protection. It's only my wife and me."],
-    ["social",/live with|married|partner|wife|children|kids|stress|lifestyle|social|home life|support/i,"I'm married, two grown kids. Work gets stressful during tax season."],
-    ["habits",/smok|cigarett|tobacco|vape|alcohol|drink|drugs|substance|recreational/i,"I smoke about a pack a day, for thirty years. A couple of beers on the weekend. No drugs."],
-    ["sexual",/sexual|sexually active|intimate|partners|condom|safe sex|protection/i,"Just my wife. One partner."],
-    ["diet",/diet|eat|food|exercise|physical activity|work out|active/i,"I eat a lot of fried food, honestly. I don't really exercise."],
-    ["allergies",/allerg/i,"No allergies that I know of."],
-    ["ros",/review of systems|any other (problems|issues|symptoms)|cough|fever|weight|swelling|leg|headache|urin|bowel|vision/i,"No fever, no cough, no weight loss, no leg swelling, no headaches."]
+    // Matching is by key words, not exact phrasing. More specific topics are listed first.
+    ["name",KW.name,"It's Robert Hayes."],
+    ["age",KW.age,"I'm 58. Born March 4th, 1968."],
+    ["gender",KW.gender,"Male."],
+    ["occupation",KW.occupation,"I'm an accountant. Mostly desk work."],
+    ["address",KW.address,"14 Maple Road, here in town."],
+    ["allergies",KW.allergies,"No allergies that I know of."],
+    ["fhx",KW.family,"My father had a heart attack at 54. My mother has diabetes."],
+    ["x-safesex",KW.safesex,"We don't use protection. It's only my wife and me."],
+    ["sexual",KW.sexual,"Yes, with my wife. She's my only partner."],
+    ["immun",KW.immun,"I think I'm up to date. I had my flu shot this year."],
+    ["habits",KW.habits,"I smoke about a pack a day, for thirty years. A couple of beers on the weekend. No drugs."],
+    ["diet",KW.diet,"I eat a lot of fried food, honestly. I don't really exercise."],
+    ["x-transf",KW.transfusion,"No, I've never had a blood transfusion."],
+    ["x-surg",KW.surgery,"No, I've never had surgery."],
+    ["x-child",KW.childhood,"Nothing serious as a child, just chickenpox."],
+    ["pmh",KW.pmh,"High blood pressure and high cholesterol, for about ten years. No surgeries."],
+    ["cc",KW.cc,"I've been getting this chest pain whenever I walk uphill or climb stairs."],
+    ["location",KW.location,"Right here, in the middle of my chest, behind the breastbone."],
+    ["progression",KW.progression,"It's about the same as when it started. It's never come on at rest."],
+    ["onset",KW.onset,"About three months ago. The first time was carrying groceries up the stairs."],
+    ["timing",KW.duration,"It lasts about three to five minutes."],
+    ["x-freq",KW.frequency,"Two or three times a week."],
+    ["radiation",KW.radiation,"Sometimes it goes into my left arm, and up to my jaw."],
+    ["x-travel",KW.travel,"No, I haven't travelled anywhere recently."],
+    ["precip",KW.precip,"Climbing stairs, walking fast. Once when I was arguing with my brother."],
+    ["quality",KW.quality,"It's a heavy, squeezing pressure. Like something sitting on my chest."],
+    ["severity",KW.severity,"About six out of ten.",KW.scale],
+    ["aggravating",KW.aggravating,"Anything that gets me moving. Stairs, walking fast, carrying things."],
+    ["relieving",KW.relieving,"Stopping and resting. It goes away in a few minutes."],
+    ["treatments",KW.treatments,"I tried an antacid once. It didn't help. I take amlodipine for my blood pressure."],
+    ["associated",KW.associated,"I get a bit short of breath and sweaty with it. No fainting, no palpitations, no nausea."],
+    ["x-time",KW.time,"Usually in the evening, climbing the stairs at home. It's never woken me up at night."],
+    ["x-marital",KW.marital,"I'm married. Thirty years now."],
+    ["x-edu",KW.education,"I have a bachelor's degree in accounting."],
+    ["x-housing",KW.housing,"I live with my wife in a two-story house. The bedroom is upstairs."],
+    ["x-religion",KW.religion,"I'm Christian. We go to church most Sundays."],
+    ["x-trauma",KW.trauma,"No injuries or accidents."],
+    ["social",KW.social,"I'm married, two grown kids. Work gets stressful during tax season."],
+    ["ros",KW.ros,"No fever, no cough, no weight loss, no leg swelling, no headaches."]
+
   ],
   /* exam: [rubric id, regex that counts as doing it, finding shown, list of detail regexes (needs >= need for 2 points), need] */
   exam:[
@@ -262,7 +316,7 @@ function dash(){
     <div class="muted">${c.soon?"":c.door.Patient}</div>
     ${(()=>{const h=hist.filter(x=>x.id===c.id);return h.length?`<div class="tip" style="margin-top:6px">Best: ${Math.max(...h.map(x=>x.pct))}% · ${h.length} attempt${h.length>1?"s":""}</div>`:""})()}
   </div>`).join("")}</div>
-  ${SR?"":`<p class="kpt" style="margin-top:16px">This browser can't transcribe speech, so you'll type instead. Use Chrome or Safari to talk out loud.</p>`}`;
+  `;
   app.querySelectorAll(".station:not(.soon)").forEach(el=>el.onclick=()=>door(CASES.find(c=>c.id===el.dataset.c)));
 }
 
@@ -290,15 +344,14 @@ function room(){
       <div class="phase" id="phase"></div>
       <div class="card"><div class="mic">
         <button class="btn" id="micBtn" title="Talk">🎙</button>
-        <div style="flex:1"><div id="micState" class="muted">${SR?"Press the mic and start talking.":"Type what you'd say below."}</div><div id="interim"></div></div>
-      </div>
+        <div style="flex:1"><div id="micState" class="muted">Press the mic and start talking.</div><div id="interim"></div></div>
+      </div>${engineControl()}
       <div class="typer" style="margin-top:10px"><input id="txt" placeholder="…or type what you'd say and press Enter"><button class="btn sec" id="send">Send</button></div></div>
       <div id="log"></div>
       <div class="card"><h3 style="margin-top:0">Exam findings</h3><div id="findings"><span class="muted">Say what you examine and the findings will appear here.</span></div></div>
       <div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn red" id="end">End encounter → Assessment</button></div>
     </div></div>`;
-  if(!SR) $("#micBtn").disabled=true;
-  $("#micBtn").onclick=toggleMic;
+  $("#micBtn").onclick=toggleMic; wireEngine();
   $("#txt").onkeydown=e=>{if(e.key==="Enter"&&e.target.value.trim()){heard(e.target.value.trim());e.target.value=""}};
   $("#send").onclick=()=>{const v=$("#txt").value.trim();if(v){heard(v);$("#txt").value=""}};
   $("#end").onclick=assess;
@@ -332,8 +385,12 @@ function heard(text){
   // history: answer what was asked (up to 2 topics per sentence)
   const ans=[];
   if(!examined){
+    const ALSO={"x-marital":"social","x-housing":"social","x-edu":"social","x-religion":"social","x-child":"pmh","x-surg":"pmh","x-transf":"pmh","x-freq":"timing","x-time":"timing","x-safesex":"sexual"};
+    const introOnly=(P.greet.test(text)||P.title.test(text)) && !/\?/.test(text);
+    const multi=/\band\b|\?.+\?|;|\balso\b/i.test(text), maxA=multi?2:1;
     for(const [id,re,reply,full] of c.intents){
-      if(re.test(text)){ S.hit[id]=Math.max(S.hit[id]||0, full&&!full.test(text)?1:2); if(!ans.includes(reply) && ans.length<2) ans.push(reply); }
+      if(ans.length>=maxA||introOnly) break;
+      if(re.test(text)){ const pts=full&&!full.test(text)?1:2; S.hit[id]=Math.max(S.hit[id]||0,pts); if(ALSO[id]) S.hit[ALSO[id]]=Math.max(S.hit[ALSO[id]]||0,2); if(!ans.includes(reply)) ans.push(reply); }
     }
   }
   phaseChips();
@@ -345,30 +402,159 @@ function heard(text){
   else say("Sorry, could you ask me that another way?");
 }
 
-/* --- speech in --- */
-function toggleMic(){
-  if(recOn){recOn=false; try{rec.stop()}catch(e){} micUI(); return;}
+/* --- speech in ---
+   Two engines:
+   • "builtin": the browser's own speech recognition (Chrome, Edge, Safari). Instant.
+   • "ai": an AI speech model (Whisper) that runs inside the page, so it works in any modern browser
+     (Firefox, Brave, Arc, Opera…). It downloads once (~40 MB) and is cached after that.
+   "auto" uses the built-in one when the browser has it, and switches to the AI model if it fails. */
+const ENG_KEY="osce-engine";
+let engine=(()=>{try{return localStorage.getItem(ENG_KEY)||"auto"}catch(e){return "auto"}})();
+const isBrave=!!(navigator.brave);
+function useBuiltin(){ return (engine==="builtin"||engine==="auto") && SR && !isBrave; }
+function toggleMic(){ if(recOn) micStop(); else micStart(); }
+function micStart(){
+  recOn=true; micUI();
+  if(useBuiltin()) startBuiltin(); else startAI();
+}
+function micStop(){
+  recOn=false; try{rec&&rec.stop()}catch(e){} stopAI(); micUI();
+}
+function fallbackToAI(why){
+  if(engine==="builtin"){ recOn=false; micUI(); sys("The browser's speech recognition failed ("+why+"). Switch the engine to “AI model” below."); return; }
+  engine="ai"; try{rec&&rec.stop()}catch(e){} rec=null; sys("The browser's speech recognition isn't available here ("+why+"), so I switched to the AI speech model."); engSel(); if(recOn) startAI();
+}
+function startBuiltin(){
   rec=new SR(); rec.lang="en-US"; rec.continuous=true; rec.interimResults=true;
-  rec.onresult=e=>{let interim="";for(let i=e.resultIndex;i<e.results.length;i++){const r=e.results[i];if(r.isFinal){const t=r[0].transcript.trim();if(t&&!speaking)heard(t)}else interim+=r[0].transcript}$("#interim").textContent=interim;};
-  rec.onend=()=>{ if(recOn&&!speaking) try{rec.start()}catch(e){} };
-  rec.onerror=e=>{ if(e.error==="not-allowed"){recOn=false;micUI();sys("Microphone blocked. Allow it in the browser, or type instead.");} };
-  recOn=true; try{rec.start()}catch(e){} micUI();
+  let gotAny=false;
+  rec.onresult=e=>{gotAny=true;let interim="";for(let i=e.resultIndex;i<e.results.length;i++){const r=e.results[i];if(r.isFinal){const t=r[0].transcript.trim();if(t&&!speaking)heard(t)}else interim+=r[0].transcript}const el=$("#interim");if(el)el.textContent=interim;};
+  rec.onend=()=>{ if(recOn&&!speaking&&rec) setTimeout(()=>{try{rec&&rec.start()}catch(e){}},150); };
+  rec.onerror=e=>{
+    if(e.error==="not-allowed"&&!gotAny){ recOn=false; micUI(); sys("Microphone blocked. Click the 🔒 or 🎤 icon in the address bar, allow the microphone, then press the mic again."); return; }
+    if(["network","service-not-allowed","audio-capture","language-not-supported","not-allowed"].includes(e.error)) fallbackToAI(e.error);
+  };
+  try{rec.start()}catch(e){ fallbackToAI("could not start"); }
 }
-function micUI(){ const b=$("#micBtn"); if(!b) return; b.classList.toggle("on",recOn); $("#micState").textContent=recOn?(speaking?"Patient is talking…":"Listening… talk normally."):"Mic off. Press to talk."; }
+/* AI model path: listen with the microphone, cut each spoken sentence by silence, transcribe it */
+let asr=null, asrLoading=null, A=null;
+async function loadASR(){
+  if(asr) return asr;
+  if(!asrLoading) asrLoading=(async()=>{
+    setState("Loading the speech model (about 40 MB, first time only)…");
+    const T=await import("https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.8.1");
+    T.env.allowLocalModels=false;
+    asr=await T.pipeline("automatic-speech-recognition","Xenova/whisper-tiny.en",{progress_callback:p=>{if(p.status==="progress"&&p.total&&/onnx/.test(p.file||"")) setState("Loading the speech model… "+Math.round(p.loaded/p.total*100)+"%");}});
+    return asr;
+  })();
+  return asrLoading;
+}
+async function startAI(){
+  try{
+    const stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true}});
+    if(!recOn){ stream.getTracks().forEach(t=>t.stop()); return; }
+    const ctx=new (window.AudioContext||window.webkitAudioContext)();
+    const src=ctx.createMediaStreamSource(stream), proc=ctx.createScriptProcessor(4096,1,1);
+    A={stream,ctx,src,proc,buf:[],pre:[],inSpeech:false,silence:0,speechLen:0,floor:0.008};
+    const fr=ctx.sampleRate, frameSec=4096/fr;
+    proc.onaudioprocess=e=>{
+      if(!A) return;
+      const d=new Float32Array(e.inputBuffer.getChannelData(0)); let sum=0; for(let i=0;i<d.length;i++) sum+=d[i]*d[i];
+      const rms=Math.sqrt(sum/d.length);
+      if(speaking){ A.inSpeech=false; A.buf=[]; A.pre=[]; return; }      // ignore the patient's own voice
+      const thr=Math.max(0.012, A.floor*3);
+      if(!A.inSpeech){
+        A.floor=A.floor*0.95+rms*0.05; A.pre.push(d); if(A.pre.length>3) A.pre.shift();
+        if(rms>thr){ A.inSpeech=true; A.buf=[...A.pre]; A.silence=0; A.speechLen=0; setInterim("Listening…"); }
+      } else {
+        A.buf.push(d); A.speechLen+=frameSec;
+        if(rms<thr*0.7) A.silence+=frameSec; else A.silence=0;
+        if(A.silence>0.9 || A.speechLen>14){ const chunk=A.buf; A.inSpeech=false; A.buf=[]; transcribe(chunk, fr, A.speechLen-A.silence); }
+      }
+    };
+    src.connect(proc); proc.connect(ctx.destination);
+    micUI();
+    loadASR().then(()=>micUI()).catch(err=>{ sys("Couldn't load the speech model ("+(err.message||err)+"). Check your internet connection, or type instead."); micStop(); });
+  }catch(err){
+    recOn=false; micUI();
+    sys(err&&err.name==="NotAllowedError" ? "Microphone blocked. Click the 🔒 or 🎤 icon in the address bar, allow the microphone, then press the mic again." : "Couldn't open the microphone ("+(err.message||err)+").");
+  }
+}
+function stopAI(){ if(!A) return; try{A.proc.disconnect();A.src.disconnect();A.stream.getTracks().forEach(t=>t.stop());A.ctx.close();}catch(e){} A=null; }
+function resample(chunks, from){
+  const len=chunks.reduce((n,c)=>n+c.length,0), all=new Float32Array(len); let o=0; for(const c of chunks){all.set(c,o);o+=c.length;}
+  if(from===16000) return all;
+  const ratio=from/16000, out=new Float32Array(Math.floor(len/ratio));
+  for(let i=0;i<out.length;i++){ const p=i*ratio, j=Math.floor(p), f=p-j; out[i]=all[j]*(1-f)+(all[j+1]||0)*f; }
+  return out;
+}
+let tq=Promise.resolve();
+function transcribe(chunks, rate, speechSec){
+  if(speechSec<0.35) { setInterim(""); return; }
+  const audio=resample(chunks, rate);
+  setInterim("Transcribing…");
+  tq=tq.then(async()=>{
+    try{
+      const m=await loadASR(); const r=await m(audio);
+      let t=(r&&r.text||"").replace(/\[[^\]]*\]|\([^)]*\)/g,"").trim();
+      if(/^(thank you\.?|thanks for watching.*|you\.?|bye\.?|\.+)$/i.test(t) && speechSec<1.2) t="";   // common silence mis-hearings
+      setInterim("");
+      if(t && !speaking) heard(t);
+    }catch(e){ setInterim(""); sys("Transcription failed: "+(e.message||e)); }
+  });
+}
+function setInterim(t){ const el=$("#interim"); if(el) el.textContent=t; }
+function setState(t){ const el=$("#micState"); if(el) el.textContent=t; }
+function micUI(){
+  const b=$("#micBtn"); if(!b) return; b.classList.toggle("on",recOn);
+  const ai=!useBuiltin();
+  setState(!recOn?"Mic off. Press to talk.":speaking?"Patient is talking…":(ai&&!asr)?"Loading the speech model (first time only)…":"Listening… talk normally, pause when you finish a question.");
+}
+function engSel(){ const s=$("#engSel"); if(s) s.value=engine; }
+function engineControl(){
+  return `<div class="tip" style="margin-top:8px">Speech engine: <select id="engSel" style="font:inherit;font-size:13px">
+    <option value="auto">Auto</option><option value="builtin">Browser built-in (Chrome, Edge, Safari)</option><option value="ai">AI model (any browser)</option></select>
+    · Patient voice: <select id="voiceSel" style="font:inherit;font-size:13px;max-width:210px"></select></div>`;
+}
+function wireEngine(){
+  const s=$("#engSel"); if(s){ s.value=engine; s.onchange=()=>{ engine=s.value; try{localStorage.setItem(ENG_KEY,engine)}catch(e){} if(recOn){ micStop(); micStart(); } }; }
+  fillVoices();
+}
 
-/* --- speech out --- */
+/* --- speech out: an older man's voice --- */
+const MALE=["grandpa","reed","ralph","fred","rocko","eddy","daniel","aaron","arthur","gordon","oliver","alex","tom","thomas","lee","rishi","bruce","junior",
+  "microsoft david","microsoft mark","microsoft guy","microsoft christopher","microsoft eric","microsoft roger","microsoft steffan","microsoft ryan","microsoft george","microsoft richard","microsoft andrew","microsoft brian",
+  "google uk english male","male"];
+const FEMALE=/samantha|karen|victoria|moira|tessa|fiona|zira|susan|hazel|allison|\bava\b|serena|kate|martha|grandma|\bflo\b|sandy|shelley|nicky|joelle|female|google us english|aria|jenny|libby|sonia|emma|michelle|catherine|natasha|veena|kathy|princess|whisper|zarvox|bells|bubbles|boing|jester|organ|superstar|trinoids|good news|bad news|wobble|cellos/i;
+const V_KEY="osce-voice";
+function voices(){ return ("speechSynthesis" in window)?speechSynthesis.getVoices().filter(v=>/^en/i.test(v.lang)):[]; }
 function pickVoice(){
-  const vs=speechSynthesis.getVoices().filter(v=>/^en/i.test(v.lang));
-  return vs.find(v=>/daniel|alex|fred|aaron|arthur|male|david|guy/i.test(v.name))||vs[0];
+  const vs=voices(); if(!vs.length) return null;
+  let saved=""; try{saved=localStorage.getItem(V_KEY)||""}catch(e){}
+  if(saved){ const v=vs.find(v=>v.name===saved); if(v) return v; }
+  for(const n of MALE){ const v=vs.find(v=>v.name.toLowerCase().includes(n) && !FEMALE.test(v.name)); if(v) return v; }
+  return vs.find(v=>!FEMALE.test(v.name))||vs[0];
 }
+function voiceSettings(v){
+  const n=(v&&v.name||"").toLowerCase();
+  if(n.includes("grandpa")) return {rate:.9,pitch:1};          // already an older man
+  const male=MALE.some(m=>n.includes(m));
+  return male?{rate:.88,pitch:.72}:{rate:.85,pitch:.45};        // lower and slower to sound older
+}
+function fillVoices(){
+  const sel=$("#voiceSel"); if(!sel) return; const vs=voices(), cur=pickVoice();
+  sel.innerHTML=vs.length?vs.map(v=>`<option ${cur&&v.name===cur.name?"selected":""}>${esc(v.name)}</option>`).join(""):"<option>Default</option>";
+  sel.onchange=()=>{ try{localStorage.setItem(V_KEY,sel.value)}catch(e){} say("This is how I'll sound, doctor."); };
+}
+if("speechSynthesis" in window){ speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged=()=>fillVoices(); }
 function say(text){
   if(S && S.phase!=="door") add("pt",S.c.patient.name,text);
   const said=$("#said"); if(said) said.textContent=text;
   if(!("speechSynthesis" in window)) return;
   speechSynthesis.cancel();
-  const u=new SpeechSynthesisUtterance(text); const v=pickVoice(); if(v) u.voice=v; u.rate=.95; u.pitch=.85;
-  u.onstart=()=>{speaking=true; mouth(true); if(rec&&recOn) try{rec.stop()}catch(e){} micUI();};
-  u.onend=()=>{speaking=false; mouth(false); if(rec&&recOn) setTimeout(()=>{try{rec.start()}catch(e){}},250); micUI();};
+  const u=new SpeechSynthesisUtterance(text); const v=pickVoice(); if(v){ u.voice=v; u.lang=v.lang; } const st=voiceSettings(v); u.rate=st.rate; u.pitch=st.pitch;
+  const done=()=>{ if(!speaking) return; speaking=false; mouth(false); if(rec&&recOn&&useBuiltin()) setTimeout(()=>{try{rec.start()}catch(e){}},250); micUI(); };
+  u.onstart=()=>{speaking=true; mouth(true); if(rec&&recOn&&useBuiltin()) try{rec.stop()}catch(e){} micUI(); setTimeout(done, 1500+text.length*90);};
+  u.onend=done; u.onerror=done;
   speechSynthesis.speak(u);
 }
 function knockSound(){ try{const a=new AudioContext();[0,.18,.36].forEach(t=>{const o=a.createOscillator(),g=a.createGain();o.frequency.value=95;g.gain.setValueAtTime(.6,a.currentTime+t);g.gain.exponentialRampToValueAtTime(.001,a.currentTime+t+.12);o.connect(g).connect(a.destination);o.start(a.currentTime+t);o.stop(a.currentTime+t+.13)})}catch(e){} }
@@ -384,7 +570,7 @@ const esc=s=>s.replace(/[&<>]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[m]));
 function startTimer(min){ const el=$("#timer"); el.classList.remove("hide","low"); clearInterval(tick); const end=Date.now()+min*60000;
   tick=setInterval(()=>{const s=Math.max(0,Math.round((end-Date.now())/1000)); el.textContent=`${String(Math.floor(s/60)).padStart(2,"0")}:${String(s%60).padStart(2,"0")}`;
     el.classList.toggle("low",s<=120); if(s===0){clearInterval(tick); S.overtime=true; if(S.phase==="history"){sys("⏰ Time is up."); assess();}}},500); }
-function stopAll(){ clearInterval(tick); recOn=false; try{rec&&rec.stop()}catch(e){} if("speechSynthesis" in window) speechSynthesis.cancel(); }
+function stopAll(){ clearInterval(tick); recOn=false; try{rec&&rec.stop()}catch(e){} stopAI(); if("speechSynthesis" in window) speechSynthesis.cancel(); }
 
 /* --- assessment --- */
 function assess(){
@@ -395,7 +581,6 @@ function assess(){
     <div class="mic"><button class="btn" id="micBtn">🎙</button><div style="flex:1"><div id="micState" class="muted">Press the mic and talk.</div><div id="interim"></div></div></div>
     <textarea id="dxText" rows="5" style="width:100%;margin-top:10px;padding:10px;border:1px solid var(--line);border-radius:8px;font:inherit" placeholder="e.g. “Most likely stable angina because…”"></textarea>
     <div style="display:flex;justify-content:flex-end;margin-top:10px"><button class="btn" id="grade">Submit and see my grade</button></div></div>`;
-  if(!SR) $("#micBtn").disabled=true;
   $("#micBtn").onclick=toggleMic;
   $("#dxText").oninput=e=>S.dx=e.target.value;
   $("#grade").onclick=()=>{S.dx=$("#dxText").value; stopAll(); report();};
