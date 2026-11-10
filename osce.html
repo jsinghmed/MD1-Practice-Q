@@ -187,20 +187,28 @@ const KW = {
   diet:/diet|\beat|food|meal|exercise|physical|work ?out|\bgym|\bsport|(?<!sexually )\bactive/i,
   allergies:/allerg|reaction to/i,
   ros:/review of systems|any other (problem|issue|symptom|concern)|cough|fever|chills|weight|swell|\bleg|ankle|headache|urin|bowel|stool|vision|sleep|rash|appetite/i,
-  gyn:/gyn|period|menstrua|pregnan|pap smear/i
+  gyn:/gyn|period|menstrua|pregnan|pap smear/i,
+  coffee:/coffee|caffeine|\btea\b|energy drink|soda/i,
+  alcohol:/alcohol|drink|beer|wine|liquor|spirits/i,
+  drugs:/smok|cigar|tobacco|vape|vaping|drugs|recreational|marijuana|weed|cannabis|cocaine|substance/i,
+  meds:/medicat|medicine|\bmeds?\b|\bpills?\b|tablet|prescri/i,
+  prefname:/how (would|do) you (like|prefer)|like to be (called|addressed)|prefer(red)? (name|to be called)|what (should|can|may) i call you|address you/i,
+  summary:/summar|recap|so far you('ve| have) told|let me make sure|just to confirm|if i understand|to go over/i,
+  closure:/attending|get back to you|thank you for (this|the|your|sharing)|any questions for me|further (tests|investigation)/i
 };
 
 /* ============================================================
    SCHOOL MNEMONICS: NAME · GHORD · CC LORD AFACAST · PCAST · BIG DT
    Each item is credited when anything you said matches it (not part of the rubric score).
    ============================================================ */
-const MNEMO = [
-  ["NAME", [["N","Name",KW.name],["A","Age",KW.age],["M","Marital status",KW.marital],["E","Educational status",KW.education]]],
-  ["GHORD", [["G","Gender",KW.gender],["H","Housing status",KW.housing],["O","Occupation",KW.occupation],["R","Religion",KW.religion],["D","Date of birth",KW.dob]]],
+const MNEMO = [   // from the MD1 FBS OSCE checklist; CRS adds the rubric items on top
+  ["NAME", [["N","Name",KW.name],["N","How they'd like to be addressed",KW.prefname],["A","Age",KW.age],["M","Marital status",KW.marital],["E","Educational status",KW.education]]],
+  ["GHORD", [["G","Gender",KW.gender],["H","Housing / address",new RegExp(KW.housing.source+"|"+KW.address.source,"i")],["O","Occupation",KW.occupation],["R","Religious belief",KW.religion],["D","Date of birth",KW.dob]]],
   ["CC LORD", [["CC","Chief complaint",KW.cc],["L","Location",KW.location],["O","Onset",KW.onset],["R","Radiation",KW.radiation],["D","Duration",KW.duration]]],
-  ["AFACAST", [["A","Alleviating factors",KW.relieving],["F","Frequency",KW.frequency],["A","Aggravating factors",KW.aggravating],["C","Characterization",KW.quality],["A","Associated symptoms",KW.associated],["S","Severity (1–10)",KW.scale],["T","Time",KW.time]]],
-  ["PCAST", [["P","Past medical history",KW.pmh],["P","Family history",KW.family],["P","Travel history",KW.travel],["C","Childhood history",KW.childhood],["A","Allergies",KW.allergies],["S","Surgical history",KW.surgery],["T","Transfusion history",KW.transfusion]]],
-  ["BIG DT", [["B","Sexually active",KW.sexual],["B","Number of partners",KW.partners],["B","Safe sex",KW.safesex],["I","Immunizations",KW.immun],["G","Gynecological history",KW.gyn],["D","Diet and exercise",KW.diet],["T","Trauma history",KW.trauma]]]
+  ["AFACAST", [["A","Alleviating factors",KW.relieving],["F","Frequency",KW.frequency],["A","Aggravating factors",KW.aggravating],["C","Character",KW.quality],["A","Associated symptoms",KW.associated],["S","Scale (1–10)",KW.scale],["T","Treatment",KW.treatments]]],
+  ["PCAST", [["P","Past medical history",KW.pmh],["P","Medications used",KW.meds],["P","Family history",KW.family],["C","Childhood history",KW.childhood],["A","Allergies",KW.allergies],["S","Surgical history",KW.surgery],["T","Transfusion history",KW.transfusion]]],
+  ["BIG DT CAD", [["B","Sexual history",KW.sexual],["I","Immunization / vaccination",KW.immun],["I","Travel history",KW.travel],["G","Gynecological history",KW.gyn],["D","Diet and exercise",KW.diet],["T","Trauma",KW.trauma],["C","Coffee",KW.coffee],["A","Alcohol",KW.alcohol],["D","Recreational drugs and smoking",KW.drugs]]],
+  ["Wrap-up", [["","Review of systems",KW.ros],["","Summary",KW.summary],["","Closure",KW.closure]]]
 ];
 function mnemoResults(c){
   const said=S.log.filter(([w])=>w==="You").map(([,t])=>t);
@@ -223,7 +231,10 @@ const CASES = [{
   opening:"Hello, doctor.",
   intents:[
     // Matching is by key words, not exact phrasing. More specific topics are listed first.
-    ["name",KW.name,"It's Robert Hayes."],
+    ["x-summary",KW.summary,"Yes, that's right."],
+    ["x-closure",KW.closure,"Thank you, doctor."],
+    ["x-prefname",KW.prefname,"Robert is fine."],
+    ["name",KW.name,"It's Robert Hayes. You can call me Robert."],
     ["age",KW.age,"I'm 58. Born March 4th, 1968."],
     ["gender",KW.gender,"Male."],
     ["occupation",KW.occupation,"I'm an accountant. Mostly desk work."],
@@ -233,6 +244,7 @@ const CASES = [{
     ["x-safesex",KW.safesex,"We don't use protection. It's only my wife and me."],
     ["sexual",KW.sexual,"Yes, with my wife. She's my only partner."],
     ["immun",KW.immun,"I think I'm up to date. I had my flu shot this year."],
+    ["x-coffee",KW.coffee,"About three cups of coffee a day."],
     ["habits",KW.habits,"I smoke about a pack a day, for thirty years. A couple of beers on the weekend. No drugs."],
     ["diet",KW.diet,"I eat a lot of fried food, honestly. I don't really exercise."],
     ["x-transf",KW.transfusion,"No, I've never had a blood transfusion."],
@@ -262,6 +274,7 @@ const CASES = [{
     ["x-trauma",KW.trauma,"No injuries or accidents."],
     ["social",KW.social,"I'm married, two grown kids. Work gets stressful during tax season."],
     ["ros",KW.ros,"No fever, no cough, no weight loss, no leg swelling, no headaches."]
+
 
   ],
   /* exam: [rubric id, regex that counts as doing it, finding shown, list of detail regexes (needs >= need for 2 points), need] */
@@ -385,9 +398,9 @@ function heard(text){
   // history: answer what was asked (up to 2 topics per sentence)
   const ans=[];
   if(!examined){
-    const ALSO={"x-marital":"social","x-housing":"social","x-edu":"social","x-religion":"social","x-child":"pmh","x-surg":"pmh","x-transf":"pmh","x-freq":"timing","x-time":"timing","x-safesex":"sexual"};
+    const ALSO={"x-marital":"social","x-housing":"social","x-edu":"social","x-religion":"social","x-child":"pmh","x-surg":"pmh","x-transf":"pmh","x-freq":"timing","x-time":"timing","x-safesex":"sexual","x-coffee":"habits"};
     const introOnly=(P.greet.test(text)||P.title.test(text)) && !/\?/.test(text);
-    const multi=/\band\b|\?.+\?|;|\balso\b/i.test(text), maxA=multi?2:1;
+    const multi=/\band\b|\?.+\?|;|\balso\b/i.test(text) && !KW.summary.test(text) && !KW.closure.test(text), maxA=multi?2:1;
     for(const [id,re,reply,full] of c.intents){
       if(ans.length>=maxA||introOnly) break;
       if(re.test(text)){ const pts=full&&!full.test(text)?1:2; S.hit[id]=Math.max(S.hit[id]||0,pts); if(ALSO[id]) S.hit[ALSO[id]]=Math.max(S.hit[ALSO[id]]||0,2); if(!ans.includes(reply)) ans.push(reply); }
@@ -619,7 +632,7 @@ function report(){
       ${missed.length?`<li><b>Missed (${missed.length}):</b> ${missed.join(", ")}.</li>`:""}
       ${partial.length?`<li><b>Done but incomplete:</b> ${partial.join(", ")}.</li>`:""}
     </ul>
-    <h3>History mnemonics: NAME · GHORD · CC LORD AFACAST · PCAST · BIG DT</h3>
+    <h3 data-x>History checklist: NAME · GHORD · CC LORD AFACAST · PCAST · BIG DT CAD</h3>
     ${(()=>{const M=mnemoResults(c);const all=M.flatMap(([,i])=>i).filter(x=>!x.na);const got=all.filter(x=>x.ok).length;
       return `<p class="muted" style="margin:0 0 8px">You covered ${got} of ${all.length} mnemonic items. These aren't part of the rubric score.</p><table class="rub">`+M.map(([g,items])=>`<tr><td style="width:96px;font-weight:700;color:var(--navy)">${g}</td><td>${items.map(x=>`<span style="display:inline-block;margin:2px 10px 2px 0" class="${x.na?"pna":x.ok?"p2":"p0"}">${x.na?"–":x.ok?"✓":"✗"} <b>${x.L}</b> ${x.label}${x.na?" (n/a, male patient)":""}</span>`).join("")}</td></tr>`).join("")+`</table>`;})()}
     <h3>Case teaching points</h3><div class="kpt">${c.dx.teach.map(t=>`<p style="margin:4px 0">${t}</p>`).join("")}</div>
