@@ -813,15 +813,7 @@ function mouth(on){ const inn=document.getElementById("mouthIn"), lo=document.ge
   if(on) mouthT=setInterval(()=>set(Math.random()*7),110); else set(0); }
 
 if("speechSynthesis" in window) speechSynthesis.onvoiceschanged=()=>{};
-/* Only approved accounts: the page must be opened inside JJ QBank while signed in as an allowed email */
-const OSCE_USERS=["jasjot.sayal@student.windsor.edu"];
-function osceGate(n){
-  let u=null; try{ if(window.parent!==window && window.parent.firebase && window.parent.firebase.auth) u=window.parent.firebase.auth().currentUser; }catch(e){}
-  if(u && u.email && OSCE_USERS.includes(u.email.toLowerCase())) { dash(); return; }
-  if((n||0)<12){ setTimeout(()=>osceGate((n||0)+1),400); return; }
-  app.innerHTML=`<div class="card" style="max-width:560px;margin:40px auto;text-align:center"><div style="font-size:40px">🔒</div><h2>OSCE Room</h2><p class="muted">This area is only available to approved accounts. Open it from JJ QBank while signed in.</p></div>`;
-}
-osceGate();
+dash();
 </script>
 </body>
 </html>

@@ -1845,17 +1845,13 @@ function thxUser(){ try { return window.firebase && firebase.auth && firebase.au
   firebase.auth().onAuthStateChanged(u=>{ const ok = !!(u && u.email && THX_USERS.includes(u.email.toLowerCase()));
     if (ok !== thxAllowed) { thxAllowed = ok; thxChapters = null; if (!ok && view==="thorax") view = "home"; renderAll(); } });
 })();
-// ---- Restricted: OSCE Room (CRS). Shown only to the emails below; osce.html checks the same list. ----
+// ---- OSCE Room (CRS), open to everyone ----
 const OSCE_USERS = ["jasjot.sayal@student.windsor.edu"];
-let osceAllowed = false;
-(function osceWatch(){
-  if (!(window.firebase && firebase.apps && firebase.apps.length && firebase.auth)) { setTimeout(osceWatch, 500); return; }
-  firebase.auth().onAuthStateChanged(u=>{ const ok = !!(u && u.email && OSCE_USERS.includes(u.email.toLowerCase()));
-    if (ok !== osceAllowed) { osceAllowed = ok; if (!ok && view==="osce") view = "home"; renderAll(); } });
-})();
+let osceAllowed = true;   // open to everyone
+
 function osceSide(){
   if (!osceAllowed || S.course!=="crs") return "";
-  return `<div class="chap-h">OSCE ROOM <span class="thxlock" title="Only visible to approved accounts">🔒</span></div><div class="sec open"><div class="sec-b"><button class="chap ${view==="osce"?"on":""}" data-osce="1"><span>🩺 Cardiovascular OSCE stations</span></button></div></div>`;
+  return `<div class="chap-h">OSCE ROOM</div><div class="sec open"><div class="sec-b"><button class="chap ${view==="osce"?"on":""}" data-osce="1"><span>🩺 Cardiovascular OSCE stations</span></button></div></div>`;
 }
 document.addEventListener("click", e=>{ const b = e.target.closest && e.target.closest("[data-labtab]"); if (!b) return; try { localStorage.setItem("jj-lab-tab", b.dataset.labtab); } catch(e) {} view = "viva"; renderAll(); });
 document.addEventListener("click", e=>{ const b = e.target.closest && e.target.closest("[data-osce]"); if (!b) return; $("side").classList.remove("open"); view = "osce"; renderAll(); });
