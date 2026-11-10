@@ -1,5 +1,5 @@
 // CRS Physiology — Dr. Sampath V. lecture slides. Reworked set: fewer, multi-concept, high-yield questions; lv = Easy/Hard; sampath = Challenge Yourself questions from the slides, word for word
-window.CRS_PH_TOPICS = ["Big Picture & Cardiac Cell Types", "Conduction System Anatomy", "Fast vs Slow Response", "Phase 0 & Na⁺ Channel Gates", "Phase 1 · The Notch", "Phase 2 · Plateau & E–C Coupling", "Phases 3 & 4 · Reset and Rest", "Refractory Periods", "Na⁺ Channel States", "Why the AP & Refractory Period Are Long", "Challenge Yourself · Sampath's Q's", "Pacemaker Cells, Automaticity & Key Terms", "Slow vs Fast Response APs", "Phase 4 · Pacemaker Potential", "Phase 0 · L-type Ca²⁺ Upstroke", "Phase 3 · Nodal Repolarization", "Pacemaker Hierarchy & Overdrive Suppression", "Challenge · Pacemaker Currents", "Autonomic Control: Chrono-, Dromo- & Inotropy", "Sympathetic β1 → Gs → cAMP Cascade", "Sympathetic Effects on SA Node, AV Node & Ventricle", "Parasympathetic M2 → Gi: Two Arms", "Integrated SA Node Effects & Summary", "Drugs That Hit These Channels", "Challenge · Cardiac Nerves", "Cardiac Cycle Timing: Systole vs Diastole", "Key Volumes: EDV, ESV, SV & EF", "Wiggers Diagram: Phases A–G, Valves & Heart Sounds", "Atrial Systole & Ventricular Filling", "Isovolumetric Phases & Ejection", "Jugular Venous Pulse & Aortic Pressure Curve", "Pressure Map: Normal Chamber Pressures", "Cardiac Output & Cardiac Reserve", "Preload, Afterload & Contractility", "Frank–Starling Law", "PV Loop: Phases & Valve Events", "PV Loop Shifts: Preload, Afterload, Contractility", "Cardiac Work", "Measuring CO: Indicator Dilution & Fick"];
+window.CRS_PH_TOPICS = ["Big Picture & Cardiac Cell Types", "Conduction System Anatomy", "Fast vs Slow Response", "Phase 0 & Na⁺ Channel Gates", "Phase 1 · The Notch", "Phase 2 · Plateau & E–C Coupling", "Phases 3 & 4 · Reset and Rest", "Refractory Periods", "Na⁺ Channel States", "Why the AP & Refractory Period Are Long", "Challenge Yourself · Sampath's Q's", "Pacemaker Cells, Automaticity & Key Terms", "Slow vs Fast Response APs", "Phase 4 · Pacemaker Potential", "Phase 0 · L-type Ca²⁺ Upstroke", "Phase 3 · Nodal Repolarization", "Pacemaker Hierarchy & Overdrive Suppression", "Challenge · Pacemaker Currents", "Autonomic Control: Chrono-, Dromo- & Inotropy", "Sympathetic β1 → Gs → cAMP Cascade", "Sympathetic Effects on SA Node, AV Node & Ventricle", "Parasympathetic M2 → Gi: Two Arms", "Integrated SA Node Effects & Summary", "Drugs That Hit These Channels", "Challenge · Cardiac Nerves", "Cardiac Cycle Timing: Systole vs Diastole", "Key Volumes: EDV, ESV, SV & EF", "Wiggers Diagram: Phases A–G, Valves & Heart Sounds", "Atrial Systole & Ventricular Filling", "Isovolumetric Phases & Ejection", "Jugular Venous Pulse & Aortic Pressure Curve", "Pressure Map: Normal Chamber Pressures", "Cardiac Output & Cardiac Reserve", "Preload, Afterload & Contractility", "Frank–Starling Law", "PV Loop: Phases & Valve Events", "PV Loop Shifts: Preload, Afterload, Contractility", "Cardiac Work", "Measuring CO: Indicator Dilution & Fick", "Sampath's Q's · Very Easy Set", "Sampath's Q's · Medium Set", "Sampath's Q's · Medium-Hard Set", "Sampath's Q's · Hard Set", "Sampath's Q's · Cardiac Cycle MCQs", "Sampath's Q's · Wiggers Diagram MCQs", "Sampath's Q's · Wiggers Diagram Easy", "Sampath's Q's · Cardiac Cycle Clinical Quiz"];
 window.CRS_PH_QUESTIONS = [
 {
 "t": "Big Picture & Cardiac Cell Types",
@@ -3041,8 +3041,7 @@ window.CRS_PH_QUESTIONS = [
 "She needs more K⁺, not less."
 ],
 "src": "lec"
-}
-,
+},
 {
 "t": "Cardiac Output & Cardiac Reserve",
 "lv": "Easy",
@@ -3480,6 +3479,2644 @@ window.CRS_PH_QUESTIONS = [
 "30 s is half a minute, not a quarter.",
 "The formula is inverted.",
 "That uses 30 s without converting to minutes."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Very Easy Set",
+"s": "The complete sequence of events in the heart during a single heartbeat is known as the:",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"Stroke Volume",
+"Cardiac Cycle",
+"Ejection Fraction",
+"Heart Rate",
+"Pulse Pressure"
+],
+"a": 1,
+"e": "The cardiac cycle is everything that happens from the start of one heartbeat to the start of the next: one systole plus one diastole.",
+"w": [
+"Stroke volume is the blood ejected per beat.",
+"",
+"Ejection fraction is SV ÷ EDV.",
+"Heart rate is beats per minute.",
+"Pulse pressure is systolic minus diastolic pressure."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Very Easy Set",
+"s": "The period of ventricular contraction and blood ejection is termed:",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"Diastole",
+"Diastasis",
+"Systole",
+"Preload",
+"Afterload"
+],
+"a": 2,
+"e": "Systole is ventricular contraction: isovolumetric contraction followed by ejection.",
+"w": [
+"Diastole is relaxation and filling.",
+"Diastasis is the slow-filling part of diastole.",
+"",
+"Preload is the stretch before contraction, i.e. EDV.",
+"Afterload is the load the ventricle ejects against."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Very Easy Set",
+"s": "As heart rate increases, which of the following periods shortens the most?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"Systole",
+"Diastole",
+"Atrial Systole",
+"Isovolumetric Contraction",
+"Ventricular Ejection"
+],
+"a": 1,
+"e": "Raising heart rate shortens the whole cycle, but systole stays almost fixed, so most of the lost time comes out of diastole, mainly diastasis.",
+"w": [
+"Systole shortens only slightly.",
+"",
+"Atrial systole is a short part of diastole and changes little.",
+"Isovolumetric contraction is brief and nearly fixed.",
+"Ejection shortens only modestly."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Very Easy Set",
+"s": "The volume of blood in the ventricle at the end of relaxation (diastole) is called:",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"End-Systolic Volume (ESV)",
+"Stroke Volume (SV)",
+"End-Diastolic Volume (EDV)",
+"Cardiac Output",
+"Residual Volume"
+],
+"a": 2,
+"e": "End-diastolic volume is the volume after filling ends, just before the ventricle contracts, about 120 mL.",
+"w": [
+"ESV is what remains after ejection.",
+"SV is EDV minus ESV.",
+"",
+"Cardiac output is SV × HR, a flow.",
+"Residual volume is a lung term."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Very Easy Set",
+"s": "In a healthy adult heart, what is the typical normal value for End-Diastolic Volume (EDV)?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"50 mL",
+"70 mL",
+"120 mL",
+"130 mL",
+"500 mL"
+],
+"a": 2,
+"e": "Normal EDV is about 120 mL; ESV about 50 mL leaves an SV of about 70 mL.",
+"w": [
+"50 mL is the normal ESV.",
+"70 mL is the normal SV.",
+"",
+"Slightly above the taught normal of 120 mL.",
+"Far too large for one ventricle."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Very Easy Set",
+"s": "If a patient has an EDV of 120 mL and an ESV of 50 mL, what is the Stroke Volume (SV)?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"50 mL",
+"70 mL",
+"120 mL",
+"170 mL",
+"60%"
+],
+"a": 1,
+"e": "SV = EDV − ESV = 120 − 50 = 70 mL.",
+"w": [
+"That is the ESV.",
+"",
+"That is the EDV.",
+"That adds the volumes instead of subtracting.",
+"SV is a volume, not a percentage; EF here is 58%."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Very Easy Set",
+"s": "What percentage of ventricular filling is normally provided by atrial contraction (atrial systole)?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"10%",
+"20-30%",
+"50%",
+"70-80%",
+"100%"
+],
+"a": 1,
+"e": "About 70–80% of filling is passive; the atrial kick tops off the last 20–30%.",
+"w": [
+"Too low.",
+"",
+"Too high for the atrial kick.",
+"70–80% is the passive share.",
+"The ventricles fill mostly without atrial contraction."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Very Easy Set",
+"s": "Most ventricular filling occurs passively during which general phase?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"Ventricular Systole",
+"Atrial Systole",
+"General Diastole",
+"Isovolumetric Contraction",
+"Ejection"
+],
+"a": 2,
+"e": "With the AV valves open in diastole, blood flows passively from the veins through the atria into the ventricles before the atria contract.",
+"w": [
+"The ventricle empties during systole.",
+"Atrial systole adds only 20–30%, actively.",
+"",
+"All valves are closed, so no filling.",
+"The ventricle is emptying."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Very Easy Set",
+"s": "During the isovolumetric contraction phase, which valves are closed?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"Only the Mitral valve",
+"Only the Aortic valve",
+"Both Mitral and Aortic valves",
+"Neither valve is closed",
+"Only the Tricuspid valve"
+],
+"a": 2,
+"e": "Isovolumetric means no volume change: the mitral valve has closed and the aortic valve has not yet opened, so both are shut.",
+"w": [
+"The aortic valve is also closed.",
+"The mitral valve is also closed.",
+"",
+"Both are closed.",
+"All four valves are closed, not just the tricuspid."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Very Easy Set",
+"s": "The aortic valve opens when the pressure in the Left Ventricle exceeds the pressure in the:",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"Left Atrium",
+"Right Ventricle",
+"Aorta",
+"Pulmonary Artery",
+"Vena Cava"
+],
+"a": 2,
+"e": "A valve opens when the pressure behind it exceeds the pressure in front of it. LV pressure must exceed aortic diastolic pressure, about 80 mmHg.",
+"w": [
+"LV above LA closes the mitral valve.",
+"The RV is not on either side of the aortic valve.",
+"",
+"The pulmonary artery sits on the right side.",
+"The vena cava empties into the right atrium."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Very Easy Set",
+"s": "What percentage of blood is ejected during the first third of the ejection phase (Phase C)?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"20%",
+"30%",
+"50%",
+"70%",
+"100%"
+],
+"a": 3,
+"e": "About 70% of the stroke volume leaves in the first third of ejection (rapid ejection); the last 30% leaves in the remaining two thirds (reduced ejection).",
+"w": [
+"Too low.",
+"30% is the reduced-ejection share.",
+"Too low for rapid ejection.",
+"",
+"Some blood leaves in reduced ejection."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Very Easy Set",
+"s": "Which phase is characterized by ventricles relaxing while all valves remain closed?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"Atrial Systole",
+"Isovolumetric Contraction",
+"Ventricular Ejection",
+"Isovolumetric Relaxation",
+"Diastasis"
+],
+"a": 3,
+"e": "After the aortic valve closes and before the mitral valve opens, the ventricle relaxes with all valves closed: isovolumetric relaxation.",
+"w": [
+"AV valves are open.",
+"All valves are closed, but the ventricle is contracting.",
+"The semilunar valves are open.",
+"",
+"AV valves are open."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Very Easy Set",
+"s": "The first heart sound (S1 or \"lub\") is caused by the closure of the:",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"Aortic Valve",
+"Pulmonary Valve",
+"AV valves (Mitral/Tricuspid)",
+"Semilunar valves",
+"Vena Cava"
+],
+"a": 2,
+"e": "S1 is mitral and tricuspid closure at the start of ventricular systole.",
+"w": [
+"Aortic closure is part of S2.",
+"Pulmonary closure is part of S2.",
+"",
+"Semilunar closure makes S2.",
+"The vena cava has no valve that closes."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Very Easy Set",
+"s": "The second heart sound (S2 or \"dub\") occurs at the start of:",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"Ventricular Systole",
+"Isovolumetric Contraction",
+"Rapid Ejection",
+"Isovolumetric Relaxation",
+"Atrial Systole"
+],
+"a": 3,
+"e": "S2 is aortic and pulmonic closure, which ends ejection and begins isovolumetric relaxation.",
+"w": [
+"S1 marks the start of systole.",
+"S1 marks isovolumetric contraction.",
+"No valve closes at the start of ejection.",
+"",
+"S4, if present, comes with atrial systole."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Very Easy Set",
+"s": "Which phase of the cardiac cycle is described as the longest?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"Atrial Systole",
+"Isovolumetric Contraction",
+"Rapid Filling",
+"Reduced Filling (Diastasis)",
+"Isovolumetric Relaxation"
+],
+"a": 3,
+"e": "At a resting heart rate, reduced filling (diastasis) is the longest phase; it is also the one that disappears first as heart rate rises.",
+"w": [
+"About 0.1 s.",
+"About 0.05 s.",
+"Shorter than diastasis at rest.",
+"",
+"About 0.08 s."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Very Easy Set",
+"s": "The \"a\" wave in the jugular venous pulse is produced by:",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"Ventricular contraction",
+"Atrial contraction (systole)",
+"Aortic valve closure",
+"Passive atrial filling",
+"Opening of the mitral valve"
+],
+"a": 1,
+"e": "The a wave is right atrial contraction pushing pressure back into the jugular vein.",
+"w": [
+"Ventricular contraction bulges the tricuspid valve, giving the c wave.",
+"",
+"Aortic closure gives the dicrotic notch on the arterial trace.",
+"Passive filling against a closed valve gives the v wave.",
+"AV valve opening ends the v wave and starts the y descent."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Very Easy Set",
+"s": "The \"c\" wave in the jugular venous pulse is caused by:",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"Atrial contraction",
+"Bulging of AV valves toward the atria during ventricular contraction",
+"Rapid filling of the ventricle",
+"Closure of the aortic valve",
+"Pulmonary artery contraction"
+],
+"a": 1,
+"e": "In isovolumetric contraction the rising ventricular pressure bulges the closed tricuspid valve back into the atrium: the c wave.",
+"w": [
+"That is the a wave.",
+"",
+"Rapid filling is the y descent.",
+"Aortic closure is the dicrotic notch.",
+"The pulmonary artery does not contract."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Very Easy Set",
+"s": "On the aortic pressure curve, the closure of the aortic valve causes a small dip called the:",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"Anacrotic limb",
+"Dicrotic wave",
+"Dicrotic notch",
+"Catacrotic limb",
+"v wave"
+],
+"a": 2,
+"e": "Aortic valve closure causes a brief backflow and dip, the dicrotic notch (incisura).",
+"w": [
+"The anacrotic limb is the upstroke during ejection.",
+"The dicrotic wave is the small rise just after the notch.",
+"",
+"The catacrotic limb is the falling limb overall.",
+"The v wave is on the atrial or venous trace."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Very Easy Set",
+"s": "Based on the summary table, what is the normal maximal pressure reached by the Left Ventricle (LV)?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"8 mmHg",
+"25 mmHg",
+"80 mmHg",
+"120 mmHg",
+"120 mL"
+],
+"a": 3,
+"e": "Normal LV pressure runs from about 10 mmHg in diastole to 120 mmHg in systole.",
+"w": [
+"8 mmHg is the right atrial maximum.",
+"25 mmHg is the RV and pulmonary artery maximum.",
+"80 mmHg is aortic diastolic pressure.",
+"",
+"That is a volume, the normal EDV."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Very Easy Set",
+"s": "In the \"Language of the Pump,\" the term Preload is used interchangeably with:",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"End-Systolic Volume (ESV)",
+"Stroke Volume (SV)",
+"End-Diastolic Volume (EDV)",
+"Ejection Fraction (EF)",
+"Heart Rate (HR)"
+],
+"a": 2,
+"e": "Preload is the stretch on the ventricle just before contraction, measured as end-diastolic volume.",
+"w": [
+"ESV reflects contractility and afterload.",
+"SV is an output, not a load.",
+"",
+"EF is SV ÷ EDV.",
+"HR is a separate determinant of CO."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Medium Set",
+"s": "A 65-year-old male with long-standing hypertension is found to have a stiff, non-compliant left ventricle on echocardiography. He later develops atrial fibrillation, resulting in the loss of coordinated atrial contraction. Which of the following describes the most likely impact on his ventricular filling?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Medium",
+"c": [
+"Loss of 70–80% of his end-diastolic volume (EDV)",
+"Loss of 20–30% of his end-diastolic volume (EDV)",
+"Increase in his stroke volume (SV)",
+"Increase in the \"a\" wave of his jugular venous pulse",
+"Total cessation of ventricular filling"
+],
+"a": 1,
+"e": "Atrial fibrillation removes the atrial kick, which normally provides 20–30% of filling; a stiff ventricle depends on it even more. Passive filling continues.",
+"w": [
+"70–80% is passive filling, which continues.",
+"",
+"Less filling lowers SV through Frank–Starling.",
+"No atrial contraction means the a wave disappears.",
+"Passive filling still happens."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Medium Set",
+"s": "A patient undergoes cardiac catheterization, which determines an End-Diastolic Volume (EDV) of 120 mL and a Stroke Volume (SV) of 70 mL. What is this patient’s Ejection Fraction (EF)?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Medium",
+"c": [
+"41%",
+"50%",
+"58%",
+"70%",
+"100%"
+],
+"a": 2,
+"e": "EF = SV ÷ EDV = 70 ÷ 120 ≈ 0.58 = 58%.",
+"w": [
+"That is ESV ÷ EDV, 50 ÷ 120.",
+"Arithmetic error.",
+"",
+"That is SV in mL, not a fraction.",
+"The ventricle never empties completely."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Medium Set",
+"s": "A medical student is reviewing a Wiggers diagram and identifies a phase where the ventricular pressure is rising rapidly, but the ventricular volume remains constant at 120 mL. Which of the following describes the status of the heart valves during this phase?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Medium",
+"c": [
+"Mitral valve open, Aortic valve closed",
+"Mitral valve closed, Aortic valve open",
+"Both Mitral and Aortic valves open",
+"Both Mitral and Aortic valves closed",
+"Mitral valve open, Aortic valve open"
+],
+"a": 3,
+"e": "Pressure rising at a constant volume of 120 mL (EDV) is isovolumetric contraction: both valves closed.",
+"w": [
+"An open mitral valve would let volume change.",
+"An open aortic valve means ejection, so volume falls.",
+"Never happens normally.",
+"",
+"Never happens normally."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Medium Set",
+"s": "During a physical exam, a physician hears the first heart sound (S1). Which mechanical event in the cardiac cycle is most directly responsible for this sound?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Medium",
+"c": [
+"Opening of the aortic valve",
+"Closure of the AV valves (mitral and tricuspid)",
+"Opening of the mitral valve",
+"Closure of the semilunar valves (aortic and pulmonary)",
+"Contraction of the atria"
+],
+"a": 1,
+"e": "S1 is the mitral and tricuspid valves closing as ventricular pressure exceeds atrial pressure.",
+"w": [
+"Valve opening is normally silent.",
+"",
+"Valve opening is silent unless stenotic, giving a snap.",
+"That is S2.",
+"An audible atrial sound is S4."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Medium Set",
+"s": "A 25-year-old athlete’s heart rate increases from 60 bpm to 150 bpm during a sprint. Which of the following is the most significant physiological change regarding the timing of his cardiac cycle?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Medium",
+"c": [
+"Systole shortens more than diastole",
+"Diastole shortens more than systole",
+"Atrial systole becomes the longest phase",
+"Isovolumetric contraction time doubles",
+"The duration of the cycle remains constant"
+],
+"a": 1,
+"e": "At high heart rate the cycle shortens and the time comes mostly out of diastole; systole is nearly fixed.",
+"w": [
+"The reverse.",
+"",
+"Diastasis is lost but atrial systole stays short.",
+"It shortens slightly if anything.",
+"Cycle length = 60 ÷ HR, so it shortens."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Medium Set",
+"s": "On an aortic pressure tracing, a clinician notices a \"dicrotic notch\" (incisura). This specific landmark on the Wiggers diagram signifies which of the following?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Medium",
+"c": [
+"The opening of the aortic valve",
+"The peak of systolic blood pressure",
+"The closure of the aortic valve",
+"The beginning of atrial contraction",
+"The end of the rapid filling phase"
+],
+"a": 2,
+"e": "The dicrotic notch marks aortic valve closure, the end of ejection and start of isovolumetric relaxation, at the same time as S2.",
+"w": [
+"Opening is where aortic pressure starts rising.",
+"The peak comes earlier, in rapid ejection.",
+"",
+"That is the P wave and a wave.",
+"No aortic landmark marks that."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Medium Set",
+"s": "While observing a patient's jugular venous pulse, a \"c\" wave is identified. This wave is caused by which of the following?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Medium",
+"c": [
+"Atrial contraction",
+"Bulging of the AV valves into the atria during ventricular contraction",
+"Passive filling of the atria while the AV valves are closed",
+"Rapid emptying of the atria into the ventricles",
+"Closure of the aortic valve"
+],
+"a": 1,
+"e": "The c wave comes from the closed tricuspid valve bulging back into the atrium during isovolumetric contraction.",
+"w": [
+"That is the a wave.",
+"",
+"That is the v wave.",
+"That is the y descent.",
+"That is the dicrotic notch on the arterial trace."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Medium Set",
+"s": "During the cardiac cycle, blood is ejected from the ventricles into the great arteries. Approximately how much of the stroke volume is ejected during the first third of the ejection phase (Rapid Ejection)?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Medium",
+"c": [
+"20%",
+"30%",
+"50%",
+"70%",
+"90%"
+],
+"a": 3,
+"e": "About 70% of SV leaves in the first third of ejection; the remaining 30% leaves over the last two thirds.",
+"w": [
+"Too low.",
+"That is the reduced-ejection share.",
+"Too low.",
+"",
+"Too high."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Medium Set",
+"s": "A patient has a pulmonary artery catheter placed. According to the summary of normal heart pressures, what is the expected maximal (systolic) pressure of the pulmonary artery?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Medium",
+"c": [
+"8 mmHg",
+"12 mmHg",
+"25 mmHg",
+"80 mmHg",
+"130 mmHg"
+],
+"a": 2,
+"e": "The pulmonary artery peaks at about 25 mmHg, the same as the RV; its diastolic floor is about 8 mmHg.",
+"w": [
+"That is the RA maximum or PA minimum.",
+"That is the LA maximum.",
+"",
+"That is aortic diastolic pressure.",
+"Systemic-level pressure."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Medium Set",
+"s": "Which of the following describes the state of the heart during Phase E (Isovolumetric Relaxation) of the Wiggers diagram?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Medium",
+"c": [
+"All valves are open; pressure is falling",
+"All valves are closed; pressure is falling",
+"All valves are closed; pressure is rising",
+"AV valves are open; semilunar valves are closed",
+"AV valves are closed; semilunar valves are open"
+],
+"a": 1,
+"e": "Phase E runs from aortic closure to mitral opening: all valves closed while ventricular pressure falls steeply.",
+"w": [
+"Never happens normally.",
+"",
+"That is isovolumetric contraction.",
+"That is filling.",
+"That is ejection."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Medium-Hard Set",
+"s": "A 62-year-old male with a history of myocardial infarction undergoes an echocardiogram. The study reveals an End-Diastolic Volume (EDV) of 150 mL and an End-Systolic Volume (ESV) of 90 mL. Which of the following best describes this patient's cardiac status?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Medium-Hard",
+"c": [
+"Stroke Volume is 70 mL; Ejection Fraction is 58%",
+"Stroke Volume is 60 mL; Ejection Fraction is 40%",
+"Stroke Volume is 90 mL; Ejection Fraction is 60%",
+"Stroke Volume is 60 mL; Ejection Fraction is 66%",
+"Stroke Volume is 150 mL; Ejection Fraction is 40%"
+],
+"a": 1,
+"e": "SV = 150 − 90 = 60 mL. EF = 60 ÷ 150 = 40%, reduced after the infarct (normal is about 55–70%).",
+"w": [
+"Those are the textbook normals, not this patient.",
+"",
+"90 mL is the ESV.",
+"66% is 60 ÷ 90, the wrong denominator.",
+"150 mL is the EDV."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Medium-Hard Set",
+"s": "During a cardiac physiology lab, a student observes a pressure tracing where the Left Ventricle (LV) pressure has just risen to 85 mmHg, while the Aortic pressure is 80 mmHg. Which of the following mechanical events is occurring at this exact moment?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Medium-Hard",
+"c": [
+"The mitral valve is closing",
+"The aortic valve is opening",
+"The first heart sound (S1) is being generated",
+"The dicrotic notch is forming",
+"The \"v\" wave is peaking in the atrium"
+],
+"a": 1,
+"e": "Once LV pressure passes aortic diastolic pressure (about 80 mmHg), the aortic valve opens and ejection begins.",
+"w": [
+"Mitral closure is earlier, when LV passes LA pressure.",
+"",
+"S1 is mitral closure, earlier.",
+"The notch is aortic closure at the end of systole.",
+"The v wave peaks at the end of systole."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Medium-Hard Set",
+"s": "A 22-year-old female presents to the clinic for a sports physical. While she is running on a treadmill, her heart rate increases from 70 bpm to 160 bpm. Which phase of her cardiac cycle will experience the most significant proportional reduction in time?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Medium-Hard",
+"c": [
+"Atrial Systole",
+"Isovolumetric Contraction",
+"Ventricular Ejection",
+"Reduced Ventricular Filling (Diastasis)",
+"Isovolumic Relaxation"
+],
+"a": 3,
+"e": "Diastasis is the phase sacrificed first when heart rate rises; at high rates it nearly vanishes.",
+"w": [
+"Atrial systole is preserved.",
+"Nearly fixed.",
+"Shortens only modestly.",
+"",
+"Nearly fixed."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Medium-Hard Set",
+"s": "A 75-year-old male is diagnosed with atrial fibrillation, a condition where the atria quiver instead of contracting effectively. Which of the following waveforms would most likely be absent on this patient’s jugular venous pulse tracing?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Medium-Hard",
+"c": [
+"a wave",
+"c wave",
+"v wave",
+"x descent",
+"y descent"
+],
+"a": 0,
+"e": "The a wave is atrial contraction; with no organized contraction it disappears.",
+"w": [
+"",
+"The c wave comes from ventricular contraction, which continues.",
+"The v wave comes from passive atrial filling, which continues.",
+"Atrial relaxation is blunted, but descent from the c and v waves remains.",
+"Atrial emptying when the tricuspid opens still happens."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Medium-Hard Set",
+"s": "A patient is found to have a second heart sound (S2) that is abnormally loud. In which phase of the cardiac cycle, as labeled on the Wiggers diagram, does this heart sound occur?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Medium-Hard",
+"c": [
+"Phase B",
+"Phase C",
+"Phase D",
+"Phase E",
+"Phase F"
+],
+"a": 3,
+"e": "S2 is semilunar valve closure, which begins Phase E, isovolumetric relaxation.",
+"w": [
+"Phase B, isovolumetric contraction, holds S1.",
+"Phase C, rapid ejection, has no valve closure.",
+"Phase D, reduced ejection, ends at S2.",
+"",
+"Phase F, rapid filling, can hold S3."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Medium-Hard Set",
+"s": "A student is examining a ventricular volume curve. He notices the volume is at its absolute minimum. This specific volume is defined as the:",
+"ns": true,
+"sampath": 1,
+"sdiff": "Medium-Hard",
+"c": [
+"Preload",
+"End-Diastolic Volume (EDV)",
+"Stroke Volume (SV)",
+"End-Systolic Volume (ESV)",
+"Cardiac Output"
+],
+"a": 3,
+"e": "The minimum ventricular volume is what remains after ejection: end-systolic volume, about 50 mL.",
+"w": [
+"Preload is EDV, the maximum.",
+"EDV is the maximum.",
+"SV is the difference between maximum and minimum.",
+"",
+"CO is a flow, not a point on the curve."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Medium-Hard Set",
+"s": "A 50-year-old patient has a pressure-monitoring catheter in the aorta. The clinician identifies a small upward wave on the descending limb of the aortic pressure tracing, occurring just after the aortic valve closes. What is the physiological name and cause of this wave?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Medium-Hard",
+"c": [
+"Anacrotic limb; ventricular ejection",
+"Dicrotic notch; mitral valve closure",
+"Dicrotic wave; blood rebounding against the closed aortic valve",
+"v wave; atrial filling",
+"c wave; tricuspid bulging"
+],
+"a": 2,
+"e": "Just after the notch, blood recoils against the closed aortic valve and the elastic aorta, giving a small rise: the dicrotic wave.",
+"w": [
+"The anacrotic limb is the upstroke, not after closure.",
+"The notch is a dip from aortic, not mitral, closure.",
+"",
+"The v wave is an atrial trace feature.",
+"The c wave is an atrial or venous trace feature."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Medium-Hard Set",
+"s": "A patient with a stiff, non-compliant left ventricle (diastolic dysfunction) relies heavily on the \"atrial kick\" for ventricular filling. According to the slides, what percentage of total ventricular filling is this patient potentially losing if they develop an atrial arrhythmia?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Medium-Hard",
+"c": [
+"10-15%",
+"20-30%",
+"50-60%",
+"70-80%",
+"90-100%"
+],
+"a": 1,
+"e": "The slides give the atrial contribution as 20–30% of filling; that is what is lost when the atria stop contracting.",
+"w": [
+"Too low.",
+"",
+"Too high.",
+"That is passive filling.",
+"Passive filling continues."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Medium-Hard Set",
+"s": "A clinician is comparing the maximal pressures of the chambers of the heart. Which of the following chambers or vessels has the lowest maximal pressure during the cardiac cycle?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Medium-Hard",
+"c": [
+"Right Atrium",
+"Right Ventricle",
+"Pulmonary Artery",
+"Left Atrium",
+"Left Ventricle"
+],
+"a": 0,
+"e": "Maximum pressures: RA 8, LA 12, RV 25, pulmonary artery 25, LV 120 mmHg. The right atrium is lowest.",
+"w": [
+"",
+"25 mmHg.",
+"25 mmHg.",
+"12 mmHg.",
+"120 mmHg."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Medium-Hard Set",
+"s": "During isovolumetric contraction, the pressure in the ventricles rises rapidly. This leads to a small positive deflection in the atrial pressure curve known as the \"c wave.\" What is the mechanical cause of this deflection?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Medium-Hard",
+"c": [
+"Contraction of the atrial muscle",
+"Blood flowing into the atria from the veins",
+"The opening of the AV valves",
+"Bulging of the AV valves into the atria",
+"Rebound of blood against the aortic valve"
+],
+"a": 3,
+"e": "The closed AV valves bulge back into the atria as ventricular pressure climbs.",
+"w": [
+"That is the a wave.",
+"That is the v wave.",
+"AV valves are closed now; opening starts the y descent.",
+"",
+"That is the dicrotic wave on the aortic trace."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Hard Set",
+"s": "A 72-year-old male with a history of long-standing hypertension and left ventricular hypertrophy presents to the emergency department with a sudden onset of palpitations and shortness of breath. An ECG reveals an irregularly irregular rhythm with absent P waves. Physical examination reveals a disappearing S4 gallop that was previously noted in his chart. Which of the following is the most likely physiological consequence of this change in his cardiac cycle?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Hard",
+"c": [
+"A 25% decrease in End-Diastolic Volume (EDV)",
+"A significant increase in the \"a\" wave of the jugular venous pulse",
+"A decrease in the End-Systolic Volume (ESV)",
+"A decrease in the duration of isovolumetric contraction",
+"An increase in the y-descent of the venous pulse"
+],
+"a": 0,
+"e": "Irregularly irregular rhythm without P waves is atrial fibrillation. S4 needs atrial contraction into a stiff ventricle, so it disappears. Losing the atrial kick (20–30% of filling) lowers EDV by about a quarter, which matters most in a hypertrophied ventricle.",
+"w": [
+"",
+"No atrial contraction means no a wave.",
+"Less filling lowers SV; ESV does not fall.",
+"Not the key consequence of losing the atrial kick.",
+"Not the consequence taught."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Hard Set",
+"s": "A 65-year-old female undergoes cardiac catheterization. The pressure in her aorta is measured at 110/75 mmHg. During which phase of the cardiac cycle will her LV pressure be rising from 10mmg to 80 mmHg?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Hard",
+"c": [
+"Atrial Systole",
+"Isovolumetric Contraction",
+"Rapid Ejection",
+"Reduced Ejection",
+"Isovolumic Relaxation"
+],
+"a": 1,
+"e": "LV pressure rises from its diastolic level (about 10 mmHg) until it passes aortic diastolic pressure (75 mmHg here) with all valves closed: isovolumetric contraction.",
+"w": [
+"LV pressure rises only a few mmHg.",
+"",
+"Ejection starts after LV passes about 75 mmHg.",
+"LV pressure is falling.",
+"LV pressure is falling."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Hard Set",
+"s": "A 19-year-old marathon runner has a resting heart rate of 45 bpm. During a race, her heart rate increases to 180 bpm. Which of the following phases of her cardiac cycle will be most significantly reduced in duration?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Hard",
+"c": [
+"Phase A (Atrial Systole)",
+"Phase B (Isovolumetric Contraction)",
+"Phase C (Rapid Ejection)",
+"Phase G (Reduced Ventricular Filling)",
+"Phase E (Isovolumic Relaxation)"
+],
+"a": 3,
+"e": "Going from 45 to 180 bpm cuts the cycle from 1.33 s to 0.33 s. Almost all of that comes from diastasis, Phase G, which is very long at a slow resting rate.",
+"w": [
+"Preserved.",
+"Nearly fixed.",
+"Shortens only modestly.",
+"",
+"Nearly fixed."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Hard Set",
+"s": "A patient is diagnosed with a condition that causes abnormally high resistance to ventricular contraction, leading to extremely high intraventricular pressures during Phase B of the cardiac cycle. Which of the following changes would most likely be seen in the Jugular Venous Pulse?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Hard",
+"c": [
+"An exaggerated \"a\" wave",
+"A prominent \"c\" wave",
+"A deep \"x\" descent",
+"A giant \"v\" wave",
+"A rapid \"y\" descent"
+],
+"a": 1,
+"e": "Phase B is isovolumetric contraction, when the c wave forms as the closed AV valve bulges back into the atrium. Abnormally high pressure in Phase B pushes the valve back harder, so the c wave becomes prominent.",
+"w": [
+"The a wave is atrial contraction in Phase A.",
+"",
+"The x descent follows atrial relaxation and ejection.",
+"A giant v wave points to tricuspid regurgitation.",
+"The y descent is early filling."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Hard Set",
+"s": "A 40-year-old male presents with a bounding pulse. Examination reveals a \"water-hammer\" pulse and a decrescendo diastolic murmur. In this patient, the dicrotic notch on the aortic pressure curve is virtually absent. This is because:",
+"ns": true,
+"sampath": 1,
+"sdiff": "Hard",
+"c": [
+"The aortic valve is failing to close properly",
+"The left ventricle is not contracting isovolumetrically",
+"The stroke volume has significantly decreased",
+"The mitral valve is closing prematurely",
+"The heart rate is too low to produce a notch"
+],
+"a": 0,
+"e": "Water-hammer pulse with a decrescendo diastolic murmur is aortic regurgitation. The notch comes from aortic valve closure, so a valve that does not seal leaves almost no notch.",
+"w": [
+"",
+"The notch depends on the aortic valve, not on isovolumetric contraction.",
+"SV rises in chronic AR.",
+"Not the cause of the absent notch.",
+"A slow rate does not remove the notch."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Hard Set",
+"s": "A clinician is looking at the Wiggers diagram of a patient with severe Mitral Regurgitation. He notices that the \"v\" wave in the Left Atrial Pressure curve is significantly taller than normal. Which phase of the cardiac cycle is most responsible for this finding?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Hard",
+"c": [
+"Phase B (Isovolumetric Contraction)",
+"Phase C (Rapid Ejection)",
+"Phase E (Isovolumic Relaxation)",
+"Phase F (Rapid Filling)",
+"Phase A (Atrial Systole)"
+],
+"a": 1,
+"e": "In mitral regurgitation, the LV pushes blood back into the LA throughout systole. Regurgitant flow is greatest during rapid ejection, when LV pressure peaks, which builds the giant v wave.",
+"w": [
+"Some backflow begins, but LV pressure is still building.",
+"",
+"The mitral valve is about to open and the v wave starts falling.",
+"The v wave is collapsing as the LA empties.",
+"Atrial systole makes the a wave."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Hard Set",
+"s": "A patient has an EDV of 150 mL and an ESV of 60 mL. His heart rate is 100 bpm. Which of the following statements regarding this patient is correct?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Hard",
+"c": [
+"His Stroke Volume is 70 mL",
+"His Ejection Fraction is 40%",
+"His Ejection Fraction is 60%",
+"His Cardiac Output is 8.0 L/min",
+"His Preload is 60 mL"
+],
+"a": 2,
+"e": "SV = 150 − 60 = 90 mL. EF = 90 ÷ 150 = 60%. CO = 90 mL × 100 = 9.0 L/min. Preload (EDV) is 150 mL.",
+"w": [
+"SV is 90 mL.",
+"That is ESV ÷ EDV.",
+"",
+"CO is 9.0 L/min.",
+"Preload is EDV, 150 mL."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Hard Set",
+"s": "A catheter is advanced from the femoral vein into the heart. The transducer records a pressure that fluctuates between a minimum of 4 mmHg and a maximum of 25 mmHg. According to the summary table in the slides, where is the catheter tip located?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Hard",
+"c": [
+"Right Atrium",
+"Right Ventricle",
+"Pulmonary Artery",
+"Left Ventricle",
+"Aorta"
+],
+"a": 1,
+"e": "A 25 mmHg peak puts the tip in the RV or pulmonary artery. The low diastolic floor means the RV, because the pulmonic valve keeps the pulmonary artery at about 8–9 mmHg in diastole.",
+"w": [
+"RA peaks around 8 mmHg.",
+"",
+"PA has the same peak but a higher floor, about 8–9 mmHg.",
+"A venous catheter would not reach the LV, and LV peaks at 120.",
+"Aorta runs 80–120 mmHg."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "Which of the following heart sounds occurs at the exact onset of the isovolumetric contraction phase?",
+"ns": true,
+"sampath": 1,
+"c": [
+"S1",
+"S2",
+"S3",
+"S4",
+"Opening Snap"
+],
+"a": 0,
+"e": "Isovolumetric contraction starts when the AV valves close, which is S1.",
+"w": [
+"",
+"S2 starts isovolumetric relaxation.",
+"S3 is rapid filling.",
+"S4 is atrial systole.",
+"An opening snap is mitral stenosis at the start of filling."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "During isovolumetric contraction, which of the following describes the state of the cardiac valves and ventricular volume?",
+"ns": true,
+"sampath": 1,
+"c": [
+"All valves open; volume decreasing",
+"AV valves open, semilunar valves closed; volume constant",
+"All valves closed; volume constant",
+"AV valves closed, semilunar valves open; volume decreasing",
+"All valves closed; volume increasing"
+],
+"a": 2,
+"e": "All four valves are shut, so volume stays at EDV while pressure climbs.",
+"w": [
+"Never happens normally.",
+"That describes filling, and volume would rise.",
+"",
+"That is ejection.",
+"With every valve closed, volume cannot change."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "Which ECG event marks the electrical trigger for the onset of isovolumetric contraction?",
+"ns": true,
+"sampath": 1,
+"c": [
+"P wave",
+"PR segment",
+"QRS complex",
+"T wave",
+"U wave"
+],
+"a": 2,
+"e": "Ventricular depolarization (QRS) triggers ventricular contraction; mechanical systole begins just after.",
+"w": [
+"The P wave triggers atrial systole.",
+"The PR segment is AV nodal delay.",
+"",
+"The T wave is ventricular repolarization near the end of ejection.",
+"The U wave is a late, inconsistent finding."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "During isovolumetric contraction, a small positive deflection is noted in the jugular venous pulse. What is the mechanical cause of this specific wave?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Atrial contraction",
+"Passive filling of the atria",
+"Bulging of the tricuspid valve into the right atrium",
+"Opening of the aortic valve",
+"Rapid blood flow into the superior vena cava"
+],
+"a": 2,
+"e": "This is the c wave: the closed tricuspid valve bulges back as RV pressure rises.",
+"w": [
+"The a wave.",
+"The v wave.",
+"",
+"This ends isovolumetric contraction and does not affect the JVP.",
+"Not the cause of the c wave."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "The rapid ejection phase begins immediately after which event?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Mitral valve closure",
+"Aortic valve opening",
+"Aortic valve closure",
+"Mitral valve opening",
+"Peak systolic pressure"
+],
+"a": 1,
+"e": "Ejection starts the moment the aortic valve opens.",
+"w": [
+"Mitral closure starts isovolumetric contraction.",
+"",
+"Aortic closure ends ejection.",
+"Mitral opening starts filling.",
+"Peak pressure comes partway through rapid ejection."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "Approximately what percentage of the total stroke volume is ejected during the first third of the ejection period?",
+"ns": true,
+"sampath": 1,
+"c": [
+"20%",
+"30%",
+"50%",
+"70%",
+"90%"
+],
+"a": 3,
+"e": "About 70% leaves in the first third (rapid ejection); 30% leaves in the last two thirds.",
+"w": [
+"Too low.",
+"The reduced-ejection share.",
+"Too low.",
+"",
+"Too high."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "During rapid ejection, what is the relationship between left ventricular (LV) pressure and aortic pressure?",
+"ns": true,
+"sampath": 1,
+"c": [
+"LV pressure is lower than aortic pressure",
+"LV pressure is significantly higher than aortic pressure",
+"LV pressure is equal to atrial pressure",
+"LV pressure is constant while aortic pressure rises",
+"Both LV and aortic pressures rise to a systolic peak"
+],
+"a": 4,
+"e": "With the aortic valve open, LV and aortic pressures rise together to their systolic peak; LV is only slightly higher, just enough to drive flow.",
+"w": [
+"That happens in reduced ejection, when momentum keeps blood moving.",
+"The gradient across a normal open valve is only a few mmHg; a large gradient suggests aortic stenosis.",
+"The mitral valve is closed and LV is far above LA.",
+"LV pressure is rising too.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "On the ECG, the rapid ejection phase corresponds most closely with which of the following?",
+"ns": true,
+"sampath": 1,
+"c": [
+"The QRS complex",
+"The PR interval",
+"The ST segment",
+"The peak of the T wave",
+"The TP interval"
+],
+"a": 2,
+"e": "After QRS triggers contraction and isovolumetric contraction passes, rapid ejection falls over the ST segment.",
+"w": [
+"QRS precedes isovolumetric contraction.",
+"PR is atrial systole and AV delay.",
+"",
+"The T wave is reduced ejection.",
+"TP is diastole."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "The slow ejection phase accounts for what proportion of the total ejection time?",
+"ns": true,
+"sampath": 1,
+"c": [
+"First 1/3",
+"Middle 1/3",
+"Last 2/3",
+"Entire duration",
+"Only the first 10%"
+],
+"a": 2,
+"e": "Rapid ejection takes the first third of ejection time; slow (reduced) ejection takes the last two thirds.",
+"w": [
+"That is rapid ejection.",
+"Incomplete.",
+"",
+"Rapid ejection comes first.",
+"Not a defined phase."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "Which of the following occurs to the ventricular pressure and ejection rate during the reduced ejection phase?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Both increase",
+"Both decrease",
+"Pressure increases, rate decreases",
+"Pressure decreases, rate increases",
+"Both remain constant"
+],
+"a": 1,
+"e": "Ventricles begin repolarizing, so LV pressure falls from its peak and the outflow rate slows.",
+"w": [
+"They rise in rapid ejection.",
+"",
+"Pressure falls after the peak.",
+"The rate slows.",
+"Both fall."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "Which ECG wave is typically occurring during the reduced ejection phase?",
+"ns": true,
+"sampath": 1,
+"c": [
+"P wave",
+"Q wave",
+"R wave",
+"T wave",
+"No electrical activity occurs"
+],
+"a": 3,
+"e": "The T wave (ventricular repolarization) falls during reduced ejection, which is why pressure starts to fall.",
+"w": [
+"The P wave is late diastole.",
+"Q is the start of depolarization.",
+"R is depolarization, before ejection.",
+"",
+"Repolarization is electrical activity."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "During reduced ejection, the \"v-wave\" of the atrial pressure curve begins to rise. What is the physiological reason for this rise?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Atrial contraction",
+"Blood flowing into the atria against a closed AV valve",
+"Blood regurgitating through the mitral valve",
+"The bulging of the aortic valve",
+"Rapid filling of the ventricle"
+],
+"a": 1,
+"e": "Venous return fills the atria while the AV valves are shut, so atrial pressure rises: the v wave.",
+"w": [
+"The a wave.",
+"",
+"Only in mitral regurgitation, not normally.",
+"Not a cause of atrial pressure change.",
+"Rapid filling is the y descent after the v wave."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "What valvular event marks the transition from reduced ejection to isovolumic relaxation?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Mitral valve opening",
+"Aortic valve opening",
+"Aortic valve closure",
+"Mitral valve closure",
+"Tricuspid valve opening"
+],
+"a": 2,
+"e": "Aortic closure (S2, dicrotic notch) ends ejection and starts isovolumic relaxation.",
+"w": [
+"Mitral opening ends isovolumic relaxation.",
+"Aortic opening starts ejection.",
+"",
+"Mitral closure starts isovolumetric contraction.",
+"Tricuspid opening starts right-sided filling."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "In a healthy heart, what is the volume of blood in the left ventricle during the isovolumic relaxation phase?",
+"ns": true,
+"sampath": 1,
+"c": [
+"End-Diastolic Volume (EDV)",
+"Stroke Volume (SV)",
+"End-Systolic Volume (ESV)",
+"Zero",
+"Preload"
+],
+"a": 2,
+"e": "Ejection is over and all valves are shut, so volume stays at ESV, about 50 mL.",
+"w": [
+"EDV is the volume in isovolumetric contraction.",
+"SV is what left.",
+"",
+"The ventricle never fully empties.",
+"Preload is EDV."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "Which heart sound is produced at the start of isovolumic relaxation?",
+"ns": true,
+"sampath": 1,
+"c": [
+"S1",
+"S2",
+"S3",
+"S4",
+"S1 and S2 simultaneously"
+],
+"a": 1,
+"e": "S2, from aortic and pulmonic closure.",
+"w": [
+"S1 starts isovolumetric contraction.",
+"",
+"S3 is rapid filling.",
+"S4 is atrial systole.",
+"They are separated by all of systole."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "A patient’s Wiggers diagram shows a \"dicrotic notch\" on the aortic pressure trace. Which phase does this notch immediately precede?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Rapid ejection",
+"Isovolumic contraction",
+"Isovolumic relaxation",
+"Atrial systole",
+"Diastasis"
+],
+"a": 2,
+"e": "The notch is aortic valve closure, which starts isovolumic relaxation.",
+"w": [
+"Rapid ejection starts at aortic opening.",
+"That starts at mitral closure.",
+"",
+"That comes late in diastole.",
+"That comes after rapid filling."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "Ventricular filling (Phase F) begins when:",
+"ns": true,
+"sampath": 1,
+"c": [
+"Ventricular pressure exceeds aortic pressure",
+"Atrial pressure exceeds ventricular pressure",
+"The T wave ends",
+"The P wave begins",
+"The aortic valve closes"
+],
+"a": 1,
+"e": "When LV pressure falls below LA pressure, the mitral valve opens and rapid filling starts.",
+"w": [
+"That opens the aortic valve.",
+"",
+"The T wave ends near aortic closure, before filling.",
+"The P wave leads to atrial systole, late in diastole.",
+"Aortic closure starts isovolumic relaxation."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "Why is the initial stage of filling termed \"rapid\"?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Because the atria are contracting forcefully",
+"Because the ventricles are being sucked open by the aorta",
+"Due to the high pressure gradient between the full atria and the empty, relaxed ventricles",
+"Because the heart rate is high",
+"Because the aortic valve is still open"
+],
+"a": 2,
+"e": "Blood has pooled in the atria during systole. When the mitral valve opens, the large atrial-to-ventricular gradient drives fast early filling.",
+"w": [
+"The atria contract later, in Phase A.",
+"The aorta does not act on ventricular filling.",
+"",
+"Rapid filling happens at any heart rate.",
+"The aortic valve is closed."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "An S3 heart sound, if heard, would most likely occur during which phase?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Atrial systole",
+"Isovolumic contraction",
+"Rapid filling",
+"Slow filling",
+"Isovolumic relaxation"
+],
+"a": 2,
+"e": "S3 is blood striking the ventricular wall during rapid early filling.",
+"w": [
+"That is S4.",
+"That is S1.",
+"",
+"Flow is too slow to make S3.",
+"S2 starts this phase."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "During the rapid filling phase, what is the status of the \"v-wave\" in the jugular venous pulse?",
+"ns": true,
+"sampath": 1,
+"c": [
+"It is rising to its peak",
+"it is absent",
+"It is rapidly descending (the y-descent)",
+"It is replaced by the a-wave",
+"It is flat"
+],
+"a": 2,
+"e": "When the tricuspid valve opens, the atrium empties and pressure falls off the v wave: the y descent.",
+"w": [
+"It rises during systole, before filling.",
+"It came just before and is now falling.",
+"",
+"The a wave comes later, in atrial systole.",
+"Atrial pressure is falling."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "What is the longest phase of the cardiac cycle in a person with a resting heart rate?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Atrial systole",
+"Isovolumic contraction",
+"Rapid ejection",
+"Isovolumic relaxation",
+"Reduced (Slow) filling"
+],
+"a": 4,
+"e": "Diastasis (slow filling) is the longest phase at rest.",
+"w": [
+"About 0.1 s.",
+"About 0.05 s.",
+"Shorter than diastasis.",
+"About 0.08 s.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "If a patient’s heart rate increases significantly, which phase is most compromised (shortened)?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Rapid ejection",
+"Isovolumic contraction",
+"Reduced (Slow) filling",
+"Atrial systole",
+"Isovolumetric relaxation"
+],
+"a": 2,
+"e": "Diastasis is sacrificed first as heart rate rises.",
+"w": [
+"Shortens only modestly.",
+"Nearly fixed.",
+"",
+"Preserved.",
+"Nearly fixed."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "Which of the following describes the movement of blood during the slow filling phase?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Active pumping by the atria",
+"Passive flow from the veins, through the atria, into the ventricles",
+"Retrograde flow from the aorta",
+"No blood movement occurs",
+"Ejection of blood from the ventricles"
+],
+"a": 1,
+"e": "During diastasis, venous return trickles straight through the open AV valves into the ventricle.",
+"w": [
+"That is atrial systole.",
+"",
+"The aortic valve is closed.",
+"Filling continues slowly.",
+"That is systole."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "During the slow filling phase, ventricular pressure begins to rise slowly. What causes this rise?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Ventricular contraction",
+"The increasing volume of blood stretching the ventricular walls",
+"Closure of the mitral valve",
+"Opening of the aortic valve",
+"Decreased atrial pressure"
+],
+"a": 1,
+"e": "As volume rises, the ventricle moves along its passive pressure–volume (compliance) curve, so pressure creeps up.",
+"w": [
+"The ventricle is relaxed.",
+"",
+"The mitral valve is open.",
+"The aortic valve is closed.",
+"Atrial pressure is rising slowly too."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "The atrial contraction phase is represented by which wave on the ECG?",
+"ns": true,
+"sampath": 1,
+"c": [
+"P wave",
+"QRS complex",
+"T wave",
+"U wave",
+"Delta wave"
+],
+"a": 0,
+"e": "The P wave (atrial depolarization) triggers atrial systole.",
+"w": [
+"",
+"Ventricular depolarization.",
+"Ventricular repolarization.",
+"Late repolarization.",
+"Pre-excitation, as in WPW."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "In a healthy resting adult, what percentage of ventricular filling is provided by atrial contraction (the \"atrial kick\")?",
+"ns": true,
+"sampath": 1,
+"c": [
+"5-10%",
+"20-30%",
+"50-60%",
+"70-80%",
+"100%"
+],
+"a": 1,
+"e": "The atrial kick provides 20–30%; passive filling provides the rest.",
+"w": [
+"Too low.",
+"",
+"Too high.",
+"That is passive filling.",
+"Most filling is passive."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle MCQs",
+"s": "At the end of atrial contraction, the volume of blood in the ventricle is officially termed:",
+"ns": true,
+"sampath": 1,
+"c": [
+"End-Systolic Volume (ESV)",
+"Stroke Volume (SV)",
+"End-Diastolic Volume (EDV)",
+"Cardiac Output",
+"Ejection Fraction"
+],
+"a": 2,
+"e": "Atrial systole is the last part of diastole, so the volume at its end is EDV.",
+"w": [
+"ESV is the volume after ejection.",
+"SV is ejected volume.",
+"",
+"CO is a flow.",
+"EF is a ratio."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram MCQs",
+"s": "A 25-year-old athlete undergoes a treadmill stress test. As his heart rate increases from 70 bpm to 150 bpm, which of the following portions of the cardiac cycle will experience the most significant shortening in duration?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Atrial systole",
+"Isovolumetric contraction",
+"Ventricular ejection",
+"Ventricular diastole",
+"Isovolumetric relaxation"
+],
+"a": 3,
+"e": "Most of the time lost at higher heart rates comes out of diastole.",
+"w": [
+"Short and preserved.",
+"Nearly fixed.",
+"Shortens only modestly.",
+"",
+"Nearly fixed."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram MCQs",
+"s": "A patient is found to have an end-diastolic volume (EDV) of 120 mL and an end-systolic volume (ESV) of 50 mL. What is this patient’s ejection fraction (EF)?",
+"ns": true,
+"sampath": 1,
+"c": [
+"41%",
+"50%",
+"58%",
+"70%",
+"100%"
+],
+"a": 2,
+"e": "SV = 70 mL. EF = 70 ÷ 120 = 58%.",
+"w": [
+"That is ESV ÷ EDV.",
+"Arithmetic error.",
+"",
+"That is SV in mL.",
+"Impossible."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram MCQs",
+"s": "During a routine physiological study, it is noted that the majority of ventricular filling occurs before the atria contract. Approximately what percentage of ventricular filling is attributed to passive flow during general diastole?",
+"ns": true,
+"sampath": 1,
+"c": [
+"10–20%",
+"20–30%",
+"40–50%",
+"70–80%",
+"90–100%"
+],
+"a": 3,
+"e": "Passive filling gives 70–80%; the atrial kick adds the last 20–30%.",
+"w": [
+"Too low.",
+"That is the atrial kick.",
+"Too low.",
+"",
+"Too high."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram MCQs",
+"s": "A medical student is analyzing a Wiggers diagram. He identifies a phase where the mitral valve has just closed, but the aortic valve has not yet opened. Which of the following describes the volume and pressure changes in the left ventricle during this specific phase?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Volume decreasing, pressure increasing",
+"Volume constant, pressure increasing",
+"Volume constant, pressure decreasing",
+"Volume increasing, pressure constant",
+"Volume decreasing, pressure constant"
+],
+"a": 1,
+"e": "Between mitral closure and aortic opening is isovolumetric contraction: volume stays fixed while pressure rises.",
+"w": [
+"Rapid ejection.",
+"",
+"Isovolumetric relaxation.",
+"Not a normal phase.",
+"Not a normal phase."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram MCQs",
+"s": "At what point in the cardiac cycle does the first heart sound (S1) occur?",
+"ns": true,
+"sampath": 1,
+"c": [
+"At the start of atrial systole",
+"At the closure of the AV valves",
+"At the opening of the semilunar valves",
+"At the closure of the semilunar valves",
+"At the start of the reduced filling phase"
+],
+"a": 1,
+"e": "S1 is AV valve closure.",
+"w": [
+"That is S4.",
+"",
+"Opening is silent.",
+"That is S2.",
+"No sound at that point."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram MCQs",
+"s": "While monitoring a patient's jugular venous pulse, a clinician identifies the \"a\" wave. This wave is most directly caused by which of the following?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Ventricular contraction bulging the tricuspid valve",
+"Passive filling of the atria against a closed valve",
+"Atrial contraction",
+"Rapid ventricular ejection",
+"Closure of the aortic valve"
+],
+"a": 2,
+"e": "The a wave is right atrial contraction.",
+"w": [
+"The c wave.",
+"The v wave.",
+"",
+"Pulls the AV floor down, giving the x descent.",
+"The dicrotic notch on the arterial trace."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram MCQs",
+"s": "In the Wiggers diagram, the \"dicrotic notch\" (incisura) is a characteristic feature of the aortic pressure curve. What physiological event causes this notch?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Opening of the aortic valve",
+"Peak systolic pressure",
+"Closure of the aortic valve",
+"Atrial contraction",
+"Opening of the mitral valve"
+],
+"a": 2,
+"e": "Aortic valve closure causes brief backflow and a dip in pressure.",
+"w": [
+"That is the start of the aortic upstroke.",
+"The peak comes earlier.",
+"",
+"Atrial contraction does not appear on the aortic trace.",
+"Mitral opening comes later and does not appear on the aortic trace."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram MCQs",
+"s": "Which of the following pressures most closely represents the maximal (systolic) pressure found in the Right Ventricle of a healthy adult?",
+"ns": true,
+"sampath": 1,
+"c": [
+"8 mmHg",
+"12 mmHg",
+"25 mmHg",
+"80 mmHg",
+"130 mmHg"
+],
+"a": 2,
+"e": "The RV peaks at about 25 mmHg, matching pulmonary artery systolic pressure.",
+"w": [
+"The RA maximum.",
+"The LA maximum.",
+"",
+"Aortic diastolic pressure.",
+"Left-sided systolic level."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram MCQs",
+"s": "During the \"Reduced Ejection\" phase of the cardiac cycle (Phase D), which of the following is true?",
+"ns": true,
+"sampath": 1,
+"c": [
+"The AV valves are open",
+"Ventricular volume is at its maximum",
+"Aortic pressure is falling",
+"Ventricular pressure is at its minimum",
+"The semilunar valves are closed"
+],
+"a": 2,
+"e": "In reduced ejection, outflow slows and runoff to the periphery exceeds inflow, so aortic pressure falls from its peak.",
+"w": [
+"They are closed during systole.",
+"Volume is near its minimum.",
+"",
+"Pressure is still high.",
+"They are open; blood is still leaving."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram MCQs",
+"s": "The term \"Preload\" is most synonymous with which of the following?",
+"ns": true,
+"sampath": 1,
+"c": [
+"End-Systolic Volume (ESV)",
+"Stroke Volume (SV)",
+"End-Diastolic Volume (EDV)",
+"Ejection Fraction (EF)",
+"Mean Arterial Pressure (MAP)"
+],
+"a": 2,
+"e": "Preload is end-diastolic stretch, measured as EDV.",
+"w": [
+"ESV is what remains after ejection.",
+"SV is an output.",
+"",
+"EF is a ratio.",
+"MAP relates to afterload."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram MCQs",
+"s": "A 60-year-old male has a heart rate of 100 bpm. Which phase of his cardiac cycle is the longest?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Atrial systole",
+"Isovolumetric contraction",
+"Rapid ventricular ejection",
+"Isovolumetric relaxation",
+"Reduced ventricular filling"
+],
+"a": 4,
+"e": "At 100 bpm the cycle is 0.6 s. Diastasis is shorter but is still the longest single phase.",
+"w": [
+"About 0.1 s.",
+"About 0.05 s.",
+"Shorter.",
+"About 0.08 s.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram MCQs",
+"s": "Which valvular event marks the beginning of the \"Isovolumetric Relaxation\" phase?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Mitral valve opening",
+"Mitral valve closure",
+"Aortic valve opening",
+"Aortic valve closure",
+"Tricuspid valve opening"
+],
+"a": 3,
+"e": "Aortic closure ends ejection and starts isovolumetric relaxation.",
+"w": [
+"Ends it.",
+"Starts isovolumetric contraction.",
+"Starts ejection.",
+"",
+"Ends right-sided relaxation."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram MCQs",
+"s": "Which of the following best describes the pressure relationship that allows for \"Rapid Active Filling\" of the ventricles?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Ventricular pressure > Aortic pressure",
+"Atrial pressure > Ventricular pressure",
+"Aortic pressure > Ventricular pressure",
+"Ventricular pressure > Atrial pressure",
+"Pulmonary artery pressure > Right ventricular pressure"
+],
+"a": 1,
+"e": "Filling happens when atrial pressure exceeds ventricular pressure, which opens the AV valve.",
+"w": [
+"That opens the aortic valve for ejection.",
+"",
+"This closes the aortic valve but does not fill the ventricle.",
+"That closes the AV valve.",
+"That closes the pulmonic valve."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram MCQs",
+"s": "During Isovolumetric Contraction, the Left Ventricle must exceed a certain pressure to open the aortic valve. Based on Slide 12, what is this pressure threshold in a normal individual?",
+"ns": true,
+"sampath": 1,
+"c": [
+"10 mmHg",
+"25 mmHg",
+"80 mmHg",
+"120 mmHg",
+"130 mmHg"
+],
+"a": 2,
+"e": "The LV must exceed aortic diastolic pressure, about 80 mmHg.",
+"w": [
+"LV end-diastolic pressure.",
+"Right-sided systolic pressure.",
+"",
+"Peak systolic pressure, reached during ejection.",
+"Above the normal peak."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram MCQs",
+"s": "Which ECG event immediately precedes atrial systole?",
+"ns": true,
+"sampath": 1,
+"c": [
+"P wave",
+"QRS complex",
+"T wave",
+"ST segment",
+"U wave"
+],
+"a": 0,
+"e": "The P wave, atrial depolarization, comes just before atrial contraction.",
+"w": [
+"",
+"Precedes ventricular systole.",
+"Ventricular repolarization.",
+"Ventricular ejection.",
+"Late repolarization."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram MCQs",
+"s": "What is the primary mechanism that prevents blood from regurgitating into the great veins during atrial contraction?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Venous valves at the atrial junction",
+"Closure of the tricuspid valve",
+"Contraction of atrial muscle around venous orifices",
+"High pressure in the superior vena cava",
+"Rapid ventricular suction"
+],
+"a": 2,
+"e": "There are no valves where the caval and pulmonary veins enter the atria. Atrial muscle sleeves around the openings squeeze them narrow during contraction, limiting backflow; the small leak is the a wave.",
+"w": [
+"No such valves exist.",
+"It is open during atrial systole.",
+"",
+"SVC pressure is low.",
+"Ventricular suction acts in early filling, not atrial systole."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram MCQs",
+"s": "In a patient with a very high heart rate, the \"atrial component\" of ventricular pressure recording becomes less distinct. This is because:",
+"ns": true,
+"sampath": 1,
+"c": [
+"The atria stop contracting",
+"Filling time is reduced, making events overlap",
+"The AV valves stay closed",
+"Aortic pressure remains too high",
+"Stroke volume increases"
+],
+"a": 1,
+"e": "At high heart rates diastasis vanishes, so atrial systole runs straight into rapid filling and the events merge on the tracing.",
+"w": [
+"They still contract.",
+"",
+"They open each cycle.",
+"Not related.",
+"Not the reason."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram MCQs",
+"s": "Which of the following occurs during the \"Rapid Ventricular Ejection\" phase (Phase C)?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Ventricular volume is increasing",
+"70% of the ventricular blood is ejected",
+"Aortic valve is closing",
+"The second heart sound (S2) is heard",
+"Atrial pressure is at its maximum"
+],
+"a": 1,
+"e": "About 70% of the stroke volume leaves in rapid ejection.",
+"w": [
+"Volume is falling.",
+"",
+"It is open.",
+"S2 comes at the end of ejection.",
+"The v wave peaks at the end of systole."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram MCQs",
+"s": "Which of the following pressure readings would be considered normal for the Left Atrium?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Minimal 0, Maximal 8 mmHg",
+"Minimal 2, Maximal 12 mmHg",
+"Minimal 9, Maximal 130 mmHg",
+"Minimal 70, Maximal 130 mmHg",
+"Minimal 4, Maximal 25 mmHg"
+],
+"a": 1,
+"e": "Normal LA pressure is about 2–12 mmHg, a little higher than the RA.",
+"w": [
+"Right atrium.",
+"",
+"Not a normal chamber range.",
+"Systemic arterial range.",
+"Right ventricle range."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram MCQs",
+"s": "The \"c wave\" in the venous pulsation chart occurs during which phase of the cardiac cycle?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Atrial systole",
+"Isovolumetric contraction",
+"Rapid ventricular filling",
+"Isovolumetric relaxation",
+"Diastasis (Reduced filling)"
+],
+"a": 1,
+"e": "The c wave is tricuspid bulging during isovolumetric contraction.",
+"w": [
+"The a wave.",
+"",
+"The y descent.",
+"The v wave peaks and falls.",
+"Slow rise toward the a wave."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram Easy",
+"s": "According to the Wiggers diagram, the first heart sound (S1) is produced by the closure of which heart valves?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"Aortic and pulmonary valves",
+"Mitral and tricuspid valves",
+"Aortic and mitral valves",
+"Pulmonary and tricuspid valves"
+],
+"a": 1,
+"e": "S1 is the AV (mitral and tricuspid) valves closing.",
+"w": [
+"That is S2.",
+"",
+"Mixes one semilunar and one AV valve.",
+"Mixes one semilunar and one AV valve."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram Easy",
+"s": "The volume of blood in the ventricle at the end of diastole is known as:",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"Stroke Volume (SV)",
+"End-Systolic Volume (ESV)",
+"Ejection Fraction (EF)",
+"End-Diastolic Volume (EDV)"
+],
+"a": 3,
+"e": "EDV is the volume at the end of filling.",
+"w": [
+"SV = EDV − ESV.",
+"The volume after ejection.",
+"A ratio.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram Easy",
+"s": "The P wave on the ECG, which represents atrial depolarization, immediately precedes which mechanical event in the cardiac cycle?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"Ventricular ejection",
+"Atrial systole (contraction)",
+"Isovolumetric relaxation",
+"Aortic valve closure"
+],
+"a": 1,
+"e": "Atrial depolarization triggers atrial contraction.",
+"w": [
+"Follows QRS.",
+"",
+"Follows the T wave.",
+"Near the end of the T wave."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram Easy",
+"s": "What is the formula for calculating Stroke Volume (SV)?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"EDV / ESV",
+"EDV + ESV",
+"ESV - EDV",
+"EDV - ESV"
+],
+"a": 3,
+"e": "SV = EDV − ESV.",
+"w": [
+"Not a defined index.",
+"Adds the volumes.",
+"Gives a negative number.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram Easy",
+"s": "During the isovolumetric contraction phase of the cardiac cycle, which of the following is true?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"The aortic valve is open, and the mitral valve is closed.",
+"All four heart valves are closed, and ventricular pressure is rapidly increasing.",
+"All four heart valves are open, and blood is moving between chambers.",
+"The mitral valve is open, and the aortic valve is closed."
+],
+"a": 1,
+"e": "All valves are shut and pressure climbs at constant volume.",
+"w": [
+"That is ejection.",
+"",
+"Never normal.",
+"That is filling."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram Easy",
+"s": "A patient's heart rate increases from 75 bpm to 150 bpm during exercise. Which of the following is the most significant consequence of this change on the cardiac cycle?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"The duration of systole is dramatically prolonged.",
+"The duration of diastole is disproportionately shortened, limiting ventricular filling time.",
+"Atrial contraction no longer contributes to ventricular filling.",
+"The ejection fraction decreases by 50%."
+],
+"a": 1,
+"e": "Diastole takes most of the cut, which limits filling time.",
+"w": [
+"Systole shortens slightly.",
+"",
+"The atrial kick matters more, not less.",
+"EF typically rises with sympathetic drive."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram Easy",
+"s": "A patient has an end-diastolic volume (EDV) of 140 mL and an end-systolic volume (ESV) of 60 mL. What is their Ejection Fraction (EF)?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"43%",
+"57%",
+"75%",
+"80%"
+],
+"a": 1,
+"e": "SV = 80 mL. EF = 80 ÷ 140 = 57%.",
+"w": [
+"That is ESV ÷ EDV.",
+"",
+"That is ESV ÷ SV.",
+"That is SV in mL."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram Easy",
+"s": "In a patient with severe aortic stenosis, the left ventricle must generate a much higher pressure to eject blood. How would this pathology alter the timing of valve events in the left heart?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"The aortic valve would open earlier, and the duration of isovolumetric contraction would be shorter.",
+"The mitral valve would close later, and the duration of ventricular ejection would be longer.",
+"The aortic valve would open later, and the duration of isovolumetric contraction would be longer.",
+"The aortic valve would close earlier, and the duration of isovolumetric relaxation would be shorter."
+],
+"a": 2,
+"e": "The LV needs longer to build the pressure that opens a stenotic valve, so aortic opening is delayed and isovolumetric contraction lengthens. Ejection is also prolonged.",
+"w": [
+"The reverse.",
+"Mitral closure timing is not the main change.",
+"",
+"Aortic closure is delayed, not earlier."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Wiggers Diagram Easy",
+"s": "A patient develops atrial fibrillation, a condition where the atria quiver chaotically instead of contracting in a coordinated fashion. What would be the most direct effect on the components of the end-diastolic volume (EDV)?",
+"ns": true,
+"sampath": 1,
+"sdiff": "Easy",
+"c": [
+"The passive filling component would be eliminated.",
+"The rapid active filling component (\"atrial kick\") would be lost, reducing total EDV.",
+"Both passive and active filling components would increase due to higher atrial pressure.",
+"The ESV would increase, which in turn would increase the subsequent EDV."
+],
+"a": 1,
+"e": "AF removes the atrial kick, so EDV falls by up to 20–30%.",
+"w": [
+"Passive filling continues.",
+"",
+"Active filling is lost.",
+"Not the direct effect."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle Clinical Quiz",
+"s": "A 70-year-old male with a history of heart failure with systolic dysfunction is noted to have a blood pressure of 90/60 mmHg and a heart rate of 110 bpm. Which of the following best explains the high heart rate in this patient?",
+"ns": true,
+"sampath": 1,
+"c": [
+"It is a primary arrhythmia unrelated to his heart failure.",
+"It is a compensatory mechanism to maintain cardiac output in the face of low stroke volume.",
+"It is a side effect of his diuretic medication causing hypokalemia.",
+"It is an attempt to increase preload by shortening diastolic filling time.",
+"It is a result of increased vagal tone to the sinoatrial node."
+],
+"a": 1,
+"e": "CO = SV × HR. Systolic failure lowers SV, and low BP triggers the baroreflex, raising sympathetic drive and heart rate to hold up CO.",
+"w": [
+"Sinus tachycardia here is reflex, not a primary arrhythmia.",
+"",
+"Hypokalemia is not the main explanation.",
+"Shortening diastole lowers preload.",
+"Vagal tone slows the heart."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle Clinical Quiz",
+"s": "A patient undergoes a right heart catheterization. The data shows: O2 consumption = 250 mL/min; Pulmonary artery O2 content = 150 mL/L; Femoral artery O2 content = 200 mL/L. What is the patient's cardiac output, and which physiological principle is being applied?",
+"ns": true,
+"sampath": 1,
+"c": [
+"4.0 L/min, Indicator dilution principle",
+"5.0 L/min, Fick principle",
+"6.25 L/min, Frank-Starling Law",
+"5.0 L/min, Law of Laplace",
+"4.0 L/min, Fick principle"
+],
+"a": 1,
+"e": "Fick principle: CO = VO₂ ÷ (arterial − mixed venous O₂) = 250 ÷ (200 − 150) = 5.0 L/min.",
+"w": [
+"Wrong value and wrong principle.",
+"",
+"Wrong value; Frank–Starling does not calculate CO.",
+"Right value, but Laplace is wall tension.",
+"Right principle, wrong arithmetic."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle Clinical Quiz",
+"s": "A patient with severe aortic regurgitation is being evaluated. Which of the following sets of changes in cardiac volumes and pressures would be most characteristic of chronic, compensated aortic regurgitation?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Decreased EDV, decreased ESV, decreased SV",
+"Increased EDV, increased ESV, increased SV",
+"Increased EDV, decreased ESV, normal SV",
+"Normal EDV, increased ESV, decreased SV",
+"Decreased EDV, increased ESV, decreased SV"
+],
+"a": 1,
+"e": "Regurgitant blood refills the LV in diastole, so EDV rises a lot. Eccentric dilation also raises ESV. Total SV (forward plus regurgitant) rises, giving the bounding pulse.",
+"w": [
+"The opposite of volume overload.",
+"",
+"ESV rises with dilation.",
+"EDV rises.",
+"EDV and SV rise."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle Clinical Quiz",
+"s": "If a patient's heart rate increases from 70 bpm to 140 bpm during exercise, the duration of the cardiac cycle shortens from ~0.8s to 0.4s. If systole shortens from 0.3s to 0.2s, what is the new duration of diastole, and what is the primary limiting factor for cardiac output at very high heart rates?",
+"ns": true,
+"sampath": 1,
+"c": [
+"0.2s; inadequate time for ventricular ejection.",
+"0.2s; inadequate time for ventricular filling.",
+"0.1s; excessive myocardial oxygen consumption.",
+"0.1s; inadequate time for isovolumetric contraction.",
+"0.6s; reduced coronary artery perfusion."
+],
+"a": 1,
+"e": "Diastole = 0.4 − 0.2 = 0.2 s, down from 0.5 s. At very high rates filling time is too short, so EDV and SV fall and CO stops rising.",
+"w": [
+"Right time, wrong limit.",
+"",
+"Wrong arithmetic.",
+"Wrong arithmetic and wrong limit.",
+"Wrong arithmetic."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle Clinical Quiz",
+"s": "During phase G of the Wiggers Diagram (Reduced ventricular filling/Diastasis), the ventricular volume is slowly increasing. What is the pressure relationship between the left atrium (LA) and left ventricle (LV) during this specific phase?",
+"ns": true,
+"sampath": 1,
+"c": [
+"P_LV > P_LA, causing the mitral valve to close.",
+"P_LA > P_LV, but the gradient is small and diminishing.",
+"P_LV is rising rapidly due to atrial contraction.",
+"P_LA and P_LV are both zero.",
+"P_LV > P_LA, but the mitral valve is held open by momentum."
+],
+"a": 1,
+"e": "Filling continues only while LA pressure exceeds LV pressure; in diastasis the two nearly equalize, so flow slows.",
+"w": [
+"That ends filling.",
+"",
+"Atrial contraction is Phase A.",
+"Neither is zero.",
+"Not the normal mechanism."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle Clinical Quiz",
+"s": "In which of the following conditions would the work done accelerating blood (kinetic energy) constitute a substantially larger fraction of total stroke work?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Systemic hypertension",
+"Aortic stenosis",
+"Mitral regurgitation",
+"Dilated cardiomyopathy",
+"Aortic regurgitation"
+],
+"a": 1,
+"e": "Kinetic work ∝ ½mv². A narrowed aortic valve forces a high-velocity jet, so the kinetic share of stroke work rises sharply from its normal ~1%.",
+"w": [
+"Raises pressure work, not velocity.",
+"",
+"Backflow into the low-pressure LA does not need high velocity.",
+"Low velocity.",
+"Larger volume, but velocity is not dramatically higher."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle Clinical Quiz",
+"s": "The medication successfully lowers their heart rate and blood pressure (afterload) but also has a negative inotropic effect. Assuming preload remains constant, what is the net effect on Stroke Volume (SV) and Ejection Fraction (EF)?",
+"ns": true,
+"sampath": 1,
+"c": [
+"SV and EF will both definitively increase.",
+"SV and EF will both definitively decrease.",
+"The effect is indeterminate as decreased afterload and decreased contractility have opposing effects on SV.",
+"SV will increase due to lower afterload, but EF will decrease due to lower contractility.",
+"SV will decrease due to lower contractility, but EF will be unchanged."
+],
+"a": 2,
+"e": "Lower afterload raises SV, while lower contractility lowers it. With the magnitudes unknown, the net effect cannot be predicted. With preload fixed, EF moves with SV.",
+"w": [
+"Ignores the negative inotropy.",
+"Ignores the afterload drop.",
+"",
+"With EDV fixed, EF moves with SV.",
+"With EDV fixed, EF moves with SV."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle Clinical Quiz",
+"s": "A patient has severe calcific mitral stenosis. The primary hemodynamic abnormality is obstruction of flow from the left atrium to the left ventricle. Which of the following pressure findings would be most characteristic of this condition?",
+"ns": true,
+"sampath": 1,
+"c": [
+"An elevated left ventricular end-diastolic pressure (LVEDP) with a normal left atrial pressure.",
+"A large pressure gradient between the left atrium and left ventricle during diastole.",
+"An equalization of left atrial and left ventricular pressures during systole.",
+"A prominent 'v' wave on the left atrial pressure trace.",
+"A decreased pressure gradient between the left ventricle and aorta during systole."
+],
+"a": 1,
+"e": "A stenotic mitral valve needs a high LA pressure to push blood through, giving a large LA–LV diastolic gradient. LVEDP is normal or low.",
+"w": [
+"The reverse: LA pressure is high and LVEDP is normal.",
+"",
+"Normal LV pressure is far above LA in systole.",
+"That suggests mitral regurgitation.",
+"The aortic valve is not involved."
+],
+"src": "lec"
+},
+{
+"t": "Sampath's Q's · Cardiac Cycle Clinical Quiz",
+"s": "Based on the Frank-Starling mechanism, what is the expected immediate effect on the patient's stroke volume and end-systolic volume, assuming afterload and contractility are unchanged?",
+"ns": true,
+"sampath": 1,
+"c": [
+"SV increases, ESV increases",
+"SV decreases, ESV increases",
+"SV increases, ESV is unchanged",
+"SV decreases, ESV is unchanged",
+"SV is unchanged, ESV decreases"
+],
+"a": 2,
+"e": "The stem as handed out omits the scenario; the intended setting is an increase in preload. More EDV with fixed afterload and contractility means the ventricle ejects to the same ESV, so SV rises and ESV stays the same.",
+"w": [
+"ESV stays the same.",
+"Opposite direction.",
+"",
+"Opposite direction.",
+"SV rises."
 ],
 "src": "lec"
 }

@@ -283,6 +283,7 @@ i.d{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px
 .badge.xp{color:var(--red);border-color:var(--red)}
 .badge.shetty{color:var(--teal);border-color:var(--teal)}
 .badge.sampath{color:#0b7285;border-color:#0b7285}
+.badge.sdEasy{color:#2b8a3e;border-color:#2b8a3e}.badge.sdMedium{color:#b08900;border-color:#b08900}.badge.sdMediumHard{color:#d9480f;border-color:#d9480f}.badge.sdHard{color:#c92a2a;border-color:#c92a2a}
 .badge.lvE{color:#2b8a3e;border-color:#2b8a3e}.badge.lvH{color:#e8590c;border-color:#e8590c}
 .badge{display:inline-block;margin-left:6px;font-size:11.5px;font-weight:600;color:var(--badge-fg);border:1px solid var(--badge-line);background:var(--badge-bg);border-radius:10px;padding:1px 8px;vertical-align:1px}
 .srcnote{margin-top:14px;color:var(--muted);font-size:13.5px;font-style:italic}
@@ -1122,7 +1123,7 @@ button.dst:hover{background:var(--hover)}
 <script src="crs-embryology.js?v=35"></script>
 <script src="crs-anatomy.js?v=1"></script>
 <script src="crs-biochem.js?v=5"></script>
-<script src="crs-physiology.js?v=9"></script>
+<script src="crs-physiology.js?v=10"></script>
 <script src="nbme.js?v=15"></script>
 <script src="xp-crs.js?v=1"></script>
 <script src="viz-links.js?v=3"></script>
@@ -1211,7 +1212,7 @@ const SECTIONS = [
   {course:"crs", name:"CRS Physiology", all:"All CRS Physiology", prefix:"cpr", topics:window.CRS_PH_TOPICS, hideTopics:true, qs:window.CRS_PH_QUESTIONS,
    // Grouped by lecture (Dr. Sampath V.), then topic. Add each new lecture as one more [name, topics] row.
    extra:(()=>{ const T = window.CRS_PH_TOPICS||[];
-     return lecExtras([["Lecture 1 · Cardiac Action Potential", T.slice(0,11)], ["Lecture 2 · Pacemaker Potential: SA & AV Nodes", T.slice(11,18)], ["Lecture 3 · Effects of Cardiac Nerves", T.slice(18,25)], ["Lecture 4 · The Cardiac Cycle", T.slice(25,32)], ["Lecture 5 · Cardiac Output & Pressure-Volume Loops", T.slice(32,39)]],
+     return lecExtras([["Lecture 1 · Cardiac Action Potential", T.slice(0,11)], ["Lecture 2 · Pacemaker Potential: SA & AV Nodes", T.slice(11,18)], ["Lecture 3 · Effects of Cardiac Nerves", T.slice(18,25)], ["Lecture 4 · The Cardiac Cycle", T.slice(25,32).concat(T.slice(39,47))], ["Lecture 5 · Cardiac Output & Pressure-Volume Loops", T.slice(32,39)]],
        [["Sampath's Q's", "Sampath", "sampath"]]); })()}
 ].concat((window.NBME_QUIZZES||[]).map(z=>({course:z.course, name:z.name, all:z.name, prefix:z.prefix, topics:[], qs:z.qs, nbme:true, subject:z.subject, note:z.note})))
  .filter(s=>s.qs && s.qs.length);
@@ -2129,7 +2130,7 @@ function renderStats(){
   $("stats").innerHTML = `<b>${done.length}</b> / ${qs.length} answered · <span class="g">${ok} correct</span> · <span class="r">${bad} incorrect</span> · ${pct}%${note}`;
 }
 function srcBadge(q){
-  return (q.xp?' <span class="badge xp">Exam Point</span>':"")+(q.shetty?' <span class="badge shetty">Shetty Practice Q</span>':"")+(q.sampath?' <span class="badge sampath">Sampath\'s Q\'s</span>':"")+(q.src==="lec" && !q.sampath && !q.shetty?' <span class="badge">Lecture slides</span>':"")+(q.src==="guide"?' <span class="badge">Study guide</span>':"")+(q.lv?' <span class="badge lv'+q.lv[0]+'">'+q.lv+'</span>':"")+(q.src==="new"?' <span class="badge">Blueprint practice</span>':"")+(q.src==="rev"?' <span class="badge">Review slides</span>':"")+
+  return (q.xp?' <span class="badge xp">Exam Point</span>':"")+(q.shetty?' <span class="badge shetty">Shetty Practice Q</span>':"")+(q.sampath?' <span class="badge sampath">Sampath\'s Q\'s</span>':"")+(q.sdiff?' <span class="badge sd'+q.sdiff.replace(/[^A-Za-z]/g,"")+'">'+q.sdiff+'</span>':"")+(q.src==="lec" && !q.sampath && !q.shetty?' <span class="badge">Lecture slides</span>':"")+(q.src==="guide"?' <span class="badge">Study guide</span>':"")+(q.lv?' <span class="badge lv'+q.lv[0]+'">'+q.lv+'</span>':"")+(q.src==="new"?' <span class="badge">Blueprint practice</span>':"")+(q.src==="rev"?' <span class="badge">Review slides</span>':"")+
     (q.src==="rev3"?' <span class="badge">MSK Review 3</span>':"")+(q.src==="rev4"?' <span class="badge">MSK Review 4</span>':"");
 }
 function renderCard(){
@@ -2370,7 +2371,7 @@ function explanation(q, o, s){
     if (a === undefined) h += `<div class="verdict m">Not answered. The answer is ${letter}. ${cTxt(q,q.a)}</div>`;
     else { const right = a === q.a; h += `<div class="verdict ${right?"g":"r"}">${right?"Correct.":"Incorrect."} The answer is ${letter}. ${cTxt(q,q.a)}</div>`; }
     const cq = classQ(q.id);
-    if (cq) h += `<div class="classline">👥 <b>${Math.round(cq[1]*100/cq[0])}%</b> of the class got this right · ${cq[0]} students answered</div>`;
+    if (cq) h += `<div class="classline"><b>${Math.round(cq[1]*100/cq[0])}%</b> of the class got this right</div>`;
     const ch = (s.chgq||{})[q.id], tt = S.qtime[q.id];
     if (ch || tt) {
       let line = "";
@@ -2573,8 +2574,7 @@ function renderHome(){
     const st = secStats(sec), a2 = st.done ? Math.round(st.ok*100/st.done) : null, incN = sec.items.filter(REVIEW_BY_K.inc.f).length;
     return `<div class="dsc"><div class="dsct"><b>${esc(sec.name)}</b><span>${a2===null?"—":a2+"%"}</span></div>
       <div class="dscs">${st.done} of ${st.n} answered</div>${(()=>{ const cs = classSec(sec.prefix); if (!cs) return ""; const avg = Math.round(cs.reduce((x,y)=>x+y,0)/cs.length);
-        const mine = st.done >= 10 ? a2 : null, pct = mine===null ? null : Math.round(cs.filter(v=>v<mine).length*100/cs.length);
-        return `<div class="dclass">👥 Class average ${avg}%${pct===null ? "" : ` · you're ahead of <b>${pct}%</b> of the class`}</div>`; })()}
+        return `<div class="dclass">Class average <b>${avg}%</b> correct</div>`; })()}
       <div class="dbar"><i class="ok" style="width:${st.ok*100/st.n}%"></i><i class="bad" style="width:${st.bad*100/st.n}%"></i></div>
       <div class="dsca"><button class="dpill" data-go="${sec.prefix}:all">${st.done?"Continue":"Start"}</button>${incN?`<button class="dpill r" data-rv="${sec.prefix}:rv:inc" title="Review incorrect">✗ ${incN}</button>`:""}<button class="dpill g" data-opensec="${sec.prefix}">Topics</button></div></div>`;
   }).join("");
