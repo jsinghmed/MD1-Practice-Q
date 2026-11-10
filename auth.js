@@ -74,7 +74,7 @@
   function merge(a, b, winner){
     const W = winner==="a" ? a : b, L = winner==="a" ? b : a;
     const out = Object.assign({}, L, W);
-    const MAPS = ["ans","sel","strike","flag","notes","hl","order","qtime","first","chgq","posId","pos","scr","qshuf","snap","curBy","S_unused"];
+    const MAPS = ["ans","sel","strike","flag","notes","nimg","hl","order","qtime","first","chgq","posId","pos","scr","qshuf","snap","curBy","S_unused"];
     MAPS.forEach(k=>{ if (L[k] || W[k]) out[k] = Object.assign({}, L[k]||{}, W[k]||{}); });
     if (L.qtime || W.qtime) { out.qtime = Object.assign({}, out.qtime); Object.keys(L.qtime||{}).forEach(id=>{ out.qtime[id] = Math.max(+(L.qtime||{})[id]||0, +(W.qtime||{})[id]||0); }); }
     out.anki = Array.from(new Set([...(W.anki||[]), ...(L.anki||[])]));
