@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OSCE Room · CRS</title>
+<style>
+:root{--navy:#1c4a72;--navy2:#285f8f;--bg:#eef2f6;--card:#fff;--ink:#1d2733;--mute:#5d6b7a;--ok:#1f8a4c;--part:#c27c0e;--miss:#c0392b;--line:#d8e0e8}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+header{background:var(--navy);color:#fff;padding:10px 18px;display:flex;align-items:center;gap:14px}
+header h1{font-size:17px;margin:0;font-weight:600}
+header .sp{flex:1}
+#timer{font-variant-numeric:tabular-nums;background:rgba(255,255,255,.14);padding:3px 10px;border-radius:6px;font-weight:600}
+#timer.low{background:#c0392b}
+main{max-width:1180px;margin:0 auto;padding:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px}
+.btn{border:0;border-radius:8px;padding:10px 16px;font:inherit;font-weight:600;cursor:pointer;background:var(--navy);color:#fff}
+.btn.sec{background:#e3eaf2;color:var(--navy)}
+.btn.red{background:#c0392b}
+.btn:disabled{opacity:.45;cursor:default}
+h2{margin:0 0 10px;font-size:20px}
+h3{margin:18px 0 8px;font-size:16px;color:var(--navy)}
+.muted{color:var(--mute)}
+/* dashboard */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.station{cursor:pointer;transition:.15s}
+.station:hover{border-color:var(--navy2);box-shadow:0 2px 10px rgba(28,74,114,.12)}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:10px;background:#e3eaf2;color:var(--navy);margin-right:4px}
+.soon{opacity:.55;cursor:default}
+/* door */
+.door{display:grid;grid-template-columns:1fr 280px;gap:18px}
+.doornote{border-left:5px solid var(--navy);background:#f7fafc;padding:14px 16px;border-radius:6px}
+.doornote dt{font-weight:600;margin-top:8px}
+.doornote dd{margin:2px 0 0}
+.doorpic{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:linear-gradient(#8a6a4b,#6d5238);border-radius:10px;padding:20px;color:#fff;min-height:320px}
+.doorpic .plate{background:#f3efe6;color:#333;padding:6px 14px;border-radius:4px;font-weight:600;font-size:13px}
+/* room */
+.room{display:grid;grid-template-columns:minmax(300px,1fr) 1.15fr;gap:16px}
+.scene{position:relative;border-radius:10px;overflow:hidden;background:#e9ecef;min-height:420px;aspect-ratio:400/520;display:flex;align-items:flex-start}
+.scene svg{width:100%;height:auto;display:block}
+.bubble{position:absolute;left:14px;right:14px;bottom:14px;background:#fff;border-radius:10px;padding:10px 14px;box-shadow:0 2px 8px rgba(0,0,0,.15);min-height:44px;font-size:14.5px}
+.bubble b{color:var(--navy)}
+.panel{display:flex;flex-direction:column;gap:12px}
+.mic{display:flex;align-items:center;gap:12px}
+#micBtn{width:64px;height:64px;border-radius:50%;font-size:26px;padding:0;flex:none}
+#micBtn.on{background:#c0392b;animation:pulse 1.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(192,57,43,.5)}70%{box-shadow:0 0 0 14px rgba(192,57,43,0)}100%{box-shadow:0 0 0 0 rgba(192,57,43,0)}}
+#interim{color:var(--mute);font-style:italic;min-height:22px}
+.typer{display:flex;gap:8px}
+.typer input{flex:1;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font:inherit}
+#log{height:250px;overflow:auto;border:1px solid var(--line);border-radius:8px;padding:10px;background:#fafcfe}
+.msg{margin:0 0 8px}
+.msg.you b{color:#555}
+.msg.pt b{color:var(--navy)}
+.msg.sys{color:var(--mute);font-size:13px}
+#findings{display:flex;flex-direction:column;gap:6px}
+.find{background:#f1f7f2;border-left:4px solid var(--ok);padding:6px 10px;border-radius:4px;font-size:14px}
+.find b{display:block;font-size:12.5px;color:var(--ok);text-transform:uppercase;letter-spacing:.03em}
+.phase{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font-size:12.5px;padding:3px 10px;border-radius:12px;background:#e3eaf2;color:var(--navy)}
+.chip.done{background:var(--navy);color:#fff}
+/* report */
+.score{display:flex;gap:14px;flex-wrap:wrap}
+.score .big{font-size:36px;font-weight:700;color:var(--navy)}
+.sbox{flex:1;min-width:170px;background:#f7fafc;border:1px solid var(--line);border-radius:8px;padding:12px}
+table.rub{width:100%;border-collapse:collapse;font-size:14px}
+table.rub td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+table.rub td.pts{width:58px;text-align:center;font-weight:700}
+.p2{color:var(--ok)}.p1{color:var(--part)}.p0{color:var(--miss)}.pna{color:var(--mute)}
+.tip{color:var(--mute);font-size:13px}
+.kpt{background:#fff8e6;border-left:4px solid #e0a800;padding:10px 14px;border-radius:4px}
+.hide{display:none!important}
+@media(max-width:820px){.door,.room{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header id="hdr">
+  <h1>🩺 OSCE Room · CRS</h1>
+  <span class="sp"></span>
+  <span id="timer" class="hide">15:00</span>
+</header>
+<main id="app"></main>
+
+<script>
+/* ============================================================
+   RUBRIC — CRS102 Cardiovascular examination (ICM01)
+   Clinical items are 0/1/2, professionalism items 0/1.
+   ============================================================ */
+const RUBRIC = {
+  history: [
+    ["intro","Introduce yourself to the patient"],["name","Name of the patient"],["age","Age or DOB"],["gender","Gender"],
+    ["occupation","Occupation"],["address","Address"],["cc","Ask chief complaint(s)"],["onset","Onset"],["location","Location"],
+    ["timing","Timing / Duration"],["radiation","Radiation"],["precip","Precipitating events"],["progression","Progression"],
+    ["quality","Quality"],["severity","Severity on a scale"],["aggravating","Aggravating factors"],["relieving","Relieving factors"],
+    ["treatments","Treatments tried"],["associated","Associated symptoms"],["pmh","Past history: childhood & adult illness"],
+    ["immun","Immunization history"],["fhx","Family history"],["social","Personal & social history: lifestyle"],
+    ["habits","Habits and addictions"],["sexual","Sexual history"],["diet","Diet and exercise"],["allergies","Allergies"],["ros","Review of systems"]],
+  exam: [
+    ["gs","General survey: face, hands, peripheral edema"],["jvp","Neck: JVP"],["carotid","Neck: carotid pulse"],
+    ["inspect","Chest: inspection of anterior chest"],["heaves","Chest: palpation for heaves and thrills"],
+    ["percuss","Chest: percussion (left 3rd–6th ICS dull, right resonant)"],["apex","Chest: palpation of apical impulse"],
+    ["valves","Chest: auscultation of the four valves"],["bases","Chest: auscultation of the lung bases"]],
+  prof: [
+    ["knock","Knocked before entering"],["title","Introduction including last name and title"],["role","Clarified role"],
+    ["care","Showed care and concern for the patient"],["consent","Asked permission before examining"],
+    ["thanks","Closed the encounter / thanked the patient"],
+    ["appear","Professional appearance in dress, grooming, hygiene",true],["eye","Listened without interrupting, eye contact",true],
+    ["dist","Comfortable and appropriate distance",true]]
+};
+
+/* What to say if you missed an item */
+const HOW = {
+  intro:"Greet, then give your name and role: “Hi, I'm Dr. Sayal, a medical student. I'll be taking your history today.”",
+  name:"“Can you tell me your full name?”", age:"“How old are you?” or “What's your date of birth?”",
+  gender:"Confirm gender: “How do you identify?” / “Which gender should I record?”", occupation:"“What do you do for work?”",
+  address:"“Where do you live?”", cc:"“What brings you in today?”", onset:"“When did this first start?”",
+  location:"“Where exactly do you feel the pain? Can you point to it?”", timing:"“How long does each episode last, and how often?”",
+  radiation:"“Does the pain spread anywhere: arm, jaw, neck, back?”", precip:"“What were you doing when it comes on? What triggers it?”",
+  progression:"“Has it changed since it started? More often, or at rest now?”", quality:"“How would you describe the pain: sharp, dull, pressure?”",
+  severity:"Use a scale: “On a scale of 0 to 10, how bad is it?”", aggravating:"“Does anything make it worse?”",
+  relieving:"“Does anything make it better?”", treatments:"“Have you tried anything for it, any medications?”",
+  associated:"Ask for associated symptoms: shortness of breath, sweating, nausea, palpitations, dizziness, fainting.",
+  pmh:"“Any medical conditions now or as a child? Hospital stays or surgeries?”", immun:"“Are your vaccinations up to date?”",
+  fhx:"“Does anything run in your family, like heart disease, diabetes or early heart attacks?”",
+  social:"“Who do you live with? How is stress at work and home?”", habits:"Ask about smoking (pack-years), alcohol and drugs.",
+  sexual:"“Are you sexually active? With one partner or more?”", diet:"“What's your diet like? Do you exercise?”",
+  allergies:"“Do you have any allergies to medications or anything else?”", ros:"Run a quick review of systems: fever, cough, weight change, leg swelling, headaches, bowel and bladder.",
+  gs:"Say what you inspect: face (xanthelasma, cyanosis, pallor), hands (clubbing, nicotine staining, capillary refill) and legs for pitting edema.",
+  jvp:"Patient at 45°, head turned left; measure the internal jugular height above the sternal angle in cm.",
+  carotid:"Palpate one carotid at a time, comment on rate, rhythm and character; listen for bruits.",
+  inspect:"Inspect the anterior chest for scars, deformity and visible pulsations.",
+  heaves:"Palpate for heaves (left parasternal) and thrills over each valve area.",
+  percuss:"Percuss the left 3rd–6th intercostal spaces (dull over the heart) and compare with the right (resonant).",
+  apex:"Palpate the apex: normally the 5th intercostal space, midclavicular line.",
+  valves:"Name all four areas as you listen: aortic, pulmonic, tricuspid, mitral.",
+  bases:"Listen to the lung bases for crackles.",
+  knock:"Knock before you enter the room.", title:"Introduce yourself with your last name and title.",
+  role:"Clarify your role: “I'm a medical student and I'll be taking your history and examining you.”",
+  care:"Show concern: “I'm sorry you've been dealing with this.” / “Are you comfortable?”",
+  consent:"Ask before touching: “Is it okay if I examine your heart now?”", thanks:"Close: thank the patient and say what happens next."
+};
+
+/* ============================================================
+   CASES — add more patients here; each module gets its own list.
+   An intent: [rubric id, regex, patient reply, (optional) regex that earns full marks]
+   ============================================================ */
+const CASES = [{
+  id:"crs-angina", module:"CRS", title:"Chest pain on exertion", minutes:15,
+  patient:{name:"Robert Hayes", age:58, sex:"male", voice:"male"},
+  door:{
+    "Patient":"Robert Hayes, 58-year-old man",
+    "Reason for visit":"“Chest pain when I climb the stairs.”",
+    "Vitals":"BP 152/94 mm Hg · HR 84/min, regular · RR 16/min · Temp 36.8 °C · SpO₂ 97% on room air",
+    "Your tasks":"Take a focused history, perform a cardiovascular examination, then give your assessment (most likely diagnosis and next steps)."
+  },
+  opening:"Hello, doctor.",
+  intents:[
+    ["name",/(your|full) name|what.*call you|who am i speaking/i,"It's Robert Hayes."],
+    ["age",/how old|your age|date of birth|\bdob\b|when were you born|birthday/i,"I'm 58. Born March 4th, 1968."],
+    ["gender",/gender|identify as|\bsex\b(?!ual)/i,"Male."],
+    ["occupation",/occupation|for (a )?(living|work)|your (job|work)|do you work|employ/i,"I'm an accountant. Mostly desk work."],
+    ["address",/where do you live|your address|where.*(you )?(reside|staying)|home address/i,"14 Maple Road, here in town."],
+    ["cc",/what brings you|brought you|how can i help|what seems to be|what.*(problem|concern)|what's going on|how are you feeling today|what happened/i,"I've been getting this chest pain whenever I walk uphill or climb stairs."],
+    ["onset",/when did (it|this|the pain)|first (start|notice|happen)|how long ago|start(ed)? (it|this)|onset/i,"About three months ago. The first time was carrying groceries up the stairs."],
+    ["location",/where (is|do you feel|does it hurt|exactly)|point to|show me where|location/i,"Right here, in the middle of my chest, behind the breastbone."],
+    ["timing",/how long does (it|the pain|each)|duration|how often|how many times|last(s)? for|constant|come and go/i,"It lasts about three to five minutes. It happens two or three times a week."],
+    ["radiation",/radiat|spread|move anywhere|go anywhere|travel|(arm|jaw|neck|back|shoulder)/i,"Sometimes it goes into my left arm, and up to my jaw."],
+    ["precip",/trigger|brings? (it|the pain) on|precipitat|what were you doing|set(s)? it off|cause[sd]? it|happen(s)? when/i,"Climbing stairs, walking fast. Once when I was arguing with my brother."],
+    ["progression",/since (it|then)|over time|changed|progress|getting (worse|better|more)|more (often|frequent)|at rest|same as/i,"It's about the same as when it started. It's never come on at rest."],
+    ["quality",/describe|feel like|what kind of|sharp|dull|quality|character|burning|stabbing|pressure/i,"It's a heavy, squeezing pressure. Like something sitting on my chest."],
+    ["severity",/scale|out of (10|ten)|how (bad|severe|strong|intense)|severity|rate (it|the pain)/i,"About six out of ten.",/scale|out of (10|ten)|rate/i],
+    ["aggravating",/(make|makes|making) (it|the pain) worse|aggravat|anything worse|worsen/i,"Anything that gets me moving. Stairs, walking fast, carrying things."],
+    ["relieving",/(make|makes|making) (it|the pain) better|reliev|go away|ease|help (it|the pain)|stop(s)? it/i,"Stopping and resting. It goes away in a few minutes."],
+    ["treatments",/tried|take anything|taking anything|medicat|medicine|pills|treat/i,"I tried an antacid once. It didn't help. I take amlodipine for my blood pressure."],
+    ["associated",/other symptoms|anything else (with|when|along)|short(ness)? of breath|breathless|sweat|nause|dizz|light.?headed|palpitat|faint|pass out|associated/i,"I get a bit short of breath and sweaty with it. No fainting, no palpitations, no nausea."],
+    ["pmh",/past medical|medical (history|conditions|problems)|any (conditions|illness)|diagnosed|childhood|as a (child|kid)|hospital|surger|operation/i,"High blood pressure and high cholesterol, for about ten years. Nothing serious as a child, just chickenpox. No surgeries."],
+    ["immun",/vaccin|immuni|shots|flu shot|tetanus/i,"I think I'm up to date. I had my flu shot this year."],
+    ["fhx",/family|father|mother|dad|mom|parents|siblings|brother|sister|run in/i,"My father had a heart attack at 54. My mother has diabetes."],
+    ["social",/live with|married|partner|wife|children|kids|stress|lifestyle|social|home life|support/i,"I'm married, two grown kids. Work gets stressful during tax season."],
+    ["habits",/smok|cigarett|tobacco|vape|alcohol|drink|drugs|substance|recreational/i,"I smoke about a pack a day, for thirty years. A couple of beers on the weekend. No drugs."],
+    ["sexual",/sexual|sexually active|intimate/i,"Just my wife. One partner."],
+    ["diet",/diet|eat|food|exercise|physical activity|work out|active/i,"I eat a lot of fried food, honestly. I don't really exercise."],
+    ["allergies",/allerg/i,"No allergies that I know of."],
+    ["ros",/review of systems|any other (problems|issues|symptoms)|cough|fever|weight|swelling|leg|headache|urin|bowel|vision/i,"No fever, no cough, no weight loss, no leg swelling, no headaches."]
+  ],
+  /* exam: [rubric id, regex that counts as doing it, finding shown, list of detail regexes (needs >= need for 2 points), need] */
+  exam:[
+    ["gs",/general survey|inspect(ing)? (your|the) (face|hands)|look(ing)? at (your|the) (face|hands|legs|ankles)|clubbing|cyanosis|pallor|xanthelasma|edema|oedema|capillary refill/i,
+      "Face: no cyanosis or pallor; mild xanthelasma. Hands: nicotine staining on right index and middle fingers, no clubbing, capillary refill < 2 s. Legs: no pitting edema.",
+      [/face|xanthelasma|cyanosis|pallor/i,/hand|clubbing|nicotine|capillary/i,/edema|oedema|ankle|leg/i],2],
+    ["jvp",/jvp|jugular venous/i,"JVP 2 cm above the sternal angle at 45°. Not raised.",[/45|sternal angle|internal jugular|\bcm\b|centimet/i],1],
+    ["carotid",/carotid/i,"Carotid pulse normal volume and upstroke, regular; no bruits.",[/one (side|at a time)|each side|bruit|both sides separately/i],1],
+    ["inspect",/inspect(ing)? (the |your )?chest|look(ing)? at (the |your )?chest|chest wall|precordium/i,"No scars, deformity or visible pulsations.",[/scar|deformit|pulsation|symmetr/i],1],
+    ["heaves",/heave|thrill/i,"No heaves or thrills.",[/heave/i,/thrill/i],2],
+    ["percuss",/percuss/i,"Dull over the left 3rd–6th intercostal spaces; resonant on the right.",[/dull/i,/(3rd|third|6th|sixth|intercostal)/i,/resonan/i],2],
+    ["apex",/apex|apical|\bpmi\b|point of maximal/i,"Apex beat in the left 5th intercostal space, midclavicular line; not displaced.",[/(5th|fifth) intercostal|midclavicular/i],1],
+    ["valves",/auscult|listen(ing)? to (your|the) heart|stethoscope|heart sounds|aortic|pulmonic|pulmonary area|tricuspid|mitral/i,
+      "S1 and S2 normal. Soft S4 at the apex. No murmurs.",[/aortic/i,/pulmon/i,/tricuspid/i,/mitral/i],4],
+    ["bases",/(lung )?bases|basal|crackles|listen(ing)? to (your|the) lungs|lung fields/i,"Lung bases clear, no crackles.",[/base|basal|crackle/i],1]
+  ],
+  prof:{
+    title:/(my name is|i'?m|i am) .*(doctor|dr\.?|medical student|student doctor)/i,
+    role:/(medical student|student doctor|i'?ll be|i will be|i'?m here to).*(history|examin|ask|talk|see you)|my role/i,
+    care:/sorry to hear|that must be|i understand|are you comfortable|comfortable|take your time|that sounds|must be (hard|difficult|scary)|don'?t worry/i,
+    consent:/(is it|would it be) (ok|okay|alright|all right).*(examin|listen|feel|look|check)|may i (examine|listen|look|check)|can i (examine|listen|look|check)|permission|consent/i,
+    thanks:/thank you|thanks/i,
+    greet:/\b(hi|hello|good (morning|afternoon|evening))\b/i
+  },
+  dx:{
+    best:/stable angina|angina pectoris|\bangina\b/i,
+    good:[/coronary (artery )?disease|\bcad\b|ischemi|ischaemi/i,/ecg|ekg|electrocardiogram/i,/stress test|exercise (test|ecg)|treadmill/i,/troponin|lipid|cholesterol/i,/nitroglycerin|nitrate|gtn|aspirin|statin|beta.?blocker|stop smoking|smoking cessation/i],
+    teach:["Most likely diagnosis: <b>stable angina</b>. Retrosternal pressure brought on by exertion or emotion, lasting under 10 minutes, relieved by rest; radiates to the left arm and jaw.",
+      "Why it's stable and not unstable: same pattern for 3 months, never at rest, not getting more frequent (that's why <b>progression</b> matters).",
+      "Risk factors he gave you: smoker (30 pack-years), hypertension, high cholesterol, father's MI at 54, sedentary life with a high-fat diet. Exam shows the clues: nicotine staining, xanthelasma, and an S4 from a stiff, hypertrophied LV.",
+      "Next steps: resting ECG, lipids, glucose/HbA1c, troponin if any pain at rest, then an exercise stress test. Start aspirin, a statin and a β-blocker, give sublingual nitroglycerin for attacks, and help him stop smoking."]
+  }
+},
+{id:"crs-hf", module:"CRS", title:"Shortness of breath and swollen ankles", soon:true},
+{id:"crs-palp", module:"CRS", title:"Palpitations", soon:true}];
+
+/* ============================================================
+   Engine
+   ============================================================ */
+const $ = s=>document.querySelector(s), app=$("#app");
+const SR = window.SpeechRecognition||window.webkitSpeechRecognition;
+let S=null, rec=null, recOn=false, speaking=false, tick=null;
+
+function dash(){
+  stopAll(); $("#timer").classList.add("hide");
+  let hist=[]; try{hist=JSON.parse(localStorage.getItem("osce-hist")||"[]")}catch(e){}
+  app.innerHTML=`<h2>CRS stations</h2><p class="muted">Each station is scored on your CRS102 cardiovascular OSCE rubric. Talk to the patient out loud, examine by saying what you're doing, then give your assessment.</p>
+  <div class="grid">${CASES.map(c=>`<div class="card station ${c.soon?"soon":""}" data-c="${c.id}">
+    <div><span class="tag">${c.module}</span>${c.soon?'<span class="tag">coming soon</span>':`<span class="tag">${c.minutes} min</span>`}</div>
+    <h3 style="margin:8px 0 4px">${c.title}</h3>
+    <div class="muted">${c.soon?"":c.door.Patient}</div>
+    ${(()=>{const h=hist.filter(x=>x.id===c.id);return h.length?`<div class="tip" style="margin-top:6px">Best: ${Math.max(...h.map(x=>x.pct))}% · ${h.length} attempt${h.length>1?"s":""}</div>`:""})()}
+  </div>`).join("")}</div>
+  ${SR?"":`<p class="kpt" style="margin-top:16px">This browser can't transcribe speech, so you'll type instead. Use Chrome or Safari to talk out loud.</p>`}`;
+  app.querySelectorAll(".station:not(.soon)").forEach(el=>el.onclick=()=>door(CASES.find(c=>c.id===el.dataset.c)));
+}
+
+function door(c){
+  S={c, log:[], hit:{}, prof:{}, findings:{}, knocked:false, phase:"door", t0:null, dx:""};
+  app.innerHTML=`<div class="door"><div class="card">
+    <h2>Door note</h2>
+    <dl class="doornote">${Object.entries(c.door).map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
+    <p class="muted" style="margin-top:14px">You have ${c.minutes} minutes once you enter. Press the mic and talk as you would in the real station: greet, take the history, ask permission, then say each part of the exam out loud (for example “I'm going to percuss the left 3rd to 6th intercostal spaces”). The findings appear as you go.</p>
+    <button class="btn sec" id="back">← All stations</button></div>
+    <div class="doorpic"><div class="plate">Exam Room 3</div><div style="font-size:60px">🚪</div>
+      <button class="btn sec" id="knock">✊ Knock</button><button class="btn" id="enter">Enter the room</button></div></div>`;
+  $("#back").onclick=dash;
+  $("#knock").onclick=()=>{S.knocked=true;$("#knock").textContent="✓ Knocked";$("#knock").disabled=true;knockSound();setTimeout(()=>say("Come in."),500)};
+  $("#enter").onclick=room;
+}
+
+function room(){
+  const c=S.c; S.phase="history"; S.t0=Date.now();
+  app.innerHTML=`<div class="room">
+    <div class="scene">${patientSVG()}<div class="bubble" id="bubble"><b>${c.patient.name}:</b> <span id="said">…</span></div></div>
+    <div class="panel">
+      <div class="phase" id="phase"></div>
+      <div class="card"><div class="mic">
+        <button class="btn" id="micBtn" title="Talk">🎙</button>
+        <div style="flex:1"><div id="micState" class="muted">${SR?"Press the mic and start talking.":"Type what you'd say below."}</div><div id="interim"></div></div>
+      </div>
+      <div class="typer" style="margin-top:10px"><input id="txt" placeholder="…or type what you'd say and press Enter"><button class="btn sec" id="send">Send</button></div></div>
+      <div id="log"></div>
+      <div class="card"><h3 style="margin-top:0">Exam findings</h3><div id="findings"><span class="muted">Say what you examine and the findings will appear here.</span></div></div>
+      <div style="display:flex;gap:8px;justify-content:flex-end"><button class="btn red" id="end">End encounter → Assessment</button></div>
+    </div></div>`;
+  if(!SR) $("#micBtn").disabled=true;
+  $("#micBtn").onclick=toggleMic;
+  $("#txt").onkeydown=e=>{if(e.key==="Enter"&&e.target.value.trim()){heard(e.target.value.trim());e.target.value=""}};
+  $("#send").onclick=()=>{const v=$("#txt").value.trim();if(v){heard(v);$("#txt").value=""}};
+  $("#end").onclick=assess;
+  startTimer(c.minutes); phaseChips();
+  sys(S.knocked?"You knocked and entered.":"You entered without knocking.");
+  say(c.opening);
+}
+
+function phaseChips(){
+  const h=RUBRIC.history.filter(([k])=>S.hit[k]).length, e=RUBRIC.exam.filter(([k])=>S.hit[k]).length;
+  $("#phase").innerHTML=`<span class="chip ${h?"done":""}">History ${h}/${RUBRIC.history.length}</span><span class="chip ${e?"done":""}">Exam ${e}/${RUBRIC.exam.length}</span><span class="chip ${S.prof.consent?"done":""}">Consent</span>`;
+}
+
+/* --- understanding what the student said --- */
+function heard(text){
+  if(S.phase==="assess"){ S.dx+=(S.dx?" ":"")+text; $("#dxText").value=S.dx; return; }
+  add("you","You",text);
+  const c=S.c, P=c.prof;
+  // professionalism
+  if(P.greet.test(text)||P.title.test(text)) S.hit.intro=Math.max(S.hit.intro||0, P.title.test(text)?2:1);
+  for(const k of ["title","role","care","consent","thanks"]) if(P[k].test(text)) S.prof[k]=1;
+  // exam: one or more manoeuvres in a sentence
+  let examined=false;
+  for(const [id,re,find,details,need] of c.exam){
+    if(!re.test(text)) continue; examined=true;
+    const got=details.filter(d=>d.test(text)).length;
+    const pts=got>=need?2:1; S.hit[id]=Math.max(S.hit[id]||0,pts);
+    if(!S.findings[id]){S.findings[id]=find; showFinding(id,find);}
+  }
+  if(examined && !S.prof.consent && !S.examWarned){S.examWarned=true;}
+  // history: answer what was asked (up to 2 topics per sentence)
+  const ans=[];
+  if(!examined){
+    for(const [id,re,reply,full] of c.intents){
+      if(re.test(text)){ S.hit[id]=Math.max(S.hit[id]||0, full&&!full.test(text)?1:2); if(!ans.includes(reply)) ans.push(reply); if(ans.length>=2) break; }
+    }
+  }
+  phaseChips();
+  if(ans.length) say(ans.join(" "));
+  else if(examined) say(S.prof.consent?"Okay.":"Oh — okay.");
+  else if(/thank/i.test(text)) say("Thank you, doctor.");
+  else if(c.prof.consent.test(text)) say("Sure, go ahead.");
+  else if(/\b(hi|hello|good (morning|afternoon|evening))\b|my name is|i'?m /i.test(text)) say("Nice to meet you.");
+  else say("Sorry, could you ask me that another way?");
+}
+
+/* --- speech in --- */
+function toggleMic(){
+  if(recOn){recOn=false; try{rec.stop()}catch(e){} micUI(); return;}
+  rec=new SR(); rec.lang="en-US"; rec.continuous=true; rec.interimResults=true;
+  rec.onresult=e=>{let interim="";for(let i=e.resultIndex;i<e.results.length;i++){const r=e.results[i];if(r.isFinal){const t=r[0].transcript.trim();if(t&&!speaking)heard(t)}else interim+=r[0].transcript}$("#interim").textContent=interim;};
+  rec.onend=()=>{ if(recOn&&!speaking) try{rec.start()}catch(e){} };
+  rec.onerror=e=>{ if(e.error==="not-allowed"){recOn=false;micUI();sys("Microphone blocked. Allow it in the browser, or type instead.");} };
+  recOn=true; try{rec.start()}catch(e){} micUI();
+}
+function micUI(){ const b=$("#micBtn"); if(!b) return; b.classList.toggle("on",recOn); $("#micState").textContent=recOn?(speaking?"Patient is talking…":"Listening… talk normally."):"Mic off. Press to talk."; }
+
+/* --- speech out --- */
+function pickVoice(){
+  const vs=speechSynthesis.getVoices().filter(v=>/^en/i.test(v.lang));
+  return vs.find(v=>/daniel|alex|fred|aaron|arthur|male|david|guy/i.test(v.name))||vs[0];
+}
+function say(text){
+  if(S && S.phase!=="door") add("pt",S.c.patient.name,text);
+  const said=$("#said"); if(said) said.textContent=text;
+  if(!("speechSynthesis" in window)) return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text); const v=pickVoice(); if(v) u.voice=v; u.rate=.95; u.pitch=.85;
+  u.onstart=()=>{speaking=true; mouth(true); if(rec&&recOn) try{rec.stop()}catch(e){} micUI();};
+  u.onend=()=>{speaking=false; mouth(false); if(rec&&recOn) setTimeout(()=>{try{rec.start()}catch(e){}},250); micUI();};
+  speechSynthesis.speak(u);
+}
+function knockSound(){ try{const a=new AudioContext();[0,.18,.36].forEach(t=>{const o=a.createOscillator(),g=a.createGain();o.frequency.value=95;g.gain.setValueAtTime(.6,a.currentTime+t);g.gain.exponentialRampToValueAtTime(.001,a.currentTime+t+.12);o.connect(g).connect(a.destination);o.start(a.currentTime+t);o.stop(a.currentTime+t+.13)})}catch(e){} }
+
+/* --- log --- */
+function add(cls,who,text){ S.log.push([who,text]); const l=$("#log"); if(!l) return; l.insertAdjacentHTML("beforeend",`<p class="msg ${cls}"><b>${who}:</b> ${esc(text)}</p>`); l.scrollTop=l.scrollHeight; }
+function sys(t){ const l=$("#log"); if(l){l.insertAdjacentHTML("beforeend",`<p class="msg sys">${t}</p>`);l.scrollTop=l.scrollHeight;} }
+function showFinding(id,f){ const box=$("#findings"); if(!box) return; if(box.querySelector(".muted")) box.innerHTML="";
+  const label=RUBRIC.exam.find(x=>x[0]===id)[1]; box.insertAdjacentHTML("beforeend",`<div class="find"><b>${label}</b>${f}</div>`); }
+const esc=s=>s.replace(/[&<>]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[m]));
+
+/* --- timer --- */
+function startTimer(min){ const el=$("#timer"); el.classList.remove("hide","low"); clearInterval(tick); const end=Date.now()+min*60000;
+  tick=setInterval(()=>{const s=Math.max(0,Math.round((end-Date.now())/1000)); el.textContent=`${String(Math.floor(s/60)).padStart(2,"0")}:${String(s%60).padStart(2,"0")}`;
+    el.classList.toggle("low",s<=120); if(s===0){clearInterval(tick); S.overtime=true; if(S.phase==="history"){sys("⏰ Time is up."); assess();}}},500); }
+function stopAll(){ clearInterval(tick); recOn=false; try{rec&&rec.stop()}catch(e){} if("speechSynthesis" in window) speechSynthesis.cancel(); }
+
+/* --- assessment --- */
+function assess(){
+  S.phase="assess"; S.used=Math.round((Date.now()-S.t0)/1000); if("speechSynthesis" in window) speechSynthesis.cancel();
+  if(!S.prof.thanks && S.log.slice(-3).some(([w,t])=>w==="You"&&/thank/i.test(t))) S.prof.thanks=1;
+  app.innerHTML=`<div class="card"><h2>Your assessment</h2>
+    <p class="muted">You've left the room. Tell the examiner your most likely diagnosis, why, and what you'd do next. Use the mic or type.</p>
+    <div class="mic"><button class="btn" id="micBtn">🎙</button><div style="flex:1"><div id="micState" class="muted">Press the mic and talk.</div><div id="interim"></div></div></div>
+    <textarea id="dxText" rows="5" style="width:100%;margin-top:10px;padding:10px;border:1px solid var(--line);border-radius:8px;font:inherit" placeholder="e.g. “Most likely stable angina because…”"></textarea>
+    <div style="display:flex;justify-content:flex-end;margin-top:10px"><button class="btn" id="grade">Submit and see my grade</button></div></div>`;
+  if(!SR) $("#micBtn").disabled=true;
+  $("#micBtn").onclick=toggleMic;
+  $("#dxText").oninput=e=>S.dx=e.target.value;
+  $("#grade").onclick=()=>{S.dx=$("#dxText").value; stopAll(); report();};
+}
+
+/* --- grading --- */
+function report(){
+  const c=S.c; const P=S.prof; P.knock=S.knocked?1:0;
+  const sec=(list,max)=>list.map(([k,label,self])=>({k,label,self,p:self?null:(max===2?(S.hit[k]||0):(P[k]||0)),max}));
+  const H=sec(RUBRIC.history,2), E=sec(RUBRIC.exam,2), R=sec(RUBRIC.prof,1);
+  const sum=a=>a.filter(x=>!x.self).reduce((s,x)=>s+x.p,0), mx=a=>a.filter(x=>!x.self).reduce((s,x)=>s+x.max,0);
+  const dxBest=c.dx.best.test(S.dx), dxGood=c.dx.good.filter(r=>r.test(S.dx)).length;
+  const dxPts=(dxBest?2:0)+Math.min(dxGood,3); // out of 5
+  const tot=sum(H)+sum(E)+sum(R)+dxPts, totMax=mx(H)+mx(E)+mx(R)+5, pct=Math.round(100*tot/totMax);
+  try{const h=JSON.parse(localStorage.getItem("osce-hist")||"[]");h.push({id:c.id,pct,at:Date.now()});localStorage.setItem("osce-hist",JSON.stringify(h.slice(-50)))}catch(e){}
+  const row=x=>`<tr><td class="pts ${x.self?"pna":"p"+(x.max===1?x.p*2:x.p)}">${x.self?"self":x.p+"/"+x.max}</td><td>${x.label}${!x.self&&x.p<x.max&&HOW[x.k]?`<div class="tip">${x.p?"Partly done. ":""}${HOW[x.k]}</div>`:""}${x.self?`<div class="tip">Can't be judged from audio. Check yourself.</div>`:""}</td></tr>`;
+  const missed=[...H,...E].filter(x=>!x.self&&x.p===0).map(x=>x.label), partial=[...H,...E].filter(x=>x.p===1).map(x=>x.label);
+  const strong=[...H,...E,...R].filter(x=>!x.self&&x.p===x.max).length;
+  const fb=(p,lo,hi)=>p>=hi?"excellent":p>=lo?"on par with the expected level":"not yet at the expected level";
+  const mm=Math.floor(S.used/60), ss=S.used%60;
+  app.innerHTML=`<div class="card">
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><h2 style="margin:0;flex:1">Your grade: ${c.title}</h2><button class="btn sec" id="again">Try again</button><button class="btn sec" id="home">All stations</button></div>
+    <div class="score" style="margin-top:14px">
+      <div class="sbox"><div class="big">${pct}%</div><div class="muted">${tot} / ${totMax} points · ${mm}:${String(ss).padStart(2,"0")} used</div></div>
+      <div class="sbox"><b>History</b><div class="big" style="font-size:24px">${sum(H)}/${mx(H)}</div></div>
+      <div class="sbox"><b>Exam</b><div class="big" style="font-size:24px">${sum(E)}/${mx(E)}</div></div>
+      <div class="sbox"><b>Professionalism</b><div class="big" style="font-size:24px">${sum(R)}/${mx(R)}</div></div>
+      <div class="sbox"><b>Assessment</b><div class="big" style="font-size:24px">${dxPts}/5</div></div>
+    </div>
+    <h3>Examiner feedback</h3>
+    <ul>
+      <li><b>Clinical skills:</b> ${fb((sum(H)+sum(E))/(mx(H)+mx(E)),.6,.85)}.</li>
+      <li><b>Medical knowledge:</b> ${dxBest&&dxGood>=2?"excellent":dxBest?"on par with the expected level":"not yet at the expected level"}${dxBest?"":" (the most likely diagnosis was not stated)"}.</li>
+      <li><b>Professionalism &amp; communication:</b> ${fb(sum(R)/mx(R),.5,.85)}.</li>
+      <li><b>Did well:</b> ${strong} items done fully.${S.knocked?" You knocked before entering.":""}${P.consent?" You asked permission before examining.":""}</li>
+      ${missed.length?`<li><b>Missed (${missed.length}):</b> ${missed.join(", ")}.</li>`:""}
+      ${partial.length?`<li><b>Done but incomplete:</b> ${partial.join(", ")}.</li>`:""}
+    </ul>
+    <h3>Case teaching points</h3><div class="kpt">${c.dx.teach.map(t=>`<p style="margin:4px 0">${t}</p>`).join("")}</div>
+    <h3>History (0–2 each)</h3><table class="rub">${H.map(row).join("")}</table>
+    <h3>Cardiovascular exam (0–2 each)</h3><table class="rub">${E.map(row).join("")}</table>
+    <h3>Professionalism (0–1 each)</h3><table class="rub">${R.map(row).join("")}</table>
+    <h3>Your assessment</h3><p>${S.dx?esc(S.dx):'<span class="muted">Nothing given.</span>'}</p>
+    <h3>Transcript</h3><div style="max-height:260px;overflow:auto;border:1px solid var(--line);border-radius:8px;padding:10px">${S.log.map(([w,t])=>`<p class="msg"><b>${w}:</b> ${esc(t)}</p>`).join("")||'<span class="muted">Empty</span>'}</div>
+  </div>`;
+  $("#timer").classList.add("hide");
+  $("#again").onclick=()=>door(c); $("#home").onclick=dash;
+}
+
+/* --- the patient --- */
+// Clinic room (illustrated from the school OSCE room) with the patient seated on the exam bed
+function patientSVG(){return `<svg viewBox="0 0 400 460" preserveAspectRatio="xMidYMax slice" aria-label="Patient sitting on an exam table in a clinic room">
+<defs>
+  <radialGradient id="skinF" cx="48%" cy="40%" r="62%"><stop offset="0" stop-color="#e6b896"/><stop offset=".6" stop-color="#d29f7c"/><stop offset="1" stop-color="#a8775a"/></radialGradient>
+  <linearGradient id="skinN" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9c6d52"/><stop offset=".5" stop-color="#c08d6c"/><stop offset="1" stop-color="#c99877"/></linearGradient>
+  <linearGradient id="skinA" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b98667"/><stop offset=".5" stop-color="#d6a583"/><stop offset="1" stop-color="#b07d5f"/></linearGradient>
+  <linearGradient id="gown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9cc3df"/><stop offset=".55" stop-color="#7fadd0"/><stop offset="1" stop-color="#5f8fb5"/></linearGradient>
+  <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.3" fill="#e9f2f9" opacity=".55"/><circle cx="10" cy="10" r="1.1" fill="#3f6f95" opacity=".25"/></pattern>
+  <linearGradient id="pants" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#3a4654"/><stop offset=".5" stop-color="#4c5a6a"/><stop offset="1" stop-color="#323d49"/></linearGradient>
+  <linearGradient id="hair" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfcfcf"/><stop offset="1" stop-color="#8e8e8e"/></linearGradient>
+  <radialGradient id="shadowG" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#000" stop-opacity=".28"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+  <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e8eef3"/><stop offset="1" stop-color="#d6e0e8"/></linearGradient>
+  <linearGradient id="table" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f7f9"/><stop offset="1" stop-color="#cdd7e0"/></linearGradient>
+  <linearGradient id="paper" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fbfbf8"/><stop offset="1" stop-color="#ecece6"/></linearGradient>
+</defs>
+<style>
+  .breath{animation:breathe 4.2s ease-in-out infinite;transform-origin:200px 330px}
+  .head{animation:sway 7s ease-in-out infinite;transform-origin:200px 175px}
+  .lid{animation:blink 5.3s infinite;transform-box:fill-box;transform-origin:50% 0}
+  @keyframes breathe{0%,100%{transform:scale(1,1)}50%{transform:scale(1.012,1.02)}}
+  @keyframes sway{0%,100%{transform:rotate(-1deg)}50%{transform:rotate(1.2deg) translateY(1px)}}
+  @keyframes blink{0%,95%,100%{transform:scaleY(.08)}97%{transform:scaleY(1)}}
+</style>
+<defs>
+ <linearGradient id="rCeil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9edf0"/><stop offset="1" stop-color="#d9dfe4"/></linearGradient>
+ <linearGradient id="rBack" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6f7f8"/><stop offset="1" stop-color="#e9ecef"/></linearGradient>
+ <linearGradient id="rLeft" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#e3e7ea"/><stop offset="1" stop-color="#f2f4f5"/></linearGradient>
+ <linearGradient id="rRight" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#e4e8eb"/><stop offset="1" stop-color="#f3f5f6"/></linearGradient>
+ <linearGradient id="rFloor" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9cdd0"/><stop offset="1" stop-color="#b3b8bc"/></linearGradient>
+ <linearGradient id="rWood" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d9c29b"/><stop offset="1" stop-color="#e8d5b2"/></linearGradient>
+ <linearGradient id="rWoodD" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c8ad83"/><stop offset="1" stop-color="#dcc39d"/></linearGradient>
+ <linearGradient id="rTV" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3d5d86"/><stop offset="1" stop-color="#1c2f4a"/></linearGradient>
+ <linearGradient id="rLED" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#f4f8ff"/></linearGradient>
+ <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+</defs>
+<!-- ceiling -->
+<polygon points="0,0 400,0 322,92 112,92" fill="url(#rCeil)"/>
+<polygon points="112,92 322,92 322,98 112,98" fill="#dfe4e8"/>
+<path d="M130 0 L150 92 M260 0 L248 92 M180 30 L268 30 M175 60 L262 60" stroke="#d3d9de" stroke-width="1" fill="none"/>
+<circle cx="236" cy="22" r="5" fill="#f4f6f7" stroke="#c9d0d6"/><rect x="205" y="70" width="18" height="6" rx="1" fill="#cfd5db"/>
+<g filter="url(#glow)"><path d="M58 0 L120 92" stroke="#fff" stroke-width="9"/><path d="M372 0 L306 92" stroke="#fff" stroke-width="9"/></g>
+<path d="M58 0 L120 92" stroke="url(#rLED)" stroke-width="4"/><path d="M372 0 L306 92" stroke="url(#rLED)" stroke-width="4"/>
+<!-- walls -->
+<polygon points="0,0 112,92 112,300 0,452" fill="url(#rLeft)"/>
+<polygon points="400,0 322,92 322,300 400,372" fill="url(#rRight)"/>
+<rect x="112" y="98" width="210" height="202" fill="url(#rBack)"/>
+<!-- skirting -->
+<polygon points="112,296 322,296 322,300 112,300" fill="#9aa3aa"/><polygon points="0,446 112,296 112,300 0,452" fill="#9aa3aa"/><polygon points="322,296 400,366 400,372 322,300" fill="#9aa3aa"/>
+<!-- floor -->
+<polygon points="112,300 322,300 400,372 400,460 0,460 0,452" fill="url(#rFloor)"/>
+<path d="M150 300 L60 460 M190 300 L160 460 M230 300 L260 460 M270 300 L360 460" stroke="#bfc4c8" stroke-width=".8" opacity=".6"/>
+<polygon points="128,300 162,300 150,460 40,460" fill="#3a3f45"/><polygon points="132,302 158,302 146,458 50,458" fill="none" stroke="#4a5058" stroke-width="1"/>
+<!-- back wall: door, clock, small screen, TV, wall diagnostics -->
+<rect x="122" y="156" width="40" height="142" fill="#e6e9ec" stroke="#c4cbd1"/><rect x="126" y="160" width="32" height="138" fill="#fbfbfb"/>
+<rect x="150" y="228" width="6" height="2.5" rx="1" fill="#8d959c"/><rect x="152" y="224" width="2" height="10" rx="1" fill="#8d959c"/>
+<rect x="128" y="132" width="26" height="14" rx="2" fill="#2a2d31"/><text x="141" y="142.5" font-size="8" text-anchor="middle" fill="#ff4b3e" font-family="monospace">10:00</text>
+<rect x="168" y="246" width="7" height="9" rx="1" fill="#e6e9ec" stroke="#c4cbd1"/><rect x="180" y="246" width="6" height="6" rx="1" fill="#e6e9ec" stroke="#c4cbd1"/>
+<rect x="194" y="214" width="26" height="17" rx="2" fill="#2b2f35"/><rect x="196" y="216" width="22" height="13" fill="#3e6fa3"/><rect x="205" y="231" width="4" height="10" fill="#9aa1a7"/>
+<rect x="246" y="150" width="46" height="30" rx="2" fill="#1d232b"/><rect x="248" y="152" width="42" height="26" fill="url(#rTV)"/>
+<rect x="296" y="160" width="14" height="11" rx="2" fill="#f4f5f6" stroke="#aeb6bd"/><rect x="298" y="162" width="10" height="7" fill="#7fb3d5"/>
+<path d="M300 172 l0 30 M305 172 q4 18 -2 34" stroke="#444" stroke-width="1.6" fill="none"/>
+<rect x="276" y="194" width="44" height="10" rx="2" fill="#eef0f2" stroke="#aeb6bd"/><circle cx="284" cy="199" r="2.5" fill="#d64b3b"/><rect x="292" y="196" width="8" height="6" fill="#3e6fa3"/>
+<path d="M286 204 l0 18 M296 204 l0 14 M310 204 q4 14 -6 22" stroke="#555" stroke-width="1.6" fill="none"/>
+<rect x="306" y="212" width="12" height="16" rx="2" fill="#f2f2f2" stroke="#aeb6bd"/>
+<rect x="250" y="196" width="10" height="16" rx="2" fill="#f5f6f7" stroke="#aeb6bd"/><path d="M255 212 q-6 24 4 40" stroke="#666" stroke-width="1.3" fill="none"/>
+<!-- left wall: upper cabinet, sink unit, towel dispenser -->
+<polygon points="0,96 58,128 58,214 0,206" fill="url(#rWood)"/><polygon points="58,128 64,132 64,214 58,214" fill="url(#rWoodD)"/>
+<path d="M30 112 L30 210" stroke="#c4a87e" stroke-width="1"/>
+<polygon points="0,246 30,252 30,292 0,292" fill="#f7f8f8" stroke="#cfd5da"/>
+<polygon points="0,322 100,306 106,312 0,334" fill="#f7f8f8" stroke="#cfd5da"/>
+<polygon points="0,334 106,312 106,392 0,426" fill="url(#rWood)"/><path d="M54 324 L54 408" stroke="#c4a87e" stroke-width="1"/>
+<ellipse cx="62" cy="316" rx="24" ry="5" fill="#e4e8eb" stroke="#c4cbd1"/>
+<path d="M44 312 q0 -24 14 -24 q10 0 10 10" stroke="#b9c0c6" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+<!-- red sharps box -->
+<rect x="4" y="420" width="30" height="30" rx="3" fill="#c8312a"/><rect x="8" y="424" width="22" height="6" fill="#e05a50"/><rect x="40" y="430" width="22" height="22" rx="2" fill="#f2f2f2" stroke="#ccc"/>
+<!-- blue stool -->
+<ellipse cx="178" cy="296" rx="13" ry="4" fill="#2f5aa8"/><rect x="176" y="296" width="4" height="16" fill="#8e979e"/><path d="M168 314 l20 0" stroke="#5e666d" stroke-width="2"/>
+<!-- exam bed -->
+<ellipse cx="250" cy="420" rx="120" ry="9" fill="#000" opacity=".15"/>
+<path d="M172 356 L330 356 L322 392 L182 392 Z" fill="#cdd3d8"/>
+<path d="M190 366 L314 400 M190 400 L314 366" stroke="#aeb6bd" stroke-width="4"/>
+<rect x="186" y="398" width="132" height="8" rx="3" fill="#bfc6cc"/>
+<circle cx="194" cy="414" r="7" fill="#3b3f44"/><circle cx="310" cy="414" r="7" fill="#3b3f44"/><circle cx="194" cy="414" r="2.5" fill="#888"/><circle cx="310" cy="414" r="2.5" fill="#888"/>
+<rect x="150" y="330" width="210" height="22" rx="5" fill="#fdfdfd" stroke="#c5ccd2"/>
+<rect x="150" y="345" width="210" height="7" rx="3" fill="#1f3f8f"/>
+<path d="M320 330 L356 266 L372 272 L346 332 Z" fill="#fdfdfd" stroke="#c5ccd2"/>
+<path d="M356 266 L372 272 L372 278 L360 274 Z" fill="#1f3f8f"/><path d="M346 332 L372 278" stroke="#1f3f8f" stroke-width="4"/>
+<path d="M326 326 L354 274 L366 279 L342 328 Z" fill="#f4f4ef"/>
+<rect x="160" y="326" width="170" height="6" rx="2" fill="#f4f4ef"/>
+<!-- black chair, front right -->
+<path d="M352 470 L360 420 L400 412 L400 470 Z" fill="#1f2226"/><path d="M372 382 q30 -6 30 0 l-2 34 q-16 4 -30 2 z" fill="#2b2f33"/>
+<path d="M330 452 q30 -8 70 -6" stroke="#8a9096" stroke-width="3" fill="none"/>
+<g transform="translate(107 147) scale(.64)"><!-- legs -->
+<path d="M150 292 C142 330 146 372 150 404 L182 404 C182 372 184 334 192 296 Z" fill="url(#pants)"/>
+<path d="M208 296 C214 334 220 372 222 404 L254 404 C252 368 252 330 250 292 Z" fill="url(#pants)"/>
+<path d="M166 300 C164 340 166 372 168 402" stroke="#2c3640" stroke-width="1.2" fill="none" opacity=".6"/>
+<path d="M234 300 C236 340 236 372 238 402" stroke="#2c3640" stroke-width="1.2" fill="none" opacity=".6"/>
+<path d="M144 404 q-6 10 6 14 h40 q8 -2 2 -14z" fill="#2a2522"/><path d="M216 404 q-6 12 4 14 h42 q8 -3 0 -14z" fill="#2a2522"/>
+<!-- torso / gown -->
+<g class="breath">
+  <path d="M132 304 C124 250 128 206 152 186 C170 176 186 172 200 172 C214 172 232 176 248 186 C272 206 276 250 268 304 Z" fill="url(#gown)"/>
+  <path d="M132 304 C124 250 128 206 152 186 C170 176 186 172 200 172 C214 172 232 176 248 186 C272 206 276 250 268 304 Z" fill="url(#dots)"/>
+  <path d="M168 182 L200 214 L232 182" stroke="#5c8bb0" stroke-width="2" fill="none"/>
+  <path d="M176 182 L200 206 L224 182 Z" fill="url(#skinN)" opacity=".9"/>
+  <path d="M150 240 q20 30 18 62 M250 240 q-20 30 -18 62 M200 214 q4 40 0 88" stroke="#5f8fb5" stroke-width="1.6" fill="none" opacity=".7"/>
+  <!-- arms -->
+  <path d="M152 188 C128 200 118 236 120 270 C121 284 136 288 142 278 C144 250 150 226 162 210 Z" fill="url(#gown)"/>
+  <path d="M248 188 C272 200 282 236 280 270 C279 284 264 288 258 278 C256 250 250 226 238 210 Z" fill="url(#gown)"/>
+  <path d="M122 262 C122 280 126 292 136 298 C142 290 142 278 140 266 Z" fill="url(#skinA)"/>
+  <path d="M278 262 C278 280 274 292 264 298 C258 290 258 278 260 266 Z" fill="url(#skinA)"/>
+  <!-- hands resting on thighs -->
+  <path d="M132 292 c8 -6 28 -4 34 4 c4 6 -2 12 -10 12 c-10 0 -22 -2 -26 -6 c-3 -3 -2 -7 2 -10z" fill="url(#skinA)"/>
+  <path d="M268 292 c-8 -6 -28 -4 -34 4 c-4 6 2 12 10 12 c10 0 22 -2 26 -6 c3 -3 2 -7 -2 -10z" fill="url(#skinA)"/>
+  <path d="M144 300 l8 1 M150 297 l8 2 M256 300 l-8 1 M250 297 l-8 2" stroke="#9a6a4f" stroke-width="1" opacity=".6"/>
+  <path d="M154 304 l6 0" stroke="#b58a3c" stroke-width="2" opacity=".55"/>
+</g>
+<!-- head & neck -->
+<g class="head">
+  <path d="M182 140 L182 180 Q200 192 218 180 L218 140 Z" fill="url(#skinN)"/>
+  <path d="M188 170 q12 6 24 0" stroke="#8d5f46" stroke-width="1.2" fill="none" opacity=".5"/>
+  <!-- ears -->
+  <path d="M157 112 c-10 -4 -14 8 -10 18 c3 8 8 12 14 10z" fill="#c4906f"/><path d="M152 118 c2 4 2 10 6 14" stroke="#9c6b50" stroke-width="1.4" fill="none"/>
+  <path d="M243 112 c10 -4 14 8 10 18 c-3 8 -8 12 -14 10z" fill="#c4906f"/><path d="M248 118 c-2 4 -2 10 -6 14" stroke="#9c6b50" stroke-width="1.4" fill="none"/>
+  <!-- face -->
+  <path d="M158 100 C158 66 176 50 200 50 C224 50 242 66 242 100 C242 128 236 146 226 156 C216 166 208 170 200 170 C192 170 184 166 174 156 C164 146 158 128 158 100 Z" fill="url(#skinF)"/>
+  <path d="M174 152 C184 166 216 166 226 152 C220 162 210 170 200 170 C190 170 180 162 174 152Z" fill="#9b6b51" opacity=".35"/>
+  <!-- stubble -->
+  <path d="M170 136 C176 160 224 160 230 136 C228 154 214 168 200 168 C186 168 172 154 170 136Z" fill="#7a6a60" opacity=".18"/>
+  <!-- hair: receding, grey -->
+  <path d="M158 104 C154 72 166 50 192 46 C214 42 238 52 244 78 C246 88 244 98 242 104 C238 86 232 78 226 74 C220 70 214 68 208 70 C196 66 182 70 174 78 C166 86 162 94 158 104Z" fill="url(#hair)"/>
+  <path d="M164 92 q4 -16 14 -22 M232 88 q-4 -12 -12 -18 M186 64 q10 -6 22 -4" stroke="#7d7d7d" stroke-width="1.1" fill="none" opacity=".7"/>
+  <!-- forehead lines -->
+  <path d="M182 84 q18 -5 36 0 M186 90 q14 -4 28 0" stroke="#a87455" stroke-width="1" fill="none" opacity=".55"/>
+  <!-- brows -->
+  <path d="M172 100 q12 -8 24 -2" stroke="#6e6259" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+  <path d="M204 98 q12 -6 24 2" stroke="#6e6259" stroke-width="3.4" stroke-linecap="round" fill="none"/>
+  <!-- eyes -->
+  <path d="M174 111 q10 -7 20 0 q-10 6 -20 0z" fill="#f4efe9"/><circle cx="184" cy="111" r="3.6" fill="#5b4636"/><circle cx="184" cy="111" r="1.7" fill="#1d1612"/><circle cx="185.2" cy="109.8" r=".9" fill="#fff"/>
+  <path d="M206 111 q10 -7 20 0 q-10 6 -20 0z" fill="#f4efe9"/><circle cx="216" cy="111" r="3.6" fill="#5b4636"/><circle cx="216" cy="111" r="1.7" fill="#1d1612"/><circle cx="217.2" cy="109.8" r=".9" fill="#fff"/>
+  <path class="lid" d="M173 104 h22 v8 q-11 -6 -22 0z" fill="#c9946f"/><path class="lid" d="M205 104 h22 v8 q-11 -6 -22 0z" fill="#c9946f"/>
+  <path d="M174 111 q10 -7 20 0 M206 111 q10 -7 20 0" stroke="#7d5240" stroke-width="1.3" fill="none"/>
+  <path d="M176 117 q8 4 16 0 M208 117 q8 4 16 0" stroke="#a5735a" stroke-width=".9" fill="none" opacity=".7"/>
+  <path d="M168 114 l-4 -2 M168 117 l-5 0 M232 114 l4 -2 M232 117 l5 0" stroke="#a5735a" stroke-width=".8" opacity=".7"/>
+  <!-- nose -->
+  <path d="M199 112 C197 124 193 132 192 136 C194 140 198 141 200 140" stroke="#a06e52" stroke-width="1.6" fill="none"/>
+  <path d="M190 137 q4 4 9 2 M210 137 q-4 4 -9 2" stroke="#8d5c44" stroke-width="1.4" fill="none"/>
+  <ellipse cx="203" cy="128" rx="3" ry="6" fill="#efc9a9" opacity=".45"/>
+  <!-- cheeks / folds -->
+  <path d="M186 136 q-8 10 -6 20 M214 136 q8 10 6 20" stroke="#a5735a" stroke-width="1.2" fill="none" opacity=".6"/>
+  <ellipse cx="176" cy="132" rx="9" ry="6" fill="#d8876c" opacity=".18"/><ellipse cx="224" cy="132" rx="9" ry="6" fill="#d8876c" opacity=".18"/>
+  <!-- mouth -->
+  <g id="mouthG">
+    <path id="mouthIn" d="M188 150 q12 2 24 0 q-12 2 -24 0z" fill="#5a2a25"/>
+    <path d="M187 149.5 q6 -3 13 -1.5 q7 -1.5 13 1.5" stroke="#9a5a4b" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path id="lowLip" d="M189 151 q11 5 22 0" stroke="#b26e5c" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+  </g>
+</g>
+</g>
+</svg>`;}
+// talking: open/close the mouth
+let mouthT=null;
+function mouth(on){ const inn=document.getElementById("mouthIn"), lo=document.getElementById("lowLip"); if(!inn) return; clearInterval(mouthT);
+  const set=o=>{inn.setAttribute("d",`M188 150 q12 ${2+o} 24 0 q-12 ${-1+o*0.2} -24 0z`); lo.setAttribute("d",`M189 ${151+o*0.7} q11 ${5+o*0.4} 22 0`);};
+  if(on) mouthT=setInterval(()=>set(Math.random()*7),110); else set(0); }
+
+if("speechSynthesis" in window) speechSynthesis.onvoiceschanged=()=>{};
+/* Only approved accounts: the page must be opened inside JJ QBank while signed in as an allowed email */
+const OSCE_USERS=["jasjot.sayal@student.windsor.edu"];
+function osceGate(n){
+  let u=null; try{ if(window.parent!==window && window.parent.firebase && window.parent.firebase.auth) u=window.parent.firebase.auth().currentUser; }catch(e){}
+  if(u && u.email && OSCE_USERS.includes(u.email.toLowerCase())) { dash(); return; }
+  if((n||0)<12){ setTimeout(()=>osceGate((n||0)+1),400); return; }
+  app.innerHTML=`<div class="card" style="max-width:560px;margin:40px auto;text-align:center"><div style="font-size:40px">🔒</div><h2>OSCE Room</h2><p class="muted">This area is only available to approved accounts. Open it from JJ QBank while signed in.</p></div>`;
+}
+osceGate();
+</script>
+</body>
+</html>
