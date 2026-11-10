@@ -5,11 +5,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Heart Origin & Heart Tubes",
 "s": "From which germ layer is the cardiovascular system (the heart and blood vessels) derived?",
 "c": [
-"Endoderm",
+"Endoderm lining the primitive gut",
 "Mesoderm",
-"Ectoderm",
-"Extraembryonic endoderm (hypoblast)",
-"Neural crest only"
+"Ectoderm covering the embryo",
+"Extraembryonic endoderm of the yolk sac",
+"Neural crest cells only"
 ],
 "a": 1,
 "e": "The heart and blood vessels come from the mesoderm, the middle germ layer. More precisely, they come from the intraembryonic mesoderm lining the intraembryonic coelomic cavity, and specifically its splanchnopleuric (visceral) layer.",
@@ -28,10 +28,10 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Heart Origin & Heart Tubes",
 "s": "A student is asked: \"Exactly which layer of mesoderm forms the heart?\" Which answer is most precise?",
 "c": [
-"Somatopleuric (parietal) mesoderm",
+"Somatopleuric or parietal mesoderm",
 "Intermediate mesoderm",
-"Paraxial mesoderm",
-"Splanchnopleuric (visceral) mesoderm",
+"Paraxial mesoderm of the somites",
+"Splanchnopleuric mesoderm",
 "Extraembryonic mesoderm of the chorion"
 ],
 "a": 3,
@@ -52,11 +52,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Heart Origin & Heart Tubes",
 "s": "The intraembryonic coelomic cavity divides the intraembryonic mesoderm around it into two layers. Which pairing of layer names and positions is correct?",
 "c": [
-"Both layers lie on the endoderm side",
-"Somatopleuric = visceral, on the endoderm side",
-"Splanchnopleuric = parietal, on the endoderm side",
-"Splanchnopleuric = parietal, on the ectoderm side",
-"Somatopleuric = parietal, on the ectoderm side; splanchnopleuric = visceral, on the endoderm side"
+"Both layers lie on the endoderm side of the cavity",
+"Somatopleuric is visceral and lies on the endoderm side",
+"Splanchnopleuric is parietal and lies on the endoderm side",
+"Splanchnopleuric is parietal and lies on the ectoderm side",
+"Somatopleuric is parietal on the ectoderm side"
 ],
 "a": 4,
 "e": "Somatopleuric = parietal = the outer layer, toward the ectoderm (soma = body wall). Splanchnopleuric = visceral = the inner layer, toward the endoderm (splanchnic = gut/organs).",
@@ -75,11 +75,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Heart Origin & Heart Tubes",
 "s": "Two coelomic cavities appear in the early embryo. Which statement about their fate is correct?",
 "c": [
-"The amniotic cavity becomes the intraembryonic coelom",
-"The chorionic cavity becomes the pericardial cavity",
-"The intraembryonic coelomic cavity is obliterated while the chorionic cavity keeps developing",
-"The extraembryonic coelomic (chorionic) cavity is obliterated, while the horseshoe-shaped intraembryonic coelomic cavity keeps developing",
-"Both cavities persist into adult life"
+"The amniotic cavity becomes the intraembryonic coelomic cavity",
+"The chorionic cavity persists and becomes the pericardial cavity",
+"The intraembryonic coelom is obliterated as the chorionic cavity grows",
+"The chorionic cavity disappears and the intraembryonic coelom persists",
+"Both cavities persist unchanged into adult life"
 ],
 "a": 3,
 "e": "The extraembryonic coelomic cavity (chorionic cavity) gets obliterated — the enlarging, fluid-filled amniotic cavity pushes on it. The one that stays is the horseshoe-shaped intraembryonic coelomic cavity, which later forms the pericardial, pleural and peritoneal cavities.",
@@ -98,11 +98,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Heart Origin & Heart Tubes",
 "s": "How many layers make up the wall of the heart, according to the professor's model?",
 "c": [
-"3 — endocardium, myocardium and epicardium",
-"6 — one for each embryonic heart region",
-"5 — endothelium, endocardium, myocardium, epicardium and fibrous pericardium",
-"4 — endothelium, endocardium, myocardium and epicardium/pericardium",
-"2 — endocardium and myocardium"
+"3 layers: endocardium, myocardium and epicardium",
+"6 layers, one for each embryonic heart region",
+"5 layers, adding the fibrous pericardium on the outside",
+"4: endothelium, endocardium, myocardium, pericardium",
+"2 layers: endocardium and myocardium only"
 ],
 "a": 3,
 "e": "Using the uterus as a template (perimetrium, myometrium, endometrium), the heart has epicardium/pericardium outside, myocardium in the middle and endocardium inside. Under the endocardium there is one more layer, the ENDOTHELIUM — giving 4 layers. Don't confuse this with the 4 chambers.",
@@ -167,11 +167,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Heart Origin & Heart Tubes",
 "s": "What is the main function of the pericardial fluid in the pericardial cavity?",
 "c": [
-"It produces surfactant",
-"It supplies oxygen to the myocardium",
-"It drains into the coronary sinus",
-"It prevents friction as the visceral and parietal layers slide during each contraction",
-"It stores calcium for contraction"
+"It produces surfactant that coats the heart surface",
+"It supplies oxygen to the outer myocardium",
+"It drains continuously into the coronary sinus",
+"It prevents friction as the two layers slide",
+"It stores calcium needed for each contraction"
 ],
 "a": 3,
 "e": "Every time the heart contracts, the visceral and parietal layers slide against each other. The pericardial fluid in the space between them prevents friction — like engine oil lubricating a car's moving parts.",
@@ -210,11 +210,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Heart Origin & Heart Tubes",
 "s": "The horseshoe-shaped intraembryonic coelomic cavity gives rise to the body cavities. Which part becomes the pericardial cavity?",
 "c": [
-"The two limbs (sides) of the horseshoe",
-"The caudal ends",
-"The apex (top of the arch)",
-"The septum transversum",
-"The chorionic cavity"
+"The two lateral limbs of the horseshoe",
+"The caudal ends of the horseshoe",
+"The apex at the top of the arch",
+"The septum transversum below the arch",
+"The chorionic cavity outside the embryo"
 ],
 "a": 2,
 "e": "The apex of the horseshoe becomes the pericardial cavity. The areas on either side of the apex are for the lungs (pleural cavities), and the lower part is for the abdomen (peritoneal cavity). Just above the apex sits the septum transversum.",
@@ -257,10 +257,10 @@ window.CRS_EMB_QUESTIONS = [
 "s": "Which process in the visceral (splanchnopleuric) mesoderm first forms the heart tubes?",
 "c": [
 "Migration of neural crest cells into the coelom",
-"Fusion of the dorsal aortas",
-"Grouping/compaction of mesodermal cells into 2 heart tubes in front of the pericardial cavity",
-"Invagination of endoderm",
-"Apoptosis of mesodermal cells"
+"Fusion of the paired dorsal aortas",
+"Grouping of mesoderm cells into 2 heart tubes",
+"Invagination of endoderm into the mesoderm",
+"Apoptosis of the central mesodermal cells"
 ],
 "a": 2,
 "e": "Mesodermal cells in the visceral splanchnopleuric area undergo GROUPING/COMPACTION — they cluster together — forming 2 heart tubes in front of the pericardial cavity. The developing tubes are embedded in the septum transversum.",
@@ -280,7 +280,7 @@ window.CRS_EMB_QUESTIONS = [
 "s": "Which layer of the heart is the FIRST to develop?",
 "c": [
 "Parietal pericardium",
-"Endothelium (2 endothelial heart tubes)",
+"Endothelium",
 "Epicardium",
 "Myocardium",
 "Endocardial cushions"
@@ -302,11 +302,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Heart Origin & Heart Tubes",
 "s": "A mass of mesodermal cells surrounds the two endothelial heart tubes. What is this mass called, and what does it form?",
 "c": [
-"Septum transversum — liver and diaphragm",
-"Trunco-conal swelling — spiral septum",
-"Myoepicardial mantle — myocardium and epicardium",
-"Bulbus cordis — conus and truncus",
-"Endocardial cushion — septum intermedium"
+"Septum transversum, which forms the liver and diaphragm",
+"Trunco-conal swelling, which forms the spiral septum",
+"Myoepicardial mantle, forming myocardium and epicardium",
+"Bulbus cordis, which forms the conus and truncus",
+"Endocardial cushion, which forms the septum intermedium"
 ],
 "a": 2,
 "e": "The MYOEPICARDIAL MANTLE wraps the endothelial tubes. The name tells you what it makes: \"myo\" → myocardium and \"epi\" → epicardium (visceral pericardium). The endothelial tube becomes the inner lining (endothelium and endocardium).",
@@ -325,11 +325,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Heart Origin & Heart Tubes",
 "s": "Which statement about the embryologic origin of the heart's layers is correct? (The professor says to KNOW THIS.)",
 "c": [
-"All layers, including the parietal pericardium, come from splanchnopleuric mesoderm",
-"All layers come from somatopleuric mesoderm",
-"The myocardium comes from somatopleuric mesoderm",
-"Endothelium, endocardium, myocardium and visceral pericardium come from splanchnopleuric mesoderm; only the parietal pericardium comes from somatopleuric mesoderm",
-"The endocardium comes from endoderm"
+"Every layer, parietal pericardium included, is splanchnopleuric",
+"Every layer of the heart wall is somatopleuric",
+"Only the myocardium comes from somatopleuric mesoderm",
+"All are splanchnopleuric except the parietal pericardium",
+"The endocardium comes from the endoderm of the gut"
 ],
 "a": 3,
 "e": "All the heart's layers — endothelium, endocardium, myocardium and visceral pericardium — are from the SPLANCHNOPLEURIC mesoderm, EXCEPT the parietal pericardium, which is from the SOMATOPLEURIC (parietal) mesoderm. During folding, the ectoderm wraps around the body and brings the parietal intraembryonic mesoderm with it, which is why the outer bag comes from a different layer.",
@@ -349,11 +349,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Heart Origin & Heart Tubes",
 "s": "A pathologist examines the parietal pericardium of a fetal heart. From which embryonic layer did this tissue arise?",
 "c": [
-"Somatopleuric (parietal) mesoderm",
-"Endoderm",
+"Somatopleuric mesoderm",
+"Endoderm of the foregut",
 "Myoepicardial mantle",
-"Neural crest",
-"Splanchnopleuric (visceral) mesoderm"
+"Neural crest cells",
+"Splanchnopleuric mesoderm"
 ],
 "a": 0,
 "e": "The parietal pericardium is the only part of the heart's coverings from SOMATOPLEURIC mesoderm. During body folding, the ectoderm (future skin) folds around to cover the mesoderm and endoderm, bringing the parietal intraembryonic mesoderm with it to form the outer bag.",
@@ -372,11 +372,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Heart Origin & Heart Tubes",
 "s": "How does the position of the developing heart relative to the gut change with body folding?",
 "c": [
-"It is anterior before folding and posterior after folding",
+"Anterior to the gut before folding and posterior after",
 "It lies inside the gut tube until birth",
-"It is lateral to the gut throughout",
-"It is posterior to the gut before folding and anterior to it after folding",
-"It is anterior to the gut both before and after folding"
+"It stays lateral to the gut throughout development",
+"Posterior to the gut before folding, anterior after",
+"Anterior to the gut both before and after folding"
 ],
 "a": 3,
 "e": "Before folding, the heart tubes are POSTERIOR to the developing gut. After cranial-caudal and lateral folding, the heart lies ANTERIOR to the gut, as in the adult. Mnemonic: Before = Behind, After = Anterior.",
@@ -395,11 +395,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Heart Origin & Heart Tubes",
 "s": "Which vessel carries oxygen-poor blood, even though it is an artery?",
 "c": [
-"Aorta",
+"Ascending aorta",
 "Pulmonary vein",
 "Coronary artery",
 "Pulmonary artery",
-"Umbilical vein"
+"Umbilical artery"
 ],
 "a": 3,
 "e": "Arteries carry blood Away from the heart. The pulmonary artery leaves the right ventricle carrying oxygen-poor blood to the lungs. The pulmonary veins return oxygen-rich blood to the left atrium.",
@@ -408,18 +408,18 @@ window.CRS_EMB_QUESTIONS = [
 "The pulmonary veins carry oxygen-rich blood to the left atrium.",
 "Coronary arteries carry oxygen-rich blood to the myocardium.",
 "Correct.",
-"The umbilical vein carries oxygen-rich blood from the placenta."
+"The umbilical arteries do carry oxygen-poor blood, but in the fetus, not the adult heart this question asks about. The pulmonary artery is the classic answer."
 ]
 },
 {
 "t": "Heart Origin & Heart Tubes",
 "s": "Which sequence correctly describes blood flow in the adult heart?",
 "c": [
-"Pulmonary veins → right atrium → right ventricle → aorta",
-"Aorta → left ventricle → left atrium → pulmonary veins → lungs",
-"Venae cavae → left atrium → left ventricle → pulmonary artery → lungs",
-"Venae cavae → right atrium → right ventricle → pulmonary artery → lungs → pulmonary veins → left atrium → left ventricle → aorta",
-"Venae cavae → right atrium → left atrium → aorta"
+"Pulmonary veins, RA, RV, aorta, then the body",
+"Aorta, LV, LA, pulmonary veins, then the lungs",
+"Venae cavae, LA, LV, pulmonary artery, then the lungs",
+"Cavae, RA, RV, pulmonary artery, lungs, LA, LV, aorta",
+"Venae cavae, RA, LA, LV, then the aorta directly"
 ],
 "a": 3,
 "e": "Body → superior and inferior venae cavae → right atrium → right ventricle → pulmonary artery → lungs (pick up oxygen) → pulmonary veins → left atrium → left ventricle → aorta → body.",
@@ -435,11 +435,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Sinus Venosus & Heart Tube Fate",
 "s": "As folding continues, the two heart tubes fuse into a single heart tube. What is its venous end called, and where does it lie?",
 "c": [
-"Sinus venosus — submerged in the septum transversum",
-"Bulbus cordis — in the septum transversum",
-"Primitive atrium — in the pleural cavity",
-"Aortic sac — in the pericardial cavity",
-"Truncus arteriosus — above the aortic sac"
+"Sinus venosus, in the septum transversum",
+"Bulbus cordis, in the septum transversum",
+"Primitive atrium, in the pleural cavity",
+"Aortic sac, inside the pericardial cavity",
+"Truncus arteriosus, above the aortic sac"
 ],
 "a": 0,
 "e": "The single tube has a venous end (blood comes in) and an arterial end (blood leaves). The venous end is the SINUS VENOSUS, SUBMERGED in the SEPTUM TRANSVERSUM. Its right and left horns are both embedded there.",
@@ -458,11 +458,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Sinus Venosus & Heart Tube Fate",
 "s": "Which sequence correctly lists the regions of the single heart tube, from the venous end to the arterial end?",
 "c": [
-"Primitive atrium → sinus venosus → primitive ventricle → truncus → conus → aortic sac",
-"Aortic sac → truncus → conus → primitive ventricle → primitive atrium → sinus venosus",
-"Sinus venosus → primitive ventricle → primitive atrium → conus → truncus → aortic sac",
-"Sinus venosus → primitive atrium → primitive ventricle → conus → truncus arteriosus → aortic sac",
-"Sinus venosus → primitive atrium → conus → primitive ventricle → truncus → aortic sac"
+"Atrium, sinus venosus, ventricle, truncus, conus, aortic sac",
+"Aortic sac, truncus, conus, ventricle, atrium, sinus venosus",
+"Sinus venosus, ventricle, atrium, conus, truncus, aortic sac",
+"Sinus venosus, atrium, ventricle, conus, truncus, aortic sac",
+"Sinus venosus, atrium, conus, ventricle, truncus, aortic sac"
 ],
 "a": 3,
 "e": "Blood flows sinus venosus → primitive atrium → primitive ventricle → bulbus cordis (lower part = conus, upper part = truncus arteriosus) → aortic sac → right and left horns → right and left dorsal aortas. Mnemonic: \"Some People Prefer Coffee To Ale.\"",
@@ -481,11 +481,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Sinus Venosus & Heart Tube Fate",
 "s": "The bulbus cordis of the single heart tube has two parts. Which pairing is correct?",
 "c": [
-"Upper part = conus; lower part = truncus arteriosus",
-"Lower part = primitive atrium; upper part = primitive ventricle",
-"Lower part = conus; upper part = truncus arteriosus",
-"Lower part = sinus venosus; upper part = aortic sac",
-"Both parts become the left ventricle"
+"Upper part is the conus, lower part the truncus",
+"Lower is primitive atrium, upper is primitive ventricle",
+"Lower part is the conus, upper part the truncus",
+"Lower is sinus venosus, upper is the aortic sac",
+"Both parts together become the left ventricle"
 ],
 "a": 2,
 "e": "The bulbus cordis's lower part is the CONUS and its upper part is the TRUNCUS ARTERIOSUS. Above the truncus is the aortic sac.",
@@ -527,11 +527,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Sinus Venosus & Heart Tube Fate",
 "s": "During folding of the heart tube, how does the venous end move?",
 "c": [
-"It fuses with the aortic sac",
-"Superiorly and posteriorly, out of the septum transversum",
-"Inferiorly and anteriorly, deeper into the septum transversum",
-"It stays fixed while the arterial end moves",
-"Laterally to the right only"
+"It fuses with the aortic sac at the arterial end",
+"Up and back, out of the septum transversum",
+"Down and forward, deeper into the septum transversum",
+"It stays fixed while only the arterial end moves",
+"It moves laterally to the right and nowhere else"
 ],
 "a": 1,
 "e": "The venous end (embedded in the septum transversum) is gradually released, moving SUPERIORLY (up) and POSTERIORLY (behind). The bottom of the tube swings up and behind the rest.",
@@ -550,11 +550,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Sinus Venosus & Heart Tube Fate",
 "s": "After the heart tube folds, each primitive region divides. Which pairing of embryonic region → adult structure is correct?",
 "c": [
-"Sinus venosus → left ventricle",
-"Conus + truncus arteriosus → pulmonary artery and aorta",
-"Primitive atrium → aorta and pulmonary artery",
-"Primitive ventricle → right and left atria",
-"Aortic sac → right and left ventricles"
+"Sinus venosus becomes the left ventricle",
+"Conus and truncus become the two great arteries",
+"Primitive atrium becomes the aorta and pulmonary artery",
+"Primitive ventricle becomes the right and left atria",
+"Aortic sac becomes the right and left ventricles"
 ],
 "a": 1,
 "e": "The primitive atrium → right and left atria. The primitive ventricle → right and left ventricles. The conus + truncus arteriosus are divided by the spiral septum into the pulmonary artery (outlet of the right ventricle) and the aorta (outlet of the left ventricle).",
@@ -619,11 +619,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Sinus Venosus & Heart Tube Fate",
 "s": "Which three structures come from the embryonic venous valve?",
 "c": [
-"Mitral valve, tricuspid valve, aortic valve",
-"Foramen ovale, septum primum, septum secundum",
-"Pulmonic valve, aortic valve, spiral septum",
-"Valve of the SVC, valve of the IVC, fossa ovalis",
-"Valve of the IVC, crista terminalis, valve of the coronary sinus"
+"Mitral valve, tricuspid valve and aortic valve",
+"Foramen ovale, septum primum and septum secundum",
+"Pulmonic valve, aortic valve and spiral septum",
+"Valve of the SVC, valve of the IVC and the fossa ovalis rim",
+"IVC valve, crista terminalis, coronary sinus valve"
 ],
 "a": 4,
 "e": "The venous valve divides into the valve of the inferior vena cava (1st part), the crista terminalis (2nd part, a boundary not a valve) and the valve of the coronary sinus (3rd part, nearest the coronary sinus).",
@@ -642,11 +642,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Sinus Venosus & Heart Tube Fate",
 "s": "A surgeon inserts a finger through the superior vena cava into the right atrium. The first part of the atrial wall feels smooth, and deeper it becomes rough. Which statement explains this?",
 "c": [
-"The smooth part came from the primitive atrium; the rough part from the sinus venosus",
-"Both parts came from the sinus venosus",
-"The rough part came from the coronary sinus",
-"The smooth part is the fossa ovalis",
-"The smooth part came from the sinus venosus (a vein); the rough part from the primitive atrium (pectinate muscles), with the crista terminalis at the border"
+"Smooth part from the primitive atrium, rough part from the sinus venosus",
+"Both the smooth and rough parts came from the sinus venosus",
+"The rough part came from the coronary sinus wall",
+"The smooth part is the fossa ovalis of the septum",
+"Smooth part from the sinus venosus, rough part from the atrium"
 ],
 "a": 4,
 "e": "The sinus venosus is a vein, and veins are smooth inside, so the first part felt is smooth. Deeper, the wall came from the primitive atrium, which is lined with ridges of pectinate muscles — rough. The crista terminalis marks the boundary.",
@@ -691,9 +691,9 @@ window.CRS_EMB_QUESTIONS = [
 "c": [
 "The opening between the right and left ventricles",
 "The channel from the pulmonary artery to the aorta",
-"The opening between the two atria",
+"The opening between the two primitive atria",
 "The duct that drains the coronary sinus",
-"The canal connecting the primitive atrium and the primitive ventricle"
+"The canal joining primitive atrium and ventricle"
 ],
 "a": 4,
 "e": "Between the primitive atrium and the primitive ventricle is a portion that belongs to neither — a canal connecting them, the ATRIOVENTRICULAR CANAL. Inside, endocardial cushions grow and divide it.",
@@ -735,10 +735,10 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Atrial Septation & ASDs",
 "s": "Fusion of the endocardial cushions directly results in which of the following?",
 "c": [
-"Formation of the crista terminalis",
-"Division of the common atrial chamber into right and left atria",
-"Closure of the foramen ovale",
-"Division of the common atrioventricular canal into right and left atrioventricular canals",
+"Formation of the crista terminalis in the right atrium",
+"Division of the common atrium into right and left atria",
+"Closure of the foramen ovale at birth",
+"Division of the AV canal into right and left canals",
 "Separation of the aorta from the pulmonary artery"
 ],
 "a": 3,
@@ -758,11 +758,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Atrial Septation & ASDs",
 "s": "The right atrium is built from three embryonic sources. Which list is correct?",
 "c": [
-"Left AV canal, left half of the common atrial chamber, pulmonary vein",
-"Primitive ventricle, conus, right AV canal",
-"Coronary sinus, pulmonary vein, septum secundum",
-"Sinus venosus, conus, truncus arteriosus",
-"Sinus venosus, right atrioventricular canal, right half of the common atrial chamber"
+"Left AV canal, left half of the atrium, pulmonary vein",
+"Primitive ventricle, conus and the right AV canal",
+"Coronary sinus, pulmonary vein and septum secundum",
+"Sinus venosus, conus and the truncus arteriosus",
+"Sinus venosus, right AV canal, right half of atrium"
 ],
 "a": 4,
 "e": "Right atrium = (1) sinus venosus + (2) right atrioventricular canal + (3) right half of the common atrial chamber. Left atrium = (1) left AV canal + (2) left half of the common atrial chamber + (3) a small portion of the pulmonary vein.",
@@ -784,7 +784,7 @@ window.CRS_EMB_QUESTIONS = [
 "Sinus venosus",
 "Valve of the inferior vena cava",
 "Right atrioventricular canal",
-"A small portion of the pulmonary vein",
+"Part of the pulmonary vein",
 "Crista terminalis"
 ],
 "a": 3,
@@ -827,7 +827,7 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Atrial Septation & ASDs",
 "s": "Why must the developing interatrial septum be built with openings in the fetus?",
 "c": [
-"Because the fetal lungs aren't functional, so most blood entering the right atrium should pass directly into the left atrium",
+"The lungs aren't working, so blood should bypass them",
 "To let the coronary sinus drain into the left atrium",
 "To let blood flow from the left atrium into the right ventricle",
 "To let blood flow from the aorta into the pulmonary artery",
@@ -851,8 +851,8 @@ window.CRS_EMB_QUESTIONS = [
 "s": "The septum primum grows down from the roof of the common atrial chamber toward the septum intermedium. Before it fuses, what is the gap between them called?",
 "c": [
 "Fossa ovalis",
-"Foramen secundum (ostium secundum)",
-"Foramen primum (ostium primum)",
+"Foramen secundum",
+"Foramen primum",
 "Interventricular foramen",
 "Foramen ovale"
 ],
@@ -873,11 +873,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Atrial Septation & ASDs",
 "s": "After the septum primum fuses with the septum intermedium, closing the foramen primum, how does fetal blood continue to cross from right to left?",
 "c": [
-"Through a new opening toward the top of the septum primum — the foramen secundum",
+"Through a new opening high in the septum primum",
 "Through a gap in the membranous ventricular septum",
-"It stops crossing until birth",
-"Through the ductus venosus",
-"Through the septum secundum, which has no openings"
+"It stops crossing completely until birth",
+"Through the ductus venosus in the liver",
+"Through holes in the septum secundum itself"
 ],
 "a": 0,
 "e": "With the foramen primum closed, a new opening appears toward the top of the septum primum: the FORAMEN SECUNDUM (OSTIUM SECUNDUM). Both openings — primum and secundum — occur in the septum primum.",
@@ -920,9 +920,9 @@ window.CRS_EMB_QUESTIONS = [
 "s": "Which statement best describes the septum secundum?",
 "c": [
 "A septum formed by fusion of the endocardial cushions",
-"A thin flexible flap that contains the foramen primum and secundum",
+"A thin flexible flap holding the foramen primum and secundum",
 "The floor of the common ventricular chamber",
-"A thick wall that grows down from the roof on the right side of the septum primum and does NOT reach all the way down",
+"A thick wall right of the septum primum, stopping short",
 "A septum that separates the aorta from the pulmonary artery"
 ],
 "a": 3,
@@ -942,11 +942,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Atrial Septation & ASDs",
 "s": "What is the foramen ovale?",
 "c": [
-"The narrow passage between the thick septum secundum and the septum primum",
-"The opening of the coronary sinus",
+"The passage between septum secundum and primum",
+"The opening of the coronary sinus in the right atrium",
 "The hole in the upper part of the septum primum",
-"A channel connecting the pulmonary artery and aorta",
-"The gap between the septum primum and the endocardial cushion"
+"A channel joining the pulmonary artery and the aorta",
+"The gap between septum primum and endocardial cushion"
 ],
 "a": 0,
 "e": "Fetal blood hits the thick tip of the septum secundum, shifts down, then comes up through the foramen secundum into the left atrium. The narrow vertical passage between the septum secundum and the septum primum is the FORAMEN OVALE.",
@@ -965,11 +965,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Atrial Septation & ASDs",
 "s": "What closes the foramen ovale after birth?",
 "c": [
-"Proliferation of endocardial cushion tissue",
-"Contraction of the pectinate muscles",
-"Obliteration by intimal proliferation, as in the ductus arteriosus",
-"Increased right atrial pressure pushing the septum secundum to the left",
-"Increased left atrial pressure pressing the thin septum primum against the thick septum secundum so they merge"
+"Proliferation of endocardial cushion tissue over it",
+"Contraction of the pectinate muscles in the atrium",
+"Intimal proliferation, as in the ductus arteriosus",
+"Higher right atrial pressure pushing septum secundum left",
+"Higher left atrial pressure pushing primum onto secundum"
 ],
 "a": 4,
 "e": "After birth the lungs start working and send much more blood back to the left atrium, so left atrial pressure rises. This pushes the thin septum primum against the thick septum secundum and they merge, cutting off the right–left atrial communication. Blood then takes the normal route, right atrium → right ventricle.",
@@ -988,10 +988,10 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Atrial Septation & ASDs",
 "s": "A newborn's echocardiogram shows the foramen ovale is still open. The parents ask what to expect. Which advice matches the professor's teaching?",
 "c": [
-"It will close only after puberty",
-"It closes within 24 hours or never",
-"Wait about 1 year — most close on their own; if it hasn't closed by then, surgical closure is needed",
-"Immediate surgery is always needed",
+"It will close only after puberty, so just keep waiting",
+"It closes within 24 hours or it never will",
+"Wait a year, then close it surgically if still open",
+"Immediate surgical closure is needed in every case",
 "It never closes and needs lifelong medication"
 ],
 "a": 2,
@@ -1012,11 +1012,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Atrial Septation & ASDs",
 "s": "What is the cause of a patent foramen ovale?",
 "c": [
-"Failure of the septum primum to fuse with the endocardial cushion",
-"Failure of neural crest migration",
+"The septum primum fails to fuse with the endocardial cushion",
+"Neural crest cells fail to migrate to the heart",
 "Excessive resorption of the septum primum",
-"The flap of the septum primum (its bottom portion) fails to fuse with the septum secundum",
-"Failure of the tracheo-esophageal septum"
+"The septum primum flap fails to fuse with the secundum",
+"The tracheo-esophageal septum fails to form"
 ],
 "a": 3,
 "e": "Patent foramen ovale: the flap of the septum primum (its bottom portion, not the top) fails to fuse with the septum secundum after birth.",
@@ -1106,10 +1106,10 @@ window.CRS_EMB_QUESTIONS = [
 "s": "The interventricular septum has two parts. Which statement is correct?",
 "c": [
 "Both parts come from the endocardial cushions",
-"Both parts are muscular",
-"The bottom, major part is muscular; the top, minor part is membranous",
-"The top, major part is muscular; the bottom, minor part is membranous",
-"The membranous part forms first, then the muscular part"
+"Both parts are muscular, top and bottom",
+"Bottom major part muscular, top minor part membranous",
+"Top major part muscular, bottom minor part membranous",
+"The membranous part forms first, then the muscular"
 ],
 "a": 2,
 "e": "The bottom, major part is the MUSCULAR interventricular septum. The top, minor part is the MEMBRANOUS interventricular septum.",
@@ -1128,11 +1128,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Ventricles, Outflow & Tetralogy",
 "s": "How does the muscular interventricular septum form?",
 "c": [
-"Due to pressure, the floor of the common ventricular chamber folds inward and upward",
+"The ventricular floor folds inward and upward",
 "It comes from fusion of the trunco-conal swellings",
-"It forms from neural crest cells",
-"It comes from the septum transversum",
-"It grows down from the roof of the common atrial chamber"
+"It forms from migrating neural crest cells",
+"It comes from the septum transversum below the heart",
+"It grows down from the roof of the common atrium"
 ],
 "a": 0,
 "e": "Due to pressure, the floor of the common ventricular chamber slowly folds inward and upward — this is the muscular interventricular septum. It rises but does NOT reach the septum intermedium, leaving a gap.",
@@ -1151,11 +1151,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Ventricles, Outflow & Tetralogy",
 "s": "The muscular interventricular septum rises but leaves a gap below the septum intermedium. Which structure closes this gap, and where does it come from? (Professor: KNOW THIS.)",
 "c": [
-"Septum secundum — from the atrial roof",
-"Muscular septum — from the ventricular floor",
-"Crista terminalis — from the venous valve",
-"Septum primum — from the atrial roof",
-"Membranous interventricular septum — from the endocardial cushions (septum intermedium), with a final piece from the trunco-conal swellings"
+"Septum secundum, growing down from the atrial roof",
+"Muscular septum, growing up from the floor of the ventricle",
+"Crista terminalis, formed from the venous valve",
+"Septum primum, growing down from the atrial roof",
+"Membranous septum, from cushions and conal swellings"
 ],
 "a": 4,
 "e": "The gap is closed by the MEMBRANOUS interventricular septum, derived from the ENDOCARDIAL CUSHIONS (septum intermedium). The trunco-conal swellings (spiral septum) also contribute and close off the last part.",
@@ -1176,10 +1176,10 @@ window.CRS_EMB_QUESTIONS = [
 "s": "Which statement about the embryonic sources of the ventricles is correct?",
 "c": [
 "The primitive ventricle forms only the right ventricle",
-"The major portion of the primitive ventricle forms the left ventricle; part of the primitive ventricle plus part of the conus forms the right ventricle",
-"The sinus venosus forms the right ventricle",
-"The truncus arteriosus forms both ventricles",
-"The conus forms the left ventricle"
+"Most of the primitive ventricle becomes the LV",
+"The sinus venosus forms the whole right ventricle",
+"The truncus arteriosus forms both of the ventricles",
+"The conus forms the whole of the left ventricle"
 ],
 "a": 1,
 "e": "The major portion of the primitive ventricle → the left ventricle. A portion of the primitive ventricle AND part of the CONUS → the right ventricle. Because both ventricles pump upward, part of the divided conus and truncus must connect to each.",
@@ -1198,11 +1198,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Ventricles, Outflow & Tetralogy",
 "s": "Which of the following is derived from ectoderm, as reviewed in the guide?",
 "c": [
-"Myocardium",
-"Skin, sweat glands, nails and the nervous system",
-"Kidney",
-"Liver",
-"Lungs"
+"Myocardium of the heart wall",
+"Skin, nails and nervous system",
+"Kidneys and the urinary tract",
+"Liver and the biliary tree",
+"Lungs and the conducting airways"
 ],
 "a": 1,
 "e": "Ectoderm gives skin, sweat glands, nails and the nervous system. The ectoderm above the notochordal process thickens into the neural plate → neural folds → neural tube (cranial end = brain, caudal end = spinal cord).",
@@ -1264,11 +1264,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Ventricles, Outflow & Tetralogy",
 "s": "The spiral septum divides the conus and truncus arteriosus. Which statement is correct?",
 "c": [
-"The vessel on the right becomes the aorta and the one on the left the pulmonary artery",
-"It forms the coronary arteries",
-"Both become pulmonary arteries",
-"It forms the right and left dorsal aortas",
-"The vessel on the right becomes the pulmonary artery and the one on the left becomes the aorta"
+"The vessel on the right side becomes the aorta",
+"It divides them into the two coronary arteries",
+"Both of the vessels become the pulmonary arteries",
+"It forms the right and the left dorsal aortas",
+"The right vessel becomes the pulmonary trunk"
 ],
 "a": 4,
 "e": "The spiral septum splits the conus and truncus arteriosus: the vessel on the RIGHT becomes the PULMONARY ARTERY (outlet of the right ventricle) and the vessel on the LEFT becomes the AORTA (outlet of the left ventricle). They twist around each other.",
@@ -1287,11 +1287,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Ventricles, Outflow & Tetralogy",
 "s": "The trunco-conal swellings (neural crest cells) contribute to which three structures?",
 "c": [
-"Crista terminalis, valve of the IVC, valve of the coronary sinus",
-"Septum primum, septum secundum, foramen ovale",
-"Mitral valve, tricuspid valve, chordae tendineae",
-"Spiral septum, the membranous interventricular septum (its last part), and the aortic and pulmonic valves",
-"Muscular interventricular septum, papillary muscles, coronary sinus"
+"Crista terminalis, valve of the IVC, coronary sinus valve",
+"Septum primum, septum secundum and the foramen ovale",
+"Mitral valve, tricuspid valve and chordae tendineae",
+"Spiral septum, part of membranous IVS, semilunar valves",
+"Muscular septum, papillary muscles and coronary sinus"
 ],
 "a": 3,
 "e": "The trunco-conal swellings contribute to (1) the spiral septum, separating the pulmonary artery and aorta, (2) the last part of the membranous interventricular septum, and (3) the aortic and pulmonic valves.",
@@ -1336,8 +1336,8 @@ window.CRS_EMB_QUESTIONS = [
 "Tetralogy of Fallot",
 "Patent ductus arteriosus",
 "Persistent truncus arteriosus",
-"Coarctation of the aorta",
-"Ostium primum defect"
+"Coarctation of the aortic arch",
+"Ostium primum atrial septal defect"
 ],
 "a": 2,
 "e": "No neural crest → no trunco-conal swellings → no spiral septum → the conus and truncus stay as one embryonic structure, with no separate pulmonary artery and aorta. This is PERSISTENT TRUNCUS ARTERIOSUS.",
@@ -1357,9 +1357,9 @@ window.CRS_EMB_QUESTIONS = [
 "s": "A newborn is diagnosed with persistent truncus arteriosus. Which additional defect is ALWAYS present?",
 "c": [
 "Membranous ventricular septal defect",
-"Ostium secundum defect",
+"Ostium secundum atrial septal defect",
 "Tracheo-esophageal fistula",
-"Bochdalek hernia",
+"Bochdalek diaphragmatic hernia",
 "Coarctation of the aorta"
 ],
 "a": 0,
@@ -1380,11 +1380,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Ventricles, Outflow & Tetralogy",
 "s": "How does persistent truncus arteriosus differ from patent ductus arteriosus?",
 "c": [
-"Persistent truncus is a venous anomaly",
-"They are the same condition",
-"PDA is always accompanied by a VSD",
-"In persistent truncus arteriosus the trunk never split into the aorta and pulmonary artery; in patent ductus arteriosus the ductus arteriosus fails to close after birth",
-"Persistent truncus is from the 6th arch; PDA is from neural crest"
+"Persistent truncus is an anomaly of the venous system",
+"They are two names for the same condition",
+"PDA is always accompanied by a ventricular septal defect",
+"The truncus never split, whereas the ductus never closed",
+"Persistent truncus comes from the 6th arch, PDA from neural crest"
 ],
 "a": 3,
 "e": "The guide stresses these are NOT the same. Persistent truncus arteriosus = no spiral septum, so no separate aorta and pulmonary artery. Patent ductus arteriosus = the ductus arteriosus (left 6th arch) fails to be obliterated and still links the pulmonary artery and aorta after birth.",
@@ -1400,11 +1400,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Ventricles, Outflow & Tetralogy",
 "s": "Neural crest cells migrate to the heart, but not as many as required, so the trunco-conal swellings form improperly. Which group of four defects results?",
 "c": [
-"Pulmonic stenosis, right ventricular hypertrophy, ventricular septal defect, overriding aorta",
-"Aortic stenosis, left ventricular hypertrophy, ASD, PDA",
-"Pulmonic stenosis, left ventricular hypertrophy, ASD, coarctation",
-"Mitral stenosis, RV hypertrophy, PFO, PDA",
-"Persistent truncus arteriosus, membranous VSD, coarctation, PFO"
+"Pulmonic stenosis, RV hypertrophy, VSD, overriding aorta",
+"Aortic stenosis, LV hypertrophy, ASD and a patent ductus",
+"Pulmonic stenosis, LV hypertrophy, ASD and coarctation",
+"Mitral stenosis, RV hypertrophy, PFO and a patent ductus",
+"Persistent truncus, membranous VSD, coarctation and PFO"
 ],
 "a": 0,
 "e": "This is TETRALOGY OF FALLOT: (1) pulmonic stenosis, (2) right ventricular hypertrophy, (3) ventricular septal defect, (4) overriding of the aorta. Cause: improper migration of neural crest cells → improper trunco-conal swellings and spiral septum. Mnemonic: \"PROVe it.\"",
@@ -1447,11 +1447,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Ventricles, Outflow & Tetralogy",
 "s": "Why is there a ventricular septal defect in Tetralogy of Fallot?",
 "c": [
-"Excessive resorption of the septum primum",
-"Persistent left anterior cardinal vein",
-"Failure of the septum secundum to grow",
+"Excessive resorption of the septum primum flap",
+"A persistent left anterior cardinal vein",
+"Failure of the septum secundum to grow down",
 "The muscular septum fails to rise from the floor",
-"The membranous septum comes partly from the trunco-conal swellings, and faulty swellings leave it incomplete"
+"Faulty conal swellings leave it incomplete"
 ],
 "a": 4,
 "e": "The membranous septum comes partly from the endocardial cushion and partly from the trunco-conal swellings. With faulty swellings (improper neural crest migration), it doesn't form completely, leaving a gap.",
@@ -1471,10 +1471,10 @@ window.CRS_EMB_QUESTIONS = [
 "s": "In Tetralogy of Fallot, what does \"overriding of the aorta\" mean?",
 "c": [
 "The aorta arises from the right ventricle only",
-"The aorta opens not only from the left ventricle but also from the right ventricle",
-"The aortic arch is on the right side",
-"The aorta is narrowed past the left subclavian",
-"The aorta and pulmonary artery are a single trunk"
+"The aorta opens from both left and right ventricles",
+"The aortic arch lies on the right side of the trachea",
+"The aorta is narrowed just past the left subclavian",
+"The aorta and pulmonary artery remain one single trunk"
 ],
 "a": 1,
 "e": "Normally the aorta has one opening, from the left ventricle. In overriding of the aorta, it opens from BOTH the left and right ventricles, sitting over the VSD.",
@@ -1494,9 +1494,9 @@ window.CRS_EMB_QUESTIONS = [
 "s": "Which developmental cause links persistent truncus arteriosus and Tetralogy of Fallot?",
 "c": [
 "Persistence of the right dorsal aorta",
-"Abnormal neural crest cell migration to the heart (absent in persistent truncus; incomplete in tetralogy)",
-"Failure of the pleuro-peritoneal membrane",
-"Abnormal endocardial cushion fusion",
+"Abnormal neural crest migration",
+"Failure of the pleuro-peritoneal membranes",
+"Abnormal fusion of the endocardial cushions",
 "Excess resorption of the septum primum"
 ],
 "a": 1,
@@ -1540,11 +1540,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Fetal Circulation & Birth",
 "s": "Which correctly describes the vessels and supporting tissue of the umbilical cord?",
 "c": [
-"1 artery and 2 veins in Wharton's jelly from the extraembryonic mesoderm",
+"1 artery and 2 veins in jelly from extraembryonic mesoderm",
 "2 arteries and 2 veins in Wharton's jelly from endoderm",
 "2 arteries and 1 vein in Wharton's jelly from ectoderm",
-"2 arteries and 1 vein in Wharton's jelly from the extraembryonic mesoderm",
-"1 artery and 1 vein surrounded by amniotic fluid"
+"2 arteries, 1 vein, jelly from extraembryonic mesoderm",
+"1 artery and 1 vein bathed directly in amniotic fluid"
 ],
 "a": 3,
 "e": "The umbilical cord has 2 arteries and 1 vein, bundled in a jelly-like substance called WHARTON'S JELLY, derived from the extraembryonic mesoderm. There's only one vein because the right umbilical vein degenerates.",
@@ -1563,11 +1563,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Fetal Circulation & Birth",
 "s": "Which pathway correctly traces oxygen-rich blood from the placenta to the fetal body?",
 "c": [
-"Umbilical artery → foramen ovale → right ventricle → aorta",
-"Umbilical vein → ductus arteriosus → pulmonary artery → lungs",
-"Umbilical artery → liver → right ventricle → pulmonary artery → aorta",
-"Umbilical vein → superior vena cava → right ventricle → lungs → left atrium",
-"Umbilical vein → ductus venosus → inferior vena cava → right atrium → foramen ovale → left atrium → left ventricle → aorta"
+"Umbilical artery, foramen ovale, right ventricle, aorta",
+"Umbilical vein, ductus arteriosus, pulmonary artery, lungs",
+"Umbilical artery, liver, RV, pulmonary artery, then aorta",
+"Umbilical vein, SVC, right ventricle, lungs, left atrium",
+"Umbilical vein, ductus venosus, IVC, RA, foramen ovale, LA"
 ],
 "a": 4,
 "e": "Placenta → umbilical vein → ductus venosus (skips the liver) → IVC → right atrium → foramen ovale → left atrium → left ventricle → aorta → body. It crosses directly to the left atrium because the pulmonary vasculature isn't established yet.",
@@ -1586,10 +1586,10 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Fetal Circulation & Birth",
 "s": "Oxygen-poor blood from the head, neck and upper limbs enters the fetal right atrium via the superior vena cava and passes to the right ventricle and pulmonary artery. Which channel lets most of this blood bypass the lungs?",
 "c": [
-"Ductus venosus",
+"Ductus venosus shunt",
 "Coronary sinus",
-"Umbilical vein",
-"Foramen ovale",
+"Paired umbilical veins",
+"Foramen ovale shunt",
 "Ductus arteriosus"
 ],
 "a": 4,
@@ -1609,11 +1609,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Fetal Circulation & Birth",
 "s": "Why does the fetus need the ductus venosus?",
 "c": [
-"To carry blood back to the placenta",
-"To bypass the developing liver, so most oxygen-rich umbilical blood goes straight to the heart",
-"To bypass the lungs",
-"To drain the coronary circulation",
-"To connect the two atria"
+"To carry deoxygenated blood back to the placenta",
+"To send umbilical blood past the liver",
+"To let blood bypass the non-working fetal lungs",
+"To drain the coronary circulation into the atrium",
+"To connect the right and left atria directly"
 ],
 "a": 1,
 "e": "The septum transversum gives rise to the liver, and the umbilical cord enters just below it, so the umbilical vein must pass through the liver area. The liver is still developing and shouldn't be burdened, so a bypass channel forms — the DUCTUS VENOSUS.",
@@ -1632,11 +1632,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Fetal Circulation & Birth",
 "s": "In fetal circulation, oxygen-poor blood from the lower body returns to the placenta through which vessels?",
 "c": [
-"Umbilical vein",
+"Left umbilical vein",
 "Pulmonary veins",
 "Vitelline veins",
 "Umbilical arteries",
-"Ductus venosus"
+"Ductus venosus shunt"
 ],
 "a": 3,
 "e": "Oxygen-poor blood from the lower body (lower limbs, gut) returns through the two UMBILICAL ARTERIES to the placenta to pick up oxygen again.",
@@ -1655,11 +1655,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Fetal Circulation & Birth",
 "s": "Match each fetal shunt to the structure it bypasses.",
 "c": [
-"Ductus venosus → right ventricle; foramen ovale → lungs; ductus arteriosus → liver",
-"All three bypass the liver",
-"All three bypass the lungs",
-"Ductus venosus → liver; foramen ovale → right ventricle; ductus arteriosus → lungs",
-"Ductus venosus → lungs; foramen ovale → liver; ductus arteriosus → right ventricle"
+"DV skips the RV, FO skips the lungs, DA skips the liver",
+"All three of the shunts bypass the liver",
+"All three of the shunts bypass the lungs",
+"DV skips the liver, FO the RV, DA the lungs",
+"DV skips the lungs, FO the liver, DA the RV"
 ],
 "a": 3,
 "e": "Mnemonic \"three shunts, three things to skip\": ductus VENOSUS skips the LIVER (it's in the vein from the placenta); foramen OVALE skips the RIGHT VENTRICLE (an oval door between the atria); ductus ARTERIOSUS skips the LUNGS (between the two great arteries).",
@@ -1678,11 +1678,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Fetal Circulation & Birth",
 "s": "When a newborn cries and the lungs expand, what is the sequence that closes the foramen ovale?",
 "c": [
-"Less blood to the lungs → lower left atrial pressure → closure",
-"More blood through the lungs → more returns via pulmonary veins to the left atrium → higher left atrial pressure → foramen ovale closes",
-"Endocardial cushions grow over the foramen",
-"Ductus venosus closure raises IVC pressure",
-"Higher right atrial pressure pushes the septum secundum shut"
+"Less lung blood flow, lower LA pressure, then closure",
+"More pulmonary venous return raises LA pressure",
+"Endocardial cushions grow over the foramen to seal it",
+"Ductus venosus closure raises pressure in the IVC",
+"Higher right atrial pressure pushes septum secundum shut"
 ],
 "a": 1,
 "e": "When the baby cries, the lungs expand and much more blood enters them, then returns through the pulmonary veins to the left atrium. Higher left atrial pressure closes the foramen ovale.",
@@ -1723,7 +1723,7 @@ window.CRS_EMB_QUESTIONS = [
 "c": [
 "Ductus arteriosus",
 "Umbilical arteries",
-"Umbilical vein (the part running to the liver)",
+"Umbilical vein",
 "Vitelline veins",
 "Ductus venosus"
 ],
@@ -1742,7 +1742,7 @@ window.CRS_EMB_QUESTIONS = [
 "s": "After birth, the two umbilical arteries are obliterated and become the:",
 "c": [
 "Ligamentum arteriosum",
-"Median umbilical ligament (urachus)",
+"Median umbilical ligament",
 "Medial umbilical ligaments",
 "Ligamentum teres of the liver",
 "Ligamentum venosum"
@@ -1751,7 +1751,7 @@ window.CRS_EMB_QUESTIONS = [
 "e": "The 2 umbilical arteries (which carried blood to the placenta) → the MEDIAL UMBILICAL LIGAMENTS.",
 "w": [
 "That's from the ductus arteriosus.",
-"The guide lists the medial ligaments (from the umbilical arteries).",
+"The median umbilical ligament is the remnant of the urachus, not the umbilical arteries.",
 "Correct.",
 "That's from the umbilical vein.",
 "That's from the ductus venosus."
@@ -1761,11 +1761,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Fetal Circulation & Birth",
 "s": "The ligamentum arteriosum is the remnant of the fetal channel that connected which two vessels?",
 "c": [
-"Umbilical vein and IVC",
+"Umbilical vein and the IVC",
 "Pulmonary artery and aorta",
-"Portal vein and IVC",
-"Aorta and IVC",
-"Right and left atria"
+"Portal vein and the IVC",
+"Aorta and the IVC",
+"Right atrium and left atrium"
 ],
 "a": 1,
 "e": "Ductus arteriosus → LIGAMENTUM ARTERIOSUM. In fetal life the ductus arteriosus connected the pulmonary artery to the aorta, bypassing the lungs.",
@@ -1784,11 +1784,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Fetal Circulation & Birth",
 "s": "How is the ductus arteriosus normally obliterated after birth?",
 "c": [
-"Pressure from the left atrium pushes it shut",
-"Growth of neural crest cells into the lumen",
-"It is reabsorbed into the aorta",
-"Endothelial (intimal) proliferation — the inner lining cells multiply until they fill it, turning it into a ligament",
-"Calcium deposition"
+"Left atrial pressure pushes it shut at birth",
+"Neural crest cells grow into and fill the lumen",
+"It is gradually reabsorbed into the aortic wall",
+"Intimal cells multiply until it is filled",
+"Calcium is deposited until the lumen is blocked"
 ],
 "a": 3,
 "e": "The ductus arteriosus collapses and closes because of endothelial (intimal) proliferation: the inner lining cells multiply until they fill the channel, turning it into a ligament (the ligamentum arteriosum).",
@@ -1830,11 +1830,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Fetal Circulation & Birth",
 "s": "A 10-year-old has a strong radial pulse and high blood pressure in the arms, but weak femoral pulses and low blood pressure in the legs. Which embryologic event best explains this?",
 "c": [
-"Failure of the ductus arteriosus to close",
-"Persistent left anterior cardinal vein",
-"Failure of the septum primum to fuse",
-"Absence of the right dorsal aorta",
-"Ductus-closing tissue spreading into the aorta just past the branches to the head and arms"
+"Failure of the ductus arteriosus to close after birth",
+"A persistent left anterior cardinal vein draining the arm",
+"Failure of the septum primum to fuse with the cushions",
+"Absence of the right dorsal aorta segment",
+"Ductal tissue narrowing the aorta past the arm arteries"
 ],
 "a": 4,
 "e": "This is coarctation of the aorta. Before the ductus arteriosus joins it, the aorta gives off branches to the upper limbs and head/neck, so the narrowing is just past these branches. Blood turned back from the narrowing goes into those branches → high BP and strong pulse in the arms; low BP and weak pulse in the legs.",
@@ -1900,11 +1900,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Arterial Arches & Arteries",
 "s": "Which statement about the brachiocephalic vessels is correct?",
 "c": [
-"There is one brachiocephalic artery but two brachiocephalic veins",
-"There are two brachiocephalic arteries and one brachiocephalic vein",
-"There are no brachiocephalic veins",
-"There are two of each",
-"There is one of each"
+"One brachiocephalic artery but two brachiocephalic veins",
+"Two brachiocephalic arteries and one brachiocephalic vein",
+"There are no brachiocephalic veins in the adult",
+"There are two brachiocephalic arteries and two veins",
+"There is one brachiocephalic artery and one vein"
 ],
 "a": 0,
 "e": "There's only 1 brachiocephalic artery (on the right): the right arm is farther from the heart (the heart tilts left), so the right side needs a shared trunk. But there are 2 brachiocephalic veins (right and left) — an exception to the usual artery-vein matching.",
@@ -1923,11 +1923,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Arterial Arches & Arteries",
 "s": "The common carotid divides into the internal and external carotid arteries. Which correctly describes their territories?",
 "c": [
-"Internal → upper limb; external → neck",
-"Both supply the brain",
-"Internal → brain (inside the skull); external → outside of the skull (face and scalp)",
-"Internal → face and scalp; external → brain",
-"External → brain; internal → orbit only"
+"Internal supplies the upper limb, external the neck",
+"Both branches supply the brain inside the skull",
+"Internal supplies the brain, external face and scalp",
+"Internal supplies face and scalp, external the brain",
+"External supplies the brain, internal only the orbit"
 ],
 "a": 2,
 "e": "Two arteries supply the head: the INTERNAL carotid goes inside the skull to the brain, and the EXTERNAL carotid goes outside the skull (face and scalp). The brachial artery supplies the arm as the continuation of the subclavian.",
@@ -1944,10 +1944,10 @@ window.CRS_EMB_QUESTIONS = [
 "s": "How many pairs of arterial arches form, and what do they connect?",
 "c": [
 "3 pairs, linking the truncus to the pulmonary arteries",
-"12 pairs, one per thoracic segment",
-"6 pairs, linking the aortic sac to the dorsal aortas on both sides",
+"12 pairs, one for each thoracic segment",
+"6 pairs, joining the aortic sac to the dorsal aortas",
 "4 pairs, connecting the atria to the ventricles",
-"6 pairs, linking the sinus venosus to the cardinal veins"
+"6 pairs, joining the sinus venosus to cardinal veins"
 ],
 "a": 2,
 "e": "Before the right dorsal aorta degenerates, 6 arterial arches form on BOTH sides, linking the aortic sac to the right and left dorsal aortas.",
@@ -2081,11 +2081,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Arterial Arches & Arteries",
 "s": "Which artery is formed by the RIGHT 4th arch artery?",
 "c": [
-"Right subclavian artery (proximal part)",
+"Proximal right subclavian",
 "Arch of the aorta",
 "Brachiocephalic artery",
-"Right common carotid",
-"Right pulmonary artery"
+"Right common carotid artery",
+"Right pulmonary artery branch"
 ],
 "a": 0,
 "e": "The right 4th arch → the RIGHT SUBCLAVIAN artery (the rest of it comes from the right 7th cervical intersegmental artery). The LEFT 4th arch → part of the arch of the aorta.",
@@ -2108,8 +2108,8 @@ window.CRS_EMB_QUESTIONS = [
 "Left 6th arch artery",
 "Right horn of the aortic sac",
 "Right 4th arch artery",
-"Left 4th arch artery (with the aortic sac and its left horn)",
-"3rd arch artery"
+"Left 4th arch artery",
+"3rd arch artery on both sides"
 ],
 "a": 3,
 "e": "Arch of the aorta = aortic sac + LEFT horn of the aortic sac + LEFT 4th arch artery. The left horn moves up and links to the left 4th arch.",
@@ -2151,11 +2151,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Arterial Arches & Arteries",
 "s": "What happens to the 6th arch artery beyond the pulmonic bud on each side?",
 "c": [
-"Both sides become pulmonary veins",
-"Left persists (fetal period only) as the ductus arteriosus; right degenerates along with the right dorsal aorta",
-"Both sides persist as ductus arteriosus",
-"Right persists as the ductus arteriosus; left degenerates",
-"Both sides form the arch of the aorta"
+"Both sides become the pulmonary veins",
+"Left becomes the ductus, right degenerates",
+"Both sides persist as a ductus arteriosus",
+"Right becomes the ductus, left degenerates",
+"Both sides form part of the aortic arch"
 ],
 "a": 1,
 "e": "On the RIGHT, the 6th arch beyond the pulmonic bud degenerates (with the right dorsal aorta). On the LEFT, it REMAINS — but only for fetal circulation — connecting the pulmonary artery to the aorta as the DUCTUS ARTERIOSUS.",
@@ -2175,11 +2175,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Arterial Arches & Arteries",
 "s": "From which embryonic arch does the ductus arteriosus arise?",
 "c": [
-"Left 6th, beyond the pulmonic bud",
-"Left 4th",
-"3rd",
-"Right 4th",
-"Right 6th"
+"Left 6th, past the pulmonic bud",
+"Left 4th arch artery",
+"3rd arch artery on each side",
+"Right 4th arch artery",
+"Right 6th, beyond the pulmonic bud"
 ],
 "a": 0,
 "e": "Ductus arteriosus = left 6th arch, beyond the pulmonic bud.",
@@ -2198,11 +2198,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Arterial Arches & Arteries",
 "s": "From which embryonic structure does the trunk (ascending part) of the aorta come?",
 "c": [
-"Left 4th arch",
+"Left 4th arch artery",
 "Left dorsal aorta",
 "Aortic sac",
 "Truncus arteriosus",
-"Conus"
+"Conus cordis"
 ],
 "a": 3,
 "e": "The conus and truncus divide (spiral septum) into the pulmonary artery on the right and the aorta on the left, so the trunk of the aorta comes from the TRUNCUS ARTERIOSUS.",
@@ -2222,10 +2222,10 @@ window.CRS_EMB_QUESTIONS = [
 "s": "From which embryonic structure does the brachiocephalic artery develop?",
 "c": [
 "Left horn of the aortic sac",
-"Right 4th arch",
+"Right 4th arch artery",
 "Right horn of the aortic sac",
-"Right 3rd arch",
-"Right dorsal aorta"
+"Right 3rd arch artery",
+"Right dorsal aorta segment above"
 ],
 "a": 2,
 "e": "With the left horn used up to form the aortic arch, the RIGHT HORN of the aortic sac becomes the BRACHIOCEPHALIC ARTERY, which goes up and gives the right subclavian.",
@@ -2246,7 +2246,7 @@ window.CRS_EMB_QUESTIONS = [
 "c": [
 "Left 4th arch artery",
 "Left 6th arch artery",
-"Left 7th cervical intersegmental artery",
+"Left 7th intersegmental",
 "Left horn of the aortic sac",
 "Left 3rd arch artery"
 ],
@@ -2289,11 +2289,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Arterial Arches & Arteries",
 "s": "Which dorsal aorta persists, and what does it become?",
 "c": [
-"Left — the descending (thoracic and abdominal) aorta",
-"Both — fused as the arch",
-"Left — the pulmonary artery",
-"Right — the descending aorta",
-"Neither — replaced by the truncus"
+"Left, becoming the descending aorta",
+"Both, fusing to form the aortic arch",
+"Left, becoming the pulmonary artery",
+"Right, becoming the descending aorta",
+"Neither, both are replaced by the truncus"
 ],
 "a": 0,
 "e": "The right dorsal aorta degenerates. The left dorsal aorta remains as the descending aorta — the thoracic aorta in the chest and the abdominal aorta in the abdomen.",
@@ -2312,11 +2312,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Arterial Arches & Arteries",
 "s": "The anterior branches of the descending aorta supply the gut. Which pairing is correct?",
 "c": [
-"Phrenic → foregut",
-"Renal → midgut",
-"Celiac → hindgut; IMA → foregut",
-"Celiac → foregut; superior mesenteric → midgut; inferior mesenteric → hindgut",
-"Superior mesenteric → foregut; celiac → midgut"
+"Phrenic supplies the foregut",
+"Renal supplies the midgut",
+"Celiac supplies hindgut and IMA the foregut",
+"Celiac foregut, SMA midgut, IMA hindgut",
+"SMA supplies foregut and celiac the midgut"
 ],
 "a": 3,
 "e": "Top to bottom: celiac → foregut, superior mesenteric → midgut, inferior mesenteric → hindgut. Mnemonic: \"Can Someone Investigate?\" — 3 front branches for 3 parts of the gut.",
@@ -2381,7 +2381,7 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Arterial Arches & Arteries",
 "s": "Which intersegmental artery forms the AXIS ARTERY OF THE UPPER LIMB?",
 "c": [
-"7th cervical (its lateral branch)",
+"7th cervical",
 "1st thoracic",
 "5th lumbar",
 "5th cervical",
@@ -2429,11 +2429,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Arterial Arches & Arteries",
 "s": "What are the somites derived from, and what do they give rise to (as reviewed in the guide)?",
 "c": [
-"Neural crest — melanocytes",
-"Endoderm — the gut",
-"Lateral plate mesoderm — heart",
-"Intermediate mesoderm — kidneys",
-"Paraxial mesoderm, which segments into somites — the sclerotome forms the vertebrae"
+"Neural crest, which forms the melanocytes",
+"Endoderm, which forms the lining of the gut",
+"Lateral plate mesoderm, which forms the heart",
+"Intermediate mesoderm, which forms the kidneys",
+"Paraxial mesoderm, forming the vertebrae"
 ],
 "a": 4,
 "e": "The intraembryonic mesoderm has 3 divisions next to the notochordal process: paraxial, intermediate and lateral plate. The PARAXIAL mesoderm segments into repeating blocks (somites). Vertebrae come from the sclerotome of the somites.",
@@ -2452,10 +2452,10 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Arterial Arches & Arteries",
 "s": "How does the primitive gut form, according to the guide's review?",
 "c": [
-"The septum transversum folds into a tube",
-"Expansion of the amniotic cavity obliterates the chorionic cavity and squeezes the primary yolk sac into a secondary yolk sac, which invaginates into the endoderm to form the primitive gut",
-"The intraembryonic coelom becomes the gut",
-"Neural crest cells form a tube",
+"The septum transversum folds itself into a tube",
+"The amnion squeezes the yolk sac into the gut",
+"The intraembryonic coelom becomes the gut lumen",
+"Neural crest cells roll up to form a hollow tube",
 "The amniotic cavity invaginates into the ectoderm"
 ],
 "a": 1,
@@ -2472,11 +2472,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Arterial Arches & Arteries",
 "s": "Each intersegmental artery divides into branches. Which describes the pattern?",
 "c": [
-"It divides into right and left branches",
-"The posterior branch gives off the lateral branch",
-"It divides into anterior (ventral) and posterior (dorsal) branches, and the anterior branch gives off a lateral branch",
-"It doesn't branch",
-"It divides into a superior and inferior branch only"
+"It divides into right and left branches only, no more",
+"Its posterior branch gives off the lateral branch",
+"Anterior and posterior, the anterior gives a lateral",
+"It does not branch at all along its course",
+"It divides into superior and inferior branches only"
 ],
 "a": 2,
 "e": "Each dorsolateral (intersegmental) branch divides into an anterior (ventral) and a posterior (dorsal) branch. Moving forward, the anterior branch gives off a lateral branch.",
@@ -2495,11 +2495,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Arterial Arches & Arteries",
 "s": "The anterior (ventral) branches of C7 and T1–T12 move forward toward the sternum and link up and down on each side. Which artery do they form?",
 "c": [
-"Intercostal veins",
+"Posterior intercostal veins",
 "Subclavian artery",
 "Vertebral artery",
-"Common carotid",
-"Internal thoracic (internal mammary) artery"
+"Common carotid artery",
+"Internal thoracic artery"
 ],
 "a": 4,
 "e": "The ventral branches of C7 and T1–T12 form a vertical anastomosis on both sides: the INTERNAL THORACIC artery (internal mammary artery). Mnemonic: ventral → front → chest wall.",
@@ -2518,11 +2518,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Arterial Arches & Arteries",
 "s": "The dorsal (posterior) branches of C1–C7 form a vertical anastomosis. Which artery results, and how does it reach the brain?",
 "c": [
-"Internal carotid — through the carotid canal",
-"Vertebral artery — up through the foramen transversarium of the neck vertebrae, then into the skull through the foramen magnum",
-"Internal thoracic — along the sternum",
-"Basilar artery — through the jugular foramen",
-"External carotid — over the scalp"
+"Internal carotid, entering through the carotid canal",
+"Vertebral, via the foramina transversaria and magnum",
+"Internal thoracic, running down beside the sternum",
+"Basilar artery, entering through the jugular foramen",
+"External carotid, running up over the scalp"
 ],
 "a": 1,
 "e": "The dorsal branches of C7 → C1 link into the VERTEBRAL ARTERY. It runs up through the holes in the cervical vertebrae (foramen transversarium), then enters the skull through the foramen magnum to supply the brain. Mnemonic: dorsal → back → along the spine → brain.",
@@ -2541,11 +2541,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Arterial Arches & Arteries",
 "s": "What is the STEM of the vertebral artery and of the internal thoracic artery, respectively?",
 "c": [
-"Dorsal branch of T1; ventral branch of T1",
-"Ventral branch of C7; dorsal branch of C7",
-"Dorsal branch of C7; ventral branch of C7",
-"Lateral branch of C7 for both",
-"3rd arch; 4th arch"
+"Dorsal branch of T1, then ventral branch of T1",
+"Ventral branch of C7, then dorsal branch of C7",
+"Dorsal branch of C7, then ventral branch of C7",
+"The lateral branch of C7 for both of them",
+"The 3rd arch artery, then the 4th arch artery"
 ],
 "a": 2,
 "e": "Stem of the VERTEBRAL artery = the DORSAL (posterior) branch of C7. Stem of the INTERNAL THORACIC (internal mammary) artery = the VENTRAL (anterior) branch of C7. The lateral branch of C7 goes to the upper limb.",
@@ -2565,11 +2565,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Arterial Arches & Arteries",
 "s": "Match each C7 intersegmental branch to its destination.",
 "c": [
-"Ventral → chest wall (internal thoracic); dorsal → brain (vertebral); lateral → upper limb",
-"All three → upper limb",
-"Ventral → brain; dorsal → chest wall; lateral → limb",
-"Ventral → upper limb; dorsal → chest; lateral → brain",
-"Ventral → lower limb; dorsal → upper limb; lateral → chest"
+"Ventral chest wall, dorsal brain, lateral upper limb",
+"All three branches go to the upper limb",
+"Ventral brain, dorsal chest wall, lateral upper limb",
+"Ventral upper limb, dorsal chest wall, lateral brain",
+"Ventral lower limb, dorsal upper limb, lateral chest"
 ],
 "a": 0,
 "e": "Mnemonic: Ventral = chest, Dorsal = brain, Lateral = limb.",
@@ -2588,11 +2588,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Veins",
 "s": "Three pairs of veins drain into the horns of the sinus venosus. Which list is correct?",
 "c": [
-"Umbilical, pulmonary, vitelline",
-"Umbilical (from placenta), vitelline (from yolk sac), cardinal (from body wall)",
-"Pulmonary, coronary, cardinal",
-"Portal, hepatic, renal",
-"Subcardinal, supracardinal, azygos"
+"Umbilical, pulmonary and vitelline veins",
+"Umbilical, vitelline and cardinal veins",
+"Pulmonary, coronary and cardinal veins",
+"Portal, hepatic and renal veins",
+"Subcardinal, supracardinal and azygos veins"
 ],
 "a": 1,
 "e": "Each horn has 3 tributaries: an UMBILICAL vein (from the placenta), a VITELLINE vein (from the yolk sac) and a CARDINAL vein (from the body wall) — on both sides.",
@@ -2611,11 +2611,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Veins",
 "s": "When the liver forms between the umbilical/vitelline veins and the heart, which channels carry blood from the liver to the heart?",
 "c": [
-"Cardinal veins",
-"Portal veins",
-"Sinusoids",
+"Anterior and posterior cardinal veins",
+"Right and left portal veins",
+"Hepatic sinusoids alone",
 "Right and left hepatocardiac channels",
-"Ductus arteriosus"
+"The ductus arteriosus and venosus"
 ],
 "a": 3,
 "e": "With the liver in between, blood from the placenta and yolk sac must pass through the liver first. The portions running from the liver to the heart are the RIGHT and LEFT HEPATOCARDIAC CHANNELS (hepato = liver, cardiac = heart).",
@@ -2624,7 +2624,7 @@ window.CRS_EMB_QUESTIONS = [
 "The portal vein carries blood TO the liver.",
 "Sinusoids are inside the liver.",
 "Correct.",
-"That's an arterial shunt."
+"The ductus arteriosus and venosus are shunts, not the channels that drain the liver into the heart."
 ],
 "fig": [
 "ce-p33"
@@ -2634,11 +2634,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Veins",
 "s": "Which hepatocardiac channel degenerates, and why?",
 "c": [
-"Left — because the left horn of the sinus venosus becomes the coronary sinus, so the channel draining into it has no work",
-"Right — because the right horn becomes the coronary sinus",
-"Both degenerate",
-"Neither degenerates",
-"Right — because the right umbilical vein persists"
+"Left, as its horn becomes the coronary sinus",
+"Right, as the right horn becomes the coronary sinus",
+"Both channels degenerate at the same time",
+"Neither channel ever degenerates",
+"Right, because the right umbilical vein persists"
 ],
 "a": 0,
 "e": "The left horn of the sinus venosus retrogresses into the coronary sinus. The left hepatocardiac channel drained into that left horn, so it no longer has work and degenerates. Only the LEFT degenerates, not the right.",
@@ -2657,11 +2657,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Veins",
 "s": "Why does the umbilical cord contain only one vein?",
 "c": [
-"The two veins fuse",
-"The vitelline vein replaces one",
-"One vein becomes the ductus arteriosus",
-"The left umbilical vein degenerates",
-"The right umbilical vein degenerates, leaving only the left"
+"The two umbilical veins fuse into one vessel",
+"A vitelline vein replaces one of the umbilical veins",
+"One umbilical vein becomes the ductus arteriosus",
+"The left umbilical vein degenerates, leaving the right",
+"The right one degenerates, leaving only the left"
 ],
 "a": 4,
 "e": "At the same time the left hepatocardiac channel degenerates, the RIGHT umbilical vein degenerates. Only the left umbilical vein remains — which is why the cord has 1 vein (with 2 arteries).",
@@ -2680,11 +2680,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Veins",
 "s": "After the left hepatocardiac channel and the right umbilical vein degenerate, through which route does all blood from the placenta and yolk sac reach the heart?",
 "c": [
-"Coronary sinus",
-"Superior vena cava",
-"Right horn of the sinus venosus via the right hepatocardiac channel",
-"Left horn of the sinus venosus",
-"Pulmonary veins"
+"Directly into the coronary sinus channel",
+"Into the superior vena cava",
+"The right horn of the sinus venosus",
+"The left horn of the sinus venosus",
+"Into the pulmonary veins"
 ],
 "a": 2,
 "e": "All blood from the placenta and yolk sac then reaches the heart only through the RIGHT horn of the sinus venosus, via the right hepatocardiac channel.",
@@ -2749,11 +2749,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Veins",
 "s": "Which correctly pairs the embryonic umbilical veins with their fate?",
 "c": [
-"Right umbilical → ligamentum teres; left umbilical → degenerates",
-"Left umbilical → carries placental blood in fetal life, then the ligamentum teres of the liver; right umbilical → degenerates",
-"Both → medial umbilical ligaments",
-"Both → ligamentum venosum",
-"Left umbilical → portal vein; right → IVC"
+"Right becomes the ligamentum teres, left degenerates",
+"Left carries placental blood, then becomes the teres",
+"Both become the medial umbilical ligaments",
+"Both become the ligamentum venosum",
+"Left becomes the portal vein, right the IVC"
 ],
 "a": 1,
 "e": "Left umbilical vein → carries placental blood in fetal life → after birth, the ligamentum teres of the liver. Right umbilical vein → degenerates.",
@@ -2772,11 +2772,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Veins",
 "s": "Each cardinal vein has an upper and a lower part that fuse into a common trunk. Which is correct?",
 "c": [
-"Superior + inferior cardinal → hepatocardiac channel",
-"Anterior cardinal (upper) + posterior cardinal (lower) → common cardinal vein, which empties into the horn of the sinus venosus",
-"Anterior cardinal → coronary sinus directly",
-"Posterior cardinal → portal vein",
-"Subcardinal + supracardinal → common cardinal"
+"Superior and inferior cardinals form the hepatocardiac channel",
+"Anterior and posterior form the common cardinal vein",
+"The anterior cardinal empties directly into the coronary sinus",
+"The posterior cardinal becomes the portal vein",
+"Subcardinal and supracardinal form the common cardinal"
 ],
 "a": 1,
 "e": "Each side has an upper ANTERIOR and a lower POSTERIOR cardinal vein, which fuse into a COMMON CARDINAL VEIN (right and left) emptying into the horn of the sinus venosus.",
@@ -2795,16 +2795,16 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Veins",
 "s": "The superior vena cava is derived from which embryonic veins? (Guide: this is important.)",
 "c": [
-"Right vitelline vein",
-"Left common cardinal + left anterior cardinal",
-"Right umbilical vein",
-"Right common cardinal + right anterior cardinal",
-"Right subcardinal vein"
+"Right vitelline and right umbilical veins",
+"Left common and left anterior cardinal veins",
+"Right umbilical vein alone",
+"Right common and right anterior cardinal",
+"Right subcardinal and supracardinal veins"
 ],
 "a": 3,
 "e": "SUPERIOR VENA CAVA = RIGHT COMMON CARDINAL vein + RIGHT ANTERIOR CARDINAL vein.",
 "w": [
-"The vitelline veins form the portal vein.",
+"The vitelline veins form the portal vein, and the right umbilical vein degenerates.",
 "The left ones break up (unless persistent → a second SVC).",
 "The right umbilical degenerates.",
 "Correct.",
@@ -2819,10 +2819,10 @@ window.CRS_EMB_QUESTIONS = [
 "s": "Besides the left horn of the sinus venosus, which embryonic vein ALSO contributes to the coronary sinus?",
 "c": [
 "Right anterior cardinal vein",
-"Left vitelline vein",
-"Lateral half of the left common cardinal vein",
+"Left vitelline vein near the liver",
+"Lateral half of left common cardinal",
 "Left umbilical vein",
-"Medial half of the left common cardinal vein"
+"Medial half of left common cardinal"
 ],
 "a": 4,
 "e": "The coronary sinus is derived MAINLY from the left horn of the sinus venosus. More in depth: the MEDIAL half of the left common cardinal vein also contributes.",
@@ -2842,10 +2842,10 @@ window.CRS_EMB_QUESTIONS = [
 "s": "What does the LATERAL half of the left common cardinal vein become?",
 "c": [
 "Left brachiocephalic vein",
-"Left superior vena cava",
-"Oblique vein of the left atrium",
-"Hemiazygos vein",
-"Coronary sinus"
+"A persistent left superior vena cava",
+"Oblique vein of left atrium",
+"Accessory hemiazygos vein",
+"Great cardiac vein"
 ],
 "a": 2,
 "e": "The left common cardinal vein persists and splits: the medial half → contributes to the coronary sinus; the lateral half → the OBLIQUE VEIN OF THE LEFT ATRIUM.",
@@ -2853,8 +2853,8 @@ window.CRS_EMB_QUESTIONS = [
 "The left brachiocephalic comes from a cross-connection from the left anterior cardinal.",
 "That forms only if the left ANTERIOR cardinal persists.",
 "Correct.",
-"The hemiazygos is from the left azygos.",
-"That's the medial half (plus the left horn)."
+"The accessory hemiazygos comes from the upper part of the left azygos vein.",
+"The great cardiac vein drains into the coronary sinus, which comes from the medial half plus the left horn."
 ],
 "fig": [
 "ce-p36"
@@ -2866,9 +2866,9 @@ window.CRS_EMB_QUESTIONS = [
 "c": [
 "Persistence of the right dorsal aorta",
 "Persistence of the right umbilical vein",
-"Persistence of the left anterior cardinal vein (it doesn't break up)",
+"Persistence of the left anterior cardinal vein",
 "Failure of the septum primum to fuse",
-"Failure of the left hepatocardiac channel to degenerate"
+"Failure of the left hepatocardiac channel to regress"
 ],
 "a": 2,
 "e": "Normally the left anterior and left posterior cardinal veins degenerate, leaving only remnants. If the LEFT ANTERIOR CARDINAL VEIN persists and doesn't break up, a SECOND (left) SUPERIOR VENA CAVA can form.",
@@ -2888,11 +2888,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Veins",
 "s": "How do the brachiocephalic veins form from the anterior cardinal veins?",
 "c": [
-"The right from the right anterior cardinal vein; the left from a cross-connection running from the left anterior cardinal vein over to the right",
+"Right from right anterior cardinal, left from a cross-link",
 "Both come from the left anterior cardinal vein",
-"They come from the azygos veins",
-"They come from the vitelline veins",
-"Both come from the posterior cardinal veins"
+"They come from the right and left azygos veins",
+"They come from the right and left vitelline veins",
+"Both come from the right and left posterior cardinal veins"
 ],
 "a": 0,
 "e": "The upper ends of the anterior cardinal veins give the brachiocephalic veins: the right from the right anterior cardinal vein, and the left from a cross-connection running from the left anterior cardinal vein to the right side.",
@@ -2911,11 +2911,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Veins",
 "s": "The left azygos vein breaks into two parts. Which pairing is correct?",
 "c": [
-"Upper → accessory hemiazygos; lower → hemiazygos",
-"Upper → coronary sinus; lower → left renal vein",
-"Upper → hemiazygos; lower → accessory hemiazygos",
-"Upper → oblique vein; lower → IVC",
-"Both parts → SVC"
+"Upper becomes accessory hemiazygos, lower hemiazygos",
+"Upper becomes coronary sinus, lower the left renal vein",
+"Upper becomes hemiazygos, lower accessory hemiazygos",
+"Upper becomes the oblique vein, lower joins the IVC",
+"Both parts drain together into the SVC"
 ],
 "a": 0,
 "e": "Because the left horn retrogresses into the coronary sinus, the left side breaks up. The left azygos splits into the upper ACCESSORY HEMIAZYGOS and the lower HEMIAZYGOS vein. Mnemonic: accessory sits up top like an accessory on a hat.",
@@ -2957,11 +2957,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Veins",
 "s": "Why is the azygos system lopsided, with a full azygos vein on the right and only \"hemi\" veins on the left?",
 "c": [
-"The heart leans to the right",
-"The IVC is on the left",
-"The left umbilical vein takes over",
-"The right azygos degenerates",
-"The left horn of the sinus venosus retrogressed into the coronary sinus, so the left side broke up"
+"The heart leans to the right during folding",
+"The IVC develops on the left side instead",
+"The left umbilical vein takes over the drainage",
+"The right azygos degenerates early in development",
+"The left sinus horn became the coronary sinus"
 ],
 "a": 4,
 "e": "The left side broke up when the left horn shrank to become the coronary sinus. So the left azygos split into hemi/accessory hemi veins, while the right azygos persists as the azygos vein.",
@@ -2980,9 +2980,9 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Veins",
 "s": "Alongside the posterior cardinal veins, which smaller veins develop near the kidneys and help form the IVC, suprarenal, renal and gonadal veins?",
 "c": [
-"Anterior cardinal veins",
-"Azygos veins",
-"Hepatocardiac channels",
+"Anterior and common cardinal veins",
+"Right and left azygos veins",
+"Right and left hepatocardiac channels",
 "Subcardinal and supracardinal veins",
 "Vitelline and umbilical veins"
 ],
@@ -3005,9 +3005,9 @@ window.CRS_EMB_QUESTIONS = [
 "c": [
 "IVC on the left, aorta on the right",
 "IVC on the right, aorta on the left",
-"Both on the right",
-"Both in the midline",
-"Both on the left"
+"Both of them lie on the right side",
+"Both of them lie in the midline",
+"Both of them lie on the left side"
 ],
 "a": 1,
 "e": "Key layout: the inferior vena cava lies on the RIGHT side of the body, and the abdominal aorta on the LEFT.",
@@ -3030,7 +3030,7 @@ window.CRS_EMB_QUESTIONS = [
 "Into the left renal vein",
 "Into the portal vein",
 "Into the right renal vein",
-"Directly into the inferior vena cava"
+"Directly into the IVC"
 ],
 "a": 4,
 "e": "On the right, the kidney, suprarenal gland and gonad are close to the IVC, so all their veins open DIRECTLY into the IVC. Mnemonic: Right = direct.",
@@ -3053,7 +3053,7 @@ window.CRS_EMB_QUESTIONS = [
 "Into the abdominal aorta",
 "Into the portal vein",
 "Directly into the IVC",
-"Into the left renal vein, which carries their blood across to the IVC"
+"Into the left renal vein"
 ],
 "a": 4,
 "e": "On the left, the organs are farther from the IVC. The big left renal vein crosses directly to the IVC, but the smaller left suprarenal and left gonadal veins can't reach the right side, so they drain into the LEFT RENAL VEIN — the \"bus\" that carries them to the IVC.",
@@ -3073,9 +3073,9 @@ window.CRS_EMB_QUESTIONS = [
 "s": "A 45-year-old man has a large abdominal tumor compressing his left renal vein. Which finding is most likely?",
 "c": [
 "Distended jugular veins",
-"Swollen veins of the right scrotal sac",
-"Varicosities of the upper limbs",
-"Swollen veins of the scrotal sac, mainly on the LEFT side",
+"Swollen veins in the right side of the scrotum",
+"Varicose veins of both upper limbs",
+"Swollen scrotal veins, mainly on the left",
 "Swelling of the right lower limb"
 ],
 "a": 3,
@@ -3138,11 +3138,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Respiratory Development",
 "s": "The respiratory system begins as an out-pouching. What is it called, and where does it arise?",
 "c": [
-"Lung bud — from the pharynx's ectoderm",
-"Respiratory diverticulum — from the esophagus (part of the primitive gut)",
-"Laryngotracheal groove — from the stomach",
-"Tracheo-esophageal septum — from the aorta",
-"Septum transversum — from mesoderm"
+"Lung bud, from the ectoderm of the pharynx",
+"Respiratory diverticulum, from the foregut",
+"Laryngotracheal groove, from the stomach",
+"Tracheo-esophageal septum, from the aorta",
+"Septum transversum, from the mesoderm"
 ],
 "a": 1,
 "e": "A detour comes off the esophagus — like a road detour sign — forming the RESPIRATORY DIVERTICULUM (an out-pouching). Esophagus → primitive gut → endoderm, so the diverticulum is endodermal.",
@@ -3161,11 +3161,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Respiratory Development",
 "s": "What does the respiratory diverticulum develop into?",
 "c": [
-"The paranasal sinuses",
-"Two lung buds, which divide repeatedly into terminal bronchioles; each bud becomes one lung",
-"The pleural cavities",
-"The esophagus",
-"The diaphragm"
+"The paranasal sinuses around the nose",
+"Two lung buds, one for each lung",
+"The pleural cavities around the lungs",
+"The esophagus behind the trachea",
+"The muscular part of the diaphragm"
 ],
 "a": 1,
 "e": "The respiratory diverticulum slowly forms 2 buds — the LUNG BUDS. These divide over and over to form terminal bronchioles, and each bud becomes 1 lung.",
@@ -3188,7 +3188,7 @@ window.CRS_EMB_QUESTIONS = [
 "Pleuro-peritoneal membrane",
 "Epiglottis",
 "Tracheo-esophageal septum",
-"Septum intermedium"
+"Septum intermedium of the heart"
 ],
 "a": 3,
 "e": "Just as the interatrial septum splits the common atrium, a septum forms between the respiratory diverticulum and the esophagus: the TRACHEO-ESOPHAGEAL SEPTUM. At first they're together; the septum separates the trachea from the esophagus.",
@@ -3230,8 +3230,8 @@ window.CRS_EMB_QUESTIONS = [
 "Failure of the septum transversum",
 "Failure of the pleuro-peritoneal membrane",
 "Failure of type 2 pneumocytes",
-"Failure of the tracheo-esophageal septum — tracheo-esophageal fistula",
-"Renal agenesis"
+"Failure of the tracheo-esophageal septum",
+"Renal agenesis with oligohydramnios"
 ],
 "a": 3,
 "e": "If the tracheo-esophageal septum fails, there is an abnormal connection between the trachea and esophagus: a TRACHEO-ESOPHAGEAL FISTULA (a fistula is an abnormal passage between two hollow tubes). It's seen with POLYHYDRAMNIOS — the fetus swallows amniotic fluid, but it can't pass through the gut properly, so fluid builds up.",
@@ -3251,9 +3251,9 @@ window.CRS_EMB_QUESTIONS = [
 "s": "Polyhydramnios is associated with which condition in the guide?",
 "c": [
 "Coarctation of the aorta",
-"Bochdalek hernia",
+"Bochdalek diaphragmatic hernia",
 "Patent foramen ovale",
-"Renal agenesis",
+"Bilateral renal agenesis",
 "Tracheo-esophageal fistula"
 ],
 "a": 4,
@@ -3296,11 +3296,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Respiratory Development",
 "s": "Which sequence correctly describes the airway tree, from the trachea down?",
 "c": [
-"Trachea → alveoli directly",
-"Trachea → alveoli → terminal bronchioles → principal bronchi",
-"Esophagus → trachea → alveoli",
-"Trachea → terminal bronchioles → principal bronchi → alveoli",
-"Trachea → principal (main) bronchi → repeated divisions → terminal bronchioles → alveoli"
+"Trachea, then straight into the alveoli",
+"Trachea, alveoli, terminal bronchioles, then main bronchi",
+"Esophagus, trachea, then the alveoli",
+"Trachea, terminal bronchioles, main bronchi, alveoli",
+"Trachea, main bronchi, branches, bronchioles, alveoli"
 ],
 "a": 4,
 "e": "The trachea divides into the principal (main) bronchi, which keep dividing until they become terminal bronchioles. Terminal bronchioles end in ALVEOLI — the tiny air sacs where gas exchange happens.",
@@ -3319,11 +3319,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Respiratory Development",
 "s": "What is the role of the interstitial tissue between the alveoli?",
 "c": [
-"It drains lymph",
-"It forms the pleura",
-"It lines the alveoli for gas exchange",
-"It produces surfactant",
-"It gives support and is contractile, helping the lung expand; disease of it is interstitial lung disease"
+"It drains lymph away from the alveolar walls",
+"It forms the visceral and parietal pleura",
+"It lines the alveoli and carries out gas exchange",
+"It produces surfactant to keep the alveoli open",
+"It supports the lung and helps it expand"
 ],
 "a": 4,
 "e": "Between the alveoli is INTERSTITIAL TISSUE: it gives support and is contractile, helping the lung expand. Disease of this tissue is interstitial lung disease.",
@@ -3388,10 +3388,10 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Respiratory Development",
 "s": "What is the role of type 1 pneumocytes?",
 "c": [
-"They produce surfactant",
-"They form the interstitial tissue",
-"They form the alveolar capillaries",
-"They line the inner layer of the alveolus and do not produce surfactant",
+"They produce surfactant inside the alveolus",
+"They form the interstitial tissue between alveoli",
+"They form the walls of the alveolar capillaries",
+"They line the alveolus and make no surfactant",
 "They form the tracheo-esophageal septum"
 ],
 "a": 3,
@@ -3436,9 +3436,9 @@ window.CRS_EMB_QUESTIONS = [
 "c": [
 "Canalicular period",
 "Pseudoglandular period",
-"After birth only",
-"Alveolar period (stage 4)",
-"Terminal sac period (stage 3)"
+"Only after birth",
+"Alveolar period",
+"Terminal sac period"
 ],
 "a": 4,
 "e": "During STAGE 3, the TERMINAL SAC PERIOD, surfactant forms. You can only \"breathe\" on your own once the sac stage has surfactant.",
@@ -3480,11 +3480,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Respiratory Development",
 "s": "How do the paranasal sinuses form?",
 "c": [
-"Extensions of the pleural cavities",
-"The respiratory epithelium lining the developing nose invades (gets trapped in) the four developing bones around it",
-"Fusion of the nasal placodes with the septum transversum",
-"Outgrowths of the esophagus",
-"Cavities left by degenerating arterial arches"
+"They are extensions of the pleural cavities",
+"Nasal epithelium invades the 4 bones around the nose",
+"Nasal placodes fuse with the septum transversum",
+"They are outgrowths of the esophagus",
+"They are cavities left by degenerating arch arteries"
 ],
 "a": 1,
 "e": "As the nose develops it's lined by respiratory epithelium, while the 4 bones around it are still forming. The epithelium invades (gets trapped in) the developing bones and forms the sinuses. They sit beside the nose, so they're called PARANASAL (\"para-nasal\").",
@@ -3503,11 +3503,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Respiratory Development",
 "s": "Which list correctly names the 4 paranasal sinuses?",
 "c": [
-"Ethmoid, sphenoidal, mastoid, tympanic",
-"Frontal, nasal, palatine, maxillary",
-"Maxillary, mandibular, nasal, lacrimal",
+"Ethmoid, sphenoidal, mastoid and tympanic",
+"Frontal, nasal, palatine and maxillary",
+"Maxillary, mandibular, nasal and lacrimal",
 "Frontal, ethmoid, maxillary, sphenoidal",
-"Frontal, parietal, temporal, occipital"
+"Frontal, parietal, temporal and occipital"
 ],
 "a": 3,
 "e": "Frontal (frontal bone, forehead above the nose), ethmoid (ethmoid bone, behind the orbit; a skull bone that develops fully from cartilage), maxillary (maxilla, cheek bone beside the nose) and sphenoidal (bat-shaped sphenoid bone, behind the orbit). Mnemonic: \"Friends Eat More Sandwiches.\"",
@@ -3551,8 +3551,8 @@ window.CRS_EMB_QUESTIONS = [
 "c": [
 "Maxillary",
 "Sphenoidal",
-"Ethmoid",
-"Lacrimal",
+"Ethmoidal",
+"Lacrimal bone",
 "Frontal"
 ],
 "a": 1,
@@ -3572,11 +3572,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Respiratory Development",
 "s": "A patient with sinusitis has pain that is worst on waking and slowly eases through the day. Which sinus is most likely involved, and why?",
 "c": [
-"Sphenoidal — it never drains",
-"Frontal — it drains down into the nose by gravity, so it fills overnight lying down and drains through the day",
-"Maxillary — its opening is high up",
-"Frontal — it has no duct",
-"Ethmoid — it drains into the orbit"
+"Sphenoidal, because it never drains at all",
+"Frontal, which fills lying flat overnight",
+"Maxillary, because its opening is high up",
+"Frontal, because it has no duct at all",
+"Ethmoid, because it drains into the orbit"
 ],
 "a": 1,
 "e": "The frontal sinus is above the nose; gravity lets its mucus drain down into the nose. Lying down overnight, it fills up, so you wake with pain that eases as it drains during the day.",
@@ -3595,11 +3595,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Respiratory Development",
 "s": "Why does the maxillary sinus sometimes need a probe to clean it out? (Guide: know this.)",
 "c": [
-"It has no duct",
-"It drains into the orbit",
-"It is the smallest sinus",
-"Its duct opening sits high up on its wall, so secretions must work their way up and out instead of falling — it drains poorly",
-"It is lined by type 2 pneumocytes"
+"It has no duct at all to drain through",
+"It drains into the orbit instead of the nose",
+"It is the smallest of the four sinuses",
+"Its opening is high, so secretions can't fall out",
+"It is lined by type 2 pneumocytes that make mucus"
 ],
 "a": 3,
 "e": "The maxillary sinus has a duct to expel secretions, but its opening sits high up, so fluid has to work its way up and out — it's difficult to drain. A doctor sometimes has to insert a probe and clean it out. Mnemonic: Maxillary = Misery to drain.",
@@ -3618,10 +3618,10 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Respiratory Development",
 "s": "How can an untreated nasal infection cause sinusitis?",
 "c": [
-"Through the pleural cavity",
-"Through the tracheo-esophageal septum",
-"By spreading into any of the paranasal sinuses, causing inflammation and discharge",
-"Through the bloodstream only",
+"By spreading through the pleural cavity",
+"By crossing the tracheo-esophageal septum",
+"By spreading into the paranasal sinuses",
+"Through the bloodstream only, never directly",
 "By blocking the ductus venosus"
 ],
 "a": 2,
@@ -3641,11 +3641,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Body Cavities & Diaphragm",
 "s": "What is the fate of the intraembryonic coelomic cavity?",
 "c": [
-"It becomes the yolk sac",
-"It forms the 3 body cavities: pericardial, pleural and peritoneal",
-"It becomes the gut lumen",
-"It forms the amniotic cavity",
-"It is obliterated"
+"It becomes the definitive yolk sac",
+"It forms the three body cavities",
+"It becomes the lumen of the primitive gut",
+"It forms the amniotic cavity around the embryo",
+"It is completely obliterated before birth"
 ],
 "a": 1,
 "e": "The intraembryonic coelom forms the pericardial (top middle of the horseshoe, for the heart), pleural (sides of the arch, for the lungs) and peritoneal (bottom, for the abdomen) cavities.",
@@ -3665,10 +3665,10 @@ window.CRS_EMB_QUESTIONS = [
 "s": "During development, the body cavities communicate with each other. Which membranes separate them?",
 "c": [
 "Septum primum and septum secundum",
-"Pericardio-pleural membrane (pericardial from pleural) and pleuro-peritoneal membrane (pleural from peritoneal)",
+"Pericardio-pleural and pleuro-peritoneal",
 "Tracheo-esophageal septum and septum transversum",
-"Visceral and parietal pleura",
-"Endocardial cushions"
+"Visceral and parietal layers of the pleura",
+"Endocardial cushions of the AV canal"
 ],
 "a": 1,
 "e": "The pericardial cavity communicates with the pleural cavities, and the pleural with the peritoneal. They're separated by the PERICARDIO-PLEURAL MEMBRANE (pericardial from pleural) and the PLEURO-PERITONEAL MEMBRANE (pleural from peritoneal).",
@@ -3689,8 +3689,8 @@ window.CRS_EMB_QUESTIONS = [
 "c": [
 "The tracheo-esophageal septum",
 "Pleuro-peritoneal membrane only",
-"Neither",
-"Both",
+"Neither of the two membranes",
+"Both of the two membranes",
 "Pericardio-pleural membrane only"
 ],
 "a": 1,
@@ -3710,11 +3710,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Body Cavities & Diaphragm",
 "s": "Which four structures build the diaphragm?",
 "c": [
-"Paraxial, intermediate and lateral plate mesoderm, and notochord",
-"Septum primum, septum secundum, septum intermedium, spiral septum",
-"Septum transversum, body wall mesoderm, mesoesophagus, pleuro-peritoneal membrane",
+"Paraxial, intermediate and lateral mesoderm with notochord",
+"Septum primum, secundum, intermedium and spiral septum",
+"Septum transversum, body wall, mesoesophagus, PP membrane",
 "Septum transversum, pericardio-pleural membrane, endoderm, ectoderm",
-"Lung buds, pleura, ribs, intercostal muscles"
+"Lung buds, pleura, ribs and intercostal muscles"
 ],
 "a": 2,
 "e": "The 4 sources: (1) SEPTUM TRANSVERSUM, (2) MESODERM OF THE BODY WALL, (3) MESOESOPHAGUS, (4) PLEURO-PERITONEAL MEMBRANE — the most important. Mnemonic: \"Several Parts Build Me.\"",
@@ -3757,10 +3757,10 @@ window.CRS_EMB_QUESTIONS = [
 "s": "What is the mesoesophagus, and why does it contribute to the diaphragm?",
 "c": [
 "The endodermal lining of the esophagus",
-"The mesoderm layer around the esophagus — the endodermal GI tract needs mesodermal muscle for peristalsis, and this layer also contributes part of the diaphragm",
-"The tracheo-esophageal septum",
-"A membrane between the pleural and peritoneal cavities",
-"Part of the septum transversum that forms the liver"
+"Mesoderm around the esophagus, giving its muscle",
+"The tracheo-esophageal septum itself",
+"A membrane between pleural and peritoneal cavities",
+"The part of the septum transversum that forms liver"
 ],
 "a": 1,
 "e": "The GI tract (including the esophagus) is endodermal, but pushing food by peristalsis needs muscle, and muscle comes from mesoderm. The mesoderm layer around the esophagus is the MESOESOPHAGUS, and it also contributes part of the diaphragm.",
@@ -3779,11 +3779,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Body Cavities & Diaphragm",
 "s": "Why does the septum transversum contribute to the diaphragm?",
 "c": [
-"Because it is part of the esophagus",
-"Because it is endoderm, like the lungs",
-"Because the diaphragm is a muscle, muscle comes from mesoderm, and the septum transversum is intraembryonic (lateral plate) mesoderm sitting just above the apex of the horseshoe",
-"Because it comes from neural crest",
-"Because it forms the pleura"
+"Because it is part of the wall of the esophagus",
+"Because it is endoderm, just like the lung buds",
+"Because it is mesoderm, which forms muscle",
+"Because it develops from migrating neural crest cells",
+"Because it goes on to form the parietal pleura"
 ],
 "a": 2,
 "e": "The septum transversum sits in the lateral plate mesoderm at the top, just above the apex of the horseshoe. The diaphragm is a muscle (part of the respiratory system), muscles come from mesoderm, and the septum transversum is intraembryonic mesoderm — so the diaphragm develops here. The septum transversum also gives the liver.",
@@ -3803,11 +3803,11 @@ window.CRS_EMB_QUESTIONS = [
 "t": "Body Cavities & Diaphragm",
 "s": "Which structures must pass through openings in the diaphragm, each of which must be properly sealed?",
 "c": [
-"Esophagus (down into the abdomen), thoracic aorta (becoming the abdominal aorta), inferior vena cava (up into the thorax)",
-"Spinal cord, vertebral artery, esophagus",
-"Trachea, aorta, SVC",
-"Ductus venosus, umbilical vein, portal vein",
-"Pulmonary arteries, vagus nerve, azygos only"
+"Esophagus, aorta and inferior vena cava",
+"Spinal cord, vertebral artery and esophagus",
+"Trachea, aorta and superior vena cava",
+"Ductus venosus, umbilical vein and portal vein",
+"Pulmonary arteries, vagus nerve and azygos only"
 ],
 "a": 0,
 "e": "The esophagus passes down through the diaphragm into the abdomen; the thoracic aorta passes through to become the abdominal aorta; the IVC passes up into the thorax. Every hole must be sealed, or abdominal contents can push up into the thorax — a diaphragmatic hernia.",
@@ -3827,10 +3827,10 @@ window.CRS_EMB_QUESTIONS = [
 "s": "A newborn has respiratory distress, a scaphoid abdomen and bowel loops in the left chest. Imaging shows a defect in the posterolateral diaphragm. Which embryologic failure is responsible? (Professor: KNOW THIS.)",
 "c": [
 "Failure of the pericardio-pleural membrane",
-"Failure of the mesoesophagus — anterior hernia",
-"Failure of formation of the pleuro-peritoneal membrane — Bochdalek hernia",
+"Failure of the mesoesophagus, giving an anterior hernia",
+"Pleuro-peritoneal membrane failure, a Bochdalek hernia",
 "Failure of the tracheo-esophageal septum",
-"Failure of the septum transversum"
+"Failure of the septum transversum to form"
 ],
 "a": 2,
 "e": "BOCHDALEK HERNIA: abdominal contents enter the thorax through a gap in the BACK side of the diaphragm (posterolateral). Cause: FAILURE OF FORMATION OF THE PLEURO-PERITONEAL MEMBRANE. Mnemonic: Bochdalek = Back.",
@@ -3851,10 +3851,10 @@ window.CRS_EMB_QUESTIONS = [
 "s": "On which aspect of the diaphragm does a Bochdalek hernia occur?",
 "c": [
 "Around the esophageal opening",
-"Central tendon",
-"Anterior (front)",
+"At the central tendon",
+"Anterior, behind the sternum",
 "Around the IVC opening",
-"Posterolateral (back and to the side)"
+"Posterolateral"
 ],
 "a": 4,
 "e": "A Bochdalek hernia is through a gap on the POSTEROLATERAL aspect of the diaphragm (the back side, not the front). The back corners are where the pleuro-peritoneal membranes go, so that's the membrane that failed.",
