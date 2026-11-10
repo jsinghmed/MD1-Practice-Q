@@ -142,6 +142,23 @@ const HOW = {
 };
 
 /* ============================================================
+   SCHOOL MNEMONICS: NAME · GHORD · CC LORD AFACAST · PCAST · BIG DT
+   Each item is credited when anything you said matches it (not part of the rubric score).
+   ============================================================ */
+const MNEMO = [
+  ["NAME", [["N","Name",/(your|full) name|what.*call you/i],["A","Age",/how old|your age/i],["M","Marital status",/marital|married|single|spouse|partner/i],["E","Educational status",/education|school|degree|college|university|studied/i]]],
+  ["GHORD", [["G","Gender",/gender|identify as|\bsex\b(?!ual)/i],["H","Housing status",/live alone|live with|housing|apartment|house|home situation/i],["O","Occupation",/occupation|for (a )?(living|work)|your (job|work)|do you work|employ/i],["R","Religion",/religio|faith|church|spiritual/i],["D","Date of birth",/date of birth|\bdob\b|born|birthday/i]]],
+  ["CC LORD", [["CC","Chief complaint",/what brings you|brought you|how can i help|what seems to be|what.*(problem|concern)|what's going on|what happened/i],["L","Location",/where (is|do you feel|does it hurt|exactly)|point to|show me where|location/i],["O","Onset",/when did (it|this|the pain)|first (start|notice|happen)|how long ago|onset/i],["R","Radiation",/radiat|spread|move anywhere|go anywhere|travel to/i],["D","Duration",/how long does|how long do|last(s)? for|how long.*last|duration/i]]],
+  ["AFACAST", [["A","Alleviating factors",/(make|makes|making) (it|the pain) better|reliev|allevia|go away|ease|help (it|the pain)/i],["F","Frequency",/how often|how many times|frequen/i],["A","Aggravating factors",/(make|makes|making) (it|the pain) worse|aggravat|anything worse|worsen/i],["C","Characterization",/describe|feel like|what kind of|sharp|dull|quality|character/i],["A","Associated symptoms",/other symptoms|anything else (with|when|along)|short(ness)? of breath|sweat|nause|dizz|palpitat|faint|associated/i],["S","Severity (1–10)",/scale|out of (10|ten)|rate (it|the pain)/i],["T","Time",/time of day|what time|morning|evening|at night|wake you/i]]],
+  ["PCAST", [["P","Past medical history",/past medical|medical (history|conditions|problems)|any (conditions|illness)|diagnosed|hospital/i],["P","Family history",/family|father|mother|parents|siblings|run in/i],["P","Travel history",/travel|trip|abroad|flight|flown|out of the country/i],["C","Childhood history",/child|kid|growing up/i],["A","Allergies",/allerg/i],["S","Surgical history",/surger|operation|operated/i],["T","Transfusion history",/transfus|blood product|received blood|given blood/i]]],
+  ["BIG DT", [["B","Sexually active",/sexual|sexually active|intimate/i],["B","Number of partners",/partners|how many people/i],["B","Safe sex",/condom|safe sex|protection/i],["I","Immunizations",/vaccin|immuni|shots|flu shot|tetanus/i],["G","Gynecological history",/gyn|period|menstrua|pregnan|pap smear/i],["D","Diet and exercise",/diet|eat|food|exercise|physical activity|work out|active/i],["T","Trauma history",/trauma|injur|accident|any falls|fallen/i]]]
+];
+function mnemoResults(c){
+  const said=S.log.filter(([w])=>w==="You").map(([,t])=>t);
+  return MNEMO.map(([g,items])=>[g,items.map(([L,label,re])=>({L,label,na:/Gynecological/.test(label)&&c.patient.sex==="male",ok:!!re&&said.some(t=>re.test(t))}))]);
+}
+
+/* ============================================================
    CASES — add more patients here; each module gets its own list.
    An intent: [rubric id, regex, patient reply, (optional) regex that earns full marks]
    ============================================================ */
@@ -177,9 +194,18 @@ const CASES = [{
     ["pmh",/past medical|medical (history|conditions|problems)|any (conditions|illness)|diagnosed|childhood|as a (child|kid)|hospital|surger|operation/i,"High blood pressure and high cholesterol, for about ten years. Nothing serious as a child, just chickenpox. No surgeries."],
     ["immun",/vaccin|immuni|shots|flu shot|tetanus/i,"I think I'm up to date. I had my flu shot this year."],
     ["fhx",/family|father|mother|dad|mom|parents|siblings|brother|sister|run in/i,"My father had a heart attack at 54. My mother has diabetes."],
+    ["x-marital",/marital|married|single|spouse/i,"I'm married. Thirty years now."],
+    ["x-edu",/education|school|degree|college|university|studied/i,"I have a bachelor's degree in accounting."],
+    ["x-housing",/live alone|live with|housing|apartment|house|home situation|stairs at home/i,"I live with my wife in a two-story house. The bedroom is upstairs."],
+    ["x-religion",/religio|faith|church|spiritual|pray/i,"I'm Christian. We go to church most Sundays."],
+    ["x-time",/time of day|what time|morning|evening|at night|wake you/i,"Usually in the evening, climbing the stairs at home. It's never woken me up at night."],
+    ["x-travel",/travel|trip|abroad|flight|flown|out of the country/i,"No, I haven't travelled anywhere recently."],
+    ["x-transf",/transfus|blood product|received blood|given blood/i,"No, I've never had a blood transfusion."],
+    ["x-trauma",/trauma|injur|accident|any falls|fallen/i,"No injuries or accidents."],
+    ["x-safesex",/condom|safe sex|protection/i,"We don't use protection. It's only my wife and me."],
     ["social",/live with|married|partner|wife|children|kids|stress|lifestyle|social|home life|support/i,"I'm married, two grown kids. Work gets stressful during tax season."],
     ["habits",/smok|cigarett|tobacco|vape|alcohol|drink|drugs|substance|recreational/i,"I smoke about a pack a day, for thirty years. A couple of beers on the weekend. No drugs."],
-    ["sexual",/sexual|sexually active|intimate/i,"Just my wife. One partner."],
+    ["sexual",/sexual|sexually active|intimate|partners|condom|safe sex|protection/i,"Just my wife. One partner."],
     ["diet",/diet|eat|food|exercise|physical activity|work out|active/i,"I eat a lot of fried food, honestly. I don't really exercise."],
     ["allergies",/allerg/i,"No allergies that I know of."],
     ["ros",/review of systems|any other (problems|issues|symptoms)|cough|fever|weight|swelling|leg|headache|urin|bowel|vision/i,"No fever, no cough, no weight loss, no leg swelling, no headaches."]
@@ -245,6 +271,8 @@ function door(c){
   app.innerHTML=`<div class="door"><div class="card">
     <h2>Door note</h2>
     <dl class="doornote">${Object.entries(c.door).map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
+    <details style="margin-top:12px"><summary style="cursor:pointer;font-weight:600;color:var(--navy)">Show the history mnemonics</summary>
+      <div class="tip" style="margin-top:6px;line-height:1.7">${MNEMO.map(([g,items])=>`<b>${g}</b>: ${items.map(([L,l])=>`${L} = ${l}`).join(", ")}`).join("<br>")}</div></details>
     <p class="muted" style="margin-top:14px">You have ${c.minutes} minutes once you enter. Press the mic and talk as you would in the real station: greet, take the history, ask permission, then say each part of the exam out loud (for example “I'm going to percuss the left 3rd to 6th intercostal spaces”). The findings appear as you go.</p>
     <button class="btn sec" id="back">← All stations</button></div>
     <div class="doorpic"><div class="plate">Exam Room 3</div><div style="font-size:60px">🚪</div>
@@ -305,7 +333,7 @@ function heard(text){
   const ans=[];
   if(!examined){
     for(const [id,re,reply,full] of c.intents){
-      if(re.test(text)){ S.hit[id]=Math.max(S.hit[id]||0, full&&!full.test(text)?1:2); if(!ans.includes(reply)) ans.push(reply); if(ans.length>=2) break; }
+      if(re.test(text)){ S.hit[id]=Math.max(S.hit[id]||0, full&&!full.test(text)?1:2); if(!ans.includes(reply) && ans.length<2) ans.push(reply); }
     }
   }
   phaseChips();
@@ -406,6 +434,9 @@ function report(){
       ${missed.length?`<li><b>Missed (${missed.length}):</b> ${missed.join(", ")}.</li>`:""}
       ${partial.length?`<li><b>Done but incomplete:</b> ${partial.join(", ")}.</li>`:""}
     </ul>
+    <h3>History mnemonics: NAME · GHORD · CC LORD AFACAST · PCAST · BIG DT</h3>
+    ${(()=>{const M=mnemoResults(c);const all=M.flatMap(([,i])=>i).filter(x=>!x.na);const got=all.filter(x=>x.ok).length;
+      return `<p class="muted" style="margin:0 0 8px">You covered ${got} of ${all.length} mnemonic items. These aren't part of the rubric score.</p><table class="rub">`+M.map(([g,items])=>`<tr><td style="width:96px;font-weight:700;color:var(--navy)">${g}</td><td>${items.map(x=>`<span style="display:inline-block;margin:2px 10px 2px 0" class="${x.na?"pna":x.ok?"p2":"p0"}">${x.na?"–":x.ok?"✓":"✗"} <b>${x.L}</b> ${x.label}${x.na?" (n/a, male patient)":""}</span>`).join("")}</td></tr>`).join("")+`</table>`;})()}
     <h3>Case teaching points</h3><div class="kpt">${c.dx.teach.map(t=>`<p style="margin:4px 0">${t}</p>`).join("")}</div>
     <h3>History (0–2 each)</h3><table class="rub">${H.map(row).join("")}</table>
     <h3>Cardiovascular exam (0–2 each)</h3><table class="rub">${E.map(row).join("")}</table>
