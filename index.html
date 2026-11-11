@@ -1897,11 +1897,10 @@ const NVI = {
 function navRow(attr, ic, label, n, on, cls){
   return `<button class="nv ${on?"on":""} ${cls||""}" ${attr}><span class="ni">${ic}</span><span class="nl">${esc(label)}</span>${n!=="" && n!==undefined ? `<span class="nn">${n}</span>` : ""}</button>`;
 }
-// ---- Ethics (Windsor's ethics review questions). Not in the public code: stored in Firestore, readable only by
-// signed-in @student.windsor.edu accounts and admins (see firestore-rules.txt). Added to the question bank once loaded. ----
-const ETH_DOMAIN = /@student\.windsor\.edu$/i;
+// ---- Ethics (Windsor's ethics review questions). Not in the public code: stored in Firestore, readable by any
+// signed-in, unblocked account (see firestore-rules.txt). Added to the question bank once loaded. ----
 let ethSec = null, ethErr = "", ethBusy = false;
-function ethAllowed(u){ return !!(u && u.email && (ETH_DOMAIN.test(u.email) || isAdminUser(u))); }
+function ethAllowed(u){ return !!u; }
 function addSection(sec){            // same as the start-up loop above, for a section that arrives later
   const co = sec.course;
   const qs = sec.qs.map((q,i)=>Object.assign({id:sec.prefix+(i+1), sec:sec.name, pfx:sec.prefix, num:i+1, course:co}, q));
@@ -1930,12 +1929,11 @@ async function ethLoad(u){
 })();
 function ethLockPage(){
   const u = thxUser(), admin = isAdminUser(u), missing = ethErr==="missing", denied = /permission/i.test(ethErr);
-  const msg = ethErr==="signin" ? "Sign in with your Windsor student Google account (@student.windsor.edu) to see the ethics questions."
-    : ethErr==="domain" ? "The ethics review questions are Windsor study material, so they're only shown to @student.windsor.edu accounts. Sign out and sign in with your Windsor student account."
+  const msg = ethErr==="signin" ? "Sign in to see the ethics questions."
     : missing ? (admin ? "The ethics questions haven't been uploaded yet." : "The ethics questions aren't available yet. Check back soon.")
     : denied ? "This account can't read the ethics questions yet. The database rules may not be published."
     : ethErr ? "Couldn't load the ethics questions: " + esc(ethErr) : "Loading the ethics questions…";
-  showPage(`<div class="page"><h2>Medical Ethics</h2><div class="thxmsg">${msg}${missing && admin ? `<div style="margin-top:12px"><label class="btn primary">Upload the ethics questions file<input type="file" id="ethUp" accept=".json" hidden></label><div class="sub" style="margin-top:6px">Choose ethics-content.json. Only Windsor student accounts and admins can read it once uploaded.</div></div>` : ""}</div></div>`);
+  showPage(`<div class="page"><h2>Medical Ethics</h2><div class="thxmsg">${msg}${missing && admin ? `<div style="margin-top:12px"><label class="btn primary">Upload the ethics questions file<input type="file" id="ethUp" accept=".json" hidden></label><div class="sub" style="margin-top:6px">Choose ethics-content.json. Only signed-in, unblocked accounts can read it once uploaded.</div></div>` : ""}</div></div>`);
   const up = $("ethUp"); if (up) up.onchange = async ()=>{ const f = up.files[0]; if (!f) return;
     try { const txt = await f.text(), D = JSON.parse(txt); if (!D.qs || !D.qs.length) throw new Error("not an ethics questions file");
       await firebase.firestore().collection("ethics").doc("qs").set({s:txt, n:D.qs.length, at:firebase.firestore.FieldValue.serverTimestamp()});
