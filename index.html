@@ -562,6 +562,7 @@ table.rt tr.click:hover td{background:var(--hover)}
 .bjlres.win{color:#a8f5bf}.bjlres.lose{color:#ffb7ab}.bjlres.push{color:#ffe08a}
 .bjlstatus{position:absolute;left:50%;top:252px;transform:translateX(-50%);font:800 17px/1 Inter,system-ui,sans-serif;color:#f3efe2;background:rgba(0,0,0,.42);border:1px solid rgba(255,255,255,.15);border-radius:22px;padding:7px 18px;white-space:nowrap}
 .bjlstatus:empty{display:none}
+#bjlOver>*{z-index:35}
 .bjp{max-width:1240px}
 .bjlay{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start;margin-top:14px}
 @media (max-width:1100px){.bjlay{grid-template-columns:minmax(0,1fr)}}
@@ -3192,7 +3193,7 @@ function bjUI(){
 const BJL_SEATS = 5, BJL_BET_MS = 12000, BJL_TURN_MS = 30000, BJL_DONE_MS = 7000;
 // seat 0 is "first base": the dealer's left, which is the right side of the screen. Cards and turns go seat 0 → 4.
 const BJL_POS = [{x:762,y:292},{x:608,y:372},{x:440,y:404},{x:272,y:372},{x:118,y:292}];
-const BJL = { st:null, unsub:null, tick:0, busy:false, err:"", paid:{}, seen:new Set() };
+const BJL = { st:null, unsub:null, tick:0, busy:false, err:"", paid:{}, els:new Map(), anim:false, instant:true, round:null, chain:null };
 try { BJL.paid = JSON.parse(localStorage.getItem("jj-bjl-paid") || "{}"); } catch(e) {}
 const BJL_SU = {S:"♠", H:"♥", D:"♦", C:"♣"};
 function bjlCard(x){ return {r:x.slice(0,-1), s:BJL_SU[x.slice(-1)]}; }
@@ -3245,7 +3246,7 @@ function bjlDealerAndSettle(st){
       if (h.res==="bj" && dbj) h.res = "push";
       back += h.res==="bj" ? h.bet + Math.floor(h.bet*1.5) : h.res==="win" ? h.bet*2 : h.res==="push" ? h.bet : 0; });
     seat.back = back; });
-  st.phase = "done"; st.dl = Date.now() + BJL_DONE_MS;
+  st.phase = "done"; st.dl = Date.now() + BJL_DONE_MS + (st.d.length - 1) * 1100;   // leave time for the reveal + draws on screen
 }
 function bjlStart(st){
   const now = Date.now(), ready = st.seats.filter(s=>s && s.ready && s.bet > 0);
@@ -3258,9 +3259,10 @@ function bjlStart(st){
   st.d = []; st.hole = true;
   for (let k=0; k<2; k++) { st.seats.forEach(s=>{ if (s && s.hands) s.hands[0].c.push(bjlDraw(st)); }); st.d.push(bjlDraw(st)); }
   st.phase = "play";
-  if (bjlVal(st.d)===21) { st.seats.forEach(s=>{ if (s && s.hands && bjlVal(s.hands[0].c)===21) s.hands[0].res = "push"; }); bjlDealerAndSettle(st); return; }
+  if (bjlVal(st.d)===21) { st.seats.forEach(s=>{ if (s && s.hands && bjlVal(s.hands[0].c)===21) s.hands[0].res = "push"; }); bjlDealerAndSettle(st); st.dl += (st.seats.filter(s=>s && s.hands).length + 1) * 2 * 1000; return; }
   st.seats.forEach(s=>{ if (s && s.hands && bjlVal(s.hands[0].c)===21) s.hands[0].res = "bj"; });
   bjlNextTurn(st, null);
+  st.dl += (st.seats.filter(s=>s && s.hands).length + 1) * 2 * 1000;          // the deal itself takes ~1s per card on screen
 }
 function bjlNextRound(st){
   if (st.phase!=="done" || Date.now() < st.dl) return false;
@@ -3331,16 +3333,90 @@ function bjlSettleMine(st){         // credit this player's winnings once per ro
 function bjlStart_listen(){
   if (BJL.unsub) return; const ref = bjlRef();
   if (!ref) { setTimeout(()=>{ if (view==="bj" && BJ.mode==="live") { bjlStart_listen(); bjlRender(); } }, 1000); return; }
-  BJL.unsub = ref.onSnapshot(d=>{ try { BJL.st = d.exists ? JSON.parse(d.data().s) : bjlFresh(); } catch(e) { BJL.st = bjlFresh(); } BJL.err = ""; bjlSettleMine(BJL.st); bjlRender(); },
+  BJL.unsub = ref.onSnapshot(d=>{ try { BJL.st = d.exists ? JSON.parse(d.data().s) : bjlFresh(); } catch(e) { BJL.st = bjlFresh(); } BJL.err = ""; bjlSettleMine(BJL.st); bjlRender(); bjlSync(); },
     e=>{ BJL.err = "Live table unavailable (" + (e.code||"error") + ")"; BJL.unsub = null; bjlRender(); });
   clearInterval(BJL.tick); BJL.tick = setInterval(bjlTick, 1000);
 }
 function bjlStop(){ if (BJL.unsub) { BJL.unsub(); BJL.unsub = null; } clearInterval(BJL.tick); BJL.tick = 0; }
-// ---- drawing ----
-function bjlCardHTML(x, key, pos, sm){
-  const isNew = !BJL.seen.has(key); BJL.seen.add(key);
-  const inner = x==="??" ? BJ_BACK : bjFace(bjlCard(x));
-  return inner.replace('class="bjc', `style="left:${pos.x}px;top:${pos.y}px" data-k="${key}" class="${isNew?"bjin ":""}${sm?"sm ":""}bjc`);
+// ---- drawing: cards are real elements the dealer's hand carries from the shoe, one at a time, like the solo table ----
+function bjlTargets(st){        // every card that should be on the felt, with where it goes
+  const out = [], R = st.round;
+  st.seats.forEach((s,i)=>{ if (!s || !s.hands) return; const P = BJL_POS[i], nh = s.hands.length, seen = {};
+    s.hands.forEach((hd,k)=>{ const ox = P.x - 29 + (k - (nh-1)/2) * 64;
+      hd.c.forEach((x,j)=>{ seen[x] = (seen[x]||0) + 1; out.push({key:R+"s"+i+":"+x+"#"+seen[x], card:x, down:false, sm:true, seat:i, hand:k, j, pos:{x:ox + j*15, y:P.y - 40 - j*4}}); }); }); });
+  st.d.forEach((x,i)=>{ out.push({key:R+"d"+i, card:x, down:i===1 && st.hole, sm:false, seat:99, hand:0, j:i, pos:{x:368 + i*34, y:58}}); });
+  return out;
+}
+function bjlFaceHTML(t, down){ return (down ? BJ_BACK : bjFace(bjlCard(t.card))).replace('class="bjc', `class="${t.sm?"sm ":""}bjc`); }
+async function bjlFlip(e, t){
+  if (!bjReduce() && e.el.animate) await e.el.animate([{transform:"none"},{transform:"rotateY(90deg) scale(1.04)"}], {duration:120, easing:"ease-in", fill:"forwards"}).finished.catch(()=>{});
+  const d = document.createElement("div"); d.innerHTML = bjlFaceHTML(t, false); const nel = d.firstElementChild;
+  nel.style.cssText = e.el.style.cssText; nel.style.transform = ""; e.el.replaceWith(nel); e.el = nel; e.down = false;
+  if (!bjReduce() && nel.animate) await nel.animate([{transform:"rotateY(-90deg) scale(1.04)"},{transform:"none"}], {duration:140, easing:"ease-out"}).finished.catch(()=>{});
+}
+async function bjlDeal(t, instant){
+  const cw = $("bjlCards"); if (!cw) return;
+  if (!instant) {
+    $("bjHeld").innerHTML = BJ_BACK;                                   // every card travels face-down
+    await bjHandTo(BJ_SHOE.x, BJ_SHOE.y, Math.hypot(BJ.hx-BJ_SHOE.x, BJ.hy-BJ_SHOE.y) < 5 ? 1 : 230);
+    await bjWait(50);
+    await bjHandTo(t.pos.x, t.pos.y, 360);
+    if (!$("bjlCards")) return;
+  }
+  cw.insertAdjacentHTML("beforeend", bjlFaceHTML(t, true));
+  const e = {el:cw.lastElementChild, pos:t.pos, down:true}; Object.assign(e.el.style, {left:t.pos.x+"px", top:t.pos.y+"px", zIndex:10 + t.j});
+  BJL.els.set(t.key, e);
+  if (!instant) { $("bjHeld").innerHTML = ""; await bjWait(30); }
+  if (!t.down) { if (instant) { const d = document.createElement("div"); d.innerHTML = bjlFaceHTML(t, false); const nel = d.firstElementChild; nel.style.cssText = e.el.style.cssText; e.el.replaceWith(nel); e.el = nel; e.down = false; } else await bjlFlip(e, t); }
+  bjlRender();
+  if (!instant) await bjWait(50);
+}
+async function bjlSweepAnim(instant){
+  const all = [...BJL.els.values()];
+  if (all.length && !instant && !bjReduce()) {
+    await bjHandTo(400, 200, 380);
+    all.forEach((c,i)=>{ const x = parseFloat(c.el.style.left), y = parseFloat(c.el.style.top);
+      c.el.animate([{transform:"none"},{transform:`translate(${BJ_DISC.x+4-x}px,${BJ_DISC.y+4-y}px) rotate(-6deg)`}], {duration:420, delay:i*25, easing:"cubic-bezier(.5,0,.3,1)", fill:"forwards"}); });
+    bjHandTo(BJ_DISC.x+10, BJ_DISC.y+30, 420);
+    await bjWait(480 + all.length*25);
+  }
+  all.forEach(c=>c.el.remove()); BJL.els.clear(); if ($("bjDisc") && all.length) $("bjDisc").classList.add("has");
+}
+function bjlSync(){ BJL.chain = (BJL.chain || Promise.resolve()).then(bjlSyncNow).catch(e=>console.warn("JJ bj live anim", e)); }
+async function bjlSyncNow(){
+  const st = BJL.st; if (!st || view!=="bj" || BJ.mode!=="live" || !$("bjlCards")) return;
+  const instant = !!BJL.instant || bjReduce();
+  if (BJL.round!==st.round && BJL.els.size) { BJL.anim = true; bjlRender(); await bjlSweepAnim(instant); }
+  BJL.round = st.round;
+  const T = bjlTargets(st), want = new Set(T.map(t=>t.key));
+  for (const [k,e] of BJL.els) if (!want.has(k)) { e.el.remove(); BJL.els.delete(k); }
+  // slide cards that moved (a split spreads the hand out)
+  const moves = [];
+  T.forEach(t=>{ const e = BJL.els.get(t.key); if (!e || (e.pos.x===t.pos.x && e.pos.y===t.pos.y)) return;
+    const fx = e.pos.x, fy = e.pos.y; e.pos = t.pos; Object.assign(e.el.style, {left:t.pos.x+"px", top:t.pos.y+"px", zIndex:10 + t.j});
+    if (!instant && e.el.animate) moves.push(e.el.animate([{transform:`translate(${fx-t.pos.x}px,${fy-t.pos.y}px)`},{transform:"none"}], {duration:320, easing:"cubic-bezier(.45,.05,.25,1)"}).finished.catch(()=>{})); });
+  if (moves.length) { BJL.anim = true; await Promise.all(moves); }
+  // deal what's new, in table order: first two cards round the table right to left then the dealer, then hits, then the dealer's reveal and draws
+  const fresh = T.filter(t=>!BJL.els.has(t.key)), ord = t=>[t.j < 2 ? t.j : 2, t.seat, t.hand, t.j];
+  fresh.sort((a,b)=>{ const x = ord(a), y = ord(b); for (let i=0; i<4; i++) if (x[i]!==y[i]) return x[i]-y[i]; return 0; });
+  const late = fresh.filter(t=>t.seat===99 && t.j >= 2), early = fresh.filter(t=>!late.includes(t));
+  const hole = BJL.els.get(st.round + "d1"), reveal = hole && hole.down && !st.hole;
+  if (early.length || late.length || reveal) { BJL.anim = true; bjlRender(); }
+  for (const t of early) await bjlDeal(t, instant);
+  const h2 = BJL.els.get(st.round + "d1");
+  if (h2 && h2.down && !st.hole) {                                       // turn over the hole card
+    if (!instant) await bjHandTo(368 + 34, 58 + 10, 380);
+    await bjlFlip(h2, {card:st.d[1], sm:false}); bjlRender(); if (!instant) await bjWait(380);
+  }
+  for (const t of late) { await bjlDeal(t, instant); if (!instant) await bjWait(180); }
+  if (BJL.anim && !instant) { const p = st.phase==="play" ? BJ_WAIT : BJ_REST; if (Math.hypot(BJ.hx-p.x, BJ.hy-p.y) > 5) await bjHandTo(p.x, p.y, 420); }
+  BJL.anim = false; BJL.instant = false; bjlRender();
+  if (BJL.st!==st) return bjlSyncNow();                                  // something changed while we were animating
+}
+function bjlVis(st, i, k){        // the cards of seat i hand k that are already on the felt
+  const s = st.seats[i], R = st.round, seen = {}; const out = [];
+  s.hands.forEach((hd,kk)=>hd.c.forEach(x=>{ seen[x] = (seen[x]||0) + 1; if (kk===k && BJL.els.has(R+"s"+i+":"+x+"#"+seen[x])) out.push(x); }));
+  return out;
 }
 function bjlSecs(st){ return st.dl ? Math.max(0, Math.ceil((st.dl - Date.now())/1000)) : 0; }
 function bjlStatus(){
@@ -3349,17 +3425,17 @@ function bjlStatus(){
   if (st.phase==="bet") t = st.dl ? "Bets close in " + bjlSecs(st) + "s" : st.seats.some(Boolean) ? "Place your bets" : "Take a seat to play";
   else if (st.phase==="play" && st.turn) { const s = st.seats[st.turn.s]; t = (bjlMine(st)===st.turn.s ? "Your turn" : (s ? s.name : "Player") + "'s turn") + " · " + bjlSecs(st) + "s"; }
   else if (st.phase==="done") t = "Next round in " + bjlSecs(st) + "s";
+  if (BJL.anim && st.phase!=="bet") t = "Dealing…";
   if (el.textContent!==t) el.textContent = t;
 }
 function bjlRender(){
   if (view!=="bj" || BJ.mode!=="live") return;
-  const fb = bjFB(), felt = $("bjlCards"), ctl = $("bjCtl"); if (!felt || !ctl) return;
-  if (!fb) { $("bjlCards").innerHTML = ""; ctl.innerHTML = `<span style="color:#f3efe2">Sign in to sit at the live table.</span>`; bjlStatus(); return; }
+  const fb = bjFB(), felt = $("bjlOver"), ctl = $("bjCtl"); if (!felt || !ctl) return;
+  if (!fb) { felt.innerHTML = ""; ctl.innerHTML = `<span style="color:#f3efe2">Sign in to sit at the live table.</span>`; bjlStatus(); return; }
   const st = BJL.st; if (!st) { ctl.innerHTML = `<span style="color:#f3efe2">${BJL.err ? esc(BJL.err) : "Connecting to the table…"}</span>`; return; }
   const me = bjlMine(st); let h = "";
-  // dealer
-  st.d.forEach((x,i)=>{ h += bjlCardHTML(i===1 && st.hole ? "??" : x, st.round+"d"+i+(i===1&&st.hole?"h":""), {x:368 + i*34, y:58}); });
-  const dUp = st.hole ? st.d.slice(0,1) : st.d;
+  // dealer: only count cards that are face-up on the felt
+  const dUp = st.d.filter((x,i)=>{ const e = BJL.els.get(st.round+"d"+i); return e && !e.down; });
   if (dUp.length) h += `<div class="bjpill" style="left:440px;top:174px"><small>DEALER</small>${bjlVal(dUp)}</div>`;
   // seats
   st.seats.forEach((s,i)=>{ const P = BJL_POS[i];
@@ -3368,13 +3444,13 @@ function bjlRender(){
     h += `<div class="bjlname ${i===me?"me":""} ${turn?"turn":""}" style="left:${P.x}px;top:${P.y+52}px">${esc(s.name)}${i===me?" (you)":""}${s.ready?" ✓":""}</div>`;
     const chips = st.phase==="bet" ? s.bet : s.hands ? s.hands.reduce((t,x)=>t+x.bet, 0) : 0;
     if (chips && st.phase!=="done") h += `<div class="bjstack" style="left:${P.x-23}px;top:${P.y+76}px;transform:scale(.8)">${bjStackHTML(chips)}</div>`;
-    if (st.phase==="done" && s.hands) { const net = (s.back||0) - s.hands.reduce((t,x)=>t+x.bet, 0);
+    if (st.phase==="done" && s.hands && !BJL.anim) { const net = (s.back||0) - s.hands.reduce((t,x)=>t+x.bet, 0);
       h += `<div class="bjlres ${net>0?"win":net<0?"lose":"push"}" style="left:${P.x}px;top:${P.y+78}px">${net>0?"+$"+net.toLocaleString():net<0?"−$"+(-net).toLocaleString():"Push"}</div>`; }
     (s.hands||[]).forEach((hd,k)=>{ const ox = P.x - 29 + (k - (nh-1)/2) * 64;
-      hd.c.forEach((x,j)=>{ h += bjlCardHTML(x, st.round+"s"+i+"h"+k+"c"+j+x, {x:ox + j*15, y:P.y - 40 - j*4}, true); });
-      const v = bjlVal(hd.c), on = turn && st.turn.h===k;
-      h += `<div class="bjpill ${on?"on":""} ${v>21?"bust":""}" style="left:${ox+29+(hd.c.length-1)*7}px;top:${P.y-70-hd.c.length*4}px">${bjlSoft(hd.c) && v < 21 ? (v-10)+" / "+v : v}${hd.res==="bj"?" BJ":""}</div>`; }); });
-  $("bjlCards").innerHTML = h;
+      const vc = bjlVis(st, i, k); if (!vc.length) return;
+      const v = bjlVal(vc), on = turn && st.turn.h===k && !BJL.anim;
+      h += `<div class="bjpill ${on?"on":""} ${v>21?"bust":""}" style="left:${ox+29+(vc.length-1)*7}px;top:${P.y-70-vc.length*4}px">${bjlSoft(vc) && v < 21 ? (v-10)+" / "+v : v}${hd.res==="bj" && vc.length===2 && !BJL.anim?" BJ":""}</div>`; }); });
+  if (felt.innerHTML!==h) felt.innerHTML = h;
   // controls
   const seat = me >= 0 ? st.seats[me] : null, my = bjlMyHand(st);
   let c = "";
@@ -3382,8 +3458,9 @@ function bjlRender(){
   else if (st.phase==="bet" && !seat.ready) c = [10,25,50,100,500,1000].map(n=>`<button class="bjchip c${n}" data-bj="l:bet:${n}" ${BJ.bank<n?"disabled":""}>$${n>=1000?n/1000+"K":n}</button>`).join("")
       + `<button class="bjbtn go" data-bj="l:ready" ${seat.bet?"":"disabled"}>Place bet${seat.bet?" · $"+seat.bet.toLocaleString():""}</button>${seat.bet?`<button class="bjbtn ghost" data-bj="l:clear">Clear</button>`:""}`;
   else if (st.phase==="bet") c = `<span style="color:#f3efe2">Bet placed · $${seat.bet.toLocaleString()} · waiting for the deal</span>`;
+  else if (my && BJL.anim) c = `<span style="color:#f3efe2">Dealing…</span>`;
   else if (my) c = `<button class="bjbtn go" data-bj="l:hit">Hit</button><button class="bjbtn go" data-bj="l:stand">Stand</button><button class="bjbtn ghost" data-bj="l:double" ${bjlCanDouble(st)?"":"disabled"}>Double</button><button class="bjbtn ghost" data-bj="l:split" ${bjlCanSplit(st)?"":"disabled"}>Split</button>`;
-  else c = `<span style="color:#f3efe2">${st.phase==="done" ? "Round over · bets open again in a few seconds" : seat.hands ? "Waiting for the other players…" : "You're sitting this hand out. Bet when the next round opens."}</span>`;
+  else c = `<span style="color:#f3efe2">${BJL.anim ? "Dealing…" : st.phase==="done" ? "Round over · bets open again in a few seconds" : seat.hands ? "Waiting for the other players…" : "You're sitting this hand out. Bet when the next round opens."}</span>`;
   if (seat) c += `<button class="bjbtn ghost" data-bj="l:leave">Leave seat</button>`;
   if (ctl.innerHTML!==c) ctl.innerHTML = c;
   const inPlay = seat && seat.hands && st.phase!=="done" ? seat.hands.reduce((t,x)=>t+x.bet, 0) : seat ? seat.bet : 0;
@@ -3404,15 +3481,20 @@ function renderBJL(){
         </svg>
         <div class="bjrack"><i class="c5"></i><i class="c10"></i><i class="c25"></i><i class="c50"></i><i class="c100"></i><i class="c500"></i></div>
         <div class="bjshoe"><div class="box"></div><div class="cardout"></div><div class="lip"></div></div>
+        <div class="bjdisc" id="bjDisc"><div class="pile"></div></div>
         <div class="bjlstatus" id="bjlStatus"></div>
         <div id="bjlCards"></div>
+        <div id="bjlOver"></div>
+        <div class="bjdealer" id="bjDealer"><div class="held" id="bjHeld"></div>${BJ_HAND}</div>
       </div></div>
       <div class="bjctl" id="bjCtl"></div>
       <div class="bjstats" id="bjStats"></div>
       <p class="muted bjnote">Keyboard on your turn: H hit · S stand · D double · P split</p>
     </div>
     <aside class="bjlb" id="bjLB"></aside></div></div>`);
-  bjFit(); BJL.seen = new Set(); bjlStart_listen(); bjlRender(); bjBoard(); bjSync();
+  bjFit(); BJL.els = new Map(); BJL.instant = true; BJL.round = null; BJL.anim = false; BJL.chain = null;
+  BJ.hx = BJ_REST.x; BJ.hy = BJ_REST.y; bjHandSet(BJ.hx, BJ.hy);
+  bjlStart_listen(); bjlRender(); bjlSync(); bjBoard(); bjSync();
 }
 function bjTabs(){ const n = BJL.st ? BJL.st.seats.filter(Boolean).length : 0;
   return `<div class="bjtabs"><button data-bj="mode:solo" class="${BJ.mode!=="live"?"on":""}">Solo table</button><button data-bj="mode:live" class="${BJ.mode==="live"?"on":""}">Live table${n?" · "+n+" playing":""}</button></div>`; }
@@ -3485,7 +3567,7 @@ document.addEventListener("keydown", e=>{
   if (view!=="bj" || e.metaKey || e.ctrlKey || e.altKey) return;
   const a = document.activeElement; if (a && (a.tagName==="INPUT" || a.tagName==="TEXTAREA")) return;
   const k = e.key.toLowerCase(), m = {h:"hit", s:"stand", d:"double", p:"split"}[k];
-  if (m && BJ.mode==="live") { if (bjlMyHand(BJL.st)) { e.preventDefault(); bjlAct(m); } return; }
+  if (m && BJ.mode==="live") { if (bjlMyHand(BJL.st) && !BJL.anim) { e.preventDefault(); bjlAct(m); } return; }
   if (m && BJ.phase==="play") { e.preventDefault(); bjAct(m); }
   else if (e.key==="Enter" && BJ.mode!=="live" && (BJ.phase==="bet" || BJ.phase==="done") && BJ.bet) { e.preventDefault(); bjAct("deal"); }
 });
