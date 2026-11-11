@@ -569,6 +569,19 @@ table.rt tr.click:hover td{background:var(--hover)}
 #bjlOver>*{z-index:35}
 .bjp{max-width:1240px}
 .bjlay{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start;margin-top:14px}
+.bjside{position:sticky;top:12px;display:flex;flex-direction:column;gap:14px}
+.bjside .bjlb{position:static}
+.bjchat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column}
+.bjchat h3{margin:0 0 8px;font-size:16px}
+.bjcmsgs{height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:6px;padding-right:4px;font-size:13.5px;line-height:1.35}
+.bjcmsgs .m{word-wrap:break-word;overflow-wrap:anywhere}
+.bjcmsgs .m b{margin-right:5px}
+.bjcmsgs .m.me b{color:var(--acc)}
+.bjcmsgs .none{color:var(--muted);font-size:12.5px;margin:auto 0;text-align:center}
+.bjcform{display:flex;gap:6px;margin-top:10px}
+.bjcform input{flex:1;min-width:0;background:var(--bg);color:var(--text);border:1px solid var(--line2);border-radius:8px;padding:8px 10px;font:inherit;font-size:13.5px}
+.bjcform button{background:var(--acc);color:#fff;border:none;border-radius:8px;padding:8px 12px;font-weight:700;cursor:pointer}
+.bjcform button:disabled{opacity:.4;cursor:not-allowed}
 @media (max-width:1100px){.bjlay{grid-template-columns:minmax(0,1fr)}}
 .bjscale{position:relative;width:100%;max-width:880px;margin:0 auto}
 .bjfelt{position:absolute;left:0;top:0;width:880px;height:600px;transform-origin:0 0;overflow:hidden;
@@ -3225,9 +3238,10 @@ async function bjlTx(fn){
       try { st = d.exists ? JSON.parse(d.data().s) : null; } catch(e) {}
       if (!st || !Array.isArray(st.seats)) st = bjlFresh();
       const r = fn(st); if (r===false) return false;
-      t.set(ref, {s:JSON.stringify(st), v:(d.exists && d.data().v || 0) + 1, at:firebase.firestore.FieldValue.serverTimestamp()});
-      return r===undefined ? true : r;
-    });
+      const v = (d.exists && d.data().v || 0) + 1;
+      t.set(ref, {s:JSON.stringify(st), v, at:firebase.firestore.FieldValue.serverTimestamp()});
+      BJL.txV = v; return r===undefined ? true : r;
+    }).then(r=>{ if (r) BJL.wroteV = Math.max(BJL.wroteV||0, BJL.txV||0); return r; });
   } catch(e) { BJL.err = "Table sync problem (" + (e.code||"error") + ")"; bjlRender(); return false; }
 }
 // ---- game rules (pure: they only change the state object) ----
@@ -3287,39 +3301,46 @@ function bjlTimeout(st){
 function bjlMyHand(st){ const i = bjlMine(st); if (i < 0 || !st.turn || st.turn.s!==i || st.phase!=="play") return null; return st.seats[i].hands[st.turn.h]; }
 function bjlCanSplit(st){ const h = bjlMyHand(st); return !!h && h.c.length===2 && bjlCard(h.c[0]).r===bjlCard(h.c[1]).r && !h.aces && st.seats[st.turn.s].hands.length < 4 && BJ.bank >= h.bet; }
 function bjlCanDouble(st){ const h = bjlMyHand(st); return !!h && h.c.length===2 && !h.aces && BJ.bank >= h.bet; }
-async function bjlAct(a){
+// each move: fn(state, money) changes the state and records the player's bankroll change in money.d
+function bjlMove(a, uid, name){
+  if (a.startsWith("sit:")) { const i = +a.slice(4);
+    return (st)=>{ if (st.seats[i] || st.seats.some(s=>s && s.uid===uid)) return false; st.seats[i] = {uid, name, bet:0, ready:false, hands:null, idle:0}; }; }
+  if (a==="leave") return (st, m)=>{ const i = st.seats.findIndex(s=>s && s.uid===uid); if (i < 0) return false;
+      m.d = st.seats[i].bet || 0;                            // an unplayed bet comes back; a bet already in play is lost
+      if (st.turn && st.turn.s===i) { st.seats[i] = null; bjlNextTurn(st, {s:i, h:99}); } else st.seats[i] = null; };
+  if (a.startsWith("bet:")) { const n = +a.slice(4);
+    return (st, m)=>{ const s = st.seats.find(x=>x && x.uid===uid); if (!s || st.phase!=="bet" || s.ready) return false; s.bet = (s.bet||0) + n; s.idle = 0; m.d = -n; }; }
+  if (a==="clear") return (st, m)=>{ const s = st.seats.find(x=>x && x.uid===uid); if (!s || st.phase!=="bet" || s.ready || !s.bet) return false; m.d = s.bet; s.bet = 0; };
+  if (a==="ready") return (st)=>{ const s = st.seats.find(x=>x && x.uid===uid); if (!s || st.phase!=="bet" || !s.bet || s.ready) return false; s.ready = true;
+      if (!st.dl) st.dl = Date.now() + BJL_BET_MS; bjlStart(st); };
+  if (["hit","stand","double","split"].includes(a)) return (st, m)=>{ const h = bjlMyHand(st); if (!h) return false; const t = st.turn, seat = st.seats[t.s];
+      if (a==="hit") { h.c.push(bjlDraw(st)); const v = bjlVal(h.c); if (v > 21) h.res = "bust"; if (v >= 21) bjlNextTurn(st, t); else st.dl = Date.now() + BJL_TURN_MS; }
+      else if (a==="stand") { h.stood = true; bjlNextTurn(st, t); }
+      else if (a==="double") { if (!bjlCanDouble(st)) return false; m.d = -h.bet; h.bet *= 2; h.dbl = true; h.c.push(bjlDraw(st)); if (bjlVal(h.c) > 21) h.res = "bust"; bjlNextTurn(st, t); }
+      else if (a==="split") { if (!bjlCanSplit(st)) return false; m.d = -h.bet; const aces = bjlCard(h.c[0]).r==="A";
+        const nh = {c:[h.c.pop()], bet:h.bet, aces}; h.aces = aces; seat.hands.splice(t.h + 1, 0, nh);
+        h.c.push(bjlDraw(st)); if (aces || bjlVal(h.c)===21) bjlNextTurn(st, t); else st.dl = Date.now() + BJL_TURN_MS; } };
+  return null;
+}
+// moves show on this screen at once (same shoe, same result), then save to the table in order in the background
+function bjlAct(a){
   const fb = bjFB(); if (!fb) { toast("Sign in to play at the live table"); return; }
-  if (BJL.busy) return; BJL.busy = true;
-  try {
-    const uid = fb.u.uid, name = bjName(fb.u);
-    if (a.startsWith("sit:")) { const i = +a.slice(4);
-      await bjlTx(st=>{ if (st.seats[i] || st.seats.some(s=>s && s.uid===uid)) return false; st.seats[i] = {uid, name, bet:0, ready:false, hands:null, idle:0}; }); }
-    else if (a==="leave") {
-      let refund = 0;
-      const ok = await bjlTx(st=>{ const i = st.seats.findIndex(s=>s && s.uid===uid); if (i < 0) return false;
-        refund = st.seats[i].bet || 0;                       // an unplayed bet comes back; a bet already in play is lost
-        if (st.turn && st.turn.s===i) { st.seats[i] = null; bjlNextTurn(st, {s:i, h:99}); } else st.seats[i] = null; });
-      if (ok && refund) { BJ.bank += refund; bjSave(); } }
-    else if (a.startsWith("bet:")) { const n = +a.slice(4); if (BJ.bank < n) return;
-      const ok = await bjlTx(st=>{ const s = st.seats.find(x=>x && x.uid===uid); if (!s || st.phase!=="bet" || s.ready) return false; s.bet = (s.bet||0) + n; s.idle = 0; });
-      if (ok) { BJ.bank -= n; bjSave(); } }
-    else if (a==="clear") { let back = 0;
-      const ok = await bjlTx(st=>{ const s = st.seats.find(x=>x && x.uid===uid); if (!s || st.phase!=="bet" || s.ready || !s.bet) return false; back = s.bet; s.bet = 0; });
-      if (ok) { BJ.bank += back; bjSave(); } }
-    else if (a==="ready") {
-      await bjlTx(st=>{ const s = st.seats.find(x=>x && x.uid===uid); if (!s || st.phase!=="bet" || !s.bet || s.ready) return false; s.ready = true;
-        if (!st.dl) st.dl = Date.now() + BJL_BET_MS; bjlStart(st); }); }
-    else if (["hit","stand","double","split"].includes(a)) {
-      let cost = 0;
-      const ok = await bjlTx(st=>{ const h = bjlMyHand(st); if (!h) return false; const t = st.turn, seat = st.seats[t.s]; cost = 0;
-        if (a==="hit") { h.c.push(bjlDraw(st)); const v = bjlVal(h.c); if (v > 21) h.res = "bust"; if (v >= 21) bjlNextTurn(st, t); else st.dl = Date.now() + BJL_TURN_MS; }
-        else if (a==="stand") { h.stood = true; bjlNextTurn(st, t); }
-        else if (a==="double") { if (!bjlCanDouble(st)) return false; cost = h.bet; h.bet *= 2; h.dbl = true; h.c.push(bjlDraw(st)); if (bjlVal(h.c) > 21) h.res = "bust"; bjlNextTurn(st, t); }
-        else if (a==="split") { if (!bjlCanSplit(st)) return false; cost = h.bet; const aces = bjlCard(h.c[0]).r==="A";
-          const nh = {c:[h.c.pop()], bet:h.bet, aces}; h.aces = aces; seat.hands.splice(t.h + 1, 0, nh);
-          h.c.push(bjlDraw(st)); if (aces || bjlVal(h.c)===21) bjlNextTurn(st, t); else st.dl = Date.now() + BJL_TURN_MS; } });
-      if (ok && cost) { BJ.bank -= cost; bjSave(); } }
-  } finally { BJL.busy = false; bjlRender(); }
+  const fn = bjlMove(a, fb.u.uid, bjName(fb.u)); if (!fn || !BJL.st) return;
+  const c = JSON.parse(JSON.stringify(BJL.st)), m0 = {d:0};
+  if (fn(c, m0)===false) return;
+  if (m0.d < 0 && BJ.bank + m0.d < 0) return;
+  BJL.st = c; if (m0.d) { BJ.bank += m0.d; bjSave(); }
+  BJL.pend = (BJL.pend||0) + 1; bjlRender(); bjlSync();
+  BJL.q = (BJL.q || Promise.resolve()).then(async()=>{
+    let m1 = {d:0};
+    const ok = await bjlTx(st=>{ m1 = {d:0}; return fn(st, m1); });
+    const fix = (ok ? m1.d : 0) - m0.d; if (fix) { BJ.bank += fix; bjSave(); }
+  }).catch(e=>console.warn("JJ bj live move", e)).finally(()=>{ BJL.pend--; bjlApplyServer(); });
+  return BJL.q;
+}
+function bjlApplyServer(){          // show the table's saved state unless this player still has moves on the way
+  if (BJL.pend || !BJL.server || (BJL.serverV||0) < (BJL.wroteV||0)) { bjlRender(); return; }
+  BJL.st = BJL.server; bjlSettleMine(BJL.st); bjlRender(); bjlSync();
 }
 // keep the game moving: deal when bets close, stand for someone who walked away, run the next round
 function bjlTick(){
@@ -3341,12 +3362,46 @@ function bjlSettleMine(st){         // credit this player's winnings once per ro
 }
 function bjlStart_listen(){
   if (BJL.unsub) return; const ref = bjlRef();
-  if (!ref) { setTimeout(()=>{ if (view==="bj" && BJ.mode==="live") { bjlStart_listen(); bjlRender(); } }, 1000); return; }
-  BJL.unsub = ref.onSnapshot(d=>{ try { BJL.st = d.exists ? JSON.parse(d.data().s) : bjlFresh(); } catch(e) { BJL.st = bjlFresh(); } BJL.err = ""; bjlSettleMine(BJL.st); bjlRender(); bjlSync(); },
+  if (!ref) { setTimeout(()=>{ if (view==="bj" && BJ.mode==="live") { bjlStart_listen(); bjcListen(); bjcRender(); bjlRender(); } }, 1000); return; }
+  BJL.unsub = ref.onSnapshot(d=>{ let st; try { st = d.exists ? JSON.parse(d.data().s) : bjlFresh(); } catch(e) { st = bjlFresh(); }
+      BJL.server = st; BJL.serverV = d.exists && d.data().v || 0; BJL.err = ""; bjlApplyServer(); },
     e=>{ BJL.err = "Live table unavailable (" + (e.code||"error") + ")"; BJL.unsub = null; bjlRender(); });
   clearInterval(BJL.tick); BJL.tick = setInterval(bjlTick, 1000);
 }
-function bjlStop(){ if (BJL.unsub) { BJL.unsub(); BJL.unsub = null; } clearInterval(BJL.tick); BJL.tick = 0; }
+function bjlStop(){ if (BJL.unsub) { BJL.unsub(); BJL.unsub = null; } clearInterval(BJL.tick); BJL.tick = 0; bjcStop(); }
+// ---- live table chat: the last 40 messages in one doc (bjTables/chat), separate from the game so chatting never touches a hand ----
+const BJC = { msgs:[], unsub:null, last:0 };
+function bjcRef(){ const fb = bjFB(); return fb && fb.db.collection("bjTables").doc("chat"); }
+function bjcListen(){
+  if (BJC.unsub) return; const ref = bjcRef(); if (!ref) return;
+  BJC.unsub = ref.onSnapshot(d=>{ try { BJC.msgs = d.exists ? JSON.parse(d.data().s) : []; } catch(e) { BJC.msgs = []; } bjcRender(); },
+    e=>{ BJC.unsub = null; console.warn("JJ bj chat", e); });
+}
+function bjcStop(){ if (BJC.unsub) { BJC.unsub(); BJC.unsub = null; } }
+function bjcRender(){
+  const box = $("bjcMsgs"); if (!box) return; const fb = bjFB(), uid = fb && fb.u.uid;
+  const near = box.scrollHeight - box.scrollTop - box.clientHeight < 40;
+  box.innerHTML = BJC.msgs.length ? BJC.msgs.map(m=>`<div class="m ${m.u===uid?"me":""}"><b>${esc(m.n)}</b>${esc(m.t)}</div>`).join("") : `<div class="none">No messages yet. Say hi to the table.</div>`;
+  if (near || BJC.mine) { box.scrollTop = box.scrollHeight; BJC.mine = false; }
+  const inp = $("bjcIn"), btn = $("bjcForm") && $("bjcForm").querySelector("button");
+  if (inp) { inp.disabled = !fb; inp.placeholder = fb ? "Say something to the table…" : "Sign in to chat"; } if (btn) btn.disabled = !fb;
+}
+async function bjcSend(){
+  const fb = bjFB(), inp = $("bjcIn"); if (!fb || !inp) return;
+  const t = inp.value.replace(/\s+/g," ").trim().slice(0,200); if (!t) return;
+  if (Date.now() - BJC.last < 1500) { toast("Slow down a little"); return; }
+  BJC.last = Date.now(); inp.value = ""; BJC.mine = true;
+  const ref = bjcRef(), m = {u:fb.u.uid, n:bjName(fb.u), t, at:Date.now()};
+  try {
+    await firebase.firestore().runTransaction(async tx=>{
+      const d = await tx.get(ref); let a = [];
+      try { a = d.exists ? JSON.parse(d.data().s) : []; } catch(e) {}
+      if (!Array.isArray(a)) a = [];
+      a.push(m); a = a.slice(-40);
+      tx.set(ref, {s:JSON.stringify(a), v:(d.exists && d.data().v || 0) + 1, at:firebase.firestore.FieldValue.serverTimestamp()});
+    });
+  } catch(e) { toast("Message didn't send (" + (e.code||"error") + ")"); inp.value = t; }
+}
 // ---- drawing: cards are real elements the dealer's hand carries from the shoe, one at a time, like the solo table ----
 function bjlTargets(st){        // every card that should be on the felt, with where it goes
   const out = [], R = st.round;
@@ -3500,10 +3555,13 @@ function renderBJL(){
       <div class="bjstats" id="bjStats"></div>
       <p class="muted bjnote">Keyboard on your turn: H hit · S stand · D double · P split</p>
     </div>
-    <aside class="bjlb" id="bjLB"></aside></div></div>`);
+    <div class="bjside"><aside class="bjlb" id="bjLB"></aside>
+      <div class="bjchat"><h3>Table chat</h3><div class="bjcmsgs" id="bjcMsgs"></div>
+        <form class="bjcform" id="bjcForm" autocomplete="off"><input id="bjcIn" maxlength="200" placeholder="Say something to the table…"><button type="submit">Send</button></form></div></div></div></div>`);
+  $("bjcForm").addEventListener("submit", e=>{ e.preventDefault(); bjcSend(); });
   bjFit(); BJL.els = new Map(); BJL.instant = true; BJL.round = null; BJL.anim = false; BJL.chain = null;
   BJ.hx = BJ_REST.x; BJ.hy = BJ_REST.y; bjHandSet(BJ.hx, BJ.hy);
-  bjlStart_listen(); bjlRender(); bjlSync(); bjBoard(); bjSync();
+  bjlStart_listen(); bjcListen(); bjcRender(); bjlRender(); bjlSync(); bjBoard(); bjSync();
 }
 function bjTabs(){ const n = BJL.st ? BJL.st.seats.filter(Boolean).length : 0;
   return `<div class="bjtabs"><button data-bj="mode:solo" class="${BJ.mode!=="live"?"on":""}">Solo table</button><button data-bj="mode:live" class="${BJ.mode==="live"?"on":""}">Live table${n?" · "+n+" playing":""}</button></div>`; }
