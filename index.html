@@ -546,6 +546,22 @@ table.rt tr.click:hover td{background:var(--hover)}
 }
 
 /* study-break blackjack */
+.bjtabs{display:inline-flex;gap:4px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:4px;margin:4px 0 0}
+.bjtabs button{border:0;background:none;color:var(--muted);font-weight:700;font-size:14px;padding:7px 14px;border-radius:9px;cursor:pointer}
+.bjtabs button.on{background:var(--acc-bg,#1d3b3a);color:var(--text)}
+.bjc.sm{width:58px;height:82px;border-radius:6px}.bjc.sm .r1,.bjc.sm .r2{font-size:13px;left:4px;top:3px}.bjc.sm .r2{left:auto;top:auto;right:4px;bottom:3px}.bjc.sm .pip{font-size:26px}
+.bjc.back.sm::before{width:36px;height:36px;background-size:100px auto}.bjc.back.sm::after{font-size:6px;bottom:8px}
+.bjc.bjin{animation:bjin .38s cubic-bezier(.3,.7,.3,1)}
+@keyframes bjin{from{transform:translate(120px,-140px) rotate(-12deg);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.bjc.bjin{animation:none}}
+.bjlsit{position:absolute;width:68px;height:68px;border-radius:50%;border:2px dashed #e7c66baa;background:rgba(0,0,0,.18);color:#e7c66b;font:800 13px/1 Inter,system-ui,sans-serif;letter-spacing:.06em;cursor:pointer}
+.bjlsit:hover:not(:disabled){background:rgba(231,198,107,.15)}.bjlsit:disabled{opacity:.35;cursor:default}
+.bjlname{position:absolute;transform:translateX(-50%);white-space:nowrap;font:700 12.5px/1 Inter,system-ui,sans-serif;color:#f3efe2;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:4px 10px}
+.bjlname.me{border-color:#e7c66b;color:#e7c66b}.bjlname.turn{background:#e7c66b;color:#2a160b;border-color:#e7c66b}
+.bjlres{position:absolute;transform:translateX(-50%);font:800 14px/1 Inter,system-ui,sans-serif;padding:4px 10px;border-radius:12px;background:rgba(0,0,0,.45)}
+.bjlres.win{color:#a8f5bf}.bjlres.lose{color:#ffb7ab}.bjlres.push{color:#ffe08a}
+.bjlstatus{position:absolute;left:50%;top:252px;transform:translateX(-50%);font:800 17px/1 Inter,system-ui,sans-serif;color:#f3efe2;background:rgba(0,0,0,.42);border:1px solid rgba(255,255,255,.15);border-radius:22px;padding:7px 18px;white-space:nowrap}
+.bjlstatus:empty{display:none}
 .bjp{max-width:1240px}
 .bjlay{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start;margin-top:14px}
 @media (max-width:1100px){.bjlay{grid-template-columns:minmax(0,1fr)}}
@@ -2900,7 +2916,8 @@ function startGlobalSearch(v){
 
 // ---------- Study-break blackjack (type "bj" in search + Enter) ----------
 function isBJ(v){ return (v||"").trim().toLowerCase()==="bj"; }
-const BJ = { bank:1000, peak:1000, hands:0, w:0, l:0, bet:0, shoe:[], hs:[], cur:0, d:[], phase:"bet", msg:"Place your bet", cls:"", doubled:false, busy:false, board:null, boardErr:"", boardAt:0, synced:false, hx:401, hy:-190 };
+const BJ = { bank:1000, peak:1000, hands:0, w:0, l:0, bet:0, shoe:[], hs:[], cur:0, d:[], phase:"bet", msg:"Place your bet", cls:"", doubled:false, busy:false, board:null, boardErr:"", boardAt:0, synced:false, hx:401, hy:-190, mode:"solo" };
+try { if (localStorage.getItem("jj-bj-mode")==="live") BJ.mode = "live"; } catch(e) {}
 try { const j = JSON.parse(localStorage.getItem("jj-bj") || "null"); if (j && j.bank >= 0) Object.assign(BJ, {bank:j.bank, peak:j.peak||j.bank, hands:j.hands||0, w:j.w||0, l:j.l||0}); else { const b = +localStorage.getItem("jj-bj-bank"); if (b > 0) BJ.bank = BJ.peak = b; } } catch(e) {}
 const BJW = 880, BJH = 600, BJ_SHOE = {x:712, y:50}, BJ_REST = {x:401, y:-190}, BJ_WAIT = {x:600, y:-4}, BJ_DISC = {x:36, y:24};
 const bjWait = ms => new Promise(r=>setTimeout(r, ms));
@@ -2928,10 +2945,12 @@ const BJ_HAND = `<div class="bjarm" id="bjArm"><div class="sleeve"></div><svg vi
 function openBJ(){ clearTimeout(searchT); $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = ""; searchChips = []; searchRet = null; view = "bj"; renderAll(); $("main").scrollTo({top:0}); }
 function renderBJ(){
   if (view!=="bj") return;
+  if (BJ.mode==="live") { renderBJL(); return; }
   if (BJ.phase==="deal" || BJ.phase==="dealer") BJ.phase = BJ.hs.length ? "play" : "bet";   // re-entering mid-animation
   BJ.busy = false;
   showPage(`<div class="page bjp"><div class="ptools" style="margin-bottom:12px"><button class="btn" data-bj="back">← Back to studying</button></div>
     <h2>Study break: Blackjack 🃏</h2><p class="sub">Fake money only. 6-deck shoe, dealer stands on all 17s, blackjack pays 3 to 2. Split any pair up to 4 hands; split aces get one card each.</p>
+    ${bjTabs()}
     <div class="bjlay"><div>
       <div class="bjscale" id="bjScale"><div class="bjfelt" id="bjFelt" style="--bjlogo:url('${window.JJ_LOGO||""}')">
         <div class="bjtop"></div>
@@ -3095,7 +3114,9 @@ async function bjNext(){
 function bjCanSplit(){ const h = BJ.hs[BJ.cur]; return !!h && BJ.phase==="play" && h.cards.length===2 && h.cards[0].r===h.cards[1].r && !h.aces && BJ.hs.length < 4 && BJ.bank >= h.bet; }
 function bjCanDouble(){ const h = BJ.hs[BJ.cur]; return !!h && BJ.phase==="play" && h.cards.length===2 && !h.aces && BJ.bank >= h.bet; }
 async function bjAct(a){
-  if (a==="back") { view = "home"; renderAll(); $("main").scrollTo({top:0}); return; }
+  if (a==="back") { if (BJ.mode==="live") { if (!bjlInHand() && bjlMine(BJL.st) >= 0) await bjlAct("leave"); bjlStop(); } view = "home"; renderAll(); $("main").scrollTo({top:0}); return; }
+  if (a.startsWith("mode:")) { bjMode(a.slice(5)); return; }
+  if (a.startsWith("l:")) { bjlAct(a.slice(2)); return; }
   if (a==="lbref") { BJ.boardAt = 0; bjBoard(true); return; }
   if (BJ.busy) return;
   if (a.startsWith("bet:")) { const n = +a.slice(4);
@@ -3140,6 +3161,7 @@ async function bjAct(a){
 function bjSet(id, prop, v){ const el = $(id); if (!el) return; BJ.ui = BJ.ui || {}; const key = id + prop; if (BJ.ui[key]===v) return; BJ.ui[key] = v; el[prop] = v; }
 function bjUI(){
   if (view!=="bj" || !$("bjCtl")) return;
+  if (BJ.mode==="live") { bjlRender(); return; }
   const ph = BJ.phase, play = ph==="play", busy = ph==="deal" || ph==="dealer" || BJ.busy && ph!=="play", done = ph==="done";
   const dUp = BJ.d.filter(c=>!c.down), dv = dUp.length ? bjVal(dUp) : "";
   bjSet("bjDV", "innerHTML", dv!=="" ? `<small>DEALER</small>${dv}` : "");
@@ -3162,6 +3184,250 @@ function bjUI(){
     : chips + `<button class="bjbtn go" data-bj="deal" ${BJ.bet&&!BJ.busy?"":"disabled"}>${done?"Deal again · $"+BJ.bet.toLocaleString():"Deal"}</button>${ph==="bet"&&BJ.bet?`<button class="bjbtn ghost" data-bj="clear">Clear bet</button>`:""}`);
   const inBet = BJ.hs.length && !done ? BJ.hs.reduce((t,h)=>t+h.bet, 0) : BJ.bet;
   bjSet("bjStats", "innerHTML", `<span>Bank <b>$${BJ.bank.toLocaleString()}</b></span><span>Bet <b>$${inBet.toLocaleString()}</b></span><span>Hands <b>${BJ.hands}</b></span><span>W–L <b>${BJ.w}–${BJ.l}</b></span>`);
+}
+
+// ---- Live table: up to 5 players share one table, synced through Firestore (bjTables/main, one JSON doc) ----
+// Any player's browser can move the game along (deal, time-outs, dealer, next round); every move is a transaction,
+// so only one browser's move wins. Each player's own bankroll stays in their browser + the leaderboard, as in solo.
+const BJL_SEATS = 5, BJL_BET_MS = 12000, BJL_TURN_MS = 30000, BJL_DONE_MS = 7000;
+const BJL_POS = [{x:118,y:292},{x:272,y:372},{x:440,y:404},{x:608,y:372},{x:762,y:292}];
+const BJL = { st:null, unsub:null, tick:0, busy:false, err:"", paid:{}, seen:new Set() };
+try { BJL.paid = JSON.parse(localStorage.getItem("jj-bjl-paid") || "{}"); } catch(e) {}
+const BJL_SU = {S:"♠", H:"♥", D:"♦", C:"♣"};
+function bjlCard(x){ return {r:x.slice(0,-1), s:BJL_SU[x.slice(-1)]}; }
+function bjlVal(cs){ return bjVal(cs.map(bjlCard)); }
+function bjlSoft(cs){ return bjSoft(cs.map(bjlCard)); }
+function bjlNewShoe(){ const r = ["A","2","3","4","5","6","7","8","9","10","J","Q","K"], sh = [];
+  for (let d=0; d<6; d++) for (const s of "SHDC") for (const y of r) sh.push(y+s);
+  for (let i=sh.length-1; i>0; i--) { const j = Math.floor(Math.random()*(i+1)); [sh[i],sh[j]] = [sh[j],sh[i]]; }
+  return sh.join(","); }
+function bjlFresh(){ return {round:1, phase:"bet", seats:Array(BJL_SEATS).fill(null), d:[], hole:true, turn:null, dl:0, shoe:bjlNewShoe()}; }
+function bjlDraw(st){ let sh = st.shoe ? st.shoe.split(",") : []; if (sh.length < 60) sh = bjlNewShoe().split(","); const c = sh.pop(); st.shoe = sh.join(","); return c; }
+function bjlRef(){ const fb = bjFB(); return fb && fb.db.collection("bjTables").doc("main"); }
+function bjlMine(st){ const fb = bjFB(); if (!fb || !st) return -1; return st.seats.findIndex(s=>s && s.uid===fb.u.uid); }
+// run fn(state) inside a transaction; fn returns false to make no change
+async function bjlTx(fn){
+  const ref = bjlRef(); if (!ref) return false;
+  try {
+    return await firebase.firestore().runTransaction(async t=>{
+      const d = await t.get(ref); let st = null;
+      try { st = d.exists ? JSON.parse(d.data().s) : null; } catch(e) {}
+      if (!st || !Array.isArray(st.seats)) st = bjlFresh();
+      const r = fn(st); if (r===false) return false;
+      t.set(ref, {s:JSON.stringify(st), v:(d.exists && d.data().v || 0) + 1, at:firebase.firestore.FieldValue.serverTimestamp()});
+      return r===undefined ? true : r;
+    });
+  } catch(e) { BJL.err = "Table sync problem (" + (e.code||"error") + ")"; bjlRender(); return false; }
+}
+// ---- game rules (pure: they only change the state object) ----
+function bjlNeedsPlay(h){ return !h.res && !h.aces && bjlVal(h.c) < 21 && !h.dbl && !h.stood; }
+function bjlNextTurn(st, from){        // find the next hand that needs a decision, dealing split hands their 2nd card
+  let s = from ? from.s : 0, h = from ? from.h + 1 : 0;
+  for (; s < BJL_SEATS; s++, h = 0) {
+    const seat = st.seats[s]; if (!seat || !seat.hands) continue;
+    for (; h < seat.hands.length; h++) {
+      const hd = seat.hands[h];
+      if (hd.c.length===1) hd.c.push(bjlDraw(st));
+      if (bjlVal(hd.c) > 21) hd.res = "bust";
+      if (bjlNeedsPlay(hd)) { st.turn = {s, h}; st.dl = Date.now() + BJL_TURN_MS; return; }
+    }
+  }
+  bjlDealerAndSettle(st);
+}
+function bjlDealerAndSettle(st){
+  st.turn = null; st.hole = false;
+  if (st.seats.some(s=>s && s.hands && s.hands.some(h=>!h.res))) while (bjlVal(st.d) < 17) st.d.push(bjlDraw(st));
+  const dv = bjlVal(st.d), dbj = st.d.length===2 && dv===21;
+  st.seats.forEach(seat=>{ if (!seat || !seat.hands) return; let back = 0;
+    seat.hands.forEach(h=>{ const v = bjlVal(h.c);
+      if (!h.res) h.res = v > 21 ? "bust" : dbj ? "lose" : dv > 21 || v > dv ? "win" : v===dv ? "push" : "lose";
+      if (h.res==="bj" && dbj) h.res = "push";
+      back += h.res==="bj" ? h.bet + Math.floor(h.bet*1.5) : h.res==="win" ? h.bet*2 : h.res==="push" ? h.bet : 0; });
+    seat.back = back; });
+  st.phase = "done"; st.dl = Date.now() + BJL_DONE_MS;
+}
+function bjlStart(st){
+  const now = Date.now(), ready = st.seats.filter(s=>s && s.ready && s.bet > 0);
+  if (st.phase!=="bet" || !ready.length) return false;
+  const allReady = st.seats.every(s=>!s || !s.bet || s.ready);
+  if (!allReady && now < st.dl) return false;
+  st.seats.forEach((s,i)=>{ if (!s) return; s.back = 0;
+    if (s.ready && s.bet > 0) { s.idle = 0; s.hands = [{c:[], bet:s.bet}]; s.inBet = s.bet; s.bet = 0; s.ready = false; }
+    else { s.hands = null; s.idle = (s.idle||0) + 1; if (s.idle >= 4 && !s.bet) st.seats[i] = null; } });
+  st.d = []; st.hole = true;
+  for (let k=0; k<2; k++) { st.seats.forEach(s=>{ if (s && s.hands) s.hands[0].c.push(bjlDraw(st)); }); st.d.push(bjlDraw(st)); }
+  st.phase = "play";
+  if (bjlVal(st.d)===21) { st.seats.forEach(s=>{ if (s && s.hands && bjlVal(s.hands[0].c)===21) s.hands[0].res = "push"; }); bjlDealerAndSettle(st); return; }
+  st.seats.forEach(s=>{ if (s && s.hands && bjlVal(s.hands[0].c)===21) s.hands[0].res = "bj"; });
+  bjlNextTurn(st, null);
+}
+function bjlNextRound(st){
+  if (st.phase!=="done" || Date.now() < st.dl) return false;
+  st.round++; st.phase = "bet"; st.d = []; st.hole = true; st.turn = null; st.dl = 0;
+  st.seats.forEach(s=>{ if (s) { s.hands = null; s.back = 0; s.inBet = 0; s.ready = false; } });
+}
+function bjlTimeout(st){
+  if (st.phase!=="play" || !st.turn || Date.now() < st.dl) return false;
+  const h = st.seats[st.turn.s] && st.seats[st.turn.s].hands && st.seats[st.turn.s].hands[st.turn.h];
+  if (h) h.stood = true; bjlNextTurn(st, st.turn);
+}
+// ---- what the local player can do ----
+function bjlMyHand(st){ const i = bjlMine(st); if (i < 0 || !st.turn || st.turn.s!==i || st.phase!=="play") return null; return st.seats[i].hands[st.turn.h]; }
+function bjlCanSplit(st){ const h = bjlMyHand(st); return !!h && h.c.length===2 && bjlCard(h.c[0]).r===bjlCard(h.c[1]).r && !h.aces && st.seats[st.turn.s].hands.length < 4 && BJ.bank >= h.bet; }
+function bjlCanDouble(st){ const h = bjlMyHand(st); return !!h && h.c.length===2 && !h.aces && BJ.bank >= h.bet; }
+async function bjlAct(a){
+  const fb = bjFB(); if (!fb) { toast("Sign in to play at the live table"); return; }
+  if (BJL.busy) return; BJL.busy = true;
+  try {
+    const uid = fb.u.uid, name = bjName(fb.u);
+    if (a.startsWith("sit:")) { const i = +a.slice(4);
+      await bjlTx(st=>{ if (st.seats[i] || st.seats.some(s=>s && s.uid===uid)) return false; st.seats[i] = {uid, name, bet:0, ready:false, hands:null, idle:0}; }); }
+    else if (a==="leave") {
+      let refund = 0;
+      const ok = await bjlTx(st=>{ const i = st.seats.findIndex(s=>s && s.uid===uid); if (i < 0) return false;
+        refund = st.seats[i].bet || 0;                       // an unplayed bet comes back; a bet already in play is lost
+        if (st.turn && st.turn.s===i) { st.seats[i] = null; bjlNextTurn(st, {s:i, h:99}); } else st.seats[i] = null; });
+      if (ok && refund) { BJ.bank += refund; bjSave(); } }
+    else if (a.startsWith("bet:")) { const n = +a.slice(4); if (BJ.bank < n) return;
+      const ok = await bjlTx(st=>{ const s = st.seats.find(x=>x && x.uid===uid); if (!s || st.phase!=="bet" || s.ready) return false; s.bet = (s.bet||0) + n; s.idle = 0; });
+      if (ok) { BJ.bank -= n; bjSave(); } }
+    else if (a==="clear") { let back = 0;
+      const ok = await bjlTx(st=>{ const s = st.seats.find(x=>x && x.uid===uid); if (!s || st.phase!=="bet" || s.ready || !s.bet) return false; back = s.bet; s.bet = 0; });
+      if (ok) { BJ.bank += back; bjSave(); } }
+    else if (a==="ready") {
+      await bjlTx(st=>{ const s = st.seats.find(x=>x && x.uid===uid); if (!s || st.phase!=="bet" || !s.bet || s.ready) return false; s.ready = true;
+        if (!st.dl) st.dl = Date.now() + BJL_BET_MS; bjlStart(st); }); }
+    else if (["hit","stand","double","split"].includes(a)) {
+      let cost = 0;
+      const ok = await bjlTx(st=>{ const h = bjlMyHand(st); if (!h) return false; const t = st.turn, seat = st.seats[t.s]; cost = 0;
+        if (a==="hit") { h.c.push(bjlDraw(st)); const v = bjlVal(h.c); if (v > 21) h.res = "bust"; if (v >= 21) bjlNextTurn(st, t); else st.dl = Date.now() + BJL_TURN_MS; }
+        else if (a==="stand") { h.stood = true; bjlNextTurn(st, t); }
+        else if (a==="double") { if (!bjlCanDouble(st)) return false; cost = h.bet; h.bet *= 2; h.dbl = true; h.c.push(bjlDraw(st)); if (bjlVal(h.c) > 21) h.res = "bust"; bjlNextTurn(st, t); }
+        else if (a==="split") { if (!bjlCanSplit(st)) return false; cost = h.bet; const aces = bjlCard(h.c[0]).r==="A";
+          const nh = {c:[h.c.pop()], bet:h.bet, aces}; h.aces = aces; seat.hands.splice(t.h + 1, 0, nh);
+          h.c.push(bjlDraw(st)); if (aces || bjlVal(h.c)===21) bjlNextTurn(st, t); else st.dl = Date.now() + BJL_TURN_MS; } });
+      if (ok && cost) { BJ.bank -= cost; bjSave(); } }
+  } finally { BJL.busy = false; bjlRender(); }
+}
+// keep the game moving: deal when bets close, stand for someone who walked away, run the next round
+function bjlTick(){
+  const st = BJL.st; if (!st || view!=="bj" || BJ.mode!=="live") return;
+  const now = Date.now();
+  if (st.phase==="bet" && st.dl && now >= st.dl && st.seats.some(s=>s && s.ready)) bjlTx(bjlStart);
+  else if (st.phase==="play" && st.turn && now >= st.dl + 1500) bjlTx(bjlTimeout);
+  else if (st.phase==="done" && now >= st.dl) bjlTx(bjlNextRound);
+  bjlStatus();
+}
+function bjlSettleMine(st){         // credit this player's winnings once per round
+  const i = bjlMine(st); if (i < 0 || st.phase!=="done") return;
+  const s = st.seats[i]; if (!s.hands) return;
+  const key = st.round + ":" + i; if (BJL.paid[key]) return;
+  BJL.paid = {[key]:1}; try { localStorage.setItem("jj-bjl-paid", JSON.stringify(BJL.paid)); } catch(e) {}
+  BJ.bank += s.back || 0;
+  s.hands.forEach(h=>{ BJ.hands++; if (h.res==="win" || h.res==="bj") BJ.w++; else if (h.res==="lose" || h.res==="bust") BJ.l++; });
+  BJ.peak = Math.max(BJ.peak, BJ.bank); bjSave();
+}
+function bjlStart_listen(){
+  if (BJL.unsub) return; const ref = bjlRef();
+  if (!ref) { setTimeout(()=>{ if (view==="bj" && BJ.mode==="live") { bjlStart_listen(); bjlRender(); } }, 1000); return; }
+  BJL.unsub = ref.onSnapshot(d=>{ try { BJL.st = d.exists ? JSON.parse(d.data().s) : bjlFresh(); } catch(e) { BJL.st = bjlFresh(); } BJL.err = ""; bjlSettleMine(BJL.st); bjlRender(); },
+    e=>{ BJL.err = "Live table unavailable (" + (e.code||"error") + ")"; BJL.unsub = null; bjlRender(); });
+  clearInterval(BJL.tick); BJL.tick = setInterval(bjlTick, 1000);
+}
+function bjlStop(){ if (BJL.unsub) { BJL.unsub(); BJL.unsub = null; } clearInterval(BJL.tick); BJL.tick = 0; }
+// ---- drawing ----
+function bjlCardHTML(x, key, pos, sm){
+  const isNew = !BJL.seen.has(key); BJL.seen.add(key);
+  const inner = x==="??" ? BJ_BACK : bjFace(bjlCard(x));
+  return inner.replace('class="bjc', `style="left:${pos.x}px;top:${pos.y}px" data-k="${key}" class="${isNew?"bjin ":""}${sm?"sm ":""}bjc`);
+}
+function bjlSecs(st){ return st.dl ? Math.max(0, Math.ceil((st.dl - Date.now())/1000)) : 0; }
+function bjlStatus(){
+  const el = $("bjlStatus"), st = BJL.st; if (!el || !st) return;
+  let t = "";
+  if (st.phase==="bet") t = st.dl ? "Bets close in " + bjlSecs(st) + "s" : st.seats.some(Boolean) ? "Place your bets" : "Take a seat to play";
+  else if (st.phase==="play" && st.turn) { const s = st.seats[st.turn.s]; t = (bjlMine(st)===st.turn.s ? "Your turn" : (s ? s.name : "Player") + "'s turn") + " · " + bjlSecs(st) + "s"; }
+  else if (st.phase==="done") t = "Next round in " + bjlSecs(st) + "s";
+  if (el.textContent!==t) el.textContent = t;
+}
+function bjlRender(){
+  if (view!=="bj" || BJ.mode!=="live") return;
+  const fb = bjFB(), felt = $("bjlCards"), ctl = $("bjCtl"); if (!felt || !ctl) return;
+  if (!fb) { $("bjlCards").innerHTML = ""; ctl.innerHTML = `<span style="color:#f3efe2">Sign in to sit at the live table.</span>`; bjlStatus(); return; }
+  const st = BJL.st; if (!st) { ctl.innerHTML = `<span style="color:#f3efe2">${BJL.err ? esc(BJL.err) : "Connecting to the table…"}</span>`; return; }
+  const me = bjlMine(st); let h = "";
+  // dealer
+  st.d.forEach((x,i)=>{ h += bjlCardHTML(i===1 && st.hole ? "??" : x, st.round+"d"+i+(i===1&&st.hole?"h":""), {x:368 + i*34, y:58}); });
+  const dUp = st.hole ? st.d.slice(0,1) : st.d;
+  if (dUp.length) h += `<div class="bjpill" style="left:440px;top:174px"><small>DEALER</small>${bjlVal(dUp)}</div>`;
+  // seats
+  st.seats.forEach((s,i)=>{ const P = BJL_POS[i];
+    if (!s) { h += `<button class="bjlsit" style="left:${P.x-34}px;top:${P.y-10}px" data-bj="l:sit:${i}" ${me>=0?"disabled":""}>${me>=0?"Open":"Sit"}</button>`; return; }
+    const turn = st.turn && st.turn.s===i, nh = s.hands ? s.hands.length : 0;
+    h += `<div class="bjlname ${i===me?"me":""} ${turn?"turn":""}" style="left:${P.x}px;top:${P.y+52}px">${esc(s.name)}${i===me?" (you)":""}${s.ready?" ✓":""}</div>`;
+    const chips = st.phase==="bet" ? s.bet : s.hands ? s.hands.reduce((t,x)=>t+x.bet, 0) : 0;
+    if (chips && st.phase!=="done") h += `<div class="bjstack" style="left:${P.x-23}px;top:${P.y+76}px;transform:scale(.8)">${bjStackHTML(chips)}</div>`;
+    if (st.phase==="done" && s.hands) { const net = (s.back||0) - s.hands.reduce((t,x)=>t+x.bet, 0);
+      h += `<div class="bjlres ${net>0?"win":net<0?"lose":"push"}" style="left:${P.x}px;top:${P.y+78}px">${net>0?"+$"+net.toLocaleString():net<0?"−$"+(-net).toLocaleString():"Push"}</div>`; }
+    (s.hands||[]).forEach((hd,k)=>{ const ox = P.x - 29 + (k - (nh-1)/2) * 64;
+      hd.c.forEach((x,j)=>{ h += bjlCardHTML(x, st.round+"s"+i+"h"+k+"c"+j+x, {x:ox + j*15, y:P.y - 40 - j*4}, true); });
+      const v = bjlVal(hd.c), on = turn && st.turn.h===k;
+      h += `<div class="bjpill ${on?"on":""} ${v>21?"bust":""}" style="left:${ox+29+(hd.c.length-1)*7}px;top:${P.y-70-hd.c.length*4}px">${bjlSoft(hd.c) && v < 21 ? (v-10)+" / "+v : v}${hd.res==="bj"?" BJ":""}</div>`; }); });
+  $("bjlCards").innerHTML = h;
+  // controls
+  const seat = me >= 0 ? st.seats[me] : null, my = bjlMyHand(st);
+  let c = "";
+  if (!seat) c = `<span style="color:#f3efe2">${st.seats.some(x=>!x) ? "Pick an open seat to join the table." : "Table is full. Watch, or play at the solo table."}</span>`;
+  else if (st.phase==="bet" && !seat.ready) c = [10,25,50,100,500,1000].map(n=>`<button class="bjchip c${n}" data-bj="l:bet:${n}" ${BJ.bank<n?"disabled":""}>$${n>=1000?n/1000+"K":n}</button>`).join("")
+      + `<button class="bjbtn go" data-bj="l:ready" ${seat.bet?"":"disabled"}>Place bet${seat.bet?" · $"+seat.bet.toLocaleString():""}</button>${seat.bet?`<button class="bjbtn ghost" data-bj="l:clear">Clear</button>`:""}`;
+  else if (st.phase==="bet") c = `<span style="color:#f3efe2">Bet placed · $${seat.bet.toLocaleString()} · waiting for the deal</span>`;
+  else if (my) c = `<button class="bjbtn go" data-bj="l:hit">Hit</button><button class="bjbtn go" data-bj="l:stand">Stand</button><button class="bjbtn ghost" data-bj="l:double" ${bjlCanDouble(st)?"":"disabled"}>Double</button><button class="bjbtn ghost" data-bj="l:split" ${bjlCanSplit(st)?"":"disabled"}>Split</button>`;
+  else c = `<span style="color:#f3efe2">${st.phase==="done" ? "Round over · bets open again in a few seconds" : seat.hands ? "Waiting for the other players…" : "You're sitting this hand out. Bet when the next round opens."}</span>`;
+  if (seat) c += `<button class="bjbtn ghost" data-bj="l:leave">Leave seat</button>`;
+  if (ctl.innerHTML!==c) ctl.innerHTML = c;
+  const inPlay = seat && seat.hands && st.phase!=="done" ? seat.hands.reduce((t,x)=>t+x.bet, 0) : seat ? seat.bet : 0;
+  $("bjStats").innerHTML = `<span>Bank <b>$${BJ.bank.toLocaleString()}</b></span><span>On the table <b>$${(inPlay||0).toLocaleString()}</b></span><span>Players <b>${st.seats.filter(Boolean).length} / ${BJL_SEATS}</b></span>${BJL.err?`<span>${esc(BJL.err)}</span>`:""}`;
+  bjlStatus();
+}
+function renderBJL(){
+  showPage(`<div class="page bjp"><div class="ptools" style="margin-bottom:12px"><button class="btn" data-bj="back">← Back to studying</button></div>
+    <h2>Study break: Blackjack 🃏</h2><p class="sub">Live table: up to ${BJL_SEATS} players, real time. Same bankroll as the solo table. Dealer stands on all 17s, blackjack pays 3 to 2, split any pair, split aces get one card.</p>
+    ${bjTabs()}
+    <div class="bjlay"><div>
+      <div class="bjscale" id="bjScale"><div class="bjfelt" id="bjFelt" style="--bjlogo:url('${window.JJ_LOGO||""}')">
+        <div class="bjtop"></div>
+        <svg class="bjprint" viewBox="0 0 880 600" aria-hidden="true">
+          <defs><path id="bjlArc" d="M200 196 Q440 262 680 196"/></defs>
+          <text font-size="17" text-anchor="middle"><textPath href="#bjlArc" startOffset="50%">BLACKJACK PAYS 3 TO 2</textPath></text>
+          <text x="440" y="590" font-size="11" text-anchor="middle" opacity=".6">JJ QBANK · LIVE TABLE</text>
+        </svg>
+        <div class="bjrack"><i class="c5"></i><i class="c10"></i><i class="c25"></i><i class="c50"></i><i class="c100"></i><i class="c500"></i></div>
+        <div class="bjshoe"><div class="box"></div><div class="cardout"></div><div class="lip"></div></div>
+        <div class="bjlstatus" id="bjlStatus"></div>
+        <div id="bjlCards"></div>
+      </div></div>
+      <div class="bjctl" id="bjCtl"></div>
+      <div class="bjstats" id="bjStats"></div>
+      <p class="muted bjnote">Keyboard on your turn: H hit · S stand · D double · P split</p>
+    </div>
+    <aside class="bjlb" id="bjLB"></aside></div></div>`);
+  bjFit(); BJL.seen = new Set(); bjlStart_listen(); bjlRender(); bjBoard(); bjSync();
+}
+function bjTabs(){ const n = BJL.st ? BJL.st.seats.filter(Boolean).length : 0;
+  return `<div class="bjtabs"><button data-bj="mode:solo" class="${BJ.mode!=="live"?"on":""}">Solo table</button><button data-bj="mode:live" class="${BJ.mode==="live"?"on":""}">Live table${n?" · "+n+" playing":""}</button></div>`; }
+function bjlInHand(){ const st = BJL.st, i = bjlMine(st); return i >= 0 && !!st.seats[i].hands && st.phase!=="done"; }
+async function bjMode(m){
+  if (m===BJ.mode) return;
+  if (m==="live") {
+    if (BJ.busy || ["deal","play","dealer"].includes(BJ.phase)) { toast("Finish this hand first"); return; }
+    if (BJ.phase==="bet" && BJ.bet) { BJ.bank += BJ.bet; BJ.bet = 0; bjSave(); }
+  } else {
+    if (bjlInHand()) { toast("Finish your hand at the live table first"); return; }
+    if (bjlMine(BJL.st) >= 0) await bjlAct("leave");
+    bjlStop();
+  }
+  BJ.mode = m; try { localStorage.setItem("jj-bj-mode", m); } catch(e) {}
+  renderBJ();
 }
 
 // ---- saving + leaderboard (Firestore collection "bjLeaders", one doc per signed-in person) ----
@@ -3218,8 +3484,9 @@ document.addEventListener("keydown", e=>{
   if (view!=="bj" || e.metaKey || e.ctrlKey || e.altKey) return;
   const a = document.activeElement; if (a && (a.tagName==="INPUT" || a.tagName==="TEXTAREA")) return;
   const k = e.key.toLowerCase(), m = {h:"hit", s:"stand", d:"double", p:"split"}[k];
+  if (m && BJ.mode==="live") { if (bjlMyHand(BJL.st)) { e.preventDefault(); bjlAct(m); } return; }
   if (m && BJ.phase==="play") { e.preventDefault(); bjAct(m); }
-  else if (e.key==="Enter" && (BJ.phase==="bet" || BJ.phase==="done") && BJ.bet) { e.preventDefault(); bjAct("deal"); }
+  else if (e.key==="Enter" && BJ.mode!=="live" && (BJ.phase==="bet" || BJ.phase==="done") && BJ.bet) { e.preventDefault(); bjAct("deal"); }
 });
 
 // =====================================================================
