@@ -42,7 +42,10 @@ button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);bor
 .tools button[aria-pressed="true"]{background:var(--accent)}
 .hint{position:absolute;bottom:10px;left:10px;right:10px;font-size:12px;color:var(--muted);pointer-events:none;text-align:center}
 #tags{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.tag{position:absolute;transform:translate(-50%,-50%);font-family:var(--f-mono);font-size:11px;padding:2px 6px;border-radius:4px;background:color-mix(in srgb,var(--panel) 85%,transparent);border:1px solid var(--line);white-space:nowrap;color:var(--ink);transition:opacity .25s}
+.tag{position:absolute;left:0;top:0;font-family:var(--f-mono);font-size:11px;padding:2px 6px;border-radius:4px;background:color-mix(in srgb,var(--panel) 92%,transparent);border:1px solid var(--line);white-space:nowrap;color:var(--ink);max-width:calc(50% - 24px);overflow:hidden;text-overflow:ellipsis}
+#leads{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+#leads path{fill:none;stroke:var(--muted);stroke-width:1;opacity:.75}
+#leads circle{stroke:var(--panel);stroke-width:1.5}
 .tag i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:0}
 .legend{display:flex;flex-wrap:wrap;gap:5px 12px;font-size:12.5px;color:var(--muted)}.legend span{display:inline-flex;align-items:center;gap:6px}
 .dot{width:10px;height:10px;border-radius:50%;flex:none;display:inline-block}
@@ -54,7 +57,7 @@ button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);bor
 </style></head><body>
 <div class="app">
 <aside class="side">
- <header><h1>Heart Development</h1><p>Trilaminar disc → four-chambered fetal heart</p></header>
+ <header><h1>Heart Development</h1><p>Trilaminar disc → fetal heart → aortic arches</p></header>
  <section class="card" id="info" aria-live="polite"></section>
  <section class="card"><p class="label">Stages</p><ol id="steps"></ol></section>
  <section class="card"><p class="label">Colours in this stage</p><div class="legend" id="legend"></div></section>
@@ -63,6 +66,7 @@ button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);bor
 <main class="stage">
  <div class="cvwrap">
   <canvas id="cv" aria-label="Interactive 3D model of heart development"></canvas>
+  <svg id="leads" aria-hidden="true"></svg>
   <div id="tags"></div>
   <div class="tools"><button id="tLabels" aria-pressed="true">Labels</button><button id="tFlow" aria-pressed="true">Blood flow</button><button id="tBeat" aria-pressed="true">Heartbeat</button><button id="tReset">Reset view</button></div>
   <div class="hint" id="hint">Drag to rotate · scroll or pinch to zoom · press play or pick a stage</div>
@@ -71,7 +75,7 @@ button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);bor
   <button id="bPrev" aria-label="Previous stage">◀</button>
   <button id="bPlay" aria-label="Play the whole sequence" style="min-width:74px">▶ Play</button>
   <button id="bNext" aria-label="Next stage">▶︎▶︎</button>
-  <input type="range" id="tl" min="0" max="11.999" step="0.001" value="0" aria-label="Timeline">
+  <input type="range" id="tl" min="0" max="15.999" step="0.001" value="0" aria-label="Timeline">
   <span class="pos" id="pos"></span>
  </div>
 </main>
@@ -138,13 +142,30 @@ const STAGES=[
 {t:"Spiral septum & the fetal heart",d:"Weeks 5–8",
  pts:["<b>Neural crest cells</b> migrate to the heart and form the <b>trunco-conal swellings</b>","They fuse in a twisting way into the <b>spiral septum</b>, the only septum that spirals","It splits the conus and truncus: right → <b>pulmonary trunk</b> (outlet of the RV), left → <b>aorta</b> (outlet of the LV), twisted around each other","The swellings also help form the aortic and pulmonic valves and the last part of the membranous septum","Fetal shunts: the <b>foramen ovale</b> and the <b>ductus arteriosus</b> (left 6th arch) from the pulmonary trunk to the aorta"],
  note:["Clinical","No neural crest → no spiral septum → <b>persistent truncus arteriosus</b> (always with a membranous VSD). Incomplete migration → <b>tetralogy of Fallot</b>: Pulmonic stenosis, RV hypertrophy, Overriding aorta, VSD (PROVe)."],
- q:["The trunco-conal swellings are made by…",["Endocardial cushions","Neural crest cells","Septum transversum"],1,"Neural crest cells migrate to the heart and form the trunco-conal swellings."]}
+ q:["The trunco-conal swellings are made by…",["Endocardial cushions","Neural crest cells","Septum transversum"],1,"Neural crest cells migrate to the heart and form the trunco-conal swellings."]},
+{t:"Aortic sac & the pharyngeal arch arteries",d:"Weeks 4–5",
+ pts:["The <b>aortic sac</b> sits at the top of the truncus arteriosus and divides into <b>right and left horns</b>","From the horns, <b>6 pairs of aortic (pharyngeal) arch arteries</b> curve around the pharynx to the paired <b>dorsal aortae</b>","They appear one after another, cranial to caudal, so they are <b>never all present at once</b>","The <b>1st and 2nd</b> arches mostly regress; their remnants are the <b>maxillary</b> (1st) and <b>stapedial</b> (2nd) arteries","The <b>5th</b> arch never fully forms and degenerates completely"],
+ note:["What matters for the exam","Arches 1, 2 and 5 drop out. Keep 3 (carotids), 4 (aortic arch and right subclavian) and 6 (pulmonary arteries and ductus arteriosus)."],
+ q:["Which aortic arch artery degenerates completely?",["1st","5th","6th"],1,"The 5th never fully forms and disappears. The 1st and 2nd leave small remnants: the maxillary and stapedial arteries."]},
+{t:"3rd & 4th arches: carotids, aortic arch, subclavian",d:"Weeks 6–8",
+ pts:["<b>3rd arch</b> → <b>common carotid</b> and the first part of the <b>internal carotid</b>; the rest of the internal carotid is the dorsal aorta above it","The <b>external carotid</b> sprouts from the 3rd arch as an <b>arterial bud</b>","The dorsal aorta between the 3rd and 4th arches disappears on both sides","<b>Left 4th</b> → <b>arch of the aorta</b>, between the left common carotid and left subclavian","<b>Right 4th</b> → first part of the <b>right subclavian</b>; the rest is the right dorsal aorta plus the <b>7th intersegmental artery</b>","<b>Left subclavian</b> → left 7th intersegmental artery","<b>Right horn</b> of the aortic sac → <b>brachiocephalic artery</b>; <b>left horn</b> → <b>ascending aorta</b>","The right dorsal aorta below the 7th intersegmental disappears; the left one stays as the <b>descending aorta</b>"],
+ note:["The aorta in 3 parts","Ascending = left horn of the aortic sac. Arch = left 4th arch artery. Descending = left dorsal aorta."],
+ q:["The arch of the aorta comes from the…",["Right 4th arch artery","Left 4th arch artery","Left 6th arch artery"],1,"Left 4th → arch of the aorta. Right 4th → first part of the right subclavian."]},
+{t:"6th arch: pulmonary arteries & ductus arteriosus",d:"Weeks 6–8",
+ pts:["A <b>pulmonary bud</b> grows from each 6th arch toward the lung","The proximal parts of the 6th arches → right and left <b>pulmonary arteries</b>, connected to the pulmonary trunk","<b>Right 6th</b>: the distal part <b>degenerates</b>","<b>Left 6th</b>: the distal part stays as the <b>ductus arteriosus</b>, shunting blood from the pulmonary trunk into the aorta; after birth it becomes the <b>ligamentum arteriosum</b>","The <b>recurrent laryngeal nerves</b> (from the vagus) hook under the 6th arches","On the right, the distal 6th and the 5th disappear, so the nerve moves up and hooks around the <b>right subclavian</b> (4th arch). On the left it stays hooked under the <b>ductus arteriosus</b>"],
+ note:["Clinical","The left recurrent laryngeal nerve loops under the aortic arch at the ligamentum arteriosum, so an aortic arch aneurysm or a big left atrium can stretch it and cause hoarseness."],
+ q:["Why does the right recurrent laryngeal nerve hook around the right subclavian artery?",["The right 4th arch degenerates","The distal right 6th and the 5th arch degenerate","The ductus arteriosus forms on the right"],1,"With the distal right 6th and the 5th gone, the nerve slides up to the next arch on the right: the 4th, which is the right subclavian."]},
+{t:"Dorsal aorta & its branches",d:"Weeks 4–8",
+ pts:["The two dorsal aortae <b>fuse</b> below the 7th intersegmental level into one <b>descending aorta</b>","<b>Ventral (vitelline) branches</b> supply the gut: <b>celiac</b> → foregut, <b>superior mesenteric</b> → midgut, <b>inferior mesenteric</b> → hindgut","<b>Lateral branches</b> supply organs from intermediate mesoderm: <b>suprarenal</b>, <b>renal</b> and <b>gonadal</b> arteries","<b>Dorsal intersegmental arteries</b> run between the somites","The <b>7th cervical intersegmental</b> artery → <b>subclavian</b>, the axis artery of the upper limb","The <b>5th lumbar intersegmental</b> artery → axis artery of the <b>lower limb</b>"],
+ note:["Mnemonic","Celiac, SMA, IMA run top to bottom and feed fore-, mid- and hindgut in that order."],
+ q:["Which artery supplies the midgut?",["Celiac trunk","Superior mesenteric artery","Inferior mesenteric artery"],1,"Celiac → foregut, SMA → midgut, IMA → hindgut."]}
 ];
 
 // ---------- colours ----------
 const C={ecto:0x5b8fd9,meso:0xd9665b,endo:0xe8c25a,noto:0x9d7be8,plate:0x3f6fc0,streak:0x2e4a7a,orom:0xf09ab0,coel:0x6fd3e0,st:0xb48a5c,cell:0xff7a8a,endoT:0xffb3bc,mantle:0xc8505a,
  sv:0x7c8ce0,atr:0x4fb8b0,avc:0x7fc9a8,ven:0xe36464,conus:0xe8a34a,trunc:0xe6c84f,sac:0xc97bd6,aoD:0xd96b78,vein:0x5b7fd6,
- wall:0xc65660,back:0x6e2a33,cush:0xf3d27a,sp1:0xf3a7b8,sp2:0xb85a7c,muscIVS:0xa83f49,ncc:0x9d7be8,aorta:0xe04848,pt:0x4a78d9,flow:0xffffff};
+ wall:0xc65660,back:0x6e2a33,cush:0xf3d27a,sp1:0xf3a7b8,sp2:0xb85a7c,muscIVS:0xa83f49,ncc:0x9d7be8,aorta:0xe04848,pt:0x4a78d9,flow:0xffffff,
+ a1:0xf09ac4,a2:0xb38be3,a3:0x47b874,a4:0xe04848,a5:0x8a8f96,a6:0x4a78d9,duct:0x9a7bd0,da:0xd0855a,isa:0xe9a47c,vagus:0xf2d74e,phar:0xe8c25a,gutF:0xe8c25a,gutM:0xd9a441,gutH:0xc48a2e,organ:0xb98c74,lung:0x8fc7e8};
 const hex=c=>"#"+c.toString(16).padStart(6,"0");
 const LEG=[
  [["ecto","Ectoderm"],["meso","Mesoderm"],["endo","Endoderm"],["noto","Notochordal process"],["plate","Neural plate"],["orom","Oropharyngeal membrane"]],
@@ -158,7 +179,11 @@ const LEG=[
  [["wall","Heart wall (cut open)"],["cush","Endocardial cushions"]],
  [["cush","Septum intermedium"],["sp1","Septum primum"],["sp2","Septum secundum"],["flow","Fetal blood flow"]],
  [["muscIVS","Muscular IVS"],["cush","Membranous IVS / cushions"],["sp1","Septum primum"],["sp2","Septum secundum"]],
- [["ncc","Trunco-conal swellings (neural crest)"],["pt","Pulmonary trunk"],["aorta","Aorta"],["sp2","Atrial septa"],["muscIVS","Ventricular septum"]]
+ [["ncc","Trunco-conal swellings (neural crest)"],["pt","Pulmonary trunk"],["aorta","Aorta"],["sp2","Atrial septa"],["muscIVS","Ventricular septum"]],
+ [["sac","Aortic sac & horns"],["a1","1st arch"],["a2","2nd arch"],["a3","3rd arch"],["a4","4th arch"],["a5","5th arch"],["a6","6th arch"],["da","Dorsal aortae"],["phar","Pharynx"]],
+ [["sac","Aortic sac → brachiocephalic & ascending aorta"],["a3","3rd → carotids"],["a4","4th → aortic arch / R subclavian"],["a6","6th arch"],["da","Dorsal aorta"],["isa","7th intersegmental"]],
+ [["a6","6th → pulmonary arteries"],["duct","Ductus arteriosus"],["vagus","Vagus & recurrent laryngeal nerves"],["a4","4th arch"],["lung","Lung buds"]],
+ [["da","Descending aorta"],["gutF","Foregut"],["gutM","Midgut"],["gutH","Hindgut"],["organ","Suprarenal, kidney, gonad"],["isa","Intersegmental arteries"]]
 ];
 
 // ---------- scene ----------
@@ -377,6 +402,87 @@ function updateC(t){
  const dx=R(t,11.8,11.95);setTube(duct,dx>0.02?[ptTop.clone().add(V(0.12,0.42,-0.35)),V(0.55,Y1+0.62,-0.5),V(0.62,Y1+0.72,-0.66)]:[],0.12,16);duct.userData.lk=dx;
 }
 
+
+// ====================================================================
+// PHASE D: the aortic arch arteries (front view; the embryo's left is +x, ventral is +z)
+// ====================================================================
+G.D=new THREE.Group();scene.add(G.D);
+const DZ=-1.05,DX=0.95,VX=0.35,VZ=1.0,SAC=V(0,0.55,1.05);
+const AY={1:3.7,2:3.1,3:2.45,4:1.8,5:1.32,6:0.85};
+const ACOL={1:C.a1,2:C.a2,3:C.a3,4:C.a4,5:C.a5,6:C.a6};
+const dM=(c,op)=>{const m=tubeMesh(c,op==null?1:op);G.D.add(m);return m;};
+function archPts(s,y,f0=0,f1=1){const full=[V(s*VX,y,VZ),V(s*0.95,y+0.1,VZ-0.05),V(s*1.5,y+0.14,0.05),V(s*1.3,y+0.06,-0.8),V(s*DX,y,DZ)];
+ const cv=new THREE.CatmullRomCurve3(full,false,"centripetal");const n=20,pts=[];for(let i=0;i<=n;i++)pts.push(cv.getPointAt(lerp(f0,f1,i/n)));return pts;}
+const line=(a,b,n=6)=>{const p=[];for(let i=0;i<=n;i++)p.push(a.clone().lerp(b,i/n));return p;};
+const daAt=(s,y)=>V(s*DX,y,DZ);
+const D={};
+for(const s of [-1,1]){const k=s<0?"R":"L";
+ D["horn"+k]=dM(C.sac);D["v64"+k]=dM(C.sac);D["v43"+k]=dM(C.sac);D["v3t"+k]=dM(C.a3);
+ for(const n of [1,2,3,4,5])D["a"+n+k]=dM(ACOL[n]);
+ D["a6p"+k]=dM(C.a6);D["a6d"+k]=dM(k==="L"?C.duct:C.a6);D["pa"+k]=dM(C.a6);
+ D["dTop"+k]=dM(C.da);D["d34"+k]=dM(C.da);D["d46"+k]=dM(C.da);D["d67"+k]=dM(C.da);D["d7f"+k]=dM(C.da);
+ D["isa7"+k]=dM(C.isa);D["vag"+k]=dM(C.vagus);D["rln"+k]=dM(C.vagus);D["isaL5"+k]=dM(C.isa);
+ D["supra"+k]=dM(C.da);D["renal"+k]=dM(C.da);D["gonad"+k]=dM(C.da);
+ D["lung"+k]=new THREE.Mesh(new THREE.SphereGeometry(1,24,16),mat(C.lung,0.35));D["lung"+k].scale.set(0.45,0.75,0.45);D["lung"+k].position.set(s*1.0,-0.55,0.15);G.D.add(D["lung"+k]);
+ D["limbU"+k]=new THREE.Mesh(new THREE.SphereGeometry(1,20,14),mat(C.organ,0.28));D["limbU"+k].scale.set(0.55,0.4,0.4);D["limbU"+k].position.set(s*3.05,0.0,-0.6);G.D.add(D["limbU"+k]);
+ D["limbL"+k]=new THREE.Mesh(new THREE.SphereGeometry(1,20,14),mat(C.organ,0.28));D["limbL"+k].scale.set(0.55,0.4,0.4);D["limbL"+k].position.set(s*2.55,-5.9,-0.6);G.D.add(D["limbL"+k]);
+ for(const [nm,y,sc] of [["adr",-3.0,[0.22,0.16,0.18]],["kid",-3.65,[0.3,0.42,0.22]],["gon",-4.45,[0.18,0.3,0.16]]]){const m=new THREE.Mesh(new THREE.SphereGeometry(1,18,12),mat(C.organ,0.6));m.scale.set(...sc);m.position.set(s*1.25,y,-1.0);G.D.add(m);D[nm+k]=m;}
+}
+D.sac=new THREE.Mesh(new THREE.SphereGeometry(0.34,24,16),mat(C.sac,1));D.sac.position.copy(SAC);G.D.add(D.sac);
+D.trunc=dM(C.trunc);D.heart=new THREE.Mesh(new THREE.SphereGeometry(1,28,20),mat(C.wall,0.3));D.heart.scale.set(0.95,0.85,0.75);D.heart.position.set(0,-1.75,1.25);G.D.add(D.heart);
+D.phar=new THREE.Mesh(new THREE.CylinderGeometry(0.5,0.62,4.2,24,1,true),mat(C.phar,0.1));D.phar.position.set(0,2.3,0);D.phar.material.depthWrite=false;G.D.add(D.phar);
+D.dFused=dM(C.da);D.ptD=dM(C.a6);
+const gut=[["gutF",-1.6,-3.05],["gutM",-3.05,-4.65],["gutH",-4.65,-6.0]].map(([c,a,b])=>{const m=new THREE.Mesh(new THREE.CylinderGeometry(0.32,0.32,a-b,18,1,true),mat(C[c],0.45));m.position.set(0,(a+b)/2,0.75);G.D.add(m);return m;});
+const vbr=[["cel",-2.35],["sma",-3.75],["ima",-5.15]].map(([n,y])=>{const m=dM(C.da);D[n]=m;return [m,y];});
+const dIsa=[];for(let y=-0.35;y>-5.6;y-=0.5){for(const s of [-1,1]){const m=dM(C.isa,0.8);dIsa.push([m,y,s]);}}
+const SHOW=k=>k>0.01;
+function setD(m,pts,r,k){if(!SHOW(k)){m.userData.lk=0;setTube(m,[],r);return;}setTube(m,pts,r,24);m.userData.lk=k;}
+let rlnHook={R:AY[6],L:AY[6]};
+function updateD(t){
+ const st16=R(t,15.0,15.35);
+ // arches appear cranial → caudal; 1st, 2nd shrink to remnants; 5th comes and goes
+ const app=n=>({1:R(t,12.05,12.25),2:R(t,12.2,12.4),3:R(t,12.35,12.55),4:R(t,12.5,12.7),5:R(t,12.62,12.75),6:R(t,12.7,12.9)})[n];
+ const reg={1:1-0.8*R(t,12.45,12.65),2:1-0.8*R(t,12.6,12.8),5:1-R(t,12.85,12.97)};
+ const gone34=1-R(t,13.15,13.35),isaIn=R(t,13.05,13.2),rDA=1-R(t,13.4,13.6);
+ const pulm=R(t,14.1,14.35),r6d=1-R(t,14.4,14.6),hookUp=R(t,14.55,14.85),nerve=R(t,14.0,14.15);
+ for(const s of [-1,1]){const k=s<0?"R":"L";
+  setD(D["horn"+k],[SAC.clone(),V(s*0.22,0.7,1.05),V(s*VX,AY[6],VZ)],0.17,1);
+  setD(D["v64"+k],line(V(s*VX,AY[6],VZ),V(s*VX,AY[4],VZ)),0.15,1);
+  setD(D["v43"+k],line(V(s*VX,AY[4],VZ),V(s*VX,AY[3],VZ)),0.14,app(3));
+  setD(D["v3t"+k],line(V(s*VX,AY[3],VZ),V(s*VX*0.8,3.95,VZ-0.1)),0.11,app(1));
+  for(const n of [1,2,3,4,5]){const a=app(n)*(reg[n]==null?1:reg[n]);const rr=n===5?0.07:(n<3?0.11*(reg[n]>0.5?1:0.75):0.14);
+   const part=n<3&&reg[n]<0.6?archPts(s,AY[n],0,0.35):archPts(s,AY[n],0,clamp(app(n)*1.05));setD(D["a"+n+k],part,rr,a>0.02?Math.max(a,n<3?0.55:a):0);}
+  const a6=app(6);setD(D["a6p"+k],archPts(s,AY[6],0,Math.min(0.45,a6)),0.15,a6>0.02?1:0);
+  const dd=k==="R"?r6d:1;setD(D["a6d"+k],a6>0.45?archPts(s,AY[6],0.45,clamp(a6*1.05)):[],k==="L"?0.13:0.14,a6>0.45?dd:0);
+  setD(D["pa"+k],pulm>0.02?line(archPts(s,AY[6],0.42,0.43)[0],V(s*1.0,lerp(AY[6]-0.1,-0.25,pulm),0.25),8):[],0.1,pulm);
+  D["lung"+k].userData.lk=pulm*0.9;
+  // dorsal aortae
+  setD(D["dTop"+k],line(daAt(s,4.4),daAt(s,AY[3])),0.15,1);
+  setD(D["d34"+k],line(daAt(s,AY[3]),daAt(s,AY[4])),0.15,gone34);
+  setD(D["d46"+k],line(daAt(s,AY[4]),daAt(s,AY[6])),0.15,1);
+  setD(D["d67"+k],line(daAt(s,AY[6]),daAt(s,0.2)),0.15,1);
+  setD(D["d7f"+k],[daAt(s,0.2),daAt(s,-0.6),V(s*0.35,-1.15,DZ-0.03),V(0,-1.4,DZ-0.05)],0.15,k==="R"?rDA:1);
+  setD(D["isa7"+k],[daAt(s,0.2),V(s*1.6,0.18,-0.9),V(s*2.6,0.05,-0.62)],0.1,isaIn);
+  D["limbU"+k].userData.lk=isaIn*0.8;
+  // vagus + recurrent laryngeal nerve
+  const hy=k==="R"?lerp(AY[6],AY[4],hookUp):AY[6];rlnHook[k]=hy;
+  setD(D["vag"+k],[V(s*1.25,4.6,-0.35),V(s*1.85,3.0,-0.3),V(s*1.9,0.6,-0.3),V(s*1.75,-1.6,-0.35)],0.05,nerve);
+  const vp=V(s*1.9,hy+0.25,-0.3);
+  setD(D["rln"+k],[vp,V(s*1.75,hy-0.3,-0.15),V(s*1.35,hy-0.42,0.35),V(s*1.0,hy-0.15,0.55),V(s*0.75,hy+0.7,0.35),V(s*0.4,3.9,0.25)],0.045,nerve);
+  // stage 16: lateral branches, limb axis arteries
+  setD(D["supra"+k],line(daAt(0,-3.0).setX(s*0.12),V(s*1.1,-3.0,-1.0),3),0.07,st16);
+  setD(D["renal"+k],line(daAt(0,-3.65).setX(s*0.12),V(s*1.05,-3.65,-1.05),3),0.08,st16);
+  setD(D["gonad"+k],line(daAt(0,-4.3).setX(s*0.12),V(s*1.1,-4.45,-1.0),3),0.07,st16);
+  for(const nm of ["adr","kid","gon"])D[nm+k].userData.lk=st16;
+  setD(D["isaL5"+k],[V(s*0.12,-5.6,DZ-0.1),V(s*1.0,-5.75,-1.0),V(s*2.3,-5.9,-0.65)],0.09,st16);D["limbL"+k].userData.lk=st16*0.8;
+ }
+ D.sac.userData.lk=1;setD(D.trunc,[V(0,-1.0,1.3),V(0,-0.2,1.18),SAC.clone()],0.24,1);D.heart.userData.lk=1-st16*0.6;D.phar.userData.lk=1-R(t,12.55,12.8);
+ setD(D.dFused,line(V(0,-1.4,DZ-0.05),V(0,lerp(-2.6,-6.2,st16),DZ-0.05),10),0.18,1);
+ setD(D.ptD,pulm>0.02?[V(0,-0.8,1.4),V(-0.05,0.2,1.35),V(0,AY[6]-0.02,VZ+0.1)]:[],0.12,0);
+ gut.forEach(m=>m.userData.lk=st16);
+ vbr.forEach(([m,y])=>setD(m,[V(0,y,DZ),V(0,y-0.05,-0.2),V(0,y-0.08,0.48)],0.08,st16));
+ dIsa.forEach(([m,y,s])=>setD(m,[V(s*0.1,y,DZ-0.12),V(s*0.32,y-0.03,DZ-0.55)],0.04,st16*(y<-0.3?1:0)));
+}
 // ---------- blood-flow particles ----------
 const flowG=new THREE.Group();scene.add(flowG);const NP=36;const parts=[];
 for(let i=0;i<NP;i++){const m=new THREE.Mesh(new THREE.SphereGeometry(0.06,8,6),new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.9,depthTest:false}));m.renderOrder=5;flowG.add(m);parts.push(m);}
@@ -384,7 +490,7 @@ const FO_PATH=new THREE.CatmullRomCurve3([V(-1.5,0.95,-0.3),V(-0.7,0.85,-0.3),V(
 function updateFlow(t,clock){
  let path=null,lenK=1;
  if(t>=5&&t<8&&st.flow&&curveB){path=curveB;}
- else if(t>=9.8&&st.flow){path=FO_PATH;}
+ else if(t>=9.8&&t<12&&st.flow){path=FO_PATH;}
  flowG.visible=!!path;if(!path)return;
  const fadeIn=t>=9.8?R(t,9.8,9.9):R(t,5.1,5.3)*(1-R(t,7.8,8.0));
  for(let i=0;i<NP;i++){const s=((clock*0.12+i/NP)%1);const p=path.getPointAt(s);parts[i].position.copy(p);
@@ -394,7 +500,7 @@ function updateFlow(t,clock){
 
 // ---------- labels ----------
 const tagsEl=$("tags");const TAGS=[];
-function tag(text,col,a,b,pos){const el=document.createElement("div");el.className="tag";el.innerHTML=(col!=null?`<i style="background:${hex(col)}"></i>`:"")+text;tagsEl.appendChild(el);TAGS.push({el,a,b,pos});}
+function tag(text,col,a,b,pos){const el=document.createElement("div");el.className="tag";el.innerHTML=(col!=null?`<i style="background:${hex(col)}"></i>`:"")+text;tagsEl.appendChild(el);TAGS.push({el,a,b,pos,col});}
 const oA=()=>gap;
 tag("Ectoderm",C.ecto,0,1,()=>F(-1.5,Wof(-1.5)*0.92,gap));
 tag("Mesoderm",C.meso,0,0.95,()=>F(-0.6,Wof(-0.6)*0.92,0));
@@ -456,15 +562,71 @@ tag("Trunco-conal swellings",C.ncc,11.05,11.5,()=>V(-0.6,2.0,OZ+0.2));
 tag("Pulmonary trunk",C.pt,11.5,12,()=>V(-0.55,0.5,OZ+0.35));
 tag("Aorta",C.aorta,11.5,12,()=>V(-0.6,Y1+0.7,0.4));
 tag("Ductus arteriosus",0x9a7bd0,11.85,12,()=>V(1.0,Y1+0.85,-0.4));
-function placeTags(t){const r=canvas.getBoundingClientRect();const v=new THREE.Vector3();
- for(const g of TAGS){const on=st.labels&&t>=g.a&&t<g.b;if(!on){g.el.style.display="none";continue;}
-  let p;try{p=g.pos();}catch(e){p=null;}if(!p){g.el.style.display="none";continue;}
-  v.copy(p).project(camera);if(v.z>1||Math.abs(v.x)>1.1||Math.abs(v.y)>1.1){g.el.style.display="none";continue;}
-  g.el.style.display="";g.el.style.left=((v.x+1)/2*r.width)+"px";g.el.style.top=((1-v.y)/2*r.height)+"px";}}
+// Labels sit in two columns at the left and right edges, with a leader line to a dot on the structure,
+// so nothing is drawn over the part of the model that's changing.
+const leads=$("leads");
 
+tag("Aortic sac",C.sac,12.0,13.0,()=>SAC.clone());
+tag("Truncus arteriosus",C.trunc,12.0,13.0,()=>V(0,-0.5,1.25));
+tag("1st arch artery",C.a1,12.2,12.62,()=>archPts(1,AY[1])[10]);
+tag("2nd arch artery",C.a2,12.35,12.78,()=>archPts(-1,AY[2])[10]);
+tag("1st → maxillary a. (remnant)",C.a1,12.62,13.0,()=>archPts(1,AY[1],0,0.35)[20]);
+tag("2nd → stapedial a. (remnant)",C.a2,12.78,13.0,()=>archPts(-1,AY[2],0,0.35)[20]);
+tag("3rd arch",C.a3,12.5,13.0,()=>archPts(1,AY[3])[10]);
+tag("4th arch",C.a4,12.65,13.0,()=>archPts(-1,AY[4])[10]);
+tag("5th arch (degenerates)",C.a5,12.7,12.95,()=>archPts(1,AY[5])[10]);
+tag("6th arch",C.a6,12.85,13.0,()=>archPts(1,AY[6])[12]);
+tag("Paired dorsal aortae",C.da,12.0,13.0,()=>daAt(-1,0.0));
+tag("Pharynx",C.phar,12.0,12.6,()=>V(0,3.4,0.5));
+tag("Common carotid (3rd)",C.a3,13.0,14.0,()=>V(-VX,2.1,VZ));
+tag("Internal carotid",C.a3,13.3,14.0,()=>archPts(1,AY[3])[14]);
+tag("External carotid (bud of 3rd)",C.a3,13.2,14.0,()=>V(VX*0.9,3.5,VZ-0.05));
+tag("Dorsal aorta between 3rd & 4th disappears",C.da,13.1,13.45,()=>daAt(1,2.1));
+tag("L 4th → arch of aorta",C.a4,13.0,14.0,()=>archPts(1,AY[4])[10]);
+tag("R 4th → right subclavian",C.a4,13.0,14.0,()=>archPts(-1,AY[4])[10]);
+tag("R horn → brachiocephalic a.",C.sac,13.0,14.0,()=>V(-0.24,1.15,VZ));
+tag("L horn → ascending aorta",C.sac,13.0,14.0,()=>V(0.24,0.62,VZ+0.05));
+tag("7th intersegmental a.",C.isa,13.15,14.0,()=>V(-2.0,0.12,-0.8));
+tag("R dorsal aorta regresses",C.da,13.35,13.8,()=>daAt(-1,-0.5));
+tag("L dorsal aorta → descending aorta",C.da,13.6,14.0,()=>V(0,-2.1,DZ));
+tag("6th arch",C.a6,14.0,14.1,()=>archPts(-1,AY[6])[12]);
+tag("Pulmonary buds → pulmonary arteries",C.a6,14.2,15.0,()=>V(1.0,0.2,0.4));
+tag("Lung bud",C.lung,14.2,15.0,()=>V(-1.0,-0.6,0.5));
+tag("Distal R 6th degenerates",C.a6,14.35,14.7,()=>archPts(-1,AY[6])[15]);
+tag("L 6th → ductus arteriosus",C.duct,14.3,15.0,()=>archPts(1,AY[6])[16]);
+tag("Vagus nerve",C.vagus,14.05,15.0,()=>V(1.85,3.1,-0.3));
+tag("R recurrent laryngeal → hooks R subclavian",C.vagus,14.75,15.0,()=>V(-1.2,rlnHook.R-0.42,0.35));
+tag("L recurrent laryngeal → hooks ductus",C.vagus,14.2,15.0,()=>V(1.35,AY[6]-0.42,0.35));
+tag("R recurrent laryngeal (under 6th)",C.vagus,14.2,14.75,()=>V(-1.35,rlnHook.R-0.42,0.35));
+tag("Descending aorta",C.da,15.0,16,()=>V(0,-1.9,DZ-0.05));
+tag("Celiac → foregut",C.gutF,15.25,16,()=>V(0,-2.42,0.0));
+tag("SMA → midgut",C.gutM,15.25,16,()=>V(0,-3.82,0.0));
+tag("IMA → hindgut",C.gutH,15.25,16,()=>V(0,-5.22,0.0));
+tag("Suprarenal a.",C.organ,15.3,16,()=>V(1.2,-3.0,-1.0));
+tag("Renal a.",C.organ,15.3,16,()=>V(-1.3,-3.65,-1.05));
+tag("Gonadal a.",C.organ,15.3,16,()=>V(1.1,-4.45,-1.0));
+tag("C7 intersegmental → subclavian (upper limb)",C.isa,15.1,16,()=>V(2.3,0.08,-0.68));
+tag("L5 intersegmental → axis a. of lower limb",C.isa,15.3,16,()=>V(-1.9,-5.85,-0.75));
+tag("Dorsal intersegmental arteries",C.isa,15.3,16,()=>V(0.3,-1.9,DZ-0.5));
+function placeTags(t){const r=canvas.getBoundingClientRect(),W=r.width,H=r.height;const v=new THREE.Vector3();const vis=[];
+ for(const g of TAGS){const on=st.labels&&t>=g.a&&t<g.b;if(!on){g.el.style.display="none";g.side=null;continue;}
+  let p;try{p=g.pos();}catch(e){p=null;}if(!p){g.el.style.display="none";continue;}
+  v.copy(p).project(camera);if(v.z>1||Math.abs(v.x)>1.05||Math.abs(v.y)>1.05){g.el.style.display="none";continue;}
+  g.el.style.display="";const ax=(v.x+1)/2*W,ay=(1-v.y)/2*H;
+  if(!g.side||(g.side==="L"&&ax>W/2+40)||(g.side==="R"&&ax<W/2-40))g.side=ax<W/2?"L":"R";
+  vis.push({g,ax,ay,w:g.el.offsetWidth,h:g.el.offsetHeight||20});}
+ const top=50,bot=H-30,gap=6,m=12;let svg="";
+ for(const side of ["L","R"]){const col=vis.filter(o=>o.g.side===side).sort((a,b)=>a.ay-b.ay);
+  let y=top;for(const o of col){o.y=Math.max(y,Math.min(o.ay-o.h/2,bot-o.h));y=o.y+o.h+gap;}
+  let lim=bot;for(let i=col.length-1;i>=0;i--){const o=col[i];if(o.y+o.h>lim)o.y=Math.max(top,lim-o.h);lim=o.y-gap;}
+  for(const o of col){const x=side==="L"?m:W-m-o.w;o.g.el.style.transform=`translate(${x}px,${o.y}px)`;
+   const ex=side==="L"?x+o.w:x,ey=o.y+o.h/2,kx=side==="L"?ex+14:ex-14;const c=o.g.col!=null?hex(o.g.col):"var(--muted)";
+   svg+=`<path d="M${ex} ${ey}H${kx}L${o.ax} ${o.ay}"/><circle cx="${o.ax}" cy="${o.ay}" r="3.2" fill="${c}"/>`;}}
+ leads.innerHTML=svg;}
 // ---------- camera presets per stage: [pos, target] ----------
 const CAM=[[[5.5,-7.5,6.5],[0,0,0]],[[3.8,-2.5,7.6],[0,1.6,0]],[[2.6,1.0,5.2],[0,3.1,0]],[[11.5,1.5,1.5],[0,0.6,-0.6]],[[6.5,3.2,0.6],[0,1.7,-1.2]],
- [[4.5,1.0,11.5],[0,0,-0.3]],[[7.5,3.5,9.5],[0,0,-0.2]],[[-9,3,-5.5],[0,0.6,-0.6]],[[3.5,1.5,8.5],[0,0,-0.3]],[[1.5,0.8,7.5],[0,0.9,-0.3]],[[1.8,-0.1,9.6],[0,-0.25,-0.3]],[[5.5,2.0,10.5],[0,0.6,0]]];
+ [[4.5,1.0,11.5],[0,0,-0.3]],[[7.5,3.5,9.5],[0,0,-0.2]],[[-9,3,-5.5],[0,0.6,-0.6]],[[3.5,1.5,8.5],[0,0,-0.3]],[[1.5,0.8,7.5],[0,0.9,-0.3]],[[1.8,-0.1,9.6],[0,-0.25,-0.3]],[[5.5,2.0,10.5],[0,0.6,0]],
+ [[6.5,4.2,10.0],[0,1.6,-0.1]],[[5.5,3.8,10.5],[0,1.5,-0.1]],[[6.0,3.0,10.0],[0,1.0,0]],[[8.0,-0.5,14.5],[0,-2.4,-0.3]]];
 let tween=null;
 function goCam(i,instant){const c=CAM[i];const to=V(...c[0]),tg=V(...c[1]);if(instant||REDUCE){camera.position.copy(to);controls.target.copy(tg);tween=null;return;}
  tween={p0:camera.position.clone(),p1:to,t0:controls.target.clone(),t1:tg,k:0};}
@@ -481,14 +643,14 @@ function showStage(i){const s=STAGES[i];
 $("ckBody").addEventListener("click",e=>{const b=e.target.closest("[data-o]");if(!b)return;const q=STAGES[st.stage].q;const j=+b.dataset.o;
  for(const x of $("ckBody").querySelectorAll("[data-o]"))x.classList.remove("ok","bad");
  b.classList.add(j===q[2]?"ok":"bad");if(j!==q[2])$("ckBody").querySelector(`[data-o="${q[2]}"]`).classList.add("ok");$("ckFb").textContent=(j===q[2]?"Correct. ":"Not quite. ")+q[3];});
-function setT(t){st.t=clamp(t,0,11.999);$("tl").value=st.t;const i=Math.floor(st.t);if(i!==st.stage){st.stage=i;showStage(i);goCam(i);}
+function setT(t){st.t=clamp(t,0,15.999);$("tl").value=st.t;const i=Math.floor(st.t);if(i!==st.stage){st.stage=i;showStage(i);goCam(i);}
  $("pos").textContent=`Stage ${i+1} · ${Math.round((st.t-i)*100)}%`;}
 function playStage(i){st.play=true;st.stopAt=i+0.9;setT(i);updPlay();}
 function updPlay(){$("bPlay").textContent=st.play?"❚❚ Pause":"▶ Play";$("bPlay").setAttribute("aria-label",st.play?"Pause":"Play the whole sequence");}
 $("steps").addEventListener("click",e=>{const b=e.target.closest("[data-s]");if(b)playStage(+b.dataset.s);});
 $("bPrev").onclick=()=>playStage(Math.max(0,st.stage-(st.t-st.stage<0.15?1:0)));
-$("bNext").onclick=()=>playStage(Math.min(11,st.stage+1));
-$("bPlay").onclick=()=>{if(st.play){st.play=false;}else{if(st.t>=11.95)setT(0);st.play=true;st.stopAt=null;}updPlay();};
+$("bNext").onclick=()=>playStage(Math.min(15,st.stage+1));
+$("bPlay").onclick=()=>{if(st.play){st.play=false;}else{if(st.t>=15.95)setT(0);st.play=true;st.stopAt=null;}updPlay();};
 $("tl").addEventListener("input",e=>{st.play=false;updPlay();setT(+e.target.value);});
 function tog(id,k){const b=$(id);b.onclick=()=>{st[k]=!st[k];b.setAttribute("aria-pressed",st[k]);};}
 tog("tLabels","labels");tog("tFlow","flow");tog("tBeat","beat");
@@ -502,19 +664,19 @@ function bg(){scene.background=new THREE.Color(css("--scene")||"#0c1214");}
 window.addEventListener("message",e=>{if(e.data==="jj-theme")setTimeout(bg,30);});window.addEventListener("storage",()=>setTimeout(bg,30));
 let last=performance.now(),clock=0;const SPEED=1/7;   // one stage every ~7 s
 function frame(now){requestAnimationFrame(frame);const dt=Math.min(0.05,(now-last)/1000);last=now;clock+=dt;
- if(st.play){let t=st.t+dt*SPEED*(REDUCE?3:1);if(st.stopAt!=null&&t>=st.stopAt){t=st.stopAt;st.play=false;updPlay();}if(t>=11.999){t=11.999;st.play=false;updPlay();}setT(t);}
+ if(st.play){let t=st.t+dt*SPEED*(REDUCE?3:1);if(st.stopAt!=null&&t>=st.stopAt){t=st.stopAt;st.play=false;updPlay();}if(t>=15.999){t=15.999;st.play=false;updPlay();}setT(t);}
  const t=st.t;
  const beat=st.beat&&t>=4.4&&!REDUCE?Math.pow(Math.max(0,Math.sin(clock*Math.PI*2*1.1)),6):0;
- const kA=1-R(t,5.0,5.3),kB=R(t,5.0,5.3)*(1-R(t,8.0,8.3)),kC=R(t,8.0,8.3);
- if(kA>0.01)updateA(t);if(kB>0.01)updateB(t,beat);if(kC>0.01)updateC(t);
- fade(G.A,kA);fade(G.B,kB);fade(G.C,kC);
+ const kA=1-R(t,5.0,5.3),kB=R(t,5.0,5.3)*(1-R(t,8.0,8.3)),kC=R(t,8.0,8.3)*(1-R(t,12.0,12.25)),kD=R(t,12.0,12.25);
+ if(kA>0.01)updateA(t);if(kB>0.01)updateB(t,beat);if(kC>0.01)updateC(t);if(kD>0.01)updateD(t);
+ fade(G.A,kA);fade(G.B,kB);fade(G.C,kC);fade(G.D,kD);
  G.C.scale.setScalar(1+0.025*beat);
  updateFlow(t,clock);
  if(tween){tween.k=Math.min(1,tween.k+dt/1.2);const k=sm(tween.k);camera.position.lerpVectors(tween.p0,tween.p1,k);controls.target.lerpVectors(tween.t0,tween.t1,k);if(tween.k>=1)tween=null;}
  controls.update();renderer.render(scene,camera);placeTags(t);}
 controls.addEventListener("start",()=>{tween=null;});
 // deep link: #stage=7 (1-based)
-function route(){const h=new URLSearchParams(location.hash.slice(1));const s=parseInt(h.get("stage")||"1",10);const i=clamp(isNaN(s)?0:s-1,0,11);
+function route(){const h=new URLSearchParams(location.hash.slice(1));const s=parseInt(h.get("stage")||"1",10);const i=clamp(isNaN(s)?0:s-1,0,15);
  st.stage=-1;setT(i+0.9);goCam(i,true);}
-bg();resize();route();window.addEventListener("hashchange",()=>{route();});requestAnimationFrame(frame);
+bg();resize();if(canvas.getBoundingClientRect().width<560){st.labels=false;$("tLabels").setAttribute("aria-pressed","false");}route();window.addEventListener("hashchange",()=>{route();});requestAnimationFrame(frame);
 </script></body></html>

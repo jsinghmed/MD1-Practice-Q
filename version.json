@@ -1,6 +1,27 @@
 {
-  "v": "2026-11-11d",
+  "v": "2026-11-11e",
   "notes": [
+    {
+      "v": "2026-11-11e",
+      "date": "Nov 11, 2026",
+      "groups": [
+        {
+          "h": "Study tools",
+          "items": [
+            {
+              "tag": "new",
+              "title": "Heart Development 3D: aortic arches",
+              "text": "4 new stages: the arch arteries, carotids and aortic arch, pulmonary arteries with the ductus and recurrent laryngeal nerves, and the dorsal aorta's branches."
+            },
+            {
+              "tag": "imp",
+              "title": "Clearer 3D labels",
+              "text": "Labels now sit at the sides with pointer lines, so they never cover the model."
+            }
+          ]
+        }
+      ]
+    },
     {
       "v": "2026-11-11d",
       "date": "Nov 11, 2026",
