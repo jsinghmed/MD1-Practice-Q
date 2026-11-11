@@ -1173,7 +1173,7 @@ const COURSES = [
   {id:"fbs", name:"FBS", full:"Foundations of Basic Sciences", year:"MD1"},
   {id:"msk", name:"MSK", full:"Musculoskeletal", year:"MD1"},
   {id:"crs", name:"CRS", full:"Cardiovascular & Respiratory Systems", year:"MD1"},
-  {id:"eth", name:"Ethics", full:"Medical Ethics", special:"ethics", count:102, year:"MD1"},
+  {id:"eth", name:"Ethics", full:"Medical Ethics", count:102, year:"MD1"},
   // MD2 modules: empty until questions are added (give sections course:"rns" / "ghs" / "ers").
   {id:"rns", name:"RNS", full:"Renal and Nervous System I", year:"MD2"},
   {id:"ghs", name:"GHS", full:"GI and Hepatobiliary System I", year:"MD2"},
@@ -1295,7 +1295,7 @@ function ensureXP(co){
 })();
 function c100Concept(page){ const C = window.C100; let best = null; for (const c of C.conceptions) { if (c[2] <= page) best = c; } return best; }
 function c100Topic(page){ const r = window.C100.rules.find(r=>r[0]===page); return r ? r[1] : ""; }
-const LET = "ABCDEFGH";
+const LET = "ABCDEFGHIJ";
 
 // =====================================================================
 // Storage (+ migration from the first version)
@@ -1897,35 +1897,50 @@ const NVI = {
 function navRow(attr, ic, label, n, on, cls){
   return `<button class="nv ${on?"on":""} ${cls||""}" ${attr}><span class="ni">${ic}</span><span class="nl">${esc(label)}</span>${n!=="" && n!==undefined ? `<span class="nn">${n}</span>` : ""}</button>`;
 }
-// ---- Ethics: question number → topic + answer index (the questions themselves are drawn from the user's own PDF) ----
-const ETH_KEY = [[1,"Brain death",0],[2,"Abuse: child, elder & spouse",7],[3,"Confidentiality",2],[4,"Confidentiality",3],[5,"Confidentiality",4],[6,"Confidentiality",3],[7,"Confidentiality",4],[8,"Confidentiality",0],[9,"Organ donation",2],[10,"Organ donation",4],[11,"Organ donation",4],[12,"Organ donation",4],[13,"DNR orders",2],[14,"DNR orders",2],[15,"DNR orders",4],[16,"Abuse: child, elder & spouse",5],[17,"Executions & torture",3],[18,"Research & experimentation",1],[19,"Research & experimentation",3],[20,"Research & experimentation",3],[21,"Research & experimentation",2],[22,"Genetic testing",3],[23,"Genetic testing",3],[24,"Gifts",2],[25,"Gifts",3],[26,"Gifts",1],[27,"Gifts",1],[28,"Gifts",0],[29,"HIV/AIDS",0],[30,"HIV/AIDS",4],[31,"HIV/AIDS",3],[32,"HIV/AIDS",0],[33,"HIV/AIDS",0],[34,"Impaired drivers",4],[35,"Informed consent & capacity",3],[36,"Informed consent & capacity",0],[37,"Informed consent & capacity",2],[38,"Informed consent & capacity",1],[39,"Informed consent & capacity",4],[40,"Informed consent & capacity",0],[41,"Informed consent & capacity",0],[42,"Informed consent & capacity",3],[43,"Informed consent & capacity",3],[44,"Informed consent & capacity",0],[45,"Informed consent & capacity",3],[46,"Informed consent & capacity",4],[47,"Informed consent & capacity",1],[48,"Informed consent & capacity",3],[49,"Malpractice & medical errors",4],[50,"Malpractice & medical errors",4],[51,"Malpractice & medical errors",3],[52,"Malpractice & medical errors",4],[53,"Malpractice & medical errors",4],[54,"Malpractice & medical errors",2],[55,"Malpractice & medical errors",4],[56,"Medical records",3],[57,"Medical records",2],[58,"Medical records",4],[59,"Minors",2],[60,"Minors",0],[61,"Minors",2],[62,"Minors",0],[63,"Minors",3],[64,"Minors",3],[65,"Suicide, PAS & euthanasia",0],[66,"Suicide, PAS & euthanasia",4],[67,"Physician impairment",4],[68,"Physician impairment",3],[69,"Physician impairment",3],[70,"Doctor\u2013patient relationship",0],[71,"Doctor\u2013patient relationship",0],[72,"Doctor\u2013patient relationship",4],[73,"Doctor\u2013patient relationship",3],[74,"Public health & reporting",2],[75,"Public health & reporting",3],[76,"Public health & reporting",3],[77,"Reproductive rights",4],[78,"Reproductive rights",4],[79,"Reproductive rights",0],[80,"Reproductive rights",4],[81,"Reproductive rights",3],[82,"Abuse: child, elder & spouse",1],[83,"Suicide, PAS & euthanasia",1],[84,"Executions & torture",4],[85,"Executions & torture",0],[86,"Withholding & withdrawing treatment",4],[87,"Withholding & withdrawing treatment",0],[88,"Withholding & withdrawing treatment",3],[89,"Withholding & withdrawing treatment",0],[90,"Withholding & withdrawing treatment",3],[91,"Withholding & withdrawing treatment",0],[92,"Withholding & withdrawing treatment",0],[93,"Withholding & withdrawing treatment",4],[94,"Withholding & withdrawing treatment",1],[95,"Withholding & withdrawing treatment",2],[96,"Withholding & withdrawing treatment",4],[97,"Withholding & withdrawing treatment",0],[98,"Withholding & withdrawing treatment",5],[99,"Withholding & withdrawing treatment",0],[100,"Withholding & withdrawing treatment",2],[101,"Withholding & withdrawing treatment",0],[102,"Withholding & withdrawing treatment",4]];
-const ETH_TOPICS = [...new Set(ETH_KEY.map(x=>x[1]))].sort();
-function ethState(){ try { return JSON.parse(localStorage.getItem("jj-ethics-v1")||"{}"); } catch(e) { return {}; } }
-function ethSide(){
-  const E = ethState(), ans = E.ans||{}, mark = E.mark||{}, topic = E.topic||"", flt = E.flt||"all";
-  const done = x => ans[x[0]]!==undefined, ok = x => ans[x[0]]===x[2];
-  const nDone = ETH_KEY.filter(done).length;
-  const chips = [["todo","⏳","Unanswered",ETH_KEY.filter(x=>!done(x)).length],["missed","✗","Missed",ETH_KEY.filter(x=>done(x)&&!ok(x)).length],["marked","★","Marked",ETH_KEY.filter(x=>mark[x[0]]).length]];
-  let h = `<div class="chap-h">ETHICS SECTIONS</div><div class="sec open"><div class="sec-h" style="cursor:default"><span class="chev">▶</span><span class="nm">Medical Ethics</span><span class="n">${nDone}/${ETH_KEY.length}</span></div>`
-    + `<div class="secbar"><i style="width:${Math.round(nDone*100/ETH_KEY.length)}%"></i></div><div class="sec-b">`
-    + `<div class="rv">` + chips.map(([k,ic,l,n])=>`<button class="${flt===k?"on":""} ${n?"":"zero"}" data-ethf="${k}">${ic} ${l} <b>${n}</b></button>`).join("") + `</div>`
-    + `<button class="chap all ${!topic&&flt==="all"?"on":""}" data-etht=""><span>All Ethics</span><span class="n">${ETH_KEY.length}</span></button>`
-    + ETH_TOPICS.map(t=>{ const L = ETH_KEY.filter(x=>x[1]===t), d = L.filter(done).length;
-        return `<button class="chap ${topic===t&&flt==="all"?"on":""}" data-etht="${esc(t)}"><span>${esc(t)}</span><span class="n">${d}/${L.length}</span></button>`; }).join("")
-    + `</div></div><div class="ethnote">Questions and explanations are shown from your own copy of the ethics PDF — open it once on each device. The file is never uploaded.</div>`;
-  return h;
+// ---- Ethics (Windsor's ethics review questions). Not in the public code: stored in Firestore, readable only by
+// signed-in @student.windsor.edu accounts and admins (see firestore-rules.txt). Added to the question bank once loaded. ----
+const ETH_DOMAIN = /@student\.windsor\.edu$/i;
+let ethSec = null, ethErr = "", ethBusy = false;
+function ethAllowed(u){ return !!(u && u.email && (ETH_DOMAIN.test(u.email) || isAdminUser(u))); }
+function addSection(sec){            // same as the start-up loop above, for a section that arrives later
+  const co = sec.course;
+  const qs = sec.qs.map((q,i)=>Object.assign({id:sec.prefix+(i+1), sec:sec.name, pfx:sec.prefix, num:i+1, course:co}, q));
+  sec.items = qs; Q.push(...qs); qs.forEach(q=>byId[q.id] = q);
+  const add = c=>{ STATIC.push(c); STATIC_BY_KEY[c.key] = c; };
+  add({key:sec.prefix+":all", name:sec.all, sec:sec.name, pfx:sec.prefix, course:co, head:true, ids:qs.map(q=>q.id), kind:"static"});
+  sec.topics.forEach(t=>{ const ids = qs.filter(q=>q.t===t).map(q=>q.id); if (ids.length) add({key:sec.prefix+":t:"+t, name:t, sec:sec.name, pfx:sec.prefix, course:co, ids, kind:"static"}); });
+  SECTIONS.push(sec); SEC_BY_PFX[sec.prefix] = sec;
+  const c = COURSE_BY_ID[co]; c.sections.push(sec); c.items.push(...qs);
 }
-function ethSet(topic, flt){
-  const E = ethState(); if (topic!==undefined) E.topic = topic; E.flt = flt||"all";
-  try { localStorage.setItem("jj-ethics-v1", JSON.stringify(E)); } catch(e) {}
-  const f = document.querySelector(".ethframe"); if (f && f.contentWindow) f.contentWindow.postMessage({jjEth:"set", topic:E.topic||"", flt:E.flt}, "*");
-  $("side").classList.remove("open"); renderChaps();
+async function ethLoad(u){
+  if (ethSec || ethBusy) return; if (!ethAllowed(u)) { ethErr = u ? "domain" : "signin"; return; }
+  ethBusy = true;
+  try {
+    const d = await firebase.firestore().collection("ethics").doc("qs").get();
+    if (!d.exists) { ethErr = "missing"; return; }
+    const D = JSON.parse(d.data().s);
+    ethSec = {course:"eth", name:"Medical Ethics", all:"All Ethics", prefix:"eth", topics:D.topics, qs:D.qs};
+    addSection(ethSec); ethErr = "";
+  } catch(e) { ethErr = String(e && e.message || e); }
+  finally { ethBusy = false; if (S.course==="eth") renderAll(); }
 }
-window.addEventListener("message", e=>{ if (e.data && e.data.jjEth==="changed" && S.course==="eth") renderChaps(); });
-document.addEventListener("click", e=>{
-  const t = e.target.closest && e.target.closest("[data-etht]"); if (t) { ethSet(t.dataset.etht, "all"); return; }
-  const f = e.target.closest && e.target.closest("[data-ethf]"); if (f) { const E = ethState(); ethSet(E.topic||"", (E.flt===f.dataset.ethf) ? "all" : f.dataset.ethf); }
-});
+(function ethWatch(){
+  if (!(window.firebase && firebase.apps && firebase.apps.length && firebase.auth)) { setTimeout(ethWatch, 500); return; }
+  firebase.auth().onAuthStateChanged(u=>{ if (u) ethLoad(u); else { ethErr = "signin"; if (S.course==="eth") renderAll(); } });
+})();
+function ethLockPage(){
+  const u = thxUser(), admin = isAdminUser(u), missing = ethErr==="missing", denied = /permission/i.test(ethErr);
+  const msg = ethErr==="signin" ? "Sign in with your Windsor student Google account (@student.windsor.edu) to see the ethics questions."
+    : ethErr==="domain" ? "The ethics review questions are Windsor study material, so they're only shown to @student.windsor.edu accounts. Sign out and sign in with your Windsor student account."
+    : missing ? (admin ? "The ethics questions haven't been uploaded yet." : "The ethics questions aren't available yet. Check back soon.")
+    : denied ? "This account can't read the ethics questions yet. The database rules may not be published."
+    : ethErr ? "Couldn't load the ethics questions: " + esc(ethErr) : "Loading the ethics questions…";
+  showPage(`<div class="page"><h2>Medical Ethics</h2><div class="thxmsg">${msg}${missing && admin ? `<div style="margin-top:12px"><label class="btn primary">Upload the ethics questions file<input type="file" id="ethUp" accept=".json" hidden></label><div class="sub" style="margin-top:6px">Choose ethics-content.json. Only Windsor student accounts and admins can read it once uploaded.</div></div>` : ""}</div></div>`);
+  const up = $("ethUp"); if (up) up.onchange = async ()=>{ const f = up.files[0]; if (!f) return;
+    try { const txt = await f.text(), D = JSON.parse(txt); if (!D.qs || !D.qs.length) throw new Error("not an ethics questions file");
+      await firebase.firestore().collection("ethics").doc("qs").set({s:txt, n:D.qs.length, at:firebase.firestore.FieldValue.serverTimestamp()});
+      ethErr = ""; await ethLoad(thxUser()); } catch(e) { ethErr = "Upload failed: " + (e.message||e); ethLockPage(); } };
+}
 // ---- Restricted: Thorax anatomy study guide (CRS). Content lives in Firestore, readable only by the emails in the rules. ----
 const THX_USERS = ["jasjot.sayal@student.windsor.edu", "daniel.mandalaoui@student.windsor.edu"];
 const THX_TITLES = ["The Thorax: Thoracic Cage, Apertures, Sternum, Ribs and Vertebrae", "Intercostal Spaces", "Mediastinum", "The Heart and Coronary Circulation", "Pericardium", "Lungs and Pleura", "Trachea, Bronchi and Bronchioles", "Diaphragm", "Esophagus and Thoracic Duct", "Radiology of the Thorax", "Clinicals of the Thorax (Integrated Review)"];
@@ -1983,14 +1998,14 @@ document.addEventListener("click", e=>{ const b = e.target.closest && e.target.c
   else { view = "thorax"; thxErr = ""; renderAll(); } });
 function renderChaps(){
   const allQ = courseQ(), notesN = allQ.filter(q=>hasNote(q.id)).length;
-  const ETH = S.course==="eth", hid = ETH ? ' style="display:none"' : '';
+  const ETH = S.course==="eth", hid = ETH && !ethSec ? ' style="display:none"' : '';
   let h = `<div class="nvg">`
     + navRow('id="homeBtn"'+hid, NVI.home, "Dashboard", "", view==="home")
     + navRow('id="buildBtn"'+hid, NVI.plus, "Create test", "", view==="builder")
     + navRow('id="notesBtn"'+hid, NVI.notes, "My notes", notesN||"", view==="notes")
     + (ETH ? "" : navRow('data-act="guides"', NVI.guide, "NBME Dashboard ("+course().name+")", "", view==="guides"||view==="guide"))
     + (S.course==="crs" ? navRow('data-osce="1"', NVI.osce, "OSCE Room", "", view==="osce") : "") + `</div>`
-    + (ETH ? ethSide() : "");
+    ;
   if (allQ.length) {
     h += `<div class="chap-h">REVIEW</div><div class="nvg">` + REVIEW.map(r=>{
       const n = allQ.filter(r.f).length, key = S.course+":rv:"+r.k;
@@ -3649,8 +3664,8 @@ function rememberPlace(){
 }
 function renderAll(){
   ensureXP(S.course);
-  if (S.course==="eth") view = "ethics";
-  else if (view==="ethics") view = "home";
+  if (S.course==="eth" && !ethSec) view = "ethlock";
+  else if (view==="ethlock" || view==="ethics") view = "home";
   if (view==="quiz" && !chap()) view = "home";
   rememberPlace();
   if (view!=="quiz") focusOn = false;
@@ -3680,7 +3695,7 @@ function renderAll(){
   else if (view==="viva") { let lt = "spotter"; try { lt = localStorage.getItem("jj-lab-tab") || "spotter"; } catch(e) {}
     const LT = {spotter:["Spotter Questions","spotter.html?v=1"], viva:["Viva Questions","viva.html?v=2"]};
     showPage(`<div class="page plexpage thxpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Anatomy Lab</h2><div class="labtabs">${Object.entries(LT).map(([k,[l]])=>`<button class="btn ${k===lt?"primary":""}" data-labtab="${k}">${l}</button>`).join("")}</div><a class="btn" href="${LT[lt][1]}" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe thxframe" src="${LT[lt][1]}" allow="microphone" title="${LT[lt][0]}"></iframe></div>`); }
-  else if (view==="ethics") showPage(`<div class="page plexpage ethpage"><div class="plextop"><h2>Medical Ethics</h2><a class="btn" href="ethics.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe ethframe" src="ethics.html?v=3" title="Ethics practice questions"></iframe></div>`);
+  else if (view==="ethlock") ethLockPage();
   else if (view==="guides") renderGuides();
   else if (view==="guide") renderGuideView();
   else if (view==="anki") showPage(`<div class="page dash"><div class="dtop"><div><h2>Anki export</h2><p class="sub">Questions you've added as Anki cards, ready to download</p></div></div>${ankiHomeBox().replace('<div class="h3">Anki export</div>','') || `<div class="emptybox"><h3>No Anki cards yet</h3><p>Add questions to your Anki list while you study, and they'll collect here for download.</p></div>`}</div>`);
