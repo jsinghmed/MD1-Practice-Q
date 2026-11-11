@@ -3698,7 +3698,7 @@ document.addEventListener("mouseup", e=>{
 // An admin's browser adds up everyone's saved answers (read-only) into one anonymous summary, classStats/v1,
 // at most every 3 hours. Everyone signed in reads only that summary. Nothing is shown until 5+ people answered.
 var CLASS = null;
-const CLASS_MIN = 5;
+const CLASS_MIN = 3;
 function fbUser(){ try { return window.firebase && firebase.apps && firebase.apps.length && firebase.auth().currentUser; } catch(e) { return null; } }
 function isAdminUser(u){ return !!(u && u.email && (window.JJ_ADMINS||[]).map(e=>String(e).toLowerCase()).includes(u.email.toLowerCase())); }
 async function loadClass(){
