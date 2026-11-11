@@ -573,7 +573,7 @@ table.rt tr.click:hover td{background:var(--hover)}
 .bjprint{position:absolute;left:0;top:0;width:880px;height:600px;pointer-events:none}
 .bjprint text{fill:#e7c66b;font-family:Georgia,"Times New Roman",serif;letter-spacing:.14em}
 /* cards */
-.bjc{position:absolute;width:78px;height:110px;border-radius:8px;background:#fdfdfb;color:#17191c;box-shadow:0 3px 8px rgba(0,0,0,.45);font-weight:700;font-family:Georgia,serif;backface-visibility:hidden}
+.bjc{position:absolute;will-change:transform;width:78px;height:110px;border-radius:8px;background:#fdfdfb;color:#17191c;box-shadow:0 3px 8px rgba(0,0,0,.45);font-weight:700;font-family:Georgia,serif;backface-visibility:hidden}
 .bjc.red{color:#c3262b}
 .bjc .r1{position:absolute;left:6px;top:4px;font-size:17px;line-height:1.02;text-align:center}
 .bjc .r2{position:absolute;right:6px;bottom:4px;font-size:17px;line-height:1.02;text-align:center;transform:rotate(180deg)}
@@ -595,7 +595,8 @@ table.rt tr.click:hover td{background:var(--hover)}
 .bjchp{position:absolute;left:0;width:46px;height:46px;border-radius:50%;border:5px dashed rgba(255,255,255,.85);box-shadow:0 2px 0 rgba(0,0,0,.45),0 0 0 1px rgba(0,0,0,.35);display:grid;place-items:center;font:800 11px/1 Inter,system-ui,sans-serif;color:#fff}
 .bjchp.c10,.bjchip.c10,.bjrack i.c10{background:#1f6fd1}.bjchp.c25,.bjchip.c25,.bjrack i.c25{background:#2e9b47}
 .bjchp.c50,.bjchip.c50,.bjrack i.c50{background:#d33a2c}.bjchp.c100,.bjchip.c100,.bjrack i.c100{background:#1c1c1c}
-.bjrack i.c5{background:#e8e4d8}.bjrack i.c500{background:#7b3fb5}
+.bjrack i.c5{background:#e8e4d8}.bjchp.c500,.bjchip.c500,.bjrack i.c500{background:#7b3fb5}.bjchp.c1000,.bjchip.c1000{background:#c7961c}
+.bjpill.on{background:#e7c66b;color:#2a160b;border-color:#e7c66b}.bjpill.on small{color:#2a160b}.bjpill.bust{opacity:.55}
 /* dealer's hand */
 .bjdealer{position:absolute;left:0;top:0;width:78px;height:110px;z-index:30;pointer-events:none;will-change:transform}
 .bjdealer .held{position:absolute;inset:0}
@@ -2899,7 +2900,7 @@ function startGlobalSearch(v){
 
 // ---------- Study-break blackjack (type "bj" in search + Enter) ----------
 function isBJ(v){ return (v||"").trim().toLowerCase()==="bj"; }
-const BJ = { bank:1000, peak:1000, hands:0, w:0, l:0, bet:0, shoe:[], p:[], d:[], phase:"bet", msg:"Place your bet", cls:"", doubled:false, busy:false, board:null, boardErr:"", boardAt:0, synced:false, hx:401, hy:-190 };
+const BJ = { bank:1000, peak:1000, hands:0, w:0, l:0, bet:0, shoe:[], hs:[], cur:0, d:[], phase:"bet", msg:"Place your bet", cls:"", doubled:false, busy:false, board:null, boardErr:"", boardAt:0, synced:false, hx:401, hy:-190 };
 try { const j = JSON.parse(localStorage.getItem("jj-bj") || "null"); if (j && j.bank >= 0) Object.assign(BJ, {bank:j.bank, peak:j.peak||j.bank, hands:j.hands||0, w:j.w||0, l:j.l||0}); else { const b = +localStorage.getItem("jj-bj-bank"); if (b > 0) BJ.bank = BJ.peak = b; } } catch(e) {}
 const BJW = 880, BJH = 600, BJ_SHOE = {x:712, y:50}, BJ_REST = {x:401, y:-190}, BJ_WAIT = {x:600, y:-4}, BJ_DISC = {x:36, y:24};
 const bjWait = ms => new Promise(r=>setTimeout(r, ms));
@@ -2914,8 +2915,12 @@ function bjSoft(h){ let t = 0, a = 0; h.forEach(c=>{ if (c.r==="A") { a++; t += 
 function bjIsBJ(h){ return h.length===2 && bjVal(h)===21; }
 function bjFace(c){ const red = c.s==="♥"||c.s==="♦"; return `<div class="bjc ${red?"red":""}"><span class="r1">${c.r}<br>${c.s}</span><span class="pip">${c.s}</span><span class="r2">${c.r}<br>${c.s}</span></div>`; }
 const BJ_BACK = `<div class="bjc back"></div>`;
-function bjPos(who, i){ return who==="d" ? {x:368 + i*34, y:64} : {x:368 + i*34, y:330}; }
-function bjChipsFor(n){ const out = []; for (const v of [100,50,25,10]) while (n >= v && out.length < 14) { out.push(v); n -= v; } return out; }
+function bjHandX(k, n){ return 440 + (k - (n-1)/2) * (n > 3 ? 190 : 210); }
+function bjPos(who, i, k){ if (who==="d") return {x:368 + i*34, y:64}; const n = BJ.hs.length || 1; if (n===1) return {x:368 + i*34, y:330};
+  return {x:bjHandX(k||0, n) - 52 + i*24, y:330}; }
+function bjAllP(){ return BJ.hs.flatMap(h=>h.cards); }
+function bjHandBetPos(k){ const n = BJ.hs.length || 1; return n===1 ? {x:417, y:505} : {x:bjHandX(k, n) - 23, y:505}; }
+function bjChipsFor(n){ const out = []; for (const v of [1000,500,100,50,25,10]) while (n >= v && out.length < 14) { out.push(v); n -= v; } return out; }
 function bjStackHTML(n){ return bjChipsFor(n).map((v,i)=>`<div class="bjchp c${v}" style="top:${-i*4}px">${i===bjChipsFor(n).length-1?"$"+n:""}</div>`).join(""); }
 const BJ_HAND = `<div class="bjarm" id="bjArm"><div class="sleeve"></div><svg viewBox="-10 -10 130 190" aria-hidden="true" style="overflow:visible"><defs><radialGradient id="bjhbk" cx="50%" cy="42%" r="60%"><stop offset="0" stop-color="#e9bd98"/><stop offset=".6" stop-color="#d9a37b"/><stop offset="1" stop-color="#b57b54"/></radialGradient><linearGradient id="bjhnl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#dcae9a"/><stop offset=".75" stop-color="#f0cfc0"/><stop offset="1" stop-color="#faece4"/></linearGradient><linearGradient id="bjhcf" x1="0" x2="1"><stop offset="0" stop-color="#c9ccd1"/><stop offset=".2" stop-color="#fff"/><stop offset=".8" stop-color="#f1f2f4"/><stop offset="1" stop-color="#bfc3c8"/></linearGradient><radialGradient id="bjhgd" cx="35%" cy="35%"><stop offset="0" stop-color="#fff3c4"/><stop offset=".5" stop-color="#d9b04a"/><stop offset="1" stop-color="#8a6a1c"/></radialGradient><linearGradient id="bjhgp" x1="0" y1=".5" x2="1" y2=".5" gradientTransform="rotate(7.0 .5 .5)"><stop offset="0" stop-color="#b0764f"/><stop offset=".3" stop-color="#d9a780"/><stop offset=".55" stop-color="#e6b994"/><stop offset=".85" stop-color="#c99169"/><stop offset="1" stop-color="#a86f49"/></linearGradient><linearGradient id="bjhgr" x1="0" y1=".5" x2="1" y2=".5" gradientTransform="rotate(2.5 .5 .5)"><stop offset="0" stop-color="#b0764f"/><stop offset=".3" stop-color="#d9a780"/><stop offset=".55" stop-color="#e6b994"/><stop offset=".85" stop-color="#c99169"/><stop offset="1" stop-color="#a86f49"/></linearGradient><linearGradient id="bjhgm" x1="0" y1=".5" x2="1" y2=".5" gradientTransform="rotate(-0.5 .5 .5)"><stop offset="0" stop-color="#b0764f"/><stop offset=".3" stop-color="#d9a780"/><stop offset=".55" stop-color="#e6b994"/><stop offset=".85" stop-color="#c99169"/><stop offset="1" stop-color="#a86f49"/></linearGradient><linearGradient id="bjhgi" x1="0" y1=".5" x2="1" y2=".5" gradientTransform="rotate(-3.0 .5 .5)"><stop offset="0" stop-color="#b0764f"/><stop offset=".3" stop-color="#d9a780"/><stop offset=".55" stop-color="#e6b994"/><stop offset=".85" stop-color="#c99169"/><stop offset="1" stop-color="#a86f49"/></linearGradient><linearGradient id="bjhgt1" x1="0" y1=".5" x2="1" y2=".5" gradientTransform="rotate(-38.0 .5 .5)"><stop offset="0" stop-color="#b0764f"/><stop offset=".3" stop-color="#d9a780"/><stop offset=".55" stop-color="#e6b994"/><stop offset=".85" stop-color="#c99169"/><stop offset="1" stop-color="#a86f49"/></linearGradient><linearGradient id="bjhgt2" x1="0" y1=".5" x2="1" y2=".5" gradientTransform="rotate(-20.0 .5 .5)"><stop offset="0" stop-color="#b0764f"/><stop offset=".3" stop-color="#d9a780"/><stop offset=".55" stop-color="#e6b994"/><stop offset=".85" stop-color="#c99169"/><stop offset="1" stop-color="#a86f49"/></linearGradient><filter id="bjhsh"><feDropShadow dx="0" dy="2" stdDeviation="1.6" flood-color="#2a1408" flood-opacity=".45"/></filter></defs><g filter="url(#bjhsh)"><path d="M75.92 54.81 Q78.67 74.42 81.86 93.12 A5.36 5.36 0 0 0 92.58 91.80 Q91.16 72.89 89.08 53.19 Z" fill="url(#bjhgp)" stroke="#8f5e3f" stroke-width=".6"/><g transform="translate(87.18 92.13) rotate(7.00)"><rect x="-3.36" y="-4.99" width="6.72" height="9.97" rx="3.05" fill="url(#bjhnl)" stroke="#b7836b" stroke-width=".35"/><path d="M-2.56 3.59 Q0 5.19 2.56 3.59" stroke="#fff" stroke-width=".6" fill="none" opacity=".75"/></g><g transform="translate(84.43 69.72) rotate(7.00)" stroke="#8a593a" fill="none" stroke-width=".5" opacity=".5"><path d="M-4.84 0 Q0 1.6 4.84 0"/><path d="M-3.39 1.9 Q0 2.9 3.39 1.9" opacity=".6"/></g><g transform="translate(86.04 82.82) rotate(7.00)" stroke="#8a593a" fill="none" stroke-width=".5" opacity=".5"><path d="M-4.54 0 Q0 1.6 4.54 0"/><path d="M-3.18 1.9 Q0 2.9 3.18 1.9" opacity=".6"/></g><path d="M62.86 59.83 Q64.37 84.99 66.53 109.72 A6.12 6.12 0 0 0 78.84 109.18 Q78.83 84.36 78.14 59.17 Z" fill="url(#bjhgr)" stroke="#8f5e3f" stroke-width=".6"/><g transform="translate(72.67 109.15) rotate(2.50)"><rect x="-3.84" y="-5.70" width="7.68" height="11.40" rx="3.49" fill="url(#bjhnl)" stroke="#b7836b" stroke-width=".35"/><path d="M-3.04 4.30 Q0 5.90 3.04 4.30" stroke="#fff" stroke-width=".6" fill="none" opacity=".75"/></g><g transform="translate(71.38 79.64) rotate(2.50)" stroke="#8a593a" fill="none" stroke-width=".5" opacity=".5"><path d="M-5.57 0 Q0 1.6 5.57 0"/><path d="M-3.90 1.9 Q0 2.9 3.90 1.9" opacity=".6"/></g><g transform="translate(72.11 96.42) rotate(2.50)" stroke="#8a593a" fill="none" stroke-width=".5" opacity=".5"><path d="M-5.21 0 Q0 1.6 5.21 0"/><path d="M-3.65 1.9 Q0 2.9 3.65 1.9" opacity=".6"/></g><path d="M48.84 60.93 Q49.00 87.93 49.87 114.44 A6.63 6.63 0 0 0 63.20 114.56 Q64.53 88.07 65.16 61.07 Z" fill="url(#bjhgm)" stroke="#8f5e3f" stroke-width=".6"/><g transform="translate(56.54 114.22) rotate(-0.50)"><rect x="-4.16" y="-6.17" width="8.32" height="12.35" rx="3.78" fill="url(#bjhnl)" stroke="#b7836b" stroke-width=".35"/><path d="M-3.36 4.78 Q0 6.38 3.36 4.78" stroke="#fff" stroke-width=".6" fill="none" opacity=".75"/></g><g transform="translate(56.81 82.60) rotate(-0.50)" stroke="#8a593a" fill="none" stroke-width=".5" opacity=".5"><path d="M-5.97 0 Q0 1.6 5.97 0"/><path d="M-4.18 1.9 Q0 2.9 4.18 1.9" opacity=".6"/></g><g transform="translate(56.65 100.60) rotate(-0.50)" stroke="#8a593a" fill="none" stroke-width=".5" opacity=".5"><path d="M-5.61 0 Q0 1.6 5.61 0"/><path d="M-3.93 1.9 Q0 2.9 3.93 1.9" opacity=".6"/></g><path d="M35.11 57.59 Q34.24 81.87 34.09 105.35 A6.38 6.38 0 0 0 46.92 106.02 Q49.22 82.66 50.89 58.41 Z" fill="url(#bjhgi)" stroke="#8f5e3f" stroke-width=".6"/><g transform="translate(40.52 105.40) rotate(-3.00)"><rect x="-4.00" y="-5.94" width="8.00" height="11.88" rx="3.64" fill="url(#bjhnl)" stroke="#b7836b" stroke-width=".35"/><path d="M-3.20 4.54 Q0 6.14 3.20 4.54" stroke="#fff" stroke-width=".6" fill="none" opacity=".75"/></g><g transform="translate(41.98 77.41) rotate(-3.00)" stroke="#8a593a" fill="none" stroke-width=".5" opacity=".5"><path d="M-5.77 0 Q0 1.6 5.77 0"/><path d="M-4.04 1.9 Q0 2.9 4.04 1.9" opacity=".6"/></g><g transform="translate(41.13 93.59) rotate(-3.00)" stroke="#8a593a" fill="none" stroke-width=".5" opacity=".5"><path d="M-5.41 0 Q0 1.6 5.41 0"/><path d="M-3.79 1.9 Q0 2.9 3.79 1.9" opacity=".6"/></g><path d="M23.76 16.78 Q14.73 29.14 9.99 37.11 A9.69 9.69 0 0 0 25.84 49.50 Q32.43 42.97 42.24 31.22 Z" fill="url(#bjhgt1)" stroke="#8f5e3f" stroke-width=".6"/><path d="M8.13 41.26 Q4.98 51.61 3.88 57.54 A7.40 7.40 0 0 0 18.64 62.91 Q21.62 57.66 25.86 47.72 Z" fill="url(#bjhgt2)" stroke="#8f5e3f" stroke-width=".6"/><g transform="translate(11.35 60.00) rotate(-20.00)"><rect x="-4.64" y="-6.89" width="9.28" height="13.77" rx="4.22" fill="url(#bjhnl)" stroke="#b7836b" stroke-width=".35"/><path d="M-3.84 5.49 Q0 7.09 3.84 5.49" stroke="#fff" stroke-width=".6" fill="none" opacity=".75"/></g><g transform="translate(15.19 49.45) rotate(-20.00)" stroke="#8a593a" fill="none" stroke-width=".5" opacity=".5"><path d="M-7.05 0 Q0 1.6 7.05 0"/><path d="M-4.93 1.9 Q0 2.9 4.93 1.9" opacity=".6"/></g><path d="M39 2 C37 12 33 18 29 25 C26 31 28 40 33 47 C36 52 36 58 38 61 Q43 65 50 63 Q56 66 63 63.5 Q70 65 76 61 Q83 60 87 55 Q91 50 91 40 C91 26 86 14 84 2 Z" fill="url(#bjhbk)" stroke="#8f5e3f" stroke-width=".6"/><g stroke="#f3cfae" stroke-width="1.3" fill="none" opacity=".2" stroke-linecap="round"><path d="M53 12 C50 30 46 44 43.5 56"/><path d="M59 12 C58 30 57.5 46 57 59"/><path d="M65 12 C67 30 69 44 70.5 57"/><path d="M71 12 C75 28 79 40 82 52"/></g><g fill="#f2caa6" opacity=".35"><ellipse cx="43" cy="59" rx="5" ry="2.6"/><ellipse cx="57" cy="62" rx="5.4" ry="2.8"/><ellipse cx="70.5" cy="60.5" rx="5" ry="2.6"/><ellipse cx="82.5" cy="55" rx="4" ry="2.3"/></g></g><path d="M33 -6 L89 -6 L90 13 Q61 18 32 13 Z" fill="url(#bjhcf)" stroke="#b9bdc2" stroke-width=".7"/><path d="M34 7 Q61 11 88 7" stroke="#c6cacf" stroke-width=".8" fill="none"/><circle cx="82" cy="3" r="3.2" fill="url(#bjhgd)" stroke="#7a5c18" stroke-width=".4"/></svg></div>`;
 
@@ -2923,10 +2928,10 @@ const BJ_HAND = `<div class="bjarm" id="bjArm"><div class="sleeve"></div><svg vi
 function openBJ(){ clearTimeout(searchT); $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = ""; searchChips = []; searchRet = null; view = "bj"; renderAll(); $("main").scrollTo({top:0}); }
 function renderBJ(){
   if (view!=="bj") return;
-  if (BJ.phase==="deal" || BJ.phase==="dealer") BJ.phase = BJ.p.length ? "play" : "bet";   // re-entering mid-animation
+  if (BJ.phase==="deal" || BJ.phase==="dealer") BJ.phase = BJ.hs.length ? "play" : "bet";   // re-entering mid-animation
   BJ.busy = false;
   showPage(`<div class="page bjp"><div class="ptools" style="margin-bottom:12px"><button class="btn" data-bj="back">← Back to studying</button></div>
-    <h2>Study break: Blackjack 🃏</h2><p class="sub">Fake money only. 6-deck shoe, dealer stands on all 17s, blackjack pays 3 to 2.</p>
+    <h2>Study break: Blackjack 🃏</h2><p class="sub">Fake money only. 6-deck shoe, dealer stands on all 17s, blackjack pays 3 to 2. Split any pair up to 4 hands; split aces get one card each.</p>
     <div class="bjlay"><div>
       <div class="bjscale" id="bjScale"><div class="bjfelt" id="bjFelt" style="--bjlogo:url('${window.JJ_LOGO||""}')">
         <div class="bjtop"></div>
@@ -2940,24 +2945,24 @@ function renderBJ(){
         <div class="bjdisc ${BJ.hands?"has":""}" id="bjDisc"><div class="pile"></div></div>
         <div class="bjshoe"><div class="box"></div><div class="cardout"></div><div class="lip"></div></div>
         <div class="bjspot"></div>
-        <div class="bjstack" id="bjBet" style="left:417px;top:505px"></div>
+        <div class="bjstack" id="bjBet" style="left:417px;top:505px"></div><div id="bjBets"></div>
         <div id="bjCards"></div>
         <div class="bjpill" id="bjDV" style="left:440px;top:184px"></div>
-        <div class="bjpill" id="bjPV" style="left:440px;top:448px"></div>
+        <div id="bjPV"></div>
         <div class="bjmsg" id="bjMsg"></div>
         <div class="bjdealer" id="bjDealer"><div class="held" id="bjHeld"></div>${BJ_HAND}</div>
       </div></div>
       <div class="bjctl" id="bjCtl"></div>
       <div class="bjstats" id="bjStats"></div>
-      <p class="muted bjnote">Keyboard: H hit · S stand · D double · Enter deal</p>
+      <p class="muted bjnote">Keyboard: H hit · S stand · D double · P split · Enter deal</p>
     </div>
     <aside class="bjlb" id="bjLB"></aside></div></div>`);
   bjFit();
   // put any cards still in play back on the felt
   const cw = $("bjCards");
-  BJ.p.forEach((c,i)=>{ const p = bjPos("p",i); cw.insertAdjacentHTML("beforeend", bjFace(c)); c.el = cw.lastElementChild; Object.assign(c.el.style,{left:p.x+"px",top:p.y+"px"}); });
+  BJ.hs.forEach((h,k)=>h.cards.forEach((c,i)=>{ const p = bjPos("p",i,k); cw.insertAdjacentHTML("beforeend", bjFace(c)); c.el = cw.lastElementChild; Object.assign(c.el.style,{left:p.x+"px",top:p.y+"px",zIndex:10+i}); }));
   BJ.d.forEach((c,i)=>{ const p = bjPos("d",i), down = !!c.down; cw.insertAdjacentHTML("beforeend", down ? BJ_BACK : bjFace(c)); c.el = cw.lastElementChild; Object.assign(c.el.style,{left:p.x+"px",top:p.y+"px"}); });
-  const hp = BJ.phase==="play" ? BJ_WAIT : BJ_REST; BJ.hx = hp.x; BJ.hy = hp.y; bjHandSet(hp.x, hp.y); BJ.pend = 0;
+  const hp = BJ.phase==="play" ? BJ_WAIT : BJ_REST; BJ.hx = hp.x; BJ.hy = hp.y; bjHandSet(hp.x, hp.y); BJ.pend = 0; BJ.ui = {};
   bjUI(); bjBoard(); bjSync();
 }
 function bjFit(){
@@ -2981,29 +2986,30 @@ async function bjHandTo(x, y, ms){
 async function bjFlip(c){
   if (!c.el) return;
   const st = {left:c.el.style.left, top:c.el.style.top, zIndex:c.el.style.zIndex};
-  if (!bjReduce() && c.el.animate) await c.el.animate([{transform:"none"},{transform:"rotateY(90deg) scale(1.04)"}], {duration:150, easing:"ease-in", fill:"forwards"}).finished.catch(()=>{});
+  if (!bjReduce() && c.el.animate) await c.el.animate([{transform:"none"},{transform:"rotateY(90deg) scale(1.04)"}], {duration:120, easing:"ease-in", fill:"forwards"}).finished.catch(()=>{});
   const t = document.createElement("div"); t.innerHTML = bjFace(c); const nel = t.firstElementChild; Object.assign(nel.style, st);
   c.el.replaceWith(nel); c.el = nel;
-  if (!bjReduce() && nel.animate) await nel.animate([{transform:"rotateY(-90deg) scale(1.04)"},{transform:"none"}], {duration:170, easing:"ease-out"}).finished.catch(()=>{});
+  if (!bjReduce() && nel.animate) await nel.animate([{transform:"rotateY(-90deg) scale(1.04)"},{transform:"none"}], {duration:140, easing:"ease-out"}).finished.catch(()=>{});
 }
-async function bjGive(who, down){
-  const c = bjDraw(), i = BJ[who].length, p = bjPos(who, i); BJ[who].push(c); c.down = true;
+async function bjGive(who, down, k){
+  if (k===undefined) k = BJ.cur;
+  const arr = who==="d" ? BJ.d : BJ.hs[k].cards, c = bjDraw(), i = arr.length, p = bjPos(who, i, k); arr.push(c); c.down = true;
   $("bjHeld").innerHTML = BJ_BACK;                       // every card travels face-down
-  await bjHandTo(BJ_SHOE.x, BJ_SHOE.y, Math.hypot(BJ.hx-BJ_SHOE.x, BJ.hy-BJ_SHOE.y) < 5 ? 1 : 300);   // pull a card from the shoe
-  await bjWait(90);
-  await bjHandTo(p.x, p.y, 470);
+  await bjHandTo(BJ_SHOE.x, BJ_SHOE.y, Math.hypot(BJ.hx-BJ_SHOE.x, BJ.hy-BJ_SHOE.y) < 5 ? 1 : 230);   // pull a card from the shoe
+  await bjWait(50);
+  await bjHandTo(p.x, p.y, 360);
   const cw = $("bjCards"); if (!cw) return c;
   cw.insertAdjacentHTML("beforeend", BJ_BACK); c.el = cw.lastElementChild;
   Object.assign(c.el.style, {left:p.x+"px", top:p.y+"px", zIndex: 10+i});
   $("bjHeld").innerHTML = "";
-  await bjWait(60);
+  await bjWait(30);
   if (!down) { await bjFlip(c); c.down = false; }        // turn it over once it's in place
   bjUI();
-  await bjWait(90);
+  await bjWait(50);
   return c;
 }
 async function bjSweep(){
-  const all = [...BJ.p, ...BJ.d].filter(c=>c.el);
+  const all = [...bjAllP(), ...BJ.d].filter(c=>c.el);
   if (all.length && !bjReduce()) {
     await bjHandTo(BJ.d.length ? bjPos("d",0).x+40 : 400, 200, 380);
     all.forEach((c,i)=>{ const x = parseFloat(c.el.style.left), y = parseFloat(c.el.style.top);
@@ -3012,7 +3018,7 @@ async function bjSweep(){
     await bjWait(480 + all.length*25);
   }
   all.forEach(c=>c.el.remove()); if ($("bjDisc")) $("bjDisc").classList.add("has");
-  BJ.p = []; BJ.d = []; bjUI();
+  BJ.hs = []; BJ.cur = 0; BJ.d = []; bjUI();
 }
 async function bjReveal(){
   BJ.phase = "dealer"; BJ.msg = "";
@@ -3028,84 +3034,134 @@ function bjFly(html, from, to, ms, fade){
   const an = el.animate([{transform:"none", opacity:1},{transform:`translate(${to.x-from.x}px,${to.y-from.y}px)`, opacity: fade?0:1}], {duration:ms, easing:"cubic-bezier(.45,.05,.25,1)", fill:"forwards"});
   return an.finished.then(()=>el.remove()).catch(()=>el.remove());
 }
-async function bjPay(res){
-  const b = BJ.bet, spot = {x:417, y:505}, rack = {x:417, y:-10}, me = {x:417, y:640}, side = {x:470, y:505};
-  $("bjBet").innerHTML = "";
+// slide the player's cards to where they belong (after a split the hands spread out)
+async function bjLayout(){
+  const an = [];
+  BJ.hs.forEach((h,k)=>h.cards.forEach((c,i)=>{ if (!c.el) return; const p = bjPos("p",i,k), x0 = parseFloat(c.el.style.left), y0 = parseFloat(c.el.style.top);
+    c.el.style.zIndex = 10+i;
+    if (x0===p.x && y0===p.y) return;
+    Object.assign(c.el.style, {left:p.x+"px", top:p.y+"px"});
+    if (!bjReduce() && c.el.animate) an.push(c.el.animate([{transform:`translate(${x0-p.x}px,${y0-p.y}px)`},{transform:"none"}], {duration:320, easing:"cubic-bezier(.45,.05,.25,1)"}).finished.catch(()=>{})); }));
+  bjUI(); await Promise.all(an);
+}
+async function bjPay(h, k){
+  const b = h.bet, res = h.res, spot = bjHandBetPos(k), rack = {x:417, y:-10}, me = {x:spot.x, y:640}, side = {x:spot.x+53, y:505};
   if (res==="win" || res==="bj") {
     const won = res==="bj" ? Math.floor(b*1.5) : b;
-    await Promise.all([bjFly(bjStackHTML(b), spot, spot, 1), bjFly(bjStackHTML(won), rack, side, 520)]);
-    await Promise.all([bjFly(bjStackHTML(b), spot, me, 480, true), bjFly(bjStackHTML(won), side, {x:470, y:640}, 480, true)]);
-  } else if (res==="push") await bjFly(bjStackHTML(b), spot, me, 480, true);
-  else await bjFly(bjStackHTML(b), spot, rack, 520, true);
+    await Promise.all([bjFly(bjStackHTML(b), spot, spot, 1), bjFly(bjStackHTML(won), rack, side, 460)]);
+    await Promise.all([bjFly(bjStackHTML(b), spot, me, 420, true), bjFly(bjStackHTML(won), side, {x:side.x, y:640}, 420, true)]);
+  } else if (res==="push") await bjFly(bjStackHTML(b), spot, me, 420, true);
+  else await bjFly(bjStackHTML(b), spot, rack, 460, true);
 }
-async function bjEnd(res){
-  const b = BJ.bet;
-  if (res==="bj") { BJ.bank += Math.floor(b*2.5); BJ.msg = "Blackjack! +$" + Math.floor(b*1.5); BJ.cls = "win"; BJ.w++; }
-  else if (res==="win") { BJ.bank += b*2; BJ.msg = (bjVal(BJ.d) > 21 ? "Dealer busts! " : "You win! ") + "+$" + b; BJ.cls = "win"; BJ.w++; }
-  else if (res==="push") { BJ.bank += b; BJ.msg = "Push — bet returned"; BJ.cls = "push"; }
-  else { BJ.msg = (res==="bust" ? "Bust! " : "Dealer wins. ") + "−$" + b; BJ.cls = "lose"; BJ.l++; }
-  BJ.hands++; BJ.peak = Math.max(BJ.peak, BJ.bank);
+async function bjEnd(){
+  const dv = bjVal(BJ.d), one = BJ.hs.length===1; let net = 0;
+  BJ.hs.forEach(h=>{ const b = h.bet;
+    if (!h.res) { const v = bjVal(h.cards); h.res = v > 21 ? "bust" : dv > 21 || v > dv ? "win" : v===dv ? "push" : "lose"; }
+    if (h.res==="bj") { BJ.bank += Math.floor(b*2.5); net += Math.floor(b*1.5); BJ.w++; }
+    else if (h.res==="win") { BJ.bank += b*2; net += b; BJ.w++; }
+    else if (h.res==="push") BJ.bank += b;
+    else { net -= b; BJ.l++; }
+    BJ.hands++; });
+  if (one) { const h = BJ.hs[0], b = h.bet;
+    BJ.msg = h.res==="bj" ? "Blackjack! +$" + Math.floor(b*1.5) : h.res==="win" ? (dv > 21 ? "Dealer busts! " : "You win! ") + "+$" + b
+      : h.res==="push" ? "Push — bet returned" : (h.res==="bust" ? "Bust! " : "Dealer wins. ") + "−$" + b;
+    BJ.cls = h.res==="bj"||h.res==="win" ? "win" : h.res==="push" ? "push" : "lose"; }
+  else { const w = BJ.hs.filter(h=>h.res==="win"||h.res==="bj").length;
+    BJ.msg = (dv > 21 ? "Dealer busts · " : "") + w + " of " + BJ.hs.length + " hands won · " + (net > 0 ? "+$" + net : net < 0 ? "−$" + (-net) : "even");
+    BJ.cls = net > 0 ? "win" : net < 0 ? "lose" : "push"; }
+  BJ.peak = Math.max(BJ.peak, BJ.bank);
   BJ.phase = "done"; bjUI(); bjSave();
-  await Promise.all([bjPay(res), bjHandTo(BJ_REST.x, BJ_REST.y, 520)]);
-  if (BJ.doubled) { BJ.bet /= 2; BJ.doubled = false; }
-  bjUI();
+  await Promise.all([...BJ.hs.map((h,k)=>bjPay(h,k)), bjHandTo(BJ_REST.x, BJ_REST.y, 460)]);
+  BJ.paid = true; bjUI();
 }
 async function bjDealer(){
   await bjReveal();
-  while (bjVal(BJ.d) < 17) { await bjGive("d"); await bjWait(250); }
-  const p = bjVal(BJ.p), d = bjVal(BJ.d);
-  await bjEnd(d > 21 || p > d ? "win" : p===d ? "push" : "lose");
+  if (BJ.hs.some(h=>bjVal(h.cards) <= 21)) while (bjVal(BJ.d) < 17) { await bjGive("d"); await bjWait(180); }
+  await bjEnd();
 }
+// move on to the next hand (after a split), or to the dealer when every hand is finished
+async function bjNext(){
+  BJ.cur++;
+  while (BJ.cur < BJ.hs.length) {
+    const h = BJ.hs[BJ.cur];
+    BJ.phase = "deal"; bjUI();
+    if (h.cards.length===1) { await bjHandTo(BJ_WAIT.x, BJ_WAIT.y, 1); await bjGive("p"); }
+    if (h.aces || bjVal(h.cards)===21) { BJ.cur++; continue; }     // split aces get one card only
+    BJ.phase = "play"; bjUI(); await bjHandTo(BJ_WAIT.x, BJ_WAIT.y, 320); return;
+  }
+  BJ.cur = BJ.hs.length - 1;
+  await bjDealer();
+}
+function bjCanSplit(){ const h = BJ.hs[BJ.cur]; return !!h && BJ.phase==="play" && h.cards.length===2 && h.cards[0].r===h.cards[1].r && !h.aces && BJ.hs.length < 4 && BJ.bank >= h.bet; }
+function bjCanDouble(){ const h = BJ.hs[BJ.cur]; return !!h && BJ.phase==="play" && h.cards.length===2 && !h.aces && BJ.bank >= h.bet; }
 async function bjAct(a){
   if (a==="back") { view = "home"; renderAll(); $("main").scrollTo({top:0}); return; }
   if (a==="lbref") { BJ.boardAt = 0; bjBoard(true); return; }
   if (BJ.busy) return;
   if (a.startsWith("bet:")) { const n = +a.slice(4);
     if (BJ.phase==="done") { BJ.phase = "bet"; BJ.bet = 0; BJ.cls = ""; }
-    if (BJ.phase==="bet" && BJ.bank >= n) { BJ.bank -= n; BJ.bet += n; BJ.msg = ""; BJ.pend = (BJ.pend||0) + n; bjFly(`<div class="bjchp c${n}"></div>`, {x:417, y:640}, {x:417, y:505 - Math.max(0, bjChipsFor(BJ.bet).length-1)*4}, 280).then(()=>{ BJ.pend -= n; bjUI(); }); }
+    if (BJ.phase==="bet" && BJ.bank >= n) { BJ.bank -= n; BJ.bet += n; BJ.msg = ""; BJ.pend = (BJ.pend||0) + n; bjFly(`<div class="bjchp c${n}"></div>`, {x:417, y:640}, {x:417, y:505 - Math.max(0, bjChipsFor(BJ.bet).length-1)*4}, 260).then(()=>{ BJ.pend -= n; bjUI(); }); }
     bjUI(); return; }
   if (a==="clear" && BJ.phase==="bet") { BJ.bank += BJ.bet; BJ.bet = 0; BJ.msg = "Place your bet"; bjUI(); return; }
   if (a==="refill") { BJ.bank = 1000; BJ.bet = 0; BJ.phase = "bet"; BJ.cls = ""; BJ.msg = "Fresh $1,000 — place your bet"; bjSave(); bjUI(); return; }
   BJ.busy = true;
   try {
+    const h = BJ.hs[BJ.cur];
     if (a==="deal") {
       if (BJ.phase==="done") { if (BJ.bank < BJ.bet) { BJ.phase = "bet"; BJ.bet = 0; BJ.cls = ""; BJ.msg = "Not enough for that bet — pick a new one"; return; } BJ.bank -= BJ.bet; }
       if (!BJ.bet) return;
-      BJ.phase = "deal"; BJ.cls = ""; BJ.msg = ""; BJ.doubled = false; bjUI();
+      BJ.phase = "deal"; BJ.cls = ""; BJ.msg = ""; BJ.paid = false; bjUI();
       await bjSweep();
+      BJ.hs = [{cards:[], bet:BJ.bet}]; BJ.cur = 0; bjUI();
       await bjGive("p"); await bjGive("d"); await bjGive("p"); await bjGive("d", true);
-      if (bjIsBJ(BJ.p) || bjIsBJ(BJ.d)) { await bjReveal(); await bjEnd(bjIsBJ(BJ.p) && bjIsBJ(BJ.d) ? "push" : bjIsBJ(BJ.p) ? "bj" : "lose"); return; }
+      const p0 = BJ.hs[0];
+      if (bjIsBJ(p0.cards) || bjIsBJ(BJ.d)) { p0.res = bjIsBJ(p0.cards) && bjIsBJ(BJ.d) ? "push" : bjIsBJ(p0.cards) ? "bj" : "lose"; await bjReveal(); await bjEnd(); return; }
       BJ.phase = "play"; BJ.msg = ""; bjUI();
-      await bjHandTo(BJ_WAIT.x, BJ_WAIT.y, 420);
+      await bjHandTo(BJ_WAIT.x, BJ_WAIT.y, 340);
     }
-    else if (a==="hit" && BJ.phase==="play") { BJ.phase = "deal"; bjUI(); await bjGive("p"); const v = bjVal(BJ.p);
-      if (v > 21) { await bjWait(200); await bjEnd("bust"); return; } if (v===21) { await bjDealer(); return; }
-      BJ.phase = "play"; await bjHandTo(BJ_WAIT.x, BJ_WAIT.y, 380); }
-    else if (a==="stand" && BJ.phase==="play") { await bjDealer(); return; }
-    else if (a==="double" && BJ.phase==="play" && BJ.p.length===2 && BJ.bank >= BJ.bet) {
-      BJ.bank -= BJ.bet; BJ.bet *= 2; BJ.doubled = true; BJ.phase = "deal"; bjUI();
-      await bjGive("p"); if (bjVal(BJ.p) > 21) { await bjWait(200); await bjEnd("bust"); return; } await bjDealer(); return; }
+    else if (a==="hit" && BJ.phase==="play" && !h.aces) { BJ.phase = "deal"; bjUI(); await bjGive("p"); const v = bjVal(h.cards);
+      if (v > 21) { h.res = "bust"; await bjWait(150); await bjNext(); return; } if (v===21) { await bjNext(); return; }
+      BJ.phase = "play"; bjUI(); await bjHandTo(BJ_WAIT.x, BJ_WAIT.y, 300); }
+    else if (a==="stand" && BJ.phase==="play") { await bjNext(); return; }
+    else if (a==="double" && bjCanDouble()) {
+      BJ.bank -= h.bet; h.bet *= 2; h.dbl = true; BJ.phase = "deal"; bjUI();
+      await bjGive("p"); if (bjVal(h.cards) > 21) { h.res = "bust"; await bjWait(150); } await bjNext(); return; }
+    else if (a==="split" && bjCanSplit()) {
+      BJ.bank -= h.bet; BJ.phase = "deal";
+      const aces = h.cards[0].r==="A", nh = {cards:[h.cards.pop()], bet:h.bet, split:true, aces};
+      h.split = true; h.aces = aces;
+      BJ.hs.splice(BJ.cur + 1, 0, nh);
+      await bjLayout();
+      await bjGive("p");                                   // second card for the first of the two hands
+      if (aces || bjVal(h.cards)===21) { await bjNext(); return; }
+      BJ.phase = "play"; bjUI(); await bjHandTo(BJ_WAIT.x, BJ_WAIT.y, 300); }
   } finally { BJ.busy = false; if (view==="bj") bjUI(); }
 }
+function bjSet(id, prop, v){ const el = $(id); if (!el) return; BJ.ui = BJ.ui || {}; const key = id + prop; if (BJ.ui[key]===v) return; BJ.ui[key] = v; el[prop] = v; }
 function bjUI(){
   if (view!=="bj" || !$("bjCtl")) return;
   const ph = BJ.phase, play = ph==="play", busy = ph==="deal" || ph==="dealer" || BJ.busy && ph!=="play", done = ph==="done";
-  const holeDown = BJ.d.length > 1 && (ph==="play" || ph==="deal");
-  const dUp = BJ.d.filter(c=>!c.down), pUp = BJ.p.filter(c=>!c.down);
-  const dv = dUp.length ? bjVal(dUp) : "";
-  const pv = pUp.length ? (bjSoft(pUp) && bjVal(pUp) < 21 ? (bjVal(pUp)-10) + " / " + bjVal(pUp) : bjVal(pUp)) : "";
-  $("bjDV").innerHTML = dv!=="" ? `<small>DEALER</small>${dv}` : "";
-  $("bjPV").innerHTML = pv!=="" ? `<small>YOU</small>${pv}` : "";
-  const m = $("bjMsg"); m.textContent = BJ.msg; m.className = "bjmsg " + BJ.cls;
-  const showBet = ph==="bet" || ph==="deal" || ph==="play" || ph==="dealer";
-  const shown = BJ.bet - (BJ.pend||0); $("bjBet").innerHTML = showBet && shown > 0 ? bjStackHTML(shown) : "";
+  const dUp = BJ.d.filter(c=>!c.down), dv = dUp.length ? bjVal(dUp) : "";
+  bjSet("bjDV", "innerHTML", dv!=="" ? `<small>DEALER</small>${dv}` : "");
+  const multi = BJ.hs.length > 1;
+  bjSet("bjPV", "innerHTML", BJ.hs.map((h,k)=>{ const up = h.cards.filter(c=>!c.down); if (!up.length) return "";
+    const v = bjVal(up), txt = bjSoft(up) && v < 21 ? (v-10) + " / " + v : v, x = multi ? bjHandX(k, BJ.hs.length) : 440;
+    const on = multi && (play || ph==="deal") && k===BJ.cur;
+    return `<div class="bjpill ${on?"on":""} ${v>21?"bust":""}" style="left:${x}px;top:448px"><small>${multi ? "HAND " + (k+1) : "YOU"}</small>${txt}</div>`; }).join(""));
+  bjSet("bjMsg", "textContent", BJ.msg); bjSet("bjMsg", "className", "bjmsg " + BJ.cls);
+  // chips on the felt: one stack while betting, one per hand while playing
+  const inPlay = BJ.hs.length && (ph==="deal" || ph==="play" || ph==="dealer" || done && !BJ.paid);
+  const shown = BJ.bet - (BJ.pend||0);
+  bjSet("bjBet", "innerHTML", !inPlay && ph==="bet" && shown > 0 ? bjStackHTML(shown) : "");
+  bjSet("bjBets", "innerHTML", inPlay && !done ? BJ.hs.map((h,k)=>{ const sp = bjHandBetPos(k); return `<div class="bjstack" style="left:${sp.x}px;top:${sp.y}px">${bjStackHTML(h.bet)}</div>`; }).join("") : "");
   const broke = BJ.bank < 10 && !BJ.bet && (ph==="bet" || done);
-  const chips = [10,25,50,100].map(n=>`<button class="bjchip c${n}" data-bj="bet:${n}" ${BJ.bank<n||BJ.busy?"disabled":""}>$${n}</button>`).join("");
-  $("bjCtl").innerHTML = play || busy
-    ? `<button class="bjbtn go" data-bj="hit" ${!play||BJ.busy?"disabled":""}>Hit</button><button class="bjbtn go" data-bj="stand" ${!play||BJ.busy?"disabled":""}>Stand</button><button class="bjbtn ghost" data-bj="double" ${play&&!BJ.busy&&BJ.p.length===2&&BJ.bank>=BJ.bet?"":"disabled"}>Double</button>`
+  const chips = [10,25,50,100,500,1000].map(n=>`<button class="bjchip c${n}" data-bj="bet:${n}" ${BJ.bank<n||BJ.busy?"disabled":""}>$${n>=1000?n/1000+"K":n}</button>`).join("");
+  bjSet("bjCtl", "innerHTML", play || busy
+    ? `<button class="bjbtn go" data-bj="hit" ${!play||BJ.busy?"disabled":""}>Hit</button><button class="bjbtn go" data-bj="stand" ${!play||BJ.busy?"disabled":""}>Stand</button><button class="bjbtn ghost" data-bj="double" ${bjCanDouble()&&!BJ.busy?"":"disabled"}>Double</button><button class="bjbtn ghost" data-bj="split" ${bjCanSplit()&&!BJ.busy?"":"disabled"}>Split</button>`
     : broke ? `<button class="bjbtn go" data-bj="refill">Out of chips — get another $1,000</button>`
-    : chips + `<button class="bjbtn go" data-bj="deal" ${BJ.bet&&!BJ.busy?"":"disabled"}>${done?"Deal again · $"+BJ.bet:"Deal"}</button>${ph==="bet"&&BJ.bet?`<button class="bjbtn ghost" data-bj="clear">Clear bet</button>`:""}`;
-  $("bjStats").innerHTML = `<span>Bank <b>$${BJ.bank.toLocaleString()}</b></span><span>Bet <b>$${BJ.bet}</b></span><span>Hands <b>${BJ.hands}</b></span><span>W–L <b>${BJ.w}–${BJ.l}</b></span>`;
+    : chips + `<button class="bjbtn go" data-bj="deal" ${BJ.bet&&!BJ.busy?"":"disabled"}>${done?"Deal again · $"+BJ.bet.toLocaleString():"Deal"}</button>${ph==="bet"&&BJ.bet?`<button class="bjbtn ghost" data-bj="clear">Clear bet</button>`:""}`);
+  const inBet = BJ.hs.length && !done ? BJ.hs.reduce((t,h)=>t+h.bet, 0) : BJ.bet;
+  bjSet("bjStats", "innerHTML", `<span>Bank <b>$${BJ.bank.toLocaleString()}</b></span><span>Bet <b>$${inBet.toLocaleString()}</b></span><span>Hands <b>${BJ.hands}</b></span><span>W–L <b>${BJ.w}–${BJ.l}</b></span>`);
 }
 
 // ---- saving + leaderboard (Firestore collection "bjLeaders", one doc per signed-in person) ----
@@ -3161,7 +3217,7 @@ document.addEventListener("click", e=>{ const b = e.target.closest && e.target.c
 document.addEventListener("keydown", e=>{
   if (view!=="bj" || e.metaKey || e.ctrlKey || e.altKey) return;
   const a = document.activeElement; if (a && (a.tagName==="INPUT" || a.tagName==="TEXTAREA")) return;
-  const k = e.key.toLowerCase(), m = {h:"hit", s:"stand", d:"double"}[k];
+  const k = e.key.toLowerCase(), m = {h:"hit", s:"stand", d:"double", p:"split"}[k];
   if (m && BJ.phase==="play") { e.preventDefault(); bjAct(m); }
   else if (e.key==="Enter" && (BJ.phase==="bet" || BJ.phase==="done") && BJ.bet) { e.preventDefault(); bjAct("deal"); }
 });
