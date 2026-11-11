@@ -1,5 +1,5 @@
 // CRS Biochemistry — Dr. S. Shetty lecture slides. Reworked set: fewer, multi-concept, high-yield questions; lv = Easy/Hard; shetty = practice questions from the slides, word for word
-window.CRS_BC_TOPICS = ["Overview & Activation", "Carnitine Shuttle", "Carnitine & CPT Deficiencies", "β-Oxidation Reactions", "Energetics & Regulation", "Unsaturated & Odd-Chain Fatty Acids", "Methylmalonic Aciduria", "Peroxisomal, α- & ω-Oxidation", "MCAD Deficiency & Jamaican Vomiting Sickness", "Zellweger, X-ALD & Refsum", "Synthesis vs β-Oxidation & Sites", "Citrate Shuttle: Acetyl-CoA to Cytosol", "Sources of NADPH", "Acetyl-CoA Carboxylase Reaction", "Regulation of Acetyl-CoA Carboxylase", "Fatty Acid Synthase Complex", "FAS Cycle & Palmitate Stoichiometry", "Elongation & Desaturation", "Triacylglycerol Synthesis", "TAG Fate & Lipolysis", "Practice Questions (from the slides)", "Fuel Fate & Why the Liver Makes Ketones", "Ketogenesis: Pathway & HMG-CoA Synthase", "The Three Ketone Bodies", "Ketolysis: Thiophorase & Extrahepatic Use", "Brain Fuel During Fasting & Starvation", "Ketosis: Hormones, Levels & Causes", "Diabetic Ketoacidosis", "Practice Question · Ketone Bodies (from the slides)"];
+window.CRS_BC_TOPICS = ["Overview & Activation", "Carnitine Shuttle", "Carnitine & CPT Deficiencies", "β-Oxidation Reactions", "Energetics & Regulation", "Unsaturated & Odd-Chain Fatty Acids", "Methylmalonic Aciduria", "Peroxisomal, α- & ω-Oxidation", "MCAD Deficiency & Jamaican Vomiting Sickness", "Zellweger, X-ALD & Refsum", "Synthesis vs β-Oxidation & Sites", "Citrate Shuttle: Acetyl-CoA to Cytosol", "Sources of NADPH", "Acetyl-CoA Carboxylase Reaction", "Regulation of Acetyl-CoA Carboxylase", "Fatty Acid Synthase Complex", "FAS Cycle & Palmitate Stoichiometry", "Elongation & Desaturation", "Triacylglycerol Synthesis", "TAG Fate & Lipolysis", "Practice Questions (from the slides)", "Fuel Fate & Why the Liver Makes Ketones", "Ketogenesis: Pathway & HMG-CoA Synthase", "The Three Ketone Bodies", "Ketolysis: Thiophorase & Extrahepatic Use", "Brain Fuel During Fasting & Starvation", "Ketosis: Hormones, Levels & Causes", "Diabetic Ketoacidosis", "Practice Question · Ketone Bodies (from the slides)", "Phospholipid Structure & Synthesis", "DPPC, Surfactant & L/S Ratio", "Phosphatidylinositol & PIP2 Signaling", "GPI Anchors & PNH", "Cardiolipin & Phosphatidylglycerol", "Phospholipases & Degradation", "Plasmalogens & PAF", "Sphingolipids, Ceramide & Sphingomyelin", "Glycolipid Classes", "Lysosomal Storage Disorders Overview", "Niemann-Pick Disease", "Gaucher Disease", "Tay-Sachs & GM2 Gangliosidoses", "Fabry, Krabbe, MLD & Other Sphingolipidoses", "Practice Questions · Complex Lipids (from the slides)"];
 window.CRS_BC_QUESTIONS = [
 {
 "t": "Overview & Activation",
@@ -1653,6 +1653,647 @@ window.CRS_BC_QUESTIONS = [
 "Low insulin activates lipolysis, so adipose TAG stores shrink.",
 "",
 "The lecture links DKA to acute pancreatitis from hypertriglyceridemia, not chronic pancreatitis."
+],
+"src": "lec"
+},
+{
+"t": "Phospholipid Structure & Synthesis",
+"lv": "Easy",
+"s": "A biochemistry student compares two membrane lipids. Lipid X has two fatty acids, a glycerol backbone and a phosphate linked to serine. Lipid Y has one fatty acid, a phosphate and choline, all built on an 18-carbon amino alcohol. How are X and Y classified?",
+"c": [
+"X is a sphingophospholipid and Y is a glycerophospholipid",
+"X is a glycerophospholipid and Y is a sphingophospholipid",
+"Both are glycolipids because each carries a polar head group",
+"X is a plasmalogen and Y is a ganglioside of nerve endings",
+"Both are glycerophospholipids that differ only in head group"
+],
+"a": 1,
+"e": "Fatty acid + glycerol + phosphoric acid gives a glycerophospholipid, here phosphatidylserine. Fatty acid + sphingosine (the long-chain amino alcohol) + phosphoric acid gives a sphingophospholipid, here sphingomyelin with its phosphocholine head.",
+"w": [
+"The backbones are swapped: glycerol makes X a glycerophospholipid.",
+"",
+"Glycolipids carry sugars, not phosphate, on their head group.",
+"Plasmalogens are ether glycerophospholipids, and gangliosides contain sialic acid, not phosphate.",
+"Y is built on sphingosine, not glycerol."
+],
+"src": "lec"
+},
+{
+"t": "Phospholipid Structure & Synthesis",
+"lv": "Easy",
+"s": "Phosphatidic acid sits at the branch point of glycerophospholipid synthesis. Where in the cell is new phospholipid mainly made, and where does it go next?",
+"c": [
+"Made in rough ER ribosomes and sent straight to lysosomes",
+"Made in the mitochondrial matrix and sent to the nucleus",
+"Made in smooth ER, then moved via Golgi to plasma membranes",
+"Made in peroxisomes, then moved to the inner mitochondrial membrane",
+"Made in the cytosol on fatty acid synthase, then sent to the ER"
+],
+"a": 2,
+"e": "Phospholipids are made by all cells except mature RBCs, on the smooth ER, then passed to the Golgi and on to the plasma membrane: SER → Golgi → plasma membrane. Phosphatidate is the key intermediate, activated as CDP-diacylglycerol or combined with a CDP-alcohol.",
+"w": [
+"Ribosomes on rough ER make proteins, not phospholipids.",
+"The mitochondrial matrix runs β-oxidation, and phospholipids don't go to the nucleus.",
+"",
+"Peroxisomes handle very-long-chain fatty acids and start plasmalogen synthesis, not general phospholipid synthesis.",
+"Fatty acid synthase makes palmitate only, not phospholipids."
+],
+"src": "lec"
+},
+{
+"t": "DPPC, Surfactant & L/S Ratio",
+"lv": "Hard",
+"s": "A woman goes into labor at 29 weeks. Amniotic fluid analysis shows a ratio of the two major phospholipids of 1.2. Shortly after birth the infant has grunting, nasal flaring and diffuse alveolar collapse. Which molecule's deficiency best explains this?",
+"c": [
+"Sphingomyelin made by alveolar macrophages",
+"Phosphatidylinositol 4,5-bisphosphate",
+"Cardiolipin of the inner mitochondrial membrane",
+"Dipalmitoyllecithin made by type II pneumocytes",
+"Platelet-activating factor from mast cells"
+],
+"a": 3,
+"e": "The ratio measured in amniotic fluid is lecithin/sphingomyelin (L/S). A ratio above 2 means the fetal lungs are mature; 1.2 means too little surfactant. The main surfactant phospholipid is dipalmitoyllecithin (DPPC), which lowers surface tension, cuts the effort needed to open alveoli and prevents atelectasis. Deficiency causes neonatal respiratory distress syndrome in premature infants.",
+"w": [
+"Sphingomyelin is the denominator of the L/S ratio, not the deficient surfactant lipid.",
+"PIP2 is a signaling lipid, not surfactant.",
+"Cardiolipin is a mitochondrial membrane lipid.",
+"",
+"PAF mediates anaphylaxis, not alveolar stability."
+],
+"src": "lec"
+},
+{
+"t": "DPPC, Surfactant & L/S Ratio",
+"lv": "Easy",
+"s": "What happens to the alveoli when dipalmitoyllecithin is missing from the alveolar lining?",
+"c": [
+"Surface tension falls, so alveoli overexpand",
+"Alveolar macrophages release more sphingomyelin",
+"Alveolar walls thicken with excess collagen",
+"Gas exchange speeds up across thinner walls",
+"Surface tension rises, so alveoli collapse"
+],
+"a": 4,
+"e": "DPPC is the key component of pulmonary surfactant. It lowers surface tension, which reduces the effort needed to open alveoli and prevents their collapse (atelectasis). Without it, surface tension rises and alveoli collapse: respiratory distress syndrome, in premature newborns or in adults when alveoli are destroyed.",
+"w": [
+"Losing surfactant raises surface tension, it doesn't lower it.",
+"This has no role in alveolar stability.",
+"Fibrosis is a separate process, not surfactant loss.",
+"Collapsed alveoli worsen gas exchange.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Phosphatidylinositol & PIP2 Signaling",
+"lv": "Easy",
+"s": "Phosphatidylinositol in membranes stores which fatty acid at carbon 2 for later release?",
+"c": [
+"Docosahexaenoic acid",
+"Eicosapentaenoic acid",
+"Arachidonic acid",
+"Linoleic acid",
+"Stearic acid"
+],
+"a": 2,
+"e": "Phosphatidylinositol has stearic acid at C1 and arachidonic acid at C2, so PI is a membrane reservoir of arachidonic acid, the precursor of prostaglandins and leukotrienes.",
+"w": [
+"DHA is an omega-3 fatty acid, not the classic C2 acid of PI.",
+"EPA is an omega-3 fatty acid, not the classic C2 acid of PI.",
+"",
+"Linoleate is a typical C2 fatty acid of lecithin.",
+"Stearate is at C1 of PI, not C2."
+],
+"src": "lec"
+},
+{
+"t": "Phosphatidylinositol & PIP2 Signaling",
+"lv": "Hard",
+"s": "A hormone binds a Gq-coupled receptor on a smooth muscle cell. Within seconds, intracellular calcium rises and protein kinase C is activated. Which enzyme acted on which membrane lipid to produce both second messengers?",
+"c": [
+"Phospholipase A2 acting on phosphatidylcholine",
+"Phospholipase D acting on sphingomyelin",
+"Phospholipase C acting on PIP2",
+"Sphingomyelinase acting on ceramide",
+"Phospholipase A1 acting on cardiolipin"
+],
+"a": 2,
+"e": "Hormones and growth factors activate phospholipase C, which splits phosphatidylinositol 4,5-bisphosphate (PIP2) into two second messengers. IP3 releases calcium from the ER, and diacylglycerol activates protein kinase C. This is how PI transmits signals from outside the cell to inside.",
+"w": [
+"PLA2 releases arachidonic acid, not IP3 and DAG.",
+"PLD removes the head group, and sphingomyelin is not the substrate here.",
+"",
+"Sphingomyelinase acts on sphingomyelin, not ceramide, and makes no IP3.",
+"PLA1 removes the C1 fatty acid and makes no second messengers."
+],
+"src": "lec"
+},
+{
+"t": "GPI Anchors & PNH",
+"lv": "Easy",
+"s": "Several enzymes are held on the outer surface of the plasma membrane by a carbohydrate bridge to membrane phosphatidylinositol. Which of these is one of them?",
+"c": [
+"Hexokinase on the outer mitochondrial membrane",
+"Alkaline phosphatase in placenta",
+"Na⁺/K⁺-ATPase of the basolateral membrane",
+"Glucose-6-phosphatase of the ER lumen",
+"Hormone-sensitive lipase in adipocytes"
+],
+"a": 1,
+"e": "GPI-linked proteins are covalently attached through a carbohydrate bridge to membrane-bound PI, which gives them more lateral mobility. Phospholipase C can cut them free. Examples: lipoprotein lipase, acetylcholinesterase on RBCs, alkaline phosphatase in placenta, 5′-nucleotidase in lymphocytes, decay-accelerating factor on all blood cells, and amyloid Aβ in the CNS.",
+"w": [
+"Hexokinase binds porin; it is not GPI-anchored.",
+"",
+"The Na⁺/K⁺ pump is a transmembrane protein.",
+"Glucose-6-phosphatase is an ER membrane enzyme.",
+"HSL is a cytosolic enzyme."
+],
+"src": "lec"
+},
+{
+"t": "GPI Anchors & PNH",
+"lv": "Hard",
+"s": "A 34-year-old man reports that his first urine each morning is dark red and clears during the day. He has anemia with a high LDH and recently had a hepatic vein thrombosis. Flow cytometry shows his red cells lack decay-accelerating factor. An acquired mutation in which gene is most likely?",
+"c": [
+"Spectrin, weakening the RBC cytoskeleton",
+"Glucose-6-phosphate dehydrogenase in RBCs",
+"Hexosaminidase A α-subunit on chromosome 15",
+"Phosphatidylinositol glycan A in stem cells",
+"Glucocerebrosidase in tissue macrophages"
+],
+"a": 3,
+"e": "This is paroxysmal nocturnal hemoglobinuria. An acquired mutation in PIGA in hematopoietic cells blocks synthesis of the GPI anchor. GPI-anchored proteins such as decay-accelerating factor are lost from RBCs, platelets and WBCs. Those proteins normally prevent complement activation, so complement lyses RBCs: hemolytic anemia, red morning urine that lightens during the day, and venous thrombosis.",
+"w": [
+"Spectrin defects cause hereditary spherocytosis, which is inherited and has no complement-driven nocturnal hemoglobinuria.",
+"G6PD deficiency causes oxidant-triggered hemolysis, and DAF is normal.",
+"This causes Tay-Sachs disease, not hemolysis.",
+"",
+"This causes Gaucher disease, not hemolysis."
+],
+"src": "lec"
+},
+{
+"t": "Cardiolipin & Phosphatidylglycerol",
+"lv": "Easy",
+"s": "A lipid made by condensing CDP-diacylglycerol with phosphatidylglycerol is concentrated in one membrane, where it lowers proton permeability. Which lipid and membrane are these?",
+"c": [
+"Cardiolipin in the inner mitochondrial membrane",
+"Ethanolamine plasmalogen in the myelin sheath of axons",
+"Sphingomyelin in the plasma membrane of nerve cells",
+"Sulfatide in the tubular cell membranes of the kidney",
+"Lactosyl ceramide in the plasma membrane of RBCs"
+],
+"a": 0,
+"e": "Diphosphatidylglycerol, cardiolipin, is very acidic and found mainly in the inner mitochondrial membrane. It lowers the membrane's permeability to protons, so the proton-motive force of the electron transport chain can be built. It is made from CDP-diacylglycerol plus phosphatidylglycerol.",
+"w": [
+"",
+"Ethanolamine plasmalogens are in myelin, but they are made from DHAP, not phosphatidylglycerol.",
+"Sphingomyelin is made from ceramide and phosphocholine.",
+"Sulfatides are made from galactocerebroside and PAPS.",
+"Lactosyl ceramide is a globoside built from ceramide and sugars."
+],
+"src": "lec"
+},
+{
+"t": "Phospholipases & Degradation",
+"lv": "Easy",
+"s": "A phospholipase cuts the ester bond at carbon 2 of phosphatidylcholine. Which fatty acid release makes this enzyme so important?",
+"c": [
+"Palmitic acid for β-oxidation in cardiac muscle cells",
+"Oleic acid for triacylglycerol storage in adipocytes",
+"Stearic acid for ceramide synthesis in the smooth ER",
+"Butyric acid as an energy source for colonocytes",
+"Arachidonic acid for prostaglandins and leukotrienes"
+],
+"a": 4,
+"e": "Phospholipase A2 cuts the C2 fatty acid. Because C2 often carries arachidonic acid, PLA2 releases the substrate for prostaglandins and leukotrienes. PLA2 is also found in snake venom and pancreatic juice, and its products are lysophospholipids.",
+"w": [
+"Palmitate usually sits at C1 and is cut by PLA1.",
+"Releasing oleate is not the key role of PLA2.",
+"Stearate sits at C1, and ceramide uses sphingosine.",
+"Butyrate is not a typical phospholipid fatty acid.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Phospholipases & Degradation",
+"lv": "Hard",
+"s": "After a snakebite, a man develops RBC lysis around the wound. The venom enzyme turns membrane lecithin into a detergent-like product. Which enzyme and product best fit?",
+"c": [
+"Phospholipase A1 forming sphingosine",
+"Sphingomyelinase forming ceramide",
+"Phospholipase D forming phosphatidic acid",
+"Phospholipase A2 forming lysolecithin",
+"Phospholipase C forming inositol trisphosphate"
+],
+"a": 3,
+"e": "Snake venom is rich in phospholipase A2. It removes the fatty acid at C2 of lecithin, leaving lysolecithin, a lysophospholipid that acts like a detergent and lyses membranes. Lysophospholipids can be re-acylated by acyltransferases or by LLAT in remodeling.",
+"w": [
+"PLA1 cuts at C1, and sphingosine is not made from lecithin.",
+"Sphingomyelinase acts on sphingomyelin, not lecithin.",
+"PLD removes the head group, which doesn't explain venom hemolysis.",
+"",
+"IP3 comes from PIP2, not lecithin."
+],
+"src": "lec"
+},
+{
+"t": "Plasmalogens & PAF",
+"lv": "Easy",
+"s": "A lipid mediator has an alkyl ether at C1 and an acetyl group at C2 of glycerol. It causes platelet aggregation and serotonin release in anaphylaxis. What is this molecule?",
+"c": [
+"Phosphatidylinositol bisphosphate",
+"Diphosphatidylglycerol",
+"Platelet-activating factor",
+"Dipalmitoyl phosphatidylcholine",
+"Galactocerebroside"
+],
+"a": 2,
+"e": "Plasmalogens are glycerol ether phospholipids, made from dihydroxyacetone phosphate. Platelet-activating factor is an alkyl ether plasmalogen with an acetyl group at C2. It mediates hypersensitivity reactions and anaphylactic shock, causing platelet aggregation and serotonin release from platelets.",
+"w": [
+"PIP2 is a signaling lipid with ester-linked fatty acids, not an ether bond.",
+"Diphosphatidylglycerol, cardiolipin, has no ether bond.",
+"",
+"DPPC is surfactant with ester-linked palmitates.",
+"It is a sphingolipid, not an ether glycerolipid."
+],
+"src": "lec"
+},
+{
+"t": "Sphingolipids, Ceramide & Sphingomyelin",
+"lv": "Easy",
+"s": "Which reaction produces sphingomyelin from ceramide?",
+"c": [
+"Phosphocholine transfer by sphingomyelin synthase",
+"Addition of UDP-galactose by a galactosyltransferase",
+"Addition of sulfate from PAPS by a sulfotransferase",
+"Addition of NANA by a sialyltransferase in the Golgi",
+"Removal of the fatty acid from C2 by ceramidase"
+],
+"a": 0,
+"e": "Ceramide is sphingosine with a fatty acid N-acylated at C2. Sphingomyelin synthase transfers phosphoryl choline onto ceramide. Sphingomyelin is a major structural lipid of nerve cell membranes and myelin, usually with palmitic or stearic acid.",
+"w": [
+"",
+"This makes galactocerebroside.",
+"This makes sulfatide, starting from galactocerebroside.",
+"Sialic acid addition makes gangliosides.",
+"This breaks ceramide down to sphingosine and a fatty acid."
+],
+"src": "lec"
+},
+{
+"t": "Sphingolipids, Ceramide & Sphingomyelin",
+"lv": "Hard",
+"s": "A lysosomal enzyme removes phosphocholine from a myelin lipid. A second lysosomal enzyme then splits the product into sphingosine and a fatty acid. A child lacking the second enzyme accumulates which substance?",
+"c": [
+"Sphingomyelin, as in Niemann-Pick",
+"Globoside, as in Sandhoff disease",
+"Sulfatide, as in metachromatic leukodystrophy",
+"Glucocerebroside, as in Gaucher",
+"Ceramide, as in Farber disease"
+],
+"a": 4,
+"e": "Sphingomyelinase removes phosphocholine from sphingomyelin, leaving ceramide. Ceramidase then splits ceramide into sphingosine and a fatty acid. Ceramidase deficiency is Farber disease, in which ceramide accumulates: painful, progressively deformed joints and skin nodules.",
+"w": [
+"That would be a sphingomyelinase deficiency, the first enzyme.",
+"That is a hexosaminidase A and B deficiency.",
+"Arylsulfatase A acts on sulfatide, not on ceramide.",
+"That is a glucocerebrosidase deficiency.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Glycolipid Classes",
+"lv": "Easy",
+"s": "Which glycosphingolipid is a sulfuric acid ester of galactocerebroside, negatively charged and abundant in nerve tissue and kidney?",
+"c": [
+"Ganglioside GM2",
+"Lactosyl ceramide",
+"Glucocerebroside",
+"Sulfatide",
+"Globotriaosylceramide"
+],
+"a": 3,
+"e": "Sulfatides are sulfuric acid esters of galactocerebroside, made with PAPS as the sulfate donor. They are negatively charged at physiological pH and found mainly in nerve tissue and kidney. They accumulate in metachromatic leukodystrophy.",
+"w": [
+"Gangliosides carry sialic acid (NANA), not sulfate.",
+"Lactosyl ceramide is a neutral globoside in the RBC membrane.",
+"Glucocerebroside is a neutral cerebroside with one glucose.",
+"",
+"This neutral globoside builds up in Fabry disease."
+],
+"src": "lec"
+},
+{
+"t": "Glycolipid Classes",
+"lv": "Hard",
+"s": "A child's glycolipid has ceramide, several sugars and two sialic acid residues. In the standard naming, which letter shows the sialic acid count, and where in the body is this lipid mainly found?",
+"c": [
+"T, in the RBC plasma membrane",
+"M, in the myelin of peripheral nerves",
+"D, in ganglion cells of the CNS",
+"Q, in the renal tubules",
+"G, in the liver sinusoids"
+],
+"a": 2,
+"e": "Gangliosides are ceramide plus several sugars plus one or more sialic acids (NANA). In names like GM2, G means ganglioside, the letter M, D, T or Q gives the number of sialic acids (mono, di, tri, tetra), and the number gives the carbohydrate sequence. They are found mainly in ganglion cells of the CNS, at nerve endings. Two sialic acids is D.",
+"w": [
+"T means three sialic acids.",
+"M means one sialic acid.",
+"",
+"Q means four sialic acids.",
+"G just means ganglioside, not the sialic acid count."
+],
+"src": "lec"
+},
+{
+"t": "Glycolipid Classes",
+"lv": "Easy",
+"s": "Which function belongs to membrane glycosphingolipids?",
+"c": [
+"Releasing arachidonic acid for prostaglandin synthesis",
+"Lowering surface tension in the alveoli of the lung",
+"Generating the proton-motive force across mitochondria",
+"Anchoring alkaline phosphatase via a phosphatidylinositol bridge",
+"Serving as receptors for cholera and tetanus toxins"
+],
+"a": 4,
+"e": "Glycolipids are ceramide with sugars on carbon 1 of sphingosine. They are mainly in nerve-tissue membranes, act as blood group antigens, and act as cell surface receptors for cholera and tetanus toxins.",
+"w": [
+"That is phosphatidylinositol and PLA2.",
+"That is DPPC in surfactant.",
+"That is cardiolipin's role.",
+"That is the GPI anchor.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Lysosomal Storage Disorders Overview",
+"lv": "Easy",
+"s": "Which disease is a defect of glycogen breakdown inside the lysosome, rather than a sphingolipidosis?",
+"c": [
+"Krabbe disease",
+"Gaucher disease",
+"Fabry disease",
+"Farber disease",
+"Pompe disease"
+],
+"a": 4,
+"e": "Lysosomal storage disorders fall into groups: mucopolysaccharidoses, mucolipidoses such as I-cell disease, sphingolipidoses, Pompe disease (a glycogen storage disease) and Wolman disease (a lipoprotein defect). The rest of the options are sphingolipidoses.",
+"w": [
+"Galactocerebrosidase deficiency is a sphingolipidosis.",
+"Glucocerebrosidase deficiency is a sphingolipidosis.",
+"α-galactosidase deficiency is a sphingolipidosis.",
+"Ceramidase deficiency is a sphingolipidosis.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Niemann-Pick Disease",
+"lv": "Hard",
+"s": "A 4-month-old Ashkenazi infant has a protuberant abdomen, failure to thrive and loss of milestones. Bone marrow shows foamy macrophages full of small uniform vacuoles, and electron microscopy shows zebra bodies. Which enzyme is deficient?",
+"c": [
+"Hexosaminidase A",
+"Glucocerebrosidase",
+"Arylsulfatase A",
+"Sphingomyelinase",
+"α-galactosidase A"
+],
+"a": 3,
+"e": "Niemann-Pick disease type A: sphingomyelinase deficiency leads to lysosomal accumulation of sphingomyelin. Signs appear at birth or by 6 months: hepatosplenomegaly with a protuberant abdomen, failure to thrive, vomiting, lymphadenopathy and neurologic decline. Many small uniform vacuoles make cells look foamy, and EM shows zebra and concentric lamellar bodies. Death usually comes within 1–3 years. Type B has no CNS involvement.",
+"w": [
+"Tay-Sachs has a cherry-red spot but no hepatosplenomegaly or foam cells.",
+"Gaucher cells look like crumpled tissue paper, not foamy.",
+"MLD causes demyelination without hepatosplenomegaly.",
+"",
+"Fabry is X-linked, with painful extremities and renal failure."
+],
+"src": "lec"
+},
+{
+"t": "Niemann-Pick Disease",
+"lv": "Easy",
+"s": "How do Niemann-Pick types A and B differ?",
+"c": [
+"Type B has no CNS involvement but still has visceral storage",
+"Type A spares the brain and mainly affects the kidneys",
+"Type B is X-linked while type A is autosomal recessive",
+"Type A stores glucocerebroside while type B stores sphingomyelin",
+"Type B is cured by giving dietary sphingomyelinase"
+],
+"a": 0,
+"e": "Both are sphingomyelinase deficiencies that store sphingomyelin. Type A is the severe infantile form, with extensive neurologic involvement, marked visceral storage and death within the first 3 years. Type B has no CNS involvement but marked visceral (liver, kidney) accumulation.",
+"w": [
+"",
+"Type A is the one with extensive neurologic involvement.",
+"Both types are autosomal recessive.",
+"Both types store sphingomyelin.",
+"There is no dietary enzyme cure."
+],
+"src": "lec"
+},
+{
+"t": "Gaucher Disease",
+"lv": "Hard",
+"s": "A 25-year-old woman has easy bruising, bone pain and a massively enlarged spleen. Marrow shows large macrophages whose cytoplasm looks like crumpled tissue paper. Which treatment targets the cause of her disease?",
+"c": [
+"Recombinant replacement of the missing enzyme",
+"Splenectomy followed by lifelong penicillin prophylaxis",
+"Restriction of dietary sphingomyelin and cholesterol",
+"Hexosaminidase A gene therapy into CNS neurons",
+"Plasma exchange to remove circulating sulfatides"
+],
+"a": 0,
+"e": "This is Gaucher disease, the most common lysosomal storage disorder. It is autosomal recessive, with deficient glucocerebrosidase (β-glucosidase), so glucocerebroside accumulates in phagocytic cells of the liver, spleen and bone marrow: Gaucher cells with a crumpled-tissue-paper look, hepatosplenomegaly, bone damage and anemia. Treatment is recombinant enzyme replacement, which is effective but expensive, or bone marrow transplant or gene transfer. The adult form is compatible with longer survival.",
+"w": [
+"",
+"Splenectomy treats a symptom, not the enzyme defect.",
+"The stored lipid is glucocerebroside, mostly from cell turnover, so diet doesn't help.",
+"Hexosaminidase A is the Tay-Sachs enzyme.",
+"Sulfatides build up in MLD, not Gaucher."
+],
+"src": "lec"
+},
+{
+"t": "Tay-Sachs & GM2 Gangliosidoses",
+"lv": "Hard",
+"s": "A 9-month-old has lost the ability to sit, startles strongly at sounds, and has a cherry-red spot at both maculae. The liver and spleen are normal. Which is the defect?",
+"c": [
+"β-subunit defect of hexosaminidase A and B",
+"α-subunit defect of hexosaminidase A on chromosome 15",
+"Sphingomyelinase deficiency with sphingomyelin storage",
+"β-galactosidase deficiency with GM1 storage",
+"Galactocerebrosidase deficiency with psychosine storage"
+],
+"a": 1,
+"e": "Tay-Sachs disease is GM2 gangliosidosis from a mutation in the α-subunit of hexosaminidase A on chromosome 15. GM2 builds up in neurons of the CNS, the autonomic nervous system and the retina. Swollen ganglion cells around the macula make the normal choroid stand out as a cherry-red spot. There is no hepatosplenomegaly, which separates it from Niemann-Pick. It is common in Ashkenazi Jews, with a carrier rate of 1 in 30, and death comes at 2–3 years.",
+"w": [
+"This is Sandhoff disease, which can also store globosides and affect organs.",
+"",
+"Niemann-Pick has a cherry-red spot but also hepatosplenomegaly.",
+"GM1 gangliosidosis usually has organ enlargement and skeletal involvement.",
+"Krabbe causes demyelination with globoid cells, without a typical cherry-red spot."
+],
+"src": "lec"
+},
+{
+"t": "Tay-Sachs & GM2 Gangliosidoses",
+"lv": "Easy",
+"s": "A child has a Tay-Sachs-like illness, but her hexosaminidase A and B enzymes are both normal in the test tube. What other form of GM2 gangliosidosis fits?",
+"c": [
+"Sandhoff disease, a β-subunit defect",
+"GM2 activator protein deficiency",
+"Fabry disease, an α-galactosidase defect",
+"Farber disease, a ceramidase defect",
+"Gaucher disease, a glucocerebrosidase defect"
+],
+"a": 1,
+"e": "The slide lists two other forms of GM2 gangliosidosis: Sandhoff disease, a β-subunit defect, and GM2 activator deficiency. Both look clinically like Tay-Sachs. When the enzymes themselves are normal, the missing piece is the activator protein needed to present GM2 to hexosaminidase A.",
+"w": [
+"In Sandhoff disease hexosaminidase A and B are both low.",
+"",
+"Fabry is α-galactosidase A deficiency, not a GM2 storage disease.",
+"Farber is ceramidase deficiency.",
+"Gaucher is glucocerebrosidase deficiency."
+],
+"src": "lec"
+},
+{
+"t": "Fabry, Krabbe, MLD & Other Sphingolipidoses",
+"lv": "Hard",
+"s": "A 15-year-old boy has burning pain in his hands and feet, small dark-red skin papules around the umbilicus, protein in the urine and a thickened septum on echo. His mother's brother died of kidney failure at 40. Which molecule accumulates?",
+"c": [
+"Galactocerebroside and psychosine",
+"Sulfatide",
+"Globotriaosylceramide",
+"Ganglioside GM1",
+"Glucocerebroside"
+],
+"a": 2,
+"e": "Fabry disease is the only X-linked recessive sphingolipidosis, which fits the affected maternal uncle. α-galactosidase A deficiency causes globoside (globotriaosylceramide, or ceramide trihexoside) to accumulate, especially in the kidneys. Classic features: burning extremity pain, renal failure, cardiac failure with septal hypertrophy, and angiokeratomas.",
+"w": [
+"These build up in Krabbe disease, with CNS demyelination in infants.",
+"This builds up in metachromatic leukodystrophy.",
+"",
+"This builds up in GM1 gangliosidosis, from β-galactosidase deficiency.",
+"This builds up in Gaucher, which is autosomal recessive."
+],
+"src": "lec"
+},
+{
+"t": "Fabry, Krabbe, MLD & Other Sphingolipidoses",
+"lv": "Easy",
+"s": "An infant with irritability, feeding trouble, muscle spasms and poor head control has multinucleate globoid cells in the CNS. Toxic levels of psychosine destroy oligodendrocytes. Which enzyme is deficient?",
+"c": [
+"Arylsulfatase A",
+"Hexosaminidase A and B",
+"Acid ceramidase",
+"Glucocerebrosidase",
+"Galactocerebrosidase"
+],
+"a": 4,
+"e": "Krabbe disease is β-galactosidase deficiency, specifically galactocerebrosidase. Galactocerebrosides and psychosine accumulate, and the very high psychosine destroys oligodendrocytes and neurons, causing CNS demyelination. Multinucleate globoid cells in the CNS are pathognomonic. Death usually comes by age 2.",
+"w": [
+"Arylsulfatase A deficiency is MLD, with metachromatic sulfatide granules.",
+"Hexosaminidase A and B deficiency is Sandhoff disease.",
+"Ceramidase deficiency is Farber disease.",
+"Glucocerebrosidase deficiency is Gaucher disease.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Fabry, Krabbe, MLD & Other Sphingolipidoses",
+"lv": "Easy",
+"s": "Which sphingolipidosis has a deficiency of β-galactosidase that acts on gangliosides, leading to ganglioside accumulation?",
+"c": [
+"Sandhoff disease",
+"GM1 gangliosidosis",
+"Farber disease",
+"Niemann-Pick disease",
+"Fabry disease"
+],
+"a": 1,
+"e": "GM1 gangliosidosis is a deficiency of β-galactosidase, causing GM1 ganglioside to accumulate. On the summary table: mental retardation, liver enlargement, skeletal involvement and death by age 2. All sphingolipidoses are autosomal recessive except Fabry, which is X-linked.",
+"w": [
+"Sandhoff is hexosaminidase A and B deficiency.",
+"",
+"Farber is ceramidase deficiency.",
+"Niemann-Pick is sphingomyelinase deficiency.",
+"Fabry is α-galactosidase A deficiency."
+],
+"src": "lec"
+},
+{
+"t": "Practice Questions · Complex Lipids (from the slides)",
+"s": "A 3-year-old child is brought to the clinic by his parents due to progressive difficulty with walking and frequent falls. The parents mention that he has been losing previously acquired motor skills and has had several episodes of regression in language skills. On examination, the child has spasticity, hyperreflexia, and decreased muscle tone in the lower extremities. Brain MRI shows symmetric, confluent white matter abnormalities. Urine sulfatide levels are elevated. Which of the following enzymes is deficient in this patient?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Arylsulfatase A",
+"Glucocerebrosidase",
+"Hexosaminidase A",
+"Iduronate-2-sulfatase",
+"Sphingomyelinase"
+],
+"a": 0,
+"e": "Elevated urine sulfatides, white matter disease and loss of motor and language milestones point to metachromatic leukodystrophy. Arylsulfatase A deficiency causes sulfatides to accumulate as metachromatic granules, with CNS and PNS demyelination: ataxia, trouble walking and speaking, and memory loss.",
+"w": [
+"",
+"Glucocerebrosidase deficiency is Gaucher disease, with hepatosplenomegaly and bone disease.",
+"Hexosaminidase A deficiency is Tay-Sachs, with a cherry-red spot and GM2 storage.",
+"Iduronate-2-sulfatase deficiency is Hunter syndrome, a mucopolysaccharidosis.",
+"Sphingomyelinase deficiency is Niemann-Pick, with hepatosplenomegaly and foam cells."
+],
+"src": "lec"
+},
+{
+"t": "Practice Questions · Complex Lipids (from the slides)",
+"s": "A 3-year-old boy is brought to the pediatrician because of progressive loss of developmental milestones, difficulty walking, and frequent respiratory infections. On physical examination, he has hepatosplenomegaly and a \"cherry-red\" spot is noted on fundoscopic examination. Laboratory testing reveals foam cells in his bone marrow aspirate. Which of the following is the most likely diagnosis?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Tay-Sachs disease",
+"Gaucher disease",
+"Niemann-Pick disease",
+"Fabry disease",
+"Krabbe disease"
+],
+"a": 2,
+"e": "A cherry-red spot plus hepatosplenomegaly plus foam cells is Niemann-Pick disease. Sphingomyelinase deficiency causes sphingomyelin to accumulate in macrophages, which look foamy, in the liver, spleen, lungs and bone marrow, with neurologic decline.",
+"w": [
+"Tay-Sachs has a cherry-red spot but no hepatosplenomegaly or foam cells.",
+"Gaucher has hepatosplenomegaly but crumpled-tissue-paper cells and no cherry-red spot.",
+"",
+"Fabry is X-linked, with painful extremities, angiokeratomas and renal failure.",
+"Krabbe has globoid cells and demyelination, without hepatosplenomegaly."
+],
+"src": "lec"
+},
+{
+"t": "Practice Questions · Complex Lipids (from the slides)",
+"s": "A 6 month old girl is brought to the physician by her parents because of seizures. The girl has also developed diminished responsiveness and progressive blindness over the past 4 months. Physical examination of the abdomen shows no abnormalities. Fundoscopic examination shows retinal pallor except in the macular area. Activity of which of the following enzymes is most likely decreased in both of the parents?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Glucocerebrosidase",
+"Alpha galactosidase",
+"B-galactosidase",
+"Hexosaminidase",
+"Sphingomyelinase"
+],
+"a": 3,
+"e": "Seizures, blindness and a cherry-red spot (pale retina except the macula) with a normal abdomen means Tay-Sachs disease. It is autosomal recessive, so both parents are carriers with about half-normal hexosaminidase A activity. That reduced activity is the basis of carrier screening.",
+"w": [
+"Glucocerebrosidase deficiency is Gaucher, with hepatosplenomegaly.",
+"Alpha galactosidase deficiency is X-linked Fabry disease.",
+"B-galactosidase deficiency causes GM1 gangliosidosis or Krabbe disease, usually with organ or white matter involvement.",
+"",
+"Sphingomyelinase deficiency is Niemann-Pick, which also has hepatosplenomegaly."
 ],
 "src": "lec"
 }

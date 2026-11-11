@@ -4295,6 +4295,186 @@ window.NBME_QUIZZES = [
 "NADPH drives synthesis; it doesn't inhibit β-oxidation.",
 "Ketones rise in fasting, not on a high-carbohydrate diet."
 ]
+},
+{
+"t": "Lecture 4 · Complex Lipid Metabolism",
+"s": "A 32-week preterm infant develops grunting and intercostal retractions within an hour of birth. Chest x-ray shows a diffuse ground-glass pattern. Deficiency of which molecule, made by type II pneumocytes, best explains these findings?",
+"c": [
+"Dipalmitoylphosphatidylcholine",
+"Phosphatidylinositol bisphosphate",
+"Sphingomyelin",
+"Cardiolipin",
+"Platelet-activating factor"
+],
+"a": 0,
+"e": "• Preterm birth plus ground-glass lungs is neonatal respiratory distress syndrome.\n• Dipalmitoylphosphatidylcholine (DPPC, lecithin) is the main surfactant phospholipid; it lowers alveolar surface tension and prevents collapse.\n• Fetal maturity is judged by an L/S ratio above 2.",
+"w": [
+"",
+"PIP2 is a signaling lipid cleaved by phospholipase C.",
+"Sphingomyelin is the reference lipid in the L/S ratio, not the active surfactant.",
+"Cardiolipin is in the inner mitochondrial membrane.",
+"PAF mediates anaphylaxis."
+]
+},
+{
+"t": "Lecture 4 · Complex Lipid Metabolism",
+"s": "A 41-year-old woman has fatigue, intermittent dark morning urine and a Budd-Chiari thrombosis. Flow cytometry shows her red cells lack CD55 and CD59. The defect most likely affects the synthesis of which structure?",
+"c": [
+"Spectrin–ankyrin complex of the RBC skeleton",
+"Glycosylphosphatidylinositol membrane anchor",
+"Band 3 anion exchanger in the RBC membrane",
+"Glutathione reductase–NADPH redox system",
+"Heme ring by δ-ALA synthase in erythroblasts"
+],
+"a": 1,
+"e": "• Paroxysmal nocturnal hemoglobinuria: acquired PIGA mutation in hematopoietic stem cells.\n• No GPI anchor → CD55 (decay-accelerating factor) and CD59 are lost from RBCs, WBCs and platelets.\n• Complement lyses the cells → intravascular hemolysis, dark morning urine and venous thrombosis.",
+"w": [
+"Spectrin and ankyrin defects cause hereditary spherocytosis.",
+"",
+"Band 3 defects also cause spherocytosis, not complement lysis.",
+"Redox defects cause oxidant hemolysis like G6PD deficiency.",
+"Heme synthesis defects cause sideroblastic anemia or porphyria."
+]
+},
+{
+"t": "Lecture 4 · Complex Lipid Metabolism",
+"s": "An investigator adds an α1-adrenergic agonist to vascular smooth muscle cells and measures a rapid fall in one membrane phospholipid while IP3 rises. Which phospholipid falls?",
+"c": [
+"Phosphatidylcholine",
+"Phosphatidylserine",
+"Phosphatidylethanolamine",
+"Phosphatidylinositol 4,5-bisphosphate",
+"Sphingomyelin"
+],
+"a": 3,
+"e": "• α1 receptors couple to Gq → phospholipase C.\n• PLC cleaves PIP2 into IP3, which releases Ca²⁺ from the ER, and DAG, which activates protein kinase C.\n• PI and PIP2 are also the membrane reservoir of arachidonic acid.",
+"w": [
+"Lecithin is cut by PLA2, not by PLC in this pathway.",
+"Phosphatidylserine signals apoptosis when flipped to the outer leaflet.",
+"PE is not the PLC substrate that yields IP3.",
+"",
+"Sphingomyelin is cut by sphingomyelinase to ceramide."
+]
+},
+{
+"t": "Lecture 4 · Complex Lipid Metabolism",
+"s": "A man bitten by a pit viper develops local tissue destruction and hemolysis. A key venom enzyme cleaves membrane phospholipids at the sn-2 position. Which product of this reaction feeds inflammatory mediator synthesis?",
+"c": [
+"Inositol trisphosphate",
+"Arachidonic acid",
+"Phosphocholine",
+"Diacylglycerol",
+"Ceramide"
+],
+"a": 1,
+"e": "• Snake venom is rich in phospholipase A2, which cleaves the fatty acid at carbon 2.\n• C2 often carries arachidonic acid, the precursor of prostaglandins and leukotrienes.\n• The other product, lysophospholipid such as lysolecithin, is detergent-like and lyses RBCs.",
+"w": [
+"IP3 comes from PIP2 by phospholipase C.",
+"",
+"Phosphocholine is released by sphingomyelinase or phospholipase C, not PLA2.",
+"DAG comes from phospholipase C.",
+"Ceramide comes from sphingomyelinase."
+]
+},
+{
+"t": "Lecture 4 · Complex Lipid Metabolism",
+"s": "A 5-month-old boy of Ashkenazi descent has an exaggerated startle to noise, hypotonia and loss of head control. Fundoscopy shows bilateral cherry-red maculae. The abdomen is soft with no organomegaly. Which substance accumulates in his neurons?",
+"c": [
+"Sphingomyelin",
+"Glucocerebroside",
+"GM2 ganglioside",
+"Sulfatide",
+"Globotriaosylceramide"
+],
+"a": 2,
+"e": "• Cherry-red spot without hepatosplenomegaly = Tay-Sachs disease.\n• Hexosaminidase A deficiency, from an α-subunit mutation on chromosome 15, causes GM2 ganglioside to accumulate in CNS and retinal neurons.\n• Autosomal recessive, with a carrier rate of 1 in 30 in Ashkenazi Jews.",
+"w": [
+"Sphingomyelin storage, in Niemann-Pick, comes with hepatosplenomegaly.",
+"Glucocerebroside storage, in Gaucher, causes hepatosplenomegaly and bone disease.",
+"",
+"Sulfatides accumulate in metachromatic leukodystrophy.",
+"This accumulates in Fabry disease."
+]
+},
+{
+"t": "Lecture 4 · Complex Lipid Metabolism",
+"s": "A 30-year-old man has bone pain, a hip fracture and a spleen palpable to the pelvis. Platelets are 60,000/µL. Bone marrow shows large macrophages with fibrillary, crumpled-tissue-paper cytoplasm. Which enzyme would be infused to treat him?",
+"c": [
+"Sphingomyelinase",
+"α-Galactosidase A",
+"Hexosaminidase A",
+"Glucocerebrosidase",
+"Arylsulfatase A"
+],
+"a": 3,
+"e": "• Gaucher disease is the most common lysosomal storage disorder and is autosomal recessive.\n• Deficient glucocerebrosidase (β-glucosidase) lets glucocerebroside build up in macrophages of the spleen, liver and marrow: Gaucher cells, hepatosplenomegaly, cytopenias and bone disease.\n• Treated with recombinant enzyme replacement.",
+"w": [
+"Sphingomyelinase deficiency is Niemann-Pick, with foam cells.",
+"α-Galactosidase A deficiency is Fabry disease.",
+"Hexosaminidase A deficiency is Tay-Sachs.",
+"",
+"Arylsulfatase A deficiency is metachromatic leukodystrophy."
+]
+},
+{
+"t": "Lecture 4 · Complex Lipid Metabolism",
+"s": "A 19-year-old man has burning pain in his hands and feet during exercise, decreased sweating and clusters of dark-red papules on his lower trunk. Urinalysis shows proteinuria. His mother is healthy, but her brother needed dialysis at 45. What is the inheritance and deficient enzyme?",
+"c": [
+"Autosomal recessive, β-galactosidase",
+"Autosomal recessive, glucocerebrosidase",
+"X-linked recessive, iduronate sulfatase",
+"Autosomal dominant, α-galactosidase A",
+"X-linked recessive, α-galactosidase A"
+],
+"a": 4,
+"e": "• Fabry disease is the only X-linked recessive sphingolipidosis; the affected maternal uncle fits.\n• α-Galactosidase A deficiency causes globotriaosylceramide to accumulate.\n• Features: painful extremities, angiokeratomas, hypohidrosis, renal failure and cardiac hypertrophy.",
+"w": [
+"β-galactosidase deficiency causes GM1 gangliosidosis or Krabbe disease.",
+"Glucocerebrosidase deficiency is Gaucher disease.",
+"Iduronate-2-sulfatase deficiency is Hunter syndrome, a mucopolysaccharidosis.",
+"Fabry is X-linked, not autosomal dominant.",
+""
+]
+},
+{
+"t": "Lecture 4 · Complex Lipid Metabolism",
+"s": "A 7-month-old girl has extreme irritability, feeding difficulty, stiffness and poor head control. MRI shows diffuse white matter loss, and brain biopsy shows clusters of multinucleated macrophages. Accumulation of which toxic lipid most directly kills her oligodendrocytes?",
+"c": [
+"Psychosine",
+"Sulfatide",
+"Ceramide",
+"Sphingomyelin",
+"GM1 ganglioside"
+],
+"a": 0,
+"e": "• Krabbe disease: galactocerebrosidase deficiency.\n• Galactocerebroside and psychosine accumulate, and psychosine is toxic to oligodendrocytes → CNS demyelination.\n• Multinucleated globoid cells in the CNS are pathognomonic.",
+"w": [
+"",
+"Sulfatide builds up in metachromatic leukodystrophy.",
+"Ceramide builds up in Farber disease, with joint deformities and nodules.",
+"Sphingomyelin builds up in Niemann-Pick.",
+"GM1 builds up in GM1 gangliosidosis."
+]
+},
+{
+"t": "Lecture 4 · Complex Lipid Metabolism",
+"s": "A 2-year-old has hepatosplenomegaly, failure to thrive and progressive loss of motor skills. Bone marrow shows macrophages with many small uniform clear vacuoles, and electron microscopy shows concentric lamellar bodies. Which reaction is defective?",
+"c": [
+"Glucocerebroside → glucose + ceramide",
+"Sphingomyelin → phosphocholine + ceramide",
+"GM2 → GM3 + N-acetylgalactosamine",
+"Sulfatide → sulfate + galactocerebroside",
+"Ceramide → sphingosine + fatty acid"
+],
+"a": 1,
+"e": "• Foamy macrophages with zebra or lamellar bodies, hepatosplenomegaly and neurodegeneration = Niemann-Pick disease.\n• Sphingomyelinase normally removes phosphocholine from sphingomyelin, leaving ceramide.\n• Type A is infantile with CNS involvement; type B has no CNS involvement.",
+"w": [
+"Glucocerebrosidase is defective in Gaucher.",
+"",
+"Hexosaminidase A is defective in Tay-Sachs.",
+"Arylsulfatase A is defective in metachromatic leukodystrophy.",
+"Ceramidase is defective in Farber disease."
+]
 }
 ]
 },
