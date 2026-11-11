@@ -1717,14 +1717,14 @@ async function guidePdf(f, btn){
       if (n.nodeName === "DIV" && /\bbox\b/.test(n.style ? [].concat(n.style).join(" ") : "")) return {table:{widths:["*"], body:[[Object.assign({}, n, {margin:[5,4,5,4]})]]}, layout:{fillColor:()=>"#fff4f4", hLineColor:()=>RED, vLineColor:()=>RED}, margin:[0,6,0,6]};
       return n; };
     const dd = {pageSize:"LETTER", pageMargins:[38,40,38,44], defaultStyle:{font:"DejaVu", fontSize:9, lineHeight:1.2},
-      info:{title:nm+" — NBME Study Guide", author:"JJ QBank", subject:"© "+yr+" JJ QBank. All rights reserved."},
+      info:{title:nm+" — NBME Study Guide", author:"JJ QBank", subject:"© "+yr+" JJ QBank. Free to share, redistribute and use with AI tools for study."},
       watermark:{text:"© JJ QBank", color:NAVY, opacity:0.06, bold:true, angle:-35, fontSize:64},
       styles:{hy:{color:RED, bold:true}, mn:{color:"#1c5fb8", italics:true}, t:{color:RED}},
-      footer:(cur,tot)=>({columns:[{text:"© "+yr+" JJ QBank · All rights reserved", alignment:"left"},{text:nm+" NBME study guide", alignment:"center"},{text:"Page "+cur+" of "+tot, alignment:"right"}], fontSize:7, color:"#666", margin:[38,14,38,0]}),
+      footer:(cur,tot)=>({columns:[{text:"© "+yr+" JJ QBank · Free to share", alignment:"left"},{text:nm+" NBME study guide", alignment:"center"},{text:"Page "+cur+" of "+tot, alignment:"right"}], fontSize:7, color:"#666", margin:[38,14,38,0]}),
       content:[{text:nm+" — NBME Study Guide", fontSize:17, bold:true, color:NAVY}, {text:desc, fontSize:8.5, color:"#555", margin:[0,2,0,6]},
         {text:[{text:"Red", style:"hy"}," = extra high yield (classic NBME)     Black = core content     ",{text:"Italic blue = mnemonic", style:"mn"}], fontSize:8, margin:[0,0,0,6]},
         fix(body),
-        {text:"© "+yr+" JJ QBank. All rights reserved. For personal study use only; do not copy, sell or redistribute.", fontSize:7.5, color:"#666", margin:[0,14,0,0]}]};
+        {text:"© "+yr+" JJ QBank. You may freely copy, share, redistribute and upload this guide to AI tools for studying, including to make your own practice questions. Please keep this notice.", fontSize:7.5, color:"#666", margin:[0,14,0,0]}]};
     pdfMake.fonts = {DejaVu:{normal:GPDF_FONT+"DejaVuSans.ttf", bold:GPDF_FONT+"DejaVuSans-Bold.ttf", italics:GPDF_FONT+"DejaVuSans-Oblique.ttf", bolditalics:GPDF_FONT+"DejaVuSans-BoldOblique.ttf"}};
     await new Promise(res=>pdfMake.createPdf(dd).download("JJ QBank - "+nm+" NBME study guide.pdf", res));
   } catch(e) { console.warn("JJ guide pdf", e); toast("Couldn't build the PDF — check your connection and try again"); }
