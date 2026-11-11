@@ -3190,7 +3190,8 @@ function bjUI(){
 // Any player's browser can move the game along (deal, time-outs, dealer, next round); every move is a transaction,
 // so only one browser's move wins. Each player's own bankroll stays in their browser + the leaderboard, as in solo.
 const BJL_SEATS = 5, BJL_BET_MS = 12000, BJL_TURN_MS = 30000, BJL_DONE_MS = 7000;
-const BJL_POS = [{x:118,y:292},{x:272,y:372},{x:440,y:404},{x:608,y:372},{x:762,y:292}];
+// seat 0 is "first base": the dealer's left, which is the right side of the screen. Cards and turns go seat 0 → 4.
+const BJL_POS = [{x:762,y:292},{x:608,y:372},{x:440,y:404},{x:272,y:372},{x:118,y:292}];
 const BJL = { st:null, unsub:null, tick:0, busy:false, err:"", paid:{}, seen:new Set() };
 try { BJL.paid = JSON.parse(localStorage.getItem("jj-bjl-paid") || "{}"); } catch(e) {}
 const BJL_SU = {S:"♠", H:"♥", D:"♦", C:"♣"};
