@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sign-in test · JJ QBank</title>
+<meta name="robots" content="noindex">
+<style>
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0d1117;color:#e6edf3;font:16px/1.5 system-ui,-apple-system,sans-serif}
+.c{width:min(420px,90vw);background:#161b22;border:1px solid #353d4a;border-radius:14px;padding:24px}
+h1{font-size:20px;margin:0 0 6px}p{color:#8b949e;font-size:14px;margin:0 0 16px}
+button{width:100%;padding:12px;border-radius:10px;border:0;font-weight:700;font-size:15px;margin-top:10px;cursor:pointer;background:#4fb8b0;color:#0b1416}
+button.alt{background:none;border:1px solid #4fb8b0;color:#5cd6cb}
+#s{margin-top:16px;padding:12px;border-radius:10px;background:#0d1117;font-size:14px;min-height:22px;word-break:break-word}
+.ok{color:#3fb950}.bad{color:#f85149}
+</style></head><body><div class="c">
+<h1>Sign-in test</h1>
+<p>Tests the new sign-in that stays on jjqbank.com. Try the redirect button on your iPhone.</p>
+<button id="r">Sign in with Google (redirect)</button>
+<button id="p" class="alt">Sign in with Google (pop-up)</button>
+<div id="s">Loading…</div>
+</div>
+<script src="firebase-config.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script>
+const s = document.getElementById("s");
+const say = (t, c)=>{ s.textContent = t; s.className = c || ""; };
+const cfg = Object.assign({}, window.JJ_FIREBASE, {authDomain: location.hostname});
+firebase.initializeApp(cfg);
+const auth = firebase.auth(), prov = new firebase.auth.GoogleAuthProvider();
+prov.setCustomParameters({prompt: "select_account"});
+auth.getRedirectResult().then(r=>{ if (r && r.user) say("Redirect sign-in worked: " + r.user.email, "ok"); })
+  .catch(e=>say("Redirect failed: " + (e.code || "") + " " + (e.message || e), "bad"));
+auth.onAuthStateChanged(u=>{ if (!/worked|failed/.test(s.textContent)) say(u ? "Signed in as " + u.email + " (try a button to test)" : "Not signed in. Tap a button.", ""); });
+document.getElementById("r").onclick = ()=>{ say("Going to Google…"); auth.signInWithRedirect(prov).catch(e=>say("Redirect failed: " + (e.code || "") + " " + (e.message || e), "bad")); };
+document.getElementById("p").onclick = ()=>{ auth.signInWithPopup(prov).then(r=>say("Pop-up sign-in worked: " + r.user.email, "ok")).catch(e=>say("Pop-up failed: " + (e.code || "") + " " + (e.message || e), "bad")); };
+</script>
+</body></html>
