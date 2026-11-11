@@ -21,7 +21,7 @@
 // =====================================================================
 window.JJ_FIREBASE = {
   apiKey: "AIzaSyBUduwenifg0dAT3CbbJ_tQhqtDS9Hnwng",
-  authDomain: "jj-qbank.firebaseapp.com",
+  authDomain: "jjqbank.com",   // sign-in helper is self-hosted at /__/auth (works on iPhones and in-app browsers)
   projectId: "jj-qbank",
   storageBucket: "jj-qbank.firebasestorage.app",
   messagingSenderId: "325698552260",

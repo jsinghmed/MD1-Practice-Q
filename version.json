@@ -1,15 +1,57 @@
 {
-  "v": "2026-11-11b",
+  "v": "2026-11-11c",
   "notes": [
-    {"v": "2026-11-11b", "date": "Nov 11, 2026", "groups": [
-      {"h": "Questions", "items": [
-        {"tag": "new", "title": "CRS Biochem · Lecture 4: Complex Lipid Metabolism", "text": "26 questions, Dr. Shetty's 3 practice Q's, AnKing and UWorld chips, 9 NBME questions and a new study guide section."},
-        {"tag": "new", "title": "Ethics tab rebuilt", "text": "All 102 Windsor ethics review questions in the USMLE question view, sorted into 21 topics."}
-      ]},
-      {"h": "Site", "items": [
-        {"tag": "imp", "title": "Update button", "text": "You'll get a refresh button when a new version is out, and this summary after you refresh."},
-        {"tag": "rem", "title": "Site tour", "text": "The intro tour is gone."}
-      ]}
-    ]}
+    {
+      "v": "2026-11-11c",
+      "date": "Nov 11, 2026",
+      "groups": [
+        {
+          "h": "Site",
+          "items": [
+            {
+              "tag": "fix",
+              "title": "Google sign-in on iPhones",
+              "text": "Sign-in now works on iPhones and when the link is opened inside apps like WhatsApp or Instagram."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "v": "2026-11-11b",
+      "date": "Nov 11, 2026",
+      "groups": [
+        {
+          "h": "Questions",
+          "items": [
+            {
+              "tag": "new",
+              "title": "CRS Biochem · Lecture 4: Complex Lipid Metabolism",
+              "text": "26 questions, Dr. Shetty's 3 practice Q's, AnKing and UWorld chips, 9 NBME questions and a new study guide section."
+            },
+            {
+              "tag": "new",
+              "title": "Ethics tab rebuilt",
+              "text": "All 102 Windsor ethics review questions in the USMLE question view, sorted into 21 topics."
+            }
+          ]
+        },
+        {
+          "h": "Site",
+          "items": [
+            {
+              "tag": "imp",
+              "title": "Update button",
+              "text": "You'll get a refresh button when a new version is out, and this summary after you refresh."
+            },
+            {
+              "tag": "rem",
+              "title": "Site tour",
+              "text": "The intro tour is gone."
+            }
+          ]
+        }
+      ]
+    }
   ]
 }
