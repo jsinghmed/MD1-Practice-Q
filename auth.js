@@ -220,7 +220,8 @@
 
   // ---------------- boot ----------------
   function load(src){ return new Promise((res, rej)=>{ const s = document.createElement("script"); s.src = SDK + src; s.onload = res; s.onerror = ()=>rej(new Error("load " + src)); document.head.appendChild(s); }); }
-  showGate();
+  // Signed in on this browser before? Go straight in while Google confirms it; only signed-out visitors see the sign-in screen.
+  if (getMark().uid) hideGate(); else showGate();
   load("firebase-app-compat.js").then(()=>Promise.all([load("firebase-auth-compat.js"), load("firebase-firestore-compat.js")])).then(()=>{
     firebase.initializeApp(CFG);
     auth = firebase.auth(); db = firebase.firestore();

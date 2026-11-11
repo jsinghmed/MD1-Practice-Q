@@ -1,6 +1,22 @@
 {
-  "v": "2026-11-11c",
+  "v": "2026-11-11d",
   "notes": [
+    {
+      "v": "2026-11-11d",
+      "date": "Nov 11, 2026",
+      "groups": [
+        {
+          "h": "Site",
+          "items": [
+            {
+              "tag": "imp",
+              "title": "Faster refresh",
+              "text": "Refreshing takes you straight back to where you were, without the sign-in screen."
+            }
+          ]
+        }
+      ]
+    },
     {
       "v": "2026-11-11c",
       "date": "Nov 11, 2026",

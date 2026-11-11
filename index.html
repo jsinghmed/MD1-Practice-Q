@@ -2,6 +2,7 @@
 <html lang="en" class="jjlock">
 <head>
 <meta charset="utf-8">
+<script>try{if((JSON.parse(localStorage.getItem("jj-sync")||"null")||{}).uid)document.documentElement.classList.remove("jjlock");}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>JJ QBank</title>
 <meta name="description" content="JJ QBank — practice questions, NBME study guides and 3D anatomy atlases for MD1–MD5.">
@@ -4322,7 +4323,7 @@ window.JJ_STATS = function(st){
 // Welcome screen: shown every time the page loads.
 // ---- Updates: version.json says which version is live. When it's newer than this page, a card offers a refresh
 // (skips the logo intro). After a refresh to a new version, "What's new" lists every change since the last one seen.
-const JJ_VERSION = "2026-11-11c";
+const JJ_VERSION = "2026-11-11d";
 const UPD_ICON = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>';
 let updLater = "";
 async function updFetch(){ const r = await fetch("version.json?t=" + Date.now(), {cache:"no-store"}); if (!r.ok) throw new Error(r.status); return r.json(); }
@@ -4432,7 +4433,7 @@ try { if (/[?&]v=/.test(location.search)) history.replaceState(null, "", locatio
 })();
 </script>
 <script>document.write('<script src="firebase-config.js?t=' + Date.now() + '"><\/script>');</script>
-<script src="auth.js?v=36"></script>
+<script src="auth.js?v=37"></script>
 <script>
 // Fail closed: if sign-in can't load (blocked, missing or failed file), the site stays locked instead of opening.
 setTimeout(function(){
