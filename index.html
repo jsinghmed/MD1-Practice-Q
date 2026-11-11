@@ -1081,6 +1081,29 @@ button.dst:hover{background:var(--hover)}
 @media (max-width:640px){ .dtbl .hm{display:none} }
 .main,#pageView,.dash,.dpanel,.dgrid>*{min-width:0}
 .dtw{max-width:100%}
+
+/* ---- update card + what's new ---- */
+.updB .dot{width:8px;height:8px;border-radius:50%;background:#5cd6cb;box-shadow:0 0 0 0 rgba(92,214,203,.6);animation:updPulse 1.8s infinite}
+@keyframes updPulse{0%{box-shadow:0 0 0 0 rgba(92,214,203,.55)}70%{box-shadow:0 0 0 8px rgba(92,214,203,0)}100%{box-shadow:0 0 0 0 rgba(92,214,203,0)}}
+.updbtn{background:#4fb8b0;color:#0b1416;border:0;border-radius:8px;padding:7px 14px;font-weight:700;font-size:13.5px;display:inline-flex;align-items:center;gap:7px;cursor:pointer}
+.updghost{background:none;border:0;color:#9fb3c4;font-size:13px;cursor:pointer}
+.updB{position:fixed;right:22px;bottom:22px;z-index:900;width:330px;background:var(--card,#161b22);border:1px solid var(--line2,#353d4a);border-radius:14px;padding:16px 16px 14px;box-shadow:0 14px 40px rgba(0,0,0,.45);color:var(--text,#e6edf3)}
+.updB .h{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px}
+.updB p{margin:6px 0 12px;color:var(--muted,#8b949e);font-size:13.5px;line-height:1.45}
+.updB .row{display:flex;gap:10px;align-items:center}
+.wnBack{position:fixed;inset:0;z-index:950;background:rgba(5,9,14,.62);display:grid;place-items:center;backdrop-filter:blur(2px)}
+.wn{width:min(520px,92vw);max-height:82vh;overflow:auto;background:var(--card,#161b22);border:1px solid var(--line2,#353d4a);border-radius:16px;box-shadow:0 24px 60px rgba(0,0,0,.5);color:var(--text,#e6edf3)}
+.wn .wntop{display:block;padding:22px 24px 6px}.wn .kick{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#5cd6cb;font-weight:700}
+.wn h2{display:block;text-align:left;margin:6px 0 2px;font-size:22px}.wn .sub{color:var(--muted,#8b949e);font-size:13.5px}
+.wn .grp{padding:12px 24px 4px}.wn .grp h4{margin:8px 0 8px;font-size:12.5px;color:var(--muted,#8b949e);letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+.wn .it{display:flex;gap:12px;padding:10px 0;border-top:1px solid var(--line,#2a313c)}
+.wn .it:first-of-type{border-top:0}
+.wn .tag{flex:none;font-size:11px;font-weight:700;letter-spacing:.04em;padding:3px 8px;border-radius:6px;height:fit-content;margin-top:2px}
+.wn .tag.new{background:rgba(79,184,176,.16);color:#5cd6cb}.wn .tag.imp{background:rgba(88,166,255,.14);color:#79b8ff}.wn .tag.fix{background:rgba(210,153,34,.15);color:#e3b341}
+.wn .it b{display:block;font-size:14.5px}.wn .it span{color:var(--muted,#8b949e);font-size:13.5px;line-height:1.45}
+.wn .foot{display:flex;justify-content:flex-end;padding:14px 24px 20px}
+.updB{animation:updIn .35s ease both;max-width:calc(100vw - 32px)}@keyframes updIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media (max-width:600px){.updB{right:16px;bottom:16px}}
 </style>
 </head>
 <body>
@@ -1301,6 +1324,7 @@ const LET = "ABCDEFGHIJ";
 // Storage (+ migration from the first version)
 // =====================================================================
 const KEY = "msk-summative-v1";
+let JJ_RETURNING = false; try { JJ_RETURNING = !!localStorage.getItem(KEY); } catch(e) {}   // read before anything is saved this visit
 let S = {};
 try { S = JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e) { S = {}; }
 S.ans ??= {}; S.sel ??= {}; S.strike ??= {}; S.flag ??= {}; S.notes ??= {}; S.nimg ??= {}; S.hl ??= {}; S.order ??= {};
@@ -2645,7 +2669,7 @@ function renderHome(){
   const tests = courseTests();
   let h = `<div class="page dash">
     <div class="dtop"><div><h2>${nm} Summative</h2><p class="sub">${esc(course().full)} · ${done.length} of ${all.length} questions answered${done.length?` · ${acc}% correct`:""}</p></div>
-      <div class="ptools" style="margin:0"><button class="btn" data-tour="1" title="A one-minute tour of the site">Take the tour</button><button class="btn primary" data-act="build">＋ Create test</button></div></div>`;
+      <div class="ptools" style="margin:0"><button class="btn primary" data-act="build">＋ Create test</button></div></div>`;
   h += `<div class="dstrip">
     <div class="dst"><b class="${done.length?"g":""}">${done.length?acc+"%":"—"}</b><span>Correct</span></div>
     <div class="dst"><b>${done.length}<small> / ${all.length}</small></b><span>Answered</span></div>
@@ -3886,7 +3910,6 @@ document.addEventListener("click", e=>{
   if (cb) { switchCourse(cb.dataset.course); return; }
   // home / sidebar
   if (t.closest("#homeBtn") || t.closest("#brandHome") || t.closest("#mobHome")) { view = "home"; focusOn = false; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); return; }
-  if (t.closest("[data-tour]")) { if (window.jjStartTour) window.jjStartTour(); return; }
   const lt = t.closest("[data-lec]");
   if (lt) { const k = lt.dataset.lec; LEC_OPEN[k] = !LEC_OPEN[k]; try { localStorage.setItem("jj-lec-open", JSON.stringify(LEC_OPEN)); } catch(e) {} renderChaps(); return; }
   const sh = t.closest("[data-sec]");
@@ -4297,6 +4320,49 @@ window.JJ_STATS = function(st){
 };
 
 // Welcome screen: shown every time the page loads.
+// ---- Updates: version.json says which version is live. When it's newer than this page, a card offers a refresh
+// (skips the logo intro). After a refresh to a new version, "What's new" lists every change since the last one seen.
+const JJ_VERSION = "2026-11-11b";
+const UPD_ICON = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>';
+let updLater = "";
+async function updFetch(){ const r = await fetch("version.json?t=" + Date.now(), {cache:"no-store"}); if (!r.ok) throw new Error(r.status); return r.json(); }
+async function updCheck(){
+  if (document.hidden || document.querySelector(".updB")) return;
+  let V; try { V = await updFetch(); } catch(e) { return; }
+  if (!V || !V.v || V.v===JJ_VERSION || V.v===updLater) return;
+  const d = document.createElement("div"); d.className = "updB"; d.setAttribute("role","status");
+  d.innerHTML = `<div class="h"><span class="dot"></span>Update available</div><p>New questions and features were just added. Refresh to load them. Your progress is saved.</p><div class="row"><button class="updbtn" id="updGo">${UPD_ICON}Refresh now</button><button class="updghost" id="updLater">Later</button></div>`;
+  document.body.appendChild(d);
+  $("updGo").onclick = ()=>{ try { save(); sessionStorage.setItem("jj-skip-splash","1"); } catch(e) {}
+    location.replace(location.pathname + "?v=" + encodeURIComponent(V.v) + location.hash); };   // new URL so the browser can't serve the old page from cache
+  $("updLater").onclick = ()=>{ updLater = V.v; d.remove(); };
+}
+setTimeout(updCheck, 20000); setInterval(updCheck, 3*60*1000);
+document.addEventListener("visibilitychange", ()=>{ if (!document.hidden) updCheck(); });
+try { if (/[?&]v=/.test(location.search)) history.replaceState(null, "", location.pathname + location.hash); } catch(e) {}
+(function whatsNew(){
+  let seen = null, returning = false;
+  try { seen = localStorage.getItem("jj-seen-version"); returning = JJ_RETURNING; localStorage.setItem("jj-seen-version", JJ_VERSION); } catch(e) { return; }
+  if (seen===JJ_VERSION || (!seen && !returning)) return;          // first visit ever: nothing to compare against
+  updFetch().then(V=>{
+    const notes = (V && V.notes) || [], out = [];
+    for (const n of notes) { if (n.v===seen) break; if (n.v <= JJ_VERSION) out.push(n); if (!seen) break; }   // no record yet: just the latest
+    if (!out.length) return;
+    const groups = {}; out.forEach(n=>(n.groups||[]).forEach(g=>{ (groups[g.h] = groups[g.h] || []).push(...g.items); }));
+    const TAG = {new:["new","NEW"], imp:["imp","IMPROVED"], fix:["fix","FIXED"], rem:["fix","REMOVED"]};
+    const html = `<div class="wn" role="dialog" aria-label="What's new"><div class="wntop"><div class="kick">What's new</div><h2>Since your last visit</h2><div class="sub">Updated ${esc(out[0].date||"")}</div></div>`
+      + Object.entries(groups).map(([h,items])=>`<div class="grp"><h4>${esc(h)}</h4>` + items.map(it=>{ const t = TAG[it.tag] || TAG.new;
+          return `<div class="it"><span class="tag ${t[0]}">${t[1]}</span><div><b>${esc(it.title)}</b><span>${esc(it.text||"")}</span></div></div>`; }).join("") + `</div>`).join("")
+      + `<div class="foot"><button class="updbtn" id="wnOk">Got it</button></div></div>`;
+    const show = ()=>{ if ($("splash") && !$("splash").classList.contains("out")) { setTimeout(show, 400); return; }
+      const b = document.createElement("div"); b.className = "wnBack"; b.innerHTML = html; document.body.appendChild(b);
+      const close = ()=>{ b.remove(); document.removeEventListener("keydown", key, true); };
+      const key = e=>{ if (e.key==="Escape" || e.key==="Enter") { e.preventDefault(); e.stopPropagation(); close(); } };
+      document.addEventListener("keydown", key, true);
+      $("wnOk").onclick = close; b.addEventListener("click", e=>{ if (e.target===b) close(); }); $("wnOk").focus(); };
+    show();
+  }).catch(()=>{});
+})();
 // Fresh visit / new tab → Enter goes to the home screen. Refresh in the same tab → Enter returns you to where you were.
 (function(){
   const sp = $("splash"); let seen = false;
@@ -4367,7 +4433,6 @@ window.JJ_STATS = function(st){
 </script>
 <script>document.write('<script src="firebase-config.js?t=' + Date.now() + '"><\/script>');</script>
 <script src="auth.js?v=36"></script>
-<script src="tour.js?v=2"></script>
 <script>
 // Fail closed: if sign-in can't load (blocked, missing or failed file), the site stays locked instead of opening.
 setTimeout(function(){
