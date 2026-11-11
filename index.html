@@ -1671,15 +1671,15 @@ const GUIDES = {
   crs: [["crs-biochem","CRS Biochemistry NBME guide","High-yield, commonly tested NBME content · Lecture 1–3 · grows with each lecture",0],["crs-physiology","CRS Physiology NBME guide","High-yield, commonly tested NBME content · Lecture 1–5 · grows with each lecture",0]]
 };
 function guideCards(list){
-  return `<div class="gdgrid">` + list.map(([f,nm,desc,pg])=>`<div class="gdcard"><div class="gdi">${NVI.guide}</div><div class="gdt"><b>${esc(nm)}</b><small>${esc(desc)}</small><span class="gdm">${pg?pg+" pages · PDF":"Read on site or save as PDF · updated each lecture"}</span></div>
-    <div class="gda"><button class="dpill" data-guide="${f}">Read</button>${pg?`<a class="dpill g" href="guide-${f}.pdf?v=1" download="JJ QBank - ${esc(nm)} study guide.pdf">PDF</a>`:""}</div></div>`).join("") + `</div>`;
+  return `<div class="gdgrid">` + list.map(([f,nm,desc,pg])=>`<div class="gdcard"><div class="gdi">${NVI.guide}</div><div class="gdt"><b>${esc(nm)}</b><small>${esc(desc)}</small><span class="gdm">${pg?"PDF":"Read on site or download as PDF · updated each lecture"}</span></div>
+    <div class="gda"><button class="dpill" data-guide="${f}">Read</button><button class="dpill g" data-gpdf="${f}">PDF</button></div></div>`).join("") + `</div>`;
 }
 let curGuide = null, guideLoading = false;
 function guideInfo(k){ for (const c in GUIDES) { const g = GUIDES[c].find(x=>x[0]===k); if (g) return {course:c, g}; } return null; }
 function renderGuideView(){
   const info = guideInfo(curGuide); if (!info) { view = "guides"; renderGuides(); return; }
   const [f, nm, desc, pg] = info.g;
-  const top = `<div class="gvtop"><button class="btn" data-act="guides">← NBME Dashboard (${esc(COURSE_BY_ID[info.course].name)})</button>${pg?`<a class="btn primary" href="guide-${f}.pdf?v=1" download="JJ QBank - ${esc(nm)} study guide.pdf">⬇ Download PDF</a>`:`<button class="btn primary" data-gprint="1" title="Opens your browser's print window: choose Save as PDF">⬇ Save as PDF</button>`}</div>
+  const top = `<div class="gvtop"><button class="btn" data-act="guides">← NBME Dashboard (${esc(COURSE_BY_ID[info.course].name)})</button><button class="btn primary" data-gpdf="${f}">⬇ Download PDF</button></div>
     <div class="gvhead"><h2>${esc(nm)}</h2><p class="sub">${esc(desc)}</p><div class="gvleg"><span><span class="hy">Red</span> = extra high yield (classic NBME)</span><span>Black/white = core content</span><span class="mn">Italic = mnemonic</span></div></div>`;
   if (!window.GUIDE_HTML) {
     showPage(`<div class="page gview">${top}<div class="emptybox"><p>Loading study guide…</p></div></div>`);
@@ -1692,7 +1692,43 @@ function renderGuideView(){
   const body = window.GUIDE_HTML[f] || "";
   const toc = [...body.matchAll(/<h2 id="(g\d+)">([\s\S]*?)<\/h2>/g)].map(m=>`<a href="#${m[1]}" data-gjump="${m[1]}">${m[2].replace(/^\d+\.\s*/,"")}</a>`).join("");
   showPage(`<div class="page gview">${top}<nav class="gvtoc" aria-label="Sections">${toc}</nav><article class="gvbody">${body}</article>
-    <div class="gvfoot"><button class="btn" data-act="guides">← NBME Dashboard (${esc(COURSE_BY_ID[info.course].name)})</button><a class="btn" href="guide-${f}.pdf?v=1" download="JJ QBank - ${esc(nm)} study guide.pdf">⬇ Download PDF</a></div></div>`);
+    <div class="gvfoot"><button class="btn" data-act="guides">← NBME Dashboard (${esc(COURSE_BY_ID[info.course].name)})</button><button class="btn" data-gpdf="${f}">⬇ Download PDF</button></div></div>`);
+}
+
+// ---------- Guide PDF download: built in the browser from the live guide, JJ QBank copyright on every page ----------
+const GPDF_LIBS = ["https://cdn.jsdelivr.net/npm/pdfmake@0.2.20/build/pdfmake.min.js", "https://cdn.jsdelivr.net/npm/html-to-pdfmake@2.5.30/browser.js"];
+const GPDF_FONT = "https://cdn.jsdelivr.net/npm/dejavu-fonts-ttf@2.37.3/ttf/";
+function gpdfScript(src){ return new Promise((ok,bad)=>{ if (document.querySelector('script[data-gp="'+src+'"]')) return ok(); const sc = document.createElement("script"); sc.src = src; sc.dataset.gp = src; sc.onload = ok; sc.onerror = bad; document.head.appendChild(sc); }); }
+async function guidePdf(f, btn){
+  const info = guideInfo(f); if (!info || btn.dataset.busy) return;
+  const nm = info.g[1].replace(/ NBME guide$/,""), desc = info.g[2], old = btn.innerHTML;
+  btn.dataset.busy = "1"; btn.innerHTML = "Preparing PDF…";
+  try {
+    if (!window.GUIDE_HTML) await gpdfScript("guides.js?v=9");
+    for (const s of GPDF_LIBS) await gpdfScript(s);
+    const yr = new Date().getFullYear(), RED = "#c00000", NAVY = "#0b2447";
+    const body = htmlToPdfmake(window.GUIDE_HTML[f] || "", {tableAutoSize:true, defaultStyles:{
+      h2:{fontSize:12, bold:true, color:"#fff", marginTop:10, marginBottom:5}, h3:{fontSize:10.5, bold:true, margin:[0,7,0,3]},
+      p:{margin:[0,2,0,5]}, ul:{margin:[4,0,0,5]}, ol:{margin:[4,0,0,5]}, li:{marginBottom:1.5}, th:{bold:true, fillColor:"#eef1f5"}, td:{}, table:{margin:[0,2,0,7]}}});
+    const fix = n => { if (Array.isArray(n)) return n.map(fix); if (!n || typeof n !== "object") return n;
+      for (const k of ["stack","text","ul","ol"]) if (Array.isArray(n[k])) n[k] = n[k].map(fix);
+      if (n.table) { n.table.body = n.table.body.map(r=>r.map(fix)); n.layout = {hLineColor:()=>"#bbb", vLineColor:()=>"#bbb", paddingTop:()=>3, paddingBottom:()=>3}; }
+      if (n.nodeName === "H2") return {table:{widths:["*"], body:[[Object.assign({}, n, {margin:[4,2,4,2]})]]}, layout:{fillColor:()=>NAVY, hLineWidth:()=>0, vLineWidth:()=>0}, margin:[0,10,0,5]};
+      if (n.nodeName === "DIV" && /\bbox\b/.test(n.style ? [].concat(n.style).join(" ") : "")) return {table:{widths:["*"], body:[[Object.assign({}, n, {margin:[5,4,5,4]})]]}, layout:{fillColor:()=>"#fff4f4", hLineColor:()=>RED, vLineColor:()=>RED}, margin:[0,6,0,6]};
+      return n; };
+    const dd = {pageSize:"LETTER", pageMargins:[38,40,38,44], defaultStyle:{font:"DejaVu", fontSize:9, lineHeight:1.2},
+      info:{title:nm+" — NBME Study Guide", author:"JJ QBank", subject:"© "+yr+" JJ QBank. All rights reserved."},
+      watermark:{text:"© JJ QBank", color:NAVY, opacity:0.06, bold:true, angle:-35, fontSize:64},
+      styles:{hy:{color:RED, bold:true}, mn:{color:"#1c5fb8", italics:true}, t:{color:RED}},
+      footer:(cur,tot)=>({columns:[{text:"© "+yr+" JJ QBank · All rights reserved", alignment:"left"},{text:nm+" NBME study guide", alignment:"center"},{text:"Page "+cur+" of "+tot, alignment:"right"}], fontSize:7, color:"#666", margin:[38,14,38,0]}),
+      content:[{text:nm+" — NBME Study Guide", fontSize:17, bold:true, color:NAVY}, {text:desc, fontSize:8.5, color:"#555", margin:[0,2,0,6]},
+        {text:[{text:"Red", style:"hy"}," = extra high yield (classic NBME)     Black = core content     ",{text:"Italic blue = mnemonic", style:"mn"}], fontSize:8, margin:[0,0,0,6]},
+        fix(body),
+        {text:"© "+yr+" JJ QBank. All rights reserved. For personal study use only; do not copy, sell or redistribute.", fontSize:7.5, color:"#666", margin:[0,14,0,0]}]};
+    pdfMake.fonts = {DejaVu:{normal:GPDF_FONT+"DejaVuSans.ttf", bold:GPDF_FONT+"DejaVuSans-Bold.ttf", italics:GPDF_FONT+"DejaVuSans-Oblique.ttf", bolditalics:GPDF_FONT+"DejaVuSans-BoldOblique.ttf"}};
+    await new Promise(res=>pdfMake.createPdf(dd).download("JJ QBank - "+nm+" NBME study guide.pdf", res));
+  } catch(e) { console.warn("JJ guide pdf", e); toast("Couldn't build the PDF — check your connection and try again"); }
+  delete btn.dataset.busy; btn.innerHTML = old;
 }
 // ---------- NBME dashboard: quiz cards, quiz builder, start options ----------
 let NB = Object.assign({secs:{}, pool:"all", mode:"tutor", per:90, n:40, scr:true}, S.nbB||{});
@@ -3378,6 +3414,7 @@ document.addEventListener("click", e=>{
   const gd = t.closest("[data-guide]");
   if (gd) { curGuide = gd.dataset.guide; view = "guide"; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); window.scrollTo({top:0}); return; }
   if (t.closest("[data-gprint]")) { window.print(); return; }
+  { const gp = t.closest("[data-gpdf]"); if (gp) { guidePdf(gp.dataset.gpdf, gp); return; } }
   const gj = t.closest("[data-gjump]");
   if (gj) { e.preventDefault(); const el = document.getElementById(gj.dataset.gjump); if (el) el.scrollIntoView({behavior:"smooth", block:"start"}); return; }
   if (t.closest("[data-uworld]")) { uwOpen(t.closest("[data-uworld]").dataset.uworld); return; }
