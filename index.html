@@ -4331,10 +4331,15 @@ async function updCheck(){
   if (document.hidden || document.querySelector(".updB")) return;
   let V; try { V = await updFetch(); } catch(e) { return; }
   if (!V || !V.v || V.v===JJ_VERSION || V.v===updLater) return;
+  // no loops or spam: never re-offer a version this tab already refreshed for (the site may still be updating),
+  // and show the card at most once every 30 minutes across all tabs
+  try { if (sessionStorage.getItem("jj-upd-tried")===V.v) return;
+        const last = +localStorage.getItem("jj-upd-shown")||0; if (Date.now()-last < 30*60e3) return;
+        localStorage.setItem("jj-upd-shown", String(Date.now())); } catch(e) {}
   const d = document.createElement("div"); d.className = "updB"; d.setAttribute("role","status");
   d.innerHTML = `<div class="h"><span class="dot"></span>Update available</div><p>New questions and features were just added. Refresh to load them. Your progress is saved.</p><div class="row"><button class="updbtn" id="updGo">${UPD_ICON}Refresh now</button><button class="updghost" id="updLater">Later</button></div>`;
   document.body.appendChild(d);
-  $("updGo").onclick = ()=>{ try { save(); sessionStorage.setItem("jj-skip-splash","1"); } catch(e) {}
+  $("updGo").onclick = ()=>{ try { save(); sessionStorage.setItem("jj-skip-splash","1"); sessionStorage.setItem("jj-upd-tried", V.v); } catch(e) {}
     location.replace(location.pathname + "?v=" + encodeURIComponent(V.v) + location.hash); };   // new URL so the browser can't serve the old page from cache
   $("updLater").onclick = ()=>{ updLater = V.v; d.remove(); };
 }
