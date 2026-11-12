@@ -1,6 +1,22 @@
 {
-  "v": "2026-11-11e",
+  "v": "2026-11-12a",
   "notes": [
+    {
+      "v": "2026-11-12a",
+      "date": "Nov 12, 2026",
+      "groups": [
+        {
+          "h": "Site",
+          "items": [
+            {
+              "tag": "imp",
+              "title": "Class stats sooner",
+              "text": "The class percent correct now shows on a question as soon as one classmate has answered it."
+            }
+          ]
+        }
+      ]
+    },
     {
       "v": "2026-11-11e",
       "date": "Nov 11, 2026",
