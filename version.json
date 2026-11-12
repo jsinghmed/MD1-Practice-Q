@@ -1,6 +1,22 @@
 {
-  "v": "2026-11-12b",
+  "v": "2026-11-12c",
   "notes": [
+    {
+      "v": "2026-11-12c",
+      "date": "Nov 12, 2026",
+      "groups": [
+        {
+          "h": "Study tools",
+          "items": [
+            {
+              "tag": "fix",
+              "title": "Cardiac cycle & PV loop",
+              "text": "↑ Preload now widens the loop to the right with ESV unchanged, and the ECG T wave now ends at S2."
+            }
+          ]
+        }
+      ]
+    },
     {
       "v": "2026-11-12b",
       "date": "Nov 12, 2026",

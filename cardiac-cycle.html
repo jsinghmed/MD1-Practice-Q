@@ -131,8 +131,8 @@ const PRESETS = [
  {k:"normal", g:"Basics", n:"Normal", p:{}, t:"Normal cardiac cycle",
   pts:["<b>A → B</b> isovolumetric contraction: mitral closes (S1), pressure rises with no volume change","<b>B → C</b> ejection: aortic valve opens, volume falls","<b>C → D</b> isovolumetric relaxation: aortic closes (S2), pressure falls","<b>D → A</b> filling: mitral opens; rapid filling, diastasis, then the atrial kick"],
   pearl:"Width of the loop = stroke volume. Top-left corner (aortic valve closing) sits on the ESPVR line, whose slope = contractility."},
- {k:"pre", g:"Basics", n:"↑ Preload", p:{Ppv:15}, t:"Increased preload (e.g., IV fluids, ↑ venous return)",
-  pts:["Loop widens to the <b>right</b>: ↑ EDV","↑ Stroke volume via Frank–Starling","ESV barely changes, so EF stays about the same"], pearl:"Preload ≈ EDV / LVEDP. Venodilators (nitrates) do the opposite."},
+ {k:"pre", g:"Basics", n:"↑ Preload", p:{Ppv:15, Rsys:0.85}, t:"Increased preload (e.g., IV fluids, ↑ venous return)",
+  pts:["Loop widens to the <b>right</b>: ↑ EDV","↑ Stroke volume via Frank–Starling","ESV stays the same, so EF rises a little","Aortic pressure (afterload) is held at normal here, so only preload changes"], pearl:"Preload ≈ EDV / LVEDP. Venodilators (nitrates) do the opposite."},
  {k:"aft", g:"Basics", n:"↑ Afterload", p:{Rsys:1.9}, t:"Increased afterload (e.g., hypertension, vasoconstriction)",
   pts:["Loop gets <b>taller and narrower</b>: ↑ aortic & peak LV pressure","↑ ESV (the ventricle can't empty as far)","↓ Stroke volume and ↓ EF"], pearl:"Afterload ≈ aortic pressure the LV must overcome. ACE inhibitors / ARBs and arteriolar dilators lower it."},
  {k:"con", g:"Basics", n:"↑ Contractility", p:{Ees:4.5}, t:"Increased contractility (sympathetic, dobutamine, digoxin)",
@@ -183,7 +183,7 @@ function ecgAt(t, r){
   const wrap = c => { let d = t - c; d = ((d % T) + 1.5*T) % T - T/2; return d; };
   const G = (c,w,a)=>a*Math.exp(-0.5*(wrap(c)/w)**2);
   const pC = r.aStart - 0.02;
-  return G(pC,0.025,0.12) + G(-0.035,0.008,-0.12) + G(-0.02,0.009,1) + G(-0.005,0.01,-0.25) + G(r.Tp+0.06,0.045,0.28);
+  return G(pC,0.025,0.12) + G(-0.035,0.008,-0.12) + G(-0.02,0.009,1) + G(-0.005,0.01,-0.25) + G(r.Tp*0.78,0.04,0.28);
 }
 function phaseOf(i, ev, r){
   const s = r.out[i];
