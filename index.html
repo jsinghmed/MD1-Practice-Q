@@ -4150,7 +4150,7 @@ document.addEventListener("mouseup", e=>{
 });
 // ---------- Class stats ----------
 // An admin's browser adds up everyone's saved answers (read-only) into one anonymous summary, classStats/v1,
-// at most every 3 hours. Everyone signed in reads only that summary. Shown as soon as 1 person has answered.
+// at most every 20 minutes. Everyone signed in reads only that summary. Shown as soon as 1 person has answered.
 var CLASS = null;
 const CLASS_MIN = 1;
 function fbUser(){ try { return window.firebase && firebase.apps && firebase.apps.length && firebase.auth().currentUser; } catch(e) { return null; } }
@@ -4159,7 +4159,7 @@ async function loadClass(){
   const u = fbUser(); if (!u) return;
   const ref = firebase.firestore().collection("classStats").doc("v1");
   try { const d = await ref.get(); if (d.exists) { CLASS = d.data(); renderAll(); } } catch(e) { console.warn("JJ class stats read", e); }
-  if (isAdminUser(u) && (!CLASS || Date.now() - (CLASS.at||0) > 3*3600e3)) buildClass(ref);
+  if (isAdminUser(u) && (!CLASS || Date.now() - (CLASS.at||0) > 20*60e3)) buildClass(ref);
 }
 async function buildClass(ref){
   try {
@@ -4323,7 +4323,7 @@ window.JJ_STATS = function(st){
 // Welcome screen: shown every time the page loads.
 // ---- Updates: version.json says which version is live. When it's newer than this page, a card offers a refresh
 // (skips the logo intro). After a refresh to a new version, "What's new" lists every change since the last one seen.
-const JJ_VERSION = "2026-11-12a";
+const JJ_VERSION = "2026-11-12b";
 const UPD_ICON = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>';
 let updLater = "";
 async function updFetch(){ const r = await fetch("version.json?t=" + Date.now(), {cache:"no-store"}); if (!r.ok) throw new Error(r.status); return r.json(); }
