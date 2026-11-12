@@ -1,8 +1,8 @@
 {
-  "v": "2026-11-12c",
+  "v": "2026-11-12d",
   "notes": [
     {
-      "v": "2026-11-12c",
+      "v": "2026-11-12d",
       "date": "Nov 12, 2026",
       "groups": [
         {
@@ -11,7 +11,7 @@
             {
               "tag": "fix",
               "title": "Cardiac cycle & PV loop",
-              "text": "↑ Preload now widens the loop to the right with ESV unchanged, and the ECG T wave now ends at S2."
+              "text": "Every condition re-checked. ↑ Preload widens the loop with ESV unchanged, exercise now raises stroke volume, aortic stenosis shows a slow aortic rise, and the T wave ends at S2."
             }
           ]
         }
