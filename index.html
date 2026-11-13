@@ -107,21 +107,23 @@ button{font:inherit;color:inherit;cursor:pointer}
 .lec{display:flex;align-items:stretch;gap:0}.lec .lec-n{flex:1;min-width:0;font-weight:600;padding-left:4px}
 .lec-t{flex:none;width:26px;background:none;border:0;border-radius:6px;color:var(--muted);cursor:pointer;padding:0;margin-bottom:2px}
 .lec-t:hover{background:var(--hover)}.lec-t .chev{display:inline-block;font-size:10px;transition:transform .15s}.lec.open .lec-t .chev{transform:rotate(90deg)}
-.lchip.uw{border-color:#4c8bf5;color:#4c8bf5}
+.lchip.uw b{color:#4c8bf5}
 .mehl{display:flex;flex-direction:column;gap:6px;margin:4px 0 10px}.mehl small{color:var(--muted);font-size:12px}
 .mehlref{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:10px;padding:9px 12px;background:var(--card);color:var(--text);cursor:pointer;text-align:left;width:100%;font:inherit}.mehlref:hover{border-color:#e8590c;background:var(--hover)}.mehlref .ml{flex:1}.mehlref .go{color:#e8590c;font-weight:700;font-size:13px}
 .mehlv{position:fixed;inset:0;z-index:85;background:rgba(10,12,16,.82);display:flex;flex-direction:column}.mehlv iframe{flex:1;border:0;background:#fff;width:100%}
 .mehlv .c100bar>.mehlcred{margin-left:auto}.mehlcred{font-size:12px;color:var(--muted)}.mehlcred a{color:inherit}.mehlref .pg{font-weight:700;color:#e8590c;white-space:nowrap}
-.lchip.ank{border-color:var(--accent,#4fb8b0);color:var(--accent,#4fb8b0)}
+.lchip.ank b{color:var(--accent,#4fb8b0)}
 .ank-ov{position:fixed;inset:0;z-index:9000;background:rgba(6,10,16,.6);display:grid;place-items:center;padding:16px}
 .ank-box{width:min(520px,100%);max-height:calc(100vh - 32px);overflow:auto;background:var(--panel,#161b22);color:var(--text,#e6edf3);border:1px solid var(--line,#262d36);border-radius:14px;padding:20px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
 .ank-box h3{margin:0 0 4px;font-size:18px}.ank-sub{margin:0 0 12px;color:var(--muted,#9aa4b2);font-size:14px}
 .ank-steps{margin:0 0 12px;padding-left:20px;line-height:1.55;font-size:14.5px}.ank-steps li{margin:3px 0}
 .ank-q{width:100%;box-sizing:border-box;font:12.5px/1.4 ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--bg,#0d1117);color:inherit;border:1px solid var(--line,#262d36);border-radius:8px;padding:8px;resize:vertical;word-break:break-all}
 .ank-row{display:flex;gap:8px;margin-top:10px}.ank-tip{margin:12px 0 0;font-size:13px;color:var(--muted,#9aa4b2)}
-.lec-chips{display:flex;flex-wrap:wrap;gap:6px;padding:4px 8px 10px 30px}
-.lchip{display:inline-flex;align-items:center;gap:6px;background:none;border:1px solid var(--line);color:inherit;border-radius:999px;padding:4px 10px;font-size:12.5px;cursor:pointer}
-.lchip:hover{background:var(--hover)}.lchip.on{background:var(--blue-bg);border-color:var(--blue-line);color:var(--blue)}
+.lec-chips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;padding:2px 6px 10px 26px}
+.lchip{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;min-width:0;background:none;border:1px solid var(--line);color:inherit;border-radius:8px;padding:5px 3px 4px;cursor:pointer;line-height:1.15}
+.lchip b{font-size:15px;font-weight:700}.lchip span{display:inline-flex;align-items:center;gap:4px;font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.lchip:hover{background:var(--hover)}.lchip.on{background:var(--blue-bg);border-color:var(--blue-line);color:var(--blue)}.lchip.on span{color:var(--blue)}
+.lchip.inc{border-color:color-mix(in srgb,var(--red) 35%,var(--line))}.lchip.inc b{color:var(--red)}.lchip.inc.zero{opacity:.5}
 .diff-h{display:flex;align-items:center;gap:8px;padding:14px 9px 6px;color:var(--muted);font-size:11px;letter-spacing:1.2px;font-weight:600;text-transform:uppercase}
 .diff-h::after{content:"";flex:1;height:1px;background:var(--line)}
 i.d{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px;background:var(--muted)}
@@ -1453,6 +1455,11 @@ function getChap0(key){
     const ids = (S.snap[key] || scopeQs(m[1]).filter(r.f).map(q=>q.id)).filter(id=>byId[id]);
     return {key, kind:"review", name:r.label+" only", sec:scopeName(m[1]), title:scopeName(m[1])+" · "+r.label+" only", ids};
   }
+  if (key.startsWith("lrv|") && STATIC_BY_KEY[key.slice(4)]) {
+    const L = STATIC_BY_KEY[key.slice(4)];
+    const ids = (S.snap[key] || L.ids.filter(id=>byId[id] && status(byId[id],S)==="bad")).filter(id=>byId[id]);
+    return {key, kind:"review", name:"Incorrect only", sec:L.sec, course:L.course, title:L.name+" · Incorrect only", ids};
+  }
   if (key==="search") {
     const ids = (S.snap.search||[]).filter(id=>byId[id]);
     return {key, kind:"search", name:"Search", title:"Search · “"+(S.searchQ||"")+"”", ids};
@@ -1712,7 +1719,7 @@ function lecTree(sec){
   });
   let h = head.map(chapBtn).join("");
   groups.forEach(g=>{
-    const inside = [g.lec].concat(g.kids, g.chips).some(c=>c.key===S.cur);
+    const inside = S.cur==="lrv|"+g.lec.key || [g.lec].concat(g.kids, g.chips).some(c=>c.key===S.cur);
     if (inside && view==="quiz" && S.cur!==g.lec.key) LEC_OPEN[g.lec.key] = true;
     const o = !!LEC_OPEN[g.lec.key], on = S.cur===g.lec.key && view==="quiz";
     h += `<div class="lec ${o?"open":""}"><button class="lec-t" data-lec="${esc(g.lec.key)}" aria-expanded="${o}" aria-label="${o?"Hide":"Show"} topics in ${esc(g.lec.name)}"><span class="chev">▶</span></button>`
@@ -1720,9 +1727,15 @@ function lecTree(sec){
     if (o) {
       h += g.kids.map(chapBtn).join("");
       const ak = sec.prefix+"|"+g.lec.name, akN = ANKING[ak] ? ANKING[ak].replace(/^nid:/,"").split(",").length : 0, uwN = UWORLD[ak] ? UWORLD[ak].split(",").length : 0;
-      if (g.chips.length || akN || uwN) h += `<div class="lec-chips">` + g.chips.map(c=>`<button class="lchip ${S.cur===c.key&&view==="quiz"?"on":""}" data-key="${esc(c.key)}"><i class="d ${c.name[0]}"></i>${esc(c.name.replace(/ questions$/,""))} <b>${c.ids.length}</b></button>`).join("")
-        + (akN ? `<button class="lchip ank" data-anking="${esc(ak)}" title="Find this lecture's AnKing Step deck cards in Anki">🃏 AnKing cards <b>${akN}</b></button>` : "")
-        + (uwN ? `<button class="lchip uw" data-uworld="${esc(ak)}" title="UWorld Step 1 question IDs for this lecture">🌍 UWorld <b>${uwN}</b></button>` : "") + `</div>`;
+      // Tile grid: Easy · Hard · Incorrect on top, then Sampath/Shetty · AnKing · UWorld
+      const tile = c=>`<button class="lchip ${S.cur===c.key&&view==="quiz"?"on":""}" data-key="${esc(c.key)}" title="${esc(c.name)}"><b>${c.ids.length}</b><span><i class="d ${c.name[0]}"></i>${esc(c.name.replace(/ questions$/,"").replace(/^Sampath's Q's$/,"Sampath").replace(/^Shetty Practice Q's$/,"Shetty"))}</span></button>`;
+      const diff = g.chips.filter(c=>/^(Easy|Hard) questions/.test(c.name)), prof = g.chips.filter(c=>!diff.includes(c));
+      const lk = "lrv|"+g.lec.key, incN = g.lec.ids.filter(id=>byId[id] && status(byId[id],S)==="bad").length;
+      h += `<div class="lec-chips">` + diff.map(tile).join("")
+        + `<button class="lchip inc ${incN?"":"zero"} ${S.cur===lk&&view==="quiz"?"on":""}" data-lrv="${esc(g.lec.key)}" title="Questions you got wrong in this lecture"><b>${incN}</b><span>✗ Incorrect</span></button>`
+        + prof.map(tile).join("")
+        + (akN ? `<button class="lchip ank" data-anking="${esc(ak)}" title="Find this lecture's AnKing Step deck cards in Anki"><b>${akN}</b><span>🃏 AnKing</span></button>` : "")
+        + (uwN ? `<button class="lchip uw" data-uworld="${esc(ak)}" title="UWorld Step 1 question IDs for this lecture"><b>${uwN}</b><span>🌍 UWorld</span></button>` : "") + `</div>`;
     }
   });
   if (bottom.length) h += `<div class="diff-h">By difficulty</div>` + bottom.map(c=>`<button class="chap ${S.cur===c.key&&view==="quiz"?"on":""}" data-key="${esc(c.key)}"><span><i class="d ${c.name[0]}"></i>${esc(c.name)}</span><span class="n">${c.ids.length}</span></button>`).join("");
@@ -3945,6 +3958,13 @@ document.addEventListener("click", e=>{
     const key = rv.dataset.rv, m = key.match(/^(\w+):rv:(\w+)$/);
     const ids = scopeQs(m[1]).filter(REVIEW_BY_K[m[2]].f).map(q=>q.id);
     if (!ids.length) { toast("No "+REVIEW_BY_K[m[2]].label.toLowerCase()+" questions in "+scopeName(m[1])+" right now"); return; }
+    S.snap[key] = ids; openChapter(key, 0); return;
+  }
+  const lrv = t.closest("[data-lrv]");
+  if (lrv) {
+    const L = STATIC_BY_KEY[lrv.dataset.lrv], key = "lrv|"+lrv.dataset.lrv;
+    const ids = L ? L.ids.filter(id=>byId[id] && status(byId[id],S)==="bad") : [];
+    if (!ids.length) { toast("No incorrect questions in this lecture right now"); return; }
     S.snap[key] = ids; openChapter(key, 0); return;
   }
   const chapB = t.closest(".chap[data-key],.lchip[data-key]");
