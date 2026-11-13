@@ -1250,11 +1250,16 @@ const SECTIONS = [
      {name:"Folding & fate of the heart tube", f:q=>q.num>=23 && q.num<=48 && q.t==="Sinus Venosus & Heart Tube Fate"},
      {name:"Atrial septation & ASDs", f:q=>q.num>=23 && q.num<=48 && q.t==="Atrial Septation & ASDs"},
      {main:true, name:"Lecture 3 · Ventricles, Truncus Arteriosus & Tetralogy", f:q=>q.t==="Ventricles, Outflow & Tetralogy"},
-     // Lecture 4 covered only the arterial arches (not Q83–86, fetal circulation or the veins; those stay in "All CRS Embryology")
+     // Lecture 4 covered only the arterial arches (Q83–86, fetal circulation and the veins moved to Lecture 5)
      {main:true, name:"Lecture 4 · Arterial (Aortic) Arches & Arteries", f:q=>q.t==="Arterial Arches & Arteries" && q.num>=87},
      {name:"Arterial (aortic) arches", f:q=>q.t==="Arterial Arches & Arteries" && q.num>=87 && q.num<=101},
      {name:"Descending aorta & intersegmental arteries", f:q=>q.t==="Arterial Arches & Arteries" && q.num>=102},
-     {main:true, name:"Lecture 5 · Nasal Cavity & Paranasal Sinuses", f:NAS},
+     // Lecture 5 also takes every question left out of Lectures 1 and 4 (Q9, 18, 19, 83–86, fetal circulation, veins)
+     {main:true, name:"Lecture 5 · Circulation, Veins & Nasal Cavity", f:q=>[9,18,19].includes(q.num) || (q.num>=83 && q.num<=86) || ["Fetal Circulation & Birth","Veins"].includes(q.t) || NAS(q)},
+     {name:"Heart & great vessels (from Lectures 1 & 4)", f:q=>[9,18,19].includes(q.num) || (q.num>=83 && q.num<=86)},
+     {name:"Fetal circulation & changes at birth", f:q=>q.t==="Fetal Circulation & Birth"},
+     {name:"Development of the veins", f:q=>q.t==="Veins"},
+     {name:"Nasal cavity & paranasal sinuses", f:NAS},
      {main:true, name:"Lecture 6 · Development of the Respiratory System", f:q=>q.t==="Respiratory Development" && !NAS(q)},
      {main:true, name:"Lecture 7 · Formation of the Diaphragm", f:q=>q.t==="Body Cavities & Diaphragm"},
      {main:true, name:"Lecture 8 · Congenital Anomalies (all lectures)", f:q=>ANOM.test(q.s+" "+(q.c?q.c[q.a]:""))}]; })()},
