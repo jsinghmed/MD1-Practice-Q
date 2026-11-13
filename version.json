@@ -1,126 +1,142 @@
 {
-  "v": "2026-11-12d",
-  "notes": [
+ "v": "2026-11-12e",
+ "notes": [
+  {
+   "v": "2026-11-12e",
+   "date": "Nov 12, 2026",
+   "groups": [
     {
-      "v": "2026-11-12d",
-      "date": "Nov 12, 2026",
-      "groups": [
-        {
-          "h": "Study tools",
-          "items": [
-            {
-              "tag": "fix",
-              "title": "Cardiac cycle & PV loop",
-              "text": "Every condition re-checked. ↑ Preload widens the loop with ESV unchanged, exercise now raises stroke volume, aortic stenosis shows a slow aortic rise, and the T wave ends at S2."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "v": "2026-11-12b",
-      "date": "Nov 12, 2026",
-      "groups": [
-        {
-          "h": "Site",
-          "items": [
-            {
-              "tag": "imp",
-              "title": "Class stats sooner",
-              "text": "The class percent correct now shows on a question as soon as one classmate has answered it."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "v": "2026-11-11e",
-      "date": "Nov 11, 2026",
-      "groups": [
-        {
-          "h": "Study tools",
-          "items": [
-            {
-              "tag": "new",
-              "title": "Heart Development 3D: aortic arches",
-              "text": "4 new stages: the arch arteries, carotids and aortic arch, pulmonary arteries with the ductus and recurrent laryngeal nerves, and the dorsal aorta's branches."
-            },
-            {
-              "tag": "imp",
-              "title": "Clearer 3D labels",
-              "text": "Labels now sit at the sides with pointer lines, so they never cover the model."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "v": "2026-11-11d",
-      "date": "Nov 11, 2026",
-      "groups": [
-        {
-          "h": "Site",
-          "items": [
-            {
-              "tag": "imp",
-              "title": "Faster refresh",
-              "text": "Refreshing takes you straight back to where you were, without the sign-in screen."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "v": "2026-11-11c",
-      "date": "Nov 11, 2026",
-      "groups": [
-        {
-          "h": "Site",
-          "items": [
-            {
-              "tag": "fix",
-              "title": "Google sign-in on iPhones",
-              "text": "Sign-in now works on iPhones and when the link is opened inside apps like WhatsApp or Instagram."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "v": "2026-11-11b",
-      "date": "Nov 11, 2026",
-      "groups": [
-        {
-          "h": "Questions",
-          "items": [
-            {
-              "tag": "new",
-              "title": "CRS Biochem · Lecture 4: Complex Lipid Metabolism",
-              "text": "26 questions, Dr. Shetty's 3 practice Q's, AnKing and UWorld chips, 9 NBME questions and a new study guide section."
-            },
-            {
-              "tag": "new",
-              "title": "Ethics tab rebuilt",
-              "text": "All 102 Windsor ethics review questions in the USMLE question view, sorted into 21 topics."
-            }
-          ]
-        },
-        {
-          "h": "Site",
-          "items": [
-            {
-              "tag": "imp",
-              "title": "Update button",
-              "text": "You'll get a refresh button when a new version is out, and this summary after you refresh."
-            },
-            {
-              "tag": "rem",
-              "title": "Site tour",
-              "text": "The intro tour is gone."
-            }
-          ]
-        }
-      ]
+     "h": "Questions",
+     "items": [
+      {
+       "tag": "imp",
+       "title": "CRS Embryology · Lecture 4",
+       "text": "Now only covers what was taught: the arterial (aortic) arches and arteries, 27 questions. Fetal circulation and vein questions are still in All CRS Embryology."
+      }
+     ]
     }
-  ]
+   ]
+  },
+  {
+   "v": "2026-11-12d",
+   "date": "Nov 12, 2026",
+   "groups": [
+    {
+     "h": "Study tools",
+     "items": [
+      {
+       "tag": "fix",
+       "title": "Cardiac cycle & PV loop",
+       "text": "Every condition re-checked. ↑ Preload widens the loop with ESV unchanged, exercise now raises stroke volume, aortic stenosis shows a slow aortic rise, and the T wave ends at S2."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "v": "2026-11-12b",
+   "date": "Nov 12, 2026",
+   "groups": [
+    {
+     "h": "Site",
+     "items": [
+      {
+       "tag": "imp",
+       "title": "Class stats sooner",
+       "text": "The class percent correct now shows on a question as soon as one classmate has answered it."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "v": "2026-11-11e",
+   "date": "Nov 11, 2026",
+   "groups": [
+    {
+     "h": "Study tools",
+     "items": [
+      {
+       "tag": "new",
+       "title": "Heart Development 3D: aortic arches",
+       "text": "4 new stages: the arch arteries, carotids and aortic arch, pulmonary arteries with the ductus and recurrent laryngeal nerves, and the dorsal aorta's branches."
+      },
+      {
+       "tag": "imp",
+       "title": "Clearer 3D labels",
+       "text": "Labels now sit at the sides with pointer lines, so they never cover the model."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "v": "2026-11-11d",
+   "date": "Nov 11, 2026",
+   "groups": [
+    {
+     "h": "Site",
+     "items": [
+      {
+       "tag": "imp",
+       "title": "Faster refresh",
+       "text": "Refreshing takes you straight back to where you were, without the sign-in screen."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "v": "2026-11-11c",
+   "date": "Nov 11, 2026",
+   "groups": [
+    {
+     "h": "Site",
+     "items": [
+      {
+       "tag": "fix",
+       "title": "Google sign-in on iPhones",
+       "text": "Sign-in now works on iPhones and when the link is opened inside apps like WhatsApp or Instagram."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "v": "2026-11-11b",
+   "date": "Nov 11, 2026",
+   "groups": [
+    {
+     "h": "Questions",
+     "items": [
+      {
+       "tag": "new",
+       "title": "CRS Biochem · Lecture 4: Complex Lipid Metabolism",
+       "text": "26 questions, Dr. Shetty's 3 practice Q's, AnKing and UWorld chips, 9 NBME questions and a new study guide section."
+      },
+      {
+       "tag": "new",
+       "title": "Ethics tab rebuilt",
+       "text": "All 102 Windsor ethics review questions in the USMLE question view, sorted into 21 topics."
+      }
+     ]
+    },
+    {
+     "h": "Site",
+     "items": [
+      {
+       "tag": "imp",
+       "title": "Update button",
+       "text": "You'll get a refresh button when a new version is out, and this summary after you refresh."
+      },
+      {
+       "tag": "rem",
+       "title": "Site tour",
+       "text": "The intro tour is gone."
+      }
+     ]
+    }
+   ]
+  }
+ ]
 }

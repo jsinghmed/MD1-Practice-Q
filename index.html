@@ -1250,10 +1250,10 @@ const SECTIONS = [
      {name:"Folding & fate of the heart tube", f:q=>q.num>=23 && q.num<=48 && q.t==="Sinus Venosus & Heart Tube Fate"},
      {name:"Atrial septation & ASDs", f:q=>q.num>=23 && q.num<=48 && q.t==="Atrial Septation & ASDs"},
      {main:true, name:"Lecture 3 · Ventricles, Truncus Arteriosus & Tetralogy", f:q=>q.t==="Ventricles, Outflow & Tetralogy"},
-     {main:true, name:"Lecture 4 · Fetal Circulation, Arches, Arteries & Veins", f:q=>["Fetal Circulation & Birth","Arterial Arches & Arteries","Veins"].includes(q.t)},
-     {name:"Fetal circulation & changes at birth", f:q=>q.t==="Fetal Circulation & Birth"},
-     {name:"Arterial (aortic) arches & arteries", f:q=>q.t==="Arterial Arches & Arteries"},
-     {name:"Development of the veins", f:q=>q.t==="Veins"},
+     // Lecture 4 covered only the arterial arches (not Q83–86, fetal circulation or the veins; those stay in "All CRS Embryology")
+     {main:true, name:"Lecture 4 · Arterial (Aortic) Arches & Arteries", f:q=>q.t==="Arterial Arches & Arteries" && q.num>=87},
+     {name:"Arterial (aortic) arches", f:q=>q.t==="Arterial Arches & Arteries" && q.num>=87 && q.num<=101},
+     {name:"Descending aorta & intersegmental arteries", f:q=>q.t==="Arterial Arches & Arteries" && q.num>=102},
      {main:true, name:"Lecture 5 · Nasal Cavity & Paranasal Sinuses", f:NAS},
      {main:true, name:"Lecture 6 · Development of the Respiratory System", f:q=>q.t==="Respiratory Development" && !NAS(q)},
      {main:true, name:"Lecture 7 · Formation of the Diaphragm", f:q=>q.t==="Body Cavities & Diaphragm"},
@@ -4323,7 +4323,7 @@ window.JJ_STATS = function(st){
 // Welcome screen: shown every time the page loads.
 // ---- Updates: version.json says which version is live. When it's newer than this page, a card offers a refresh
 // (skips the logo intro). After a refresh to a new version, "What's new" lists every change since the last one seen.
-const JJ_VERSION = "2026-11-12d";
+const JJ_VERSION = "2026-11-12e";
 const UPD_ICON = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>';
 let updLater = "";
 async function updFetch(){ const r = await fetch("version.json?t=" + Date.now(), {cache:"no-store"}); if (!r.ok) throw new Error(r.status); return r.json(); }
