@@ -1,6 +1,32 @@
 {
- "v": "2026-11-13a",
+ "v": "2026-11-14a",
  "notes": [
+  {
+   "v": "2026-11-14a",
+   "date": "Nov 14, 2026",
+   "groups": [
+    {
+     "h": "New feature",
+     "items": [
+      {
+       "tag": "new",
+       "title": "Related questions",
+       "text": "After you answer a question, a Related questions button in the bottom bar opens extra questions on the same concept, tested from a new angle. You get 1 easy and 1 hard, and a few questions have 3. They're extra practice only: they don't count toward chapter totals, your stats or class averages. Available now in CRS Physiology Lectures 1–3 and CRS Biochemistry Lectures 1, 2 and 5, with more lectures coming."
+      },
+      {
+       "tag": "new",
+       "title": "Concept fixed badge",
+       "text": "Get every related question right and the original question shows a Concept fixed badge, with a check on its tile in the question list."
+      },
+      {
+       "tag": "new",
+       "title": "Concept drills",
+       "text": "A new Concept drills page in the sidebar collects every concept you've practised. Needs work lists the ones where you missed a related question, so you can retry them or drill them all at once."
+      }
+     ]
+    }
+   ]
+  },
   {
    "v": "2026-11-13a",
    "date": "Nov 13, 2026",
