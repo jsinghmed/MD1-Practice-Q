@@ -5170,5 +5170,3483 @@ Object.assign(window.JJ_FU, {
 ]
 }
 ]
+},
+"cpr93": {
+"k": "Diastole shortens with heart rate",
+"q": [
+{
+"id": "cpr93-f1",
+"lv": "Easy",
+"s": "At a heart rate of 75/min, how long does one cardiac cycle last?",
+"c": [
+"0.6 s",
+"0.8 s",
+"1.0 s",
+"0.4 s",
+"1.2 s"
+],
+"a": 1,
+"e": "60 s ÷ 75 beats = 0.8 s per cycle.",
+"w": [
+"That is 100/min.",
+"",
+"That is 60/min.",
+"That is 150/min.",
+"That is 50/min."
+]
+},
+{
+"id": "cpr93-f2",
+"lv": "Hard",
+"s": "Why does a very fast heart rate reduce coronary flow to the left ventricle?",
+"c": [
+"Coronary flow is highest during systole",
+"Fast rates dilate the coronaries too much",
+"Systole lengthens a lot at fast rates",
+"Aortic pressure falls to zero at fast rates",
+"Most LV coronary flow is in diastole"
+],
+"a": 4,
+"e": "LV coronary vessels are compressed during systole, so most flow occurs in diastole, which shortens most as heart rate rises.",
+"w": [
+"Opposite for the LV.",
+"Not the effect.",
+"Systole shortens a little.",
+"Not the case.",
+""
+]
+}
+]
+},
+"cpr94": {
+"k": "Ejection fraction",
+"q": [
+{
+"id": "cpr94-f1",
+"lv": "Easy",
+"s": "What is the normal resting ejection fraction?",
+"c": [
+"About 20–30%",
+"About 85–95%",
+"About 55–70%",
+"About 35–40%",
+"About 10%"
+],
+"a": 2,
+"e": "A normal ejection fraction is about 55–70%.",
+"w": [
+"Severely low.",
+"Too high.",
+"",
+"Reduced.",
+"Far too low."
+]
+},
+{
+"id": "cpr94-f2",
+"lv": "Hard",
+"s": "A ventricle has an EDV of 150 mL and an ESV of 90 mL. What is its ejection fraction?",
+"c": [
+"40%",
+"60%",
+"50%",
+"30%",
+"70%"
+],
+"a": 0,
+"e": "SV = 150 − 90 = 60 mL. EF = 60 ÷ 150 = 40%.",
+"w": [
+"",
+"Uses ESV as denominator.",
+"Miscalculated.",
+"Miscalculated.",
+"Miscalculated."
+]
+}
+]
+},
+"cpr95": {
+"k": "Same SV, different EF",
+"q": [
+{
+"id": "cpr95-f1",
+"lv": "Easy",
+"s": "Which formula gives stroke volume?",
+"c": [
+"ESV − EDV",
+"EDV ÷ ESV",
+"EDV × HR",
+"EDV − ESV",
+"ESV ÷ EDV"
+],
+"a": 3,
+"e": "Stroke volume is end-diastolic volume minus end-systolic volume.",
+"w": [
+"Negative value.",
+"A ratio, not SV.",
+"Not SV.",
+"",
+"Not SV."
+]
+},
+{
+"id": "cpr95-f2",
+"lv": "Hard",
+"s": "Patient A has an EDV of 120 mL and SV of 70 mL. What is his EF compared with patient B, whose EDV is 200 mL with the same SV?",
+"c": [
+"A 35%, B about 58%",
+"A about 58%, B 35%",
+"Both about 58%",
+"Both about 35%",
+"A 70%, B about 50%"
+],
+"a": 1,
+"e": "A: 70 ÷ 120 ≈ 58%. B: 70 ÷ 200 = 35%. The dilated ventricle ejects a smaller fraction.",
+"w": [
+"Reversed.",
+"",
+"B is lower.",
+"A is higher.",
+"Miscalculated."
+]
+}
+]
+},
+"cpr96": {
+"k": "Order of cardiac cycle phases",
+"q": [
+{
+"id": "cpr96-f1",
+"lv": "Easy",
+"s": "Which phase follows isovolumetric relaxation?",
+"c": [
+"Reduced ejection",
+"Atrial systole",
+"Isovolumetric contraction",
+"Rapid ejection",
+"Rapid filling"
+],
+"a": 4,
+"e": "When the mitral valve opens after isovolumetric relaxation, rapid filling begins.",
+"w": [
+"Comes before.",
+"Comes later.",
+"Comes later.",
+"Comes later.",
+""
+]
+},
+{
+"id": "cpr96-f2",
+"lv": "Hard",
+"s": "During which two phases are all four valves closed?",
+"c": [
+"Rapid filling and ejection",
+"Atrial systole and filling",
+"The two isovolumetric phases",
+"Both ejection phases",
+"Reduced filling and atrial systole"
+],
+"a": 2,
+"e": "In isovolumetric contraction and relaxation, both AV and semilunar valves are closed.",
+"w": [
+"Valves open.",
+"AV valves open.",
+"",
+"Semilunar valves open.",
+"AV valves open."
+]
+}
+]
+},
+"cpr97": {
+"k": "Isovolumetric contraction",
+"q": [
+{
+"id": "cpr97-f1",
+"lv": "Easy",
+"s": "Which valve closure starts isovolumetric contraction?",
+"c": [
+"Mitral valve closing",
+"Aortic valve closing",
+"Aortic valve opening",
+"Mitral valve opening",
+"Pulmonic valve opening"
+],
+"a": 0,
+"e": "Mitral closure starts isovolumetric contraction.",
+"w": [
+"",
+"Starts relaxation.",
+"Ends it.",
+"Starts filling.",
+"Ends RV isovolumetric phase."
+]
+},
+{
+"id": "cpr97-f2",
+"lv": "Hard",
+"s": "During isovolumetric contraction, LV pressure rises from 10 to 80 mm Hg. Why does volume stay constant?",
+"c": [
+"The mitral valve is open",
+"The aortic valve is open",
+"Blood leaks back to the atrium",
+"Both valves are closed",
+"Coronary flow takes the volume"
+],
+"a": 3,
+"e": "With mitral and aortic valves both closed, the ventricle cannot change volume as pressure rises.",
+"w": [
+"It is closed.",
+"It is closed.",
+"No leak normally.",
+"",
+"Not the reason."
+]
+}
+]
+},
+"cpr98": {
+"k": "Heart sounds",
+"q": [
+{
+"id": "cpr98-f1",
+"lv": "Easy",
+"s": "What produces S2?",
+"c": [
+"AV valves closing",
+"Semilunar valves closing",
+"Rapid ventricular filling",
+"Atrial contraction",
+"Aortic valve opening"
+],
+"a": 1,
+"e": "S2 comes from aortic and pulmonic valve closure.",
+"w": [
+"That is S1.",
+"",
+"That is S3.",
+"That is S4.",
+"Normally silent."
+]
+},
+{
+"id": "cpr98-f2",
+"lv": "Hard",
+"s": "Why does S2 split during inspiration?",
+"c": [
+"Aortic valve closure is delayed",
+"Mitral valve closure is delayed",
+"Tricuspid valve closes early",
+"Both semilunar valves close together",
+"Pulmonic closure is delayed"
+],
+"a": 4,
+"e": "Inspiration increases RV filling and lowers pulmonary resistance, delaying pulmonic valve closure.",
+"w": [
+"Aortic closes earlier.",
+"Not S2.",
+"Not S2.",
+"They separate.",
+""
+]
+}
+]
+},
+"cpr99": {
+"k": "Atrial kick",
+"q": [
+{
+"id": "cpr99-f1",
+"lv": "Easy",
+"s": "When does atrial contraction occur relative to the ECG?",
+"c": [
+"Just after the QRS",
+"During the T wave",
+"Just after the P wave",
+"Before the P wave",
+"During the ST segment"
+],
+"a": 2,
+"e": "Atrial contraction follows atrial depolarization, the P wave.",
+"w": [
+"Ventricular contraction.",
+"Ventricular repolarization.",
+"",
+"Before depolarization.",
+"Ventricular plateau."
+]
+},
+{
+"id": "cpr99-f2",
+"lv": "Hard",
+"s": "Why does loss of the atrial kick matter more during exercise?",
+"c": [
+"Passive filling time shortens",
+"Passive filling time lengthens",
+"Ventricles relax more slowly",
+"Stroke volume no longer matters",
+"Atria contract more weakly"
+],
+"a": 0,
+"e": "At high heart rates, diastole shortens, so atrial contraction supplies a larger share of filling.",
+"w": [
+"",
+"It shortens.",
+"They relax faster.",
+"It matters.",
+"Not the reason."
+]
+}
+]
+},
+"cpr100": {
+"k": "Reduced filling (diastasis)",
+"q": [
+{
+"id": "cpr100-f1",
+"lv": "Easy",
+"s": "How much of ventricular filling happens during rapid filling?",
+"c": [
+"Almost none",
+"Exactly 10%",
+"Only after atrial systole",
+"Most of it",
+"None at rest"
+],
+"a": 3,
+"e": "Most ventricular filling occurs during the rapid filling phase.",
+"w": [
+"Most of it.",
+"Most of it.",
+"Before.",
+"",
+"Most of it."
+]
+},
+{
+"id": "cpr100-f2",
+"lv": "Hard",
+"s": "As heart rate rises, which phase is shortened least?",
+"c": [
+"Reduced filling",
+"Ventricular ejection",
+"Diastole overall",
+"Isovolumetric relaxation",
+"Atrial pause"
+],
+"a": 1,
+"e": "Systole, including ejection, shortens only slightly; diastole, especially reduced filling, shortens most.",
+"w": [
+"Shortens most.",
+"",
+"Shortens most.",
+"Shortens.",
+"Not a phase."
+]
+}
+]
+},
+"cpr101": {
+"k": "Isovolumetric volume",
+"q": [
+{
+"id": "cpr101-f1",
+"lv": "Easy",
+"s": "About what is LV volume during isovolumetric contraction?",
+"c": [
+"About ESV, 50 mL",
+"Close to 0 mL, fully empty",
+"About SV, 70 mL",
+"About 200 mL",
+"About EDV, 120 mL"
+],
+"a": 4,
+"e": "Volume stays at EDV, about 120 mL, until the aortic valve opens.",
+"w": [
+"That is during relaxation.",
+"Not normal.",
+"That is SV.",
+"Too large.",
+""
+]
+},
+{
+"id": "cpr101-f2",
+"lv": "Hard",
+"s": "During isovolumetric relaxation, LV volume stays at which value?",
+"c": [
+"About EDV, 120 mL",
+"About 70 mL",
+"About ESV, 50 mL",
+"About 0 mL",
+"About 200 mL"
+],
+"a": 2,
+"e": "After ejection, the ventricle holds ESV, about 50 mL, until the mitral valve opens.",
+"w": [
+"That is contraction.",
+"That is SV.",
+"",
+"Not normal.",
+"Too large."
+]
+}
+]
+},
+"cpr102": {
+"k": "Rapid vs reduced ejection",
+"q": [
+{
+"id": "cpr102-f1",
+"lv": "Easy",
+"s": "When does ventricular pressure peak during ejection?",
+"c": [
+"During rapid ejection",
+"During reduced ejection",
+"During isovolumetric relaxation",
+"During filling",
+"During atrial systole"
+],
+"a": 0,
+"e": "LV and aortic pressures peak during rapid ejection.",
+"w": [
+"",
+"Pressure falls.",
+"Pressure falls.",
+"Pressure is low.",
+"Pressure is low."
+]
+},
+{
+"id": "cpr102-f2",
+"lv": "Hard",
+"s": "During reduced ejection, LV pressure falls just below aortic pressure, yet blood keeps moving out. Why?",
+"c": [
+"The aortic valve has already closed",
+"The mitral valve has opened",
+"Atrial contraction pushes it on",
+"Momentum carries blood forward",
+"Coronary flow pulls it forward"
+],
+"a": 3,
+"e": "Ejected blood has kinetic energy, so it keeps moving forward briefly despite the reversed pressure gradient.",
+"w": [
+"Closes after.",
+"Closed.",
+"Not involved.",
+"",
+"Not the cause."
+]
+}
+]
+},
+"cpr103": {
+"k": "JVP waves",
+"q": [
+{
+"id": "cpr103-f1",
+"lv": "Easy",
+"s": "What causes the c wave of the jugular venous pulse?",
+"c": [
+"Right atrial contraction late in diastole",
+"Tricuspid bulging in systole",
+"Passive atrial filling",
+"Tricuspid valve opening",
+"Increased venous return"
+],
+"a": 1,
+"e": "The c wave reflects tricuspid valve bulging into the atrium during isovolumetric contraction.",
+"w": [
+"a wave.",
+"",
+"v wave.",
+"y descent.",
+"Not a specific wave."
+]
+},
+{
+"id": "cpr103-f2",
+"lv": "Hard",
+"s": "Which JVP finding is expected in tricuspid regurgitation?",
+"c": [
+"Absent a waves",
+"Cannon a waves",
+"Steep x descent only",
+"Flat waveform",
+"Large v waves"
+],
+"a": 4,
+"e": "Blood regurgitates into the atrium during systole, producing large v waves.",
+"w": [
+"AF.",
+"AV dissociation.",
+"Not typical.",
+"Not typical.",
+""
+]
+}
+]
+},
+"cpr104": {
+"k": "Dicrotic notch",
+"q": [
+{
+"id": "cpr104-f1",
+"lv": "Easy",
+"s": "What causes the dicrotic notch on the aortic pressure curve?",
+"c": [
+"Mitral valve closure",
+"Atrial contraction",
+"Aortic valve closure",
+"Ventricular filling",
+"Aortic valve opening"
+],
+"a": 2,
+"e": "The notch marks aortic valve closure, coinciding with S2.",
+"w": [
+"S1.",
+"a wave.",
+"",
+"S3.",
+"Start of ejection."
+]
+},
+{
+"id": "cpr104-f2",
+"lv": "Hard",
+"s": "Which ECG event occurs closest to S2?",
+"c": [
+"End of the T wave",
+"Peak of the R wave",
+"P wave",
+"Start of the QRS",
+"PR segment"
+],
+"a": 0,
+"e": "S2 occurs at the end of ventricular repolarization, near the end of the T wave.",
+"w": [
+"",
+"S1 region.",
+"Atrial.",
+"S1 region.",
+"Atrial delay."
+]
+}
+]
+},
+"cpr105": {
+"k": "Right heart pressures",
+"q": [
+{
+"id": "cpr105-f1",
+"lv": "Easy",
+"s": "What is the normal right ventricular systolic pressure?",
+"c": [
+"About 120 mm Hg",
+"About 8 mm Hg",
+"About 80 mm Hg",
+"About 25 mm Hg",
+"About 40 mm Hg"
+],
+"a": 3,
+"e": "Normal RV systolic pressure is about 25 mm Hg.",
+"w": [
+"LV.",
+"Diastolic.",
+"Aortic diastolic.",
+"",
+"Too high."
+]
+},
+{
+"id": "cpr105-f2",
+"lv": "Hard",
+"s": "A catheter tip reads 0–8 mm Hg, then 5–25 mm Hg, then about 10 mm Hg with small waves when wedged. Where is the tip at the last reading?",
+"c": [
+"In the right atrium near the SVC",
+"Wedged in a pulmonary artery",
+"In the right ventricle",
+"In the ascending aorta",
+"In the left ventricle"
+],
+"a": 1,
+"e": "A wedged pulmonary artery catheter reads about 10 mm Hg, reflecting left atrial pressure.",
+"w": [
+"First reading.",
+"",
+"Second reading.",
+"Not reached.",
+"Not reached."
+]
+}
+]
+},
+"cpr106": {
+"k": "AF and fast rates",
+"q": [
+{
+"id": "cpr106-f1",
+"lv": "Easy",
+"s": "Which part of diastole shortens most at high heart rates?",
+"c": [
+"Rapid ejection",
+"Isovolumetric contraction",
+"Rapid filling",
+"Atrial systole",
+"Reduced filling"
+],
+"a": 4,
+"e": "Reduced filling, diastasis, is shortened the most at faster heart rates.",
+"w": [
+"Systolic.",
+"Systolic.",
+"Shortens less.",
+"Shortens less.",
+""
+]
+},
+{
+"id": "cpr106-f2",
+"lv": "Hard",
+"s": "A patient's AF rate is slowed from 150 to 90/min with a drug. Why does his cardiac output improve?",
+"c": [
+"Shorter diastole raises EDV instead",
+"The atrial kick returns immediately",
+"Longer diastole raises EDV and SV",
+"Contractility doubles with slowing",
+"Afterload falls to zero"
+],
+"a": 2,
+"e": "Slowing the rate lengthens diastole, improving filling and stroke volume enough to raise output.",
+"w": [
+"Diastole lengthens.",
+"Not in AF.",
+"",
+"Not the effect.",
+"Not the effect."
+]
+}
+]
+},
+"cpr107": {
+"k": "EF distinguishes pump failure",
+"q": [
+{
+"id": "cpr107-f1",
+"lv": "Easy",
+"s": "What happens to EF when EDV rises from volume loading with ESV unchanged?",
+"c": [
+"EF rises",
+"EF falls",
+"EF is unchanged",
+"EF becomes zero",
+"EF doubles exactly"
+],
+"a": 0,
+"e": "EF = 1 − ESV/EDV, so a larger EDV with the same ESV raises EF.",
+"w": [
+"",
+"Rises.",
+"Changes.",
+"Not zero.",
+"Not exactly."
+]
+},
+{
+"id": "cpr107-f2",
+"lv": "Hard",
+"s": "A patient's EDV is 150 mL and ESV is 50 mL. What are his SV and EF?",
+"c": [
+"100 mL and 50%",
+"50 mL and 33%",
+"150 mL and 100%",
+"100 mL and 67%",
+"200 mL and 75%"
+],
+"a": 3,
+"e": "SV = 150 − 50 = 100 mL. EF = 100 ÷ 150 ≈ 67%.",
+"w": [
+"EF miscalculated.",
+"Reversed.",
+"Not possible.",
+"",
+"Not possible."
+]
+}
+]
+},
+"cpr108": {
+"k": "Dilated cardiomyopathy",
+"q": [
+{
+"id": "cpr108-f1",
+"lv": "Easy",
+"s": "In dilated cardiomyopathy, what happens to EDV?",
+"c": [
+"It falls",
+"It rises",
+"It is unchanged",
+"It becomes zero",
+"It equals ESV"
+],
+"a": 1,
+"e": "The ventricle dilates, so EDV rises.",
+"w": [
+"Rises.",
+"",
+"Rises.",
+"Not zero.",
+"Not equal."
+]
+},
+{
+"id": "cpr108-f2",
+"lv": "Hard",
+"s": "Why does a dilated ventricle need more wall tension to make the same pressure?",
+"c": [
+"Wall tension falls with radius",
+"Radius does not affect tension",
+"A thin wall lowers tension",
+"Pressure falls with radius",
+"Wall tension rises with radius"
+],
+"a": 4,
+"e": "By Laplace's law, tension is proportional to pressure times radius, so a larger chamber needs more tension.",
+"w": [
+"Opposite.",
+"It does.",
+"Thin walls raise stress.",
+"Not the case.",
+""
+]
+}
+]
+},
+"cpr109": {
+"k": "Mitral valve opening",
+"q": [
+{
+"id": "cpr109-f1",
+"lv": "Easy",
+"s": "Which phase begins when the mitral valve opens?",
+"c": [
+"Isovolumetric relaxation",
+"Atrial systole",
+"Rapid filling",
+"Isovolumetric contraction",
+"Rapid ejection"
+],
+"a": 2,
+"e": "Mitral opening starts rapid filling.",
+"w": [
+"Ends.",
+"Later.",
+"",
+"Earlier phase.",
+"Different."
+]
+},
+{
+"id": "cpr109-f2",
+"lv": "Hard",
+"s": "In mitral stenosis, what happens to left atrial pressure during diastole?",
+"c": [
+"It stays high",
+"It falls to zero",
+"It equals aortic pressure",
+"It is lower than LV pressure",
+"It is unchanged from normal"
+],
+"a": 0,
+"e": "The narrowed valve resists flow, so LA pressure stays elevated to fill the LV.",
+"w": [
+"",
+"Not zero.",
+"Not that high.",
+"Opposite.",
+"It rises."
+]
+}
+]
+},
+"cpr110": {
+"k": "Aortic valve opening",
+"q": [
+{
+"id": "cpr110-f1",
+"lv": "Easy",
+"s": "About what LV pressure opens the aortic valve normally?",
+"c": [
+"About 120 mm Hg",
+"About 10 mm Hg",
+"About 25 mm Hg",
+"About 80 mm Hg",
+"About 0 mm Hg"
+],
+"a": 3,
+"e": "The aortic valve opens when LV pressure exceeds aortic diastolic pressure, about 80 mm Hg.",
+"w": [
+"Peak.",
+"LA.",
+"RV.",
+"",
+"Not possible."
+]
+},
+{
+"id": "cpr110-f2",
+"lv": "Hard",
+"s": "In severe aortic stenosis, what happens to the LV–aortic pressure gradient during ejection?",
+"c": [
+"It disappears",
+"It becomes large",
+"It reverses",
+"It stays near zero",
+"It equals LA pressure"
+],
+"a": 1,
+"e": "The narrowed valve requires much higher LV pressure, creating a large gradient.",
+"w": [
+"Opposite.",
+"",
+"Not normal.",
+"Opposite.",
+"Not related."
+]
+}
+]
+},
+"cpr111": {
+"k": "S4",
+"q": [
+{
+"id": "cpr111-f1",
+"lv": "Easy",
+"s": "What produces S4?",
+"c": [
+"Rapid filling of a dilated ventricle",
+"Closure of the semilunar valves",
+"Closure of the AV valves",
+"Aortic valve opening",
+"Atrial kick into a stiff ventricle"
+],
+"a": 4,
+"e": "S4 occurs when the atria push blood into a stiff, noncompliant ventricle.",
+"w": [
+"S3.",
+"S2.",
+"S1.",
+"Silent.",
+""
+]
+},
+{
+"id": "cpr111-f2",
+"lv": "Hard",
+"s": "In which condition is S4 never heard?",
+"c": [
+"Hypertensive LVH",
+"Aortic stenosis",
+"Atrial fibrillation",
+"Ischemic heart disease",
+"Hypertrophic cardiomyopathy"
+],
+"a": 2,
+"e": "S4 needs atrial contraction, which is absent in atrial fibrillation.",
+"w": [
+"Common.",
+"Common.",
+"",
+"Common.",
+"Common."
+]
+}
+]
+},
+"cpr112": {
+"k": "Atrial activity on the Wiggers diagram",
+"q": [
+{
+"id": "cpr112-f1",
+"lv": "Easy",
+"s": "Which JVP wave reflects atrial contraction?",
+"c": [
+"a wave",
+"c wave",
+"v wave",
+"x descent",
+"y descent"
+],
+"a": 0,
+"e": "The a wave reflects right atrial contraction.",
+"w": [
+"",
+"Tricuspid bulge.",
+"Atrial filling.",
+"Atrial relaxation.",
+"Atrial emptying."
+]
+},
+{
+"id": "cpr112-f2",
+"lv": "Hard",
+"s": "In complete heart block, giant a waves appear intermittently. What causes them?",
+"c": [
+"Severe, long-standing tricuspid regurgitation",
+"Atrial fibrillation",
+"Constrictive pericarditis",
+"Atria contracting on a shut tricuspid",
+"Isolated pulmonary hypertension"
+],
+"a": 3,
+"e": "When atria contract during ventricular systole, they push against a closed tricuspid valve, producing cannon a waves.",
+"w": [
+"Gives v waves.",
+"No a waves.",
+"Gives a steep y.",
+"",
+"Gives large a waves always."
+]
+}
+]
+},
+"cpr113": {
+"k": "RV vs LV pressures",
+"q": [
+{
+"id": "cpr113-f1",
+"lv": "Easy",
+"s": "What is normal pulmonary artery diastolic pressure?",
+"c": [
+"About 80 mm Hg",
+"About 10 mm Hg",
+"About 25 mm Hg",
+"About 0 mm Hg",
+"About 120 mm Hg"
+],
+"a": 1,
+"e": "Pulmonary artery diastolic pressure is about 8–10 mm Hg.",
+"w": [
+"Aortic.",
+"",
+"Systolic.",
+"Not normal.",
+"LV."
+]
+},
+{
+"id": "cpr113-f2",
+"lv": "Hard",
+"s": "Why does the pulmonary valve open before the aortic valve?",
+"c": [
+"RV contracts earlier",
+"The pulmonary valve is larger",
+"LV has lower pressure",
+"PA pressure is higher",
+"RV reaches PA pressure sooner"
+],
+"a": 4,
+"e": "The RV only needs about 10 mm Hg to open the pulmonary valve, versus about 80 mm Hg for the LV.",
+"w": [
+"Not mainly.",
+"Not the reason.",
+"LV higher.",
+"PA lower.",
+""
+]
+}
+]
+},
+"cpr114": {
+"k": "Aortic pressure curve",
+"q": [
+{
+"id": "cpr114-f1",
+"lv": "Easy",
+"s": "What is normal aortic diastolic pressure?",
+"c": [
+"About 120 mm Hg",
+"About 25 mm Hg",
+"About 80 mm Hg",
+"About 10 mm Hg",
+"About 40 mm Hg"
+],
+"a": 2,
+"e": "Normal aortic diastolic pressure is about 80 mm Hg.",
+"w": [
+"Systolic.",
+"PA.",
+"",
+"LA.",
+"Too low."
+]
+},
+{
+"id": "cpr114-f2",
+"lv": "Hard",
+"s": "In aortic regurgitation, what happens to aortic diastolic pressure?",
+"c": [
+"It falls",
+"It rises",
+"It is unchanged",
+"It equals systolic",
+"It becomes 120 mm Hg"
+],
+"a": 0,
+"e": "Blood flows back into the LV during diastole, so aortic diastolic pressure falls.",
+"w": [
+"",
+"Opposite.",
+"Changes.",
+"Not this.",
+"Not this."
+]
+}
+]
+},
+"cpr115": {
+"k": "JVP v wave",
+"q": [
+{
+"id": "cpr115-f1",
+"lv": "Easy",
+"s": "What causes the y descent of the JVP?",
+"c": [
+"Right atrial contraction in late diastole",
+"Tricuspid valve closure",
+"Atrial relaxation in systole",
+"Tricuspid opening, atrium empties",
+"Passive venous filling"
+],
+"a": 3,
+"e": "When the tricuspid opens, the atrium empties into the RV, giving the y descent.",
+"w": [
+"a wave.",
+"c wave.",
+"x descent.",
+"",
+"v wave."
+]
+},
+{
+"id": "cpr115-f2",
+"lv": "Hard",
+"s": "Which condition produces a steep, prominent y descent?",
+"c": [
+"Acute tamponade with fluid in the sac",
+"Constrictive pericarditis",
+"Tricuspid stenosis",
+"Atrial fibrillation",
+"Mitral stenosis"
+],
+"a": 1,
+"e": "In constriction, early rapid filling then abrupt halt gives a steep y descent.",
+"w": [
+"Blunted y.",
+"",
+"Slow y.",
+"No a wave.",
+"Left heart."
+]
+}
+]
+},
+"cpr116": {
+"k": "Aortic elastic recoil",
+"q": [
+{
+"id": "cpr116-f1",
+"lv": "Easy",
+"s": "Which property of the aorta keeps pressure up during diastole?",
+"c": [
+"Smooth muscle spasm",
+"Valve leakage",
+"High viscosity",
+"Low compliance",
+"Elastic recoil"
+],
+"a": 4,
+"e": "The stretched aortic wall recoils in diastole, maintaining pressure.",
+"w": [
+"Not the mechanism.",
+"Would lower it.",
+"Not the main factor.",
+"Opposite.",
+""
+]
+},
+{
+"id": "cpr116-f2",
+"lv": "Hard",
+"s": "A stiff aorta in old age changes pressures how?",
+"c": [
+"Lower systolic, higher diastolic",
+"Both pressures fall",
+"Higher systolic, lower diastolic",
+"Both pressures unchanged",
+"Pulse pressure narrows"
+],
+"a": 2,
+"e": "Less compliance means less buffering, so systolic rises and diastolic falls, widening pulse pressure.",
+"w": [
+"Opposite.",
+"Not the effect.",
+"",
+"They change.",
+"Widens."
+]
+}
+]
+},
+"cpr135": {
+"k": "Cardiac output",
+"q": [
+{
+"id": "cpr135-f1",
+"lv": "Easy",
+"s": "Which formula gives cardiac output?",
+"c": [
+"HR × SV",
+"HR ÷ SV",
+"SV − HR",
+"EDV × ESV",
+"MAP × TPR"
+],
+"a": 0,
+"e": "Cardiac output equals heart rate times stroke volume.",
+"w": [
+"",
+"Not this.",
+"Not this.",
+"Not this.",
+"Not this."
+]
+},
+{
+"id": "cpr135-f2",
+"lv": "Hard",
+"s": "A man has HR 80/min, EDV 130 mL and ESV 60 mL. What is his cardiac output?",
+"c": [
+"10.4 L/min",
+"4.8 L/min",
+"6.4 L/min",
+"5.6 L/min",
+"3.2 L/min"
+],
+"a": 3,
+"e": "SV = 70 mL. CO = 80 × 70 = 5600 mL/min = 5.6 L/min.",
+"w": [
+"Uses EDV.",
+"Miscalculated.",
+"Miscalculated.",
+"",
+"Miscalculated."
+]
+}
+]
+},
+"cpr136": {
+"k": "Cardiac reserve",
+"q": [
+{
+"id": "cpr136-f1",
+"lv": "Easy",
+"s": "What is cardiac reserve?",
+"c": [
+"The resting cardiac output",
+"The rise in CO above rest",
+"The resting stroke volume",
+"EDV minus ESV at rest",
+"Blood stored in the veins"
+],
+"a": 1,
+"e": "Cardiac reserve is the ability to raise cardiac output above resting levels.",
+"w": [
+"Baseline.",
+"",
+"Not reserve.",
+"That is SV.",
+"Not reserve."
+]
+},
+{
+"id": "cpr136-f2",
+"lv": "Hard",
+"s": "At peak exercise, an athlete's HR is 190/min and SV is 150 mL. What is his CO?",
+"c": [
+"19.0 L/min",
+"15.0 L/min",
+"34.0 L/min",
+"9.5 L/min",
+"28.5 L/min"
+],
+"a": 4,
+"e": "190 × 150 = 28,500 mL/min = 28.5 L/min.",
+"w": [
+"Miscalculated.",
+"Miscalculated.",
+"Miscalculated.",
+"Miscalculated.",
+""
+]
+}
+]
+},
+"cpr137": {
+"k": "Preload",
+"q": [
+{
+"id": "cpr137-f1",
+"lv": "Easy",
+"s": "Which variable best represents preload?",
+"c": [
+"End-systolic volume",
+"Aortic diastolic pressure",
+"End-diastolic volume",
+"Heart rate",
+"Ejection fraction"
+],
+"a": 2,
+"e": "Preload is the stretch on the ventricle before contraction, indexed by EDV.",
+"w": [
+"Not preload.",
+"Afterload.",
+"",
+"Not preload.",
+"Not preload."
+]
+},
+{
+"id": "cpr137-f2",
+"lv": "Hard",
+"s": "A patient stands up suddenly. What happens to preload, and why?",
+"c": [
+"It falls as blood pools in the legs",
+"It rises from more venous return now",
+"It is unchanged by posture",
+"It rises as HR falls",
+"It falls as contractility rises"
+],
+"a": 0,
+"e": "Standing pools blood in the legs, reducing venous return and EDV.",
+"w": [
+"",
+"Opposite.",
+"It changes.",
+"HR rises.",
+"Not the reason."
+]
+}
+]
+},
+"cpr138": {
+"k": "Nitroglycerin lowers preload",
+"q": [
+{
+"id": "cpr138-f1",
+"lv": "Easy",
+"s": "Where does nitroglycerin mainly act at low doses?",
+"c": [
+"Arterioles",
+"Capillaries",
+"Cardiac muscle",
+"Veins",
+"Kidney tubules"
+],
+"a": 3,
+"e": "Low-dose nitroglycerin dilates veins, lowering preload.",
+"w": [
+"Higher doses.",
+"Not the target.",
+"Not the target.",
+"",
+"Not the target."
+]
+},
+{
+"id": "cpr138-f2",
+"lv": "Hard",
+"s": "Why does lowering preload relieve angina?",
+"c": [
+"More wall tension raises O₂ supply",
+"Less wall tension lowers O₂ demand",
+"Heart rate falls to zero",
+"Coronary resistance rises",
+"Contractility rises sharply"
+],
+"a": 1,
+"e": "Smaller EDV reduces wall tension by Laplace's law, lowering myocardial oxygen demand.",
+"w": [
+"Opposite.",
+"",
+"Not true.",
+"Opposite.",
+"Not the effect."
+]
+}
+]
+},
+"cpr139": {
+"k": "Na⁺/Ca²⁺ exchanger and contractility",
+"q": [
+{
+"id": "cpr139-f1",
+"lv": "Easy",
+"s": "What does the Na⁺/Ca²⁺ exchanger normally do?",
+"c": [
+"Pumps Ca²⁺ into the cell with ATP",
+"Pumps Na⁺ out with ATP",
+"Moves K⁺ into the cell",
+"Stores Ca²⁺ in the SR",
+"Removes Ca²⁺ from the cell"
+],
+"a": 4,
+"e": "The exchanger uses the Na⁺ gradient to move Ca²⁺ out.",
+"w": [
+"Opposite.",
+"That is the pump.",
+"Not its role.",
+"That is SERCA.",
+""
+]
+},
+{
+"id": "cpr139-f2",
+"lv": "Hard",
+"s": "Which drug raises contractility by the same exchanger mechanism as lowering bath Na⁺?",
+"c": [
+"Metoprolol",
+"Verapamil",
+"Digoxin",
+"Lidocaine",
+"Ivabradine"
+],
+"a": 2,
+"e": "Digoxin raises intracellular Na⁺, reducing Ca²⁺ removal by the exchanger, so more Ca²⁺ is available.",
+"w": [
+"Lowers force.",
+"Lowers force.",
+"",
+"Na⁺ channels.",
+"Rate only."
+]
+}
+]
+},
+"cpr140": {
+"k": "Acidosis and contractility",
+"q": [
+{
+"id": "cpr140-f1",
+"lv": "Easy",
+"s": "What does hypoxia do to ventricular contractility?",
+"c": [
+"Lowers it",
+"Raises it",
+"No effect",
+"Doubles it",
+"Makes it tetanic"
+],
+"a": 0,
+"e": "Hypoxia reduces ATP and contractility.",
+"w": [
+"",
+"Lowers.",
+"It has an effect.",
+"Not true.",
+"Not possible."
+]
+},
+{
+"id": "cpr140-f2",
+"lv": "Hard",
+"s": "How does acidosis reduce myocardial contractility?",
+"c": [
+"H⁺ opens more L-type Ca²⁺ channels",
+"H⁺ raises SR Ca²⁺ release",
+"H⁺ activates myosin ATPase",
+"H⁺ competes with Ca²⁺ on troponin",
+"H⁺ increases cAMP levels"
+],
+"a": 3,
+"e": "Hydrogen ions reduce troponin C's sensitivity to Ca²⁺, weakening contraction.",
+"w": [
+"Not the effect.",
+"Not the effect.",
+"Not the effect.",
+"",
+"Not the effect."
+]
+}
+]
+},
+"cpr141": {
+"k": "Afterload",
+"q": [
+{
+"id": "cpr141-f1",
+"lv": "Easy",
+"s": "Which variable best represents afterload for the left ventricle?",
+"c": [
+"End-diastolic volume",
+"Aortic pressure",
+"Heart rate",
+"Venous return",
+"Atrial pressure"
+],
+"a": 1,
+"e": "Afterload is the pressure the ventricle must overcome to eject, mainly aortic pressure.",
+"w": [
+"Preload.",
+"",
+"Not afterload.",
+"Preload.",
+"Preload."
+]
+},
+{
+"id": "cpr141-f2",
+"lv": "Hard",
+"s": "How does increased afterload affect stroke volume if contractility and preload are unchanged?",
+"c": [
+"SV rises and ESV falls",
+"Both are unchanged",
+"SV rises and EDV falls",
+"ESV falls to zero",
+"SV falls and ESV rises"
+],
+"a": 4,
+"e": "Higher afterload means the ventricle ejects less, leaving a larger ESV.",
+"w": [
+"Opposite.",
+"They change.",
+"Not the effect.",
+"Not possible.",
+""
+]
+}
+]
+},
+"cpr142": {
+"k": "Concentric hypertrophy",
+"q": [
+{
+"id": "cpr142-f1",
+"lv": "Easy",
+"s": "What type of hypertrophy does chronic pressure overload cause?",
+"c": [
+"Eccentric",
+"Dilated",
+"Concentric",
+"Atrophic",
+"Restrictive"
+],
+"a": 2,
+"e": "Pressure overload adds sarcomeres in parallel, thickening the wall.",
+"w": [
+"Volume overload.",
+"Not hypertrophy.",
+"",
+"Not hypertrophy.",
+"Not hypertrophy."
+]
+},
+{
+"id": "cpr142-f2",
+"lv": "Hard",
+"s": "Which condition causes eccentric hypertrophy?",
+"c": [
+"Aortic regurgitation",
+"Aortic stenosis",
+"Chronic hypertension",
+"Hypertrophic cardiomyopathy",
+"Coarctation of the aorta"
+],
+"a": 0,
+"e": "Volume overload, as in aortic regurgitation, adds sarcomeres in series and dilates the chamber.",
+"w": [
+"",
+"Concentric.",
+"Concentric.",
+"Genetic, concentric.",
+"Concentric."
+]
+}
+]
+},
+"cpr143": {
+"k": "Frank–Starling",
+"q": [
+{
+"id": "cpr143-f1",
+"lv": "Easy",
+"s": "What is the Frank–Starling law?",
+"c": [
+"Less stretch gives stronger contraction",
+"Heart rate controls the force",
+"Afterload controls filling",
+"More stretch, stronger contraction",
+"Force is fixed beat to beat"
+],
+"a": 3,
+"e": "Greater end-diastolic stretch increases force of contraction and stroke volume.",
+"w": [
+"Opposite.",
+"Not the law.",
+"Not the law.",
+"",
+"Not the law."
+]
+},
+{
+"id": "cpr143-f2",
+"lv": "Hard",
+"s": "What cellular change underlies the Frank–Starling effect?",
+"c": [
+"More L-type Ca²⁺ channels open per beat",
+"Stretch raises Ca²⁺ sensitivity",
+"More β1 receptors appear",
+"More gap junctions form",
+"Faster SA node firing"
+],
+"a": 1,
+"e": "Stretch increases myofilament sensitivity to Ca²⁺ and optimizes overlap, increasing force.",
+"w": [
+"Not the mechanism.",
+"",
+"Not the mechanism.",
+"Not the mechanism.",
+"Not the mechanism."
+]
+}
+]
+},
+"cpr144": {
+"k": "Matching RV and LV output",
+"q": [
+{
+"id": "cpr144-f1",
+"lv": "Easy",
+"s": "Over time, how do RV and LV outputs compare?",
+"c": [
+"RV is double LV",
+"LV is double RV",
+"RV is always lower",
+"They are unrelated",
+"They are equal"
+],
+"a": 4,
+"e": "The two ventricles pump in series, so their outputs must match.",
+"w": [
+"Not true.",
+"Not true.",
+"Not true.",
+"Not true.",
+""
+]
+},
+{
+"id": "cpr144-f2",
+"lv": "Hard",
+"s": "If the LV fails but the RV keeps pumping normally, where does fluid build up first?",
+"c": [
+"The legs",
+"The liver",
+"The lungs",
+"The abdomen",
+"The neck veins"
+],
+"a": 2,
+"e": "Blood backs up into the pulmonary circulation, causing pulmonary edema.",
+"w": [
+"Right failure.",
+"Right failure.",
+"",
+"Right failure.",
+"Right failure."
+]
+}
+]
+},
+"cpr145": {
+"k": "PV loop corners",
+"q": [
+{
+"id": "cpr145-f1",
+"lv": "Easy",
+"s": "Which valve event occurs at the top-left corner of the LV pressure–volume loop?",
+"c": [
+"Aortic valve closes",
+"Mitral valve closes",
+"Aortic valve opens",
+"Mitral valve opens",
+"Tricuspid closes"
+],
+"a": 0,
+"e": "At the end of ejection, at the smallest volume and high pressure, the aortic valve closes.",
+"w": [
+"",
+"Bottom right.",
+"Top right.",
+"Bottom left.",
+"Right heart."
+]
+},
+{
+"id": "cpr145-f2",
+"lv": "Hard",
+"s": "Which side of the PV loop represents isovolumetric relaxation?",
+"c": [
+"The right vertical side",
+"The top curve",
+"The bottom curve",
+"The left vertical side",
+"The diagonal"
+],
+"a": 3,
+"e": "Isovolumetric relaxation is the vertical drop at ESV, the left side of the loop.",
+"w": [
+"Contraction.",
+"Ejection.",
+"Filling.",
+"",
+"Not a side."
+]
+}
+]
+},
+"cpr146": {
+"k": "Stroke volume from the PV loop",
+"q": [
+{
+"id": "cpr146-f1",
+"lv": "Easy",
+"s": "What does the width of the PV loop represent?",
+"c": [
+"Ejection fraction",
+"Stroke volume",
+"Afterload",
+"Heart rate",
+"Preload alone"
+],
+"a": 1,
+"e": "The width of the loop is EDV minus ESV, the stroke volume.",
+"w": [
+"Ratio.",
+"",
+"Height.",
+"Not shown.",
+"EDV only."
+]
+},
+{
+"id": "cpr146-f2",
+"lv": "Hard",
+"s": "A PV loop runs from 140 mL to 70 mL. What is the EF?",
+"c": [
+"70%",
+"100%",
+"35%",
+"60%",
+"50%"
+],
+"a": 4,
+"e": "SV = 70 mL. EF = 70 ÷ 140 = 50%.",
+"w": [
+"Miscalculated.",
+"Miscalculated.",
+"Miscalculated.",
+"Miscalculated.",
+""
+]
+}
+]
+},
+"cpr147": {
+"k": "Contractility on the PV loop",
+"q": [
+{
+"id": "cpr147-f1",
+"lv": "Easy",
+"s": "How does increased contractility shift the end-systolic pressure–volume line?",
+"c": [
+"Flatter, to the right",
+"Unchanged",
+"Steeper, to the left",
+"Straight down",
+"Straight up only"
+],
+"a": 2,
+"e": "Greater contractility steepens the ESPVR, shifting ESV left.",
+"w": [
+"Opposite.",
+"It shifts.",
+"",
+"Not this.",
+"Not this."
+]
+},
+{
+"id": "cpr147-f2",
+"lv": "Hard",
+"s": "A patient with heart failure gets dobutamine. Which PV loop change is expected?",
+"c": [
+"Smaller ESV, wider loop",
+"Larger ESV, narrower loop",
+"Larger EDV only",
+"Higher afterload only",
+"No change in the loop"
+],
+"a": 0,
+"e": "Increased contractility empties the ventricle further, lowering ESV and widening the loop.",
+"w": [
+"",
+"Opposite.",
+"Not the main effect.",
+"Not the effect.",
+"There is a change."
+]
+}
+]
+},
+"cpr148": {
+"k": "Aortic stenosis on the PV loop",
+"q": [
+{
+"id": "cpr148-f1",
+"lv": "Easy",
+"s": "What happens to peak LV pressure in aortic stenosis?",
+"c": [
+"It falls",
+"It is unchanged",
+"It becomes zero",
+"It rises",
+"It equals LA pressure"
+],
+"a": 3,
+"e": "The LV must generate higher pressure to push blood through the narrowed valve.",
+"w": [
+"Opposite.",
+"It changes.",
+"Not possible.",
+"",
+"Not related."
+]
+},
+{
+"id": "cpr148-f2",
+"lv": "Hard",
+"s": "Which murmur is heard in aortic stenosis?",
+"c": [
+"An early diastolic decrescendo murmur",
+"Crescendo–decrescendo systolic",
+"Holosystolic at the apex",
+"Mid-diastolic rumble",
+"Continuous machinery murmur"
+],
+"a": 1,
+"e": "Aortic stenosis causes a crescendo–decrescendo systolic ejection murmur.",
+"w": [
+"AR.",
+"",
+"MR.",
+"MS.",
+"PDA."
+]
+}
+]
+},
+"cpr149": {
+"k": "Aortic regurgitation on the PV loop",
+"q": [
+{
+"id": "cpr149-f1",
+"lv": "Easy",
+"s": "Which murmur is heard in aortic regurgitation?",
+"c": [
+"Crescendo–decrescendo systolic",
+"Holosystolic",
+"Mid-diastolic rumble only",
+"Continuous machinery",
+"Early diastolic decrescendo"
+],
+"a": 4,
+"e": "AR gives a high-pitched early diastolic decrescendo murmur.",
+"w": [
+"AS.",
+"MR.",
+"MS.",
+"PDA.",
+""
+]
+},
+{
+"id": "cpr149-f2",
+"lv": "Hard",
+"s": "In chronic aortic regurgitation, why is there no true isovolumetric relaxation?",
+"c": [
+"The mitral valve stays closed through diastole",
+"The ventricle stops relaxing",
+"Blood leaks back through the aorta",
+"The left atrium contracts early",
+"The aorta loses all its pressure"
+],
+"a": 2,
+"e": "Backflow through the incompetent aortic valve fills the LV even before the mitral valve opens.",
+"w": [
+"It opens.",
+"It relaxes.",
+"",
+"Not related.",
+"Not true."
+]
+}
+]
+},
+"cpr150": {
+"k": "Cardiac work",
+"q": [
+{
+"id": "cpr150-f1",
+"lv": "Easy",
+"s": "Stroke work is roughly equal to which product?",
+"c": [
+"Pressure × stroke volume",
+"Heart rate × end-diastolic volume",
+"Afterload × EF",
+"Preload × heart rate",
+"Resistance × flow"
+],
+"a": 0,
+"e": "Stroke work is approximated by mean pressure times stroke volume.",
+"w": [
+"",
+"Not work.",
+"Not work.",
+"Not work.",
+"That is pressure."
+]
+},
+{
+"id": "cpr150-f2",
+"lv": "Hard",
+"s": "Which type of cardiac work raises O₂ demand more?",
+"c": [
+"Volume work",
+"They are equal",
+"Neither raises it",
+"Pressure work",
+"Only kinetic work"
+],
+"a": 3,
+"e": "Pressure work increases wall tension and O₂ demand more than volume work.",
+"w": [
+"Less costly.",
+"Not equal.",
+"Both do.",
+"",
+"Minor."
+]
+}
+]
+},
+"cpr151": {
+"k": "Kinetic energy of ejection",
+"q": [
+{
+"id": "cpr151-f1",
+"lv": "Easy",
+"s": "Kinetic energy is a small part of cardiac work normally. When does it rise?",
+"c": [
+"A low heart rate",
+"High ejection velocity",
+"A low stroke volume",
+"High arterial compliance",
+"Low blood viscosity alone"
+],
+"a": 1,
+"e": "Kinetic energy depends on velocity squared, so high ejection velocity raises it.",
+"w": [
+"Not the cause.",
+"",
+"Lowers it.",
+"Not the cause.",
+"Not the cause."
+]
+},
+{
+"id": "cpr151-f2",
+"lv": "Hard",
+"s": "Which formula expresses kinetic energy of ejected blood?",
+"c": [
+"Mass × velocity, momentum",
+"Pressure × volume",
+"Force ÷ area",
+"Flow × resistance",
+"½ × mass × velocity²"
+],
+"a": 4,
+"e": "Kinetic energy is one half mass times velocity squared.",
+"w": [
+"Momentum.",
+"Pressure work.",
+"Pressure.",
+"Ohm's law.",
+""
+]
+}
+]
+},
+"cpr152": {
+"k": "Fick principle",
+"q": [
+{
+"id": "cpr152-f1",
+"lv": "Easy",
+"s": "Which values does the Fick method use to compute cardiac output?",
+"c": [
+"Heart rate and stroke volume",
+"Mean pressure and resistance",
+"O₂ use and A–V O₂ difference",
+"End-diastolic and end-systolic volume",
+"Dye amount and transit time"
+],
+"a": 2,
+"e": "CO = O₂ consumption ÷ (arterial − mixed venous O₂ content).",
+"w": [
+"Not Fick.",
+"Not Fick.",
+"",
+"Not Fick.",
+"Indicator dilution."
+]
+},
+{
+"id": "cpr152-f2",
+"lv": "Hard",
+"s": "O₂ consumption is 300 mL/min, arterial O₂ is 200 mL/L and mixed venous O₂ is 140 mL/L. What is CO?",
+"c": [
+"5 L/min",
+"2 L/min",
+"6 L/min",
+"1.5 L/min",
+"10 L/min"
+],
+"a": 0,
+"e": "300 ÷ (200 − 140) = 300 ÷ 60 = 5 L/min.",
+"w": [
+"",
+"Miscalculated.",
+"Miscalculated.",
+"Miscalculated.",
+"Miscalculated."
+]
+}
+]
+},
+"cpr153": {
+"k": "Mixed venous sample",
+"q": [
+{
+"id": "cpr153-f1",
+"lv": "Easy",
+"s": "Where is true mixed venous blood sampled?",
+"c": [
+"Peripheral arm vein",
+"Femoral vein",
+"Superior vena cava",
+"Pulmonary artery",
+"Right atrium only"
+],
+"a": 3,
+"e": "Mixed venous blood is sampled from the pulmonary artery, where all venous return has mixed.",
+"w": [
+"Not mixed.",
+"Not mixed.",
+"Not mixed.",
+"",
+"Incompletely mixed."
+]
+},
+{
+"id": "cpr153-f2",
+"lv": "Hard",
+"s": "If a venous sample has falsely high O₂ content, how will Fick CO be affected?",
+"c": [
+"Underestimated",
+"Overestimated",
+"Unchanged",
+"Zero",
+"Negative"
+],
+"a": 1,
+"e": "A smaller A–V difference in the denominator makes the calculated CO too high.",
+"w": [
+"Opposite.",
+"",
+"It changes.",
+"Not this.",
+"Not this."
+]
+}
+]
+},
+"cpr154": {
+"k": "Indicator dilution",
+"q": [
+{
+"id": "cpr154-f1",
+"lv": "Easy",
+"s": "Which formula gives CO from indicator dilution?",
+"c": [
+"Dose × mean concentration",
+"Mean concentration ÷ dose",
+"Transit time ÷ dose",
+"Dose − mean concentration",
+"Dose ÷ mean conc × time"
+],
+"a": 4,
+"e": "CO = amount injected ÷ (mean concentration × time).",
+"w": [
+"Not right.",
+"Not right.",
+"Not right.",
+"Not right.",
+""
+]
+},
+{
+"id": "cpr154-f2",
+"lv": "Hard",
+"s": "Why must recirculation be excluded in indicator dilution?",
+"c": [
+"It lowers the dye dose given",
+"It speeds blood flow during the test",
+"It falsely raises mean concentration",
+"It increases the heart rate",
+"It blocks arterial sampling"
+],
+"a": 2,
+"e": "Recirculated dye adds to concentration, making CO appear too low.",
+"w": [
+"Not the issue.",
+"Not the issue.",
+"",
+"Not the issue.",
+"Not the issue."
+]
+}
+]
+},
+"cpr268": {
+"k": "Ohm's law for blood flow",
+"q": [
+{
+"id": "cpr268-f1",
+"lv": "Easy",
+"s": "Which equation describes blood flow?",
+"c": [
+"Q = ΔP ÷ R",
+"Q = R ÷ ΔP",
+"Q = ΔP × R",
+"Q = R − ΔP",
+"Q = ΔP + R"
+],
+"a": 0,
+"e": "Flow equals pressure gradient divided by resistance.",
+"w": [
+"",
+"Inverted.",
+"Not flow.",
+"Not flow.",
+"Not flow."
+]
+},
+{
+"id": "cpr268-f2",
+"lv": "Hard",
+"s": "MAP is 90 mmHg, RAP is 0 and TPR is 18 mmHg·min/L. What is CO?",
+"c": [
+"1620 L/min",
+"0.2 L/min",
+"108 L/min",
+"5 L/min",
+"72 L/min"
+],
+"a": 3,
+"e": "CO = 90 ÷ 18 = 5 L/min.",
+"w": [
+"Multiplied.",
+"Inverted.",
+"Added.",
+"",
+"Subtracted."
+]
+}
+]
+},
+"cpr269": {
+"k": "Arterioles and pressure drop",
+"q": [
+{
+"id": "cpr269-f1",
+"lv": "Easy",
+"s": "Which vessels are called resistance vessels?",
+"c": [
+"Veins",
+"Arterioles",
+"Capillaries",
+"Large arteries",
+"Venules"
+],
+"a": 1,
+"e": "Arterioles provide most of the resistance and pressure drop.",
+"w": [
+"Capacitance.",
+"",
+"Exchange.",
+"Conduit.",
+"Collecting."
+]
+},
+{
+"id": "cpr269-f2",
+"lv": "Hard",
+"s": "If arterioles in one organ dilate, what happens to capillary pressure there?",
+"c": [
+"It falls",
+"It is unchanged",
+"It becomes zero",
+"It equals venous pressure",
+"It rises"
+],
+"a": 4,
+"e": "Less arteriolar resistance transmits more arterial pressure downstream, raising capillary pressure.",
+"w": [
+"Opposite.",
+"It changes.",
+"Not this.",
+"Not this.",
+""
+]
+}
+]
+},
+"cpr270": {
+"k": "TPR in septic shock",
+"q": [
+{
+"id": "cpr270-f1",
+"lv": "Easy",
+"s": "What happens to TPR in septic shock?",
+"c": [
+"It rises",
+"It is unchanged",
+"It falls",
+"It doubles",
+"It becomes infinite"
+],
+"a": 2,
+"e": "Vasodilation in sepsis lowers TPR.",
+"w": [
+"Opposite.",
+"It changes.",
+"",
+"Not this.",
+"Not this."
+]
+},
+{
+"id": "cpr270-f2",
+"lv": "Hard",
+"s": "MAP is 60 mmHg, RAP is 0 and CO is 10 L/min. What is TPR, compared with a normal of 20?",
+"c": [
+"6, under a third",
+"20, normal",
+"40, about double",
+"12, about half",
+"2, a tenth"
+],
+"a": 0,
+"e": "TPR = 60 ÷ 10 = 6 mmHg·min/L, less than a third of normal.",
+"w": [
+"",
+"Miscalculated.",
+"Miscalculated.",
+"Miscalculated.",
+"Miscalculated."
+]
+}
+]
+},
+"cpr271": {
+"k": "Arteriolar constriction and organ flow",
+"q": [
+{
+"id": "cpr271-f1",
+"lv": "Easy",
+"s": "What happens to resistance when arterioles constrict?",
+"c": [
+"It falls",
+"It is unchanged",
+"It becomes zero",
+"It rises",
+"It equals flow"
+],
+"a": 3,
+"e": "Smaller radius raises resistance.",
+"w": [
+"Opposite.",
+"It changes.",
+"Not possible.",
+"",
+"Not related."
+]
+},
+{
+"id": "cpr271-f2",
+"lv": "Hard",
+"s": "Gut arterioles constrict while MAP is unchanged. Where does the redirected blood mainly go?",
+"c": [
+"Back into the heart",
+"Other parallel beds",
+"Into the gut veins",
+"Out of the circulation",
+"Into the lymphatics"
+],
+"a": 1,
+"e": "With higher gut resistance, more cardiac output goes to other parallel beds.",
+"w": [
+"Not the path.",
+"",
+"Less flow.",
+"Not this.",
+"Not this."
+]
+}
+]
+},
+"cpr272": {
+"k": "Damping of pulsations",
+"q": [
+{
+"id": "cpr272-f1",
+"lv": "Easy",
+"s": "Where is blood flow almost non-pulsatile?",
+"c": [
+"Aorta",
+"Large arteries",
+"Pulmonary artery",
+"Left ventricle",
+"Capillaries"
+],
+"a": 4,
+"e": "By the capillaries, pulsations are largely damped.",
+"w": [
+"Pulsatile.",
+"Pulsatile.",
+"Pulsatile.",
+"Pulsatile.",
+""
+]
+},
+{
+"id": "cpr272-f2",
+"lv": "Hard",
+"s": "How does stiffening of large arteries change pulsatility in small vessels?",
+"c": [
+"Less pulsatile pressure reaches them",
+"Pulsatility does not change",
+"More pulsatile pressure reaches them",
+"Flow stops in small vessels",
+"Pressure falls to zero"
+],
+"a": 2,
+"e": "Stiff arteries buffer less, so more pulsatile pressure is transmitted to small vessels and organs.",
+"w": [
+"Opposite.",
+"It changes.",
+"",
+"Not this.",
+"Not this."
+]
+}
+]
+},
+"cpr273": {
+"k": "Radius and resistance",
+"q": [
+{
+"id": "cpr273-f1",
+"lv": "Easy",
+"s": "Resistance is inversely proportional to which power of the radius?",
+"c": [
+"Fourth",
+"Second",
+"First",
+"Third",
+"Fifth"
+],
+"a": 0,
+"e": "Resistance ∝ 1/r⁴.",
+"w": [
+"",
+"Not right.",
+"Not right.",
+"Not right.",
+"Not right."
+]
+},
+{
+"id": "cpr273-f2",
+"lv": "Hard",
+"s": "If arteriole radius increases by 10%, how does resistance change?",
+"c": [
+"Falls 10%",
+"Rises about 46%",
+"Falls about 40%",
+"Falls about 32%",
+"Stays the same"
+],
+"a": 3,
+"e": "1.1⁴ ≈ 1.46, so resistance becomes 1/1.46 ≈ 0.68, a fall of about 32%.",
+"w": [
+"Linear.",
+"Inverted.",
+"Miscalculated.",
+"",
+"Changes."
+]
+}
+]
+},
+"cpr274": {
+"k": "Radius and flow",
+"q": [
+{
+"id": "cpr274-f1",
+"lv": "Easy",
+"s": "If radius doubles with the same pressure, how does flow change?",
+"c": [
+"Rises 2-fold",
+"Rises 16-fold",
+"Rises 4-fold",
+"Rises 8-fold",
+"Stays the same"
+],
+"a": 1,
+"e": "Flow ∝ r⁴, so 2⁴ = 16.",
+"w": [
+"Linear.",
+"",
+"Squared.",
+"Cubed.",
+"It changes."
+]
+},
+{
+"id": "cpr274-f2",
+"lv": "Hard",
+"s": "If radius falls by half with the same pressure, how does flow change?",
+"c": [
+"Falls to 1/2",
+"Falls to 1/4",
+"Falls to 1/8",
+"Stays the same",
+"Falls to 1/16"
+],
+"a": 4,
+"e": "Flow ∝ r⁴, so (1/2)⁴ = 1/16.",
+"w": [
+"Linear.",
+"Squared.",
+"Cubed.",
+"It changes.",
+""
+]
+}
+]
+},
+"cpr275": {
+"k": "Coronary narrowing",
+"q": [
+{
+"id": "cpr275-f1",
+"lv": "Easy",
+"s": "A coronary arteriole's radius falls by 50%. How does resistance change?",
+"c": [
+"Rises 2-fold",
+"Rises 4-fold",
+"Rises 16-fold",
+"Rises 8-fold",
+"Stays the same"
+],
+"a": 2,
+"e": "Resistance ∝ 1/r⁴, so halving radius increases it 16-fold.",
+"w": [
+"Linear.",
+"Squared.",
+"",
+"Cubed.",
+"It changes."
+]
+},
+{
+"id": "cpr275-f2",
+"lv": "Hard",
+"s": "Radius falls by 10%. About how much does resistance rise?",
+"c": [
+"About 1.5-fold",
+"About 1.1-fold",
+"About 2-fold",
+"About 10-fold",
+"About 4-fold"
+],
+"a": 0,
+"e": "1 ÷ 0.9⁴ ≈ 1.52.",
+"w": [
+"",
+"Linear.",
+"Miscalculated.",
+"Miscalculated.",
+"Miscalculated."
+]
+}
+]
+},
+"cpr276": {
+"k": "Arterioles regulate TPR",
+"q": [
+{
+"id": "cpr276-f1",
+"lv": "Easy",
+"s": "Which nervous system mainly controls arteriolar tone?",
+"c": [
+"Parasympathetic",
+"Somatic",
+"Enteric",
+"Sympathetic",
+"Central only"
+],
+"a": 3,
+"e": "Sympathetic α1 stimulation constricts arterioles.",
+"w": [
+"Minimal.",
+"Not this.",
+"Gut.",
+"",
+"Not this."
+]
+},
+{
+"id": "cpr276-f2",
+"lv": "Hard",
+"s": "Which receptor on arterioles causes vasoconstriction to norepinephrine?",
+"c": [
+"β2",
+"α1",
+"M3",
+"D1",
+"β1"
+],
+"a": 1,
+"e": "α1 receptors cause arteriolar smooth muscle contraction.",
+"w": [
+"Dilates.",
+"",
+"Dilates via NO.",
+"Dilates renal.",
+"Heart."
+]
+}
+]
+},
+"cpr277": {
+"k": "Viscosity",
+"q": [
+{
+"id": "cpr277-f1",
+"lv": "Easy",
+"s": "Which factor most affects blood viscosity?",
+"c": [
+"Plasma sodium",
+"Heart rate",
+"Blood pressure",
+"Body temperature only",
+"Hematocrit"
+],
+"a": 4,
+"e": "Hematocrit is the main determinant of blood viscosity.",
+"w": [
+"Not main.",
+"Not main.",
+"Not main.",
+"Minor.",
+""
+]
+},
+{
+"id": "cpr277-f2",
+"lv": "Hard",
+"s": "How does severe anemia change resistance and flow?",
+"c": [
+"Higher viscosity, higher R, less flow",
+"No change in R or flow",
+"Lower viscosity, lower R, more flow",
+"Lower viscosity but higher R",
+"Higher viscosity but lower R"
+],
+"a": 2,
+"e": "Fewer red cells lower viscosity, reducing resistance and increasing flow.",
+"w": [
+"Polycythemia.",
+"It changes.",
+"",
+"Inconsistent.",
+"Inconsistent."
+]
+}
+]
+},
+"cpr278": {
+"k": "Vessel length",
+"q": [
+{
+"id": "cpr278-f1",
+"lv": "Easy",
+"s": "How does resistance change if vessel length doubles?",
+"c": [
+"Doubles",
+"Halves",
+"Rises 16-fold",
+"Unchanged",
+"Quadruples"
+],
+"a": 0,
+"e": "Resistance is directly proportional to length.",
+"w": [
+"",
+"Opposite.",
+"Radius effect.",
+"It changes.",
+"Not linear here."
+]
+},
+{
+"id": "cpr278-f2",
+"lv": "Hard",
+"s": "Why does obesity tend to raise TPR?",
+"c": [
+"Shorter blood vessels in fat tissue",
+"Lower blood viscosity in obesity",
+"Larger vessel radius",
+"Extra vessel length in new tissue",
+"Lower heart rate"
+],
+"a": 3,
+"e": "Added tissue adds vessel length, raising resistance.",
+"w": [
+"Opposite.",
+"Not the effect.",
+"Opposite.",
+"",
+"Not related."
+]
+}
+]
+},
+"cpr279": {
+"k": "Series resistance",
+"q": [
+{
+"id": "cpr279-f1",
+"lv": "Easy",
+"s": "How are resistances added in series?",
+"c": [
+"Their reciprocals are summed",
+"They are summed",
+"They are multiplied",
+"They are averaged",
+"They cancel"
+],
+"a": 1,
+"e": "In series, total resistance equals the sum.",
+"w": [
+"Parallel.",
+"",
+"Not true.",
+"Not true.",
+"Not true."
+]
+},
+{
+"id": "cpr279-f2",
+"lv": "Hard",
+"s": "Which vessels in an organ are arranged in series?",
+"c": [
+"The kidneys and the liver, side by side",
+"The brain and skeletal muscle",
+"Left and right coronary arteries",
+"Two parallel capillaries",
+"Artery → arteriole → capillary → vein"
+],
+"a": 4,
+"e": "Within an organ, blood passes artery to arteriole to capillary to vein in series.",
+"w": [
+"Parallel.",
+"Parallel.",
+"Parallel.",
+"Parallel.",
+""
+]
+}
+]
+},
+"cpr280": {
+"k": "Parallel resistance",
+"q": [
+{
+"id": "cpr280-f1",
+"lv": "Easy",
+"s": "Adding another parallel bed does what to total resistance?",
+"c": [
+"Raises it",
+"No change",
+"Lowers it",
+"Doubles it",
+"Makes it zero"
+],
+"a": 2,
+"e": "More parallel paths lower total resistance.",
+"w": [
+"Opposite.",
+"It changes.",
+"",
+"Not this.",
+"Not this."
+]
+},
+{
+"id": "cpr280-f2",
+"lv": "Hard",
+"s": "Three parallel beds have resistances of 6, 6 and 6. What is total resistance?",
+"c": [
+"2",
+"18",
+"6",
+"3",
+"12"
+],
+"a": 0,
+"e": "1/R = 1/6 + 1/6 + 1/6 = 1/2, so R = 2.",
+"w": [
+"",
+"Series.",
+"One bed.",
+"Miscalculated.",
+"Miscalculated."
+]
+}
+]
+},
+"cpr281": {
+"k": "Removing a parallel bed",
+"q": [
+{
+"id": "cpr281-f1",
+"lv": "Easy",
+"s": "Removing a kidney does what to TPR?",
+"c": [
+"Lowers it",
+"No change",
+"Halves it",
+"Raises it",
+"Makes it zero"
+],
+"a": 3,
+"e": "Losing a parallel bed raises total resistance.",
+"w": [
+"Opposite.",
+"It changes.",
+"Not this.",
+"",
+"Not this."
+]
+},
+{
+"id": "cpr281-f2",
+"lv": "Hard",
+"s": "Why is total resistance lower than any individual organ's resistance?",
+"c": [
+"Organs are arranged in series",
+"Organs are in parallel",
+"Blood is less viscous",
+"Arteries are elastic",
+"Veins collapse"
+],
+"a": 1,
+"e": "In parallel, total resistance is less than the smallest individual resistance.",
+"w": [
+"Would add.",
+"",
+"Not the reason.",
+"Not the reason.",
+"Not the reason."
+]
+}
+]
+},
+"cpr282": {
+"k": "Advantages of parallel circulation",
+"q": [
+{
+"id": "cpr282-f1",
+"lv": "Easy",
+"s": "Most organs receive blood of what O₂ content?",
+"c": [
+"Mixed venous blood",
+"Deoxygenated blood",
+"Lymph",
+"Portal blood",
+"Arterial blood"
+],
+"a": 4,
+"e": "In parallel, each organ receives fresh arterial blood.",
+"w": [
+"Not normal.",
+"Not normal.",
+"Not blood.",
+"Liver only.",
+""
+]
+},
+{
+"id": "cpr282-f2",
+"lv": "Hard",
+"s": "Which organ receives blood partly in series from another organ?",
+"c": [
+"Brain from the heart",
+"Kidney from muscle",
+"Liver from the gut",
+"Skin from bone",
+"Lungs from the brain"
+],
+"a": 2,
+"e": "The liver receives portal venous blood from the gut, a series arrangement.",
+"w": [
+"Not series.",
+"Not series.",
+"",
+"Not series.",
+"Not series."
+]
+}
+]
+},
+"cpr283": {
+"k": "Laminar flow profile",
+"q": [
+{
+"id": "cpr283-f1",
+"lv": "Easy",
+"s": "Where is velocity lowest in laminar flow?",
+"c": [
+"Next to the vessel wall",
+"In the center of the vessel",
+"Equal everywhere",
+"At branch points only",
+"Upstream only"
+],
+"a": 0,
+"e": "Friction with the wall makes velocity lowest there.",
+"w": [
+"",
+"Highest.",
+"Not equal.",
+"Not this.",
+"Not this."
+]
+},
+{
+"id": "cpr283-f2",
+"lv": "Hard",
+"s": "What shape describes the velocity profile in laminar flow?",
+"c": [
+"Flat, plug-like",
+"Square",
+"Random",
+"Parabolic",
+"Spiral"
+],
+"a": 3,
+"e": "Laminar flow has a parabolic velocity profile.",
+"w": [
+"Not laminar.",
+"Not laminar.",
+"Turbulent.",
+"",
+"Not typical."
+]
+}
+]
+},
+"cpr284": {
+"k": "Reynolds number",
+"q": [
+{
+"id": "cpr284-f1",
+"lv": "Easy",
+"s": "Which change lowers the Reynolds number?",
+"c": [
+"Higher flow velocity",
+"Higher viscosity",
+"Larger vessel diameter",
+"Higher blood density",
+"Lower blood viscosity"
+],
+"a": 1,
+"e": "Re = ρvD/η, so higher viscosity lowers Re.",
+"w": [
+"Raises it.",
+"",
+"Raises it.",
+"Raises it.",
+"Raises it."
+]
+},
+{
+"id": "cpr284-f2",
+"lv": "Hard",
+"s": "Why do murmurs occur in anemia?",
+"c": [
+"High viscosity slows flow velocity in vessels",
+"Narrowed valves are the only cause",
+"Cardiac output falls in anemia",
+"Hematocrit rises in anemia",
+"Low viscosity and fast flow raise Re"
+],
+"a": 4,
+"e": "Anemia lowers viscosity and raises cardiac output, increasing Re and turbulence.",
+"w": [
+"Opposite.",
+"Not anemia.",
+"Opposite.",
+"Opposite.",
+""
+]
+}
+]
+},
+"cpr285": {
+"k": "Flow murmurs in anemia",
+"q": [
+{
+"id": "cpr285-f1",
+"lv": "Easy",
+"s": "What happens to cardiac output in severe anemia?",
+"c": [
+"It falls",
+"It is unchanged",
+"It rises",
+"It stops",
+"It halves"
+],
+"a": 2,
+"e": "Lower viscosity and tissue hypoxia raise cardiac output.",
+"w": [
+"Opposite.",
+"It changes.",
+"",
+"Not this.",
+"Not this."
+]
+},
+{
+"id": "cpr285-f2",
+"lv": "Hard",
+"s": "A flow murmur in anemia disappears after transfusion. Why?",
+"c": [
+"Viscosity rises, velocity falls",
+"The heart valves are repaired by transfusion",
+"Heart rate rises further",
+"Vessel diameter increases",
+"Blood density falls"
+],
+"a": 0,
+"e": "Restoring hematocrit raises viscosity and lowers cardiac output, reducing turbulence.",
+"w": [
+"",
+"Not the cause.",
+"Opposite.",
+"Not the cause.",
+"Not the cause."
+]
+}
+]
+},
+"cpr286": {
+"k": "Bruits",
+"q": [
+{
+"id": "cpr286-f1",
+"lv": "Easy",
+"s": "What usually causes a carotid bruit?",
+"c": [
+"Low blood pressure",
+"Sinus bradycardia",
+"Mild iron-deficiency anemia only",
+"Atherosclerotic narrowing",
+"High blood viscosity"
+],
+"a": 3,
+"e": "Narrowing increases velocity and turbulence.",
+"w": [
+"Not usual.",
+"Not usual.",
+"Can, but less.",
+"",
+"Lowers turbulence."
+]
+},
+{
+"id": "cpr286-f2",
+"lv": "Hard",
+"s": "Why does a narrowed segment raise velocity?",
+"c": [
+"Higher blood viscosity at the narrowing",
+"Same flow through less area",
+"Lower pressure upstream",
+"Lower cardiac output",
+"Longer vessel length"
+],
+"a": 1,
+"e": "Velocity = flow ÷ area, so a smaller area raises velocity.",
+"w": [
+"Not the cause.",
+"",
+"Not the cause.",
+"Not the cause.",
+"Not the cause."
+]
+}
+]
+},
+"cpr287": {
+"k": "Critical Reynolds number",
+"q": [
+{
+"id": "cpr287-f1",
+"lv": "Easy",
+"s": "Below what Reynolds number is flow usually laminar?",
+"c": [
+"About 200",
+"About 20,000",
+"About 20",
+"About 2",
+"About 2000"
+],
+"a": 4,
+"e": "Flow is usually laminar below about 2000.",
+"w": [
+"Too low.",
+"Too high.",
+"Too low.",
+"Too low.",
+""
+]
+},
+{
+"id": "cpr287-f2",
+"lv": "Hard",
+"s": "Why can turbulence appear at lower Reynolds numbers at branch points?",
+"c": [
+"Viscosity rises at branches",
+"Velocity falls at branches",
+"Branches disturb streamlines",
+"Diameter increases at branches",
+"Density falls at branches"
+],
+"a": 2,
+"e": "Branches and irregularities disturb laminar flow, so turbulence occurs at lower Re.",
+"w": [
+"Not the reason.",
+"Not the reason.",
+"",
+"Not the reason.",
+"Not the reason."
+]
+}
+]
+},
+"cpr288": {
+"k": "Velocity in capillaries",
+"q": [
+{
+"id": "cpr288-f1",
+"lv": "Easy",
+"s": "Why is capillary blood velocity lowest?",
+"c": [
+"Largest total cross-section",
+"Smallest total cross-section",
+"Highest blood pressure",
+"Highest resistance per vessel",
+"Highest total blood flow"
+],
+"a": 0,
+"e": "Velocity = flow ÷ total area, and capillaries have the largest total area.",
+"w": [
+"",
+"Opposite.",
+"Not the reason.",
+"Not the reason.",
+"Flow is the same."
+]
+},
+{
+"id": "cpr288-f2",
+"lv": "Hard",
+"s": "What is the benefit of slow capillary velocity?",
+"c": [
+"Higher capillary pressure",
+"More turbulence",
+"Less resistance",
+"Time for exchange",
+"Faster venous return"
+],
+"a": 3,
+"e": "Slow flow allows time for diffusion of gases and nutrients.",
+"w": [
+"Not the benefit.",
+"Not the benefit.",
+"Not the benefit.",
+"",
+"Not the benefit."
+]
+}
+]
+},
+"cpr289": {
+"k": "Velocity calculation",
+"q": [
+{
+"id": "cpr289-f1",
+"lv": "Easy",
+"s": "Which formula gives velocity?",
+"c": [
+"Flow × area",
+"Flow ÷ area",
+"Area ÷ flow",
+"Pressure ÷ resistance",
+"Flow − area"
+],
+"a": 1,
+"e": "Velocity equals flow divided by cross-sectional area.",
+"w": [
+"Not velocity.",
+"",
+"Inverted.",
+"That is flow.",
+"Not velocity."
+]
+},
+{
+"id": "cpr289-f2",
+"lv": "Hard",
+"s": "CO is 6 L/min and aortic area is 5 cm². What is mean velocity?",
+"c": [
+"1.2 cm/s",
+"30 cm/s",
+"1200 cm/s",
+"12 cm/s",
+"20 cm/s"
+],
+"a": 4,
+"e": "6000 cm³/min ÷ 5 cm² = 1200 cm/min = 20 cm/s.",
+"w": [
+"Miscalculated.",
+"Miscalculated.",
+"Per minute.",
+"Miscalculated.",
+""
+]
+}
+]
+},
+"cpr290": {
+"k": "Area and velocity",
+"q": [
+{
+"id": "cpr290-f1",
+"lv": "Easy",
+"s": "If total area doubles and flow stays the same, what happens to velocity?",
+"c": [
+"Doubles",
+"Unchanged",
+"Halves",
+"Quadruples",
+"Becomes zero"
+],
+"a": 2,
+"e": "Velocity = flow ÷ area, so doubling area halves velocity.",
+"w": [
+"Opposite.",
+"It changes.",
+"",
+"Not this.",
+"Not this."
+]
+},
+{
+"id": "cpr290-f2",
+"lv": "Hard",
+"s": "Velocity in the aorta is high but flow equals that through all capillaries combined. Why?",
+"c": [
+"Flow is conserved in series",
+"Capillaries have more flow",
+"Aorta has more flow",
+"Velocity and flow are the same",
+"Capillaries leak flow"
+],
+"a": 0,
+"e": "In series, total flow through each level is equal; only velocity differs with area.",
+"w": [
+"",
+"Not true.",
+"Not true.",
+"Not different.",
+"Minor leak only."
+]
+}
+]
+},
+"cpr291": {
+"k": "Venous compliance",
+"q": [
+{
+"id": "cpr291-f1",
+"lv": "Easy",
+"s": "Which vessels have the highest compliance?",
+"c": [
+"Arteries",
+"Arterioles",
+"Capillaries",
+"Veins",
+"Aorta"
+],
+"a": 3,
+"e": "Veins are highly compliant and hold most blood.",
+"w": [
+"Lower.",
+"Lower.",
+"Lower.",
+"",
+"Lower."
+]
+},
+{
+"id": "cpr291-f2",
+"lv": "Hard",
+"s": "Why does venoconstriction raise cardiac output after hemorrhage?",
+"c": [
+"It raises arterial resistance only",
+"It moves stored blood to the heart",
+"It lowers venous return to the heart",
+"It slows the heart rate",
+"It lowers ventricular preload"
+],
+"a": 1,
+"e": "Venoconstriction shifts unstressed volume toward the heart, raising preload and output.",
+"w": [
+"Not main.",
+"",
+"Opposite.",
+"Not the effect.",
+"Opposite."
+]
+}
+]
+},
+"cpr292": {
+"k": "MAP",
+"q": [
+{
+"id": "cpr292-f1",
+"lv": "Easy",
+"s": "Which formula estimates MAP?",
+"c": [
+"SBP + ⅓ pulse pressure",
+"The average of SBP and DBP",
+"SBP − DBP",
+"DBP × 3",
+"DBP + ⅓ pulse pressure"
+],
+"a": 4,
+"e": "MAP ≈ diastolic + one third of pulse pressure.",
+"w": [
+"Too high.",
+"Not at normal HR.",
+"Pulse pressure.",
+"Not right.",
+""
+]
+},
+{
+"id": "cpr292-f2",
+"lv": "Hard",
+"s": "BP is 150/90. What is MAP?",
+"c": [
+"120 mmHg",
+"100 mmHg",
+"110 mmHg",
+"60 mmHg",
+"130 mmHg"
+],
+"a": 2,
+"e": "MAP = 90 + 60/3 = 110 mmHg.",
+"w": [
+"Average.",
+"Miscalculated.",
+"",
+"Pulse pressure.",
+"Miscalculated."
+]
+}
+]
+},
+"cpr293": {
+"k": "Pulse pressure",
+"q": [
+{
+"id": "cpr293-f1",
+"lv": "Easy",
+"s": "What is pulse pressure?",
+"c": [
+"Systolic minus diastolic",
+"Systolic plus diastolic pressure",
+"MAP minus diastolic",
+"Diastolic minus venous",
+"Systolic ÷ diastolic"
+],
+"a": 0,
+"e": "Pulse pressure is systolic minus diastolic pressure.",
+"w": [
+"",
+"Not it.",
+"Not it.",
+"Not it.",
+"Not it."
+]
+},
+{
+"id": "cpr293-f2",
+"lv": "Hard",
+"s": "Which two factors mainly determine pulse pressure?",
+"c": [
+"Heart rate and viscosity",
+"TPR and venous pressure",
+"Hematocrit and length",
+"Stroke volume and compliance",
+"Preload and contractility only"
+],
+"a": 3,
+"e": "Pulse pressure rises with larger stroke volume and lower arterial compliance.",
+"w": [
+"Not main.",
+"Not main.",
+"Not main.",
+"",
+"Indirect."
+]
+}
+]
+},
+"cpr294": {
+"k": "Isolated systolic hypertension",
+"q": [
+{
+"id": "cpr294-f1",
+"lv": "Easy",
+"s": "What happens to arterial compliance with age?",
+"c": [
+"It rises",
+"It falls",
+"It is unchanged",
+"It doubles",
+"It becomes infinite"
+],
+"a": 1,
+"e": "Elastin loss and collagen increase make arteries stiffer.",
+"w": [
+"Opposite.",
+"",
+"It changes.",
+"Not this.",
+"Not this."
+]
+},
+{
+"id": "cpr294-f2",
+"lv": "Hard",
+"s": "Why does a stiff aorta lower diastolic pressure?",
+"c": [
+"More elastic recoil in diastole",
+"Higher total peripheral resistance",
+"Lower stroke volume",
+"Higher heart rate",
+"Less elastic recoil in diastole"
+],
+"a": 4,
+"e": "A stiff aorta stores less energy in systole, so less recoil maintains diastolic pressure.",
+"w": [
+"Opposite.",
+"Raises diastolic.",
+"Not the cause.",
+"Not the cause.",
+""
+]
+}
+]
+},
+"cpr295": {
+"k": "Aortic regurgitation and pulse pressure",
+"q": [
+{
+"id": "cpr295-f1",
+"lv": "Easy",
+"s": "What happens to pulse pressure in aortic regurgitation?",
+"c": [
+"It narrows",
+"It is unchanged",
+"It widens",
+"It becomes zero",
+"It reverses"
+],
+"a": 2,
+"e": "Large stroke volume and diastolic backflow widen pulse pressure.",
+"w": [
+"Opposite.",
+"It changes.",
+"",
+"Not this.",
+"Not this."
+]
+},
+{
+"id": "cpr295-f2",
+"lv": "Hard",
+"s": "Which sign reflects the wide pulse pressure of aortic regurgitation?",
+"c": [
+"Bounding water-hammer pulse",
+"Pulsus paradoxus on inspiration",
+"Pulsus parvus et tardus",
+"Pulsus alternans",
+"Absent distal pulses"
+],
+"a": 0,
+"e": "A rapid upstroke and collapse gives a water-hammer pulse.",
+"w": [
+"",
+"Tamponade.",
+"AS.",
+"LV failure.",
+"Not typical."
+]
+}
+]
+},
+"cpr296": {
+"k": "Tamponade and pulse pressure",
+"q": [
+{
+"id": "cpr296-f1",
+"lv": "Easy",
+"s": "In cardiac tamponade, what happens to pulse pressure?",
+"c": [
+"It widens",
+"It is unchanged",
+"It doubles",
+"It narrows",
+"It reverses"
+],
+"a": 3,
+"e": "Reduced stroke volume narrows pulse pressure.",
+"w": [
+"Opposite.",
+"It changes.",
+"Not this.",
+"",
+"Not this."
+]
+},
+{
+"id": "cpr296-f2",
+"lv": "Hard",
+"s": "Which triad describes cardiac tamponade?",
+"c": [
+"Fever, murmur and emboli",
+"Hypotension, JVD and muffled sounds",
+"Angina, syncope and dyspnea",
+"Hypertension, bradycardia and irregular breathing",
+"Chest pain, friction rub and ST elevation"
+],
+"a": 1,
+"e": "Beck's triad is hypotension, distended neck veins and muffled heart sounds.",
+"w": [
+"Endocarditis.",
+"",
+"AS.",
+"Cushing.",
+"Pericarditis."
+]
+}
+]
+},
+"cpr297": {
+"k": "Diastolic pressure",
+"q": [
+{
+"id": "cpr297-f1",
+"lv": "Easy",
+"s": "Which change raises diastolic pressure most?",
+"c": [
+"Higher stroke volume",
+"Lower TPR",
+"Lower heart rate",
+"Higher compliance only",
+"Higher TPR"
+],
+"a": 4,
+"e": "Higher TPR slows runoff during diastole, raising diastolic pressure.",
+"w": [
+"Mainly systolic.",
+"Lowers it.",
+"Lowers it.",
+"Lowers it.",
+""
+]
+},
+{
+"id": "cpr297-f2",
+"lv": "Hard",
+"s": "How does a faster heart rate affect diastolic pressure?",
+"c": [
+"It falls, more runoff time",
+"It is unchanged by rate",
+"It rises, less runoff time",
+"It falls to zero",
+"It equals systolic pressure"
+],
+"a": 2,
+"e": "A shorter diastole means less time for blood to run off, so diastolic pressure rises.",
+"w": [
+"Opposite.",
+"It changes.",
+"",
+"Not this.",
+"Not this."
+]
+}
+]
 }
 });

@@ -4416,5 +4416,2449 @@ Object.assign(window.JJ_FU, {
 ]
 }
 ]
+},
+"cbr53": {
+"k": "Why fasting liver makes ketones",
+"q": [
+{
+"id": "cbr53-f1",
+"lv": "Easy",
+"s": "During fasting, where is hepatic oxaloacetate mainly diverted?",
+"c": [
+"Fatty acid synthesis",
+"Glycogen synthesis",
+"Cholesterol synthesis",
+"Urea excretion",
+"Gluconeogenesis"
+],
+"a": 4,
+"e": "Fasting liver pulls oxaloacetate into gluconeogenesis, so less is available to combine with acetyl CoA in the TCA cycle.",
+"w": [
+"Inactive in fasting.",
+"Inactive in fasting.",
+"Inactive in fasting.",
+"Not where it goes.",
+""
+]
+},
+{
+"id": "cbr53-f2",
+"lv": "Hard",
+"s": "In a fasting liver, why does acetyl CoA from β-oxidation build up instead of entering the TCA cycle?",
+"c": [
+"Too much oxaloacetate blocks citrate synthase",
+"Citrate synthase lacks its coenzyme",
+"Too little oxaloacetate to form citrate",
+"Acetyl CoA leaves for the cytosol",
+"PDH converts it back to pyruvate"
+],
+"a": 2,
+"e": "Oxaloacetate is used for gluconeogenesis, so citrate formation slows. The surplus acetyl CoA is turned into ketone bodies.",
+"w": [
+"Oxaloacetate is low.",
+"No coenzyme issue.",
+"",
+"It stays in mitochondria.",
+"PDH is irreversible."
+]
+}
+]
+},
+"cbr54": {
+"k": "HMG-CoA synthase",
+"q": [
+{
+"id": "cbr54-f1",
+"lv": "Easy",
+"s": "Which organ makes ketone bodies?",
+"c": [
+"Liver",
+"Brain",
+"Heart",
+"Skeletal muscle",
+"Kidney cortex mainly"
+],
+"a": 0,
+"e": "Ketogenesis takes place in liver mitochondria.",
+"w": [
+"",
+"Uses ketones.",
+"Uses ketones.",
+"Uses ketones.",
+"Not the main site."
+]
+},
+{
+"id": "cbr54-f2",
+"lv": "Hard",
+"s": "Which hormone change increases mitochondrial HMG-CoA synthase activity?",
+"c": [
+"High insulin, low glucagon",
+"High insulin and high glucose",
+"Low cortisol and high insulin",
+"High glucagon, low insulin",
+"High thyroxine only"
+],
+"a": 3,
+"e": "The fasting hormone pattern of high glucagon and low insulin induces mitochondrial HMG-CoA synthase.",
+"w": [
+"That suppresses ketogenesis.",
+"Fed state.",
+"Fed pattern.",
+"",
+"Not the main regulator."
+]
+}
+]
+},
+"cbr55": {
+"k": "Ketogenesis sequence",
+"q": [
+{
+"id": "cbr55-f1",
+"lv": "Easy",
+"s": "Which enzyme releases acetoacetate from HMG-CoA?",
+"c": [
+"HMG-CoA reductase",
+"HMG-CoA lyase",
+"Thiolase",
+"Thiophorase",
+"β-Hydroxybutyrate DH"
+],
+"a": 1,
+"e": "HMG-CoA lyase cleaves HMG-CoA into acetoacetate and acetyl CoA.",
+"w": [
+"Cholesterol pathway.",
+"",
+"Acts first.",
+"Ketolysis.",
+"Interconverts ketones."
+]
+},
+{
+"id": "cbr55-f2",
+"lv": "Hard",
+"s": "A child cannot make ketone bodies during fasting but has normal β-oxidation. HMG-CoA accumulates. Which enzyme is deficient?",
+"c": [
+"HMG-CoA reductase",
+"MCAD",
+"CPT I",
+"Thiophorase",
+"HMG-CoA lyase"
+],
+"a": 4,
+"e": "If HMG-CoA builds up and ketones are not made, the step that cleaves HMG-CoA, HMG-CoA lyase, is missing.",
+"w": [
+"Cholesterol pathway.",
+"β-oxidation would be abnormal.",
+"β-oxidation would be abnormal.",
+"Affects ketone use, not production.",
+""
+]
+}
+]
+},
+"cbr56": {
+"k": "β-hydroxybutyrate predominates",
+"q": [
+{
+"id": "cbr56-f1",
+"lv": "Easy",
+"s": "Which ketone body is the most abundant in blood during DKA?",
+"c": [
+"Acetoacetate",
+"Acetone vapor in breath",
+"β-Hydroxybutyrate",
+"Acetyl CoA",
+"Lactic acid"
+],
+"a": 2,
+"e": "High NADH in DKA drives acetoacetate to β-hydroxybutyrate.",
+"w": [
+"Less abundant.",
+"Minor and volatile.",
+"",
+"Not a ketone body.",
+"Not a ketone body."
+]
+},
+{
+"id": "cbr56-f2",
+"lv": "Hard",
+"s": "Which test best measures ketone load in a patient with DKA?",
+"c": [
+"Serum β-hydroxybutyrate",
+"Urine nitroprusside dipstick",
+"Breath acetone smell",
+"Serum lactate",
+"Urine glucose"
+],
+"a": 0,
+"e": "Dipsticks detect acetoacetate, not β-hydroxybutyrate, so serum β-hydroxybutyrate gives the truest measure.",
+"w": [
+"",
+"Misses β-hydroxybutyrate.",
+"Not quantitative.",
+"Not a ketone.",
+"Not a ketone measure."
+]
+}
+]
+},
+"cbr57": {
+"k": "Ketone bodies are water-soluble",
+"q": [
+{
+"id": "cbr57-f1",
+"lv": "Easy",
+"s": "How are ketone bodies carried in plasma?",
+"c": [
+"Bound to albumin",
+"Inside chylomicrons",
+"Inside VLDL",
+"Dissolved freely",
+"Bound to haptoglobin"
+],
+"a": 3,
+"e": "Ketone bodies are small and water-soluble, so they travel free in plasma.",
+"w": [
+"Fatty acids use albumin.",
+"Carry dietary fat.",
+"Carry liver fat.",
+"",
+"Binds hemoglobin."
+]
+},
+{
+"id": "cbr57-f2",
+"lv": "Hard",
+"s": "Why can ketone bodies cross the blood–brain barrier while long-chain fatty acids barely can?",
+"c": [
+"They are bound to albumin",
+"They are small and water-soluble",
+"They are packed into lipoproteins",
+"They are actively secreted by liver",
+"They are converted to glucose first"
+],
+"a": 1,
+"e": "Ketone bodies are small water-soluble molecules taken up by monocarboxylate transporters, unlike albumin-bound fatty acids.",
+"w": [
+"Fatty acids use albumin.",
+"",
+"Not ketones.",
+"Not the reason.",
+"Not converted."
+]
+}
+]
+},
+"cbr58": {
+"k": "Thiophorase",
+"q": [
+{
+"id": "cbr58-f1",
+"lv": "Easy",
+"s": "Which enzyme activates acetoacetate in extrahepatic tissues?",
+"c": [
+"HMG-CoA synthase",
+"HMG-CoA lyase",
+"Acyl CoA synthetase",
+"Thiolase",
+"Thiophorase"
+],
+"a": 4,
+"e": "Thiophorase, succinyl-CoA:acetoacetate CoA transferase, converts acetoacetate to acetoacetyl CoA.",
+"w": [
+"Ketogenesis.",
+"Ketogenesis.",
+"Not this step.",
+"Acts after.",
+""
+]
+},
+{
+"id": "cbr58-f2",
+"lv": "Hard",
+"s": "Why does lack of thiophorase in the liver make physiological sense?",
+"c": [
+"The liver needs ketones for its own ATP supply",
+"Thiophorase is toxic to hepatocytes",
+"The liver can export, not burn, its ketones",
+"The liver cannot make any succinyl CoA",
+"It lets the liver store ketones in droplets"
+],
+"a": 2,
+"e": "Without thiophorase, the liver cannot burn the ketones it makes, so they are released for other tissues.",
+"w": [
+"It uses fatty acids.",
+"Not the reason.",
+"",
+"It makes succinyl CoA.",
+"Ketones are not stored."
+]
+}
+]
+},
+"cbr59": {
+"k": "Who cannot use ketones",
+"q": [
+{
+"id": "cbr59-f1",
+"lv": "Easy",
+"s": "Which tissue uses ketone bodies heavily during prolonged starvation?",
+"c": [
+"Brain",
+"Red blood cells",
+"Liver",
+"Renal medulla only",
+"Lens"
+],
+"a": 0,
+"e": "The brain shifts toward ketones in prolonged starvation.",
+"w": [
+"",
+"No mitochondria.",
+"Lacks thiophorase.",
+"Mainly glycolytic.",
+"Glycolytic."
+]
+},
+{
+"id": "cbr59-f2",
+"lv": "Hard",
+"s": "During starvation, which pair of cells must still rely on glucose?",
+"c": [
+"Brain and heart muscle",
+"Skeletal muscle and kidney",
+"Heart and liver",
+"Red cells and liver",
+"Brain and skeletal muscle"
+],
+"a": 3,
+"e": "Red cells lack mitochondria, and the liver lacks thiophorase, so neither can use ketones for energy.",
+"w": [
+"Both use ketones.",
+"Both use ketones.",
+"Heart uses ketones.",
+"",
+"Both use ketones."
+]
+}
+]
+},
+"cbr60": {
+"k": "Brain fuel in starvation",
+"q": [
+{
+"id": "cbr60-f1",
+"lv": "Easy",
+"s": "What is the brain's main fuel after an overnight fast?",
+"c": [
+"Ketone bodies",
+"Glucose",
+"Fatty acids",
+"Amino acids",
+"Lactate"
+],
+"a": 1,
+"e": "After an overnight fast, ketones are still low and glucose remains the brain's main fuel.",
+"w": [
+"Rise later.",
+"",
+"Barely cross the BBB.",
+"Not used directly.",
+"Minor fuel."
+]
+},
+{
+"id": "cbr60-f2",
+"lv": "Hard",
+"s": "By weeks 2–3 of starvation, ketones meet about two thirds of brain energy needs. What is the main benefit?",
+"c": [
+"More liver glycogen is stored each day",
+"More fatty acids reach the brain",
+"Insulin release rises",
+"Ketones become stored in fat",
+"Less muscle protein is broken down"
+],
+"a": 4,
+"e": "With less need for glucose, less amino acid from muscle is used for gluconeogenesis, sparing protein.",
+"w": [
+"Glycogen is depleted.",
+"Not the effect.",
+"Insulin stays low.",
+"Not the effect.",
+""
+]
+}
+]
+},
+"cbr61": {
+"k": "Hormones and ketosis",
+"q": [
+{
+"id": "cbr61-f1",
+"lv": "Easy",
+"s": "Which hormone suppresses ketogenesis?",
+"c": [
+"Glucagon",
+"Epinephrine",
+"Insulin",
+"Cortisol",
+"Growth hormone"
+],
+"a": 2,
+"e": "Insulin suppresses lipolysis and ketogenesis.",
+"w": [
+"Promotes it.",
+"Promotes it.",
+"",
+"Promotes it.",
+"Promotes it."
+]
+},
+{
+"id": "cbr61-f2",
+"lv": "Hard",
+"s": "Why does type 2 diabetes rarely cause DKA compared with type 1?",
+"c": [
+"Residual insulin restrains lipolysis",
+"Type 2 diabetes has no glucagon at all",
+"Type 2 lacks mitochondrial HMG-CoA synthase",
+"Ketones are excreted much faster",
+"Type 2 adipocytes store no fatty acids"
+],
+"a": 0,
+"e": "In type 2 diabetes there is usually enough insulin to restrain lipolysis and ketogenesis.",
+"w": [
+"",
+"Glucagon is present.",
+"Enzyme is present.",
+"Not the reason.",
+"Fatty acids present."
+]
+}
+]
+},
+"cbr62": {
+"k": "Physiological vs pathological ketosis",
+"q": [
+{
+"id": "cbr62-f1",
+"lv": "Easy",
+"s": "About what blood ketone level marks ketoacidosis?",
+"c": [
+"About 0.1 mM",
+"About 0.5 mM",
+"About 1 mM",
+"Above about 3 mM",
+"Any detectable level"
+],
+"a": 3,
+"e": "Physiological ketosis stays below about 3 mM, while DKA levels are higher with acidosis.",
+"w": [
+"Normal fed.",
+"Mild ketosis.",
+"Mild ketosis.",
+"",
+"Ketones are normal."
+]
+},
+{
+"id": "cbr62-f2",
+"lv": "Hard",
+"s": "A woman on a ketogenic diet has ketones of 2 mM and normal pH. Why doesn't she develop acidosis?",
+"c": [
+"Ketone bodies are not acids at all",
+"Insulin limits ketone production",
+"She has no glucagon release",
+"Her kidneys make extra ketones",
+"Her ketones are almost all acetone"
+],
+"a": 1,
+"e": "Some insulin keeps ketone production controlled, and buffers handle the modest acid load.",
+"w": [
+"They are acids.",
+"",
+"Not the reason.",
+"Not the reason.",
+"Not the reason."
+]
+}
+]
+},
+"cbr63": {
+"k": "DKA lab pattern",
+"q": [
+{
+"id": "cbr63-f1",
+"lv": "Easy",
+"s": "Which acid–base disorder is typical of DKA?",
+"c": [
+"Respiratory alkalosis only",
+"Normal anion gap acidosis",
+"Metabolic alkalosis",
+"Respiratory acidosis",
+"High anion gap acidosis"
+],
+"a": 4,
+"e": "Ketoacids add unmeasured anions, causing a high anion gap metabolic acidosis.",
+"w": [
+"Compensation only.",
+"Ketoacids raise the gap.",
+"Opposite.",
+"Not typical.",
+""
+]
+},
+{
+"id": "cbr63-f2",
+"lv": "Hard",
+"s": "A DKA patient's glucose is 600 mg/dL. Why is his measured sodium low?",
+"c": [
+"Sodium is lost in the stool",
+"Insulin pushes sodium into cells",
+"Glucose pulls water out of cells",
+"Ketone bodies bind sodium in plasma",
+"The kidneys retain only free water"
+],
+"a": 2,
+"e": "High glucose draws water from cells, diluting plasma sodium. This is a true, translocational fall in sodium.",
+"w": [
+"Not the cause.",
+"Insulin is low.",
+"",
+"Not the cause.",
+"Osmotic diuresis occurs."
+]
+}
+]
+},
+"cbr64": {
+"k": "Kussmaul breathing",
+"q": [
+{
+"id": "cbr64-f1",
+"lv": "Easy",
+"s": "What is the deep, rapid breathing of DKA called?",
+"c": [
+"Kussmaul respiration",
+"Cheyne-Stokes breathing",
+"Biot breathing",
+"Apneustic breathing",
+"Agonal breathing"
+],
+"a": 0,
+"e": "Kussmaul respiration is deep, rapid breathing that compensates for metabolic acidosis.",
+"w": [
+"",
+"Cyclic.",
+"Irregular.",
+"Brainstem lesion.",
+"Near death."
+]
+},
+{
+"id": "cbr64-f2",
+"lv": "Hard",
+"s": "What smell is noticed on the breath in DKA, and which ketone causes it?",
+"c": [
+"Fishy, from trimethylamine",
+"Musty, from phenylacetate",
+"Ammonia-like, from urea",
+"Fruity, from acetone",
+"Sulfur, from mercaptans"
+],
+"a": 3,
+"e": "Acetone forms by spontaneous decarboxylation of acetoacetate and gives a fruity breath odor.",
+"w": [
+"Not DKA.",
+"PKU.",
+"Uremia.",
+"",
+"Liver failure."
+]
+}
+]
+},
+"cbr65": {
+"k": "Fasting liver mitochondria",
+"q": [
+{
+"id": "cbr65-f1",
+"lv": "Easy",
+"s": "During fasting, what happens to pyruvate dehydrogenase activity in liver?",
+"c": [
+"It rises",
+"It falls",
+"It is unchanged",
+"It doubles",
+"It shifts to cytosol"
+],
+"a": 1,
+"e": "Acetyl CoA and NADH from β-oxidation inhibit PDH.",
+"w": [
+"It falls.",
+"",
+"It falls.",
+"It falls.",
+"Mitochondrial."
+]
+},
+{
+"id": "cbr65-f2",
+"lv": "Hard",
+"s": "Which molecule from β-oxidation activates pyruvate carboxylase in fasting liver?",
+"c": [
+"Malonyl CoA",
+"Citrate",
+"Insulin",
+"AMP",
+"Acetyl CoA"
+],
+"a": 4,
+"e": "Acetyl CoA allosterically activates pyruvate carboxylase, supporting gluconeogenesis.",
+"w": [
+"Synthesis.",
+"Not the activator.",
+"Not a molecule from β-ox.",
+"Not the activator.",
+""
+]
+}
+]
+},
+"cbr66": {
+"k": "HMG-CoA: ketones vs cholesterol",
+"q": [
+{
+"id": "cbr66-f1",
+"lv": "Easy",
+"s": "Where is HMG-CoA made for cholesterol synthesis?",
+"c": [
+"Mitochondria",
+"Peroxisome",
+"Cytosol",
+"Lysosome",
+"Nucleus"
+],
+"a": 2,
+"e": "Cholesterol synthesis uses cytosolic HMG-CoA; ketogenesis uses a mitochondrial pool.",
+"w": [
+"Ketones.",
+"Not the main site.",
+"",
+"Not the site.",
+"Not the site."
+]
+},
+{
+"id": "cbr66-f2",
+"lv": "Hard",
+"s": "Which enzyme commits HMG-CoA to cholesterol synthesis?",
+"c": [
+"HMG-CoA reductase",
+"HMG-CoA lyase",
+"HMG-CoA synthase",
+"Thiolase",
+"Squalene synthase"
+],
+"a": 0,
+"e": "HMG-CoA reductase reduces HMG-CoA to mevalonate, the rate-limiting cholesterol step.",
+"w": [
+"",
+"Ketogenesis.",
+"Makes HMG-CoA.",
+"Earlier step.",
+"Later step."
+]
+}
+]
+},
+"cbr67": {
+"k": "Ratio of ketones during treatment",
+"q": [
+{
+"id": "cbr67-f1",
+"lv": "Easy",
+"s": "Which coenzyme ratio controls the β-hydroxybutyrate to acetoacetate ratio?",
+"c": [
+"ATP to ADP",
+"FADH₂ to FAD",
+"NADPH to NADP⁺",
+"NADH to NAD⁺",
+"GTP to GDP"
+],
+"a": 3,
+"e": "β-Hydroxybutyrate dehydrogenase uses NADH, so a high NADH/NAD⁺ ratio favors β-hydroxybutyrate.",
+"w": [
+"Not involved.",
+"Not involved.",
+"Not involved.",
+"",
+"Not involved."
+]
+},
+{
+"id": "cbr67-f2",
+"lv": "Hard",
+"s": "During DKA treatment, why might the urine dipstick become more positive even as the patient improves?",
+"c": [
+"Ketone production rises again with insulin",
+"β-Hydroxybutyrate turns into acetoacetate",
+"Insulin increases acetone formation",
+"The kidney makes more ketones",
+"Glucose interferes with the test"
+],
+"a": 1,
+"e": "As NADH falls, β-hydroxybutyrate is oxidized to acetoacetate, which the dipstick detects.",
+"w": [
+"Production falls.",
+"",
+"Not the cause.",
+"Not the cause.",
+"Not the cause."
+]
+}
+]
+},
+"cbr68": {
+"k": "Ketolysis in heart",
+"q": [
+{
+"id": "cbr68-f1",
+"lv": "Easy",
+"s": "How many acetyl CoA come from one acetoacetyl CoA?",
+"c": [
+"1",
+"3",
+"4",
+"0",
+"2"
+],
+"a": 4,
+"e": "Thiolase splits acetoacetyl CoA into two acetyl CoA.",
+"w": [
+"Too few.",
+"Too many.",
+"Too many.",
+"Some are made.",
+""
+]
+},
+{
+"id": "cbr68-f2",
+"lv": "Hard",
+"s": "Which TCA intermediate is used to activate acetoacetate in muscle?",
+"c": [
+"Citrate",
+"Fumarate",
+"Succinyl CoA",
+"Malate",
+"Oxaloacetate"
+],
+"a": 2,
+"e": "Thiophorase transfers CoA from succinyl CoA to acetoacetate.",
+"w": [
+"Not the donor.",
+"Not the donor.",
+"",
+"Not the donor.",
+"Not the donor."
+]
+}
+]
+},
+"cbr69": {
+"k": "Protein sparing in starvation",
+"q": [
+{
+"id": "cbr69-f1",
+"lv": "Easy",
+"s": "What does falling urinary nitrogen in starvation indicate?",
+"c": [
+"Less protein breakdown",
+"More protein breakdown",
+"Kidney failure",
+"More urea synthesis",
+"More muscle growth"
+],
+"a": 0,
+"e": "Less urinary nitrogen means fewer amino acids are deaminated, so protein is being spared.",
+"w": [
+"",
+"Opposite.",
+"Not implied.",
+"Opposite.",
+"Not in starvation."
+]
+},
+{
+"id": "cbr69-f2",
+"lv": "Hard",
+"s": "In week 3 of starvation, which substrate supplies most gluconeogenic carbon, besides amino acids?",
+"c": [
+"Fatty acids",
+"Acetyl CoA",
+"Ketone bodies",
+"Glycerol",
+"Glycogen"
+],
+"a": 3,
+"e": "Glycerol from lipolysis can make glucose, while acetyl CoA and fatty acids cannot.",
+"w": [
+"Cannot make glucose.",
+"Cannot make glucose.",
+"Cannot make glucose.",
+"",
+"Depleted."
+]
+}
+]
+},
+"cbr70": {
+"k": "Hypoketotic hypoglycemia",
+"q": [
+{
+"id": "cbr70-f1",
+"lv": "Easy",
+"s": "What does hypoglycemia with low ketones suggest?",
+"c": [
+"Normal overnight fasting",
+"A fat oxidation defect",
+"Excess stored glycogen",
+"Insulin deficiency",
+"A high glucagon level"
+],
+"a": 1,
+"e": "If fat cannot be oxidized, ketones stay low despite hypoglycemia.",
+"w": [
+"Ketones would rise.",
+"",
+"Not this pattern.",
+"Would raise ketones.",
+"Would raise ketones."
+]
+},
+{
+"id": "cbr70-f2",
+"lv": "Hard",
+"s": "Which other cause of hypoketotic hypoglycemia must be ruled out?",
+"c": [
+"Adrenal insufficiency only",
+"Prolonged starvation",
+"Glycogen storage disease type I",
+"Growth hormone excess",
+"Hyperinsulinism"
+],
+"a": 4,
+"e": "Excess insulin suppresses both lipolysis and ketogenesis, giving hypoglycemia without ketones.",
+"w": [
+"Ketones usually present.",
+"Ketones high.",
+"Variable, often ketotic.",
+"Raises glucose.",
+""
+]
+}
+]
+},
+"cbr71": {
+"k": "Alcoholic ketoacidosis",
+"q": [
+{
+"id": "cbr71-f1",
+"lv": "Easy",
+"s": "What does alcohol metabolism raise in the liver?",
+"c": [
+"NAD⁺",
+"Oxaloacetate",
+"NADH",
+"Glycogen",
+"Insulin"
+],
+"a": 2,
+"e": "Alcohol and acetaldehyde dehydrogenases produce NADH.",
+"w": [
+"Falls.",
+"Falls.",
+"",
+"Not stored.",
+"Not the effect."
+]
+},
+{
+"id": "cbr71-f2",
+"lv": "Hard",
+"s": "Why do patients with alcoholic ketoacidosis have mostly β-hydroxybutyrate?",
+"c": [
+"High NADH favors its formation",
+"Acetone is retained",
+"Alcohol makes acetoacetate directly",
+"Low NADH favors it",
+"The kidney converts it"
+],
+"a": 0,
+"e": "High NADH pushes acetoacetate toward β-hydroxybutyrate, so dipsticks may underestimate ketones.",
+"w": [
+"",
+"Not the reason.",
+"Not the mechanism.",
+"Opposite.",
+"Not the mechanism."
+]
+}
+]
+},
+"cbr72": {
+"k": "CPT I in DKA",
+"q": [
+{
+"id": "cbr72-f1",
+"lv": "Easy",
+"s": "In untreated type 1 diabetes, what happens to malonyl CoA in liver?",
+"c": [
+"It rises",
+"It is unchanged",
+"It is exported",
+"It falls",
+"It converts to citrate"
+],
+"a": 3,
+"e": "Low insulin and high glucagon inhibit ACC, lowering malonyl CoA.",
+"w": [
+"Falls.",
+"Falls.",
+"Not exported.",
+"",
+"Not this."
+]
+},
+{
+"id": "cbr72-f2",
+"lv": "Hard",
+"s": "In untreated type 1 diabetes, what happens to fatty acid release from adipose tissue?",
+"c": [
+"It stops",
+"It rises sharply",
+"It is unchanged",
+"It falls slowly",
+"It moves into muscle only"
+],
+"a": 1,
+"e": "Without insulin, hormone-sensitive lipase is active and lipolysis rises, flooding the liver with fatty acids.",
+"w": [
+"Rises.",
+"",
+"Rises.",
+"Rises.",
+"Liver receives it."
+]
+}
+]
+},
+"cbr73": {
+"k": "Hypertriglyceridemia in DKA",
+"q": [
+{
+"id": "cbr73-f1",
+"lv": "Easy",
+"s": "Which enzyme clears triglyceride from chylomicrons and VLDL?",
+"c": [
+"Hormone-sensitive lipase",
+"Pancreatic lipase",
+"Hepatic glycerol kinase",
+"ATGL",
+"Lipoprotein lipase"
+],
+"a": 4,
+"e": "Lipoprotein lipase on capillary walls hydrolyzes lipoprotein triglycerides.",
+"w": [
+"In adipocytes.",
+"In the gut.",
+"Not a lipase.",
+"In adipocytes.",
+""
+]
+},
+{
+"id": "cbr73-f2",
+"lv": "Hard",
+"s": "Which hormone is needed to keep lipoprotein lipase active in adipose tissue?",
+"c": [
+"Glucagon",
+"Epinephrine",
+"Insulin",
+"Cortisol",
+"Thyroxine"
+],
+"a": 2,
+"e": "Insulin induces lipoprotein lipase in adipose capillaries.",
+"w": [
+"Not the inducer.",
+"Not the inducer.",
+"",
+"Not the inducer.",
+"Not the inducer."
+]
+}
+]
+},
+"cbr74": {
+"k": "Potassium in DKA",
+"q": [
+{
+"id": "cbr74-f1",
+"lv": "Easy",
+"s": "Why is potassium often normal or high at presentation in DKA?",
+"c": [
+"Low insulin and acidosis shift K⁺ out",
+"The kidneys hold on to every bit of K⁺",
+"The diet is very rich in K⁺",
+"Muscle cells store more K⁺",
+"Ketone bodies carry K⁺ with them"
+],
+"a": 0,
+"e": "Low insulin and acidosis move K⁺ out of cells, masking total-body loss.",
+"w": [
+"",
+"Kidney loses K⁺.",
+"Not the reason.",
+"Opposite.",
+"Not true."
+]
+},
+{
+"id": "cbr74-f2",
+"lv": "Hard",
+"s": "Before insulin is given in DKA, what K⁺ level requires potassium replacement first?",
+"c": [
+"Above 5.5 mEq/L",
+"Exactly 4.0 mEq/L",
+"Any level at all",
+"Below about 3.3 mEq/L",
+"Only if above 6 mEq/L"
+],
+"a": 3,
+"e": "If K⁺ is below about 3.3, insulin could drive it dangerously low, so K⁺ is replaced first.",
+"w": [
+"Hold K⁺.",
+"Not a threshold.",
+"Not true.",
+"",
+"Not true."
+]
+}
+]
+},
+"cbr75": {
+"k": "Ketone bodies in DKA",
+"q": [
+{
+"id": "cbr75-f1",
+"lv": "Easy",
+"s": "Which ketone body is volatile and exhaled?",
+"c": [
+"Acetoacetate",
+"Acetone",
+"β-Hydroxybutyrate",
+"Acetyl CoA",
+"Lactate"
+],
+"a": 1,
+"e": "Acetone is volatile and leaves through the lungs.",
+"w": [
+"Not volatile.",
+"",
+"Not volatile.",
+"Not a ketone body.",
+"Not a ketone body."
+]
+},
+{
+"id": "cbr75-f2",
+"lv": "Hard",
+"s": "How is acetone formed?",
+"c": [
+"β-Hydroxybutyrate is oxidized",
+"Acetyl CoA is reduced",
+"HMG-CoA is cleaved",
+"Lactate is oxidized",
+"Acetoacetate decarboxylates"
+],
+"a": 4,
+"e": "Acetone forms by spontaneous, nonenzymatic decarboxylation of acetoacetate.",
+"w": [
+"Gives acetoacetate.",
+"Not the route.",
+"Gives acetoacetate.",
+"Not the route.",
+""
+]
+}
+]
+},
+"cbr76": {
+"k": "Glycerophospholipids vs sphingophospholipids",
+"q": [
+{
+"id": "cbr76-f1",
+"lv": "Easy",
+"s": "Which backbone does sphingomyelin have?",
+"c": [
+"Glycerol",
+"Cholesterol",
+"Sphingosine",
+"Phosphatidic acid",
+"Inositol"
+],
+"a": 2,
+"e": "Sphingomyelin is built on sphingosine.",
+"w": [
+"Glycerophospholipids.",
+"A sterol.",
+"",
+"A glycerophospholipid precursor.",
+"A head group."
+]
+},
+{
+"id": "cbr76-f2",
+"lv": "Hard",
+"s": "Which phospholipid is the only sphingophospholipid in humans?",
+"c": [
+"Sphingomyelin",
+"Phosphatidylcholine",
+"Cardiolipin",
+"Phosphatidylserine",
+"Plasmalogen"
+],
+"a": 0,
+"e": "Sphingomyelin is the major sphingophospholipid in humans.",
+"w": [
+"",
+"Glycerophospholipid.",
+"Glycerophospholipid.",
+"Glycerophospholipid.",
+"Glycerophospholipid."
+]
+}
+]
+},
+"cbr77": {
+"k": "Phospholipid synthesis site",
+"q": [
+{
+"id": "cbr77-f1",
+"lv": "Easy",
+"s": "Which molecule is the branch point for glycerophospholipid synthesis?",
+"c": [
+"Ceramide",
+"Sphingosine",
+"Free cholesterol",
+"Phosphatidic acid",
+"Inositol phosphate"
+],
+"a": 3,
+"e": "Phosphatidic acid is the precursor of most glycerophospholipids.",
+"w": [
+"Sphingolipids.",
+"Sphingolipids.",
+"Not a phospholipid.",
+"",
+"A head group."
+]
+},
+{
+"id": "cbr77-f2",
+"lv": "Hard",
+"s": "Which activated intermediate carries choline in the synthesis of phosphatidylcholine?",
+"c": [
+"UDP-choline",
+"CDP-choline",
+"GDP-choline",
+"ATP-choline",
+"Acetyl-choline"
+],
+"a": 1,
+"e": "Choline is activated as CDP-choline before transfer to diacylglycerol.",
+"w": [
+"Not used.",
+"",
+"Not used.",
+"Not used.",
+"A neurotransmitter."
+]
+}
+]
+},
+"cbr78": {
+"k": "Surfactant and DPPC",
+"q": [
+{
+"id": "cbr78-f1",
+"lv": "Easy",
+"s": "Which cells make surfactant?",
+"c": [
+"Type I pneumocytes",
+"Alveolar macrophages",
+"Club cells mainly",
+"Goblet cells",
+"Type II pneumocytes"
+],
+"a": 4,
+"e": "Type II pneumocytes produce surfactant.",
+"w": [
+"Gas exchange.",
+"Phagocytes.",
+"Minor role.",
+"Mucus.",
+""
+]
+},
+{
+"id": "cbr78-f2",
+"lv": "Hard",
+"s": "Which L/S ratio indicates fetal lung maturity?",
+"c": [
+"Less than 1",
+"About 1.2",
+"2 or greater",
+"About 0.5",
+"Exactly 1.0 or less"
+],
+"a": 2,
+"e": "An L/S ratio of 2 or more suggests enough surfactant for mature lungs.",
+"w": [
+"Immature.",
+"Immature.",
+"",
+"Immature.",
+"Immature."
+]
+}
+]
+},
+"cbr79": {
+"k": "Surface tension and alveoli",
+"q": [
+{
+"id": "cbr79-f1",
+"lv": "Easy",
+"s": "What does surfactant do to alveolar surface tension?",
+"c": [
+"Lowers it",
+"Raises it",
+"No effect",
+"Reverses it",
+"Doubles it"
+],
+"a": 0,
+"e": "Surfactant lowers surface tension, preventing collapse.",
+"w": [
+"",
+"Opposite.",
+"It has an effect.",
+"Not the effect.",
+"Opposite."
+]
+},
+{
+"id": "cbr79-f2",
+"lv": "Hard",
+"s": "Which drug is given to the mother before preterm delivery to speed fetal surfactant production?",
+"c": [
+"Insulin",
+"Oxytocin",
+"Terbutaline",
+"Betamethasone",
+"Magnesium sulfate"
+],
+"a": 3,
+"e": "Antenatal corticosteroids like betamethasone accelerate fetal lung maturation.",
+"w": [
+"Delays maturity.",
+"Induces labor.",
+"Tocolytic.",
+"",
+"Neuroprotection."
+]
+}
+]
+},
+"cbr80": {
+"k": "Phosphatidylinositol and arachidonate",
+"q": [
+{
+"id": "cbr80-f1",
+"lv": "Easy",
+"s": "Which enzyme releases arachidonic acid from membrane phospholipids?",
+"c": [
+"Phospholipase C",
+"Phospholipase A2",
+"Phospholipase D",
+"Sphingomyelinase",
+"Lipoprotein lipase"
+],
+"a": 1,
+"e": "Phospholipase A2 cleaves the fatty acid at carbon 2.",
+"w": [
+"Makes IP₃ and DAG.",
+"",
+"Removes head group.",
+"Acts on sphingomyelin.",
+"Acts on lipoproteins."
+]
+},
+{
+"id": "cbr80-f2",
+"lv": "Hard",
+"s": "Which drug class inhibits phospholipase A2 indirectly?",
+"c": [
+"NSAIDs",
+"Leukotriene antagonists",
+"β blockers",
+"Statins",
+"Corticosteroids"
+],
+"a": 4,
+"e": "Corticosteroids induce lipocortin, which inhibits phospholipase A2.",
+"w": [
+"Inhibit COX.",
+"Block receptors.",
+"Not related.",
+"Not related.",
+""
+]
+}
+]
+},
+"cbr81": {
+"k": "PIP2 signaling",
+"q": [
+{
+"id": "cbr81-f1",
+"lv": "Easy",
+"s": "Which second messenger releases Ca²⁺ from the ER?",
+"c": [
+"DAG",
+"cAMP",
+"IP₃",
+"cGMP",
+"Nitric oxide"
+],
+"a": 2,
+"e": "IP₃ binds receptors on the ER and releases Ca²⁺.",
+"w": [
+"Activates PKC.",
+"Gs pathway.",
+"",
+"NO pathway.",
+"Not a direct releaser."
+]
+},
+{
+"id": "cbr81-f2",
+"lv": "Hard",
+"s": "Which G protein activates phospholipase C?",
+"c": [
+"Gq",
+"Gs",
+"Gi",
+"G12",
+"Gt"
+],
+"a": 0,
+"e": "Gq activates phospholipase C, producing IP₃ and DAG.",
+"w": [
+"",
+"Activates AC.",
+"Inhibits AC.",
+"Rho pathway.",
+"Transducin."
+]
+}
+]
+},
+"cbr82": {
+"k": "GPI-anchored proteins",
+"q": [
+{
+"id": "cbr82-f1",
+"lv": "Easy",
+"s": "What anchors GPI-linked proteins to the membrane?",
+"c": [
+"Phosphatidylcholine",
+"Membrane cholesterol",
+"Sphingomyelin",
+"Phosphatidylinositol",
+"Cardiolipin"
+],
+"a": 3,
+"e": "A glycan bridge links the protein to membrane phosphatidylinositol.",
+"w": [
+"Not the anchor.",
+"Not the anchor.",
+"Not the anchor.",
+"",
+"Not the anchor."
+]
+},
+{
+"id": "cbr82-f2",
+"lv": "Hard",
+"s": "Which complement regulators are GPI-anchored on red cells?",
+"c": [
+"C3 and C5",
+"CD55 and CD59",
+"CD4 and CD8",
+"Factor H and I",
+"CD19 and CD20"
+],
+"a": 1,
+"e": "CD55 (DAF) and CD59 (MIRL) are GPI-anchored and protect red cells from complement.",
+"w": [
+"Complement proteins.",
+"",
+"T cell markers.",
+"Soluble regulators.",
+"B cell markers."
+]
+}
+]
+},
+"cbr83": {
+"k": "PNH",
+"q": [
+{
+"id": "cbr83-f1",
+"lv": "Easy",
+"s": "Which test confirms paroxysmal nocturnal hemoglobinuria?",
+"c": [
+"Direct antiglobulin Coombs test",
+"Osmotic fragility test",
+"Hemoglobin electrophoresis",
+"Sickle solubility test",
+"Flow cytometry for CD55, CD59"
+],
+"a": 4,
+"e": "Flow cytometry shows missing CD55 and CD59 on blood cells.",
+"w": [
+"Autoimmune hemolysis.",
+"Spherocytosis.",
+"Hemoglobinopathies.",
+"Sickle cell.",
+""
+]
+},
+{
+"id": "cbr83-f2",
+"lv": "Hard",
+"s": "Which drug blocks complement-mediated hemolysis in PNH?",
+"c": [
+"Rituximab",
+"Imatinib",
+"Eculizumab",
+"Hydroxyurea",
+"Deferoxamine"
+],
+"a": 2,
+"e": "Eculizumab binds C5, preventing membrane attack complex formation.",
+"w": [
+"Anti-CD20.",
+"BCR-ABL.",
+"",
+"Sickle cell.",
+"Iron chelation."
+]
+}
+]
+},
+"cbr84": {
+"k": "Cardiolipin",
+"q": [
+{
+"id": "cbr84-f1",
+"lv": "Easy",
+"s": "Where is cardiolipin found?",
+"c": [
+"The inner mitochondrial membrane",
+"The outer plasma membrane leaflet",
+"The lysosomal limiting membrane",
+"The double nuclear envelope",
+"The Golgi cisternal membrane"
+],
+"a": 0,
+"e": "Cardiolipin is concentrated in the inner mitochondrial membrane.",
+"w": [
+"",
+"Not there.",
+"Not there.",
+"Not there.",
+"Not there."
+]
+},
+{
+"id": "cbr84-f2",
+"lv": "Hard",
+"s": "In lupus, anticardiolipin antibodies can cause a false-positive result on which test?",
+"c": [
+"PPD for tuberculosis",
+"ELISA for HIV",
+"Monospot for EBV",
+"VDRL for syphilis",
+"Rapid strep antigen"
+],
+"a": 3,
+"e": "The VDRL uses cardiolipin as its antigen, so anticardiolipin antibodies in lupus can make it falsely positive.",
+"w": [
+"Uses a protein antigen.",
+"Uses viral antigens.",
+"Detects heterophile antibodies.",
+"",
+"Detects a bacterial antigen."
+]
+}
+]
+},
+"cbr85": {
+"k": "Phospholipases",
+"q": [
+{
+"id": "cbr85-f1",
+"lv": "Easy",
+"s": "Which phospholipase cleaves the bond at carbon 2?",
+"c": [
+"Phospholipase A1",
+"Phospholipase A2",
+"Phospholipase C",
+"Phospholipase D",
+"Sphingomyelinase"
+],
+"a": 1,
+"e": "Phospholipase A2 cleaves the ester bond at carbon 2.",
+"w": [
+"Carbon 1.",
+"",
+"Head group phosphate.",
+"Head group.",
+"Sphingomyelin."
+]
+},
+{
+"id": "cbr85-f2",
+"lv": "Hard",
+"s": "Which enzyme produces DAG and IP₃ from PIP2?",
+"c": [
+"Phospholipase A2",
+"Phospholipase D",
+"Phospholipase A1",
+"Lipoprotein lipase",
+"Phospholipase C"
+],
+"a": 4,
+"e": "Phospholipase C cleaves PIP2 into DAG and IP₃.",
+"w": [
+"Releases fatty acid.",
+"Releases head group.",
+"Releases fatty acid.",
+"Lipoproteins.",
+""
+]
+}
+]
+},
+"cbr86": {
+"k": "Snake venom and lysolecithin",
+"q": [
+{
+"id": "cbr86-f1",
+"lv": "Easy",
+"s": "What kind of product is lysolecithin?",
+"c": [
+"An excitatory neurotransmitter",
+"A clotting factor",
+"A membrane-lysing detergent",
+"A fat-soluble vitamin",
+"A storage fat"
+],
+"a": 2,
+"e": "Lysolecithin acts like a detergent and disrupts cell membranes.",
+"w": [
+"Not its role.",
+"Not its role.",
+"",
+"Not its role.",
+"Not its role."
+]
+},
+{
+"id": "cbr86-f2",
+"lv": "Hard",
+"s": "Which enzyme normally uses lecithin to esterify cholesterol in HDL?",
+"c": [
+"LCAT",
+"ACAT",
+"Lipoprotein lipase",
+"HMG-CoA reductase",
+"CETP"
+],
+"a": 0,
+"e": "LCAT transfers a fatty acid from lecithin to cholesterol in HDL.",
+"w": [
+"",
+"Intracellular.",
+"Triglyceride.",
+"Cholesterol synthesis.",
+"Transfer protein."
+]
+}
+]
+},
+"cbr87": {
+"k": "Plasmalogens and PAF",
+"q": [
+{
+"id": "cbr87-f1",
+"lv": "Easy",
+"s": "Which bond is at carbon 1 of a plasmalogen?",
+"c": [
+"An ester bond",
+"A peptide bond",
+"A glycosidic bond",
+"An ether bond",
+"A disulfide bond"
+],
+"a": 3,
+"e": "Plasmalogens have an ether-linked alkenyl chain at carbon 1.",
+"w": [
+"Carbon 2.",
+"Not in lipids.",
+"Not this.",
+"",
+"Not this."
+]
+},
+{
+"id": "cbr87-f2",
+"lv": "Hard",
+"s": "Which tissues are rich in plasmalogens?",
+"c": [
+"Liver and kidney",
+"Heart and nerve",
+"Adipose and skin",
+"Bone and cartilage",
+"Red cells only"
+],
+"a": 1,
+"e": "Plasmalogens are abundant in heart muscle and nervous tissue.",
+"w": [
+"Not the richest.",
+"",
+"Not the richest.",
+"Not the richest.",
+"Not the richest."
+]
+}
+]
+},
+"cbr88": {
+"k": "Sphingomyelin synthesis",
+"q": [
+{
+"id": "cbr88-f1",
+"lv": "Easy",
+"s": "Which molecule is the backbone of all sphingolipids?",
+"c": [
+"Glycerol",
+"Inositol",
+"Cholesterol",
+"Phosphatidic acid",
+"Ceramide"
+],
+"a": 4,
+"e": "Ceramide, sphingosine plus a fatty acid, is the core of sphingolipids.",
+"w": [
+"Glycerophospholipids.",
+"Head group.",
+"Sterol.",
+"Glycerophospholipids.",
+""
+]
+},
+{
+"id": "cbr88-f2",
+"lv": "Hard",
+"s": "Which amino acid is used with palmitoyl CoA to make sphingosine?",
+"c": [
+"Glycine",
+"Alanine",
+"Serine",
+"Cysteine",
+"Threonine"
+],
+"a": 2,
+"e": "Sphingosine synthesis starts with condensation of palmitoyl CoA and serine.",
+"w": [
+"Not used.",
+"Not used.",
+"",
+"Not used.",
+"Not used."
+]
+}
+]
+},
+"cbr89": {
+"k": "Farber disease",
+"q": [
+{
+"id": "cbr89-f1",
+"lv": "Easy",
+"s": "Which enzyme is deficient in Farber disease?",
+"c": [
+"Ceramidase",
+"Sphingomyelinase",
+"Glucocerebrosidase",
+"Hexosaminidase A",
+"Arylsulfatase A"
+],
+"a": 0,
+"e": "Ceramidase deficiency causes ceramide accumulation in Farber disease.",
+"w": [
+"",
+"Niemann-Pick.",
+"Gaucher.",
+"Tay-Sachs.",
+"MLD."
+]
+},
+{
+"id": "cbr89-f2",
+"lv": "Hard",
+"s": "Which triad is classic for Farber disease?",
+"c": [
+"A cherry-red spot and an exaggerated startle",
+"Angiokeratomas and painful neuropathy",
+"Hepatosplenomegaly and bone crises",
+"Hoarse voice, joint swelling and nodules",
+"Optic atrophy and globoid cells"
+],
+"a": 3,
+"e": "Farber disease causes a hoarse voice, painful swollen joints and subcutaneous nodules.",
+"w": [
+"Tay-Sachs.",
+"Fabry.",
+"Gaucher.",
+"",
+"Krabbe."
+]
+}
+]
+},
+"cbr90": {
+"k": "Sulfatides",
+"q": [
+{
+"id": "cbr90-f1",
+"lv": "Easy",
+"s": "Which enzyme degrades sulfatides?",
+"c": [
+"Hexosaminidase A",
+"Arylsulfatase A",
+"Galactocerebrosidase",
+"α-Galactosidase A",
+"Glucocerebrosidase"
+],
+"a": 1,
+"e": "Arylsulfatase A removes the sulfate from sulfatide.",
+"w": [
+"Tay-Sachs.",
+"",
+"Krabbe.",
+"Fabry.",
+"Gaucher."
+]
+},
+{
+"id": "cbr90-f2",
+"lv": "Hard",
+"s": "Accumulation of sulfatides damages which structure?",
+"c": [
+"Bone",
+"Liver",
+"Platelets",
+"Red cells",
+"Myelin"
+],
+"a": 4,
+"e": "Sulfatide buildup in metachromatic leukodystrophy destroys myelin.",
+"w": [
+"Not the main site.",
+"Not the main site.",
+"Not the main site.",
+"Not the main site.",
+""
+]
+}
+]
+},
+"cbr91": {
+"k": "Ganglioside naming",
+"q": [
+{
+"id": "cbr91-f1",
+"lv": "Easy",
+"s": "What does the letter M in GM2 indicate?",
+"c": [
+"Two sialic acids",
+"Three sialic acids",
+"One sialic acid",
+"No sialic acid",
+"A methyl group"
+],
+"a": 2,
+"e": "M means mono, one sialic acid.",
+"w": [
+"D.",
+"T.",
+"",
+"Not a ganglioside.",
+"Not the meaning."
+]
+},
+{
+"id": "cbr91-f2",
+"lv": "Hard",
+"s": "Which sugar acid characterizes gangliosides?",
+"c": [
+"N-acetylneuraminic acid",
+"D-glucuronic acid residues",
+"L-iduronic acid",
+"D-galacturonic acid",
+"L-ascorbic acid"
+],
+"a": 0,
+"e": "Gangliosides contain sialic acid, N-acetylneuraminic acid.",
+"w": [
+"",
+"Not this.",
+"GAGs.",
+"Pectin.",
+"Vitamin C."
+]
+}
+]
+},
+"cbr92": {
+"k": "Glycosphingolipid functions",
+"q": [
+{
+"id": "cbr92-f1",
+"lv": "Easy",
+"s": "Which toxin binds ganglioside GM1?",
+"c": [
+"Botulinum toxin A",
+"Diphtheria toxin",
+"Shiga toxin",
+"Cholera toxin",
+"Pertussis toxin"
+],
+"a": 3,
+"e": "Cholera toxin binds GM1 on intestinal cells.",
+"w": [
+"Other receptor.",
+"Other receptor.",
+"Gb3 receptor.",
+"",
+"Other receptor."
+]
+},
+{
+"id": "cbr92-f2",
+"lv": "Hard",
+"s": "Which ABO antigens are carried partly on glycosphingolipids?",
+"c": [
+"HLA class I protein molecules",
+"ABO blood group antigens",
+"The Rh D antigen",
+"Complement protein C3",
+"Immunoglobulin G"
+],
+"a": 1,
+"e": "ABO antigens are carbohydrate chains on glycosphingolipids and glycoproteins.",
+"w": [
+"Proteins.",
+"",
+"Protein.",
+"Protein.",
+"Protein."
+]
+}
+]
+},
+"cbr93": {
+"k": "Lysosomal storage disorders",
+"q": [
+{
+"id": "cbr93-f1",
+"lv": "Easy",
+"s": "What is the inheritance of most sphingolipidoses?",
+"c": [
+"Autosomal dominant",
+"X-linked dominant",
+"Mitochondrial DNA",
+"Y-linked inheritance",
+"Autosomal recessive"
+],
+"a": 4,
+"e": "Most are autosomal recessive; Fabry and Hunter are X-linked.",
+"w": [
+"Not typical.",
+"Not typical.",
+"Not typical.",
+"Not typical.",
+""
+]
+},
+{
+"id": "cbr93-f2",
+"lv": "Hard",
+"s": "Which two lysosomal disorders are X-linked recessive?",
+"c": [
+"Gaucher and Krabbe",
+"Tay-Sachs and Niemann-Pick",
+"Fabry and Hunter",
+"Pompe and Hurler",
+"MLD and Farber"
+],
+"a": 2,
+"e": "Fabry disease and Hunter syndrome are X-linked recessive.",
+"w": [
+"AR.",
+"AR.",
+"",
+"AR.",
+"AR."
+]
+}
+]
+},
+"cbr94": {
+"k": "Niemann-Pick type A",
+"q": [
+{
+"id": "cbr94-f1",
+"lv": "Easy",
+"s": "What accumulates in Niemann-Pick disease?",
+"c": [
+"Sphingomyelin",
+"Glucocerebroside",
+"GM2 ganglioside",
+"Sulfatide",
+"Galactocerebroside"
+],
+"a": 0,
+"e": "Sphingomyelinase deficiency causes sphingomyelin buildup.",
+"w": [
+"",
+"Gaucher.",
+"Tay-Sachs.",
+"MLD.",
+"Krabbe."
+]
+},
+{
+"id": "cbr94-f2",
+"lv": "Hard",
+"s": "Which eye finding is shared by Niemann-Pick type A and Tay-Sachs?",
+"c": [
+"Lens dislocation",
+"Corneal clouding",
+"Optic disc pallor only",
+"Cherry-red macula",
+"Kayser-Fleischer rings"
+],
+"a": 3,
+"e": "Both show a cherry-red spot on the macula.",
+"w": [
+"Marfan.",
+"MPS.",
+"Not shared.",
+"",
+"Wilson."
+]
+}
+]
+},
+"cbr95": {
+"k": "Niemann-Pick type B",
+"q": [
+{
+"id": "cbr95-f1",
+"lv": "Easy",
+"s": "Which organ enlarges in both Niemann-Pick types A and B?",
+"c": [
+"The cerebral cortex",
+"Liver and spleen",
+"The kidneys",
+"The heart",
+"The thyroid"
+],
+"a": 1,
+"e": "Both types have hepatosplenomegaly from storage in macrophages.",
+"w": [
+"Not enlarged.",
+"",
+"Not typical.",
+"Not typical.",
+"Not typical."
+]
+},
+{
+"id": "cbr95-f2",
+"lv": "Hard",
+"s": "Why does Niemann-Pick type B spare the CNS?",
+"c": [
+"Type B has no enzyme defect at all",
+"Neurons lack sphingomyelin",
+"The enzyme is replaced by diet",
+"Type B stores glycogen",
+"Residual enzyme protects neurons"
+],
+"a": 4,
+"e": "Type B has some residual sphingomyelinase activity, sparing the CNS.",
+"w": [
+"There is a defect.",
+"Neurons have it.",
+"Not the reason.",
+"Not the reason.",
+""
+]
+}
+]
+},
+"cbr96": {
+"k": "Gaucher disease",
+"q": [
+{
+"id": "cbr96-f1",
+"lv": "Easy",
+"s": "Which enzyme is deficient in Gaucher disease?",
+"c": [
+"Sphingomyelinase",
+"Hexosaminidase A",
+"Glucocerebrosidase",
+"Galactocerebrosidase",
+"α-Galactosidase A"
+],
+"a": 2,
+"e": "Gaucher disease is a deficiency of glucocerebrosidase.",
+"w": [
+"Niemann-Pick.",
+"Tay-Sachs.",
+"",
+"Krabbe.",
+"Fabry."
+]
+},
+{
+"id": "cbr96-f2",
+"lv": "Hard",
+"s": "Which bone finding is classic for Gaucher disease?",
+"c": [
+"Erlenmeyer flask deformity",
+"Codfish vertebrae",
+"Brown tumors of the long bones",
+"Punched-out lytic lesions",
+"Ivory vertebrae"
+],
+"a": 0,
+"e": "Marrow expansion causes an Erlenmeyer flask shape of the distal femur.",
+"w": [
+"",
+"Osteoporosis.",
+"Hyperparathyroidism.",
+"Myeloma.",
+"Paget or lymphoma."
+]
+}
+]
+},
+"cbr97": {
+"k": "Tay-Sachs",
+"q": [
+{
+"id": "cbr97-f1",
+"lv": "Easy",
+"s": "What accumulates in Tay-Sachs disease?",
+"c": [
+"Sphingomyelin",
+"Glucocerebroside",
+"Sulfatide",
+"GM2 ganglioside",
+"Ceramide"
+],
+"a": 3,
+"e": "Hexosaminidase A deficiency causes GM2 ganglioside buildup.",
+"w": [
+"Niemann-Pick.",
+"Gaucher.",
+"MLD.",
+"",
+"Farber."
+]
+},
+{
+"id": "cbr97-f2",
+"lv": "Hard",
+"s": "What distinguishes Tay-Sachs from Niemann-Pick type A on exam?",
+"c": [
+"No cherry-red spot in the macula",
+"No hepatosplenomegaly",
+"No neurodegeneration",
+"No hyperacusis ever",
+"Onset in adulthood"
+],
+"a": 1,
+"e": "Both have cherry-red spots, but Tay-Sachs lacks hepatosplenomegaly.",
+"w": [
+"Both have it.",
+"",
+"Both have it.",
+"Tay-Sachs has it.",
+"Infant onset."
+]
+}
+]
+},
+"cbr98": {
+"k": "Sandhoff and AB variant",
+"q": [
+{
+"id": "cbr98-f1",
+"lv": "Easy",
+"s": "Which enzymes are deficient in Sandhoff disease?",
+"c": [
+"Hexosaminidase A alone",
+"Sphingomyelinase",
+"Glucocerebrosidase",
+"Arylsulfatase A",
+"Hexosaminidase A and B"
+],
+"a": 4,
+"e": "Sandhoff disease is a defect of the β-subunit, shared by hexosaminidase A and B.",
+"w": [
+"Tay-Sachs.",
+"Niemann-Pick.",
+"Gaucher.",
+"MLD.",
+""
+]
+},
+{
+"id": "cbr98-f2",
+"lv": "Hard",
+"s": "Which subunit gene is mutated in Sandhoff disease?",
+"c": [
+"α-subunit, HEXA",
+"GM2 activator, GM2A",
+"β-subunit, HEXB",
+"SMPD1",
+"GBA"
+],
+"a": 2,
+"e": "HEXB encodes the β-subunit, shared by hexosaminidase A and B.",
+"w": [
+"Tay-Sachs.",
+"AB variant.",
+"",
+"Niemann-Pick.",
+"Gaucher."
+]
+}
+]
+},
+"cbr99": {
+"k": "Fabry disease",
+"q": [
+{
+"id": "cbr99-f1",
+"lv": "Easy",
+"s": "Which enzyme is deficient in Fabry disease?",
+"c": [
+"α-Galactosidase A",
+"β-Galactosidase",
+"Hexosaminidase A",
+"Glucocerebrosidase",
+"Arylsulfatase A"
+],
+"a": 0,
+"e": "Fabry disease is a deficiency of α-galactosidase A.",
+"w": [
+"",
+"GM1.",
+"Tay-Sachs.",
+"Gaucher.",
+"MLD."
+]
+},
+{
+"id": "cbr99-f2",
+"lv": "Hard",
+"s": "Which organ failure is a major cause of death in adult Fabry disease?",
+"c": [
+"Liver failure",
+"Bone marrow failure",
+"Pancreatic failure",
+"Kidney failure",
+"Thyroid failure"
+],
+"a": 3,
+"e": "Globotriaosylceramide builds up in kidney, causing proteinuria and renal failure.",
+"w": [
+"Not typical.",
+"Not typical.",
+"Not typical.",
+"",
+"Not typical."
+]
+}
+]
+},
+"cbr100": {
+"k": "Krabbe disease",
+"q": [
+{
+"id": "cbr100-f1",
+"lv": "Easy",
+"s": "Which cells are characteristic in Krabbe disease?",
+"c": [
+"Foam cells",
+"Globoid cells",
+"Gaucher cells",
+"Ring sideroblasts",
+"Reed-Sternberg cells"
+],
+"a": 1,
+"e": "Multinucleate globoid cells are seen in Krabbe disease.",
+"w": [
+"Niemann-Pick.",
+"",
+"Gaucher.",
+"Anemia.",
+"Hodgkin."
+]
+},
+{
+"id": "cbr100-f2",
+"lv": "Hard",
+"s": "Which toxic metabolite destroys oligodendrocytes in Krabbe disease?",
+"c": [
+"Sulfatide",
+"Lysolecithin",
+"Ceramide",
+"Phytanic acid",
+"Psychosine"
+],
+"a": 4,
+"e": "Psychosine accumulates and kills myelin-forming cells.",
+"w": [
+"MLD.",
+"Not this.",
+"Farber.",
+"Refsum.",
+""
+]
+}
+]
+},
+"cbr101": {
+"k": "GM1 gangliosidosis",
+"q": [
+{
+"id": "cbr101-f1",
+"lv": "Easy",
+"s": "What accumulates in GM1 gangliosidosis?",
+"c": [
+"GM2 ganglioside",
+"Sulfatide",
+"GM1 ganglioside",
+"Sphingomyelin",
+"Glucocerebroside"
+],
+"a": 2,
+"e": "β-Galactosidase deficiency causes GM1 ganglioside accumulation.",
+"w": [
+"Tay-Sachs.",
+"MLD.",
+"",
+"Niemann-Pick.",
+"Gaucher."
+]
+},
+{
+"id": "cbr101-f2",
+"lv": "Hard",
+"s": "Which two enzymes act on galactose-containing sphingolipids?",
+"c": [
+"β-Galactosidase and galactocerebrosidase",
+"Glucocerebrosidase and sphingomyelinase",
+"Hexosaminidase A along with hexosaminidase B",
+"Arylsulfatase A and B",
+"Ceramidase and sphingomyelinase"
+],
+"a": 0,
+"e": "β-Galactosidase degrades GM1, and galactocerebrosidase degrades galactocerebroside.",
+"w": [
+"",
+"Not galactose.",
+"Not galactose.",
+"Different substrates.",
+"Not galactose."
+]
+}
+]
+},
+"cbr102": {
+"k": "Metachromatic leukodystrophy",
+"q": [
+{
+"id": "cbr102-f1",
+"lv": "Easy",
+"s": "How is metachromatic leukodystrophy inherited?",
+"c": [
+"X-linked recessive",
+"Autosomal dominant",
+"Mitochondrial DNA",
+"Autosomal recessive",
+"Y-linked inheritance"
+],
+"a": 3,
+"e": "MLD is autosomal recessive.",
+"w": [
+"Fabry.",
+"Not typical.",
+"Not typical.",
+"",
+"Not typical."
+]
+},
+{
+"id": "cbr102-f2",
+"lv": "Hard",
+"s": "Which urine finding supports MLD?",
+"c": [
+"High glucose",
+"High sulfatides",
+"High phenylalanine",
+"High homogentisic acid",
+"High porphobilinogen"
+],
+"a": 1,
+"e": "Sulfatides spill into urine when arylsulfatase A is deficient.",
+"w": [
+"Diabetes.",
+"",
+"PKU.",
+"Alkaptonuria.",
+"Porphyria."
+]
+}
+]
+},
+"cbr103": {
+"k": "Niemann-Pick vs Tay-Sachs",
+"q": [
+{
+"id": "cbr103-f1",
+"lv": "Easy",
+"s": "Which enzyme is deficient in Niemann-Pick disease?",
+"c": [
+"Hexosaminidase A",
+"Glucocerebrosidase",
+"Arylsulfatase A",
+"α-Galactosidase A",
+"Sphingomyelinase"
+],
+"a": 4,
+"e": "Niemann-Pick types A and B are sphingomyelinase deficiencies.",
+"w": [
+"Tay-Sachs.",
+"Gaucher.",
+"MLD.",
+"Fabry.",
+""
+]
+},
+{
+"id": "cbr103-f2",
+"lv": "Hard",
+"s": "What do foam cells in Niemann-Pick disease contain?",
+"c": [
+"Glycogen granules",
+"Iron deposits",
+"Lipid-laden lysosomes",
+"Calcium crystals",
+"Viral inclusion bodies"
+],
+"a": 2,
+"e": "Macrophages store sphingomyelin in lysosomes, giving a foamy look.",
+"w": [
+"Pompe.",
+"Hemosiderosis.",
+"",
+"Not this.",
+"Not this."
+]
+}
+]
+},
+"cbr104": {
+"k": "Hexosaminidase and Tay-Sachs",
+"q": [
+{
+"id": "cbr104-f1",
+"lv": "Easy",
+"s": "Which population has a higher carrier rate for Tay-Sachs?",
+"c": [
+"Ashkenazi Jewish",
+"Northern European",
+"East Asian",
+"Sub-Saharan African",
+"South Asian"
+],
+"a": 0,
+"e": "Tay-Sachs carrier frequency is higher in Ashkenazi Jewish populations.",
+"w": [
+"",
+"Not elevated.",
+"Not elevated.",
+"Not elevated.",
+"Not elevated."
+]
+},
+{
+"id": "cbr104-f2",
+"lv": "Hard",
+"s": "Why does a Tay-Sachs infant startle strongly at sounds?",
+"c": [
+"An infection of the outer ear canal",
+"Profound sensorineural hearing loss",
+"Visual hallucinations",
+"Hyperacusis from neuron damage",
+"Low blood glucose"
+],
+"a": 3,
+"e": "GM2 buildup damages neurons, and an exaggerated startle to noise, hyperacusis, is classic.",
+"w": [
+"Not the cause.",
+"Opposite.",
+"Not the cause.",
+"",
+"Not the cause."
+]
+}
+]
 }
 });
