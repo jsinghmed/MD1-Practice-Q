@@ -4475,6 +4475,166 @@ window.NBME_QUIZZES = [
 "Arylsulfatase A is defective in metachromatic leukodystrophy.",
 "Ceramidase is defective in Farber disease."
 ]
+},
+{
+ "t": "Lecture 5 · Eicosanoid Metabolism",
+ "s": "A 9-year-old girl with asthma takes ibuprofen for a sprained ankle and within an hour develops wheezing, nasal congestion and flushing. She has nasal polyps. Which shift in arachidonic acid metabolism best explains her reaction?",
+ "c": [
+  "Less substrate for 5-lipoxygenase",
+  "Inhibition of phospholipase A2",
+  "Inhibition of the leukotriene receptor",
+  "More thromboxane synthase activity",
+  "More substrate for 5-lipoxygenase"
+ ],
+ "a": 4,
+ "e": "Step 1: ibuprofen blocks both COX isoforms.\nStep 2: with COX blocked, more arachidonic acid is available to the linear, 5-lipoxygenase pathway.\nStep 3: more LTC₄, LTD₄ and LTE₄ cause bronchoconstriction, giving aspirin- or NSAID-exacerbated respiratory disease.",
+ "w": [
+  "Blocking COX shifts more arachidonate toward 5-lipoxygenase.",
+  "NSAIDs do not inhibit PLA2.",
+  "That would prevent bronchospasm.",
+  "With COX blocked, thromboxane falls.",
+  ""
+ ]
+},
+{
+ "t": "Lecture 5 · Eicosanoid Metabolism",
+ "s": "A 72-year-old man takes low-dose aspirin daily. A new platelet count is normal, but platelet function testing shows reduced aggregation. He stopped the aspirin 2 days ago. Which statement best explains why his platelets still aggregate poorly?",
+ "c": [
+  "Platelets cannot replace acetylated COX-1",
+  "Aspirin is still in his plasma at full levels",
+  "Aspirin permanently damaged his megakaryocytes",
+  "Aspirin raised endothelial prostacyclin for weeks",
+  "Aspirin blocks platelet thromboxane receptors"
+ ],
+ "a": 0,
+ "e": "Step 1: aspirin acetylates a serine in COX-1, an irreversible block.\nStep 2: platelets have no nucleus, so they cannot make new enzyme, and their TXA₂ stays low for their lifespan of about 8–10 days.\nStep 3: function returns only as new platelets are released from the marrow.",
+ "w": [
+  "",
+  "Aspirin is cleared from plasma within hours.",
+  "Megakaryocytes are not damaged and keep making new platelets.",
+  "Aspirin lowers prostacyclin too, but endothelium recovers fast.",
+  "Aspirin acts on COX, not on the receptor."
+ ]
+},
+{
+ "t": "Lecture 5 · Eicosanoid Metabolism",
+ "s": "A 30-year-old woman is started on high-dose prednisone for a lupus flare. Which pair of eicosanoid changes is expected?",
+ "c": [
+  "Only prostaglandins fall",
+  "Both prostaglandins and leukotrienes fall",
+  "Only leukotrienes fall",
+  "Prostaglandins fall and leukotrienes rise",
+  "Thromboxane rises and prostacyclin falls"
+ ],
+ "a": 1,
+ "e": "Step 1: corticosteroids induce lipocortin, which inhibits phospholipase A2.\nStep 2: PLA2 releases arachidonic acid from C-2 of membrane phospholipids, upstream of both pathways.\nStep 3: with less arachidonate, both the COX and lipoxygenase products fall.",
+ "w": [
+  "The block is upstream of both pathways.",
+  "",
+  "Leukotrienes also need arachidonate.",
+  "This pattern fits NSAIDs, not steroids.",
+  "Steroids lower both prostanoids."
+ ]
+},
+{
+ "t": "Lecture 5 · Eicosanoid Metabolism",
+ "s": "A researcher incubates a membrane fraction with arachidonic acid, O₂ and glutathione and finds that PGG₂ is formed but PGH₂ is not. Which activity of prostaglandin H₂ synthase is defective?",
+ "c": [
+  "Cyclooxygenase",
+  "Thromboxane synthase",
+  "Peroxidase",
+  "Phospholipase A2",
+  "5-Lipoxygenase"
+ ],
+ "a": 2,
+ "e": "Step 1: PGH₂ synthase has two activities.\nStep 2: the cyclooxygenase activity adds 2 O₂ to arachidonate to make PGG₂, which worked here.\nStep 3: the peroxidase activity then reduces PGG₂ to PGH₂ using 2 GSH, so that is the step that failed.",
+ "w": [
+  "Cyclooxygenase activity worked, since PGG₂ formed.",
+  "This acts on PGH₂, later in the pathway.",
+  "",
+  "PLA2 is not needed when arachidonate is added directly.",
+  "This is the leukotriene branch."
+ ]
+},
+{
+ "t": "Lecture 5 · Eicosanoid Metabolism",
+ "s": "A 58-year-old woman with osteoarthritis and a history of a bleeding ulcer is started on celecoxib. Two years later she has a myocardial infarction. Which imbalance is thought to raise thrombotic risk with selective COX-2 inhibitors?",
+ "c": [
+  "Less TXA₂ with PGI₂ spared",
+  "More leukotrienes in coronary vessels",
+  "Less PGE₂ in the gastric mucosa",
+  "Less PGI₂ with platelet TXA₂ spared",
+  "More phospholipase A2 activity"
+ ],
+ "a": 3,
+ "e": "Step 1: platelets use COX-1 to make TXA₂, which promotes aggregation, and celecoxib spares COX-1.\nStep 2: much endothelial PGI₂, which inhibits aggregation, comes from COX-2, which celecoxib blocks.\nStep 3: less prostacyclin with intact thromboxane tips the balance toward thrombosis.",
+ "w": [
+  "The opposite imbalance would protect against clots.",
+  "Coxibs do not raise coronary leukotrienes.",
+  "Gastric PGE₂ explains ulcers, not MI.",
+  "",
+  "Coxibs do not activate PLA2."
+ ]
+},
+{
+ "t": "Lecture 5 · Eicosanoid Metabolism",
+ "s": "A 16-year-old boy with persistent asthma is treated with a drug that blocks leukotriene binding to receptors on airway smooth muscle. Which leukotriene effects will this drug block?",
+ "c": [
+  "Formation of 5-HPETE",
+  "Formation of LTA₄",
+  "Release of arachidonic acid",
+  "Formation of thromboxane A₂",
+  "Actions of LTC₄, LTD₄, LTE₄"
+ ],
+ "a": 4,
+ "e": "Step 1: montelukast and zafirlukast are leukotriene receptor antagonists.\nStep 2: they block the receptor for the peptidoleukotrienes LTC₄, LTD₄ and LTE₄, the slow-reacting substance of anaphylaxis.\nStep 3: leukotriene synthesis itself continues, so earlier steps are unaffected.",
+ "w": [
+  "Receptor blockers do not stop synthesis.",
+  "LTA₄ is still made.",
+  "PLA2 is upstream and unaffected.",
+  "Thromboxane comes from the COX branch.",
+  ""
+ ]
+},
+{
+ "t": "Lecture 5 · Eicosanoid Metabolism",
+ "s": "A newborn's eicosanoid profile is studied. Which cell type in her blood will make no prostaglandins, thromboxanes or leukotrienes?",
+ "c": [
+  "Mature erythrocytes",
+  "Circulating platelets",
+  "Segmented neutrophils",
+  "Circulating monocytes",
+  "Circulating basophils"
+ ],
+ "a": 0,
+ "e": "Step 1: all mammalian cells except erythrocytes synthesize eicosanoids.\nStep 2: platelets make TXA₂ using COX-1, and leukocytes make leukotrienes and, when activated, COX-2 products.",
+ "w": [
+  "",
+  "Platelets make TXA₂.",
+  "Neutrophils make leukotrienes.",
+  "Monocytes make prostaglandins through COX-2.",
+  "Basophils make leukotrienes."
+ ]
+},
+{
+ "t": "Lecture 5 · Eicosanoid Metabolism",
+ "s": "A 40-year-old man eats a diet completely lacking linoleic acid for many months. Which eicosanoid precursor will his cells be least able to make?",
+ "c": [
+  "Eicosapentaenoic acid",
+  "Arachidonic acid",
+  "α-Linolenic acid",
+  "Palmitic acid",
+  "Phosphatidylcholine"
+ ],
+ "a": 1,
+ "e": "Step 1: linoleic acid is the immediate dietary precursor of arachidonic acid.\nStep 2: arachidonic acid is the source of the principal eicosanoids in humans.\nStep 3: EPA comes from α-linolenic acid, a separate essential fatty acid, so it is not limited here.",
+ "w": [
+  "EPA comes from α-linolenic acid.",
+  "",
+  "α-Linolenic acid is a separate essential fatty acid from the diet.",
+  "Palmitate is made from glucose.",
+  "Phosphatidylcholine can still be made."
+ ]
 }
 ]
 },
@@ -5384,6 +5544,166 @@ window.NBME_QUIZZES = [
 "Contractility is normal, so ESV isn't the problem.",
 "Atrial systole is squeezed out, not strengthened."
 ]
+},
+{
+ "t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
+ "s": "A 62-year-old man receives a norepinephrine infusion for septic shock. His cardiac output stays at 6 L/min while his mean arterial pressure rises from 54 to 78 mmHg. Right atrial pressure stays at 6 mmHg. By about what percentage did his total peripheral resistance rise?",
+ "c": [
+  "About 25%",
+  "About 44%",
+  "About 50%",
+  "About 75%",
+  "About 100%"
+ ],
+ "a": 2,
+ "e": "Step 1: TPR = (MAP − RAP)/CO.\nStep 2: before, (54 − 6)/6 = 8. After, (78 − 6)/6 = 12 mmHg·min/L.\nStep 3: 12/8 = 1.5, a 50% rise from α₁-mediated arteriolar constriction.",
+ "w": [
+  "This forgets to subtract RAP or misreads the ratio.",
+  "This is (78 − 54)/54, ignoring RAP.",
+  "",
+  "Off by the RAP correction.",
+  "That would need TPR to double."
+ ]
+},
+{
+ "t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
+ "s": "A coronary arteriole dilates during exercise so that its radius increases by 20%. Perfusion pressure and blood viscosity do not change. By about how much does flow through the arteriole change?",
+ "c": [
+  "Increases about 1.2-fold",
+  "Increases about 1.4-fold",
+  "Increases about 4-fold",
+  "Increases about 2.1-fold",
+  "Decreases about 2.1-fold"
+ ],
+ "a": 3,
+ "e": "Step 1: Poiseuille's law gives Q ∝ r⁴ when ΔP, η and L are fixed.\nStep 2: 1.2⁴ = 1.44 × 1.44 ≈ 2.07.\nStep 3: a 20% wider radius roughly doubles flow, which is why arterioles are such powerful flow regulators.",
+ "w": [
+  "That scales with r.",
+  "That scales with r².",
+  "That would need about a 41% rise in radius.",
+  "",
+  "Dilation raises flow."
+ ]
+},
+{
+ "t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
+ "s": "A 70-year-old man with severe peripheral artery disease has a femoral artery stenosis that cuts the lumen radius to one third of normal over a short segment. Which change best describes flow in the narrowed segment compared with the vessel just upstream?",
+ "c": [
+  "Lower velocity and laminar flow",
+  "Same velocity and laminar flow",
+  "Lower velocity and turbulence",
+  "Lower flow and lower velocity",
+  "Higher velocity and turbulence"
+ ],
+ "a": 4,
+ "e": "Step 1: flow (Q) is the same through vessels in series, what goes in must come out.\nStep 2: v = Q/A, and the area falls to one ninth, so velocity rises about ninefold.\nStep 3: high velocity plus an abrupt change in geometry raises the Reynolds number, so flow turns turbulent and a bruit is heard.",
+ "w": [
+  "Smaller area at the same flow raises velocity.",
+  "Area has changed, so velocity cannot stay the same.",
+  "Velocity rises, not falls.",
+  "In series, the flow through each segment is the same.",
+  ""
+ ]
+},
+{
+ "t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
+ "s": "Arterial compliance in a healthy 25-year-old is 2 mL/mmHg, and in an 80-year-old it is 1 mL/mmHg. Both have a stroke volume of 70 mL. Using PP ≈ SV/compliance, what is the expected pulse pressure in the 80-year-old?",
+ "c": [
+  "About 70 mmHg",
+  "About 35 mmHg",
+  "About 140 mmHg",
+  "About 50 mmHg",
+  "About 105 mmHg"
+ ],
+ "a": 0,
+ "e": "Step 1: PP ≈ SV/C.\nStep 2: for the 25-year-old, 70/2 = 35 mmHg. For the 80-year-old, 70/1 = 70 mmHg.\nStep 3: halving compliance doubles pulse pressure, which is why stiff arteries cause isolated systolic hypertension.",
+ "w": [
+  "",
+  "This is the young patient's value.",
+  "This multiplies instead of dividing.",
+  "This does not follow from the numbers.",
+  "This is not SV/C."
+ ]
+},
+{
+ "t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
+ "s": "A 34-year-old woman with Graves disease has a heart rate of 118/min, warm moist skin and a blood pressure of 150/58 mmHg. Thyroid hormone has raised her cardiac output and dilated her peripheral arterioles. Which pair of changes best explains her wide pulse pressure?",
+ "c": [
+  "Lower stroke volume and higher TPR",
+  "Higher stroke volume and lower TPR",
+  "Lower compliance and higher TPR",
+  "Higher venous compliance alone",
+  "Lower stroke volume and lower TPR"
+ ],
+ "a": 1,
+ "e": "Step 1: PP ≈ SV/compliance, so a bigger stroke volume raises systolic pressure.\nStep 2: diastolic pressure is set mainly by TPR, and peripheral vasodilation lets blood run off faster, so diastolic pressure falls.\nStep 3: a high systolic and low diastolic pressure give a wide pulse pressure in hyperthyroidism.",
+ "w": [
+  "Both changes would narrow pulse pressure.",
+  "",
+  "Higher TPR would raise diastolic pressure.",
+  "Venous compliance does not set arterial pulse pressure.",
+  "Lower stroke volume would lower systolic pressure."
+ ]
+},
+{
+ "t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
+ "s": "Organ beds A, B and C are arranged in parallel with resistances of 20, 20 and 10 units. If organ C is removed and mean arterial pressure is held constant, what happens to total flow through the remaining circuit?",
+ "c": [
+  "It falls to one quarter",
+  "It stays the same",
+  "It falls to half",
+  "It falls to one third",
+  "It rises to double"
+ ],
+ "a": 2,
+ "e": "Step 1: before, 1/R = 1/20 + 1/20 + 1/10 = 0.2, so R = 5.\nStep 2: after, 1/R = 1/20 + 1/20 = 0.1, so R = 10.\nStep 3: Q = ΔP/R, and resistance doubled at the same pressure, so flow halves. Losing a parallel bed raises TPR.",
+ "w": [
+  "Resistance only doubled.",
+  "Resistance changed, so flow must change.",
+  "",
+  "Resistance did not triple.",
+  "Removing a parallel path raises resistance."
+ ]
+},
+{
+ "t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
+ "s": "A 45-year-old man has a blood pressure of 130/85 mmHg and a cardiac output of 6 L/min. His right atrial pressure is near 0. What is his total peripheral resistance?",
+ "c": [
+  "About 6 mmHg·min/L",
+  "About 14 mmHg·min/L",
+  "About 22 mmHg·min/L",
+  "About 17 mmHg·min/L",
+  "About 600 mmHg·min/L"
+ ],
+ "a": 3,
+ "e": "Step 1: MAP ≈ DP + ⅓PP = 85 + 15 = 100 mmHg.\nStep 2: TPR = MAP/CO = 100/6 ≈ 17 mmHg·min/L.",
+ "w": [
+  "This is the cardiac output.",
+  "This uses diastolic pressure alone.",
+  "This uses systolic pressure alone.",
+  "",
+  "This multiplies MAP by CO."
+ ]
+},
+{
+ "t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
+ "s": "A 3-year-old boy with sickle cell anemia has a hemoglobin of 7 g/dL. A soft systolic murmur is heard over the precordium. Two weeks after a blood transfusion raises his hemoglobin to 10 g/dL, the murmur is fainter. Which change explains the softer murmur?",
+ "c": [
+  "Lower viscosity lowers the Reynolds number",
+  "Higher velocity raises the Reynolds number",
+  "Larger aortic diameter raises turbulence",
+  "Higher compliance narrows the pulse pressure",
+  "Higher viscosity lowers the Reynolds number"
+ ],
+ "a": 4,
+ "e": "Step 1: anemia lowers viscosity and raises cardiac output, both of which raise the Reynolds number and cause a flow murmur.\nStep 2: transfusion raises hematocrit, so viscosity rises and the compensatory high output falls.\nStep 3: a lower Reynolds number means less turbulence, so the murmur softens.",
+ "w": [
+  "Viscosity rises after transfusion.",
+  "Velocity falls as output normalizes.",
+  "Aortic diameter does not change.",
+  "Pulse pressure does not create the murmur.",
+  ""
+ ]
 }
 ]
 }

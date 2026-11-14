@@ -1,5 +1,5 @@
 // CRS Physiology — Dr. Sampath V. lecture slides. Reworked set: fewer, multi-concept, high-yield questions; lv = Easy/Hard; sampath = Challenge Yourself questions from the slides, word for word
-window.CRS_PH_TOPICS = ["Big Picture & Cardiac Cell Types", "Conduction System Anatomy", "Fast vs Slow Response", "Phase 0 & Na⁺ Channel Gates", "Phase 1 · The Notch", "Phase 2 · Plateau & E–C Coupling", "Phases 3 & 4 · Reset and Rest", "Refractory Periods", "Na⁺ Channel States", "Why the AP & Refractory Period Are Long", "Challenge Yourself · Sampath's Q's", "Pacemaker Cells, Automaticity & Key Terms", "Slow vs Fast Response APs", "Phase 4 · Pacemaker Potential", "Phase 0 · L-type Ca²⁺ Upstroke", "Phase 3 · Nodal Repolarization", "Pacemaker Hierarchy & Overdrive Suppression", "Challenge · Pacemaker Currents", "Autonomic Control: Chrono-, Dromo- & Inotropy", "Sympathetic β1 → Gs → cAMP Cascade", "Sympathetic Effects on SA Node, AV Node & Ventricle", "Parasympathetic M2 → Gi: Two Arms", "Integrated SA Node Effects & Summary", "Drugs That Hit These Channels", "Challenge · Cardiac Nerves", "Cardiac Cycle Timing: Systole vs Diastole", "Key Volumes: EDV, ESV, SV & EF", "Wiggers Diagram: Phases A–G, Valves & Heart Sounds", "Atrial Systole & Ventricular Filling", "Isovolumetric Phases & Ejection", "Jugular Venous Pulse & Aortic Pressure Curve", "Pressure Map: Normal Chamber Pressures", "Cardiac Output & Cardiac Reserve", "Preload, Afterload & Contractility", "Frank–Starling Law", "PV Loop: Phases & Valve Events", "PV Loop Shifts: Preload, Afterload, Contractility", "Cardiac Work", "Measuring CO: Indicator Dilution & Fick", "Sampath's Q's · Very Easy Set", "Sampath's Q's · Medium Set", "Sampath's Q's · Medium-Hard Set", "Sampath's Q's · Hard Set", "Sampath's Q's · Cardiac Cycle MCQs", "Sampath's Q's · Wiggers Diagram MCQs", "Sampath's Q's · Wiggers Diagram Easy", "Sampath's Q's · Cardiac Cycle Clinical Quiz"];
+window.CRS_PH_TOPICS = ["Big Picture & Cardiac Cell Types", "Conduction System Anatomy", "Fast vs Slow Response", "Phase 0 & Na⁺ Channel Gates", "Phase 1 · The Notch", "Phase 2 · Plateau & E–C Coupling", "Phases 3 & 4 · Reset and Rest", "Refractory Periods", "Na⁺ Channel States", "Why the AP & Refractory Period Are Long", "Challenge Yourself · Sampath's Q's", "Pacemaker Cells, Automaticity & Key Terms", "Slow vs Fast Response APs", "Phase 4 · Pacemaker Potential", "Phase 0 · L-type Ca²⁺ Upstroke", "Phase 3 · Nodal Repolarization", "Pacemaker Hierarchy & Overdrive Suppression", "Challenge · Pacemaker Currents", "Autonomic Control: Chrono-, Dromo- & Inotropy", "Sympathetic β1 → Gs → cAMP Cascade", "Sympathetic Effects on SA Node, AV Node & Ventricle", "Parasympathetic M2 → Gi: Two Arms", "Integrated SA Node Effects & Summary", "Drugs That Hit These Channels", "Challenge · Cardiac Nerves", "Cardiac Cycle Timing: Systole vs Diastole", "Key Volumes: EDV, ESV, SV & EF", "Wiggers Diagram: Phases A–G, Valves & Heart Sounds", "Atrial Systole & Ventricular Filling", "Isovolumetric Phases & Ejection", "Jugular Venous Pulse & Aortic Pressure Curve", "Pressure Map: Normal Chamber Pressures", "Cardiac Output & Cardiac Reserve", "Preload, Afterload & Contractility", "Frank–Starling Law", "PV Loop: Phases & Valve Events", "PV Loop Shifts: Preload, Afterload, Contractility", "Cardiac Work", "Measuring CO: Indicator Dilution & Fick", "Sampath's Q's · Very Easy Set", "Sampath's Q's · Medium Set", "Sampath's Q's · Medium-Hard Set", "Sampath's Q's · Hard Set", "Sampath's Q's · Cardiac Cycle MCQs", "Sampath's Q's · Wiggers Diagram MCQs", "Sampath's Q's · Wiggers Diagram Easy", "Sampath's Q's · Cardiac Cycle Clinical Quiz", "Ohm's Law & the Pressure Gradient", "Poiseuille's Law & Vessel Radius", "Series vs Parallel Resistance", "Laminar vs Turbulent Flow", "Flow vs Velocity", "Compliance, Pulse Pressure & MAP"];
 window.CRS_PH_QUESTIONS = [
 {
 "t": "Big Picture & Cardiac Cell Types",
@@ -6117,6 +6117,674 @@ window.CRS_PH_QUESTIONS = [
 "",
 "Opposite direction.",
 "SV rises."
+],
+"src": "lec"
+}
+,
+{
+"t": "Ohm's Law & the Pressure Gradient",
+"lv": "Easy",
+"s": "A healthy adult has a mean aortic pressure of 100 mmHg, a right atrial pressure of 0 mmHg and a cardiac output of 5 L/min. What is his total peripheral resistance?",
+"c": [
+"20 mmHg·min/L",
+"0.05 mmHg·min/L",
+"5 mmHg·min/L",
+"100 mmHg·min/L",
+"500 mmHg·min/L"
+],
+"a": 0,
+"e": "Rearrange Q = ΔP/R to R = ΔP/Q. The pressure gradient is aortic minus right atrial pressure, 100 − 0 = 100 mmHg. Divide by the flow of 5 L/min to get 20 mmHg·min/L.",
+"w": [
+"",
+"This is Q/ΔP, the inverse of resistance.",
+"This is the cardiac output, not the resistance.",
+"This is the pressure gradient alone.",
+"This multiplies ΔP by Q instead of dividing."
+],
+"src": "lec"
+},
+{
+"t": "Ohm's Law & the Pressure Gradient",
+"lv": "Easy",
+"s": "Along the systemic circulation, where does the largest single drop in blood pressure occur?",
+"c": [
+"Between the aorta and the large arteries",
+"Across the arterioles",
+"Across the capillaries",
+"Across the venules",
+"Across the large veins"
+],
+"a": 1,
+"e": "Pressure falls most where resistance is highest. Arterioles have a small radius, relatively fast flow and the highest ratio of wall area to lumen area, so the biggest pressure drop happens there.",
+"w": [
+"The aorta and large arteries have low resistance, so pressure falls only a little.",
+"",
+"Pressure falls only slightly across the capillaries because flow there is slow.",
+"Venules sit after most of the drop has already happened.",
+"Venous pressure is already low and falls little further."
+],
+"src": "lec"
+},
+{
+"t": "Ohm's Law & the Pressure Gradient",
+"lv": "Hard",
+"s": "A 64-year-old man with pneumonia becomes confused and hypotensive. His mean arterial pressure is 56 mmHg, right atrial pressure is 2 mmHg and cardiac output is 9 L/min. His skin is warm and flushed. How does his total peripheral resistance compare with a healthy resting adult whose TPR is 20 mmHg·min/L?",
+"c": [
+"About half of normal",
+"About two thirds of normal",
+"About one third of normal",
+"Roughly unchanged from normal",
+"About three times normal"
+],
+"a": 2,
+"e": "TPR = (MAP − RAP)/CO = (56 − 2)/9 = 6 mmHg·min/L, which is about 30% of 20. Warm, flushed skin with high output and low pressure fits septic shock, where widespread arteriolar dilation drops resistance. MAP = CO × TPR, so pressure falls even though output is high.",
+"w": [
+"Half of normal would be 10 mmHg·min/L.",
+"Two thirds of normal would be about 13 mmHg·min/L.",
+"",
+"A normal TPR with CO 9 would give a MAP near 180 mmHg.",
+"High resistance would raise pressure, and the warm skin points to dilation."
+],
+"src": "lec"
+},
+{
+"t": "Ohm's Law & the Pressure Gradient",
+"lv": "Easy",
+"s": "Sympathetic nerves constrict the arterioles supplying the gut while mean arterial pressure stays the same. What happens to blood flow through the gut?",
+"viz": false,
+"c": [
+"It increases",
+"It stays the same",
+"It first rises, then falls",
+"It decreases",
+"It reverses direction"
+],
+"a": 3,
+"e": "Q = ΔP/R. The pressure gradient is unchanged, but constriction raises the resistance of that bed, so flow to the gut falls. This is how the body redirects blood flow, by changing resistance rather than pressure.",
+"w": [
+"Higher resistance with the same ΔP lowers flow.",
+"Flow depends on resistance as well as pressure.",
+"Constriction gives no transient rise in flow.",
+"",
+"The pressure gradient still runs forward."
+],
+"src": "lec"
+},
+{
+"t": "Ohm's Law & the Pressure Gradient",
+"lv": "Easy",
+"s": "Why do the pressure pulsations seen in the aorta almost disappear by the time blood reaches the capillaries?",
+"c": [
+"Capillaries contract against each pulse",
+"Capillary flow velocity is very high",
+"Venous valves cancel the pulse wave",
+"The heart ejects blood throughout diastole",
+"Arterial stretch and arteriolar resistance"
+],
+"a": 4,
+"e": "Arterial pressure is pulsatile because ejection is periodic. The stretchy arterial walls absorb part of each pulse, and the resistance of the small arteries and arterioles damps the rest, so pulsations fall almost to zero in the capillaries.",
+"w": [
+"Capillaries have no muscle to contract.",
+"Capillary velocity is the slowest in the circuit.",
+"Venous valves are downstream and do not damp arterial pulses.",
+"Ejection happens only in systole.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Poiseuille's Law & Vessel Radius",
+"lv": "Easy",
+"s": "If the radius of an arteriole is halved while everything else stays the same, how does its resistance change?",
+"c": [
+"It increases 16-fold",
+"It increases 2-fold",
+"It increases 4-fold",
+"It increases 8-fold",
+"It decreases 16-fold"
+],
+"a": 0,
+"e": "Poiseuille's law gives R = 8ηL/πr⁴, so R ∝ 1/r⁴. Halving r multiplies R by 2⁴ = 16.",
+"w": [
+"",
+"That would be R ∝ 1/r.",
+"That would be R ∝ 1/r².",
+"That would be R ∝ 1/r³.",
+"Narrowing raises resistance."
+],
+"src": "lec"
+},
+{
+"t": "Poiseuille's Law & Vessel Radius",
+"lv": "Easy",
+"s": "A vessel dilates so that its radius doubles, while the pressure gradient across it stays the same. How does blood flow through it change?",
+"viz": false,
+"c": [
+"It increases 2-fold",
+"It increases 16-fold",
+"It increases 4-fold",
+"It decreases 16-fold",
+"It stays the same"
+],
+"a": 1,
+"e": "Doubling the radius lowers resistance 2⁴ = 16-fold. With ΔP unchanged, Q = ΔP/R, so flow rises 16-fold.",
+"w": [
+"Flow scales with r⁴, not r.",
+"",
+"Flow scales with r⁴, not r².",
+"Dilation raises flow.",
+"Lower resistance with the same ΔP raises flow."
+],
+"src": "lec"
+},
+{
+"t": "Poiseuille's Law & Vessel Radius",
+"lv": "Hard",
+"s": "A 58-year-old woman has stable angina. Angiography shows a coronary arteriole whose radius is reduced by 20% at rest. Assuming viscosity, length and the pressure gradient do not change, by about how much has the resistance of this vessel changed?",
+"c": [
+"Increased about 1.25-fold",
+"Increased about 1.6-fold",
+"Increased about 2.4-fold",
+"Increased about 4-fold",
+"Decreased about 2.4-fold"
+],
+"a": 2,
+"e": "The new radius is 0.8r. R ∝ 1/r⁴, so R rises by 1/0.8⁴ = 1/0.41 ≈ 2.4. With the same ΔP, flow falls to about 41% of normal, which is why a modest narrowing causes ischemia on exertion.",
+"w": [
+"That is 1/0.8, scaling with r instead of r⁴.",
+"That is 1/0.8², scaling with r².",
+"",
+"That would need a radius drop of about 30%.",
+"Narrowing raises resistance."
+],
+"src": "lec"
+},
+{
+"t": "Poiseuille's Law & Vessel Radius",
+"lv": "Easy",
+"s": "Why are the arterioles, rather than the arteries or capillaries, the main site where total peripheral resistance is regulated?",
+"c": [
+"They have the largest total cross-sectional area",
+"They hold most of the circulating blood",
+"Their walls are the most compliant",
+"Abundant smooth muscle lets them change radius",
+"They are the longest vessels in the circuit"
+],
+"a": 3,
+"e": "Arterioles have thick smooth muscle walls relative to their lumen. Because R ∝ 1/r⁴, the small radius changes they can make have a huge effect on resistance. They are the faucets of the circulation.",
+"w": [
+"Capillaries have the largest total cross-sectional area.",
+"Veins hold most of the blood volume.",
+"Veins are the most compliant vessels.",
+"",
+"Vessel length is fairly constant and is not how resistance is regulated."
+],
+"src": "lec"
+},
+{
+"t": "Poiseuille's Law & Vessel Radius",
+"lv": "Hard",
+"s": "A 55-year-old man has headaches, blurred vision and itching after hot showers. His hematocrit is 66% and a JAK2 mutation is found. Which change in Poiseuille's equation best explains his reduced tissue blood flow?",
+"viz": false,
+"c": [
+"Longer vessels raising resistance",
+"Narrower vessel radius from plaque",
+"Lower viscosity causing turbulence",
+"Higher venous compliance pooling blood",
+"Higher viscosity raising resistance"
+],
+"a": 4,
+"e": "Headaches, itching after bathing, a hematocrit of 66% and JAK2 point to polycythemia vera. Viscosity (η) is set mainly by hematocrit, and R = 8ηL/πr⁴, so more red cells raise resistance and lower flow for the same pressure gradient.",
+"w": [
+"Vessel length does not change in polycythemia.",
+"Nothing in the stem suggests plaque.",
+"Viscosity is high here, not low.",
+"Venous pooling is not the cause of hyperviscosity symptoms.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Poiseuille's Law & Vessel Radius",
+"lv": "Easy",
+"s": "In Poiseuille's law, which variable is usually constant but increases with obesity?",
+"c": [
+"Vessel length",
+"Blood viscosity",
+"Vessel radius",
+"Pressure gradient",
+"Blood density"
+],
+"a": 0,
+"e": "In R = 8ηL/πr⁴, length (L) is normally constant, but added tissue in obesity lengthens the vascular network and raises resistance.",
+"w": [
+"",
+"Viscosity depends mainly on hematocrit.",
+"Radius changes moment to moment with smooth muscle tone.",
+"The pressure gradient is not part of the resistance formula.",
+"Density is part of the Reynolds number, not Poiseuille's law."
+],
+"src": "lec"
+},
+{
+"t": "Series vs Parallel Resistance",
+"lv": "Easy",
+"s": "Blood passes through three vessels in series with resistances of 2, 3 and 5 units. What is the total resistance?",
+"c": [
+"0.97 units",
+"10 units",
+"2 units",
+"5 units",
+"30 units"
+],
+"a": 1,
+"e": "In series, resistances add: 2 + 3 + 5 = 10. Total series resistance is always greater than any one resistance.",
+"w": [
+"This is the parallel total.",
+"",
+"This is only the smallest resistance.",
+"This is only the largest resistance.",
+"This multiplies the resistances."
+],
+"src": "lec"
+},
+{
+"t": "Series vs Parallel Resistance",
+"lv": "Easy",
+"s": "Two organ beds are arranged in parallel, each with a resistance of 10 units. What is their combined resistance?",
+"c": [
+"2.5 units",
+"10 units",
+"5 units",
+"20 units",
+"100 units"
+],
+"a": 2,
+"e": "In parallel, 1/R = 1/10 + 1/10 = 2/10, so R = 5. Total parallel resistance is always less than any one branch.",
+"w": [
+"This would need four equal branches.",
+"This is a single branch.",
+"",
+"This adds them as if in series.",
+"This multiplies them."
+],
+"src": "lec"
+},
+{
+"t": "Series vs Parallel Resistance",
+"lv": "Hard",
+"s": "A healthy 35-year-old woman donates her left kidney to her brother. Assuming the resistance of every other organ bed is unchanged, what happens to her total peripheral resistance right after the operation?",
+"c": [
+"It decreases because less tissue needs flow",
+"It stays the same because kidneys are in series",
+"It decreases because renal resistance was high",
+"It increases because a parallel path is gone",
+"It stays the same because output adjusts"
+],
+"a": 3,
+"e": "Organ beds sit in parallel, so 1/TPR is the sum of 1/R for each bed. Removing a kidney removes one of those terms, which makes 1/TPR smaller and TPR larger.",
+"w": [
+"Removing a parallel path raises total resistance.",
+"The kidneys are in parallel with other beds.",
+"Losing any parallel branch raises the total.",
+"",
+"TPR is set by the vessels, not by cardiac output."
+],
+"src": "lec"
+},
+{
+"t": "Series vs Parallel Resistance",
+"lv": "Easy",
+"s": "What is the main advantage of organ circulations being arranged in parallel rather than in series?",
+"c": [
+"Total resistance becomes greater than any one bed",
+"Every organ receives the same blood flow",
+"Blood passes through every organ before returning",
+"Pressure falls gradually through each organ in turn",
+"Each organ's flow can be regulated independently"
+],
+"a": 4,
+"e": "Each organ gets arterial blood at about the same pressure, and its own arterioles set its own resistance. That lets one organ's flow change without forcing changes in the others.",
+"w": [
+"Parallel resistance is less than any single bed.",
+"Organ flows differ widely.",
+"That describes a series arrangement.",
+"That also describes a series arrangement.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Laminar vs Turbulent Flow",
+"lv": "Easy",
+"s": "In laminar flow through a blood vessel, where is the blood velocity highest?",
+"c": [
+"In the center of the vessel",
+"Next to the vessel wall",
+"Equal across the whole lumen",
+"Halfway between center and wall",
+"It changes randomly with eddies"
+],
+"a": 0,
+"e": "Laminar flow moves in smooth parallel layers. Friction slows the layer at the wall to almost zero, so the fastest layer is in the center, giving a parabolic profile.",
+"w": [
+"",
+"The wall layer is the slowest.",
+"Velocity varies across the lumen.",
+"The peak is in the center.",
+"Random eddies describe turbulent flow."
+],
+"src": "lec"
+},
+{
+"t": "Laminar vs Turbulent Flow",
+"lv": "Easy",
+"s": "Which change makes turbulent blood flow more likely, according to the Reynolds number?",
+"viz": false,
+"c": [
+"Higher blood viscosity",
+"Lower blood viscosity",
+"Lower flow velocity",
+"Smaller vessel diameter",
+"Lower blood density"
+],
+"a": 1,
+"e": "Reynolds number = ρDv/η. Turbulence becomes more likely as density, diameter or velocity rise, or as viscosity falls, for example in anemia.",
+"w": [
+"Viscosity is in the denominator, so a rise lowers the Reynolds number.",
+"",
+"Lower velocity lowers the Reynolds number.",
+"Diameter is in the numerator.",
+"Density is in the numerator."
+],
+"src": "lec"
+},
+{
+"t": "Laminar vs Turbulent Flow",
+"lv": "Hard",
+"s": "A 24-year-old woman with heavy menstrual bleeding feels tired and short of breath. Her hemoglobin is 6.8 g/dL and her heart rate is 112/min. A soft midsystolic murmur is heard, and echocardiography shows normal valves. Which change best explains the murmur?",
+"c": [
+"Higher viscosity raising the Reynolds number",
+"A stenotic valve changing vessel geometry",
+"Lower viscosity raising the Reynolds number",
+"Slower aortic flow lowering the Reynolds number",
+"Narrower aorta lowering the Reynolds number"
+],
+"a": 2,
+"e": "Heavy bleeding has caused iron deficiency anemia. Fewer red cells lower blood viscosity, and the high cardiac output raises velocity. Both raise the Reynolds number, so flow across normal valves becomes turbulent and audible as a flow murmur.",
+"w": [
+"Anemia lowers viscosity.",
+"The echo shows normal valves.",
+"",
+"Flow is faster in anemia, not slower.",
+"Aortic size has not changed."
+],
+"src": "lec"
+},
+{
+"t": "Laminar vs Turbulent Flow",
+"lv": "Easy",
+"s": "A 70-year-old man has a whooshing sound over his right carotid artery. What produces this bruit?",
+"c": [
+"Laminar flow speeding up in the center",
+"Slow flow lowering the Reynolds number",
+"Higher blood viscosity in the carotid",
+"Turbulent flow past a narrowed segment",
+"Reduced compliance of the jugular vein"
+],
+"a": 3,
+"e": "A bruit is the sound of turbulent flow over a vessel. An atherosclerotic plaque abruptly changes the vessel's geometry and creates turbulence, which makes noise. Laminar flow is silent.",
+"w": [
+"Laminar flow is silent.",
+"Slow flow makes turbulence less likely.",
+"Higher viscosity makes turbulence less likely.",
+"",
+"The bruit comes from the artery, not the vein."
+],
+"src": "lec"
+},
+{
+"t": "Laminar vs Turbulent Flow",
+"lv": "Easy",
+"s": "Above what Reynolds number does turbulence occur even in a straight, smooth vessel?",
+"c": [
+"20",
+"200",
+"20,000",
+"200,000",
+"2000"
+],
+"a": 4,
+"e": "When the Reynolds number exceeds about 2000, flow becomes turbulent even without any narrowing or branch point.",
+"w": [
+"Far too low.",
+"Still well within laminar flow.",
+"Turbulence starts far below this.",
+"Turbulence starts far below this.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Flow vs Velocity",
+"lv": "Easy",
+"s": "In which part of the systemic circulation is the velocity of blood flow lowest?",
+"viz": false,
+"c": [
+"Capillaries",
+"Aorta",
+"Large arteries",
+"Arterioles",
+"Venae cavae"
+],
+"a": 0,
+"e": "v = Q/A. Flow is the same at every level, but the capillaries have by far the largest total cross-sectional area, so velocity there is lowest. This gives time for O₂, CO₂ and nutrient exchange.",
+"w": [
+"",
+"The aorta has the smallest total area and the highest velocity.",
+"Large arteries have a small total area.",
+"Arterioles have less total area than capillaries.",
+"The venae cavae have a small total area, so velocity rises again."
+],
+"src": "lec"
+},
+{
+"t": "Flow vs Velocity",
+"lv": "Easy",
+"s": "A resting adult has a cardiac output of 5 L/min, and the aorta has a cross-sectional area of 4 cm². What is the mean velocity of blood in the aorta?",
+"c": [
+"About 2 cm/s",
+"About 21 cm/s",
+"About 83 cm/s",
+"About 210 cm/s",
+"About 1250 cm/s"
+],
+"a": 1,
+"e": "Convert flow: 5 L/min = 5000 mL/min ≈ 83 mL/s, which is 83 cm³/s. Then v = Q/A = 83/4 ≈ 21 cm/s.",
+"w": [
+"Off by a factor of 10.",
+"",
+"This is the flow in mL/s, not divided by area.",
+"Off by a factor of 10.",
+"This uses mL/min instead of mL/s."
+],
+"src": "lec"
+},
+{
+"t": "Flow vs Velocity",
+"lv": "Easy",
+"s": "A drug opens many previously closed capillaries in a muscle, increasing their total cross-sectional area, while blood flow to the muscle stays the same. What happens to red cell velocity in those capillaries?",
+"viz": false,
+"c": [
+"It increases",
+"It stays the same",
+"It decreases",
+"It becomes turbulent",
+"It reverses direction"
+],
+"a": 2,
+"e": "v = Q/A. With flow unchanged and total area larger, velocity falls. Slower transit gives more time for O₂ and nutrient exchange.",
+"w": [
+"More area at the same flow lowers velocity.",
+"Velocity depends on area.",
+"",
+"Slower flow makes turbulence less likely.",
+"Flow direction does not change."
+],
+"src": "lec"
+},
+{
+"t": "Compliance, Pulse Pressure & MAP",
+"lv": "Easy",
+"s": "Where is most of the circulating blood volume, the unstressed volume, held?",
+"c": [
+"In the arteries",
+"In the arterioles",
+"In the capillaries",
+"In the veins",
+"In the heart chambers"
+],
+"a": 3,
+"e": "Veins are highly compliant, so they hold a large volume with little change in pressure. They are the volume reservoirs, or capacitance vessels, and contain the unstressed volume.",
+"w": [
+"Arteries have low compliance and hold the stressed volume.",
+"Arterioles hold little volume.",
+"Capillaries hold a small fraction of the blood.",
+"",
+"The heart holds only a small part of the total volume."
+],
+"src": "lec"
+},
+{
+"t": "Compliance, Pulse Pressure & MAP",
+"lv": "Easy",
+"s": "A patient's blood pressure is 120/80 mmHg. What is his mean arterial pressure?",
+"c": [
+"About 87 mmHg",
+"About 100 mmHg",
+"About 107 mmHg",
+"About 40 mmHg",
+"About 93 mmHg"
+],
+"a": 4,
+"e": "MAP ≈ DP + ⅓(PP). Pulse pressure is 120 − 80 = 40, so MAP ≈ 80 + 13 = 93 mmHg. It sits closer to diastolic because diastole lasts longer than systole.",
+"w": [
+"This adds only a sixth of the pulse pressure.",
+"This is the simple average of systolic and diastolic.",
+"This adds two thirds of the pulse pressure.",
+"This is the pulse pressure.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Compliance, Pulse Pressure & MAP",
+"lv": "Easy",
+"s": "A patient's blood pressure is 160/70 mmHg. What is her pulse pressure?",
+"c": [
+"90 mmHg",
+"70 mmHg",
+"100 mmHg",
+"115 mmHg",
+"230 mmHg"
+],
+"a": 0,
+"e": "Pulse pressure = SP − DP = 160 − 70 = 90 mmHg.",
+"w": [
+"",
+"This is the diastolic pressure.",
+"This is the MAP.",
+"This is the simple average.",
+"This adds the two pressures."
+],
+"src": "lec"
+},
+{
+"t": "Compliance, Pulse Pressure & MAP",
+"lv": "Hard",
+"s": "A 78-year-old man has a blood pressure of 172/68 mmHg at a routine visit. His heart rate is 70/min, and the heart sounds are normal with no murmurs. Which change best explains his wide pulse pressure?",
+"viz": false,
+"c": [
+"Larger stroke volume from valve leak",
+"Stiffer arteries from elastin loss",
+"Higher compliance of the aorta",
+"Lower total peripheral resistance",
+"Smaller stroke volume from tamponade"
+],
+"a": 1,
+"e": "PP ≈ SV/compliance. With no murmur, stroke volume is not raised by a leaky valve. With age, arteries lose elastin and become stiff, so compliance falls and the same stroke volume produces a larger pulse pressure, giving isolated systolic hypertension.",
+"w": [
+"There is no murmur to suggest aortic regurgitation.",
+"",
+"Higher compliance would narrow pulse pressure.",
+"TPR mainly sets diastolic pressure, not pulse pressure.",
+"Reduced stroke volume would narrow pulse pressure."
+],
+"src": "lec"
+},
+{
+"t": "Compliance, Pulse Pressure & MAP",
+"lv": "Hard",
+"s": "A 50-year-old man has bounding peripheral pulses and a high-pitched blowing decrescendo murmur heard just after S2 at the left sternal border. His blood pressure is 168/44 mmHg. Which change best explains his wide pulse pressure?",
+"c": [
+"Smaller stroke volume",
+"Higher arterial compliance",
+"Larger stroke volume",
+"Higher total peripheral resistance",
+"Lower venous compliance"
+],
+"a": 2,
+"e": "A blowing diastolic decrescendo murmur with bounding pulses means aortic regurgitation. Blood that leaks back is ejected again, so stroke volume rises. PP ≈ SV/compliance, so a larger SV widens pulse pressure.",
+"w": [
+"Smaller SV would narrow pulse pressure.",
+"Higher compliance would narrow pulse pressure.",
+"",
+"Higher TPR would raise diastolic pressure, not lower it.",
+"Venous compliance does not set arterial pulse pressure."
+],
+"src": "lec"
+},
+{
+"t": "Compliance, Pulse Pressure & MAP",
+"lv": "Hard",
+"s": "A 30-year-old man is stabbed in the left chest. He has distended neck veins, muffled heart sounds and a blood pressure of 84/70 mmHg. Which change best explains his narrow pulse pressure?",
+"c": [
+"Larger stroke volume",
+"Lower arterial compliance",
+"Lower total peripheral resistance",
+"Smaller stroke volume",
+"Higher blood viscosity"
+],
+"a": 3,
+"e": "Hypotension, distended neck veins and muffled heart sounds are Beck's triad of cardiac tamponade. Fluid around the heart limits filling, so stroke volume falls. PP ≈ SV/compliance, so pulse pressure narrows.",
+"w": [
+"A larger SV would widen pulse pressure.",
+"Lower compliance would widen pulse pressure.",
+"Lower TPR mainly lowers diastolic pressure.",
+"",
+"Viscosity does not set pulse pressure."
+],
+"src": "lec"
+},
+{
+"t": "Compliance, Pulse Pressure & MAP",
+"lv": "Easy",
+"s": "Which factor is the main determinant of diastolic blood pressure?",
+"c": [
+"Ventricular stroke volume",
+"Arterial wall compliance",
+"Area of the aortic valve opening",
+"Venous wall compliance",
+"Total peripheral resistance"
+],
+"a": 4,
+"e": "Diastolic pressure is the minimum before the next ejection and is set mainly by how fast blood runs off through the arterioles, which is total peripheral resistance.",
+"w": [
+"Stroke volume mainly sets systolic and pulse pressure.",
+"Compliance mainly shapes pulse pressure.",
+"Valve area is not a determinant here.",
+"Venous compliance does not set arterial diastolic pressure.",
+""
 ],
 "src": "lec"
 }

@@ -1,6 +1,47 @@
 {
- "v": "2026-11-12e",
+ "v": "2026-11-13a",
  "notes": [
+  {
+   "v": "2026-11-13a",
+   "date": "Nov 13, 2026",
+   "groups": [
+    {
+     "h": "New lectures",
+     "items": [
+      {
+       "tag": "new",
+       "title": "CRS Physiology · Lecture 6: Hemodynamics",
+       "text": "30 questions on flow, pressure and resistance: Poiseuille's law, series vs parallel, turbulence, velocity, compliance, pulse pressure and MAP. Includes AnKing and UWorld chips and new NBME questions."
+      },
+      {
+       "tag": "new",
+       "title": "CRS Biochemistry · Lecture 5: Eicosanoid Metabolism",
+       "text": "29 questions on prostaglandins, thromboxanes and leukotrienes, the COX and lipoxygenase pathways and the drugs that block them, plus Dr. Shetty's 2 practice questions. Includes AnKing and UWorld chips and new NBME questions."
+      },
+      {
+       "tag": "imp",
+       "title": "NBME study guides",
+       "text": "New Hemodynamics and Eicosanoids sections in the CRS Physiology and Biochemistry guides."
+      }
+     ]
+    },
+    {
+     "h": "Sidebar",
+     "items": [
+      {
+       "tag": "new",
+       "title": "Incorrect questions per lecture",
+       "text": "Each lecture now has an ✗ Incorrect tile that opens only the questions you missed in that lecture."
+      },
+      {
+       "tag": "imp",
+       "title": "Tidier lecture chips",
+       "text": "The lecture chips are now a compact 2-row tile grid: Easy, Hard and Incorrect on top, then professor questions, AnKing and UWorld."
+      }
+     ]
+    }
+   ]
+  },
   {
    "v": "2026-11-12e",
    "date": "Nov 12, 2026",

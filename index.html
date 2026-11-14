@@ -1183,9 +1183,9 @@ button.dst:hover{background:var(--hover)}
 <script src="fbs-anki.js?v=34"></script>
 <script src="crs-embryology.js?v=35"></script>
 <script src="crs-anatomy.js?v=1"></script>
-<script src="crs-biochem.js?v=6"></script>
-<script src="crs-physiology.js?v=10"></script>
-<script src="nbme.js?v=16"></script>
+<script src="crs-biochem.js?v=7"></script>
+<script src="crs-physiology.js?v=11"></script>
+<script src="nbme.js?v=17"></script>
 <script src="xp-crs.js?v=1"></script>
 <script src="viz-links.js?v=3"></script>
 <script>
@@ -1273,12 +1273,12 @@ const SECTIONS = [
   {course:"crs", name:"CRS Biochemistry", all:"All CRS Biochemistry", prefix:"cbr", topics:window.CRS_BC_TOPICS, hideTopics:true, qs:window.CRS_BC_QUESTIONS,
    // Grouped by lecture (Dr. Shetty), then topic. Add each new lecture as one more [name, topics] row.
    extra:(()=>{ const T = window.CRS_BC_TOPICS||[];
-     return lecExtras([["Lecture 1 · Fatty Acid Oxidation", T.slice(0,10)], ["Lecture 2 · Fatty Acid & TAG Synthesis", T.slice(10,21)], ["Lecture 3 · Ketone Body Metabolism", T.slice(21,29)], ["Lecture 4 · Complex Lipid Metabolism", T.slice(29,44)]],
+     return lecExtras([["Lecture 1 · Fatty Acid Oxidation", T.slice(0,10)], ["Lecture 2 · Fatty Acid & TAG Synthesis", T.slice(10,21)], ["Lecture 3 · Ketone Body Metabolism", T.slice(21,29)], ["Lecture 4 · Complex Lipid Metabolism", T.slice(29,44)], ["Lecture 5 · Eicosanoid Metabolism", T.slice(44,50)]],
        [["Shetty Practice Q's", "Shetty", "shetty"]]); })()},
   {course:"crs", name:"CRS Physiology", all:"All CRS Physiology", prefix:"cpr", topics:window.CRS_PH_TOPICS, hideTopics:true, qs:window.CRS_PH_QUESTIONS,
    // Grouped by lecture (Dr. Sampath V.), then topic. Add each new lecture as one more [name, topics] row.
    extra:(()=>{ const T = window.CRS_PH_TOPICS||[];
-     return lecExtras([["Lecture 1 · Cardiac Action Potential", T.slice(0,11)], ["Lecture 2 · Pacemaker Potential: SA & AV Nodes", T.slice(11,18)], ["Lecture 3 · Effects of Cardiac Nerves", T.slice(18,25)], ["Lecture 4 · The Cardiac Cycle", T.slice(25,32).concat(T.slice(39,47))], ["Lecture 5 · Cardiac Output & Pressure-Volume Loops", T.slice(32,39)]],
+     return lecExtras([["Lecture 1 · Cardiac Action Potential", T.slice(0,11)], ["Lecture 2 · Pacemaker Potential: SA & AV Nodes", T.slice(11,18)], ["Lecture 3 · Effects of Cardiac Nerves", T.slice(18,25)], ["Lecture 4 · The Cardiac Cycle", T.slice(25,32).concat(T.slice(39,47))], ["Lecture 5 · Cardiac Output & Pressure-Volume Loops", T.slice(32,39)], ["Lecture 6 · Hemodynamics: Flow, Pressure & Resistance", T.slice(47,53)]],
        [["Sampath's Q's", "Sampath", "sampath"]]); })()}
 ].concat((window.NBME_QUIZZES||[]).map(z=>({course:z.course, name:z.name, all:z.name, prefix:z.prefix, topics:[], qs:z.qs, nbme:true, subject:z.subject, note:z.note})))
  .filter(s=>s.qs && s.qs.length);
@@ -1585,6 +1585,8 @@ const ANKING = {
   "cbr|Lecture 2 · Fatty Acid & TAG Synthesis": "nid:1475894369854,1475896504605,1475896509771,1475896514243,1475896519521,1475896526687,1475896531425,1475896534611,1475896540810,1475896543773,1475896551561,1475896559049,1475896564265,1475896576427,1475896586329,1475896591933,1475896598992,1475896613407,1475896642626,1475896650810,1475896675086,1475982732554,1475982737323,1475982741557,1475982746310,1475966773797,1477011550067",
   "cbr|Lecture 3 · Ketone Body Metabolism": "nid:1476146871125,1476154069517,1476154085131,1476154090457,1476154095169,1476154107246,1476154113019,1476154118823,1476154123577,1476154128899,1476154138229,1476154152770,1476154175158,1476154185261,1476154190117,1476154196909,1476154207990,1476154211536,1476502591395,1476502674112,1476502551897,1462128264089,1462128449086,1462131849821,1462327211125,1462327286091,1462327309654,1462327320519,1462327363797,1462327370877,1475178090922,1584375201003,1502564341435,1462849140370,1502414496794,1476652222871",
   "cbr|Lecture 4 · Complex Lipid Metabolism": "nid:1461857325591,1461857362486,1461857387477,1463944717248,1473359937703,1473359947453,1473359951494,1473707426029,1473707428913,1473707435818,1473707444911,1473707491540,1473707500365,1473707511363,1476154217912,1476154233031,1476154238256,1476154243317,1476154248876,1476154252004,1476154254841,1476154262545,1476154276685,1476154282580,1476154287862,1476154291014,1476154293906,1476154296672,1476154304301,1476154310808,1476154326870,1476154333513,1476154337117,1476154340136,1476154343240,1476154347013,1476154354830,1476154359150,1476154363712,1476154366173,1476154368854,1476154377016,1476154381763,1476154384636,1476154387140,1476154394586,1476154397305,1476154402027,1476154416837,1476154419195,1476154460280,1476154464487,1476154467716,1476154470221,1476154475217,1476154480085,1476154482759,1476154507549,1476156763636,1478986720423,1478994988572,1478994993913,1478995000657,1478995010616,1478995013918,1478995055944,1481836289465,1481836291939,1481836301509,1481836304035,1487640059152,1496498699270,1497306842176,1513199471452,1544379981503,1554648568524,1557605185909,1574144176602",
+  "cpr|Lecture 6 · Hemodynamics: Flow, Pressure & Resistance": "nid:1470839343366,1470839346067,1470839351508,1470839353901,1470839385654,1470839393888,1470839402717,1470839410232,1470839413539,1470839420946,1470839425004,1470840588805,1470841597433,1470841601855,1470841606399,1470841609507,1470841612811,1470841620766,1470841628690,1470844049174,1470849959523,1470849965601,1470849985857,1470849997969,1470850006526,1470850010829,1470850014562,1470850018953,1470850028855,1470850036482,1470850047974,1470850056888,1470850068583,1470850073410,1470850077204,1470850085634,1470850095408,1470850104686,1470850110081,1470850113012,1470850129966,1470850155946,1470850165637,1470850169002,1470850181542,1470850200353,1470850208869,1470850212324,1470850222414,1470850231818,1471277020049,1471277046566,1471375678230,1471378810567,1472058882618,1472147010726,1472147029631,1472147058692,1497568285618,1567733403700,1520902682537",
+  "cbr|Lecture 5 · Eicosanoid Metabolism": "nid:1462061188088,1463883746350,1463883753623,1463883760907,1463883769980,1473628116213,1473986052600,1473986398130,1474340552038,1474580736503,1474580751548,1474580780060,1474580819655,1474580830221,1474651327123,1475896598992,1482115237070,1482115240121,1487640059152,1487640061733,1487640101055,1487640108934,1488847671701,1488847674991,1488847683296,1488847688890,1488847696894,1488854891621,1488854930174,1488854972928,1488854977018,1488855049373,1488855106673,1488855110557,1499356681150,1532722127396,1482275748424,1488855002412,1473986001040,1487640089158,1473986059652",
   "ca|Lecture 1 · Introduction to Thorax & Intercostal Spaces": "nid:1474511972236,1496608604412,1496608680946,1496608819674,1496608419803,1522427952831,1522428732333,1474511953060,1474511955568,1522986512395,1524251536027,1484016863153,1473303030795,1473303017758,1521261423613,1521261423614,1484016858132,1484016867460,1506291111598,1495489589270,1506291152635,1506291250234"
 };
 // UWorld Step 1 question IDs that AnKing tags on this lecture's cards. Key matches ANKING.
@@ -1598,13 +1600,15 @@ const UWORLD = {
   "cbr|Lecture 2 · Fatty Acid & TAG Synthesis": "1063,1066,1889,11917",
   "cbr|Lecture 3 · Ketone Body Metabolism": "600,1540,1886,1887,2014,2073,6601",
   "cbr|Lecture 4 · Complex Lipid Metabolism": "360,479,482,800,897,995,1122,1989,1990,1991,6509,6708,6711,7632,8524,11864,18421,19614,19617",
+  "cpr|Lecture 6 · Hemodynamics: Flow, Pressure & Resistance": "96,238,456,1616,1621,1782,14976,18535,19895,20257,20985,21787",
+  "cbr|Lecture 5 · Eicosanoid Metabolism": "713,714,716,751,6480,6508,6515,7792,14899,14959,18809,21294",
   "ca|Lecture 1 · Introduction to Thorax & Intercostal Spaces": "647,648,1552,1829,11778,15158,19274"
 };
 // Mehlman HY Cardio page pointers, matched on the question stem and correct answer
 const MEHL_BOOKS = {
   cardio: {name:"HY Cardio", url:"mehlman/HY%20Cardio.pdf", pfx:["cpr","ncp1"]},
   biochem: {name:"HY Biochem", url:"mehlman/HY%20Biochem.pdf", pfx:["cbr","ncb1"]},
-  pulm: {name:"HY Pulmonary", url:"mehlman/HY%20Pulmonary.pdf", pfx:["cbr"]},
+  pulm: {name:"HY Pulmonary", url:"mehlman/HY%20Pulmonary.pdf", pfx:["cbr","ncb1"]},
   arrows: {name:"HY Arrows", url:"mehlman/HY%20Arrows.pdf", pfx:["cpr","ncp1","cbr","ncb1"]}
 };
 const MEHL = [
@@ -1646,7 +1650,11 @@ const MEHL = [
   ["arrows", /runner|marathon|exercise|vagal tone/i, 251, "Q124 · Baroreceptor, vagal & SA sympathetic firing (answer p. 252)"],
   ["arrows", /ketoacidosis|\bDKA\b/i, 205, "Q101–103 · DKA arrows: pH, ketones, Na⁺, K⁺ (pp. 205–210)"],
   ["arrows", /lipolysis|GLUT-?4|insulin/i, 327, "Q162 · Insulin deficiency: GLUT-4, lipolysis, proteolysis (answer p. 328)"],
-  ["biochem", /malonyl|acetyl-?CoA carboxylase|\bACC\b|ketogenesis|glucagon/i, 61, "Catabolic state: ACC, malonyl-CoA & ketogenesis"]
+  ["biochem", /malonyl|acetyl-?CoA carboxylase|\bACC\b|ketogenesis|glucagon/i, 61, "Catabolic state: ACC, malonyl-CoA & ketogenesis"],
+  ["cardio", /aortic regurg|bounding (peripheral )?pulses|diastolic decrescendo|blowing decrescendo/i, 8, "Aortic regurgitation: wide pulse pressure & bounding pulses"],
+  ["cardio", /tamponade|beck'?s triad|muffled heart sounds/i, 20, "Free-wall rupture & tamponade (Beck triad)"],
+  ["pulm", /zileuton|montelukast|zafirlukast|lukast|5-lipoxygenase|leukotriene receptor/i, 39, "Asthma drugs: the -lukasts & zileuton"],
+  ["pulm", /slow-reacting|peptidoleukotriene|LTC₄|LTD₄|LTE₄|LTC4|LTD4|LTE4/i, 15, "Leukotrienes (LTC₄, LTD₄, LTE₄) in asthma"]
 ];
 function mehlFor(q){
   const t = q.s + " " + (q.c && q.c[q.a] || ""), out = [], seen = {};
@@ -1751,7 +1759,7 @@ const GUIDES = {
         ["msk-biochem","MSK Biochemistry","Glycolysis, glycogen & storage diseases, GAGs, collagen & elastin",4],
         ["msk-anatomy","MSK Anatomy","Upper & lower limb: plexus, nerve injuries, compartments, joints, vessels",6],
         ["msk-embryology","MSK Embryology","Bone formation, growth plate, vertebrae, skull & sutures, limbs, skin",3]],
-  crs: [["crs-biochem","CRS Biochemistry NBME guide","High-yield, commonly tested NBME content · Lecture 1–4 · grows with each lecture",0],["crs-physiology","CRS Physiology NBME guide","High-yield, commonly tested NBME content · Lecture 1–5 · grows with each lecture",0]]
+  crs: [["crs-biochem","CRS Biochemistry NBME guide","High-yield, commonly tested NBME content · Lecture 1–5 · grows with each lecture",0],["crs-physiology","CRS Physiology NBME guide","High-yield, commonly tested NBME content · Lecture 1–6 · grows with each lecture",0]]
 };
 function guideCards(list){
   return `<div class="gdgrid">` + list.map(([f,nm,desc,pg])=>`<div class="gdcard"><div class="gdi">${NVI.guide}</div><div class="gdt"><b>${esc(nm)}</b><small>${esc(desc)}</small><span class="gdm">${pg?"PDF":"Read on site or download as PDF · updated each lecture"}</span></div>
@@ -1766,7 +1774,7 @@ function renderGuideView(){
     <div class="gvhead"><h2>${esc(nm)}</h2><p class="sub">${esc(desc)}</p><div class="gvleg"><span><span class="hy">Red</span> = extra high yield (classic NBME)</span><span>Black/white = core content</span><span class="mn">Italic = mnemonic</span></div></div>`;
   if (!window.GUIDE_HTML) {
     showPage(`<div class="page gview">${top}<div class="emptybox"><p>Loading study guide…</p></div></div>`);
-    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=10";
+    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=11";
       sc.onload = ()=>{ guideLoading = false; if (view==="guide") renderGuideView(); };
       sc.onerror = ()=>{ guideLoading = false; toast("Couldn't load the study guide — check your connection"); };
       document.head.appendChild(sc); }
@@ -1787,7 +1795,7 @@ async function guidePdf(f, btn){
   const nm = info.g[1].replace(/ NBME guide$/,""), desc = info.g[2], old = btn.innerHTML;
   btn.dataset.busy = "1"; btn.innerHTML = "Preparing PDF…";
   try {
-    if (!window.GUIDE_HTML) await gpdfScript("guides.js?v=10");
+    if (!window.GUIDE_HTML) await gpdfScript("guides.js?v=11");
     for (const s of GPDF_LIBS) await gpdfScript(s);
     const yr = new Date().getFullYear(), RED = "#c00000", NAVY = "#0b2447";
     const body = htmlToPdfmake(window.GUIDE_HTML[f] || "", {tableAutoSize:true, defaultStyles:{
@@ -4348,7 +4356,7 @@ window.JJ_STATS = function(st){
 // Welcome screen: shown every time the page loads.
 // ---- Updates: version.json says which version is live. When it's newer than this page, a card offers a refresh
 // (skips the logo intro). After a refresh to a new version, "What's new" lists every change since the last one seen.
-const JJ_VERSION = "2026-11-12e";
+const JJ_VERSION = "2026-11-13a";
 const UPD_ICON = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>';
 let updLater = "";
 async function updFetch(){ const r = await fetch("version.json?t=" + Date.now(), {cache:"no-store"}); if (!r.ok) throw new Error(r.status); return r.json(); }

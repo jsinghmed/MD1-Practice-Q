@@ -1,5 +1,5 @@
 // CRS Biochemistry — Dr. S. Shetty lecture slides. Reworked set: fewer, multi-concept, high-yield questions; lv = Easy/Hard; shetty = practice questions from the slides, word for word
-window.CRS_BC_TOPICS = ["Overview & Activation", "Carnitine Shuttle", "Carnitine & CPT Deficiencies", "β-Oxidation Reactions", "Energetics & Regulation", "Unsaturated & Odd-Chain Fatty Acids", "Methylmalonic Aciduria", "Peroxisomal, α- & ω-Oxidation", "MCAD Deficiency & Jamaican Vomiting Sickness", "Zellweger, X-ALD & Refsum", "Synthesis vs β-Oxidation & Sites", "Citrate Shuttle: Acetyl-CoA to Cytosol", "Sources of NADPH", "Acetyl-CoA Carboxylase Reaction", "Regulation of Acetyl-CoA Carboxylase", "Fatty Acid Synthase Complex", "FAS Cycle & Palmitate Stoichiometry", "Elongation & Desaturation", "Triacylglycerol Synthesis", "TAG Fate & Lipolysis", "Practice Questions (from the slides)", "Fuel Fate & Why the Liver Makes Ketones", "Ketogenesis: Pathway & HMG-CoA Synthase", "The Three Ketone Bodies", "Ketolysis: Thiophorase & Extrahepatic Use", "Brain Fuel During Fasting & Starvation", "Ketosis: Hormones, Levels & Causes", "Diabetic Ketoacidosis", "Practice Question · Ketone Bodies (from the slides)", "Phospholipid Structure & Synthesis", "DPPC, Surfactant & L/S Ratio", "Phosphatidylinositol & PIP2 Signaling", "GPI Anchors & PNH", "Cardiolipin & Phosphatidylglycerol", "Phospholipases & Degradation", "Plasmalogens & PAF", "Sphingolipids, Ceramide & Sphingomyelin", "Glycolipid Classes", "Lysosomal Storage Disorders Overview", "Niemann-Pick Disease", "Gaucher Disease", "Tay-Sachs & GM2 Gangliosidoses", "Fabry, Krabbe, MLD & Other Sphingolipidoses", "Practice Questions · Complex Lipids (from the slides)"];
+window.CRS_BC_TOPICS = ["Overview & Activation", "Carnitine Shuttle", "Carnitine & CPT Deficiencies", "β-Oxidation Reactions", "Energetics & Regulation", "Unsaturated & Odd-Chain Fatty Acids", "Methylmalonic Aciduria", "Peroxisomal, α- & ω-Oxidation", "MCAD Deficiency & Jamaican Vomiting Sickness", "Zellweger, X-ALD & Refsum", "Synthesis vs β-Oxidation & Sites", "Citrate Shuttle: Acetyl-CoA to Cytosol", "Sources of NADPH", "Acetyl-CoA Carboxylase Reaction", "Regulation of Acetyl-CoA Carboxylase", "Fatty Acid Synthase Complex", "FAS Cycle & Palmitate Stoichiometry", "Elongation & Desaturation", "Triacylglycerol Synthesis", "TAG Fate & Lipolysis", "Practice Questions (from the slides)", "Fuel Fate & Why the Liver Makes Ketones", "Ketogenesis: Pathway & HMG-CoA Synthase", "The Three Ketone Bodies", "Ketolysis: Thiophorase & Extrahepatic Use", "Brain Fuel During Fasting & Starvation", "Ketosis: Hormones, Levels & Causes", "Diabetic Ketoacidosis", "Practice Question · Ketone Bodies (from the slides)", "Phospholipid Structure & Synthesis", "DPPC, Surfactant & L/S Ratio", "Phosphatidylinositol & PIP2 Signaling", "GPI Anchors & PNH", "Cardiolipin & Phosphatidylglycerol", "Phospholipases & Degradation", "Plasmalogens & PAF", "Sphingolipids, Ceramide & Sphingomyelin", "Glycolipid Classes", "Lysosomal Storage Disorders Overview", "Niemann-Pick Disease", "Gaucher Disease", "Tay-Sachs & GM2 Gangliosidoses", "Fabry, Krabbe, MLD & Other Sphingolipidoses", "Practice Questions · Complex Lipids (from the slides)", "Eicosanoid Classes & Effects", "Arachidonic Acid Release & PLA2", "COX Pathway & Prostanoids", "NSAIDs, Aspirin & COX-2 Inhibitors", "Lipoxygenase Pathway & Leukotrienes", "Practice Questions · Eicosanoids (from the slides)"];
 window.CRS_BC_QUESTIONS = [
 {
 "t": "Overview & Activation",
@@ -2294,6 +2294,647 @@ window.CRS_BC_QUESTIONS = [
 "B-galactosidase deficiency causes GM1 gangliosidosis or Krabbe disease, usually with organ or white matter involvement.",
 "",
 "Sphingomyelinase deficiency is Niemann-Pick, which also has hepatosplenomegaly."
+],
+"src": "lec"
+}
+,
+{
+"t": "Eicosanoid Classes & Effects",
+"lv": "Easy",
+"s": "Which eicosanoids are grouped together as the prostanoids?",
+"c": [
+"Prostaglandins and thromboxanes",
+"Prostaglandins and leukotrienes",
+"Thromboxanes and leukotrienes",
+"Leukotrienes only",
+"Prostaglandins only"
+],
+"a": 0,
+"e": "The eicosanoids are prostaglandins, thromboxanes and leukotrienes. Prostaglandins and thromboxanes, both made by the cyclooxygenase pathway, are together called prostanoids.",
+"w": [
+"",
+"Leukotrienes come from the lipoxygenase pathway and are not prostanoids.",
+"Leukotrienes are not prostanoids.",
+"Leukotrienes are not prostanoids.",
+"Thromboxanes are prostanoids too."
+],
+"src": "lec"
+},
+{
+"t": "Eicosanoid Classes & Effects",
+"lv": "Easy",
+"s": "Eicosanoids are often called local hormones. What is the reason?",
+"c": [
+"They are stored in granules and released on demand",
+"They act locally and are rapidly degraded",
+"They circulate bound to albumin to distant organs",
+"They are made only by endocrine glands",
+"They act on nuclear receptors in target cells"
+],
+"a": 1,
+"e": "Eicosanoids are made on demand, act on cells close to where they are formed and are broken down quickly, so they are not carried to distant sites.",
+"w": [
+"They are synthesized on demand, not stored.",
+"",
+"They are not carried to distant organs.",
+"Almost every cell except red cells makes them.",
+"They act through G-protein coupled receptors."
+],
+"src": "lec"
+},
+{
+"t": "Eicosanoid Classes & Effects",
+"lv": "Easy",
+"s": "Through which type of receptor do eicosanoids act on their target cells?",
+"c": [
+"Receptor tyrosine kinases",
+"Nuclear hormone receptors",
+"G protein-linked receptors",
+"Ligand-gated ion channels",
+"Guanylyl cyclase receptors"
+],
+"a": 2,
+"e": "Eicosanoids bind G-protein coupled receptors. Depending on the cell, the G-protein raises or lowers cAMP or activates the phosphatidylinositol pathway that releases intracellular Ca²⁺.",
+"w": [
+"That is the insulin receptor type.",
+"That is the steroid hormone receptor type.",
+"",
+"Those mediate fast synaptic signals.",
+"That is the receptor type for ANP."
+],
+"src": "lec"
+},
+{
+"t": "Eicosanoid Classes & Effects",
+"lv": "Easy",
+"s": "A prostanoid has a six-membered ring in place of the five-carbon cyclopentane ring. Which class does it belong to?",
+"c": [
+"Prostaglandins",
+"Leukotrienes",
+"Prostacyclins",
+"Thromboxanes",
+"Peptidoleukotrienes"
+],
+"a": 3,
+"e": "Prostaglandins such as PGE₂ and PGI₂ have a cyclopentane ring. Thromboxanes are similar but have a six-membered ring instead.",
+"w": [
+"Prostaglandins have the cyclopentane ring.",
+"Leukotrienes are linear and have no ring.",
+"Prostacyclin is PGI₂, a prostaglandin.",
+"",
+"These are linear leukotrienes with amino acids."
+],
+"src": "lec"
+},
+{
+"t": "Eicosanoid Classes & Effects",
+"lv": "Easy",
+"s": "What does the subscript 2 in PGE₂ and TXA₂ indicate?",
+"c": [
+"The number of oxygen atoms added",
+"The number of carbons in the ring",
+"The position of the hydroxyl group",
+"The order of discovery",
+"The number of C=C double bonds"
+],
+"a": 4,
+"e": "The subscript gives the number of carbon-carbon double bonds in the side chains. The letter code reflects ring modifications such as hydroxyl or keto groups.",
+"w": [
+"Oxygen count is not shown by the subscript.",
+"Ring size is not shown by the subscript.",
+"Ring substitutions are shown by the letter.",
+"The subscript is structural.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Arachidonic Acid Release & PLA2",
+"lv": "Easy",
+"s": "The arachidonic acid used for eicosanoid synthesis is mainly released from which position of membrane phospholipids, and by which enzyme?",
+"c": [
+"C-2, by phospholipase A2",
+"C-1, by phospholipase A1",
+"C-3, by phospholipase C",
+"C-2, by phospholipase D",
+"C-3, by lipoprotein lipase"
+],
+"a": 0,
+"e": "Arachidonic acid sits at the C-2 position of membrane phospholipids and is released by phospholipase A2.",
+"w": [
+"",
+"PLA1 acts at C-1, which does not carry arachidonate.",
+"PLC cleaves the phosphate head group, releasing DAG and IP3.",
+"PLD removes the head group, not the fatty acid.",
+"Lipoprotein lipase acts on circulating triglycerides."
+],
+"src": "lec"
+},
+{
+"t": "Arachidonic Acid Release & PLA2",
+"lv": "Easy",
+"s": "What is the immediate dietary precursor of arachidonic acid?",
+"c": [
+"α-Linolenic acid",
+"Linoleic acid",
+"Eicosapentaenoic acid",
+"Palmitic acid",
+"Oleic acid"
+],
+"a": 1,
+"e": "Arachidonate is made from the essential fatty acid linoleic acid. α-Linolenic acid gives eicosapentaenoic acid, the source of the minor eicosanoids.",
+"w": [
+"α-Linolenic acid leads to EPA, not arachidonate.",
+"",
+"EPA is the source of the minor eicosanoids.",
+"Palmitate is saturated and not a precursor.",
+"Oleate cannot be converted to arachidonate."
+],
+"src": "lec"
+},
+{
+"t": "Arachidonic Acid Release & PLA2",
+"lv": "Easy",
+"s": "Which cells are unable to synthesize eicosanoids?",
+"c": [
+"Platelets",
+"Macrophages",
+"Erythrocytes",
+"Endothelial cells",
+"Gastric mucosal cells"
+],
+"a": 2,
+"e": "All mammalian cells except erythrocytes synthesize eicosanoids.",
+"w": [
+"Platelets make TXA₂.",
+"Macrophages make prostaglandins through COX-2.",
+"",
+"Endothelium makes PGI₂.",
+"Gastric mucosa uses COX-1."
+],
+"src": "lec"
+},
+{
+"t": "Arachidonic Acid Release & PLA2",
+"lv": "Easy",
+"s": "Which of the following activates phospholipase A2 to release arachidonic acid from membrane phospholipids?",
+"c": [
+"Insulin",
+"Glucagon",
+"Aldosterone",
+"Bradykinin",
+"Thyroxine"
+],
+"a": 3,
+"e": "Epinephrine, thrombin and bradykinin activate phospholipase A2, which frees arachidonic acid to start eicosanoid synthesis.",
+"w": [
+"Insulin is not a PLA2 activator.",
+"Glucagon is not a PLA2 activator.",
+"Aldosterone acts on nuclear receptors.",
+"",
+"Thyroxine acts on nuclear receptors."
+],
+"src": "lec"
+},
+{
+"t": "Arachidonic Acid Release & PLA2",
+"lv": "Hard",
+"s": "A 45-year-old woman with a flare of rheumatoid arthritis is started on oral prednisone. Over the next week, urinary metabolites of both prostaglandins and leukotrienes fall. Which enzyme is the drug inhibiting?",
+"c": [
+"Cyclooxygenase-1",
+"Cyclooxygenase-2",
+"5-Lipoxygenase",
+"Thromboxane synthase",
+"Phospholipase A2"
+],
+"a": 4,
+"e": "Prednisone is a corticosteroid. Because both the prostaglandin and leukotriene branches fell, the block must be before they split. Corticosteroids inhibit phospholipase A2, so less arachidonic acid is released for either pathway.",
+"w": [
+"COX-1 blockade would spare leukotrienes.",
+"COX-2 blockade would spare leukotrienes.",
+"5-Lipoxygenase blockade would spare prostaglandins.",
+"This would lower only thromboxane.",
+""
+],
+"src": "lec"
+},
+{
+"t": "COX Pathway & Prostanoids",
+"lv": "Easy",
+"s": "Prostaglandin H₂ synthase, which starts the cyclooxygenase pathway, is best described as which kind of enzyme?",
+"c": [
+"A heme dioxygenase on ER membranes",
+"A cytosolic NADPH-dependent reductase",
+"A mitochondrial flavoprotein oxidase",
+"A lysosomal acid hydrolase",
+"A biotin-dependent carboxylase"
+],
+"a": 0,
+"e": "PGH₂ synthase, also called prostaglandin endoperoxide synthase, is a heme-containing dioxygenase bound to ER membranes. A dioxygenase adds O₂ to its substrate.",
+"w": [
+"",
+"It is a membrane-bound dioxygenase.",
+"It is on the ER, not in mitochondria.",
+"It is not a lysosomal enzyme.",
+"It is not a carboxylase."
+],
+"src": "lec"
+},
+{
+"t": "COX Pathway & Prostanoids",
+"lv": "Easy",
+"s": "The peroxidase activity of PGH₂ synthase converts PGG₂ to PGH₂. Which cofactor does this step use?",
+"c": [
+"NADPH",
+"Glutathione",
+"FAD",
+"Biotin",
+"Thiamine pyrophosphate"
+],
+"a": 1,
+"e": "The cyclooxygenase activity adds 2 O₂ to arachidonate to form PGG₂. The peroxidase activity then reduces PGG₂ to PGH₂ using 2 GSH, which become GSSG.",
+"w": [
+"NADPH is not used in this step.",
+"",
+"FAD is not used in this step.",
+"Biotin is for carboxylation.",
+"TPP is for decarboxylation."
+],
+"src": "lec"
+},
+{
+"t": "COX Pathway & Prostanoids",
+"lv": "Easy",
+"s": "Which statement correctly contrasts COX-1 and COX-2?",
+"c": [
+"COX-1 is inducible and COX-2 is constitutive",
+"Both are only found in macrophages",
+"COX-1 is constitutive and COX-2 is inducible",
+"Only COX-2 is present in platelets",
+"Only COX-1 forms PGG₂ from arachidonate"
+],
+"a": 2,
+"e": "COX-1 is made all the time in gastric mucosa, kidney, platelets and endothelium. COX-2 is induced in macrophages and monocytes during inflammation. Both convert arachidonic acid to PGG₂ and then PGH₂.",
+"w": [
+"The reverse is true.",
+"COX-1 is widespread in tissues.",
+"",
+"Platelets use COX-1.",
+"Both isoforms make PGG₂."
+],
+"src": "lec"
+},
+{
+"t": "COX Pathway & Prostanoids",
+"lv": "Easy",
+"s": "In macrophages, COX-2 expression is triggered mainly by platelet-activating factor and which other mediator?",
+"c": [
+"Insulin",
+"Erythropoietin",
+"Thyroxine",
+"Interleukin-1",
+"Glucagon"
+],
+"a": 3,
+"e": "COX-2 is induced in macrophages and monocytes in response to inflammation. Its main triggers are platelet-activating factor and interleukin-1.",
+"w": [
+"Insulin is not a COX-2 trigger.",
+"EPO acts on marrow precursors.",
+"Thyroxine is not a COX-2 trigger.",
+"",
+"Glucagon is not a COX-2 trigger."
+],
+"src": "lec"
+},
+{
+"t": "COX Pathway & Prostanoids",
+"lv": "Easy",
+"s": "Which compound is the common precursor of PGI₂, PGE₂, PGD₂, PGF₂α and TXA₂?",
+"c": [
+"PGG₂",
+"LTA₄",
+"5-HPETE",
+"TXB₂",
+"PGH₂"
+],
+"a": 4,
+"e": "COX converts arachidonic acid to PGG₂, and the peroxidase step makes PGH₂. PGH₂ is the branch point for every prostanoid.",
+"w": [
+"PGG₂ comes before PGH₂.",
+"LTA₄ is the leukotriene branch point.",
+"5-HPETE leads to leukotrienes.",
+"TXB₂ is the stable product of TXA₂.",
+""
+],
+"src": "lec"
+},
+{
+"t": "COX Pathway & Prostanoids",
+"lv": "Easy",
+"s": "Which enzyme turns PGH₂ into TXA₂ in platelets?",
+"c": [
+"Thromboxane synthase",
+"Prostacyclin synthase",
+"5-Lipoxygenase",
+"Phospholipase A2",
+"Glutathione peroxidase"
+],
+"a": 0,
+"e": "In platelets, thromboxane synthase converts PGH₂ to TXA₂, which is then broken down to the stable TXB₂. Prostacyclin synthase in endothelium makes PGI₂ instead.",
+"w": [
+"",
+"Prostacyclin synthase makes PGI₂.",
+"5-Lipoxygenase starts the leukotriene branch.",
+"PLA2 releases arachidonate upstream.",
+"This is not a prostanoid-forming enzyme."
+],
+"src": "lec"
+},
+{
+"t": "NSAIDs, Aspirin & COX-2 Inhibitors",
+"lv": "Easy",
+"s": "How does aspirin inhibit cyclooxygenase?",
+"c": [
+"It blocks the hydrophobic channel reversibly",
+"It acetylates an active-site serine",
+"It inhibits phospholipase A2",
+"It blocks leukotriene receptors",
+"It competes with glutathione"
+],
+"a": 1,
+"e": "Aspirin acetylates the serine hydroxyl near the COX active site, which stops arachidonate binding. The block is irreversible.",
+"w": [
+"This is how ibuprofen works.",
+"",
+"Corticosteroids inhibit PLA2.",
+"Montelukast blocks leukotriene receptors.",
+"Aspirin does not act on the peroxidase cofactor."
+],
+"src": "lec"
+},
+{
+"t": "NSAIDs, Aspirin & COX-2 Inhibitors",
+"lv": "Easy",
+"s": "How does ibuprofen inhibit cyclooxygenase?",
+"c": [
+"It irreversibly acetylates a serine",
+"It inhibits phospholipase A2",
+"It blocks the arachidonate channel",
+"It inhibits 5-lipoxygenase",
+"It blocks thromboxane receptors"
+],
+"a": 2,
+"e": "Ibuprofen and related compounds block the hydrophobic channel by which arachidonate enters the COX active site. Unlike aspirin, this is reversible.",
+"w": [
+"That is aspirin.",
+"That is corticosteroids.",
+"",
+"That is zileuton.",
+"That is not how ibuprofen works."
+],
+"src": "lec"
+},
+{
+"t": "NSAIDs, Aspirin & COX-2 Inhibitors",
+"lv": "Hard",
+"s": "A 68-year-old man who takes 81 mg of aspirin daily is scheduled for elective knee surgery. His surgeon asks him to stop the aspirin 7 days before the operation, even though aspirin is cleared from the blood within hours. Why does the antiplatelet effect last so long?",
+"c": [
+"Aspirin is stored in platelet granules",
+"Aspirin blocks the TXA₂ receptor for days",
+"Aspirin destroys the bone marrow megakaryocytes",
+"Platelets cannot make new COX enzyme",
+"Aspirin binds plasma proteins for a week"
+],
+"a": 3,
+"e": "Aspirin irreversibly acetylates COX. Most cells resynthesize the enzyme, but platelets have no nucleus, so they cannot. Their TXA₂ production stays low for the rest of their lifespan, which is why aspirin is used daily for its anticlotting effect.",
+"w": [
+"Aspirin is not stored in platelets.",
+"Aspirin acts on COX, not the TXA₂ receptor.",
+"Aspirin does not destroy megakaryocytes.",
+"",
+"Protein binding does not explain the long effect."
+],
+"src": "lec"
+},
+{
+"t": "NSAIDs, Aspirin & COX-2 Inhibitors",
+"lv": "Hard",
+"s": "A 60-year-old woman with osteoarthritis has taken naproxen daily for months. She now has epigastric pain and black, tarry stools, and endoscopy shows a gastric ulcer. Inhibition of which enzyme most directly explains the ulcer?",
+"c": [
+"COX-2 in macrophages",
+"Phospholipase A2 in mucosa",
+"5-Lipoxygenase in neutrophils",
+"Thromboxane synthase in platelets",
+"COX-1 in gastric mucosa"
+],
+"a": 4,
+"e": "Naproxen is an NSAID that inhibits both COX-1 and COX-2. COX-1 is constitutive in gastric mucosa, and its loss is what links NSAIDs to ulceration.",
+"w": [
+"COX-2 inhibition gives the anti-inflammatory effect, not the ulcer.",
+"NSAIDs do not inhibit PLA2.",
+"NSAIDs do not inhibit 5-lipoxygenase.",
+"NSAIDs act on COX, not thromboxane synthase.",
+""
+],
+"src": "lec"
+},
+{
+"t": "NSAIDs, Aspirin & COX-2 Inhibitors",
+"lv": "Hard",
+"s": "A 66-year-old man with rheumatoid arthritis needs an anti-inflammatory drug, but he had a bleeding gastric ulcer last year. His physician wants a drug that targets only the isoform induced in inflammatory cells. Which drug fits?",
+"c": [
+"Celecoxib",
+"Aspirin",
+"Indomethacin",
+"Naproxen",
+"Ibuprofen"
+],
+"a": 0,
+"e": "The ulcer history means avoiding COX-1 inhibition in the gut. The isoform induced in macrophages during inflammation is COX-2, and celecoxib is a selective COX-2 inhibitor.",
+"w": [
+"",
+"Aspirin inhibits both COX-1 and COX-2.",
+"Indomethacin inhibits both isoforms.",
+"Naproxen inhibits both isoforms.",
+"Ibuprofen inhibits both isoforms."
+],
+"src": "lec"
+},
+{
+"t": "Lipoxygenase Pathway & Leukotrienes",
+"lv": "Easy",
+"s": "Which enzyme starts leukotriene synthesis by forming 5-HPETE from arachidonic acid?",
+"c": [
+"Cyclooxygenase-1",
+"5-Lipoxygenase",
+"Cyclooxygenase-2",
+"Thromboxane synthase",
+"Prostacyclin synthase"
+],
+"a": 1,
+"e": "Leukotrienes are made by the linear, lipoxygenase pathway. 5-Lipoxygenase converts arachidonic acid to 5-HPETE, which then forms LTA₄ and the other leukotrienes.",
+"w": [
+"COX-1 starts the prostanoid branch.",
+"",
+"COX-2 starts the prostanoid branch.",
+"This acts on PGH₂.",
+"This acts on PGH₂."
+],
+"src": "lec"
+},
+{
+"t": "Lipoxygenase Pathway & Leukotrienes",
+"lv": "Easy",
+"s": "Which leukotriene is not a peptidoleukotriene?",
+"c": [
+"LTC₄",
+"LTD₄",
+"LTB₄",
+"LTE₄",
+"LTF₄"
+],
+"a": 2,
+"e": "LTC₄, LTD₄, LTE₄ and LTF₄ contain amino acids from glutathione and are called peptidoleukotrienes. LTB₄ is formed from LTA₄ without adding glutathione.",
+"w": [
+"LTC₄ carries glutathione.",
+"LTD₄ is LTC₄ minus glutamate.",
+"",
+"LTE₄ is LTD₄ minus glycine.",
+"LTF₄ is LTE₄ plus glutamate."
+],
+"src": "lec"
+},
+{
+"t": "Lipoxygenase Pathway & Leukotrienes",
+"lv": "Easy",
+"s": "How is LTD₄ formed from LTC₄?",
+"c": [
+"Addition of glutathione",
+"Removal of glycine",
+"Addition of glutamate",
+"Removal of glutamate",
+"Oxidation by 5-lipoxygenase"
+],
+"a": 3,
+"e": "LTA₄ adds glutathione to form LTC₄. LTC₄ loses glutamate to form LTD₄, which loses glycine to form LTE₄. Adding glutamate back to LTE₄ gives LTF₄.",
+"w": [
+"That forms LTC₄ from LTA₄.",
+"That forms LTE₄ from LTD₄.",
+"That forms LTF₄ from LTE₄.",
+"",
+"5-Lipoxygenase acts at the first step."
+],
+"src": "lec"
+},
+{
+"t": "Lipoxygenase Pathway & Leukotrienes",
+"lv": "Easy",
+"s": "Which leukotrienes make up the slow-reacting substance of anaphylaxis?",
+"c": [
+"LTA₄, LTB₄ and LTC₄",
+"LTB₄, LTD₄ and LTE₄",
+"TXA₂, TXB₂ and PGI₂",
+"PGD₂, PGE₂ and PGF₂α",
+"LTC₄, LTD₄ and LTE₄"
+],
+"a": 4,
+"e": "The slow-reacting substance of anaphylaxis is a mixture of LTC₄, LTD₄ and LTE₄.",
+"w": [
+"LTA₄ is an intermediate and LTB₄ is not a peptidoleukotriene.",
+"LTB₄ is not part of it.",
+"These are prostanoids.",
+"These are prostaglandins.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Lipoxygenase Pathway & Leukotrienes",
+"lv": "Hard",
+"s": "A 14-year-old boy with persistent asthma is started on an oral drug, and his physician orders periodic liver function tests because of the drug's risk of hepatotoxicity. The drug lowers production of every leukotriene. Which reaction does it block directly?",
+"c": [
+"Arachidonic acid to 5-HPETE",
+"Arachidonic acid to PGG₂",
+"LTA₄ to LTC₄",
+"LTC₄ to LTD₄",
+"Membrane phospholipid to arachidonate"
+],
+"a": 0,
+"e": "An oral asthma drug that lowers every leukotriene and needs liver monitoring is zileuton, a 5-lipoxygenase inhibitor. 5-Lipoxygenase converts arachidonic acid to 5-HPETE, the first step of the leukotriene pathway.",
+"w": [
+"",
+"This is the COX step.",
+"Blocking this would spare LTB₄.",
+"Blocking this would spare LTB₄ and LTC₄.",
+"This is PLA2, blocked by corticosteroids."
+],
+"src": "lec"
+},
+{
+"t": "Lipoxygenase Pathway & Leukotrienes",
+"lv": "Easy",
+"s": "How do montelukast and zafirlukast work in asthma?",
+"c": [
+"They inhibit 5-lipoxygenase",
+"They block leukotriene receptors",
+"They inhibit phospholipase A2",
+"They acetylate cyclooxygenase",
+"They inhibit thromboxane synthase"
+],
+"a": 1,
+"e": "Montelukast (Singulair) and zafirlukast (Accolate) block leukotrienes from binding their receptors on airway smooth muscle cells.",
+"w": [
+"That is zileuton.",
+"",
+"That is corticosteroids.",
+"That is aspirin.",
+"That is not their mechanism."
+],
+"src": "lec"
+},
+{
+"t": "Practice Questions · Eicosanoids (from the slides)",
+"s": "Leukotriene synthesis is inhibited by antiasthmatic drugs. What is the mechanism of action of the drug to inhibit the synthesis?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Acetylates serine hydroxyl group near the active site of the enzyme, preventing arachidonate binding",
+"The drugs block the hydrophobic channel by which arachidonate enters the cyclooxygenase active site",
+"The drugs inhibit Phospholipase A2",
+"The drugs interfere with leukotriene-receptor interactions",
+"The drugs inhibits prostaglandin endoperoxidase synthase"
+],
+"a": 3,
+"e": "Of the anti-asthma drugs on the slides, the ones listed here act by interfering with leukotriene-receptor interactions (montelukast and zafirlukast block leukotrienes from binding receptors on airway smooth muscle). The other anti-asthma group, zileuton, inhibits 5-lipoxygenase, which is not offered.",
+"w": [
+"This is how aspirin inhibits COX.",
+"This is how ibuprofen inhibits COX.",
+"This is how corticosteroids work, and it lowers prostaglandins too.",
+"",
+"PGH synthase is the COX enzyme, not part of leukotriene synthesis."
+],
+"src": "lec"
+},
+{
+"t": "Practice Questions · Eicosanoids (from the slides)",
+"s": "Prostaglandins exhibit a wide spectrum of biological activity on various systems of human body. Some of the prostaglandins act as the mediators of inflammatory reactions. Anti-inflammatory drugs such as aspirin, indomethacin and ibuprofen prevent the synthesis. They do so by inhibiting an enzyme involved in the biosynthesis of prostaglandins. Identify that target enzyme from the following:",
+"ns": true,
+"shetty": 1,
+"c": [
+"Phospholipase C",
+"Phospholipase A2",
+"PG isomerase",
+"5-Lipoxygenase",
+"Cyclooxygenases"
+],
+"a": 4,
+"e": "Aspirin, indomethacin and ibuprofen are NSAIDs. They inhibit both cyclooxygenases, COX-1 and COX-2, which convert arachidonic acid to PGG₂ and then PGH₂.",
+"w": [
+"PLC makes IP3 and DAG, not prostaglandins.",
+"PLA2 is inhibited by corticosteroids, not NSAIDs.",
+"NSAIDs act at the COX step.",
+"5-Lipoxygenase makes leukotrienes and is not blocked by NSAIDs.",
+""
 ],
 "src": "lec"
 }
