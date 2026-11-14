@@ -1188,6 +1188,8 @@ button.dst:hover{background:var(--hover)}
 <script src="nbme.js?v=17"></script>
 <script src="xp-crs.js?v=1"></script>
 <script src="viz-links.js?v=3"></script>
+<script src="followups/manifest.js?v=1"></script>
+<script src="followups.js?v=1"></script>
 <script>
 (function(){
 // =====================================================================
@@ -1359,6 +1361,11 @@ if (S.v === 2) {
 }
 S.course = COURSE_BY_ID[S.course] ? S.course : "msk"; S.curBy ??= {};
 function save(){ if (window.JJ_HOLD) return; try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){ toast("Couldn't save — browser storage is full or blocked"); } }
+// Related questions module (followups.js) works through this small window into the app
+if (window.JJFU) JJFU.bind({ get S(){ return S; }, get view(){ return view; }, set view(v){ view = v; }, byId, STATIC,
+  curQ:()=>curQ(), pos:()=>pos(), esc:x=>esc(x), save:()=>save(), renderAll:()=>renderAll(), renderCard:()=>renderCard(), renderUBar:()=>renderUBar(),
+  usmleOn:()=>usmleOn(), showPage:h=>showPage(h), toast:m=>toast(m), openChapter:(k,i)=>openChapter(k,i), status:(q,s)=>status(q,s),
+  navRow:(...a)=>navRow(...a), secLabel:(q,c)=>secLabel(q,c) });
 
 let view = "home";          // home | quiz | builder | notes | search | report
 let reportTest = null;
@@ -2060,7 +2067,7 @@ function renderChaps(){
       const n = allQ.filter(r.f).length, key = S.course+":rv:"+r.k;
       if (r.hideZero && !n) return "";
       return navRow(`data-rv="${key}" title="${r.label} questions in ${esc(course().name)}"`, NVI[r.k], r.label, n, S.cur===key && view==="quiz", "rv-"+r.k+(n?"":" zero"));
-    }).join("") + `</div>`;
+    }).join("") + (window.JJFU ? JJFU.side() : "") + `</div>`;
   }
   let tools = "";
   // All 3D models sit in one collapsible "3D models" group so the tools list stays short
@@ -2198,7 +2205,7 @@ function renderUBar(){
     const tot = c.ids.reduce((a,id)=>a+(S.qtime[id]||0), 0);
     L = `<span class="hidem"><span class="ulab">${t ? "Test" : "Chapter"} time</span> <b id="uctime">${fmtTime(tot)}</b></span><span class="usep"></span>${qt}<span class="usep"></span><span>${dn.length}/${n} answered · ${ok} correct</span>`;
     R = (t ? `<button class="ufbtn" id="reportBtn">Score report</button>`
-           : `<button class="ufbtn" id="resetQBtn" title="Clear your answer for this question only" ${hasProgress(q)?"":"disabled"}>Reset question</button>`)
+           : (window.JJFU ? JJFU.btn(q, done, "foot") : "") + `<button class="ufbtn" id="resetQBtn" title="Clear your answer for this question only" ${hasProgress(q)?"":"disabled"}>Reset question</button>`)
       + `<div class="menu"><button class="ufbtn ${openMenu==="opts"?"on":""}" data-menu="opts">${t ? "Options" : "Chapter options"} ▴</button>${openMenu==="opts"?`<div class="pop">${optsItems(c)}</div>`:""}</div>`
       + `<button class="ufbtn solid" id="uHome2">Exit</button>`;
   }
@@ -2213,7 +2220,8 @@ function renderRail(){
   $("rail").innerHTML = `<div class="rail-h">QS</div>` + c.ids.map((id,i)=>{
     const q = byId[id];
     const cls = timed ? (s.sel[id]!==undefined ? "pick" : "") : (status(q,s)||"");
-    return `<button class="tile ${cls} ${i===p?"cur":""} ${S.flag[id]?"flag":""}" data-i="${i}" title="Question ${i+1}">${i+1}</button>`;
+    const fx = window.JJFU && JJFU.fixed(id);
+    return `<button class="tile ${cls} ${i===p?"cur":""} ${S.flag[id]?"flag":""} ${fx?"fufix":""}" data-i="${i}" title="Question ${i+1}${fx?" · concept fixed":""}">${i+1}</button>`;
   }).join("");
   const cur = $("rail").querySelector(".cur");
   if (cur) cur.scrollIntoView({block:"nearest", inline:"nearest"});
@@ -2274,10 +2282,13 @@ function srcBadge(q){
     (q.src==="rev3"?' <span class="badge">MSK Review 3</span>':"")+(q.src==="rev4"?' <span class="badge">MSK Review 4</span>':"");
 }
 function renderCard(){
+  if (window.JJFU) JJFU.sync();
   const c = chap();
   if (!c.ids.length) {
     $("card").innerHTML = `<div class="empty">No questions here right now.</div>`; $("noteBox").hidden = true; if (usmleOn()) renderUBar(); return;
   }
+  // Related questions: a follow-up set is open for this question (see followups.js)
+  if (window.JJFU && JJFU.on()) { $("card").innerHTML = JJFU.card(); $("noteBox").hidden = true; if (usmleOn()) renderUBar(); return; }
   $("noteBox").hidden = false;
   const q = curQ(), p = pos(), n = c.ids.length, s = store();
   const timed = timedActive(), tDone = timedDone();
@@ -2289,8 +2300,9 @@ function renderCard(){
   const done = answered(q, s) || (tDone && !isReveal);
   const stemHTML = S.hl[q.id] || (q.html ? q.s : esc(q.s));
   const U = usmleOn();
-  let h = U ? (srcBadge(q) ? `<div class="umeta">${srcBadge(q)}</div>` : "") : `<div class="qhead">
-      <div class="qmeta">Question <b>${p+1}</b> of ${n} &nbsp;·&nbsp; ${esc(secLabel(q, chap()))} &nbsp;·&nbsp; ${esc(q.t)}${srcBadge(q)}</div>
+  const fub = window.JJFU ? JJFU.badge(q.id) : "";
+  let h = U ? (srcBadge(q)||fub ? `<div class="umeta">${srcBadge(q)}${fub}</div>` : "") : `<div class="qhead">
+      <div class="qmeta">Question <b>${p+1}</b> of ${n} &nbsp;·&nbsp; ${esc(secLabel(q, chap()))} &nbsp;·&nbsp; ${esc(q.t)}${srcBadge(q)}${fub}</div>
       <div class="qtools">
         <span class="menu hlmenu" id="hlMenu"><span class="split"><button class="btn ${mode==="hl"?"on":""}" id="hlBtn" title="Select text to highlight it. Highlight an already-highlighted part to erase it. Click a highlight to remove it."><span class="sw hl-${hlColor}"></span>Highlight</button><button class="btn caret ${mode==="hl"?"on":""}" id="hlCaret" title="Highlighter color" aria-label="Choose highlighter color">▾</button></span>
           <div class="pop hlpop"><div class="mi-h">HIGHLIGHTER COLOR</div>${HL_COLORS.map(c=>`<button class="mi" data-hlc="${c.k}"><span class="sw hl-${c.k}"></span>${c.name}<span class="ck" style="margin-left:auto">${hlColor===c.k?"✓":""}</span></button>`).join("")}
@@ -2299,6 +2311,7 @@ function renderCard(){
         ${!timed ? `<span class="menu gmenu" id="gMenu"><span class="split"><button class="btn" id="gBtn" title="Search this question on Google (new tab)">🔎 Google</button><button class="btn caret" id="gCaret" title="Edit the search or type your own" aria-label="Google search options">▾</button></span>
           <div class="pop"><div class="mi-h">SEARCH GOOGLE</div><form class="gform" id="gForm"><input id="gIn" type="search" autocomplete="off" placeholder="Type anything to search…"><button class="btn primary" type="submit">Search</button></form>
           <div class="gnote">Pre-filled with this question${done?" and its answer":""} — edit it or type your own. Tip: select any words in the question or explanation to Google just those.</div></div></span>` : ""}
+        ${!timed && !chap().test && window.JJFU ? JJFU.btn(q, done, "inline") : ""}
         <button class="btn ${S.flag[q.id]?"flagged":""}" id="flagBtn">⚑ ${S.flag[q.id]?"Flagged":"Flag"}</button>
         <button class="btn" id="resetQBtn" title="Clear your answer for this question only" ${hasProgress(q)&&!tDone?"":"disabled"}>↺ Reset question</button>
       </div></div>`;
@@ -3730,6 +3743,7 @@ function renderAll(){
     renderRail(); renderTools(); renderStats(); renderCard();
   } else if (view==="builder") renderBuilder();
   else if (view==="notes") renderNotes();
+  else if (view==="fudrills" && window.JJFU) JJFU.page();
   else if (view==="plexus") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>Brachial plexus</h2><a class="btn" href="brachial-plexus.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="brachial-plexus.html?v=35" title="Interactive brachial plexus"></iframe></div>`);
   else if (view==="heart3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>3D heart atlas</h2><a class="btn" href="heart-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="heart-3d.html?v=5" title="Interactive 3D heart atlas"></iframe></div>`);
   else if (view==="ribcage") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>3D thoracic cage</h2><a class="btn" href="rib-cage-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="rib-cage-3d.html?v=2" title="Interactive 3D thoracic cage"></iframe></div>`);
@@ -4471,7 +4485,7 @@ try { if (/[?&]v=/.test(location.search)) history.replaceState(null, "", locatio
 })();
 </script>
 <script>document.write('<script src="firebase-config.js?t=' + Date.now() + '"><\/script>');</script>
-<script src="auth.js?v=37"></script>
+<script src="auth.js?v=38"></script>
 <script>
 // Fail closed: if sign-in can't load (blocked, missing or failed file), the site stays locked instead of opening.
 setTimeout(function(){
