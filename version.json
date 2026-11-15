@@ -1,6 +1,37 @@
 {
- "v": "2026-11-14a",
+ "v": "2026-11-15a",
  "notes": [
+  {
+   "v": "2026-11-15a",
+   "date": "Nov 15, 2026",
+   "groups": [
+    {
+     "h": "New section",
+     "items": [
+      {
+       "tag": "new",
+       "title": "CRS Histology",
+       "text": "78 questions across the four histology lectures: smooth & cardiac muscle, structure of arteries, capillaries & veins, and histology of blood. Many use real slide and smear images to identify stains, vessels and blood cells, and the practice questions from the slides are included under Slide Practice Q's."
+      },
+      {
+       "tag": "new",
+       "title": "CRS Histology NBME guide",
+       "text": "Every slide from the four lectures in one place, with the high-yield points highlighted in red. Find it on the CRS NBME Dashboard."
+      }
+     ]
+    },
+    {
+     "h": "New feature",
+     "items": [
+      {
+       "tag": "new",
+       "title": "CRS Mock Formative",
+       "text": "A 66-question timed mock exam on the CRS dashboard: Physiology 25, Biochemistry 15, Anatomy 12, Embryology 8 and Histology 6, mixed together with 90 seconds per question. Resume it any time before you finish, then review your score report or retake it."
+      }
+     ]
+    }
+   ]
+  },
   {
    "v": "2026-11-14a",
    "date": "Nov 14, 2026",
