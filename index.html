@@ -290,6 +290,12 @@ i.d{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px
 .badge.xp{color:var(--red);border-color:var(--red)}
 .badge.shetty{color:var(--teal);border-color:var(--teal)}
 .badge.sampath{color:#0b7285;border-color:#0b7285}
+.badge.usmle{color:#5f3dc4;border-color:#5f3dc4}
+.labt{border-collapse:collapse;margin:10px 0 12px;font-size:14px;line-height:1.45;max-width:100%}
+.labt th,.labt td{border:1px solid var(--line);padding:5px 9px;text-align:left;vertical-align:top}
+.labt th{background:rgba(127,127,127,.1);font-weight:600}
+.eh .tt{font-weight:600;margin:12px 0 2px}
+.eh ul{margin:0 0 10px 18px;padding:0;line-height:1.65}
 .badge.sdEasy{color:#2b8a3e;border-color:#2b8a3e}.badge.sdMedium{color:#b08900;border-color:#b08900}.badge.sdMediumHard{color:#d9480f;border-color:#d9480f}.badge.sdHard{color:#c92a2a;border-color:#c92a2a}
 .badge.lvE{color:#2b8a3e;border-color:#2b8a3e}.badge.lvH{color:#e8590c;border-color:#e8590c}
 .badge{display:inline-block;margin-left:6px;font-size:11.5px;font-weight:600;color:var(--badge-fg);border:1px solid var(--badge-line);background:var(--badge-bg);border-radius:10px;padding:1px 8px;vertical-align:1px}
@@ -1186,8 +1192,8 @@ button.dst:hover{background:var(--hover)}
 <script src="crs-histology.js?v=1"></script>
 <script src="mocks.js?v=1"></script>
 <script src="crs-anatomy.js?v=1"></script>
-<script src="crs-biochem.js?v=7"></script>
-<script src="crs-physiology.js?v=11"></script>
+<script src="crs-biochem.js?v=8"></script>
+<script src="crs-physiology.js?v=12"></script>
 <script src="nbme.js?v=17"></script>
 <script src="xp-crs.js?v=1"></script>
 <script src="viz-links.js?v=3"></script>
@@ -1282,12 +1288,12 @@ const SECTIONS = [
    // Grouped by lecture (Dr. Shetty), then topic. Add each new lecture as one more [name, topics] row.
    extra:(()=>{ const T = window.CRS_BC_TOPICS||[];
      return lecExtras([["Lecture 1 · Fatty Acid Oxidation", T.slice(0,10)], ["Lecture 2 · Fatty Acid & TAG Synthesis", T.slice(10,21)], ["Lecture 3 · Ketone Body Metabolism", T.slice(21,29)], ["Lecture 4 · Complex Lipid Metabolism", T.slice(29,44)], ["Lecture 5 · Eicosanoid Metabolism", T.slice(44,50)]],
-       [["Shetty Practice Q's", "Shetty", "shetty"]]); })()},
+       [["Shetty Practice Q's", "Shetty", "shetty"], ["USMLE Style Q's", "USMLE", "usmle"]]); })()},
   {course:"crs", name:"CRS Physiology", all:"All CRS Physiology", prefix:"cpr", topics:window.CRS_PH_TOPICS, hideTopics:true, qs:window.CRS_PH_QUESTIONS,
    // Grouped by lecture (Dr. Sampath V.), then topic. Add each new lecture as one more [name, topics] row.
    extra:(()=>{ const T = window.CRS_PH_TOPICS||[];
      return lecExtras([["Lecture 1 · Cardiac Action Potential", T.slice(0,11)], ["Lecture 2 · Pacemaker Potential: SA & AV Nodes", T.slice(11,18)], ["Lecture 3 · Effects of Cardiac Nerves", T.slice(18,25)], ["Lecture 4 · The Cardiac Cycle", T.slice(25,32).concat(T.slice(39,47))], ["Lecture 5 · Cardiac Output & Pressure-Volume Loops", T.slice(32,39)], ["Lecture 6 · Hemodynamics: Flow, Pressure & Resistance", T.slice(47,53)]],
-       [["Sampath's Q's", "Sampath", "sampath"]]); })()}
+       [["Sampath's Q's", "Sampath", "sampath"], ["USMLE Style Q's", "USMLE", "usmle"]]); })()}
 ].concat((window.NBME_QUIZZES||[]).map(z=>({course:z.course, name:z.name, all:z.name, prefix:z.prefix, topics:[], qs:z.qs, nbme:true, subject:z.subject, note:z.note})))
  .filter(s=>s.qs && s.qs.length);
 
@@ -2286,7 +2292,7 @@ function renderStats(){
   $("stats").innerHTML = `<b>${done.length}</b> / ${qs.length} answered · <span class="g">${ok} correct</span> · <span class="r">${bad} incorrect</span> · ${pct}%${note}`;
 }
 function srcBadge(q){
-  return (q.xp?' <span class="badge xp">Exam Point</span>':"")+(q.shetty?' <span class="badge shetty">Shetty Practice Q</span>':"")+(q.sampath?' <span class="badge sampath">Sampath\'s Q\'s</span>':"")+(q.slideq?' <span class="badge">Slide practice Q</span>':"")+(q.sdiff?' <span class="badge sd'+q.sdiff.replace(/[^A-Za-z]/g,"")+'">'+q.sdiff+'</span>':"")+(q.src==="lec" && !q.sampath && !q.shetty?' <span class="badge">Lecture slides</span>':"")+(q.src==="guide"?' <span class="badge">Study guide</span>':"")+(q.lv?' <span class="badge lv'+q.lv[0]+'">'+q.lv+'</span>':"")+(q.src==="new"?' <span class="badge">Blueprint practice</span>':"")+(q.src==="rev"?' <span class="badge">Review slides</span>':"")+
+  return (q.xp?' <span class="badge xp">Exam Point</span>':"")+(q.shetty?' <span class="badge shetty">Shetty Practice Q</span>':"")+(q.sampath?' <span class="badge sampath">Sampath\'s Q\'s</span>':"")+(q.usmle?' <span class="badge usmle">USMLE style</span>':"")+(q.slideq?' <span class="badge">Slide practice Q</span>':"")+(q.sdiff?' <span class="badge sd'+q.sdiff.replace(/[^A-Za-z]/g,"")+'">'+q.sdiff+'</span>':"")+(q.src==="lec" && !q.sampath && !q.shetty?' <span class="badge">Lecture slides</span>':"")+(q.src==="guide"?' <span class="badge">Study guide</span>':"")+(q.lv?' <span class="badge lv'+q.lv[0]+'">'+q.lv+'</span>':"")+(q.src==="new"?' <span class="badge">Blueprint practice</span>':"")+(q.src==="rev"?' <span class="badge">Review slides</span>':"")+
     (q.src==="rev3"?' <span class="badge">MSK Review 3</span>':"")+(q.src==="rev4"?' <span class="badge">MSK Review 4</span>':"");
 }
 function renderCard(){

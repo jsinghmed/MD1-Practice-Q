@@ -6787,5 +6787,580 @@ window.CRS_PH_QUESTIONS = [
 ""
 ],
 "src": "lec"
+},
+{
+"t": "Sympathetic β1 → Gs → cAMP Cascade",
+"s": "<p>A 22-year-old man undergoes graded exercise testing on a treadmill. During the test, his heart rate increases from 68/min to 154/min. Intracellular signaling cascades within the sinoatrial node cells are evaluated. Increasing intracellular levels of cyclic adenosine monophosphate (cAMP) within these cells directly results in which of the following changes?</p>",
+"html": true,
+"c": [
+"Decreased L-type calcium channel opening probability",
+"Decreased slope of phase 4 depolarization",
+"Increased opening probability of HCN channels",
+"Increased potassium efflux during phase 3",
+"Prolongation of the absolute refractory period"
+],
+"a": 2,
+"eh": "<p>Sympathetic stimulation of the sinoatrial (SA) node involves beta-1 adrenergic receptor activation, which is coupled to Gs proteins. Activation of Gs leads to stimulation of adenylyl cyclase, converting ATP to cyclic adenosine monophosphate (cAMP). Elevated cAMP directly binds to Hyperpolarization-activated Cyclic Nucleotide-gated (HCN) channels, increasing their opening probability. This accelerates the inward funny current (If), which carries Na+ ions into the cell during phase 4 pacemaker depolarization. As a result, the slope of phase 4 depolarization increases, allowing the membrane potential to reach threshold faster, thereby increasing heart rate (positive chronotropy).</p><p><b>Key takeaways</b></p><ul><li>Sympathetic activation increases intracellular cAMP in SA nodal cells.</li><li>cAMP directly opens HCN channels, boosting the funny Na+ current (I<sub>f</sub>).</li><li>Increased I<sub>f</sub> steepens the slope of phase 4 spontaneous pacemaker depolarization, increasing heart rate.</li></ul>",
+"w": [
+"cAMP-dependent protein kinase A (PKA) phosphorylates L-type Ca²⁺ channels, which increases (not decreases) their open probability and calcium influx, accelerating phase 0 depolarization in SA node cells and augmenting contractility in myocytes.",
+"Elevated cAMP increases the slope of phase 4 depolarization, enabling faster reaching of threshold potential. A decreased slope occurs with parasympathetic (vagal) stimulation via acetylcholine acting on M2 receptors.",
+"",
+"While repolarization (phase 3) involves K+ efflux, the direct primary mechanism of cAMP-mediated heart rate acceleration during phase 4 is through HCN channel activation and increased funny current.",
+"Increased cAMP shortens the action potential duration and refractory period, facilitating higher heart rates rather than prolonging them."
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Isovolumetric Phases & Ejection",
+"s": "<p>A 34-year-old man undergoes cardiac catheterization during a diagnostic workup. Simultaneous electrocardiographic and left ventricular pressure recordings are taken. At a specific moment during the cardiac cycle, the QRS complex is observed on the ECG, left ventricular pressure rapidly rises above left atrial pressure, but remains lower than aortic pressure. Which of the following events occurs during this exact phase of the cardiac cycle?</p>",
+"html": true,
+"c": [
+"Aortic valve opens and rapid ejection begins",
+"Mitral valve closes, establishing isovolumetric contraction",
+"Mitral valve opens, initiating rapid ventricular filling",
+"Aortic valve closes, initiating isovolumetric relaxation",
+"Atrial contraction provides the final volume to the ventricle"
+],
+"a": 1,
+"eh": "<p>The phase described—occurring immediately after the QRS complex when left ventricular pressure exceeds left atrial pressure but remains below aortic pressure—is isovolumetric contraction. As left ventricular pressure rises above left atrial pressure, the mitral valve closes to prevent retrograde flow. Because left ventricular pressure has not yet exceeded aortic pressure, the aortic valve remains closed. With both the mitral and aortic valves closed, left ventricular volume remains constant while intraventricular pressure rises rapidly.</p><p><b>Key takeaways</b></p><ul><li>Isovolumetric contraction begins with closure of the mitral (and tricuspid) valve when ventricular pressure exceeds atrial pressure.</li><li>Both AV and semilunar valves are closed during this phase, so volume remains constant while pressure surges.</li><li>It follows the QRS complex on the ECG and ends when the aortic valve opens.</li></ul>",
+"w": [
+"The aortic valve opens only when left ventricular pressure exceeds aortic pressure, initiating the ejection phase.",
+"",
+"The mitral valve opens during diastole when left ventricular pressure drops below left atrial pressure, following isovolumetric relaxation.",
+"Aortic valve closure occurs at the end of ventricular ejection when ventricular pressure drops below aortic pressure, marking the start of isovolumetric relaxation.",
+"Atrial contraction occurs late in diastole (corresponds to the P wave on ECG), before the QRS complex and ventricular contraction."
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Frank–Starling Law",
+"s": "<p>A 24-year-old man presents to the emergency department after 2 days of severe vomiting and poor oral intake. He appears lethargic, with dry mucous membranes and prolonged skin turgor. Blood pressure is 90/60 mm Hg and heart rate is 115/min. Intravenous administration of 2 L of 0.9% normal saline is initiated. Which of the following physiological parameters will increase as a direct result of this fluid resuscitation?</p>",
+"html": true,
+"c": [
+"Systemic vascular resistance and heart rate",
+"End-systolic volume and heart rate",
+"End-diastolic volume and stroke volume",
+"Plasma renin activity and aldosterone levels",
+"Sympathetic tone and total peripheral resistance"
+],
+"a": 2,
+"eh": "<p>Intravenous administration of isotonic saline expands the intravascular extracellular fluid volume, increasing venous return to the heart. Elevated venous return increases right and left ventricular preload, which corresponds to an increase in end-diastolic volume (EDV). According to the Frank-Starling mechanism, an increased EDV stretches cardiac myocytes, enhancing actin-myosin cross-bridge formation and increasing force of contraction, which leads to an increased stroke volume (SV).</p><p><b>Key takeaways</b></p><ul><li>IV fluid resuscitation expands intravascular volume, increasing venous return and ventricular end-diastolic volume (EDV).</li><li>Increased EDV enhances preload, augmenting stroke volume (SV) via the Frank-Starling mechanism.</li><li>Restoration of arterial pressure reduces compensatory sympathetic tone and heart rate via baroreceptor reflexes.</li></ul>",
+"w": [
+"Restoring volume increases mean arterial pressure and baroreceptor firing, leading to a reflex decrease (not increase) in sympathetic output, which lowers heart rate and systemic vascular resistance (SVR).",
+"Stroke volume increases significantly while heart rate decreases toward normal. End-systolic volume (ESV) may remain relatively stable or decrease slightly due to improved contractility and reduced reflex sympathetic drive.",
+"",
+"Volume expansion restores renal perfusion pressure, suppressing the renin-angiotensin-aldosterone system (RAAS), thus decreasing plasma renin activity and aldosterone.",
+"Rehydration alleviates hypovolemia-induced sympathetic overdrive, causing sympathetic tone and total peripheral resistance to decrease."
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Drugs That Hit These Channels",
+"s": "<p>A 58-year-old man with chronic systolic heart failure (left ventricular ejection fraction 30%) remains symptomatic despite maximally tolerated doses of lisinopril, carvedilol, and spironolactone. His resting heart rate is 82/min in sinus rhythm. Ivabradine is added to his medical regimen. Which of the following best describes the specific cellular mechanism of action of ivabradine in this patient?</p>",
+"html": true,
+"c": [
+"Inhibition of L-type calcium channels in the AV node",
+"Blockade of beta-1 adrenergic receptors in the SA node",
+"Selective inhibition of HCN channels in the SA node",
+"Activation of Na+/K+-ATPase in ventricular myocytes",
+"Inhibition of phosphodiesterase-3 in cardiac tissue"
+],
+"a": 2,
+"eh": "<p>Ivabradine is a selective inhibitor of hyperpolarization-activated cyclic nucleotide-gated (HCN) channels in the sinoatrial (SA) node. These channels carry the inward funny current (I<sub>f</sub>, driven by Na+), which is responsible for phase 4 spontaneous diastolic depolarization in pacemaker cells. By inhibiting I<sub>f</sub>, ivabradine slows the rate of phase 4 depolarization, thereby prolonging diastole and decreasing heart rate without affecting myocardial contractility (inotropy), ventricular repolarization, or systemic vascular resistance.</p><div class=\"tt\">Pharmacological Comparison of Rate-Limiting Agents</div><table class=\"labt\"><tr><th>Drug Class / Agent</th><th>Primary Target</th><th>Cellular Mechanism</th><th>Primary Physiological Effect</th><th>Impact on Inotropy</th></tr><tr><td>Ivabradine</td><td>HCN Channels (I<sub>f</sub>)</td><td>Slows phase 4 diastolic depolarization in SA node</td><td>Selective heart rate reduction</td><td>None (Neutral)</td></tr><tr><td>Beta-blockers (e.g., Carvedilol)</td><td>β<sub>1</sub>-Adrenergic Receptors</td><td>Decreases cAMP; slows phase 4 &amp; phase 0 in SA/AV nodes</td><td>Reduced HR, AV conduction, &amp; contractility</td><td>Negative Inotrope</td></tr><tr><td>Non-dihydropyridine CCBs (e.g., Verapamil)</td><td>L-type Ca<sup>2+</sup> Channels</td><td>Decreases Ca<sup>2+</sup> influx in SA/AV nodes &amp; myocytes</td><td>Slows HR, AV conduction, &amp; contractility</td><td>Negative Inotrope</td></tr></table><p><b>Key takeaways</b></p><ul><li>Ivabradine selectively inhibits I<sub>f</sub> funny current channels (HCN channels) in the SA node.</li><li>It reduces heart rate by slowing the phase 4 pacemaker depolarization slope.</li><li>Unlike beta-blockers or calcium channel blockers, ivabradine lowers heart rate without negative inotropic effects.</li></ul>",
+"w": [
+"Non-dihydropyridine calcium channel blockers (e.g., diltiazem, verapamil) inhibit L-type calcium channels, slowing AV conduction and reducing contractility.",
+"Beta-blockers (e.g., carvedilol, metoprolol) block β₁ receptors, decreasing cAMP and affecting both chronotropy and inotropy.",
+"",
+"Digoxin inhibits (not activates) the Na+/K+-ATPase pump, increasing intracellular calcium and contractility.",
+"Inamrinone and milrinone inhibit PDE-3, increasing cAMP levels, which increases heart rate and cardiac contractility (inodilators)."
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Preload, Afterload & Contractility",
+"s": "<p>A 22-year-old man is brought to the emergency department following a deep thigh laceration in a motor vehicle accident. On arrival, he is pale and diaphoresis is noted. Pulse rate is 124/min, blood pressure is 92/58 mm Hg, and jugular venous pressure is low. Which of the following combinations of cardiovascular parameters best reflects this patient's uncompensated state compared to baseline?</p>",
+"html": true,
+"c": [
+"End-Diastolic Volume: Increased | Stroke Volume: Increased | Cardiac Output: Increased",
+"End-Diastolic Volume: Increased | Stroke Volume: Decreased | Cardiac Output: Decreased",
+"End-Diastolic Volume: Decreased | Stroke Volume: Decreased | Cardiac Output: Decreased",
+"End-Diastolic Volume: Decreased | Stroke Volume: Increased | Cardiac Output: Increased",
+"End-Diastolic Volume: Unchanged | Stroke Volume: Decreased | Cardiac Output: Unchanged"
+],
+"a": 2,
+"eh": "<p>Acute traumatic blood loss leads to hypovolemic shock. Severe hemorrhage decreases total intravascular blood volume, causing a primary drop in mean systemic filling pressure and venous return. Reduced venous return leads directly to a marked decrease in End-Diastolic Volume (EDV) (preload). By the Frank-Starling law, reduced EDV leads to a lower Stroke Volume (SV). Although compensatory tachycardia occurs (HR 124/min), the severe reduction in stroke volume outweighs the heart rate increase, causing an overall decrease in Cardiac Output (CO) (CO = HR × SV).</p><p><b>Key takeaways</b></p><ul><li>Hemorrhagic shock decreases venous return → decreased EDV.</li><li>Decreased EDV reduces myocardial stretch → decreased Stroke Volume.</li><li>Compensatory tachycardia is insufficient to restore normal Cardiac Output in acute uncompensated hypovolemia.</li></ul>",
+"w": [
+"Hypervolemia or increased preload leads to these changes, not acute hemorrhage.",
+"Seen in acute systolic heart failure where EDV is high due to impaired ejection.",
+"",
+"Increased stroke volume cannot occur with reduced EDV unless contractility is massively augmented beyond physiological limits during severe volume depletion.",
+"Acute hemorrhage directly decreases venous return, so EDV cannot remain unchanged."
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Frank–Starling Law",
+"s": "<p>A healthy 24-year-old volunteer participates in a clinical physiology study. While lying in a supine position, his legs are passively elevated to 45 degrees. Which of the following acute physiological changes is most likely to occur immediately following this maneuver?</p>",
+"html": true,
+"c": [
+"Increased stroke volume due to increased venous return",
+"Decreased cardiac output due to vagal stimulation",
+"Increased systemic vascular resistance due to baroreceptor response",
+"Decreased end-diastolic volume due to pooling of blood",
+"Increased heart rate due to the Bainbridge reflex"
+],
+"a": 0,
+"eh": "<p>Passive leg raising transfers blood from the large venous capacitance vessels of the lower extremities into the central thoracic circulation. This acts as an \"autotransfusion,\" increasing venous return to the right atrium and left ventricle. The increased venous return elevates left ventricular end-diastolic volume (preload). According to the Frank-Starling mechanism, increased cardiac preload stretches myocytes, optimizing actin-myosin overlap and increasing stroke volume.</p><p><b>Key takeaways</b></p><ul><li>Passive leg elevation increases venous return and cardiac preload (end-diastolic volume).</li><li>Increased preload leads to an increased stroke volume via the Frank-Starling principle.</li><li>Leg raising is used clinically to assess fluid responsiveness in critically ill patients.</li></ul>",
+"w": [
+"",
+"Cardiac output increases because the increase in stroke volume dominant over any mild reflex bradycardia.",
+"Increased stroke volume elevates pulse pressure and mean arterial pressure, increasing carotid sinus and aortic arch baroreceptor firing. This causes a reflex decrease (not increase) in sympathetic outflow and decreased systemic vascular resistance.",
+"Passive leg elevation returns pooled lower-extremity blood back to the heart, increasing end-diastolic volume.",
+"While atrial stretch can trigger the Bainbridge reflex, in humans, the dominant response to elevated arterial pressure from leg raising is the arterial baroreceptor reflex, which decreases heart rate."
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Isovolumetric Phases & Ejection",
+"s": "<p>A 20-year-old man undergoes detailed hemodynamic monitoring. Continuous recordings of left ventricular pressure (LVP), aortic pressure (AoP), and left atrial pressure (LAP) are obtained. At the start of phase 3 of the cardiac cycle (rapid ejection phase), which of the following pressure relationships must be present?</p>",
+"html": true,
+"c": [
+"LAP > LVP > AoP",
+"LVP < LAP < AoP",
+"AoP > LVP > LAP",
+"LVP > AoP > LAP",
+"LVP = AoP = LAP"
+],
+"a": 3,
+"eh": "<p>During rapid ejection (Phase 3 of the cardiac cycle), the left ventricle contracts forcefully, causing left ventricular pressure (LVP) to exceed aortic pressure (AoP). This pressure gradient forces the aortic valve open, allowing blood to flow rapidly into the aorta. Throughout this phase, the mitral valve remains closed because LVP is far higher than left atrial pressure (LAP). Therefore, the correct pressure relationship is LVP &gt; AoP &gt; LAP.</p><p><b>Key takeaways</b></p><ul><li>Ventricular ejection requires left ventricular pressure to surpass aortic pressure (LVP &gt; AoP).</li><li>During ventricular ejection, the mitral valve is kept firmly shut by high ventricular pressure (LVP gg LAP).</li><li>The pressure hierarchy during ejection is LVP &gt; AoP &gt; LAP.</li></ul>",
+"w": [
+"This pressure profile does not occur during any normal phase of the cardiac cycle.",
+"This relationship exists during ventricular filling (diastole), when LAP exceeds LVP, opening the mitral valve while AoP remains high.",
+"This relationship describes isovolumetric contraction (Phase 2), where LVP is greater than LAP (mitral valve closed) but less than AoP (aortic valve closed).",
+"",
+"Pressures across these three chambers are never simultaneously equal under normal physiological conditions."
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Isovolumetric Phases & Ejection",
+"s": "<p>A 24-year-old man undergoes cardiac catheterization. Simultaneous recordings show that left ventricular pressure has dropped below aortic pressure, causing closure of the aortic valve. Left ventricular pressure remains above left atrial pressure. Which phase of the cardiac cycle is represented by this physiological state?</p>",
+"html": true,
+"c": [
+"Isovolumetric contraction",
+"Rapid ejection",
+"Isovolumetric relaxation",
+"Reduced filling",
+"Atrial systole"
+],
+"a": 2,
+"eh": "<p>The period immediately following aortic valve closure—when left ventricular pressure drops below aortic pressure but remains above left atrial pressure—is isovolumetric relaxation. During this phase, both the aortic and mitral valves are closed. Because all valves are closed, left ventricular blood volume remains unchanged (isovolumetric) while the myocardium relaxes, causing left ventricular pressure to drop steeply. Once ventricular pressure falls below left atrial pressure, the mitral valve opens, ending isovolumetric relaxation and initiating rapid ventricular filling.</p><p><b>Key takeaways</b></p><ul><li>Isovolumetric relaxation begins with the closure of the aortic (and pulmonic) valve (S₂).</li><li>Intraventricular pressure falls rapidly while ventricular volume remains constant because both AV and semilunar valves are closed.</li><li>Ends when left ventricular pressure falls below left atrial pressure, causing the mitral valve to open.</li></ul>",
+"w": [
+"Occurs at the start of systole when LVP exceeds LAP (mitral valve closes) but is less than AoP (aortic valve closed).",
+"Occurs when LVP exceeds AoP and the aortic valve is open.",
+"",
+"Occurs late in diastole after the mitral valve has opened and rapid filling has completed.",
+"Occurs at the very end of diastole when the left atrium contracts to fill the ventricle prior to ventricular systole."
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Preload, Afterload & Contractility",
+"s": "<p>A 24-year-old man undergoes experimental hemodynamic evaluation. An intravenous infusion of a selective alpha-1 adrenergic receptor agonist (phenylephrine) is administered. Which of the following changes in the cardiac cycle and left ventricular mechanics will occur first as a direct consequence of increased systemic vascular resistance?</p>",
+"html": true,
+"c": [
+"Decreased end-diastolic volume",
+"Prolongation of isovolumetric contraction phase",
+"Increased stroke volume",
+"Decreased peak left ventricular systolic pressure",
+"Acceleration of SA node pacemaker depolarization"
+],
+"a": 1,
+"eh": "<p>Alpha-1 adrenergic stimulation causes pronounced arteriolar vasoconstriction, increasing systemic vascular resistance (afterload) and mean arterial pressure (aortic diastolic pressure). During the cardiac cycle, the left ventricle must generate enough pressure to exceed aortic diastolic pressure before the aortic valve can open. When aortic pressure is elevated, the left ventricle takes longer to raise intraventricular pressure to this higher threshold. As a result, the isovolumetric contraction phase is prolonged. Furthermore, because ejection faces higher resistance, stroke volume decreases and end-systolic volume increases.</p><p><b>Key takeaways</b></p><ul><li>Increased afterload (aortic pressure) requires the ventricle to reach a higher pressure before the aortic valve opens.</li><li>This prolongs the isovolumetric contraction phase.</li><li>Higher afterload reduces stroke volume and increases end-systolic volume (ESV).</li></ul>",
+"w": [
+"Increased afterload leads to incomplete emptying, elevating end-systolic volume. Over subsequent beats, venous return added to a higher ESV actually increases end-diastolic volume.",
+"",
+"Increasing afterload decreases stroke volume because the ventricle must spend more energy generating pressure rather than ejecting blood.",
+"LV systolic pressure must increase to overcome the elevated aortic pressure.",
+"Phenylephrine increases blood pressure, triggering the baroreceptor reflex to slow SA node depolarization (reflex bradycardia)."
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Frank–Starling Law",
+"s": "<p>A 24-year-old woman presents to the clinic complaining of dizziness upon standing. She reports 3 days of severe gastroenteritis with frequent watery diarrhea. On physical examination, her supine blood pressure is 110/70 mm Hg with a heart rate of 78/min. Upon standing, her blood pressure drops to 84/54 mm Hg and heart rate increases to 112/min. She is given 1 L of intravenous normal saline. Which of the following changes in myocardial cell physiology explains the resulting increase in stroke volume?</p>",
+"html": true,
+"c": [
+"Increased phosphorylation of phospholamban by protein kinase A",
+"Increased overlap of actin and myosin filaments towards optimal length",
+"Enhanced calcium influx through L-type calcium channels",
+"Increased velocity of shortening due to decreased afterload",
+"Decreased binding of calcium to troponin C"
+],
+"a": 1,
+"eh": "<p>The patient is suffering from orthostatic hypotension due to hypovolemia. Volume resuscitation with IV saline increases intravascular volume and venous return to the heart, increasing end-diastolic volume (preload). According to the Frank-Starling law of the heart, increasing preload stretches cardiac myocytes toward their optimal sarcomere length (around 2.2 µm). This optimization increases the sensitivity of troponin C to calcium and increases effective cross-bridge formation between actin and myosin filaments, thereby enhancing contractility and stroke volume.</p><p><b>Key takeaways</b></p><ul><li>The Frank-Starling mechanism explains how increased preload (EDV) increases stroke volume.</li><li>At the cellular level, stretch brings sarcomeres to optimal length, maximizing actin-myosin overlap and cross-bridge formation.</li><li>Stretch also enhances troponin C affinity for calcium.</li></ul>",
+"w": [
+"Phospholamban phosphorylation by PKA occurs during sympathetic beta-1 activation (increasing SERCA activity to speed relaxation), which is an inotropic/lusitropic mechanism rather than a mechanical volume-preload response.",
+"",
+"This is the primary cellular mechanism of positive inotropic agents (e.g., beta-agonists), not the primary mechanism of preload augmentation via Frank-Starling dynamics.",
+"Intravenous saline increases volume/preload rather than decreasing afterload; afterload may actually rise slightly as arterial pressure normalizes.",
+"Increased myocyte stretch increases (not decreases) calcium binding affinity of troponin C."
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Phase 2 · Plateau & E–C Coupling",
+"s": "<p>A 58-year-old woman with hypertension is prescribed a non-dihydropyridine calcium channel blocker. The drug acts primarily by blocking L-type voltage-gated calcium channels in cardiac myocytes. Which phase of the ventricular action potential will be directly shortened by this medication?</p>",
+"html": true,
+"c": [
+"Phase 0",
+"Phase 1",
+"Phase 2",
+"Phase 3",
+"Phase 4"
+],
+"a": 2,
+"eh": "<p>Phase 2 of the ventricular action potential is the plateau phase. It is characterized by a sustained balance between inward Ca²⁺ current through L-type voltage-gated calcium channels and outward K⁺ current through delayed rectifier potassium channels. L-type calcium channel blockers (e.g., verapamil, diltiazem) inhibit inward Ca²⁺ entry during phase 2. Reducing this inward depolarizing current causes outward potassium currents to predominate sooner, directly shortening the duration of Phase 2 (and thus shortening the overall action potential duration). None‎ Ventricular Action Potential Phases:</p><p>Phase 0: Rapid depolarization (Inward Na+) Phase 1: Initial repolarization (Transient outward K+) Phase 2: Plateau phase (Inward Ca2+ through L-type channels vs outward K+)                &lt;-- Blocked by CCBs Phase 3: Rapid repolarization (Outward K+) Phase 4: Resting membrane potential (Inward rectifier K+)</p><p><b>Key takeaways</b></p><ul><li>Phase 2 (plateau) of ventricular myocytes is maintained by calcium influx through L-type calcium channels.</li><li>Calcium channel blockers reduce inward calcium current during phase 2, shortening the plateau phase.</li><li>Phase 0 in ventricular myocytes relies on fast Na⁺ channels, whereas Phase 0 in nodal cells relies on Ca²⁺ channels.</li></ul>",
+"w": [
+"Rapid depolarization in ventricular myocytes is driven by inward Na⁺ current through fast voltage-gated Na⁺ channels (Phase 0 in SA/AV nodal cells relies on L-type Ca²⁺ channels, but in ventricular myocytes it is Na⁺-driven).",
+"Initial notch repolarization is caused by transient outward potassium current (I_to).",
+"",
+"Rapid repolarization is mediated by voltage-gated potassium channels (delayed rectifiers, I_Kr and I_Ks).",
+"The resting membrane potential in ventricular myocytes is maintained by inward rectifier potassium channels (I_K1)."
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "PV Loop Shifts: Preload, Afterload, Contractility",
+"s": "<p>A 64-year-old woman experiences recurrent lightheadedness when rising from a chair. Physical examination shows a decrease in systolic blood pressure of 26 mm Hg upon standing. To evaluate her volume status, a physician performs a passive leg raise maneuver while monitoring her cardiac parameters. Which of the following changes in the cardiac pressure-volume loop would be expected during this maneuver?</p>",
+"html": true,
+"c": [
+"Shift of the right ventricular border to the left",
+"Shift of the left ventricular end-systolic point upward and to the left",
+"Decrease in the area enclosed by the loop",
+"Shift of the lower-left corner of the loop to the right",
+"Shift of the right ventricular border (end-diastolic volume) to the right"
+],
+"a": 4,
+"eh": "<p>A passive leg raise increases venous return, boosting pre-load to the heart. On a left ventricular pressure-volume (PV) loop, increased preload increases End-Diastolic Volume (EDV). In a standard PV loop:</p><ul><li>The right vertical boundary represents end-diastolic volume (mitral valve closure).</li><li>Increasing EDV causes the right boundary of the loop to shift to the right.</li><li>End-systolic volume (left boundary) remains relatively unchanged initially, resulting in a wider loop, which signifies an increased stroke volume.</li></ul><p><b>Key takeaways</b></p><ul><li>Increased preload shifts the end-diastolic volume (right border) of the PV loop to the right.</li><li>The width of the PV loop represents Stroke Volume (SV = EDV - ESV).</li><li>Expanding the loop area increases ventricular stroke work.</li></ul>",
+"w": [
+"Moving the right border to the left indicates a decrease in EDV (e.g., hypovolemia or hemorrhage).",
+"This indicates an increase in contractility (increased ESVR), seen with inotropic agents like epinephrine.",
+"The area inside the PV loop represents stroke work. Increasing EDV expands the loop area (increases stroke work).",
+"The lower-left corner represents end-systolic volume/mitral valve opening; preload augmentation does not primarily shift this point to the right.",
+""
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Isovolumetric Phases & Ejection",
+"s": "<p>A 54-year-old man undergoes cardiac catheterization. Hemodynamic measurements demonstrate a point in the cardiac cycle where the QRS complex has just completed, left ventricular pressure is rapidly rising, but remains lower than aortic pressure. Both the mitral and aortic valves are closed. What is the state of left ventricular blood volume during this precise phase?</p>",
+"html": true,
+"c": [
+"Constant at maximum volume (End-Diastolic Volume)",
+"Rapidly decreasing due to ventricular ejection",
+"Rapidly increasing due to atrial contraction",
+"Constant at minimum volume (End-Systolic Volume)",
+"Slowly increasing due to passive filling"
+],
+"a": 0,
+"eh": "<p>The phase described is isovolumetric contraction. It occurs at the start of systole when the mitral valve closes (because LVP &gt; LAP) and before the aortic valve opens (because LVP &lt; AoP). Because both valves surrounding the left ventricular cavity are closed, no blood can enter or leave. Therefore, left ventricular volume remains constant at its maximum level, which is defined as the End-Diastolic Volume (EDV).</p><p><b>Key takeaways</b></p><ul><li>During isovolumetric contraction, left ventricular volume is fixed at End-Diastolic Volume (EDV).</li><li>Intraventricular pressure increases exponentially with zero change in volume because both the mitral and aortic valves are closed.</li><li>During isovolumetric relaxation, volume is fixed at End-Systolic Volume (ESV).</li></ul>",
+"w": [
+"",
+"Ventricular volume decreases rapidly during the ejection phase, which occurs after the aortic valve opens.",
+"Occurs late in diastole during atrial systole (P wave on ECG), before isovolumetric contraction begins.",
+"Left ventricular volume is constant at its minimum level during isovolumetric relaxation, which occurs at the end of systole after the aortic valve closes.",
+"Volume increases slowly during reduced ventricular filling (diastasis) in mid-to-late diastole."
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Wiggers Diagram: Phases A–G, Valves & Heart Sounds",
+"s": "<p>A 22-year-old medical student is studying cardiac auscultation and hemodynamic waveforms. He observes that shortly after the T wave on an electrocardiogram, aortic pressure exceeds left ventricular pressure, causing closure of the aortic valve and generating the second heart sound (S2). Which of the following best describes the events occurring immediately after this point?</p>",
+"html": true,
+"c": [
+"Ventricular filling begins immediately as the mitral valve opens simultaneously",
+"Ventricular pressure rises steeply while volume remains unchanged",
+"Ventricular volume decreases further as residual blood is pumped out",
+"Ventricular pressure remains constant while ventricular volume increases",
+"Ventricular pressure drops steeply while ventricular volume remains unchanged"
+],
+"a": 4,
+"eh": "<p>Closure of the aortic valve (marked by S₂ and the di-crotic notch on the aortic pressure tracing) signals the beginning of isovolumetric relaxation. During this phase, the aortic valve is closed, and left ventricular pressure is falling rapidly. However, because left ventricular pressure is still higher than left atrial pressure, the mitral valve remains closed. With both valves closed, no blood enters the ventricle, so ventricular volume remains constant (at ESV) while ventricular pressure drops steeply.</p><p><b>Key takeaways</b></p><ul><li>S₂ marks the closure of the semilunar (aortic and pulmonic) valves and the start of isovolumetric relaxation.</li><li>Isovolumetric relaxation is characterized by a steep drop in ventricular pressure with no change in ventricular volume.</li><li>The phase ends when left ventricular pressure falls below left atrial pressure, causing the mitral valve to open.</li></ul>",
+"w": [
+"Mitral valve opening does not occur simultaneously with aortic valve closure; it occurs only after ventricular pressure drops below atrial pressure at the end of isovolumetric relaxation.",
+"This describes isovolumetric contraction, which occurs at the onset of systole.",
+"No blood is ejected once the aortic valve closes.",
+"Ventricular volume increases during filling, but ventricular pressure is not elevated; it stays low.",
+""
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Drugs That Hit These Channels",
+"s": "<p>A 56-year-old man with stable angina is treated with verapamil. Which of the following cardiac tissues will experience the most significant decrease in conduction velocity as a direct result of this drug's mechanism of action?</p>",
+"html": true,
+"c": [
+"Atrial myocardium",
+"Purkinje fibers",
+"Ventricular myocardium",
+"Bundle of His",
+"Atrioventricular node"
+],
+"a": 4,
+"eh": "<p>Verapamil is a non-dihydropyridine calcium channel blocker that selectively targets L-type calcium channels. Action potentials in the atrioventricular (AV) node and sinoatrial (SA) node rely primarily on slow, inward Ca²⁺ currents (via L-type calcium channels) for phase 0 depolarization. Blocking these channels slows phase 0 depolarization in the AV node, which significantly decreases AV nodal conduction velocity and prolongs the PR interval on the ECG. This mechanism makes verapamil effective in controlling ventricular rate in atrial fibrillation and terminating AV nodal reentrant tachycardias (AVNRT).</p><p><b>Key takeaways</b></p><ul><li>Pacemaker/nodal tissue (SA and AV nodes) relies on L-type Ca²⁺ channels for Phase 0 depolarization.</li><li>Verapamil slows phase 0 depolarization in the AV node, decreasing conduction velocity and prolonging the PR interval.</li><li>Non-nodal tissues (atria, ventricles, Purkinje systems) rely on fast Na⁺ channels for phase 0 depolarization.</li></ul>",
+"w": [
+"Action potentials in non-nodal atrial myocytes rely on fast Na⁺ channels for phase 0 depolarization, making them far less sensitive to calcium channel blockers than nodal tissue.",
+"Phase 0 of Purkinje fiber action potentials is driven by fast voltage-gated sodium channels (I_Na), not L-type calcium channels.",
+"Phase 0 in ventricular myocardium is mediated by fast Na⁺ influx; verapamil affects phase 2 (plateau) in ventricular myocytes, but its primary effect on conduction velocity is in the AV node.",
+"The Bundle of His relies predominantly on fast sodium channel-mediated depolarization for rapid signal conduction.",
+""
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Cardiac Output & Cardiac Reserve",
+"s": "<p>A 24-year-old man presents with severe dehydration following 2 days of gastroenteritis. Intravenous infusion of 2 L of 0.9% saline is administered. Which of the following directional changes correctly describes the effects of this intervention on End-Diastolic Volume (EDV), Stroke Volume (SV), and Cardiac Output (CO)?</p>",
+"html": true,
+"c": [
+"EDV: Increased | SV: Decreased | CO: Decreased",
+"EDV: Decreased | SV: Decreased | CO: Decreased",
+"EDV: Decreased | SV: Increased | CO: Increased",
+"EDV: Increased | SV: Increased | CO: Increased",
+"EDV: Increased | SV: Increased | CO: Decreased"
+],
+"a": 3,
+"eh": "<p>Intravenous administration of isotonic saline expands extracellular fluid and intravascular volume. This increases venous return to the heart, which directly increases End-Diastolic Volume (EDV) (preload). Via the Frank-Starling mechanism, higher EDV increases myocardial fiber stretch, leading to a force-dependent increase in Stroke Volume (SV). Because Cardiac Output is the product of heart rate and stroke volume (CO = HR × SV), the significant increase in SV leads to an overall increase in Cardiac Output (CO) (assuming heart rate does not drop disproportionately).</p><p><b>Key takeaways</b></p><ul><li>IV saline loading increases intravascular volume → increased EDV.</li><li>Increased EDV enhances myocardial stretch and force of contraction → increased SV.</li><li>Elevated SV increases total Cardiac Output (CO).</li></ul>",
+"w": [
+"Incompatible with Frank-Starling physiology in a fluid-depleted individual; increased EDV increases SV.",
+"This pattern reflects progressive hypovolemia or hemorrhage, not volume resuscitation.",
+"SV cannot increase via preload mechanisms if EDV is decreased.",
+"",
+"An increase in both EDV and SV will increase CO unless severe bradycardia is induced, which does not occur with simple fluid rehydration."
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Atrial Systole & Ventricular Filling",
+"s": "<p>A 24-year-old man loses 1.5 L of blood from a lacerated artery in a trauma incident. In the emergency department, rapid IV crystalloid infusion is initiated. Which of the following best describes the physiological state of the left ventricle when its volume reaches its highest point during a single cardiac cycle following successful volume resuscitation?</p>",
+"html": true,
+"c": [
+"Isovolumetric contraction phase at end-systolic volume",
+"Isovolumetric relaxation phase at end-diastolic volume",
+"End of atrial systole at end-diastolic volume",
+"Mid-ejection phase at stroke volume",
+"Early rapid filling phase at end-systolic volume"
+],
+"a": 2,
+"eh": "<p>Left ventricular blood volume reaches its absolute highest point during the cardiac cycle at the very end of diastole, immediately prior to the start of ventricular contraction (systole). This volume is the End-Diastolic Volume (EDV). The final portion of ventricular filling is completed by atrial contraction (atrial systole), which contributes the final 10-30% of ventricular volume (the \"atrial kick\"). Thus, peak ventricular volume occurs at the end of atrial systole at end-diastolic volume.</p><p><b>Key takeaways</b></p><ul><li>Maximum ventricular volume is reached at the end of diastole (EDV).</li><li>Atrial systole delivers the final volume increment to achieve peak EDV right before isovolumetric contraction.</li><li>Minimum ventricular volume occurs at the end of ejection (ESV).</li></ul>",
+"w": [
+"Isovolumetric contraction occurs at end-diastolic volume, not end-systolic volume.",
+"Isovolumetric relaxation occurs at end-systolic volume (when LV volume is at its minimum).",
+"",
+"During ejection, ventricular volume is actively decreasing toward its minimum.",
+"Early rapid filling begins at end-systolic volume and increases volume, but does not represent maximum volume."
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Wiggers Diagram: Phases A–G, Valves & Heart Sounds",
+"s": "<p>A 23-year-old man undergoes cardiovascular physiological testing. The investigator tracks left ventricular volume and pressure across the cardiac cycle. Immediately following the QRS complex on ECG, left ventricular pressure begins to rise rapidly, while both the mitral and aortic valves remain tightly closed. Which row in the table below correctly matches this cardiac cycle phase with the corresponding valve states and volume status?</p>",
+"html": true,
+"c": [
+"Phase: Rapid Ejection | Mitral Valve: Open | Aortic Valve: Closed | LV Volume: Decreasing",
+"Phase: Isovolumetric Relaxation | Mitral Valve: Closed | Aortic Valve: Closed | LV Volume: Constant (ESV)",
+"Phase: Rapid Filling | Mitral Valve: Open | Aortic Valve: Closed | LV Volume: Increasing",
+"Phase: Isovolumetric Contraction | Mitral Valve: Open | Aortic Valve: Open | LV Volume: Constant (EDV)",
+"Phase: Isovolumetric Contraction | Mitral Valve: Closed | Aortic Valve: Closed | LV Volume: Constant (EDV)"
+],
+"a": 4,
+"eh": "<p>The phase described—occurring immediately after the QRS complex with rapidly rising LV pressure and both valves closed—is Isovolumetric Contraction. During this phase:</p><p>1. The Mitral Valve is Closed (because LVP &gt; LAP).</p><p>2. The Aortic Valve is Closed (because LVP &lt; AoP).</p><p>3. Left Ventricular Volume is Constant at End-Diastolic Volume (EDV).</p><div class=\"tt\">Summary of Cardiac Cycle Phases</div><table class=\"labt\"><tr><th>Phase</th><th>Mitral Valve</th><th>Aortic Valve</th><th>LV Pressure Status</th><th>LV Volume Status</th></tr><tr><td>1. Inflow / Filling</td><td>Open</td><td>Closed</td><td>LVP &lt; LAP</td><td>Increasing to EDV</td></tr><tr><td>2. Isovolumetric Contraction</td><td>Closed</td><td>Closed</td><td>LAP &lt; LVP &lt; AoP</td><td>Constant at EDV</td></tr><tr><td>3. Rapid / Reduced Ejection</td><td>Closed</td><td>Open</td><td>LVP &gt; AoP</td><td>Decreasing to ESV</td></tr><tr><td>4. Isovolumetric Relaxation</td><td>Closed</td><td>Closed</td><td>LAP &lt; LVP &lt; AoP</td><td>Constant at ESV</td></tr></table><p><b>Key takeaways</b></p><ul><li>Isovolumetric contraction follows the QRS complex.</li><li>Both AV and semilunar valves are closed.</li><li>Left ventricular volume remains constant at End-Diastolic Volume (EDV) while pressure rises.</li></ul>",
+"w": [
+"Phase: Rapid Ejection: Requires the aortic valve to be open and LV volume to be decreasing.",
+"Phase: Isovolumetric Relaxation: Occurs after the T wave (end of systole) at end-systolic volume, not after the QRS complex.",
+"Phase: Rapid Filling: Mitral valve is open, aortic valve is closed, and volume is increasing.",
+"Phase: Isovolumetric Contraction | Mitral Valve: Open | Aortic Valve: Open: Both valves cannot be open during an isovolumetric phase.",
+""
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Preload, Afterload & Contractility",
+"s": "<p>A 24-year-old man involved in a motorcycle collision sustains a deep thigh laceration with severe arterial bleeding. On arrival at the trauma center, his blood pressure is 80/50 mm Hg and heart rate is 132/min. Transthoracic echocardiogram demonstrates small, hyperdynamic left ventricular chambers with near-complete cavity obliteration during systole. Which of the following changes in cardiac parameters is primary to his condition?</p>",
+"html": true,
+"c": [
+"Primary increase in systemic vascular resistance",
+"Primary decrease in end-diastolic volume",
+"Primary increase in end-systolic volume",
+"Primary decrease in cardiac contractility",
+"Primary increase in stroke volume"
+],
+"a": 1,
+"eh": "<p>Severe acute blood loss leads to hypovolemic shock. The primary physiological deficit is a loss of intravascular volume, which reduces mean systemic filling pressure and venous return. Reduced venous return leads to a primary decrease in End-Diastolic Volume (EDV). Because the heart is depleted of volume, the ventricles appear \"small.\" In response, intense sympathetic activation increases heart rate (tachycardia) and myocardial contractility, leading to vigorous contraction and near-complete chamber obliteration at end-systole (low ESV).</p><p><b>Key takeaways</b></p><ul><li>Hemorrhagic shock causes a primary drop in EDV (preload) due to reduced venous return.</li><li>Compensatory sympathetic activation leads to hyperdynamic contractility, resulting in small end-systolic volumes.</li><li>Small, hyperdynamic ventricles on echocardiography are a classic sign of severe hypovolemia.</li></ul>",
+"w": [
+"SVR increases as a compensatory baroreceptor-mediated reflex response, not as the primary etiology.",
+"",
+"End-systolic volume is markedly decreased due to intense sympathetic inotropic stimulation.",
+"Contractility is increased secondarily to high sympathetic outflow.",
+"Stroke volume is severely decreased secondary to the profound loss of preload/EDV."
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Frank–Starling Law",
+"s": "<p>A 20-year-old man presents with acute gastroenteritis and dehydrating diarrhea. Following administration of 2 L of 0.9% saline, his cardiac output increases. At the subcellular level in cardiac myocytes, which of the following events accounts for the increased force of contraction induced by this volume administration?</p>",
+"html": true,
+"c": [
+"Increased phosphorylation of ryanodine receptors by PKA",
+"Increased open probability of L-type calcium channels",
+"Increased sensitivity of troponin C to intracellular calcium",
+"Inhibition of the plasma membrane Na+/Ca²⁺ exchanger",
+"Increased baseline phosphorylation of phospholamban"
+],
+"a": 2,
+"eh": "<p>Volume resuscitation increases venous return and end-diastolic volume, stretching cardiac myocytes. As cardiac muscle fibers are stretched toward their optimal length, two primary physiological mechanisms increase contractile force (the Frank-Starling law):</p><p>1. Optimization of actin-myosin overlap, increasing cross-bridge formation.</p><p>2. Increased calcium sensitivity of troponin C, meaning that for any given intracellular Ca²⁺ concentration, more Ca²⁺ binds to troponin C, promoting greater force generation.</p><p><b>Key takeaways</b></p><ul><li>The Frank-Starling mechanism operates via mechanical stretch of cardiac myocytes.</li><li>Mechanical stretch increases troponin C calcium sensitivity and optimizes actin-myosin cross-bridge alignment.</li><li>It increases contractile force without requiring an increase in intracellular calcium transients (unlike inotropic drugs).</li></ul>",
+"w": [
+"Driven by sympathetic beta-1 stimulation (adrenergic inotropy), not by mechanical stretch.",
+"Beta-adrenergic stimulation increases calcium entry through L-type channels via PKA-mediated phosphorylation; mechanical stretch does not primarily rely on changing L-type channel open probability.",
+"",
+"Cardiac glycosides (e.g., digoxin) work by inhibiting Na+/K+-ATPase, indirectly inhibiting Na⁺/Ca²⁺ exchange; volume expansion does not inhibit this exchanger.",
+"Phospholamban phosphorylation is mediated by PKA/calmodulin kinase II during sympathetic stimulation to accelerate SERCA2a calcium uptake (lusitropy)."
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Pressure Map: Normal Chamber Pressures",
+"s": "<p>A 20-year-old man undergoes cardiac catheterization for evaluation of exertional dyspnea. Measurements taken during the cardiac cycle show that left ventricular pressure has risen above left atrial pressure, causing mitral valve closure, but remains lower than aortic pressure. Which of the following pressure profiles is present during this phase?</p>",
+"html": true,
+"c": [
+"LAP > LVP > AoP",
+"AoP > LVP > LAP",
+"LVP > AoP > LAP",
+"LVP < LAP < AoP",
+"LVP = LAP > AoP"
+],
+"a": 1,
+"eh": "<p>The phase described is isovolumetric contraction. During this phase:</p><p>1. Left ventricular pressure has exceeded left atrial pressure (LVP &gt; LAP), causing the mitral valve to close.</p><p>2. Left ventricular pressure has not yet exceeded aortic pressure (LVP &lt; AoP), so the aortic valve remains closed.</p><p>Arranging these relative pressures from highest to lowest gives AoP &gt; LVP &gt; LAP.</p><p><b>Key takeaways</b></p><ul><li>Isovolumetric contraction: AoP &gt; LVP &gt; LAP.</li><li>Rapid ejection: LVP &gt; AoP &gt; LAP.</li><li>Isovolumetric relaxation: AoP &gt; LVP &gt; LAP (as LVP falls after aortic valve closure).</li><li>Ventricular filling: AoP &gt; LAP &gt; LVP.</li></ul>",
+"w": [
+"Non-physiological configuration under standard conditions.",
+"",
+"Represents the ejection phase, where LVP exceeds AoP to open the aortic valve.",
+"Represents ventricular filling, where LAP exceeds LVP to open the mitral valve.",
+"Non-physiological state."
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Phase 4 · Pacemaker Potential",
+"s": "<p>Isolated sinoatrial (SA) nodal cells are studied in an experimental preparation. The baseline electrical recording shows gradual depolarization during phase 4 of the action potential. Which of the following ionic currents is primarily responsible for initiating this spontaneous diastolic depolarization?</p>",
+"html": true,
+"c": [
+"Outward potassium current through delayed rectifier channels (I_K)",
+"Inward calcium current through L-type calcium channels (I_Ca,L)",
+"Inward sodium current through fast voltage-gated channels (I_Na)",
+"Outward sodium current through Na+/K+-ATPase",
+"Inward funny current carried mainly by sodium ions (I_f)"
+],
+"a": 4,
+"eh": "<p>Phase 4 spontaneous diastolic depolarization in sinoatrial (SA) node pacemaker cells is driven by the funny current (I<sub>f</sub>). The I<sub>f</sub> current is carried primarily by inward sodium ions (Na⁺) through hyperpolarization-activated cyclic nucleotide-gated (HCN) channels. These channels open when the cell hyperpolarizes at the end of phase 3 repolarization (around -60 mV). As Na⁺ flows inward, the membrane potential slowly depolarizes toward threshold, triggering Phase 0 of the pacemaker action potential.</p><p>None‎ Nodal (Pacemaker) Action Potential Phases:</p><p>Phase 4: Spontaneous diastolic depolarization (Inward Na+ via HCN / If current, T-type Ca2+) Phase 0: Upstroke / Depolarization (Inward Ca2+ via L-type channels) Phase 3: Repolarization (Outward K+ via delayed rectifier channels)</p><p><b>Key takeaways</b></p><ul><li>Phase 4 pacemaker depolarization in the SA node is initiated by the inward funny current (I<sub>f</sub>), mediated by HCN channels.</li><li>I<sub>f</sub> is activated by hyperpolarization at the end of phase 3 repolarization.</li><li>Pacemaker cells lack fast voltage-gated Na⁺ channels; Phase 0 depolarization is mediated by L-type Ca²⁺ channels.</li></ul>",
+"w": [
+"Outward K⁺ current causes repolarization (Phase 3); decay of this current contributes to phase 4, but the primary active inward driver is I_f.",
+"L-type calcium channels open late in phase 4 near threshold and mediate Phase 0 rapid upstroke in nodal cells.",
+"Fast voltage-gated sodium channels are inactivated/absent in SA and AV nodal pacemaker cells.",
+"The Na+/K+-ATPase pump pumps Na⁺ out and K⁺ in, which hyperpolarizes the membrane rather than depolarizing it.",
+""
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Preload, Afterload & Contractility",
+"s": "<p>A 26-year-old man involved in a motor vehicle collision arrives in the emergency department with severe bleeding from a thigh laceration. Blood pressure is 88/56 mm Hg, heart rate is 124/min, and central venous pressure is 1 mm Hg (low). Which set of changes best describes his hemodynamic profile relative to normal baseline parameters?</p>",
+"html": true,
+"c": [
+"Preload: Increased | Afterload: Decreased | Cardiac Output: Increased",
+"Preload: Decreased | Afterload: Increased | Cardiac Output: Decreased",
+"Preload: Decreased | Afterload: Decreased | Cardiac Output: Increased",
+"Preload: Increased | Afterload: Increased | Cardiac Output: Decreased",
+"Preload: Unchanged | Afterload: Increased | Cardiac Output: Unchanged"
+],
+"a": 1,
+"eh": "<p>In hypovolemic shock caused by acute hemorrhage:</p><p>1. Preload (EDV): Decreased due to significant loss of intravascular blood volume and reduced venous return.</p><p>2. Afterload (SVR): Increased due to intense reflex sympathetic activation and catecholamine release (causing systemic arteriolar vasoconstriction to preserve blood pressure).</p><p>3. Cardiac Output (CO): Decreased because the profound drop in stroke volume (from reduced preload) overcomes the compensatory tachycardia (CO = HR × SV).</p><p><b>Key takeaways</b></p><ul><li>Hypovolemic Shock Profile: ○ Preload (EDV/PCWP/CVP) → Decreased ○ Afterload (SVR) → Increased (reflex vasoconstriction) ○ Cardiac Output (CO) → Decreased</li></ul>",
+"w": [
+"Reflects hyperdynamic states like septic shock or fluid overload, not hypovolemia.",
+"",
+"Reflects distributive shock (e.g., anaphylaxis or early sepsis).",
+"Characteristic of cardiogenic shock (e.g., acute myocardial infarction).",
+"Preload cannot remain unchanged during severe hemorrhage."
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Wiggers Diagram: Phases A–G, Valves & Heart Sounds",
+"s": "<p>A 24-year-old man undergoes physical examination during an evaluation for exertional dyspnea. Heart sound auscultation reveals a prominent first heart sound (S1). Physiological tracking indicates that S1 occurs immediately after the QRS complex, at the moment when left ventricular pressure rises above left atrial pressure, but before aortic valve opening. Which of the following mechanical events is directly responsible for producing the S1 heart sound?</p>",
+"html": true,
+"c": [
+"Opening of the aortic valve",
+"Closure of the aortic and pulmonic valves",
+"Opening of the mitral and tricuspid valves",
+"Closure of the mitral and tricuspid valves",
+"Rapid passive filling of the left ventricle"
+],
+"a": 3,
+"eh": "<p>The first heart sound (S1) is produced by the closure of the atrioventricular (AV) valves—specifically the mitral and tricuspid valves—at the onset of ventricular systole. As the ventricles begin to contract following the QRS complex, intraventricular pressure rapidly exceeds intra-atrial pressure. This pressure difference forces the AV valve leaflets to snap shut, producing vibrations in the valve leaflets, chordae tendineae, and ventricular walls that create S₁. S₁ marks the beginning of the isovolumetric contraction phase.</p><p><b>Key takeaways</b></p><ul><li>S₁ is caused by the closure of the mitral and tricuspid valves at the start of systole.</li><li>S₁ marks the beginning of isovolumetric contraction.</li><li>S₂ is caused by the closure of the aortic and pulmonic valves at the start of diastole (isovolumetric relaxation).</li></ul>",
+"w": [
+"Normal valve openings are silent and do not produce heart sounds. (Pathological opening of a stiff valve produces an ejection click).",
+"Closure of the semilunar valves (aortic and pulmonic) produces the second heart sound (S2), marking the start of isovolumetric relaxation.",
+"Valve opening is normally silent. (Pathological opening of a stenotic mitral valve produces an opening snap).",
+"",
+"Rapid filling in early diastole can generate a third heart sound (S3) in volume-overloaded states or young individuals."
+],
+"usmle": 1,
+"src": "usm"
+},
+{
+"t": "Isovolumetric Phases & Ejection",
+"s": "<p>A 60-year-old man presents for a routine checkup. He has a history of hypertension and exertional chest discomfort. Dynamic hemodynamic analysis reveals a specific moment in his cardiac cycle occurring immediately after the QRS complex. The left ventricular pressure exceeds left atrial pressure, causing mitral valve closure, but remains lower than aortic pressure. Both mitral and aortic valves are closed. Which phase of the cardiac cycle is occurring, and what is the status of left ventricular blood volume?</p>",
+"html": true,
+"c": [
+"Rapid ejection phase; volume is rapidly decreasing",
+"Isovolumetric contraction phase; volume is constant at end-diastolic volume",
+"Isovolumetric relaxation phase; volume is constant at end-systolic volume",
+"Reduced ejection phase; volume is slowly decreasing",
+"Rapid filling phase; volume is rapidly increasing"
+],
+"a": 1,
+"eh": "<p>The phase described—occurring immediately after the QRS complex when left ventricular pressure exceeds left atrial pressure (closing the mitral valve) but is less than aortic pressure (aortic valve remains closed)—is Isovolumetric Contraction. Because both the inlet (mitral) and outlet (aortic) valves are closed, no blood can leave or enter the left ventricle. Therefore, left ventricular volume remains constant at End-Diastolic Volume (EDV) while intraventricular pressure increases rapidly to overcome aortic pressure.</p><p><b>Key takeaways</b></p><ul><li>Isovolumetric Contraction: ○ Timing: Immediately after the QRS complex (S₁). ○ Pressure: LAP &lt; LVP &lt; AoP. ○ Valves: Both Mitral and Aortic valves are Closed. ○ Volume: Constant at maximum capacity (End-Diastolic Volume).</li></ul>",
+"w": [
+"Occurs after the aortic valve opens, causing LV volume to drop quickly.",
+"",
+"Occurs at the end of systole following T wave/aortic valve closure, holding volume constant at End-Systolic Volume (ESV).",
+"Occurs late in systole while the aortic valve is still open.",
+"Occurs in early diastole after the mitral valve opens."
+],
+"usmle": 1,
+"src": "usm"
 }
 ];
