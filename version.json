@@ -1,6 +1,22 @@
 {
- "v": "2026-11-15a",
+ "v": "2026-11-15b",
  "notes": [
+  {
+   "v": "2026-11-15b",
+   "date": "Nov 15, 2026",
+   "groups": [
+    {
+     "h": "New section",
+     "items": [
+      {
+       "tag": "new",
+       "title": "CRS Genetics",
+       "text": "291 questions from the LMS practice quizzes, grouped by lecture: Regulation of Gene Expression (LMS Quiz 8), Signal Transduction (LMS Quiz 9), and Gene Mutation & Trinucleotide Repeats (LMS Quiz 10). Every question now has an answer, an explanation, and a note on why each wrong choice is wrong."
+      }
+     ]
+    }
+   ]
+  },
   {
    "v": "2026-11-15a",
    "date": "Nov 15, 2026",

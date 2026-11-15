@@ -1190,6 +1190,7 @@ button.dst:hover{background:var(--hover)}
 <script src="fbs-anki.js?v=34"></script>
 <script src="crs-embryology.js?v=35"></script>
 <script src="crs-histology.js?v=1"></script>
+<script src="crs-genetics.js?v=1"></script>
 <script src="mocks.js?v=1"></script>
 <script src="crs-anatomy.js?v=1"></script>
 <script src="crs-biochem.js?v=8"></script>
@@ -1284,6 +1285,9 @@ const SECTIONS = [
   {course:"crs", name:"CRS Histology", all:"All CRS Histology", prefix:"chs", topics:window.CRS_HIS_TOPICS, hideTopics:true, qs:window.CRS_HIS_QUESTIONS,
    // Grouped by the four CRS histology lectures, then topic; slide practice questions are copied word for word from each deck
    extra:lecExtras(window.CRS_HIS_LECTURES||[], [["Slide Practice Q's", "Slides", "slideq"]])},
+  {course:"crs", name:"CRS Genetics", all:"All CRS Genetics", prefix:"cgn", topics:window.CRS_GEN_TOPICS, hideTopics:true, qs:window.CRS_GEN_QUESTIONS,
+   // The school's practice quizzes (Quiz 8–10), grouped by lecture, then topic
+   extra:lecExtras(window.CRS_GEN_LECTURES||[])},
   {course:"crs", name:"CRS Biochemistry", all:"All CRS Biochemistry", prefix:"cbr", topics:window.CRS_BC_TOPICS, hideTopics:true, qs:window.CRS_BC_QUESTIONS,
    // Grouped by lecture (Dr. Shetty), then topic. Add each new lecture as one more [name, topics] row.
    extra:(()=>{ const T = window.CRS_BC_TOPICS||[];
@@ -2292,7 +2296,7 @@ function renderStats(){
   $("stats").innerHTML = `<b>${done.length}</b> / ${qs.length} answered · <span class="g">${ok} correct</span> · <span class="r">${bad} incorrect</span> · ${pct}%${note}`;
 }
 function srcBadge(q){
-  return (q.xp?' <span class="badge xp">Exam Point</span>':"")+(q.shetty?' <span class="badge shetty">Shetty Practice Q</span>':"")+(q.sampath?' <span class="badge sampath">Sampath\'s Q\'s</span>':"")+(q.usmle?' <span class="badge usmle">USMLE style</span>':"")+(q.slideq?' <span class="badge">Slide practice Q</span>':"")+(q.sdiff?' <span class="badge sd'+q.sdiff.replace(/[^A-Za-z]/g,"")+'">'+q.sdiff+'</span>':"")+(q.src==="lec" && !q.sampath && !q.shetty?' <span class="badge">Lecture slides</span>':"")+(q.src==="guide"?' <span class="badge">Study guide</span>':"")+(q.lv?' <span class="badge lv'+q.lv[0]+'">'+q.lv+'</span>':"")+(q.src==="new"?' <span class="badge">Blueprint practice</span>':"")+(q.src==="rev"?' <span class="badge">Review slides</span>':"")+
+  return (q.xp?' <span class="badge xp">Exam Point</span>':"")+(q.shetty?' <span class="badge shetty">Shetty Practice Q</span>':"")+(q.sampath?' <span class="badge sampath">Sampath\'s Q\'s</span>':"")+(q.usmle?' <span class="badge usmle">USMLE style</span>':"")+(q.slideq?' <span class="badge">Slide practice Q</span>':"")+(q.lq?' <span class="badge">LMS Quiz '+q.lq+'</span>':"")+(q.sdiff?' <span class="badge sd'+q.sdiff.replace(/[^A-Za-z]/g,"")+'">'+q.sdiff+'</span>':"")+(q.src==="lec" && !q.sampath && !q.shetty?' <span class="badge">Lecture slides</span>':"")+(q.src==="guide"?' <span class="badge">Study guide</span>':"")+(q.lv?' <span class="badge lv'+q.lv[0]+'">'+q.lv+'</span>':"")+(q.src==="new"?' <span class="badge">Blueprint practice</span>':"")+(q.src==="rev"?' <span class="badge">Review slides</span>':"")+
     (q.src==="rev3"?' <span class="badge">MSK Review 3</span>':"")+(q.src==="rev4"?' <span class="badge">MSK Review 4</span>':"");
 }
 function renderCard(){
@@ -2507,7 +2511,7 @@ function vizFor(q){
   if (ov === false || q.viz === false) return null;
   if (ov && !q.viz) q = Object.assign({}, q, {viz: ov});
   if (q.viz) { const t = VIZ_TOOLS[q.viz.tool]; return t ? Object.assign({icon:t.icon, name:t.name, page:t.page}, q.viz) : null; }
-  if (q.pfx==="chs") return null;   // histology slides: no 3D tool helps
+  if (q.pfx==="chs" || q.pfx==="cgn") return null;   // histology slides: no 3D tool helps
   if ((q.course||S.course) !== "crs") return null;   // keyword rules are tuned for CRS; other courses use viz-links.js
   const text = [q.s, q.q, q.e, plainS(q.eh||"")].filter(Boolean).join(" ");
   if (q.pfx==="ce" && (window.CRS_EMB_TOPICS||[]).slice(0,4).includes(q.t)) { const qt = [q.s, q.q].filter(Boolean).join(" ");
@@ -4401,7 +4405,7 @@ window.JJ_STATS = function(st){
 // Welcome screen: shown every time the page loads.
 // ---- Updates: version.json says which version is live. When it's newer than this page, a card offers a refresh
 // (skips the logo intro). After a refresh to a new version, "What's new" lists every change since the last one seen.
-const JJ_VERSION = "2026-11-15a";
+const JJ_VERSION = "2026-11-15b";
 const UPD_ICON = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>';
 let updLater = "";
 async function updFetch(){ const r = await fetch("version.json?t=" + Date.now(), {cache:"no-store"}); if (!r.ok) throw new Error(r.status); return r.json(); }
