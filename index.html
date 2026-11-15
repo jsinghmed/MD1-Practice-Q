@@ -1212,6 +1212,7 @@ const COURSES = [
   {id:"msk", name:"MSK", full:"Musculoskeletal", year:"MD1"},
   {id:"crs", name:"CRS", full:"Cardiovascular & Respiratory Systems", year:"MD1"},
   {id:"eth", name:"Ethics", full:"Medical Ethics", count:102, year:"MD1"},
+  {id:"gen", name:"Genetics", full:"Medical Genetics", year:"MD1"},
   // MD2 modules: empty until questions are added (give sections course:"rns" / "ghs" / "ers").
   {id:"rns", name:"RNS", full:"Renal and Nervous System I", year:"MD2"},
   {id:"ghs", name:"GHS", full:"GI and Hepatobiliary System I", year:"MD2"},
@@ -1285,7 +1286,7 @@ const SECTIONS = [
   {course:"crs", name:"CRS Histology", all:"All CRS Histology", prefix:"chs", topics:window.CRS_HIS_TOPICS, hideTopics:true, qs:window.CRS_HIS_QUESTIONS,
    // Grouped by the four CRS histology lectures, then topic; slide practice questions are copied word for word from each deck
    extra:lecExtras(window.CRS_HIS_LECTURES||[], [["Slide Practice Q's", "Slides", "slideq"]])},
-  {course:"crs", name:"CRS Genetics", all:"All CRS Genetics", prefix:"cgn", topics:window.CRS_GEN_TOPICS, hideTopics:true, qs:window.CRS_GEN_QUESTIONS,
+  {course:"gen", name:"Genetics", all:"All Genetics", prefix:"cgn", topics:window.CRS_GEN_TOPICS, hideTopics:true, qs:window.CRS_GEN_QUESTIONS,
    // The school's practice quizzes (Quiz 8–10), grouped by lecture, then topic
    extra:lecExtras(window.CRS_GEN_LECTURES||[])},
   {course:"crs", name:"CRS Biochemistry", all:"All CRS Biochemistry", prefix:"cbr", topics:window.CRS_BC_TOPICS, hideTopics:true, qs:window.CRS_BC_QUESTIONS,
