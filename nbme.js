@@ -5704,6 +5704,166 @@ window.NBME_QUIZZES = [
   "Pulse pressure does not create the murmur.",
   ""
  ]
+},
+{
+ "t": "Lecture 7 · Cardiac & Vascular Function Curves",
+ "s": "A 72-year-old woman is admitted with a large anterior MI. She is started on a dobutamine infusion. Compared with before the infusion, which set of changes is expected at her new steady state?",
+ "c": [
+  "↑ CO, ↑ RAP, ↑ venous return",
+  "↓ CO, ↑ RAP, ↓ venous return",
+  "↓ CO, ↓ RAP, ↓ venous return",
+  "↑ CO, ↓ RAP, ↑ venous return",
+  "↑ CO, no change in RAP or return"
+ ],
+ "a": 3,
+ "e": "Step 1: dobutamine is a β1 agonist and a positive inotrope, so the cardiac function curve shifts up.\nStep 2: the stronger ventricle empties more fully, so less blood is left behind and RAP falls.\nStep 3: a lower RAP widens the MSFP − RAP gradient, so venous return rises to match the higher CO.",
+ "w": [
+  "A higher RAP with higher output fits added volume.",
+  "Lower output with higher RAP fits negative inotropy.",
+  "Both falling fits blood loss.",
+  "",
+  "RAP changes when the cardiac curve moves."
+ ]
+},
+{
+ "t": "Lecture 7 · Cardiac & Vascular Function Curves",
+ "s": "A 19-year-old man is stabbed in the abdomen and loses about 1.5 L of blood. Before any treatment, which change in the function curves best explains his hypotension?",
+ "c": [
+  "VR curve shifts left in parallel",
+  "VR curve rotates counterclockwise",
+  "Cardiac curve shifts downward",
+  "Cardiac curve shifts upward",
+  "VR curve shifts right in parallel"
+ ],
+ "a": 0,
+ "e": "Step 1: hemorrhage lowers blood volume.\nStep 2: lower volume lowers mean systemic filling pressure, the x-intercept of the venous return curve.\nStep 3: the curve shifts down and left with the same slope, so it meets the cardiac curve at a lower RAP and a lower CO.",
+ "w": [
+  "",
+  "Rotation is a TPR effect.",
+  "Contractility is not the primary problem.",
+  "Contractility has not risen.",
+  "That follows a transfusion."
+ ]
+},
+{
+ "t": "Lecture 7 · Cardiac & Vascular Function Curves",
+ "s": "A researcher stops the heart of an anesthetized dog and measures the pressure that equalizes throughout the circulation within seconds. Which manipulation would raise this pressure?",
+ "c": [
+  "Infusing a pure arteriolar dilator",
+  "Infusing a negative inotrope",
+  "Infusing 1 L of whole blood",
+  "Infusing a venodilator",
+  "Removing 500 mL of blood"
+ ],
+ "a": 2,
+ "e": "Step 1: the pressure measured with the heart stopped is mean systemic filling pressure.\nStep 2: MSFP depends on blood volume and venous tone, not on arterioles or the heart.\nStep 3: adding blood raises MSFP and shifts the venous return curve up in parallel.",
+ "w": [
+  "Arterioles do not set MSFP.",
+  "The heart is stopped, and inotropy does not set MSFP.",
+  "",
+  "Venodilation lowers MSFP.",
+  "Removing blood lowers MSFP."
+ ]
+},
+{
+ "t": "Lecture 7 · Cardiac & Vascular Function Curves",
+ "s": "A 30-year-old man undergoing knee surgery under spinal anesthesia becomes hypotensive. His central venous pressure falls from 6 to 1 mmHg. Which treatment directly corrects the mechanism of his low cardiac output?",
+ "c": [
+  "IV furosemide to cut volume",
+  "IV nitroglycerin infusion",
+  "IV metoprolol for rate control",
+  "IV hydralazine for afterload",
+  "IV fluid with phenylephrine"
+ ],
+ "a": 4,
+ "e": "Step 1: spinal anesthesia blocks sympathetic outflow, so veins dilate and pool blood.\nStep 2: lower venous tone lowers MSFP, shifting the venous return curve down, so RAP and CO fall.\nStep 3: fluid raises volume and phenylephrine restores venous and arterial tone, raising MSFP and venous return.",
+ "w": [
+  "A diuretic lowers volume further.",
+  "Nitroglycerin is a venodilator.",
+  "A β-blocker lowers CO.",
+  "Hydralazine lowers TPR without restoring MSFP.",
+  ""
+ ]
+},
+{
+ "t": "Lecture 7 · Cardiac & Vascular Function Curves",
+ "s": "A 45-year-old man on long-term hemodialysis through a large forearm arteriovenous fistula has a resting cardiac output of 9 L/min. His RAP is normal. Which pair of changes in the function curves best explains these findings?",
+ "c": [
+  "Only the VR curve shifts right",
+  "Both curves move upward",
+  "Only the cardiac curve shifts up",
+  "Both curves shift downward",
+  "VR curve rotates down alone"
+ ],
+ "a": 1,
+ "e": "Step 1: a fistula lets blood bypass the arterioles, lowering TPR.\nStep 2: lower TPR rotates the venous return curve upward with the same MSFP, and lower afterload lifts the cardiac curve.\nStep 3: with both curves raised, they meet at a much higher CO with RAP about unchanged.",
+ "w": [
+  "That would raise RAP.",
+  "",
+  "That would lower RAP.",
+  "His output is high, not low.",
+  "That follows a rise in TPR."
+ ]
+},
+{
+ "t": "Lecture 7 · Cardiac & Vascular Function Curves",
+ "s": "A healthy volunteer has a mean systemic filling pressure of 7 mmHg, a right atrial pressure of 2 mmHg and a resistance to venous return of 1.25 mmHg·min/L. After a rapid saline infusion, MSFP rises to 10 mmHg and RAP rises to 3 mmHg. What is the change in venous return?",
+ "c": [
+  "From 5 to 7 L/min",
+  "From 4 to 8 L/min",
+  "From 5.6 to 4 L/min",
+  "From 4 to 5.6 L/min",
+  "From 4 to 10 L/min"
+ ],
+ "a": 3,
+ "e": "Step 1: VR = (MSFP − RAP)/RVR.\nStep 2: before, (7 − 2)/1.25 = 4 L/min. After, (10 − 3)/1.25 = 5.6 L/min.\nStep 3: the rise in MSFP outweighs the small rise in RAP, so venous return and cardiac output both rise.",
+ "w": [
+  "This ignores the resistance of 1.25.",
+  "This ignores the rise in RAP.",
+  "This reverses the direction.",
+  "",
+  "This uses MSFP alone."
+ ]
+},
+{
+ "t": "Lecture 7 · Cardiac & Vascular Function Curves",
+ "s": "A 64-year-old man with septic shock is started on norepinephrine, which raises his total peripheral resistance. His contractility and blood volume do not change. Which change is expected at his new operating point?",
+ "c": [
+  "Lower CO, similar RAP",
+  "Higher CO, similar RAP",
+  "Lower CO, much higher RAP",
+  "Higher CO, lower RAP",
+  "Lower CO, much lower RAP"
+ ],
+ "a": 0,
+ "e": "Step 1: higher TPR raises afterload, shifting the cardiac curve down.\nStep 2: higher TPR also rotates the venous return curve down without changing MSFP.\nStep 3: both curves fall together, so the operating point moves to a lower CO at about the same RAP.",
+ "w": [
+  "",
+  "Higher TPR lowers output when nothing else changes.",
+  "A large RAP rise fits pump failure.",
+  "That pattern fits positive inotropy.",
+  "A large RAP fall fits volume loss."
+ ]
+},
+{
+ "t": "Lecture 7 · Cardiac & Vascular Function Curves",
+ "s": "A 58-year-old man has an acute MI that leaves his left ventricle hypokinetic. Within hours his jugular venous pressure is elevated and his cardiac output is low. Over the next few days, his kidneys retain salt and water. What is the effect of this fluid retention on his operating point?",
+ "c": [
+  "CO falls further while RAP falls",
+  "CO rises and RAP falls to normal",
+  "CO rises some, RAP rises more",
+  "CO is unchanged while RAP falls",
+  "CO falls further while RAP rises"
+ ],
+ "a": 2,
+ "e": "Step 1: the MI shifts the cardiac curve down, lowering CO and raising RAP.\nStep 2: fluid retention raises blood volume and MSFP, shifting the venous return curve up.\nStep 3: the new crossing on the depressed cardiac curve is at a higher CO but an even higher RAP, which is why edema and congestion follow.",
+ "w": [
+  "More volume raises CO and RAP.",
+  "RAP rises with more volume.",
+  "",
+  "More volume does not lower RAP.",
+  "More volume raises CO on the depressed curve."
+ ]
 }
 ]
 }

@@ -1,6 +1,22 @@
 {
- "v": "2026-11-15b",
+ "v": "2026-11-16a",
  "notes": [
+  {
+   "v": "2026-11-16a",
+   "date": "Nov 16, 2026",
+   "groups": [
+    {
+     "h": "New lecture",
+     "items": [
+      {
+       "tag": "new",
+       "title": "CRS Physiology · Lecture 7: Cardiac & Vascular Function Curves",
+       "text": "31 questions from the new slides: venous return and the vascular function curve, the cardiac function curve, the operating point, and how blood volume, inotropy and afterload shift them."
+      }
+     ]
+    }
+   ]
+  },
   {
    "v": "2026-11-15b",
    "date": "Nov 15, 2026",

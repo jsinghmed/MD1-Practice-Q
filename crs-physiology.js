@@ -1,5 +1,5 @@
 // CRS Physiology — Dr. Sampath V. lecture slides. Reworked set: fewer, multi-concept, high-yield questions; lv = Easy/Hard; sampath = Challenge Yourself questions from the slides, word for word
-window.CRS_PH_TOPICS = ["Big Picture & Cardiac Cell Types", "Conduction System Anatomy", "Fast vs Slow Response", "Phase 0 & Na⁺ Channel Gates", "Phase 1 · The Notch", "Phase 2 · Plateau & E–C Coupling", "Phases 3 & 4 · Reset and Rest", "Refractory Periods", "Na⁺ Channel States", "Why the AP & Refractory Period Are Long", "Challenge Yourself · Sampath's Q's", "Pacemaker Cells, Automaticity & Key Terms", "Slow vs Fast Response APs", "Phase 4 · Pacemaker Potential", "Phase 0 · L-type Ca²⁺ Upstroke", "Phase 3 · Nodal Repolarization", "Pacemaker Hierarchy & Overdrive Suppression", "Challenge · Pacemaker Currents", "Autonomic Control: Chrono-, Dromo- & Inotropy", "Sympathetic β1 → Gs → cAMP Cascade", "Sympathetic Effects on SA Node, AV Node & Ventricle", "Parasympathetic M2 → Gi: Two Arms", "Integrated SA Node Effects & Summary", "Drugs That Hit These Channels", "Challenge · Cardiac Nerves", "Cardiac Cycle Timing: Systole vs Diastole", "Key Volumes: EDV, ESV, SV & EF", "Wiggers Diagram: Phases A–G, Valves & Heart Sounds", "Atrial Systole & Ventricular Filling", "Isovolumetric Phases & Ejection", "Jugular Venous Pulse & Aortic Pressure Curve", "Pressure Map: Normal Chamber Pressures", "Cardiac Output & Cardiac Reserve", "Preload, Afterload & Contractility", "Frank–Starling Law", "PV Loop: Phases & Valve Events", "PV Loop Shifts: Preload, Afterload, Contractility", "Cardiac Work", "Measuring CO: Indicator Dilution & Fick", "Sampath's Q's · Very Easy Set", "Sampath's Q's · Medium Set", "Sampath's Q's · Medium-Hard Set", "Sampath's Q's · Hard Set", "Sampath's Q's · Cardiac Cycle MCQs", "Sampath's Q's · Wiggers Diagram MCQs", "Sampath's Q's · Wiggers Diagram Easy", "Sampath's Q's · Cardiac Cycle Clinical Quiz", "Ohm's Law & the Pressure Gradient", "Poiseuille's Law & Vessel Radius", "Series vs Parallel Resistance", "Laminar vs Turbulent Flow", "Flow vs Velocity", "Compliance, Pulse Pressure & MAP"];
+window.CRS_PH_TOPICS = ["Big Picture & Cardiac Cell Types", "Conduction System Anatomy", "Fast vs Slow Response", "Phase 0 & Na⁺ Channel Gates", "Phase 1 · The Notch", "Phase 2 · Plateau & E–C Coupling", "Phases 3 & 4 · Reset and Rest", "Refractory Periods", "Na⁺ Channel States", "Why the AP & Refractory Period Are Long", "Challenge Yourself · Sampath's Q's", "Pacemaker Cells, Automaticity & Key Terms", "Slow vs Fast Response APs", "Phase 4 · Pacemaker Potential", "Phase 0 · L-type Ca²⁺ Upstroke", "Phase 3 · Nodal Repolarization", "Pacemaker Hierarchy & Overdrive Suppression", "Challenge · Pacemaker Currents", "Autonomic Control: Chrono-, Dromo- & Inotropy", "Sympathetic β1 → Gs → cAMP Cascade", "Sympathetic Effects on SA Node, AV Node & Ventricle", "Parasympathetic M2 → Gi: Two Arms", "Integrated SA Node Effects & Summary", "Drugs That Hit These Channels", "Challenge · Cardiac Nerves", "Cardiac Cycle Timing: Systole vs Diastole", "Key Volumes: EDV, ESV, SV & EF", "Wiggers Diagram: Phases A–G, Valves & Heart Sounds", "Atrial Systole & Ventricular Filling", "Isovolumetric Phases & Ejection", "Jugular Venous Pulse & Aortic Pressure Curve", "Pressure Map: Normal Chamber Pressures", "Cardiac Output & Cardiac Reserve", "Preload, Afterload & Contractility", "Frank–Starling Law", "PV Loop: Phases & Valve Events", "PV Loop Shifts: Preload, Afterload, Contractility", "Cardiac Work", "Measuring CO: Indicator Dilution & Fick", "Sampath's Q's · Very Easy Set", "Sampath's Q's · Medium Set", "Sampath's Q's · Medium-Hard Set", "Sampath's Q's · Hard Set", "Sampath's Q's · Cardiac Cycle MCQs", "Sampath's Q's · Wiggers Diagram MCQs", "Sampath's Q's · Wiggers Diagram Easy", "Sampath's Q's · Cardiac Cycle Clinical Quiz", "Ohm's Law & the Pressure Gradient", "Poiseuille's Law & Vessel Radius", "Series vs Parallel Resistance", "Laminar vs Turbulent Flow", "Flow vs Velocity", "Compliance, Pulse Pressure & MAP", "Venous Return & the Vascular Function Curve", "Shifting the Venous Return Curve: Volume, Venous Tone & TPR", "Cardiac Function Curve: Preload, Afterload & Inotropy", "The Operating Point: CO = VR", "Clinical Scenarios: Blood Volume Changes", "Clinical Scenarios: Inotropy & Afterload"];
 window.CRS_PH_QUESTIONS = [
 {
 "t": "Big Picture & Cardiac Cell Types",
@@ -7362,5 +7362,688 @@ window.CRS_PH_QUESTIONS = [
 ],
 "usmle": 1,
 "src": "usm"
+}
+,
+{
+"t": "Venous Return & the Vascular Function Curve",
+"lv": "Easy",
+"s": "In the equation VR = (MSFP − RAP)/RVR, which pressure acts as the back-pressure that opposes venous return?",
+"c": [
+"Right atrial pressure",
+"Mean systemic filling pressure",
+"Mean arterial pressure",
+"Left atrial pressure",
+"Pulmonary artery pressure"
+],
+"a": 0,
+"e": "Venous return is driven by the gradient from the peripheral veins (mean systemic filling pressure, about 7 mmHg) to the right atrium. Right atrial pressure is the downstream pressure, so the higher it is, the smaller the gradient and the lower the venous return.",
+"w": [
+"",
+"MSFP is the upstream pressure that drives venous return.",
+"Arterial pressure drives flow through the arterioles, not back to the heart.",
+"Left atrial pressure belongs to the pulmonary circuit.",
+"Pulmonary artery pressure is not in the equation."
+],
+"src": "lec"
+},
+{
+"t": "Venous Return & the Vascular Function Curve",
+"lv": "Easy",
+"s": "A patient has a mean systemic filling pressure of 7 mmHg, a right atrial pressure of 2 mmHg and a resistance to venous return of 1 mmHg·min/L. What is his venous return?",
+"c": [
+"9 L/min",
+"5 L/min",
+"2 L/min",
+"7 L/min",
+"14 L/min"
+],
+"a": 1,
+"e": "VR = (MSFP − RAP)/RVR = (7 − 2)/1 = 5 L/min. The gradient, not either pressure alone, sets the flow back to the heart.",
+"w": [
+"This adds the pressures instead of subtracting.",
+"",
+"This is the right atrial pressure alone.",
+"This is MSFP alone.",
+"This multiplies the pressures."
+],
+"src": "lec"
+},
+{
+"t": "Venous Return & the Vascular Function Curve",
+"lv": "Easy",
+"s": "On the vascular function curve, at what right atrial pressure does venous return fall to zero?",
+"c": [
+"When RAP falls to zero",
+"When RAP equals MAP",
+"When RAP equals the MSFP",
+"When RAP drops below zero",
+"When cardiac output plateaus"
+],
+"a": 2,
+"e": "Venous return needs a gradient from MSFP to RAP. When RAP rises to equal MSFP, about 7 mmHg normally, there is no gradient and venous return stops. That is where the curve meets the x-axis.",
+"w": [
+"At an RAP of zero the gradient is large and venous return is high.",
+"Arterial pressure is not part of the venous return gradient.",
+"",
+"Below zero the great veins collapse and venous return plateaus at its highest.",
+"The cardiac curve plateau does not set the x-intercept of the venous curve."
+],
+"src": "lec"
+},
+{
+"t": "Venous Return & the Vascular Function Curve",
+"lv": "Easy",
+"s": "A catheter in the superior vena cava measures central venous pressure. In function-curve terms, this value stands for which pressure?",
+"c": [
+"Left atrial pressure",
+"Mean systemic filling pressure",
+"Pulmonary artery pressure",
+"Right atrial pressure",
+"Aortic diastolic pressure"
+],
+"a": 3,
+"e": "The central veins in the thorax and the right atrium form one central venous compartment, so central venous pressure is used as right atrial pressure, the x-axis of both function curves.",
+"w": [
+"Left atrial pressure is estimated by the wedge pressure.",
+"MSFP is the pressure in the peripheral veins with the heart stopped.",
+"Pulmonary artery pressure is measured beyond the right ventricle.",
+"",
+"Aortic pressure is on the arterial side."
+],
+"src": "lec"
+},
+{
+"t": "Venous Return & the Vascular Function Curve",
+"lv": "Easy",
+"s": "Why does venous return stop rising once right atrial pressure falls below about 0 mmHg?",
+"c": [
+"Mean systemic filling pressure falls to zero",
+"The tricuspid valve stays closed",
+"Arterioles constrict by reflex",
+"Venous valves block backflow",
+"Great veins collapse entering the chest"
+],
+"a": 4,
+"e": "Lowering RAP widens the gradient only up to a point. Below about 0 mmHg the great veins entering the thorax collapse, which limits flow, so the vascular function curve flattens into a plateau.",
+"w": [
+"MSFP depends on blood volume and venous tone, not on RAP.",
+"The tricuspid valve opens in diastole whatever the RAP.",
+"No reflex arteriolar change creates the plateau.",
+"Venous valves prevent backflow but do not cap forward flow.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Venous Return & the Vascular Function Curve",
+"lv": "Hard",
+"s": "A 58-year-old man has an acute inferior MI that also infarcts his right ventricle. His right atrial pressure rises from 2 to 5 mmHg, while mean systemic filling pressure stays at 7 mmHg and resistance to venous return stays at 1 mmHg·min/L. How does his venous return change?",
+"c": [
+"Falls from 5 to 2 L/min",
+"Rises from 5 to 8 L/min",
+"Stays at 5 L/min",
+"Falls from 7 to 5 L/min",
+"Falls from 5 to 0 L/min"
+],
+"a": 0,
+"e": "A failing right ventricle empties poorly, so blood backs up and right atrial pressure rises. Before: (7 − 2)/1 = 5 L/min. After: (7 − 5)/1 = 2 L/min. The smaller gradient from the periphery to the right atrium cuts venous return.",
+"w": [
+"",
+"A higher RAP lowers, not raises, venous return.",
+"The gradient changed, so venous return must change.",
+"Venous return started at 5, not 7.",
+"Venous return reaches zero only when RAP equals MSFP."
+],
+"src": "lec"
+},
+{
+"t": "Shifting the Venous Return Curve: Volume, Venous Tone & TPR",
+"lv": "Easy",
+"s": "Which change shifts the venous return curve upward in parallel by raising mean systemic filling pressure?",
+"c": [
+"Acute hemorrhage",
+"Blood transfusion",
+"Spinal anesthesia",
+"Arteriolar dilation",
+"Arteriolar constriction"
+],
+"a": 1,
+"e": "More blood in the veins raises MSFP. The curve moves up and to the right with the same slope, so the x-intercept, which is the MSFP, moves right.",
+"w": [
+"Hemorrhage lowers MSFP and shifts the curve down.",
+"",
+"Spinal anesthesia dilates veins and lowers MSFP.",
+"Arteriolar dilation rotates the curve without changing MSFP.",
+"Arteriolar constriction rotates the curve downward."
+],
+"src": "lec"
+},
+{
+"t": "Shifting the Venous Return Curve: Volume, Venous Tone & TPR",
+"lv": "Easy",
+"s": "How does an acute hemorrhage change the vascular function curve?",
+"c": [
+"Shifts up, higher MSFP",
+"Rotates up, same MSFP",
+"Shifts down, lower MSFP",
+"Rotates down, same MSFP",
+"No change in the curve at all"
+],
+"a": 2,
+"e": "Losing blood volume lowers mean systemic filling pressure. The curve keeps its slope but moves down and to the left, crossing the x-axis at a lower pressure.",
+"w": [
+"That is the effect of a transfusion.",
+"Rotation without a change in MSFP is a TPR effect.",
+"",
+"Rotation down is the effect of higher TPR.",
+"Blood volume always shifts the curve."
+],
+"src": "lec"
+},
+{
+"t": "Shifting the Venous Return Curve: Volume, Venous Tone & TPR",
+"lv": "Easy",
+"s": "Total peripheral resistance falls because arterioles dilate, while blood volume and venous tone stay the same. How does the vascular function curve change?",
+"c": [
+"Shifts up, higher MSFP",
+"Shifts down, lower MSFP",
+"Rotates down, same MSFP",
+"Rotates up, same MSFP",
+"Does not change"
+],
+"a": 3,
+"e": "Lower arteriolar resistance lets blood reach the veins more easily, so the curve becomes steeper and venous return rises at every RAP. Blood volume and venous tone are unchanged, so MSFP and the x-intercept stay the same.",
+"w": [
+"A parallel shift up needs more volume or venous tone.",
+"A parallel shift down needs less volume or tone.",
+"Rotation down follows a rise in TPR.",
+"",
+"TPR changes alter the slope of the curve."
+],
+"src": "lec"
+},
+{
+"t": "Shifting the Venous Return Curve: Volume, Venous Tone & TPR",
+"lv": "Easy",
+"s": "Sympathetic stimulation constricts the veins. By which mechanism does this raise venous return?",
+"c": [
+"Lowering right atrial pressure",
+"Raising the resistance to venous return",
+"Lowering arteriolar resistance",
+"Increasing venous compliance",
+"Raising mean systemic filling pressure"
+],
+"a": 4,
+"e": "Veins hold most of the blood volume. Venoconstriction squeezes this reservoir, raising MSFP, so the gradient to the right atrium widens and the curve shifts up in parallel.",
+"w": [
+"Venoconstriction acts on the upstream pressure, not RAP.",
+"Higher resistance would lower venous return.",
+"Arteriolar tone is a separate effect.",
+"Venoconstriction lowers compliance.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Shifting the Venous Return Curve: Volume, Venous Tone & TPR",
+"lv": "Easy",
+"s": "A woman's mean systemic filling pressure rises from 7 to 10 mmHg after a blood transfusion. Her right atrial pressure is 2 mmHg and resistance to venous return is 1 mmHg·min/L. What is her venous return?",
+"c": [
+"8 L/min",
+"5 L/min",
+"10 L/min",
+"12 L/min",
+"3 L/min"
+],
+"a": 0,
+"e": "VR = (MSFP − RAP)/RVR = (10 − 2)/1 = 8 L/min, up from (7 − 2)/1 = 5 L/min. The larger gradient explains the upward shift of the curve.",
+"w": [
+"",
+"This uses the old MSFP of 7.",
+"This is MSFP alone.",
+"This adds RAP instead of subtracting it.",
+"This subtracts the old MSFP."
+],
+"src": "lec"
+},
+{
+"t": "Shifting the Venous Return Curve: Volume, Venous Tone & TPR",
+"lv": "Hard",
+"s": "A 24-year-old man receives a spinal anesthetic for knee surgery. Within minutes his blood pressure falls and his central venous pressure drops. Which change in the vascular function curve best explains his lower venous return?",
+"c": [
+"Upward rotation from lower TPR",
+"Parallel shift down from lower MSFP",
+"Parallel shift up from higher MSFP",
+"Downward rotation from higher TPR",
+"Steeper curve from lower venous resistance"
+],
+"a": 1,
+"e": "Spinal anesthesia blocks sympathetic outflow below the block. Veins lose their tone and pool blood, so MSFP falls, much like losing blood volume. The curve shifts down in parallel, and venous return, cardiac output and central venous pressure all fall.",
+"w": [
+"Lower TPR would raise venous return.",
+"",
+"MSFP falls, not rises, with venodilation.",
+"Sympathetic block lowers, not raises, TPR.",
+"Lower venous resistance would raise venous return."
+],
+"src": "lec"
+},
+{
+"t": "Cardiac Function Curve: Preload, Afterload & Inotropy",
+"lv": "Easy",
+"s": "The cardiac function curve plots cardiac output against which variable?",
+"c": [
+"Mean arterial pressure",
+"Total peripheral resistance",
+"Right atrial pressure",
+"Heart rate",
+"Mean systemic filling pressure"
+],
+"a": 2,
+"e": "The cardiac function curve is the Frank–Starling curve: cardiac output against preload, measured as right atrial or end-diastolic pressure. It shares this x-axis with the vascular function curve.",
+"w": [
+"MAP is an afterload measure.",
+"TPR changes the position of the curve, not its axis.",
+"",
+"Heart rate is one determinant of CO, not its x-axis.",
+"MSFP is the x-intercept of the vascular curve."
+],
+"src": "lec"
+},
+{
+"t": "Cardiac Function Curve: Preload, Afterload & Inotropy",
+"lv": "Easy",
+"s": "Which principle explains the rising part of the cardiac function curve?",
+"c": [
+"Poiseuille's law of resistance",
+"The law of Laplace",
+"The Fick principle",
+"The Frank–Starling law",
+"Ohm's law of flow"
+],
+"a": 3,
+"e": "A higher preload stretches the sarcomeres toward their optimal length, so the next beat is stronger and stroke volume rises. That is the Frank–Starling relationship.",
+"w": [
+"Poiseuille's law describes resistance.",
+"Laplace relates wall tension to pressure and radius.",
+"Fick measures cardiac output from O₂ uptake.",
+"",
+"Ohm's law relates flow, pressure and resistance."
+],
+"src": "lec"
+},
+{
+"t": "Cardiac Function Curve: Preload, Afterload & Inotropy",
+"lv": "Easy",
+"s": "Why does the cardiac function curve level off at high right atrial pressures?",
+"c": [
+"Venous return drops to zero at high RAP",
+"Afterload falls as filling rises",
+"Mean systemic filling pressure falls",
+"Heart rate slows at high filling",
+"Cardiac output reaches its ceiling"
+],
+"a": 4,
+"e": "Cardiac output has a limited ceiling. Once filling is high, more preload no longer adds much force, so the curve plateaus.",
+"w": [
+"Venous return is a separate curve.",
+"Afterload does not fall as filling rises.",
+"MSFP belongs to the vascular curve.",
+"Heart rate does not set the plateau.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Cardiac Function Curve: Preload, Afterload & Inotropy",
+"lv": "Easy",
+"s": "A patient is started on digoxin. How does this change the cardiac function curve?",
+"c": [
+"It shifts upward",
+"It shifts downward",
+"It rotates the VR curve",
+"It shifts the VR curve right",
+"It does not change"
+],
+"a": 0,
+"e": "Digoxin is a positive inotrope, so the heart pumps more at every preload and the cardiac function curve shifts upward. Venous return is not changed directly.",
+"w": [
+"",
+"Downward shifts follow negative inotropes.",
+"Rotation of the VR curve is a TPR effect.",
+"A rightward VR shift needs more volume or venous tone.",
+"Inotropes change the cardiac curve."
+],
+"src": "lec"
+},
+{
+"t": "Cardiac Function Curve: Preload, Afterload & Inotropy",
+"lv": "Easy",
+"s": "Afterload falls while preload and contractility stay the same. How does the cardiac function curve change?",
+"c": [
+"Down, less CO at each RAP",
+"Up, more CO at each RAP",
+"Flattens to a low plateau",
+"Moves right, less CO",
+"Does not change"
+],
+"a": 1,
+"e": "Lower afterload lets the ventricle eject more against less resistance, so stroke volume and cardiac output rise at every preload. The curve shifts up and to the left.",
+"w": [
+"Less output follows a rise in afterload.",
+"",
+"Lower afterload raises the plateau.",
+"A rightward shift means less output, which is the opposite.",
+"Afterload is one determinant of the curve."
+],
+"src": "lec"
+},
+{
+"t": "The Operating Point: CO = VR",
+"lv": "Easy",
+"s": "What is true at the operating point where the cardiac and vascular function curves cross?",
+"c": [
+"RAP equals mean systemic filling pressure",
+"Cardiac output equals zero",
+"Cardiac output equals venous return",
+"Venous return exceeds cardiac output",
+"Mean arterial pressure equals RAP"
+],
+"a": 2,
+"e": "The heart can pump only what returns to it, so at steady state CO = VR. The curves cross at the one right atrial pressure where this is true.",
+"w": [
+"That is where venous return is zero.",
+"Output is not zero at steady state.",
+"",
+"At steady state the two are equal.",
+"MAP is far higher than RAP."
+],
+"src": "lec"
+},
+{
+"t": "The Operating Point: CO = VR",
+"lv": "Easy",
+"s": "For a brief moment, a heart pumps out more blood than returns to it. What happens next?",
+"c": [
+"RAP rises until the two match",
+"MSFP rises until they match",
+"TPR falls until they match",
+"RAP falls until the two match",
+"Output keeps exceeding return"
+],
+"a": 3,
+"e": "Pumping out more than returns drains the right atrium, so RAP falls. A lower RAP widens the gradient for venous return and lowers preload for the heart, so the two flows meet again at the operating point.",
+"w": [
+"RAP falls, not rises, when the atrium is drained.",
+"MSFP depends on volume and venous tone.",
+"TPR is not the self-correcting variable here.",
+"",
+"CO and VR cannot differ for long."
+],
+"src": "lec"
+},
+{
+"t": "The Operating Point: CO = VR",
+"lv": "Easy",
+"s": "A vascular function curve follows VR = (7 − RAP)/1, and on its rising limb the cardiac function curve follows CO = 2.5 × RAP. Where is the operating point?",
+"c": [
+"RAP 7 mmHg, CO 0 L/min",
+"RAP 0 mmHg, CO 7 L/min",
+"RAP 4 mmHg, CO 3 L/min",
+"RAP 3 mmHg, CO 4 L/min",
+"RAP 2 mmHg, CO 5 L/min"
+],
+"a": 4,
+"e": "At steady state CO = VR, so 2.5 × RAP = 7 − RAP. Then 3.5 × RAP = 7, giving RAP = 2 mmHg and CO = 2.5 × 2 = 5 L/min.",
+"w": [
+"This is where venous return is zero.",
+"The heart pumps nothing at an RAP of 0 on this line.",
+"CO would be 10, not 3, at an RAP of 4.",
+"CO would be 7.5, not 4, at an RAP of 3.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Clinical Scenarios: Blood Volume Changes",
+"lv": "Easy",
+"s": "A patient receives two units of blood. Where does the new operating point sit compared with before?",
+"c": [
+"Higher CO at a higher RAP",
+"Higher CO at a lower RAP",
+"Lower CO at a higher RAP",
+"Lower CO at a lower RAP",
+"Same cardiac output, higher RAP"
+],
+"a": 0,
+"e": "A transfusion raises MSFP and shifts the venous return curve up and right. It now meets the unchanged cardiac curve further up, so VR, RAP and CO all rise.",
+"w": [
+"",
+"A lower RAP with higher CO fits positive inotropy.",
+"Lower CO with higher RAP fits negative inotropy.",
+"Lower CO and RAP fit blood loss.",
+"More volume raises output."
+],
+"src": "lec"
+},
+{
+"t": "Clinical Scenarios: Blood Volume Changes",
+"lv": "Easy",
+"s": "Which change moves the operating point to a lower cardiac output at a lower right atrial pressure?",
+"c": [
+"Dobutamine infusion",
+"Acute hemorrhage",
+"Fluid infusion",
+"Myocardial infarction",
+"Vasopressor infusion"
+],
+"a": 1,
+"e": "Hemorrhage lowers MSFP and shifts the venous return curve down and left, so it meets the cardiac curve at a lower RAP and a lower CO.",
+"w": [
+"Dobutamine raises CO and lowers RAP.",
+"",
+"Fluid raises both CO and RAP.",
+"MI lowers CO but raises RAP.",
+"Vasopressors lower CO with RAP about unchanged."
+],
+"src": "lec"
+},
+{
+"t": "Clinical Scenarios: Blood Volume Changes",
+"lv": "Easy",
+"s": "During surgery, a 60-year-old man receives 3 L of IV saline over an hour. Which pressure rises first to drive the increase in his venous return?",
+"c": [
+"Total peripheral resistance",
+"Resistance to venous return",
+"Mean systemic filling pressure",
+"Left atrial pressure",
+"Arterial diastolic blood pressure"
+],
+"a": 2,
+"e": "Extra fluid fills the compliant veins, raising MSFP. That widens the gradient to the right atrium, shifts the venous return curve up and pushes the operating point to a higher CO.",
+"w": [
+"Fluid does not raise arteriolar resistance.",
+"Higher RVR would lower venous return.",
+"",
+"Left atrial pressure is on the pulmonary side.",
+"Arterial pressure does not drive venous return."
+],
+"src": "lec"
+},
+{
+"t": "Clinical Scenarios: Blood Volume Changes",
+"lv": "Hard",
+"s": "A 22-year-old man is brought in after a motorcycle crash with a deformed, swollen thigh. His heart rate is 128/min, blood pressure is 84/50 mmHg and his neck veins are flat. Which change best explains his low cardiac output?",
+"c": [
+"Lower contractility shifting the CO curve down",
+"Higher TPR rotating the VR curve down",
+"Higher MSFP shifting the VR curve up",
+"Lower MSFP shifting the VR curve down",
+"Higher RAP from right heart failure"
+],
+"a": 3,
+"e": "A femur fracture can hide more than a liter of blood in the thigh. Losing volume lowers MSFP, so the venous return curve shifts down in parallel and meets the cardiac curve at a lower RAP, which fits the flat neck veins, and a lower CO.",
+"w": [
+"Pump failure would raise RAP and distend the neck veins.",
+"His low output comes from lost volume, not a TPR change.",
+"Blood loss lowers MSFP.",
+"",
+"Flat neck veins mean a low RAP."
+],
+"src": "lec"
+},
+{
+"t": "Clinical Scenarios: Inotropy & Afterload",
+"lv": "Easy",
+"s": "A patient in shock is started on dobutamine. Where does the new operating point sit compared with before?",
+"c": [
+"Higher CO at a higher RAP",
+"Lower CO at a higher RAP",
+"Lower CO at a lower RAP",
+"Same CO at a lower RAP",
+"Higher CO at a lower RAP"
+],
+"a": 4,
+"e": "Dobutamine is a positive inotrope, so the cardiac curve shifts up. The heart empties more fully, ESV falls, less blood is left in the right atrium and RAP falls, which also widens the gradient for venous return. CO rises at a lower RAP.",
+"w": [
+"Higher RAP with higher CO fits more blood volume.",
+"Lower CO with higher RAP fits negative inotropy.",
+"Lower CO and RAP fit blood loss.",
+"CO rises with a positive inotrope.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Clinical Scenarios: Inotropy & Afterload",
+"lv": "Easy",
+"s": "Which of these shifts the cardiac function curve downward as a negative inotrope?",
+"c": [
+"Narcotic overdose",
+"Dobutamine infusion",
+"Digoxin therapy",
+"Exercise",
+"Catecholamine release"
+],
+"a": 0,
+"e": "Negative inotropes include heart failure with reduced EF, narcotic overdose, sympathetic inhibition and myocardial infarction. They lower the cardiac curve.",
+"w": [
+"",
+"Dobutamine is a positive inotrope.",
+"Digoxin is a positive inotrope.",
+"Exercise raises contractility.",
+"Catecholamines raise contractility."
+],
+"src": "lec"
+},
+{
+"t": "Clinical Scenarios: Inotropy & Afterload",
+"lv": "Easy",
+"s": "A vasopressor raises total peripheral resistance with no change in contractility or blood volume. How does the operating point change?",
+"c": [
+"Higher CO, RAP about the same",
+"Lower CO, RAP about the same",
+"Lower CO with a much higher RAP",
+"Higher CO and a lower RAP",
+"Lower CO and a much lower RAP"
+],
+"a": 1,
+"e": "Higher TPR lowers both curves: the cardiac curve falls because afterload rises, and the venous return curve rotates down with the same MSFP. They meet at a lower CO with RAP roughly unchanged.",
+"w": [
+"Higher TPR lowers output.",
+"",
+"RAP rises sharply with pump failure, not a TPR rise.",
+"A lower RAP with higher CO fits positive inotropy.",
+"A much lower RAP fits blood loss."
+],
+"src": "lec"
+},
+{
+"t": "Clinical Scenarios: Inotropy & Afterload",
+"lv": "Hard",
+"s": "A 66-year-old woman has a large anterior wall MI. Two days later she is short of breath with cool hands and raised jugular venous pressure. How has her operating point most likely changed?",
+"c": [
+"Higher cardiac output and lower RAP",
+"Lower cardiac output and lower RAP",
+"Lower cardiac output and higher RAP",
+"Higher cardiac output and higher RAP",
+"Unchanged output and higher RAP"
+],
+"a": 2,
+"e": "A large infarct is a negative inotrope, so the cardiac curve shifts down. The weak heart leaves more blood behind, RAP rises, and the curves cross at a lower CO, matching her cool hands and raised jugular venous pressure.",
+"w": [
+"That fits a positive inotrope.",
+"Lower RAP with lower CO fits blood loss.",
+"",
+"Higher output does not fit pump failure.",
+"Output falls when contractility falls."
+],
+"src": "lec"
+},
+{
+"t": "Clinical Scenarios: Inotropy & Afterload",
+"lv": "Hard",
+"s": "A 25-year-old man has a large arteriovenous fistula in his thigh from an old gunshot wound. A continuous bruit is heard over it and his pulses are bounding. Which change best explains his high cardiac output?",
+"c": [
+"Higher TPR lowering both curves",
+"Lower MSFP shifting VR down",
+"Negative inotropy lowering CO",
+"Lower TPR raising both curves",
+"Higher RVR flattening VR"
+],
+"a": 3,
+"e": "The fistula lets arterial blood bypass the arterioles, lowering TPR. The venous return curve rotates up, and lower afterload lifts the cardiac curve, so the operating point moves to a higher CO with RAP about the same.",
+"w": [
+"A fistula lowers, not raises, TPR.",
+"The fistula does not lower volume or MSFP.",
+"Contractility is normal.",
+"",
+"Higher RVR would lower venous return."
+],
+"src": "lec"
+},
+{
+"t": "Clinical Scenarios: Inotropy & Afterload",
+"lv": "Hard",
+"s": "During a 10 km race, a 28-year-old runner's sympathetic tone raises contractility and venous tone while his muscle arterioles dilate. His cardiac output rises fourfold, but his right atrial pressure barely changes. Which change explains this?",
+"c": [
+"Only the cardiac curve shifts up",
+"Only the VR curve shifts right",
+"Both curves shift down together",
+"RAP rises far above MSFP",
+"Both curves shift up together"
+],
+"a": 4,
+"e": "Positive inotropy raises the cardiac curve, while venoconstriction raises MSFP and lower TPR steepens the venous return curve. With both curves raised, they cross at a much higher CO at about the same RAP.",
+"w": [
+"The cardiac curve alone would lower RAP.",
+"A VR shift alone would raise RAP.",
+"Exercise raises both curves.",
+"Venous return stops if RAP equals MSFP.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Clinical Scenarios: Inotropy & Afterload",
+"lv": "Hard",
+"s": "A 70-year-old man with heart failure with reduced ejection fraction is started on digoxin. A week later his edema is better and his central venous pressure has fallen. Which change best explains the lower central venous pressure?",
+"c": [
+"Fuller emptying lowers RA volume",
+"Higher MSFP from venoconstriction",
+"Lower TPR from arteriolar dilation",
+"Less venous return from hemorrhage",
+"Slower heart rate raising filling"
+],
+"a": 0,
+"e": "Digoxin is a positive inotrope. The ventricle empties more fully, so end-systolic volume falls and cardiac output rises. More blood is pumped out and less is left behind in the right atrium, so RAP and central venous pressure fall, which also widens the gradient for venous return.",
+"w": [
+"",
+"Higher MSFP would raise RAP.",
+"Digoxin is not a vasodilator.",
+"He has not bled.",
+"Slower rate and more filling would not lower RAP."
+],
+"src": "lec"
 }
 ];
