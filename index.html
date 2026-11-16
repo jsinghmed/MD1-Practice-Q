@@ -93,6 +93,16 @@ button{font:inherit;color:inherit;cursor:pointer}
 .toolsh .tchev{margin-left:auto;transition:transform .15s}.toolsh[aria-expanded="false"] .tchev{transform:rotate(-90deg)}
 .nv.g3d .tchev{margin-left:4px;color:var(--muted);transition:transform .15s}.nv.g3d[aria-expanded="false"] .tchev{transform:rotate(-90deg)}
 .nv.sub{padding-left:30px;font-size:13.5px}.nv.sub .ni{font-size:13px}
+.tgh{display:flex;align-items:center;gap:7px;width:100%;background:none;border:0;font:inherit;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:9px 10px 4px;cursor:pointer;text-align:left}
+.tgh:first-child{padding-top:4px}.toolsbody{padding-top:2px}.tgh:hover{color:var(--text)}
+.tgh .tgn{font-size:10.5px;letter-spacing:0;font-weight:600;opacity:.8}
+.tgh .tchev{margin-left:auto;transition:transform .15s}.tgh[aria-expanded="false"] .tchev{transform:rotate(-90deg)}
+.tdot{width:7px;height:7px;border-radius:50%;flex:none;background:var(--muted)}
+.tdot.anat{background:#e5806b}.tdot.phys{background:#4fb8b0}.tdot.emb{background:#b48cff}.tdot.oth{background:var(--muted)}
+.tgb{margin:0 0 2px}
+.nv.tl .nl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;flex:1}
+.nv.tl .tkind{flex:none;margin-left:6px;font-size:10px;font-weight:700;letter-spacing:.04em;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:0 5px;line-height:16px}
+.nv.tl.on .tkind{color:var(--text);border-color:var(--line2)}
 .tsub{padding:8px 12px 3px;font-size:10.5px;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);opacity:.8}
 .chaps{flex:1;overflow:auto;padding:0 9px 10px}
 .chap{width:100%;display:flex;justify-content:space-between;align-items:center;gap:8px;background:none;border:1px solid transparent;border-radius:6px;padding:9px 12px;margin-bottom:2px;text-align:left;font-size:14.5px}
@@ -1971,7 +1981,15 @@ const NVI = {
   guide: NVS('<path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5"/><path d="M9 13h7M9 17h5"/>'),
   ap: NVS('<path d="M2 15h4l2-10 3 14 2-9h3l2 3h4"/>'),
   pv: NVS('<path d="M7 19V8a3 3 0 0 1 3-3h4l3 6v8z"/><path d="M4 21h17M3 3v18"/>'),
-  anki: NVS('<rect x="6" y="3" width="13" height="16" rx="2"/><path d="M3 7v12a2 2 0 0 0 2 2h10"/>')
+  anki: NVS('<rect x="6" y="3" width="13" height="16" rx="2"/><path d="M3 7v12a2 2 0 0 0 2 2h10"/>'),
+  heart: NVS('<path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/>'),
+  injury: NVS('<path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0 1 12 7.2a4.3 4.3 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20z"/><path d="M13 9.5l-2.5 3.5h3L11 16.5"/>'),
+  ribs: NVS('<path d="M12 3v18"/><path d="M12 6.5c-3.5 0-6.5.8-8 2.5M12 6.5c3.5 0 6.5.8 8 2.5M12 10.5c-3.2 0-6 .9-7.3 2.7M12 10.5c3.2 0 6 .9 7.3 2.7M12 14.5c-2.8 0-5 .9-6 2.4M12 14.5c2.8 0 5 .9 6 2.4"/>'),
+  lab: NVS('<path d="M10 3h4M12 3v5"/><path d="M9 8h6l-1 5h-4z"/><path d="M12 13v3"/><path d="M5 21h14M8 21a4 4 0 0 1 4-5"/>'),
+  fc: NVS('<path d="M3 3v18h18"/><path d="M6 18c2.5-1 4.5-7 7.5-9.5S18 6 20 6"/><path d="M6 7l13 10"/>'),
+  embryo: NVS('<path d="M15.5 4.5A7.5 7.5 0 1 0 19.5 13"/><circle cx="13" cy="10" r="3"/><path d="M19.5 13c-.5-2-2-3-3.6-2.6"/>'),
+  arm: NVS('<path d="M9 21l1-7-3.5-4.5L9 4h3l.5 4.5L17 12"/><path d="M17 12l2 1"/>'),
+  leg: NVS('<path d="M10 3v8.5L8.5 21H12l1-6 1 6h3.5L16 11.5V3"/>')
 };
 function navRow(attr, ic, label, n, on, cls){
   return `<button class="nv ${on?"on":""} ${cls||""}" ${attr}><span class="ni">${ic}</span><span class="nl">${esc(label)}</span>${n!=="" && n!==undefined ? `<span class="nn">${n}</span>` : ""}</button>`;
@@ -2091,14 +2109,19 @@ function renderChaps(){
     }).join("") + (window.JJFU ? JJFU.side() : "") + `</div>`;
   }
   let tools = "";
-  // All 3D models sit in one collapsible "3D models" group so the tools list stays short
-  const g3d = rows => { const on = rows.some(r=>r[3]); let op = on; try { const v = localStorage.getItem("jj-3d-open"); if (v!==null) op = v==="1" || on; } catch(e) {}
-    return `<button class="nv g3d ${on&&!op?"on":""}" data-g3d aria-expanded="${op}"><span class="ni">${NVI.limb}</span><span class="nl">3D models</span><span class="nn">${rows.length}</span><svg class="tchev" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>`
-      + `<div class="g3dbody"${op?"":" hidden"}>` + rows.map(r=>navRow(`data-act="${r[0]}"`, r[1], r[2], "", r[3], "sub")).join("") + `</div>`; };
-  if (S.course==="msk") tools += g3d([["limb3d", "💪", "Upper limb", view==="limb3d"], ["leg3d", "🦵", "Lower limb", view==="leg3d"]]) + navRow('data-act="plexus"', NVI.plexus, "Brachial plexus", "", view==="plexus");
-  if (S.course==="crs") tools += g3d([["heart3d", "🫀", "Heart atlas", view==="heart3d"], ["heartemb", "🧬", "Heart development (embryo)", view==="heartemb"], ["heartinj", "🩹", "Heart injuries", view==="heartinj"], ["ribcage", "🦴", "Thoracic cage", view==="ribcage"]])
-    + navRow('data-act="cap"', NVI.ap, "Cardiac action potentials", "", view==="cap") + navRow('data-act="pvl"', NVI.pv, "Cardiac cycle & PV loop", "", view==="pvl") + navRow('data-act="fcurve"', NVI.pv, "Cardiac & vascular function curves", "", view==="fcurve") + navRow('data-act="viva"', NVI.notes, "Anatomy Lab: spotter & viva", "", view==="viva");
-  if (S.anki && S.anki.length) tools += navRow('data-act="anki"', NVI.anki, "Anki export", S.anki.length, view==="anki");
+  // Study tools, grouped by subject. Each row: [view, icon, label, kind, full name for the tooltip]
+  const TOOL_GROUPS = {
+    msk: [["Anatomy", "anat", [["limb3d", "arm", "Upper limb", "3D", "3D upper limb"], ["leg3d", "leg", "Lower limb", "3D", "3D lower limb"], ["plexus", "plexus", "Brachial plexus", "Map", "Brachial plexus"]]]],
+    crs: [["Anatomy", "anat", [["heart3d", "heart", "Heart atlas", "3D", "3D heart atlas"], ["heartinj", "injury", "Heart injuries", "3D", "3D heart injuries"], ["ribcage", "ribs", "Thoracic cage", "3D", "3D thoracic cage"], ["viva", "lab", "Spotter & viva", "Lab", "Anatomy Lab: spotter & viva"]]],
+          ["Physiology", "phys", [["cap", "ap", "Action potentials", "Sim", "Cardiac action potentials"], ["pvl", "pv", "Wiggers & PV loop", "Sim", "Cardiac cycle & PV loop"], ["fcurve", "fc", "Function curves", "Sim", "Cardiac & vascular function curves"]]],
+          ["Embryology", "emb", [["heartemb", "embryo", "Heart development", "3D", "3D heart development model"]]]]
+  };
+  const toolRow = (act, ic, label, kind, full) => `<button class="nv tl ${view===act?"on":""}" data-act="${act}" title="${esc(full||label)}"><span class="ni">${NVI[ic]||""}</span><span class="nl">${esc(label)}</span>${kind!==""&&kind!==undefined?`<span class="tkind">${esc(String(kind))}</span>`:""}</button>`;
+  const toolGroup = (key, name, cls, rows) => { let op = true; try { const v = localStorage.getItem("jj-tg-"+key); if (v!==null) op = v==="1" || rows.some(r=>view===r[0]); } catch(e) {}
+    return `<button class="tgh" data-tg="${key}" aria-expanded="${op}"><i class="tdot ${cls}"></i><span>${esc(name)}</span><span class="tgn">${rows.length}</span><svg class="tchev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>`
+      + `<div class="tgb"${op?"":" hidden"}>` + rows.map(r=>toolRow(...r)).join("") + `</div>`; };
+  (TOOL_GROUPS[S.course]||[]).forEach(([name, cls, rows])=>{ tools += toolGroup(S.course+"-"+cls, name, cls, rows); });
+  if (S.anki && S.anki.length) tools += toolGroup(S.course+"-other", "Export", "oth", [["anki", "anki", "Anki export", S.anki.length, "Anki export"]]);
   if (tools) {
     const nT = (tools.match(/data-act=/g)||[]).length, onTool = /data-act="[^"]+"[^>]*class="[^"]*\bon\b|class="[^"]*\bon\b[^"]*"[^>]*data-act=/.test(tools);
     let open = onTool; try { const v = localStorage.getItem("jj-tools-open"); if (v!==null) open = v==="1" || onTool; } catch(e) {}
@@ -4025,6 +4048,7 @@ document.addEventListener("click", e=>{
   if (gj) { e.preventDefault(); const el = document.getElementById(gj.dataset.gjump); if (el) el.scrollIntoView({behavior:"smooth", block:"start"}); return; }
   if (t.closest("[data-uworld]")) { uwOpen(t.closest("[data-uworld]").dataset.uworld); return; }
   if (t.closest("[data-anking]")) { ankingOpen(t.closest("[data-anking]").dataset.anking); return; }
+  if (t.closest("[data-tg]")) { const b = t.closest("[data-tg]"), op = b.getAttribute("aria-expanded")!=="true"; try { localStorage.setItem("jj-tg-"+b.dataset.tg, op?"1":"0"); } catch(e) {} b.setAttribute("aria-expanded", op); if (b.nextElementSibling) b.nextElementSibling.hidden = !op; return; }
   if (t.closest("[data-g3d]")) { const b = t.closest("[data-g3d]"), op = b.getAttribute("aria-expanded")!=="true"; try { localStorage.setItem("jj-3d-open", op?"1":"0"); } catch(e) {} b.setAttribute("aria-expanded", op); b.classList.toggle("on", !op && !!(b.nextElementSibling && b.nextElementSibling.querySelector(".on"))); if (b.nextElementSibling) b.nextElementSibling.hidden = !op; return; }
   if (t.closest("[data-toolstoggle]")) { const b = t.closest("[data-toolstoggle]"), op = b.getAttribute("aria-expanded")!=="true"; try { localStorage.setItem("jj-tools-open", op?"1":"0"); } catch(e) {} renderAll(); return; }
   const act = t.closest("[data-act]");
