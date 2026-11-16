@@ -8648,5 +8648,1462 @@ Object.assign(window.JJ_FU, {
 ]
 }
 ]
+},
+"cpr323": {
+"k": "Right atrial pressure opposes venous return",
+"q": [
+{
+"id": "cpr323-f1",
+"lv": "Easy",
+"s": "Which pressure drives blood from the peripheral veins back toward the heart?",
+"c": [
+"Mean systemic filling pressure",
+"Right atrial pressure",
+"Left ventricular systolic pressure",
+"Pulmonary venous pressure",
+"Intrapleural pressure"
+],
+"a": 0,
+"e": "Mean systemic filling pressure, about 7 mmHg, is the upstream pressure that pushes blood toward the right atrium.",
+"w": [
+"",
+"RAP is the back-pressure.",
+"LV pressure drives arterial flow.",
+"Pulmonary veins drain to the left atrium.",
+"Not the driving pressure in the equation."
+]
+},
+{
+"id": "cpr323-f2",
+"lv": "Hard",
+"s": "If right atrial pressure rises while MSFP and resistance stay the same, what happens to venous return?",
+"c": [
+"It rises",
+"It stays the same",
+"It reverses",
+"It falls",
+"It doubles"
+],
+"a": 3,
+"e": "A higher RAP narrows the MSFP − RAP gradient, so venous return falls.",
+"w": [
+"Opposite.",
+"The gradient changed.",
+"Flow does not reverse while MSFP exceeds RAP.",
+"",
+"Opposite."
+]
+}
+]
+},
+"cpr324": {
+"k": "Calculating venous return",
+"q": [
+{
+"id": "cpr324-f1",
+"lv": "Easy",
+"s": "MSFP is 8 mmHg, RAP is 3 mmHg and RVR is 1 mmHg·min/L. What is venous return?",
+"c": [
+"11 L/min",
+"5 L/min",
+"3 L/min",
+"8 L/min",
+"24 L/min"
+],
+"a": 1,
+"e": "VR = (8 − 3)/1 = 5 L/min.",
+"w": [
+"Adds the pressures.",
+"",
+"RAP alone.",
+"MSFP alone.",
+"Multiplies them."
+]
+},
+{
+"id": "cpr324-f2",
+"lv": "Hard",
+"s": "MSFP is 7 mmHg, RAP is 2 mmHg and resistance to venous return doubles to 2 mmHg·min/L. What is venous return?",
+"c": [
+"5 L/min",
+"10 L/min",
+"3.5 L/min",
+"1 L/min",
+"2.5 L/min"
+],
+"a": 4,
+"e": "VR = (7 − 2)/2 = 2.5 L/min. Doubling resistance halves the flow.",
+"w": [
+"Ignores the new resistance.",
+"Multiplies by resistance.",
+"Uses MSFP over 2.",
+"Miscalculated.",
+""
+]
+}
+]
+},
+"cpr325": {
+"k": "Venous curve x-intercept is MSFP",
+"q": [
+{
+"id": "cpr325-f1",
+"lv": "Easy",
+"s": "What does the x-intercept of the vascular function curve represent?",
+"c": [
+"Mean arterial blood pressure",
+"Peak cardiac output",
+"Mean systemic filling pressure",
+"Resistance to venous return",
+"Central venous blood volume at rest"
+],
+"a": 2,
+"e": "The curve crosses zero flow where RAP equals MSFP, so the x-intercept is MSFP.",
+"w": [
+"Not on this curve.",
+"The y-axis shows flow.",
+"",
+"Resistance sets the slope.",
+"Not an axis value."
+]
+},
+{
+"id": "cpr325-f2",
+"lv": "Hard",
+"s": "A vascular curve crosses the x-axis at 10 mmHg instead of 7 mmHg. Which change most likely happened?",
+"c": [
+"Blood volume increased",
+"Blood volume decreased",
+"TPR increased",
+"TPR decreased",
+"Contractility increased"
+],
+"a": 0,
+"e": "A rightward x-intercept means MSFP rose, which follows more blood volume or venous tone.",
+"w": [
+"",
+"That lowers MSFP.",
+"TPR changes the slope, not MSFP.",
+"TPR changes the slope, not MSFP.",
+"Contractility moves the cardiac curve."
+]
+}
+]
+},
+"cpr326": {
+"k": "CVP stands for RAP",
+"q": [
+{
+"id": "cpr326-f1",
+"lv": "Easy",
+"s": "On function curves, central venous pressure is read on which axis?",
+"c": [
+"The y-axis of both curves",
+"The y-axis of the cardiac curve",
+"The x-axis of the PV loop",
+"The x-axis of both curves",
+"Neither curve uses it"
+],
+"a": 3,
+"e": "Central venous pressure is used as right atrial pressure, the shared x-axis of the cardiac and vascular function curves.",
+"w": [
+"The y-axis is flow.",
+"The y-axis is cardiac output.",
+"PV loops plot volume.",
+"",
+"Both curves use RAP."
+]
+},
+{
+"id": "cpr326-f2",
+"lv": "Hard",
+"s": "A patient's central venous pressure is very low. Which state fits best?",
+"c": [
+"Right heart failure",
+"Hypovolemia",
+"Cardiac tamponade",
+"Fluid overload",
+"Tricuspid regurgitation"
+],
+"a": 1,
+"e": "Low volume lowers MSFP and venous return, so less blood reaches the right atrium and RAP, read as CVP, falls.",
+"w": [
+"Raises CVP.",
+"",
+"Raises CVP.",
+"Raises CVP.",
+"Raises CVP."
+]
+}
+]
+},
+"cpr327": {
+"k": "Venous collapse caps venous return",
+"q": [
+{
+"id": "cpr327-f1",
+"lv": "Easy",
+"s": "What shape does the vascular function curve take at negative right atrial pressures?",
+"c": [
+"A steep rise",
+"A downward slope",
+"A vertical line",
+"A sharp peak",
+"A flat plateau"
+],
+"a": 4,
+"e": "Below about 0 mmHg the great veins collapse, so venous return levels off in a plateau.",
+"w": [
+"It levels off.",
+"Not the shape.",
+"Not at negative RAP.",
+"Not the shape.",
+""
+]
+},
+{
+"id": "cpr327-f2",
+"lv": "Hard",
+"s": "Lowering right atrial pressure from 0 to −4 mmHg changes venous return how?",
+"c": [
+"Large rise, wider gradient",
+"Large fall, narrower gradient",
+"Little change, veins collapse",
+"Venous return stops",
+"Venous return reverses"
+],
+"a": 2,
+"e": "The gradient widens, but the great veins collapse as they enter the thorax, so venous return barely rises.",
+"w": [
+"Collapse limits the rise.",
+"The gradient widens.",
+"",
+"Flow continues.",
+"Flow stays forward."
+]
+}
+]
+},
+"cpr328": {
+"k": "Rising RAP lowers venous return",
+"q": [
+{
+"id": "cpr328-f1",
+"lv": "Easy",
+"s": "Right ventricular failure raises right atrial pressure. What happens to the pressure gradient for venous return?",
+"c": [
+"It narrows",
+"It widens",
+"It stays the same",
+"It reverses",
+"It becomes zero"
+],
+"a": 0,
+"e": "A higher RAP is closer to MSFP, so the gradient narrows.",
+"w": [
+"",
+"Opposite.",
+"RAP changed.",
+"Not while MSFP is higher.",
+"Only when RAP equals MSFP."
+]
+},
+{
+"id": "cpr328-f2",
+"lv": "Hard",
+"s": "MSFP is 7 mmHg and RVR is 1 mmHg·min/L. At what RAP would venous return be 1 L/min?",
+"c": [
+"1 mmHg",
+"7 mmHg",
+"8 mmHg",
+"6 mmHg",
+"5 mmHg"
+],
+"a": 3,
+"e": "1 = (7 − RAP)/1, so RAP = 6 mmHg.",
+"w": [
+"That gives 6 L/min.",
+"That gives zero flow.",
+"That gives backward flow.",
+"",
+"That gives 2 L/min."
+]
+}
+]
+},
+"cpr329": {
+"k": "Volume shifts the VR curve in parallel",
+"q": [
+{
+"id": "cpr329-f1",
+"lv": "Easy",
+"s": "After a transfusion, what happens to the slope of the venous return curve?",
+"c": [
+"It becomes steeper",
+"It stays the same",
+"It becomes flatter",
+"It becomes vertical",
+"It turns upward"
+],
+"a": 1,
+"e": "Volume changes shift the curve in parallel, so the slope is unchanged.",
+"w": [
+"That is lower TPR.",
+"",
+"That is higher TPR.",
+"Not a volume effect.",
+"Not a volume effect."
+]
+},
+{
+"id": "cpr329-f2",
+"lv": "Hard",
+"s": "Which pair of changes both shift the venous return curve up in parallel?",
+"c": [
+"Less volume and more venous tone",
+"Lower TPR and higher TPR",
+"More volume and lower TPR",
+"Less venous tone and lower TPR",
+"More volume and more venous tone"
+],
+"a": 4,
+"e": "Both extra blood volume and venoconstriction raise MSFP, so both shift the curve up in parallel.",
+"w": [
+"Less volume shifts it down.",
+"TPR rotates the curve.",
+"Lower TPR rotates it.",
+"Less venous tone shifts it down.",
+""
+]
+}
+]
+},
+"cpr330": {
+"k": "Hemorrhage lowers MSFP",
+"q": [
+{
+"id": "cpr330-f1",
+"lv": "Easy",
+"s": "Which pressure falls first after a large hemorrhage?",
+"c": [
+"Total peripheral resistance",
+"Left atrial pressure",
+"Mean systemic filling pressure",
+"Resistance to venous return flow",
+"Intrathoracic pressure"
+],
+"a": 2,
+"e": "Losing blood empties the veins, so MSFP falls and the venous curve shifts down.",
+"w": [
+"TPR tends to rise by reflex.",
+"Not the first change.",
+"",
+"Not set by volume.",
+"Not set by volume."
+]
+},
+{
+"id": "cpr330-f2",
+"lv": "Hard",
+"s": "After hemorrhage, a reflex venoconstriction occurs. How does this affect the venous return curve?",
+"c": [
+"Shifts it partly back up",
+"Shifts it further downward",
+"Rotates it downward",
+"Makes it flatter",
+"Leaves it entirely unchanged"
+],
+"a": 0,
+"e": "Venoconstriction raises MSFP, partly restoring the curve toward normal.",
+"w": [
+"",
+"Opposite.",
+"Not a TPR effect.",
+"Not this.",
+"It raises MSFP."
+]
+}
+]
+},
+"cpr331": {
+"k": "TPR rotates the venous return curve",
+"q": [
+{
+"id": "cpr331-f1",
+"lv": "Easy",
+"s": "Arteriolar constriction raises TPR. How does the venous return curve change?",
+"c": [
+"Rotates up, same MSFP",
+"Shifts up, higher MSFP",
+"Shifts down, lower MSFP",
+"Rotates down, same MSFP",
+"Does not change"
+],
+"a": 3,
+"e": "Higher TPR flattens the curve without changing MSFP.",
+"w": [
+"That is lower TPR.",
+"Needs more volume.",
+"Needs less volume.",
+"",
+"TPR changes the slope."
+]
+},
+{
+"id": "cpr331-f2",
+"lv": "Hard",
+"s": "Why does a TPR change leave the x-intercept of the venous return curve unchanged?",
+"c": [
+"MSFP depends only on the arterioles",
+"MSFP is set by volume and venous tone",
+"RAP is fixed by the heart",
+"Venous resistance is zero",
+"Arterial pressure alone sets the MSFP"
+],
+"a": 1,
+"e": "The x-intercept is MSFP, which depends on blood volume and venous tone, not arteriolar resistance.",
+"w": [
+"Arterioles do not set MSFP.",
+"",
+"RAP is not fixed.",
+"Venous resistance is not zero.",
+"MSFP is not set by arterial pressure."
+]
+}
+]
+},
+"cpr332": {
+"k": "Venoconstriction raises MSFP",
+"q": [
+{
+"id": "cpr332-f1",
+"lv": "Easy",
+"s": "Most of the body's blood volume at rest sits in which vessels?",
+"c": [
+"Systemic arteries",
+"Capillaries",
+"Pulmonary arteries",
+"Arterioles",
+"Systemic veins"
+],
+"a": 4,
+"e": "Veins are compliant capacitance vessels that hold most of the blood, so their tone strongly sets MSFP.",
+"w": [
+"Hold far less.",
+"Hold little.",
+"Hold little.",
+"Hold little.",
+""
+]
+},
+{
+"id": "cpr332-f2",
+"lv": "Hard",
+"s": "A drug relaxes venous smooth muscle only. How does the venous return curve change?",
+"c": [
+"Shifts up, higher MSFP",
+"Rotates up, same MSFP",
+"Shifts down, lower MSFP",
+"Rotates down, same MSFP",
+"Does not change"
+],
+"a": 2,
+"e": "Venodilation lowers venous tone, so MSFP falls and the curve shifts down in parallel.",
+"w": [
+"Opposite.",
+"Rotation is a TPR effect.",
+"",
+"Rotation is a TPR effect.",
+"Venous tone sets MSFP."
+]
+}
+]
+},
+"cpr333": {
+"k": "MSFP rise raises venous return",
+"q": [
+{
+"id": "cpr333-f1",
+"lv": "Easy",
+"s": "MSFP rises from 7 to 9 mmHg with RAP 2 mmHg and RVR 1. What is the new venous return?",
+"c": [
+"7 L/min",
+"5 L/min",
+"9 L/min",
+"11 L/min",
+"2 L/min"
+],
+"a": 0,
+"e": "VR = (9 − 2)/1 = 7 L/min.",
+"w": [
+"",
+"Old value.",
+"MSFP alone.",
+"Adds RAP.",
+"RAP alone."
+]
+},
+{
+"id": "cpr333-f2",
+"lv": "Hard",
+"s": "MSFP rises from 7 to 10 mmHg while RAP rises from 2 to 4 mmHg, with RVR 1. What is the venous return?",
+"c": [
+"8 L/min",
+"5 L/min",
+"3 L/min",
+"6 L/min",
+"14 L/min"
+],
+"a": 3,
+"e": "VR = (10 − 4)/1 = 6 L/min. A rise in RAP partly offsets the higher MSFP.",
+"w": [
+"Ignores the RAP rise.",
+"Old value.",
+"Miscalculated.",
+"",
+"Adds the pressures."
+]
+}
+]
+},
+"cpr334": {
+"k": "Spinal anesthesia lowers MSFP",
+"q": [
+{
+"id": "cpr334-f1",
+"lv": "Easy",
+"s": "Spinal anesthesia lowers venous tone mainly by blocking what?",
+"c": [
+"Vagal outflow",
+"Sympathetic outflow",
+"Baroreceptor input",
+"Cardiac Na⁺ channels",
+"Arterial chemoreceptors"
+],
+"a": 1,
+"e": "Spinal anesthesia blocks sympathetic outflow below the block, so veins dilate and pool blood.",
+"w": [
+"Vagal fibers are cranial.",
+"",
+"Not the main effect.",
+"Not the main effect.",
+"Not the main effect."
+]
+},
+{
+"id": "cpr334-f2",
+"lv": "Hard",
+"s": "Which treatment best restores venous return after spinal-anesthesia hypotension?",
+"c": [
+"A β-blocker to slow the heart",
+"A venodilator such as nitroglycerin",
+"An arteriolar dilator",
+"Diuretic therapy to cut volume",
+"IV fluids with a vasoconstrictor"
+],
+"a": 4,
+"e": "Fluids and a vasoconstrictor such as phenylephrine raise MSFP and restore venous return.",
+"w": [
+"Lowers output.",
+"Worsens pooling.",
+"Lowers pressure further.",
+"Lowers volume.",
+""
+]
+}
+]
+},
+"cpr335": {
+"k": "Cardiac curve x-axis",
+"q": [
+{
+"id": "cpr335-f1",
+"lv": "Easy",
+"s": "Which variable is on the y-axis of the cardiac function curve?",
+"c": [
+"Right atrial pressure",
+"Total peripheral resistance",
+"Cardiac output",
+"Mean arterial pressure",
+"Ejection fraction"
+],
+"a": 2,
+"e": "The cardiac function curve plots cardiac output against right atrial pressure.",
+"w": [
+"That is the x-axis.",
+"Not an axis.",
+"",
+"Not an axis.",
+"Not an axis."
+]
+},
+{
+"id": "cpr335-f2",
+"lv": "Hard",
+"s": "Why can the cardiac and vascular function curves be drawn on the same graph?",
+"c": [
+"They share the same axes",
+"They have the same slope",
+"They both start at zero",
+"They peak at the same point",
+"They both plot TPR"
+],
+"a": 0,
+"e": "Both plot flow, CO or VR, against right atrial pressure, so they can be overlaid.",
+"w": [
+"",
+"Opposite slopes.",
+"They do not.",
+"They do not.",
+"Neither plots TPR."
+]
+}
+]
+},
+"cpr336": {
+"k": "Frank–Starling mechanism",
+"q": [
+{
+"id": "cpr336-f1",
+"lv": "Easy",
+"s": "According to the Frank–Starling law, a higher end-diastolic volume produces what?",
+"c": [
+"A smaller stroke volume",
+"A slower heart rate",
+"A higher afterload",
+"A larger stroke volume",
+"A lower ejection fraction"
+],
+"a": 3,
+"e": "More stretch brings sarcomeres toward optimal overlap, so the next beat is stronger.",
+"w": [
+"Opposite.",
+"Not this law.",
+"Not this law.",
+"",
+"Not this law."
+]
+},
+{
+"id": "cpr336-f2",
+"lv": "Hard",
+"s": "Why does the Frank–Starling mechanism keep left and right outputs matched?",
+"c": [
+"The vagus slows the stronger side",
+"Each side pumps out what fills it",
+"The septum blocks extra flow",
+"Both sides share one valve",
+"Afterload is identical on both sides"
+],
+"a": 1,
+"e": "If one side receives more blood, its stretch rises and it pumps more, so the outputs stay equal.",
+"w": [
+"Not the mechanism.",
+"",
+"Not the mechanism.",
+"Separate valves.",
+"Afterloads differ."
+]
+}
+]
+},
+"cpr337": {
+"k": "Cardiac output ceiling",
+"q": [
+{
+"id": "cpr337-f1",
+"lv": "Easy",
+"s": "Which part of the cardiac function curve shows the limit of cardiac output?",
+"c": [
+"The steep rising part",
+"The x-intercept",
+"The origin",
+"The y-intercept",
+"The flat plateau"
+],
+"a": 4,
+"e": "The plateau shows the ceiling: more preload no longer raises output.",
+"w": [
+"Output still rises there.",
+"Not the limit.",
+"Not the limit.",
+"Not the limit.",
+""
+]
+},
+{
+"id": "cpr337-f2",
+"lv": "Hard",
+"s": "A positive inotrope changes the plateau of the cardiac function curve how?",
+"c": [
+"Lowers it",
+"Removes it",
+"Raises it",
+"Moves it left only",
+"Leaves it unchanged"
+],
+"a": 2,
+"e": "Positive inotropy shifts the whole curve up, including a higher plateau.",
+"w": [
+"Negative inotropy.",
+"It remains.",
+"",
+"It also rises.",
+"It rises."
+]
+}
+]
+},
+"cpr338": {
+"k": "Inotropes move the cardiac curve",
+"q": [
+{
+"id": "cpr338-f1",
+"lv": "Easy",
+"s": "Which change shifts the cardiac function curve downward?",
+"c": [
+"Heart failure with low EF",
+"Long-term digoxin therapy",
+"Catecholamine release",
+"Dobutamine infusion",
+"Strenuous exercise"
+],
+"a": 0,
+"e": "HFrEF is a negative inotropic state, so the curve shifts down.",
+"w": [
+"",
+"Positive inotrope.",
+"Positive inotrope.",
+"Positive inotrope.",
+"Raises contractility."
+]
+},
+{
+"id": "cpr338-f2",
+"lv": "Hard",
+"s": "A β-blocker overdose shifts which curve, and in which direction?",
+"c": [
+"Cardiac curve, upward",
+"Venous curve, shifted upward",
+"Venous curve, downward",
+"Cardiac curve, downward",
+"Neither curve changes"
+],
+"a": 3,
+"e": "Blocking β1 lowers contractility, a negative inotropic effect that shifts the cardiac curve down.",
+"w": [
+"Opposite.",
+"Not the direct effect.",
+"Not the direct effect.",
+"",
+"It shifts the cardiac curve."
+]
+}
+]
+},
+"cpr339": {
+"k": "Afterload and the cardiac curve",
+"q": [
+{
+"id": "cpr339-f1",
+"lv": "Easy",
+"s": "Raising afterload shifts the cardiac function curve which way?",
+"c": [
+"Upward",
+"Downward",
+"Leftward",
+"Not at all",
+"Into a vertical line"
+],
+"a": 1,
+"e": "Higher afterload lowers stroke volume at every preload, so the curve shifts down and right.",
+"w": [
+"Opposite.",
+"",
+"That is lower afterload.",
+"It changes.",
+"Not this."
+]
+},
+{
+"id": "cpr339-f2",
+"lv": "Hard",
+"s": "Which condition lowers afterload and shifts the cardiac curve up?",
+"c": [
+"Aortic valve stenosis",
+"Vasopressor infusion",
+"Chronic hypertension",
+"Coarctation of the aorta",
+"An arteriovenous shunt"
+],
+"a": 4,
+"e": "A shunt bypasses the arterioles, lowering TPR and afterload, so the cardiac curve shifts up.",
+"w": [
+"Raises afterload.",
+"Raises afterload.",
+"Raises afterload.",
+"Raises afterload.",
+""
+]
+}
+]
+},
+"cpr340": {
+"k": "Operating point means CO = VR",
+"q": [
+{
+"id": "cpr340-f1",
+"lv": "Easy",
+"s": "At steady state, how does cardiac output compare with venous return?",
+"c": [
+"CO is higher",
+"VR is higher",
+"They are equal",
+"CO is half of VR",
+"VR is zero"
+],
+"a": 2,
+"e": "The heart pumps what returns to it, so CO = VR at steady state.",
+"w": [
+"Not at steady state.",
+"Not at steady state.",
+"",
+"Not this.",
+"Not at steady state."
+]
+},
+{
+"id": "cpr340-f2",
+"lv": "Hard",
+"s": "Which two curves must both be known to find the operating point?",
+"c": [
+"The cardiac and vascular curves",
+"Two separate vascular curves",
+"The PV loop and Wiggers diagram",
+"The cardiac curve and the PV loop",
+"Pressure and flow tracings"
+],
+"a": 0,
+"e": "The operating point is where the cardiac and vascular function curves cross.",
+"w": [
+"",
+"Needs the cardiac curve.",
+"Not used.",
+"Not used.",
+"Not used."
+]
+}
+]
+},
+"cpr341": {
+"k": "Self-correction toward the operating point",
+"q": [
+{
+"id": "cpr341-f1",
+"lv": "Easy",
+"s": "If venous return briefly exceeds cardiac output, what happens to right atrial pressure?",
+"c": [
+"It falls",
+"It stays the same",
+"It drops to zero",
+"It rises",
+"It equals MAP"
+],
+"a": 3,
+"e": "More blood arrives than leaves, so the atrium fills and RAP rises until the flows match again.",
+"w": [
+"Opposite.",
+"It changes.",
+"Not this.",
+"",
+"Not this."
+]
+},
+{
+"id": "cpr341-f2",
+"lv": "Hard",
+"s": "Why does a rising RAP bring CO and VR back together?",
+"c": [
+"It lowers both CO and VR",
+"It raises CO and lowers VR",
+"It raises both CO and VR",
+"It lowers CO and raises VR",
+"It only changes TPR"
+],
+"a": 1,
+"e": "A higher RAP increases preload, raising CO by Frank–Starling, and narrows the venous gradient, lowering VR.",
+"w": [
+"Raises CO.",
+"",
+"VR falls.",
+"Opposite.",
+"TPR is not involved."
+]
+}
+]
+},
+"cpr342": {
+"k": "Solving for the operating point",
+"q": [
+{
+"id": "cpr342-f1",
+"lv": "Easy",
+"s": "VR = 6 − RAP and CO = 2 × RAP. What is RAP at the operating point?",
+"c": [
+"3 mmHg",
+"6 mmHg",
+"4 mmHg",
+"1 mmHg",
+"2 mmHg"
+],
+"a": 4,
+"e": "6 − RAP = 2 × RAP, so RAP = 2 mmHg and CO = 4 L/min.",
+"w": [
+"Miscalculated.",
+"Venous return is zero there.",
+"Miscalculated.",
+"Miscalculated.",
+""
+]
+},
+{
+"id": "cpr342-f2",
+"lv": "Hard",
+"s": "VR = 10 − RAP and CO = 4 × RAP. What is the cardiac output at the operating point?",
+"c": [
+"10 L/min",
+"2 L/min",
+"8 L/min",
+"4 L/min",
+"6 L/min"
+],
+"a": 2,
+"e": "10 − RAP = 4 × RAP gives RAP = 2 mmHg, so CO = 8 L/min.",
+"w": [
+"MSFP.",
+"That is RAP.",
+"",
+"Slope only.",
+"Miscalculated."
+]
+}
+]
+},
+"cpr343": {
+"k": "Transfusion moves the operating point",
+"q": [
+{
+"id": "cpr343-f1",
+"lv": "Easy",
+"s": "After a transfusion, which curve moves?",
+"c": [
+"The vascular function curve",
+"The cardiac function curve",
+"Both curves by equal amounts",
+"Neither curve changes",
+"Only the pressure-volume loop"
+],
+"a": 0,
+"e": "More volume raises MSFP and shifts the vascular curve up, while the cardiac curve stays put.",
+"w": [
+"",
+"Contractility unchanged.",
+"Only the venous curve moves.",
+"It moves.",
+"Not a function curve."
+]
+},
+{
+"id": "cpr343-f2",
+"lv": "Hard",
+"s": "Why does RAP rise after a transfusion?",
+"c": [
+"Contractility falls sharply",
+"TPR rises sharply",
+"The heart rate slows down",
+"They now cross further right",
+"MSFP falls after transfusion"
+],
+"a": 3,
+"e": "The raised venous curve meets the cardiac curve further up and to the right, at a higher RAP.",
+"w": [
+"Unchanged.",
+"Not the cause.",
+"Not the cause.",
+"",
+"MSFP rises."
+]
+}
+]
+},
+"cpr344": {
+"k": "Blood loss lowers CO and RAP",
+"q": [
+{
+"id": "cpr344-f1",
+"lv": "Easy",
+"s": "After acute hemorrhage, what happens to the operating point RAP?",
+"c": [
+"It rises",
+"It falls",
+"It stays the same",
+"It equals MSFP",
+"It doubles"
+],
+"a": 1,
+"e": "The venous curve shifts down and meets the cardiac curve at a lower RAP.",
+"w": [
+"Opposite.",
+"",
+"It changes.",
+"Not this.",
+"Not this."
+]
+},
+{
+"id": "cpr344-f2",
+"lv": "Hard",
+"s": "Which bedside sign reflects the lower RAP after severe hemorrhage?",
+"c": [
+"Distended neck veins",
+"Bounding pulses",
+"Pulmonary crackles",
+"Pitting edema",
+"Flat neck veins"
+],
+"a": 4,
+"e": "A low RAP shows up as flat neck veins.",
+"w": [
+"High RAP.",
+"High output.",
+"High left pressures.",
+"Fluid overload.",
+""
+]
+}
+]
+},
+"cpr345": {
+"k": "Fluid infusion raises MSFP",
+"q": [
+{
+"id": "cpr345-f1",
+"lv": "Easy",
+"s": "Fluid infusion is listed as which type of change?",
+"c": [
+"A decrease in blood volume",
+"A negative inotropic change",
+"An increase in blood volume",
+"A rise in peripheral resistance",
+"A fall in afterload"
+],
+"a": 2,
+"e": "Fluid infusion raises blood volume and MSFP.",
+"w": [
+"Opposite.",
+"Not inotropic.",
+"",
+"Not a TPR change.",
+"Not an afterload change."
+]
+},
+{
+"id": "cpr345-f2",
+"lv": "Hard",
+"s": "After a large saline infusion, which pair of changes occurs at the new operating point?",
+"c": [
+"Higher CO and higher RAP",
+"Higher CO and lower RAP",
+"Lower CO and higher RAP",
+"Lower CO and lower RAP",
+"The same CO and the same RAP"
+],
+"a": 0,
+"e": "Higher MSFP shifts the venous curve up, so the operating point moves to a higher CO and RAP.",
+"w": [
+"",
+"Positive inotropy.",
+"Negative inotropy.",
+"Blood loss.",
+"It changes."
+]
+}
+]
+},
+"cpr346": {
+"k": "Hemorrhagic shock physiology",
+"q": [
+{
+"id": "cpr346-f1",
+"lv": "Easy",
+"s": "In hemorrhagic shock, which reflex helps raise MSFP?",
+"c": [
+"Vagal stimulation of the heart",
+"Arteriolar dilation",
+"Venodilation of capacitance veins",
+"Sympathetic venoconstriction",
+"Reduced heart rate"
+],
+"a": 3,
+"e": "Sympathetic venoconstriction squeezes the veins and raises MSFP.",
+"w": [
+"Lowers output.",
+"Lowers TPR.",
+"Lowers MSFP.",
+"",
+"Lowers output."
+]
+},
+{
+"id": "cpr346-f2",
+"lv": "Hard",
+"s": "A trauma patient has flat neck veins and low cardiac output. What is the first treatment that targets the cause?",
+"c": [
+"Start a dobutamine drip",
+"Restore blood volume",
+"Give a loop diuretic",
+"Give a β-blocker",
+"Give a venodilator drug"
+],
+"a": 1,
+"e": "The problem is low MSFP from lost volume, so replacing blood volume restores venous return.",
+"w": [
+"Contractility is not the problem.",
+"",
+"Lowers volume.",
+"Lowers output.",
+"Lowers MSFP."
+]
+}
+]
+},
+"cpr347": {
+"k": "Positive inotropy lowers RAP",
+"q": [
+{
+"id": "cpr347-f1",
+"lv": "Easy",
+"s": "Which drug is listed as a positive inotrope?",
+"c": [
+"Morphine overdose",
+"Propranolol",
+"Verapamil",
+"Halothane",
+"Dobutamine"
+],
+"a": 4,
+"e": "Dobutamine is a β1 agonist and a positive inotrope.",
+"w": [
+"Negative inotropic state.",
+"Negative inotrope.",
+"Negative inotrope.",
+"Negative inotrope.",
+""
+]
+},
+{
+"id": "cpr347-f2",
+"lv": "Hard",
+"s": "Why does RAP fall when contractility rises?",
+"c": [
+"Mean systemic filling pressure rises",
+"Venous tone falls sharply",
+"Less blood is left after systole",
+"Total peripheral resistance rises",
+"Venous return falls"
+],
+"a": 2,
+"e": "A stronger beat lowers ESV, more blood leaves the heart and less remains, so RAP falls.",
+"w": [
+"Would raise RAP.",
+"Not the cause.",
+"",
+"Not the cause.",
+"VR rises."
+]
+}
+]
+},
+"cpr348": {
+"k": "Negative inotropes",
+"q": [
+{
+"id": "cpr348-f1",
+"lv": "Easy",
+"s": "Which of these is listed as a negative inotropic state?",
+"c": [
+"Myocardial infarction",
+"Strenuous exercise",
+"Digoxin therapy",
+"Catecholamine release",
+"Dobutamine infusion"
+],
+"a": 0,
+"e": "Infarcted muscle cannot contract, so contractility falls.",
+"w": [
+"",
+"Positive.",
+"Positive.",
+"Positive.",
+"Positive."
+]
+},
+{
+"id": "cpr348-f2",
+"lv": "Hard",
+"s": "How does sympathetic inhibition shift the cardiac function curve?",
+"c": [
+"Upward",
+"Leftward only",
+"It does not",
+"Downward",
+"Into a straight line"
+],
+"a": 3,
+"e": "Less sympathetic drive lowers contractility, shifting the cardiac curve down.",
+"w": [
+"Opposite.",
+"Not this.",
+"It does.",
+"",
+"Not this."
+]
+}
+]
+},
+"cpr349": {
+"k": "Higher TPR lowers both curves",
+"q": [
+{
+"id": "cpr349-f1",
+"lv": "Easy",
+"s": "Which drug class raises TPR?",
+"c": [
+"Venodilators",
+"Vasopressors",
+"Arteriolar dilators",
+"Diuretics",
+"β-blockers"
+],
+"a": 1,
+"e": "Vasopressors constrict arterioles and raise TPR.",
+"w": [
+"Lower venous tone.",
+"",
+"Lower TPR.",
+"Lower volume.",
+"Lower contractility."
+]
+},
+{
+"id": "cpr349-f2",
+"lv": "Hard",
+"s": "Why does RAP stay about the same when TPR rises?",
+"c": [
+"Only the cardiac curve falls",
+"Only MSFP rises",
+"Contractility rises",
+"Volume increases",
+"Both curves fall together"
+],
+"a": 4,
+"e": "Higher TPR lowers the cardiac curve and rotates the venous curve down, so they meet at a lower CO but similar RAP.",
+"w": [
+"Both move.",
+"MSFP is unchanged.",
+"Unchanged.",
+"Unchanged.",
+""
+]
+}
+]
+},
+"cpr350": {
+"k": "MI lowers CO and raises RAP",
+"q": [
+{
+"id": "cpr350-f1",
+"lv": "Easy",
+"s": "After a large MI, which curve shifts?",
+"c": [
+"The vascular function curve",
+"Both curves upward",
+"The cardiac function curve",
+"Neither curve",
+"Only the plateau of VR"
+],
+"a": 2,
+"e": "MI lowers contractility, shifting the cardiac curve down.",
+"w": [
+"Volume unchanged at first.",
+"Not upward.",
+"",
+"It shifts.",
+"Not this."
+]
+},
+{
+"id": "cpr350-f2",
+"lv": "Hard",
+"s": "After an MI lowers the cardiac curve, which compensation raises output back toward normal?",
+"c": [
+"Fluid retention raising MSFP",
+"Widespread arteriolar dilation",
+"Venodilation of the limbs",
+"A lower resting heart rate",
+"A lower total blood volume"
+],
+"a": 0,
+"e": "The kidneys retain fluid, raising MSFP and shifting the venous curve up so the operating point regains some output, at a higher RAP.",
+"w": [
+"",
+"Not the compensation.",
+"Lowers MSFP.",
+"Lowers output.",
+"Lowers MSFP."
+]
+}
+]
+},
+"cpr351": {
+"k": "AV shunt lowers TPR",
+"q": [
+{
+"id": "cpr351-f1",
+"lv": "Easy",
+"s": "An arteriovenous shunt lowers which value?",
+"c": [
+"Cardiac output at rest",
+"Resting heart rate",
+"Total venous return to the heart",
+"Total peripheral resistance",
+"Stroke volume per beat"
+],
+"a": 3,
+"e": "Blood bypasses the arterioles, so TPR falls.",
+"w": [
+"Rises.",
+"Rises.",
+"Rises.",
+"",
+"Rises."
+]
+},
+{
+"id": "cpr351-f2",
+"lv": "Hard",
+"s": "Why can a large AV fistula eventually cause high-output heart failure?",
+"c": [
+"Contractility falls first",
+"The heart must pump far more",
+"TPR rises steadily over time",
+"Venous return falls",
+"Total blood volume falls sharply"
+],
+"a": 1,
+"e": "Low TPR and high venous return force the heart to pump far more blood, which over time can exhaust it.",
+"w": [
+"Not first.",
+"",
+"Falls.",
+"Rises.",
+"Volume rises."
+]
+}
+]
+},
+"cpr352": {
+"k": "Exercise raises both curves",
+"q": [
+{
+"id": "cpr352-f1",
+"lv": "Easy",
+"s": "Exercise is listed under which change?",
+"c": [
+"Negative inotropy",
+"Higher afterload",
+"Lower blood volume",
+"Higher TPR",
+"Positive inotropy"
+],
+"a": 4,
+"e": "Exercise raises sympathetic drive and contractility.",
+"w": [
+"Opposite.",
+"Lower in muscle.",
+"Not this.",
+"TPR falls.",
+""
+]
+},
+{
+"id": "cpr352-f2",
+"lv": "Hard",
+"s": "Which exercise change lowers TPR?",
+"c": [
+"Venoconstriction of the veins",
+"A higher heart rate",
+"Muscle arteriolar dilation",
+"Higher myocardial contractility",
+"The skeletal muscle pump"
+],
+"a": 2,
+"e": "Metabolites dilate muscle arterioles, lowering TPR.",
+"w": [
+"Raises MSFP.",
+"Raises CO.",
+"",
+"Raises CO.",
+"Raises VR."
+]
+}
+]
+},
+"cpr353": {
+"k": "Digoxin as a positive inotrope",
+"q": [
+{
+"id": "cpr353-f1",
+"lv": "Easy",
+"s": "Digoxin raises contractility by raising which ion inside cardiac cells?",
+"c": [
+"Ca²⁺",
+"K⁺",
+"Cl⁻",
+"Mg²⁺",
+"H⁺"
+],
+"a": 0,
+"e": "Blocking Na⁺/K⁺-ATPase slows Na⁺/Ca²⁺ exchange, so intracellular Ca²⁺ rises.",
+"w": [
+"",
+"Not raised.",
+"Not the mechanism.",
+"Not the mechanism.",
+"Not the mechanism."
+]
+},
+{
+"id": "cpr353-f2",
+"lv": "Hard",
+"s": "After digoxin raises contractility, how does the operating point change?",
+"c": [
+"Higher CO at a higher RAP",
+"Lower CO at a higher RAP",
+"Lower CO at a lower RAP",
+"Higher CO at a lower RAP",
+"No change"
+],
+"a": 3,
+"e": "The cardiac curve shifts up, so the curves meet at a higher CO and lower RAP.",
+"w": [
+"More volume.",
+"Negative inotropy.",
+"Blood loss.",
+"",
+"It changes."
+]
+}
+]
 }
 });
