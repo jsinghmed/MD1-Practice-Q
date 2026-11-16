@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cardiac & Vascular Function Curves</title>
+<script>function jjTheme(){try{var th=localStorage.getItem("msk-theme");document.documentElement.setAttribute("data-theme",th==="light"?"light":"dark");}catch(e){}}jjTheme();window.addEventListener("storage",function(e){if(e.key==="msk-theme")jjTheme();});window.addEventListener("message",function(e){if(e.data==="jj-theme")jjTheme();});</script>
+<style>
+:root{--bg:#0d1117;--panel:#161b22;--card:#1c2129;--line:#2a313c;--line2:#353d4a;--text:#e6edf3;--muted:#8b949e;--acc:#4fb8b0;--accbg:rgba(79,184,176,.14);
+  --co:#b48cff;--vr:#ff6b6b;--pt:#4fb8ff;--grid:rgba(139,148,158,.14);--ghost:rgba(139,148,158,.6);--up:#3fb950;--dn:#f85149}
+:root[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#f6f8fa;--line:#d0d7de;--line2:#c3cad2;--text:#1f2328;--muted:#59636e;--acc:#1a8c84;--accbg:rgba(26,140,132,.1);
+  --co:#8250df;--vr:#d63a3a;--pt:#1f6feb;--grid:rgba(89,99,110,.14);--ghost:rgba(89,99,110,.55);--up:#1a7f37;--dn:#cf222e}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{padding:14px 16px 24px;max-width:1500px;margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.top h1{font-size:18px;margin:0}.top .sub{color:var(--muted);font-size:13px}
+.tb{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{background:var(--card);border:1px solid var(--line2);border-radius:9px;padding:7px 12px;font-weight:600;font-size:13px}
+.btn.on{background:var(--accbg);border-color:var(--acc)}
+.btn:disabled{opacity:.5;cursor:default}
+.seg{display:inline-flex;background:var(--card);border:1px solid var(--line2);border-radius:9px;padding:2px}
+.seg button{background:none;border:none;border-radius:7px;padding:5px 10px;font-size:12.5px;font-weight:600;color:var(--muted)}
+.seg button.on{background:var(--accbg);color:var(--text);box-shadow:inset 0 0 0 1px var(--acc)}
+.grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:14px;align-items:start}
+@media (max-width:980px){.grid{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;min-width:0}
+.card h3{margin:0 0 8px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:flex;justify-content:space-between;align-items:center;gap:8px}
+svg{display:block;width:100%;height:auto;overflow:visible;touch-action:none}
+svg text{font-family:Inter,system-ui,sans-serif}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--muted);margin-top:6px}
+.legend i{display:inline-block;width:16px;height:3px;border-radius:2px;margin-right:5px;vertical-align:middle}
+.legend i.d{background:none!important;border-top:2px dashed var(--ghost);height:0}
+.right{display:flex;flex-direction:column;gap:14px;min-width:0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.st{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:6px 8px}
+.st b{display:block;font-size:17px;font-variant-numeric:tabular-nums}.st span{font-size:11px;color:var(--muted)}
+.st em{font-style:normal;font-size:11.5px;font-weight:700;margin-left:4px}.st em.up{color:var(--up)}.st em.dn{color:var(--dn)}.st em.eq{color:var(--muted)}
+.eqn{margin-top:8px;font-size:13px;background:var(--card);border:1px solid var(--line);border-radius:9px;padding:7px 10px;font-variant-numeric:tabular-nums}
+.eqn b{color:var(--vr)}
+.presets{display:flex;flex-wrap:wrap;gap:6px}
+.presets .gl{width:100%;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.presets .gl:first-child{margin-top:0}
+.presets button{background:var(--card);border:1px solid var(--line2);border-radius:999px;padding:6px 11px;font-size:12.5px;font-weight:600}
+.presets button.on{background:var(--accbg);border-color:var(--acc)}
+.presets button .ar{font-weight:700;margin-left:4px}
+.sliders{display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px}
+.sl label{display:flex;justify-content:space-between;font-size:12.5px;font-weight:600}
+.sl label span{color:var(--muted);font-weight:500;font-variant-numeric:tabular-nums}
+.sl input{width:100%;accent-color:var(--acc)}
+.sl small{color:var(--muted);font-size:11.5px}
+.info{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:10px;padding:10px 12px;font-size:13.5px}
+.info b.t{display:block;font-size:14.5px;margin-bottom:4px}
+.info .row{margin:3px 0}.info .row b{color:var(--muted);font-weight:700;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;margin-right:6px}
+.chain{display:flex;flex-wrap:wrap;gap:4px;align-items:center;margin:6px 0}
+.chain span{background:var(--panel);border:1px solid var(--line2);border-radius:7px;padding:2px 7px;font-size:12.5px;font-weight:600}
+.chain i{font-style:normal;color:var(--muted)}
+.info .pearl{margin-top:6px;color:var(--muted);font-size:12.5px}
+.cap{font-size:13px;margin-top:8px;min-height:20px}.cap b{color:var(--acc)}
+.qz{display:none}.quiz .qz{display:block}.quiz .noq{display:none}
+.qq{margin-top:10px}.qq .lb{font-size:12.5px;font-weight:700;margin-bottom:4px}
+.qopts{display:flex;flex-wrap:wrap;gap:6px}
+.qopts button{background:var(--card);border:1px solid var(--line2);border-radius:9px;padding:7px 12px;font-weight:600;font-size:13px}
+.qopts button.sel{border-color:var(--acc);background:var(--accbg)}
+.qopts button.ok{border-color:var(--up);background:rgba(63,185,80,.16)}.qopts button.bad{border-color:var(--dn);background:rgba(248,81,73,.14)}
+.qscen{font-size:15px;font-weight:700;margin-top:4px}.qscen small{display:block;font-weight:500;color:var(--muted);font-size:12.5px}
+.qfb{margin-top:10px;font-size:13.5px}
+.hint{color:var(--muted);font-size:12px;margin-top:6px}
+.why{font-size:13.5px;margin-top:8px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 12px}
+.why b{color:var(--acc)}
+.hl{font-size:11px;letter-spacing:0;text-transform:none;font-weight:600}
+.quiz:not(.rev) #heartCard{display:none}
+</style></head><body>
+<div class="wrap" id="app">
+  <div class="top"><div><h1>Cardiac &amp; vascular function curves</h1><div class="sub">Pick a clinical scenario or move a slider and watch where CO = VR settles</div></div>
+    <div class="tb"><div class="seg" id="mode"><button data-m="explore" class="on">Explore</button><button data-m="quiz">Predict it</button></div>
+      <button class="btn on" id="ghostBtn">Normal curves</button></div></div>
+  <div class="grid">
+    <div class="right">
+    <div class="card"><h3><span>CO and VR vs right atrial pressure</span><button class="btn" id="settleBtn">Watch it settle</button></h3>
+      <svg id="plot" viewBox="0 0 660 470"></svg>
+      <div class="legend"><span><i style="background:var(--co)"></i>Cardiac function curve</span><span><i style="background:var(--vr)"></i>Vascular (venous return) curve</span><span><i class="d"></i>Normal</span><span><i style="background:var(--pt);height:8px;width:8px;border-radius:50%"></i>Operating point, CO = VR</span></div>
+      <div class="cap" id="cap">Drag across the graph to read CO and VR at any right atrial pressure.</div>
+    </div>
+    <div class="card" id="heartCard"><h3><span>See it on the heart</span><span class="hl" id="hLeg"></span></h3>
+      <svg id="circ" viewBox="0 0 660 330"></svg>
+      <div class="why" id="why"></div>
+    </div>
+    </div>
+    <div class="right">
+      <div class="card noq"><h3>Steady state</h3>
+        <div class="stats" id="stats"></div>
+        <div class="eqn" id="eqn"></div>
+      </div>
+      <div class="card noq"><h3>Clinical scenarios</h3>
+        <div class="presets" id="presets"></div>
+        <div class="sliders">
+          <div class="sl"><label>Blood volume &amp; venous tone <span id="vMSFP"></span></label><input type="range" id="sMSFP" min="3" max="12" step="0.1"><small>Sets MSFP and shifts the VR curve in parallel</small></div>
+          <div class="sl"><label>Contractility (inotropy) <span id="vINO"></span></label><input type="range" id="sINO" min="0.4" max="1.8" step="0.01"><small>Shifts the cardiac function curve up or down</small></div>
+          <div class="sl"><label>Total peripheral resistance <span id="vTPR"></span></label><input type="range" id="sTPR" min="0.5" max="1.8" step="0.01"><small>Rotates the VR curve around MSFP and changes afterload</small></div>
+        </div>
+      </div>
+      <div class="card noq"><div class="info" id="info"></div></div>
+      <div class="card qz"><h3><span>Predict it</span><span id="score">0 / 0</span></h3>
+        <div class="qscen" id="qscen"></div>
+        <div class="qq"><div class="lb">Which curve moves?</div><div class="qopts" data-q="curve"><button data-v="cardiac">Cardiac curve</button><button data-v="vascular">Vascular curve</button><button data-v="both">Both curves</button></div></div>
+        <div class="qq"><div class="lb">Cardiac output at the new steady state</div><div class="qopts" data-q="co"><button data-v="up">↑ Rises</button><button data-v="dn">↓ Falls</button><button data-v="eq">≈ About the same</button></div></div>
+        <div class="qq"><div class="lb">Right atrial pressure at the new steady state</div><div class="qopts" data-q="rap"><button data-v="up">↑ Rises</button><button data-v="dn">↓ Falls</button><button data-v="eq">≈ About the same</button></div></div>
+        <div class="tb" style="margin-top:12px"><button class="btn on" id="revealBtn">Reveal</button><button class="btn" id="nextBtn">Next scenario</button></div>
+        <div class="qfb" id="qfb"></div>
+        <div class="info" id="qinfo" style="display:none;margin-top:10px"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+// ---- Model (normal: MSFP 7 mmHg, RVR 1, operating point RAP 2 mmHg, CO 5 L/min) ----
+const BASE={msfp:7, ino:1, tpr:1};
+const R0=1, CMAX=9, S=4.79, X0=-1;            // cardiac curve: CO = Cmax·tanh((RAP+1)/S)
+const rvr=p=>R0*(0.4+0.6*p.tpr);               // part of the resistance to venous return sits in the arterioles
+const cmax=p=>CMAX*p.ino/(0.5+0.5*p.tpr);      // higher TPR = higher afterload = lower curve
+const CO=(p,x)=>x<=X0?0:cmax(p)*Math.tanh((x-X0)/S);
+const VR=(p,x)=>{const xx=Math.max(x,0);return Math.max(0,(p.msfp-xx)/rvr(p));};   // flat below 0: great veins collapse
+function op(p){let lo=X0,hi=p.msfp;for(let i=0;i<60;i++){const m=(lo+hi)/2;if(CO(p,m)>VR(p,m))hi=m;else lo=m;}const x=(lo+hi)/2;return {x,y:CO(p,x)};}
+
+// ---- Scenarios from the slides ----
+const SC=[
+ {g:"Normal",id:"base",n:"Normal",p:{msfp:7,ino:1,tpr:1},mv:"none",
+  t:"Normal steady state",what:"Both curves cross at RAP ≈ 2 mmHg and CO = VR ≈ 5 L/min.",
+  ch:["MSFP 7","− RAP 2","= gradient 5","÷ RVR 1","= VR 5 L/min"],
+  pearl:"The heart can only pump out what returns to it, so at steady state CO = VR. CVP is read as right atrial pressure."},
+ {g:"Blood volume",id:"trans",n:"Blood transfusion",ar:"⊕",p:{msfp:10,ino:1,tpr:1},mv:"vascular",
+  t:"Blood transfusion / fluid infusion",what:"More volume raises MSFP, so the VR curve shifts right in parallel. The cardiac curve does not move.",
+  ch:["↑ Volume","↑ MSFP","VR curve shifts right","↑ VR","↑ RAP","↑ CO"],
+  pearl:"Your note: with MSFP 10 and RAP 2, VR = 10 − 2 = 8 L/min. Shift to the right: higher VR and CO, reached at a higher RAP."},
+ {g:"Blood volume",id:"symp",n:"Sympathetic venoconstriction",ar:"⊕",p:{msfp:9.2,ino:1,tpr:1},mv:"vascular",
+  t:"Sympathetic activity on the veins",what:"Venoconstriction squeezes the venous reservoir, raising MSFP like added volume. The VR curve shifts right in parallel.",
+  ch:["↑ Venous tone","↑ MSFP","VR curve shifts right","↑ RAP","↑ CO"],
+  pearl:"MSFP depends on only two things: blood volume and venous tone."},
+ {g:"Blood volume",id:"hem",n:"Acute hemorrhage",ar:"⊝",p:{msfp:4.5,ino:1,tpr:1},mv:"vascular",
+  t:"Acute hemorrhage",what:"Lost volume lowers MSFP, so the VR curve shifts left in parallel and meets the cardiac curve lower down.",
+  ch:["↓ Volume","↓ MSFP","VR curve shifts left","↓ VR","↓ RAP","↓ CO"],
+  pearl:"Shift to the left: lower VR and CO, reached at a lower RAP. Flat neck veins fit the low RAP."},
+ {g:"Blood volume",id:"spinal",n:"Spinal anesthesia",ar:"⊝",p:{msfp:5,ino:1,tpr:1},mv:"vascular",
+  t:"Spinal anesthesia",what:"Sympathetic block dilates the veins and blood pools, lowering MSFP just like losing volume.",
+  ch:["Sympathetic block","↓ Venous tone","↓ MSFP","↓ RAP","↓ CO"],
+  pearl:"No blood is lost, but the effective circulating volume falls. Fluids and a vasoconstrictor restore MSFP."},
+ {g:"Inotropy",id:"pos",n:"Positive inotropy",ar:"⊕",p:{msfp:7,ino:1.4,tpr:1},mv:"cardiac",
+  t:"Positive inotropy: catecholamines, dobutamine, digoxin, exercise",what:"The cardiac curve shifts up. The VR curve does not move, so the new crossing slides up and left along it.",
+  ch:["↑ Contractility","↓ ESV","↑ CO","less blood left in RA","↓ RAP","↑ VR"],
+  pearl:"Your note: positive inotropy lowers RAP because more blood is pumped out and less is left in the right atrium."},
+ {g:"Inotropy",id:"neg",n:"Negative inotropy",ar:"⊝",p:{msfp:7,ino:0.6,tpr:1},mv:"cardiac",
+  t:"Negative inotropy: HFrEF, MI, narcotic overdose, sympathetic inhibition",what:"The cardiac curve shifts down. The crossing slides down and right along the VR curve.",
+  ch:["↓ Contractility","↑ ESV","↓ CO","blood backs up in RA","↑ RAP","↓ VR"],
+  pearl:"Lower VR and CO, reached at a higher RAP, which is why JVP rises after a big MI."},
+ {g:"Inotropy",id:"hfret",n:"Heart failure + fluid retention",p:{msfp:9.5,ino:0.6,tpr:1},mv:"both",
+  t:"Heart failure, then the kidneys retain fluid",what:"The weak heart lowers the cardiac curve. Retained salt and water then raise MSFP and shift the VR curve right.",
+  ch:["↓ Contractility","↓ CO","RAAS","↑ Volume","↑ MSFP","CO partly back up","RAP much higher"],
+  pearl:"Compare with Negative inotropy: the extra volume buys back some output on the depressed curve, but CO stays below normal and RAP climbs much higher, giving congestion and edema."},
+ {g:"Afterload (TPR)",id:"vaso",n:"Vasopressors",ar:"⊕",p:{msfp:7,ino:1,tpr:1.6},mv:"both",
+  t:"Increased TPR: vasopressors",what:"Higher TPR raises afterload, lowering the cardiac curve, and rotates the VR curve down around the same MSFP.",
+  ch:["↑ TPR","↑ Afterload","cardiac curve ↓","VR curve rotates ↓","↓ CO","RAP ≈ same"],
+  pearl:"MSFP does not change with TPR, so the VR curve pivots on the x-axis instead of shifting."},
+ {g:"Afterload (TPR)",id:"av",n:"AV shunt",ar:"⊝",p:{msfp:7,ino:1,tpr:0.6},mv:"both",
+  t:"Decreased TPR: arteriovenous shunt",what:"Blood bypasses the arterioles, so TPR falls. The VR curve rotates up and lower afterload lifts the cardiac curve.",
+  ch:["↓ TPR","↓ Afterload","cardiac curve ↑","VR curve rotates ↑","↑ CO","RAP ≈ same"],
+  pearl:"A large fistula keeps CO high and can eventually cause high-output heart failure."},
+ {g:"Afterload (TPR)",id:"ex",n:"Exercise",p:{msfp:8.5,ino:1.35,tpr:0.65,hr:110},mv:"both",
+  t:"Exercise",what:"Contractility rises, muscle arterioles dilate (↓ TPR) and the veins constrict (↑ MSFP). Both curves move up together.",
+  ch:["↑ Inotropy","↓ TPR","↑ Venous tone","both curves ↑","big ↑ CO","RAP ≈ same"],
+  pearl:"Cardiac output rises a lot while RAP barely changes, because both curves rise together."}
+];
+const byId={};SC.forEach(s=>byId[s.id]=s);
+let P={...BASE},cur="base",ghost=true,mode="explore",anim=null,hoverX=null;
+
+// ---- Plot ----
+const W=660,H=470,ML=58,MR=22,MT=20,MB=50,XMIN=-4,XMAX=12,YMIN=0,YMAX=15;
+const sx=x=>ML+(x-XMIN)/(XMAX-XMIN)*(W-ML-MR), sy=y=>H-MB-(y-YMIN)/(YMAX-YMIN)*(H-MT-MB);
+const ix=px=>XMIN+(px-ML)/(W-ML-MR)*(XMAX-XMIN);
+const svg=$("plot");
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+function path(f,p,x1,x2){let d="";const n=160;for(let i=0;i<=n;i++){const x=x1+(x2-x1)*i/n;const y=Math.min(f(p,x),YMAX+1);d+=(i?"L":"M")+sx(x).toFixed(1)+" "+sy(y).toFixed(1);}return d;}
+function arrow(x1,y1,x2,y2,col){if(Math.hypot(x2-x1,y2-y1)<8)return "";const a=Math.atan2(y2-y1,x2-x1),h=8;
+  return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${col}" stroke-width="2"/><path d="M${x2} ${y2}L${x2-h*Math.cos(a-0.45)} ${y2-h*Math.sin(a-0.45)}L${x2-h*Math.cos(a+0.45)} ${y2-h*Math.sin(a+0.45)}Z" fill="${col}"/>`;}
+function draw(extra){
+  const cG=css("--grid"),cM=css("--muted"),cT=css("--text"),cCO=css("--co"),cVR=css("--vr"),cPT=css("--pt"),cGh=css("--ghost"),cL=css("--line2");
+  let s="";
+  for(let x=XMIN;x<=XMAX;x+=2){s+=`<line x1="${sx(x)}" y1="${sy(YMIN)}" x2="${sx(x)}" y2="${sy(YMAX)}" stroke="${cG}"/><text x="${sx(x)}" y="${sy(0)+18}" fill="${cM}" font-size="12" text-anchor="middle">${x>0?"+"+x:x}</text>`;}
+  for(let y=0;y<=YMAX;y+=3){s+=`<line x1="${sx(XMIN)}" y1="${sy(y)}" x2="${sx(XMAX)}" y2="${sy(y)}" stroke="${cG}"/><text x="${ML-8}" y="${sy(y)+4}" fill="${cM}" font-size="12" text-anchor="end">${y}</text>`;}
+  s+=`<line x1="${sx(0)}" y1="${sy(0)}" x2="${sx(0)}" y2="${sy(YMAX)}" stroke="${cL}" stroke-width="1.2"/>`;
+  s+=`<text x="${(ML+W-MR)/2}" y="${H-10}" fill="${cT}" font-size="13" font-weight="600" text-anchor="middle">Right atrial pressure = CVP (mmHg)</text>`;
+  s+=`<text transform="translate(16 ${(MT+H-MB)/2}) rotate(-90)" fill="${cT}" font-size="13" font-weight="600" text-anchor="middle">Cardiac output or venous return (L/min)</text>`;
+  const b=op(BASE),o=op(P);
+  if(ghost&&cur!=="base"||ghost&&!sameAsBase()){
+    s+=`<path d="${path(CO,BASE,X0,XMAX)}" fill="none" stroke="${cGh}" stroke-width="2" stroke-dasharray="6 5"/>`;
+    s+=`<path d="${path(VR,BASE,XMIN,BASE.msfp)}" fill="none" stroke="${cGh}" stroke-width="2" stroke-dasharray="6 5"/>`;
+    s+=`<circle cx="${sx(b.x)}" cy="${sy(b.y)}" r="6" fill="none" stroke="${cGh}" stroke-width="2"/>`;
+  }
+  const hide=mode==="quiz"&&!revealed;
+  const Q=hide?BASE:P,oq=hide?b:o;
+  s+=`<path d="${path(CO,Q,X0,XMAX)}" fill="none" stroke="${cCO}" stroke-width="3"/>`;
+  s+=`<path d="${path(VR,Q,XMIN,Q.msfp)}" fill="none" stroke="${cVR}" stroke-width="3"/>`;
+  // MSFP marker
+  s+=`<circle cx="${sx(Q.msfp)}" cy="${sy(0)}" r="4.5" fill="${cVR}"/><text x="${sx(Q.msfp)+7}" y="${sy(0)-8}" fill="${cVR}" font-size="12" font-weight="700" text-anchor="start">MSFP ${Q.msfp.toFixed(1)}</text>`;
+  // curve labels
+  const lx=Math.min(XMAX-0.5,Math.max(4,Q.msfp+1.2));s+=`<text x="${sx(9.2)}" y="${sy(CO(Q,9.2))-10}" fill="${cCO}" font-size="12.5" font-weight="700" text-anchor="middle">Cardiac function</text>`;
+  s+=`<text x="${sx(-2.2)}" y="${sy(VR(Q,-2.2))-10}" fill="${cVR}" font-size="12.5" font-weight="700" text-anchor="middle">Venous return</text>`;
+  if(!hide&&ghost&&!sameAsBase()&&!extra) s+=arrow(sx(b.x),sy(b.y),sx(o.x),sy(o.y),cPT);
+  if(!extra){
+    s+=`<line x1="${sx(oq.x)}" y1="${sy(oq.y)}" x2="${sx(oq.x)}" y2="${sy(0)}" stroke="${cPT}" stroke-dasharray="3 4"/><line x1="${sx(XMIN)}" y1="${sy(oq.y)}" x2="${sx(oq.x)}" y2="${sy(oq.y)}" stroke="${cPT}" stroke-dasharray="3 4"/>`;
+    s+=`<circle cx="${sx(oq.x)}" cy="${sy(oq.y)}" r="7" fill="${cPT}" stroke="${css("--panel")}" stroke-width="2"/>`;
+  } else s+=extra;
+  if(hoverX!==null&&!extra){const x=hoverX,c=CO(Q,x),v=VR(Q,x);
+    s+=`<line x1="${sx(x)}" y1="${sy(0)}" x2="${sx(x)}" y2="${sy(YMAX)}" stroke="${cM}" stroke-width="1"/>`;
+    s+=`<circle cx="${sx(x)}" cy="${sy(c)}" r="4.5" fill="${cCO}"/><circle cx="${sx(x)}" cy="${sy(v)}" r="4.5" fill="${cVR}"/>`;}
+  svg.innerHTML=s;
+}
+function sameAsBase(){return Math.abs(P.msfp-BASE.msfp)<0.05&&Math.abs(P.ino-1)<0.005&&Math.abs(P.tpr-1)<0.005;}
+
+// ---- Readouts ----
+function arr(a,b,tol){const d=a-b;return Math.abs(d)<tol?'<em class="eq">≈</em>':d>0?'<em class="up">↑</em>':'<em class="dn">↓</em>';}
+function readout(){
+  const o=op(P),b=op(BASE);
+  $("stats").innerHTML=`<div class="st"><span>MSFP</span><b>${P.msfp.toFixed(1)}<small style="font-size:11px;color:var(--muted)"> mmHg</small>${arr(P.msfp,BASE.msfp,0.15)}</b></div>`+
+   `<div class="st"><span>RAP (CVP)</span><b>${o.x.toFixed(1)}<small style="font-size:11px;color:var(--muted)"> mmHg</small>${arr(o.x,b.x,0.3)}</b></div>`+
+   `<div class="st"><span>CO = VR</span><b>${o.y.toFixed(1)}<small style="font-size:11px;color:var(--muted)"> L/min</small>${arr(o.y,b.y,0.3)}</b></div>`;
+  $("eqn").innerHTML=`<b>VR = (MSFP − RAP) / RVR</b> = (${P.msfp.toFixed(1)} − ${o.x.toFixed(1)}) / ${rvr(P).toFixed(2)} = <b>${o.y.toFixed(1)} L/min</b>`;
+  $("vMSFP").textContent="MSFP "+P.msfp.toFixed(1)+" mmHg";$("vINO").textContent=Math.round(P.ino*100)+"% of normal";$("vTPR").textContent=Math.round(P.tpr*100)+"% of normal";
+  $("sMSFP").value=P.msfp;$("sINO").value=P.ino;$("sTPR").value=P.tpr;
+}
+function infoHTML(s){
+  if(!s) return `<b class="t">Custom settings</b><div class="row">${describeCustom()}</div><div class="pearl">Volume and venous tone move the VR curve in parallel. Contractility moves the cardiac curve. TPR rotates the VR curve and changes afterload.</div>`;
+  return `<b class="t">${s.t}</b><div class="row"><b>What moves</b>${s.what}</div><div class="chain">${s.ch.map(c=>`<span>${c}</span>`).join("<i>→</i>")}</div><div class="pearl">${s.pearl}</div>`;
+}
+function describeCustom(){const o=op(P),b=op(BASE);const w=v=>v>0.3?"higher":v<-0.3?"lower":"about the same";
+  return `Cardiac output is ${w(o.y-b.y)} (${o.y.toFixed(1)} L/min) and RAP is ${w(o.x-b.x)} (${o.x.toFixed(1)} mmHg) than normal.`;}
+function renderPresets(){let g="",h="";SC.forEach(s=>{if(s.g!==g){g=s.g;h+=`<div class="gl">${g}</div>`;}h+=`<button data-s="${s.id}" class="${cur===s.id?"on":""}">${s.n}${s.ar?`<span class="ar">${s.ar}</span>`:""}</button>`;});$("presets").innerHTML=h;}
+function refresh(){renderPresets();readout();$("info").innerHTML=infoHTML(byId[cur]);draw();$("why").innerHTML=whyText();}
+$("presets").addEventListener("click",e=>{const b=e.target.closest("button[data-s]");if(!b)return;stopAnim();const s=byId[b.dataset.s];cur=s.id;P={...s.p};refresh();
+  $("cap").innerHTML=cur==="base"?"Normal: the curves cross at RAP ≈ 2 mmHg, CO ≈ 5 L/min.":"Dashed = normal. The arrow shows how the operating point moved. Press <b>Watch it settle</b> to see how it gets there.";});
+[["sMSFP","msfp"],["sINO","ino"],["sTPR","tpr"]].forEach(([id,k])=>$(id).addEventListener("input",e=>{stopAnim();P[k]=+e.target.value;cur=Object.keys(byId).find(i=>{const q=byId[i].p;return Math.abs(q.msfp-P.msfp)<0.05&&Math.abs(q.ino-P.ino)<0.005&&Math.abs(q.tpr-P.tpr)<0.005;})||null;refresh();}));
+$("ghostBtn").addEventListener("click",()=>{ghost=!ghost;$("ghostBtn").classList.toggle("on",ghost);draw();});
+
+// ---- Hover / drag readout ----
+function setHover(ev){const r=svg.getBoundingClientRect();const px=(ev.clientX-r.left)/r.width*W;const x=ix(px);if(x<XMIN||x>XMAX){hoverX=null;draw();return;}
+  hoverX=x;const Q=mode==="quiz"&&!revealed?BASE:P;const c=CO(Q,x),v=VR(Q,x);
+  const msg=Math.abs(c-v)<0.15?"CO = VR here: this is the operating point.":c>v?"CO > VR: the heart pumps out more than returns, so the RA empties and RAP falls.":"VR > CO: more returns than is pumped, so the RA fills and RAP rises.";
+  if(!anim){$("cap").innerHTML=`RAP <b>${x.toFixed(1)}</b> mmHg · CO <b style="color:var(--co)">${c.toFixed(1)}</b> · VR <b style="color:var(--vr)">${v.toFixed(1)}</b> L/min · ${msg}`;draw();}}
+svg.addEventListener("pointermove",setHover);svg.addEventListener("pointerdown",setHover);
+svg.addEventListener("pointerleave",()=>{hoverX=null;if(!anim)draw();});
+
+// ---- Watch it settle: start at the old operating point on the new curves ----
+function stopAnim(){animRAP=null;if(anim){cancelAnimationFrame(anim.raf);anim=null;$("settleBtn").disabled=false;}}
+$("settleBtn").addEventListener("click",()=>{
+  if(mode==="quiz"&&!revealed)return;
+  stopAnim();const start=sameAsBase()?3.6:op(BASE).x;const target=op(P);let x=start,t0=performance.now(),last=t0;hoverX=null;$("settleBtn").disabled=true;
+  anim={};
+  const step=now=>{const dt=Math.min(0.05,(now-last)/1000);last=now;const c=CO(P,x),v=VR(P,x);x+=(v-c)*dt*0.9;animRAP=x;
+    const cP=css("--co"),vP=css("--vr"),pt=css("--pt");
+    const ex=`<line x1="${sx(x)}" y1="${sy(c)}" x2="${sx(x)}" y2="${sy(v)}" stroke="${pt}" stroke-width="3" opacity=".7"/><circle cx="${sx(x)}" cy="${sy(c)}" r="6" fill="${cP}"/><circle cx="${sx(x)}" cy="${sy(v)}" r="6" fill="${vP}"/>`+arrow(sx(x),sy(0)-14,sx(x+(v>c?0.9:-0.9)),sy(0)-14,pt);
+    draw(ex);
+    $("cap").innerHTML=Math.abs(v-c)<0.12?`<b>Settled.</b> CO = VR = ${target.y.toFixed(1)} L/min at RAP ${target.x.toFixed(1)} mmHg.`:
+      (v>c?`VR <b style="color:var(--vr)">${v.toFixed(1)}</b> &gt; CO <b style="color:var(--co)">${c.toFixed(1)}</b>: blood piles up in the RA, so RAP rises (${x.toFixed(1)} mmHg). That raises CO (Starling) and lowers VR (smaller gradient).`
+           :`CO <b style="color:var(--co)">${c.toFixed(1)}</b> &gt; VR <b style="color:var(--vr)">${v.toFixed(1)}</b>: the heart drains the RA, so RAP falls (${x.toFixed(1)} mmHg). That lowers CO and raises VR (bigger gradient).`);
+    if(Math.abs(v-c)<0.12||now-t0>9000){anim=null;animRAP=null;$("settleBtn").disabled=false;setTimeout(()=>{if(!anim)draw();},1200);return;}
+    anim.raf=requestAnimationFrame(step);};
+  anim.raf=requestAnimationFrame(step);
+});
+
+
+// ---- See it on the heart: veins → right atrium → ventricle → arterioles → back to the veins ----
+const circ=$("circ");let animRAP=null,hPhase=0,hLast=performance.now(),parts=[];for(let i=0;i<28;i++)parts.push(i/28);
+const PY=p=>280-p*(140/12);                       // one pressure scale for both reservoirs (12 mmHg = full)
+const LOOP=[[120,255],[305,255],[450,230],[450,52],[182,52],[182,140],[120,255]];
+const SEG=[];let LTOT=0;for(let i=0;i<LOOP.length-1;i++){const [a,b]=[LOOP[i],LOOP[i+1]];const l=Math.hypot(b[0]-a[0],b[1]-a[1]);SEG.push([a,b,l]);LTOT+=l;}
+function along(f){let d=((f%1)+1)%1*LTOT;for(const [a,b,l] of SEG){if(d<=l){const t=d/l;return [a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t];}d-=l;}return LOOP[0];}
+function heartState(){const Q=(mode==="quiz"&&!revealed)?BASE:P;const o=op(Q);const rap=animRAP!==null?animRAP:o.x;
+  const co=CO(Q,rap),vr=VR(Q,rap),hr=Q.hr||70,sv=co*1000/hr,edv=70+25*Math.max(rap,-0.5),esv=Math.max(8,edv-sv);
+  return {Q,rap,co,vr,hr,sv,edv,esv};}
+const BH=(()=>{const q=BASE,o=op(q);const sv=o.y*1000/70,edv=70+25*o.x;return {rap:o.x,co:o.y,edv,esv:edv-sv,sv,g:q.msfp-o.x};})();
+function tag(v,b,t){return Math.abs(v-b)<t?"":v>b?" ↑":" ↓";}
+function drawHeart(now){
+  const dt=Math.min(0.1,(now-hLast)/1000);hLast=now;const H=heartState();
+  const cCO=css("--co"),cVR=css("--vr"),cT=css("--text"),cM=css("--muted"),cL=css("--line2"),cP=css("--pt"),cBg=css("--card"),blood=css("--vr");
+  // ventricle beat: period stretched 1.6× so it is easy to watch
+  const per=60/H.hr*1.6;hPhase=(hPhase+dt/per)%1;const sys=0.36;
+  const vol=hPhase<sys?H.edv-(H.edv-H.esv)*Math.sin(hPhase/sys*Math.PI/2):H.esv+(H.edv-H.esv)*Math.min(1,(hPhase-sys)/(1-sys)*1.5);
+  parts=parts.map(f=>f+dt*H.co*0.018);
+  const vrW=3+1.5*H.vr,coW=3+1.5*H.co,tpr=H.Q.tpr,ino=H.Q.ino;
+  let g="";
+  // pipes
+  g+=`<polyline points="${LOOP.map(p=>p.join(",")).join(" ")}" fill="none" stroke="${cL}" stroke-width="${Math.max(vrW,coW)+6}" stroke-linejoin="round" opacity=".45"/>`;
+  g+=`<line x1="200" y1="255" x2="270" y2="255" stroke="${cVR}" stroke-width="${vrW}" opacity=".55"/>`;
+  g+=`<polyline points="450,230 450,52 182,52 182,120" fill="none" stroke="${cCO}" stroke-width="${coW}" stroke-linejoin="round" opacity=".45"/>`;
+  // arterioles (pinch = TPR)
+  const gap=Math.max(3,(coW+6)/tpr*0.85),ax=290;
+  g+=`<path d="M${ax-34} ${52-22}L${ax} ${52-gap/2}L${ax+34} ${52-22}Z M${ax-34} ${52+22}L${ax} ${52+gap/2}L${ax+34} ${52+22}Z" fill="${cM}" opacity=".75"/>`;
+  g+=`<text x="${ax}" y="18" fill="${cT}" font-size="12" font-weight="700" text-anchor="middle">Arterioles · TPR ${Math.round(tpr*100)}%${tag(tpr,1,0.03)}</text>`;
+  // veins reservoir
+  const vy=PY(H.Q.msfp);g+=`<rect x="40" y="${PY(12)}" width="160" height="${280-PY(12)}" rx="14" fill="${cBg}" stroke="${cL}" stroke-width="2"/>`;
+  g+=`<rect x="42" y="${vy}" width="156" height="${278-vy}" rx="12" fill="${blood}" opacity=".35"/><line x1="40" y1="${vy}" x2="200" y2="${vy}" stroke="${cVR}" stroke-width="2.5"/>`;
+  g+=`<text x="100" y="${PY(12)-26}" fill="${cT}" font-size="12.5" font-weight="700" text-anchor="middle">Veins (venous reservoir)</text><text x="100" y="${PY(12)-10}" fill="${cVR}" font-size="12" font-weight="700" text-anchor="middle">MSFP ${H.Q.msfp.toFixed(1)} mmHg${tag(H.Q.msfp,7,0.15)}</text>`;
+  // right atrium
+  const ry=PY(Math.max(0,H.rap));g+=`<rect x="270" y="${PY(9)}" width="70" height="${280-PY(9)}" rx="12" fill="${cBg}" stroke="${cL}" stroke-width="2"/>`;
+  g+=`<rect x="272" y="${ry}" width="66" height="${278-ry}" rx="10" fill="${blood}" opacity=".35"/><line x1="270" y1="${ry}" x2="340" y2="${ry}" stroke="${cP}" stroke-width="2.5"/>`;
+  g+=`<text x="305" y="${PY(9)-26}" fill="${cT}" font-size="12.5" font-weight="700" text-anchor="middle">Right atrium</text><text x="305" y="${PY(9)-10}" fill="${cP}" font-size="12" font-weight="700" text-anchor="middle">RAP ${H.rap.toFixed(1)}${tag(H.rap,BH.rap,0.3)}</text>`;
+  // gradient bracket between the two levels
+  const gx=232;g+=`<line x1="200" y1="${vy}" x2="${gx+8}" y2="${vy}" stroke="${cVR}" stroke-dasharray="3 3"/><line x1="${gx-8}" y1="${ry}" x2="270" y2="${ry}" stroke="${cP}" stroke-dasharray="3 3"/>`;
+  if(ry-vy>6)g+=`<line x1="${gx}" y1="${vy+2}" x2="${gx}" y2="${ry-2}" stroke="${cT}" stroke-width="1.5"/><path d="M${gx-4} ${ry-8}L${gx} ${ry-1}L${gx+4} ${ry-8}" fill="none" stroke="${cT}" stroke-width="1.5"/>`;
+  g+=`<text x="${gx}" y="300" fill="${cT}" font-size="11.5" font-weight="700" text-anchor="middle">Gradient ${(H.Q.msfp-H.rap).toFixed(1)}${tag(H.Q.msfp-H.rap,BH.g,0.3)}</text>`;
+  g+=`<text x="${gx}" y="316" fill="${cVR}" font-size="11.5" font-weight="700" text-anchor="middle">VR ${H.vr.toFixed(1)} L/min</text>`;
+  // ventricle
+  const rv=22+0.3*vol;const wall=3+5*ino;
+  g+=`<ellipse cx="450" cy="230" rx="${rv*0.78}" ry="${rv}" fill="${cBg}"/><ellipse cx="450" cy="230" rx="${rv*0.78}" ry="${rv}" fill="${blood}" fill-opacity=".35" stroke="${cCO}" stroke-width="${wall}"/>`;
+    g+=`<text x="450" y="${230+rv+20}" fill="${cT}" font-size="12.5" font-weight="700" text-anchor="middle">Ventricle</text>`;
+  const rN=22+0.3*BH.esv;g+=`<ellipse cx="450" cy="230" rx="${rN*0.78}" ry="${rN}" fill="none" stroke="${cM}" stroke-width="1.5" stroke-dasharray="4 4"/><text x="535" y="266" fill="${cM}" font-size="11">dashed ring = normal ESV</text>`;
+  // particles
+  for(const f of parts){const [x,y]=along(f);g+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="3.2" fill="${blood}"/>`;}
+  // ventricle readouts
+  const ef=Math.round((H.edv-H.esv)/H.edv*100);
+  g+=`<g font-size="12" fill="${cT}"><text x="535" y="150" font-weight="700">EDV ${Math.round(H.edv)} mL${tag(H.edv,BH.edv,4)}</text><text x="535" y="168" font-weight="700">ESV ${Math.round(H.esv)} mL${tag(H.esv,BH.esv,4)}</text><text x="535" y="186">SV ${Math.round(H.sv)} mL · EF ${ef}%</text><text x="535" y="204">HR ${H.hr}/min</text><text x="535" y="226" fill="${cCO}" font-weight="700">CO ${H.co.toFixed(1)} L/min${tag(H.co,BH.co,0.3)}</text><text x="535" y="244" fill="${cM}">contractility ${Math.round(ino*100)}%</text></g>`;
+  circ.innerHTML=g;
+}
+function whyText(){const H=heartState(),Q=H.Q;const d=[];
+  if(mode==="quiz"&&!revealed)return "";
+  const n=[Math.abs(Q.ino-1)>0.02,Math.abs(Q.msfp-7)>0.1,Math.abs(Q.tpr-1)>0.03].filter(Boolean).length,solo=n===1;
+  if(Math.abs(Q.ino-1)>0.02){const up=Q.ino>1;d.push(up?`<b>Stronger squeeze:</b> the ventricle empties down to an ESV of ${Math.round(H.esv)} mL (normal ${Math.round(BH.esv)}). More blood leaves with each beat and less is left behind, so the right atrium drains${solo?` and its level falls to RAP ${H.rap.toFixed(1)} mmHg. The gradient from the veins grows to ${(Q.msfp-H.rap).toFixed(1)} mmHg, so venous return rises to match the higher CO.`:", which on its own lowers RAP and widens the gradient from the veins."}`
+    :`<b>Weaker squeeze:</b> the ventricle only empties to an ESV of ${Math.round(H.esv)} mL (normal ${Math.round(BH.esv)}). Blood that is not pumped out backs up into the right atrium${solo?`, so RAP rises to ${H.rap.toFixed(1)} mmHg. The gradient from the veins shrinks to ${(Q.msfp-H.rap).toFixed(1)} mmHg, so venous return falls with CO.`:", which on its own raises RAP and shrinks the gradient from the veins."}`);}
+  if(Math.abs(Q.msfp-7)>0.1){const up=Q.msfp>7;d.push(up?`<b>Fuller veins:</b> MSFP is ${Q.msfp.toFixed(1)} mmHg, so blood pushes harder toward the heart. On its own this fills the atrium higher, the ventricle starts each beat bigger and Frank–Starling raises the output.`
+    :`<b>Emptier veins:</b> MSFP falls to ${Q.msfp.toFixed(1)} mmHg, so less blood is pushed toward the heart. The atrium sits lower (RAP ${H.rap.toFixed(1)}), the ventricle fills less (EDV ${Math.round(H.edv)} mL) and stroke volume falls.`);}
+  if(Math.abs(Q.tpr-1)>0.03){const up=Q.tpr>1;d.push(up?`<b>Narrower arterioles:</b> higher TPR is harder to pump against (afterload), and less blood reaches the veins, so CO and VR fall together.`
+    :`<b>Wider arterioles:</b> lower TPR is easier to pump against and lets blood reach the veins faster, so CO and VR rise together.`);}
+  if(!d.length)return `<b>Normal:</b> the veins sit at MSFP 7 mmHg and the right atrium at 2 mmHg. That 5 mmHg gradient pushes 5 L/min back to the heart, and the ventricle pumps the same 5 L/min out. Both reservoirs use the same pressure scale, so the height difference is the gradient.`;
+  if(!solo||Math.abs(Q.msfp-7)>0.1&&Math.abs(Q.ino-1)<=0.02)d.push(`<b>Net result:</b> RAP ${H.rap.toFixed(1)} mmHg (normal ${BH.rap.toFixed(1)}) and CO = VR ${H.co.toFixed(1)} L/min (normal ${BH.co.toFixed(1)}).`);
+  return d.join("<br>");}
+function heartLoop(now){drawHeart(now);heartRAF=requestAnimationFrame(heartLoop);}let heartRAF=requestAnimationFrame(heartLoop);$("hLeg").textContent="Veins and right atrium share one pressure scale";
+// ---- Predict it ----
+let revealed=false,qs=null,score=0,tries=0,ans={};
+const QPOOL=SC.filter(s=>s.id!=="base");
+function dir(a,b,t){return Math.abs(a-b)<t?"eq":a>b?"up":"dn";}
+function newQ(){stopAnim();revealed=false;$("app").classList.remove("rev");ans={};let s;do{s=QPOOL[Math.floor(Math.random()*QPOOL.length)];}while(qs&&s.id===qs.id&&QPOOL.length>1);qs=s;P={...s.p};cur=s.id;
+  $("qscen").innerHTML=`${s.n}<small>${s.t.replace(/^.*?: /,"")===s.t?"":s.t}</small>`;
+  document.querySelectorAll(".qopts button").forEach(b=>b.className="");$("qfb").innerHTML="";$("qinfo").style.display="none";$("revealBtn").disabled=false;
+  $("cap").innerHTML="The curves shown are normal. Predict what happens, then press <b>Reveal</b>.";draw();}
+document.querySelectorAll(".qopts").forEach(g=>g.addEventListener("click",e=>{const b=e.target.closest("button");if(!b||revealed)return;g.querySelectorAll("button").forEach(x=>x.classList.remove("sel"));b.classList.add("sel");ans[g.dataset.q]=b.dataset.v;}));
+$("revealBtn").addEventListener("click",()=>{if(revealed)return;if(Object.keys(ans).length<3){$("qfb").textContent="Answer all three first.";return;}
+  revealed=true;const o=op(P),b=op(BASE);const key={curve:qs.mv,co:dir(o.y,b.y,0.3),rap:dir(o.x,b.x,0.3)};let right=0;
+  document.querySelectorAll(".qopts").forEach(g=>{const k=key[g.dataset.q];g.querySelectorAll("button").forEach(x=>{if(x.dataset.v===k)x.classList.add("ok");else if(x.classList.contains("sel"))x.classList.add("bad");});if(ans[g.dataset.q]===k)right++;});
+  tries++;if(right===3)score++;$("score").textContent=score+" / "+tries;
+  $("qfb").innerHTML=right===3?"<b>All three right.</b>":`<b>${right} of 3 right.</b> CO ${o.y.toFixed(1)} L/min (normal ${b.y.toFixed(1)}), RAP ${o.x.toFixed(1)} mmHg (normal ${b.x.toFixed(1)}).`;
+  $("qinfo").innerHTML=infoHTML(qs);$("qinfo").style.display="block";$("app").classList.add("rev");$("why").innerHTML=whyText();$("revealBtn").disabled=true;
+  $("cap").innerHTML="Dashed = normal. Press <b>Watch it settle</b> to see the operating point move.";draw();});
+$("nextBtn").addEventListener("click",newQ);
+$("mode").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;mode=b.dataset.m;document.querySelectorAll("#mode button").forEach(x=>x.classList.toggle("on",x===b));
+  $("app").classList.toggle("quiz",mode==="quiz");if(mode==="quiz"){ghost=true;$("ghostBtn").classList.add("on");newQ();}else{stopAnim();revealed=false;refresh();$("cap").innerHTML="Drag across the graph to read CO and VR at any right atrial pressure.";}});
+window.addEventListener("message",e=>{if(e.data==="jj-theme")setTimeout(draw,0);});
+window.addEventListener("storage",e=>{if(e.key==="msk-theme")setTimeout(draw,0);});
+// Deep link: function-curves.html#s=hem or #quiz
+function fromHash(){const m=location.hash.match(/s=(\w+)/);if(m&&byId[m[1]]){stopAnim();cur=m[1];P={...byId[m[1]].p};}}
+const h=location.hash;fromHash();
+window.addEventListener("hashchange",()=>{if(mode==="quiz")document.querySelector('#mode button[data-m="explore"]').click();fromHash();refresh();});
+refresh();if(/quiz/.test(h))document.querySelector('#mode button[data-m="quiz"]').click();
+})();
+</script>
+</body></html>

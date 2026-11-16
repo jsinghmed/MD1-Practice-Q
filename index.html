@@ -2097,7 +2097,7 @@ function renderChaps(){
       + `<div class="g3dbody"${op?"":" hidden"}>` + rows.map(r=>navRow(`data-act="${r[0]}"`, r[1], r[2], "", r[3], "sub")).join("") + `</div>`; };
   if (S.course==="msk") tools += g3d([["limb3d", "💪", "Upper limb", view==="limb3d"], ["leg3d", "🦵", "Lower limb", view==="leg3d"]]) + navRow('data-act="plexus"', NVI.plexus, "Brachial plexus", "", view==="plexus");
   if (S.course==="crs") tools += g3d([["heart3d", "🫀", "Heart atlas", view==="heart3d"], ["heartemb", "🧬", "Heart development (embryo)", view==="heartemb"], ["heartinj", "🩹", "Heart injuries", view==="heartinj"], ["ribcage", "🦴", "Thoracic cage", view==="ribcage"]])
-    + navRow('data-act="cap"', NVI.ap, "Cardiac action potentials", "", view==="cap") + navRow('data-act="pvl"', NVI.pv, "Cardiac cycle & PV loop", "", view==="pvl") + navRow('data-act="viva"', NVI.notes, "Anatomy Lab: spotter & viva", "", view==="viva");
+    + navRow('data-act="cap"', NVI.ap, "Cardiac action potentials", "", view==="cap") + navRow('data-act="pvl"', NVI.pv, "Cardiac cycle & PV loop", "", view==="pvl") + navRow('data-act="fcurve"', NVI.pv, "Cardiac & vascular function curves", "", view==="fcurve") + navRow('data-act="viva"', NVI.notes, "Anatomy Lab: spotter & viva", "", view==="viva");
   if (S.anki && S.anki.length) tools += navRow('data-act="anki"', NVI.anki, "Anki export", S.anki.length, view==="anki");
   if (tools) {
     const nT = (tools.match(/data-act=/g)||[]).length, onTool = /data-act="[^"]+"[^>]*class="[^"]*\bon\b|class="[^"]*\bon\b[^"]*"[^>]*data-act=/.test(tools);
@@ -2462,7 +2462,7 @@ function downloadAnki(){
 // ---- "See it in 3D": link a question to the interactive tool that shows it ----
 // A question can carry q.viz = {tool, hash, label, why}; otherwise these keyword rules pick one.
 const VIZ_TOOLS = {heart3d:{page:"heart-3d.html", name:"3D heart", icon:"🫀"}, heartemb:{page:"heart-embryo-3d.html", name:"3D heart development model", icon:"🧬"}, cap:{page:"cardiac-ap.html", name:"cardiac action potentials", icon:"⚡"},
-  pvl:{page:"cardiac-cycle.html", name:"cardiac cycle & PV loop", icon:"📈"}, limb3d:{page:"upper-limb-3d.html", name:"3D upper limb", icon:"💪"},
+  pvl:{page:"cardiac-cycle.html", name:"cardiac cycle & PV loop", icon:"📈"}, fcurve:{page:"function-curves.html", name:"function curves tool", icon:"📉"}, limb3d:{page:"upper-limb-3d.html", name:"3D upper limb", icon:"💪"},
   leg3d:{page:"lower-limb-3d.html", name:"3D lower limb", icon:"🦵"}, plexus:{page:"brachial-plexus.html", name:"brachial plexus", icon:"🧠"}, ribcage:{page:"rib-cage-3d.html", name:"3D thoracic cage", icon:"🦴"}};
 // CRS Embryology heart questions open the heart-development model at the matching stage (checked before VIZ_RULES)
 const EMB_RULES = [
@@ -2479,7 +2479,21 @@ const EMB_RULES = [
   [/coelom|splanchno|somatopleur|septum transversum|cardiogenic|pericardial cavity|horseshoe/i, 2, "Coelom and the cardiogenic area"],
   [/germ layer|mesoderm|notochord/i, 1, "The trilaminar disc"],
 ];
+// Lecture 7 (function curves) questions open the function-curves tool on the matching scenario
+const FC_RULES = [
+  [/spinal|epidural/i, "spinal", "Spinal anesthesia"],
+  [/hemorrhag|blood loss|lost blood|loses about|stabbed|motorcycle/i, "hem", "Acute hemorrhage"],
+  [/exercis|race|runner/i, "ex", "Exercise: both curves rise"],
+  [/fistula|shunt|resistance falls|arterioles dilate|afterload falls/i, "av", "Lower TPR and afterload"],
+  [/retain|retention/i, "hfret", "Heart failure plus fluid retention"],
+  [/norepinephrine|vasopressor|phenylephrine/i, "vaso", "Vasopressors: higher TPR"],
+  [/dobutamine|digoxin|positive inotrop|catecholamine/i, "pos", "Positive inotropy"],
+  [/infarct|\bMI\b|negative inotrop|narcotic|reduced ejection|HFrEF/i, "neg", "Negative inotropy"],
+  [/venoconstrict|constricts the veins|venous tone/i, "symp", "Venous tone and MSFP"],
+  [/transfus|saline|units of blood|blood volume|whole blood/i, "trans", "More blood volume"]
+];
 const VIZ_RULES = [
+  [/mean systemic|function curve|vascular function|venous return curve/i, "fcurve", "", "Cardiac & vascular function curves"],
   [/ligamentum arteriosum|ductus arteriosus|isthmus/i, "heart3d", "case=blunt:2", "Aortic isthmus and the ligamentum arteriosum"],
   [/coarctation/i, "heart3d", "sel=aorta", "The aorta and its arch"],
   [/tamponade|beck'?s triad|pulsus paradoxus|electrical alternans/i, "heart3d", "case=stab:2", "Cardiac tamponade, step by step"],
@@ -2520,6 +2534,9 @@ function vizFor(q){
   if (q.pfx==="ce" && (window.CRS_EMB_TOPICS||[]).slice(0,4).includes(q.t)) { const qt = [q.s, q.q].filter(Boolean).join(" ");
     const hit = EMB_RULES.find(r=>r[0].test(qt)) || EMB_RULES.find(r=>r[0].test(text));
     if (hit) { const t = VIZ_TOOLS.heartemb; return {tool:"heartemb", hash:"stage="+hit[1], label:"Stage "+hit[1]+" · "+hit[2], icon:t.icon, name:t.name, page:t.page}; } }
+  if ((q.pfx==="cpr" && (window.CRS_PH_TOPICS||[]).slice(53,59).includes(q.t)) || q.t==="Lecture 7 · Cardiac & Vascular Function Curves") {
+    const hit = FC_RULES.find(r=>r[0].test(q.s||"")); const t = VIZ_TOOLS.fcurve;
+    return {tool:"fcurve", hash:hit?"s="+hit[1]:"", label:hit?hit[2]:"Cardiac & vascular function curves", icon:t.icon, name:t.name, page:t.page}; }
   for (const [re, tool, hash, label] of VIZ_RULES) if (re.test(text)) { const t = VIZ_TOOLS[tool]; return {tool, hash, label, icon:t.icon, name:t.name, page:t.page}; }
   return null;
 }
@@ -3786,6 +3803,7 @@ function renderAll(){
   else if (view==="heartemb") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Heart development (embryo)</h2><a class="btn" href="heart-embryo-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="heart-embryo-3d.html?v=2" title="Interactive 3D model of heart development"></iframe></div>`);
   else if (view==="heartinj") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Heart injuries</h2><a class="btn" href="heart-3d.html#injuries" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="heart-3d.html?v=5#injuries" title="Heart injury cases on the 3D heart"></iframe></div>`);
   else if (view==="cap") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Cardiac action potentials</h2><a class="btn" href="cardiac-ap.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="cardiac-ap.html?v=1" title="Interactive cardiac action potential explorer"></iframe></div>`);
+  else if (view==="fcurve") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Cardiac &amp; vascular function curves</h2><a class="btn" href="function-curves.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="function-curves.html?v=1" title="Interactive cardiac and vascular function curves"></iframe></div>`);
   else if (view==="pvl") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Cardiac cycle & PV loop</h2><a class="btn" href="cardiac-cycle.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="cardiac-cycle.html?v=3" title="Interactive cardiac cycle and pressure-volume loop simulator"></iframe></div>`);
   else if (view==="limb3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>3D upper limb atlas</h2><a class="btn" href="upper-limb-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="upper-limb-3d.html?v=1" title="Interactive 3D upper limb atlas"></iframe></div>`);
   else if (view==="leg3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>3D lower limb atlas</h2><a class="btn" href="lower-limb-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="lower-limb-3d.html?v=1" title="Interactive 3D lower limb atlas"></iframe></div>`);
@@ -4010,7 +4028,7 @@ document.addEventListener("click", e=>{
   if (t.closest("[data-g3d]")) { const b = t.closest("[data-g3d]"), op = b.getAttribute("aria-expanded")!=="true"; try { localStorage.setItem("jj-3d-open", op?"1":"0"); } catch(e) {} b.setAttribute("aria-expanded", op); b.classList.toggle("on", !op && !!(b.nextElementSibling && b.nextElementSibling.querySelector(".on"))); if (b.nextElementSibling) b.nextElementSibling.hidden = !op; return; }
   if (t.closest("[data-toolstoggle]")) { const b = t.closest("[data-toolstoggle]"), op = b.getAttribute("aria-expanded")!=="true"; try { localStorage.setItem("jj-tools-open", op?"1":"0"); } catch(e) {} renderAll(); return; }
   const act = t.closest("[data-act]");
-  if (act) { view = ({build:"builder", plexus:"plexus", limbmov:"limbmov", limb3d:"limb3d", leg3d:"leg3d", cap:"cap", pvl:"pvl", heart3d:"heart3d", heartemb:"heartemb", heartinj:"heartinj", ribcage:"ribcage", viva:"viva", ethics:"ethics", guides:"guides", anki:"anki", notes:"notes"})[act.dataset.act] || "notes"; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); return; }
+  if (act) { view = ({build:"builder", plexus:"plexus", limbmov:"limbmov", limb3d:"limb3d", leg3d:"leg3d", cap:"cap", pvl:"pvl", fcurve:"fcurve", heart3d:"heart3d", heartemb:"heartemb", heartinj:"heartinj", ribcage:"ribcage", viva:"viva", ethics:"ethics", guides:"guides", anki:"anki", notes:"notes"})[act.dataset.act] || "notes"; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); return; }
   if (t.closest("[data-plexback]")) { view = "home"; renderAll(); $("main").scrollTo({top:0}); return; }
   // sidebar
   const rv = t.closest("[data-rv]");
@@ -4408,7 +4426,7 @@ window.JJ_STATS = function(st){
 // Welcome screen: shown every time the page loads.
 // ---- Updates: version.json says which version is live. When it's newer than this page, a card offers a refresh
 // (skips the logo intro). After a refresh to a new version, "What's new" lists every change since the last one seen.
-const JJ_VERSION = "2026-11-16a";
+const JJ_VERSION = "2026-11-16b";
 const UPD_ICON = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>';
 let updLater = "";
 async function updFetch(){ const r = await fetch("version.json?t=" + Date.now(), {cache:"no-store"}); if (!r.ok) throw new Error(r.status); return r.json(); }

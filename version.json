@@ -1,6 +1,22 @@
 {
- "v": "2026-11-16a",
+ "v": "2026-11-16b",
  "notes": [
+  {
+   "v": "2026-11-16b",
+   "date": "Nov 16, 2026",
+   "groups": [
+    {
+     "h": "New tool",
+     "items": [
+      {
+       "tag": "new",
+       "title": "Cardiac & vascular function curves",
+       "text": "An interactive graph in CRS Study tools. Pick a scenario from the slides (transfusion, hemorrhage, spinal anesthesia, inotropes, vasopressors, AV shunt, exercise) and watch where CO = VR settles. See it on the heart shows why, and Predict it lets you test yourself. Lecture 7 questions link straight to it."
+      }
+     ]
+    }
+   ]
+  },
   {
    "v": "2026-11-16a",
    "date": "Nov 16, 2026",
