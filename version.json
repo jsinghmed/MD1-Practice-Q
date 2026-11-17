@@ -1,6 +1,27 @@
 {
- "v": "2026-11-16b",
+ "v": "2026-11-17a",
  "notes": [
+  {
+   "v": "2026-11-17a",
+   "date": "Nov 17, 2026",
+   "groups": [
+    {
+     "h": "New lectures",
+     "items": [
+      {
+       "tag": "new",
+       "title": "CRS Biochemistry · Lecture 6: Lipoprotein Metabolism",
+       "text": "44 questions from the new slides, including Dr. Shetty's practice question. Explanations show the figures from the slides."
+      },
+      {
+       "tag": "new",
+       "title": "CRS Physiology · Lecture 8: Regulation of Blood Pressure",
+       "text": "32 questions from the new slides. Explanations show the figures from the slides."
+      }
+     ]
+    }
+   ]
+  },
   {
    "v": "2026-11-16b",
    "date": "Nov 16, 2026",

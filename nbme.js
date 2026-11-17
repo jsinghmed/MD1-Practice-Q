@@ -4477,164 +4477,353 @@ window.NBME_QUIZZES = [
 ]
 },
 {
- "t": "Lecture 5 · Eicosanoid Metabolism",
- "s": "A 9-year-old girl with asthma takes ibuprofen for a sprained ankle and within an hour develops wheezing, nasal congestion and flushing. She has nasal polyps. Which shift in arachidonic acid metabolism best explains her reaction?",
- "c": [
-  "Less substrate for 5-lipoxygenase",
-  "Inhibition of phospholipase A2",
-  "Inhibition of the leukotriene receptor",
-  "More thromboxane synthase activity",
-  "More substrate for 5-lipoxygenase"
- ],
- "a": 4,
- "e": "Step 1: ibuprofen blocks both COX isoforms.\nStep 2: with COX blocked, more arachidonic acid is available to the linear, 5-lipoxygenase pathway.\nStep 3: more LTC₄, LTD₄ and LTE₄ cause bronchoconstriction, giving aspirin- or NSAID-exacerbated respiratory disease.",
- "w": [
-  "Blocking COX shifts more arachidonate toward 5-lipoxygenase.",
-  "NSAIDs do not inhibit PLA2.",
-  "That would prevent bronchospasm.",
-  "With COX blocked, thromboxane falls.",
-  ""
- ]
+"t": "Lecture 5 · Eicosanoid Metabolism",
+"s": "A 9-year-old girl with asthma takes ibuprofen for a sprained ankle and within an hour develops wheezing, nasal congestion and flushing. She has nasal polyps. Which shift in arachidonic acid metabolism best explains her reaction?",
+"c": [
+"Less substrate for 5-lipoxygenase",
+"Inhibition of phospholipase A2",
+"Inhibition of the leukotriene receptor",
+"More thromboxane synthase activity",
+"More substrate for 5-lipoxygenase"
+],
+"a": 4,
+"e": "Step 1: ibuprofen blocks both COX isoforms.\nStep 2: with COX blocked, more arachidonic acid is available to the linear, 5-lipoxygenase pathway.\nStep 3: more LTC₄, LTD₄ and LTE₄ cause bronchoconstriction, giving aspirin- or NSAID-exacerbated respiratory disease.",
+"w": [
+"Blocking COX shifts more arachidonate toward 5-lipoxygenase.",
+"NSAIDs do not inhibit PLA2.",
+"That would prevent bronchospasm.",
+"With COX blocked, thromboxane falls.",
+""
+]
 },
 {
- "t": "Lecture 5 · Eicosanoid Metabolism",
- "s": "A 72-year-old man takes low-dose aspirin daily. A new platelet count is normal, but platelet function testing shows reduced aggregation. He stopped the aspirin 2 days ago. Which statement best explains why his platelets still aggregate poorly?",
- "c": [
-  "Platelets cannot replace acetylated COX-1",
-  "Aspirin is still in his plasma at full levels",
-  "Aspirin permanently damaged his megakaryocytes",
-  "Aspirin raised endothelial prostacyclin for weeks",
-  "Aspirin blocks platelet thromboxane receptors"
- ],
- "a": 0,
- "e": "Step 1: aspirin acetylates a serine in COX-1, an irreversible block.\nStep 2: platelets have no nucleus, so they cannot make new enzyme, and their TXA₂ stays low for their lifespan of about 8–10 days.\nStep 3: function returns only as new platelets are released from the marrow.",
- "w": [
-  "",
-  "Aspirin is cleared from plasma within hours.",
-  "Megakaryocytes are not damaged and keep making new platelets.",
-  "Aspirin lowers prostacyclin too, but endothelium recovers fast.",
-  "Aspirin acts on COX, not on the receptor."
- ]
+"t": "Lecture 5 · Eicosanoid Metabolism",
+"s": "A 72-year-old man takes low-dose aspirin daily. A new platelet count is normal, but platelet function testing shows reduced aggregation. He stopped the aspirin 2 days ago. Which statement best explains why his platelets still aggregate poorly?",
+"c": [
+"Platelets cannot replace acetylated COX-1",
+"Aspirin is still in his plasma at full levels",
+"Aspirin permanently damaged his megakaryocytes",
+"Aspirin raised endothelial prostacyclin for weeks",
+"Aspirin blocks platelet thromboxane receptors"
+],
+"a": 0,
+"e": "Step 1: aspirin acetylates a serine in COX-1, an irreversible block.\nStep 2: platelets have no nucleus, so they cannot make new enzyme, and their TXA₂ stays low for their lifespan of about 8–10 days.\nStep 3: function returns only as new platelets are released from the marrow.",
+"w": [
+"",
+"Aspirin is cleared from plasma within hours.",
+"Megakaryocytes are not damaged and keep making new platelets.",
+"Aspirin lowers prostacyclin too, but endothelium recovers fast.",
+"Aspirin acts on COX, not on the receptor."
+]
 },
 {
- "t": "Lecture 5 · Eicosanoid Metabolism",
- "s": "A 30-year-old woman is started on high-dose prednisone for a lupus flare. Which pair of eicosanoid changes is expected?",
- "c": [
-  "Only prostaglandins fall",
-  "Both prostaglandins and leukotrienes fall",
-  "Only leukotrienes fall",
-  "Prostaglandins fall and leukotrienes rise",
-  "Thromboxane rises and prostacyclin falls"
- ],
- "a": 1,
- "e": "Step 1: corticosteroids induce lipocortin, which inhibits phospholipase A2.\nStep 2: PLA2 releases arachidonic acid from C-2 of membrane phospholipids, upstream of both pathways.\nStep 3: with less arachidonate, both the COX and lipoxygenase products fall.",
- "w": [
-  "The block is upstream of both pathways.",
-  "",
-  "Leukotrienes also need arachidonate.",
-  "This pattern fits NSAIDs, not steroids.",
-  "Steroids lower both prostanoids."
- ]
+"t": "Lecture 5 · Eicosanoid Metabolism",
+"s": "A 30-year-old woman is started on high-dose prednisone for a lupus flare. Which pair of eicosanoid changes is expected?",
+"c": [
+"Only prostaglandins fall",
+"Both prostaglandins and leukotrienes fall",
+"Only leukotrienes fall",
+"Prostaglandins fall and leukotrienes rise",
+"Thromboxane rises and prostacyclin falls"
+],
+"a": 1,
+"e": "Step 1: corticosteroids induce lipocortin, which inhibits phospholipase A2.\nStep 2: PLA2 releases arachidonic acid from C-2 of membrane phospholipids, upstream of both pathways.\nStep 3: with less arachidonate, both the COX and lipoxygenase products fall.",
+"w": [
+"The block is upstream of both pathways.",
+"",
+"Leukotrienes also need arachidonate.",
+"This pattern fits NSAIDs, not steroids.",
+"Steroids lower both prostanoids."
+]
 },
 {
- "t": "Lecture 5 · Eicosanoid Metabolism",
- "s": "A researcher incubates a membrane fraction with arachidonic acid, O₂ and glutathione and finds that PGG₂ is formed but PGH₂ is not. Which activity of prostaglandin H₂ synthase is defective?",
- "c": [
-  "Cyclooxygenase",
-  "Thromboxane synthase",
-  "Peroxidase",
-  "Phospholipase A2",
-  "5-Lipoxygenase"
- ],
- "a": 2,
- "e": "Step 1: PGH₂ synthase has two activities.\nStep 2: the cyclooxygenase activity adds 2 O₂ to arachidonate to make PGG₂, which worked here.\nStep 3: the peroxidase activity then reduces PGG₂ to PGH₂ using 2 GSH, so that is the step that failed.",
- "w": [
-  "Cyclooxygenase activity worked, since PGG₂ formed.",
-  "This acts on PGH₂, later in the pathway.",
-  "",
-  "PLA2 is not needed when arachidonate is added directly.",
-  "This is the leukotriene branch."
- ]
+"t": "Lecture 5 · Eicosanoid Metabolism",
+"s": "A researcher incubates a membrane fraction with arachidonic acid, O₂ and glutathione and finds that PGG₂ is formed but PGH₂ is not. Which activity of prostaglandin H₂ synthase is defective?",
+"c": [
+"Cyclooxygenase",
+"Thromboxane synthase",
+"Peroxidase",
+"Phospholipase A2",
+"5-Lipoxygenase"
+],
+"a": 2,
+"e": "Step 1: PGH₂ synthase has two activities.\nStep 2: the cyclooxygenase activity adds 2 O₂ to arachidonate to make PGG₂, which worked here.\nStep 3: the peroxidase activity then reduces PGG₂ to PGH₂ using 2 GSH, so that is the step that failed.",
+"w": [
+"Cyclooxygenase activity worked, since PGG₂ formed.",
+"This acts on PGH₂, later in the pathway.",
+"",
+"PLA2 is not needed when arachidonate is added directly.",
+"This is the leukotriene branch."
+]
 },
 {
- "t": "Lecture 5 · Eicosanoid Metabolism",
- "s": "A 58-year-old woman with osteoarthritis and a history of a bleeding ulcer is started on celecoxib. Two years later she has a myocardial infarction. Which imbalance is thought to raise thrombotic risk with selective COX-2 inhibitors?",
- "c": [
-  "Less TXA₂ with PGI₂ spared",
-  "More leukotrienes in coronary vessels",
-  "Less PGE₂ in the gastric mucosa",
-  "Less PGI₂ with platelet TXA₂ spared",
-  "More phospholipase A2 activity"
- ],
- "a": 3,
- "e": "Step 1: platelets use COX-1 to make TXA₂, which promotes aggregation, and celecoxib spares COX-1.\nStep 2: much endothelial PGI₂, which inhibits aggregation, comes from COX-2, which celecoxib blocks.\nStep 3: less prostacyclin with intact thromboxane tips the balance toward thrombosis.",
- "w": [
-  "The opposite imbalance would protect against clots.",
-  "Coxibs do not raise coronary leukotrienes.",
-  "Gastric PGE₂ explains ulcers, not MI.",
-  "",
-  "Coxibs do not activate PLA2."
- ]
+"t": "Lecture 5 · Eicosanoid Metabolism",
+"s": "A 58-year-old woman with osteoarthritis and a history of a bleeding ulcer is started on celecoxib. Two years later she has a myocardial infarction. Which imbalance is thought to raise thrombotic risk with selective COX-2 inhibitors?",
+"c": [
+"Less TXA₂ with PGI₂ spared",
+"More leukotrienes in coronary vessels",
+"Less PGE₂ in the gastric mucosa",
+"Less PGI₂ with platelet TXA₂ spared",
+"More phospholipase A2 activity"
+],
+"a": 3,
+"e": "Step 1: platelets use COX-1 to make TXA₂, which promotes aggregation, and celecoxib spares COX-1.\nStep 2: much endothelial PGI₂, which inhibits aggregation, comes from COX-2, which celecoxib blocks.\nStep 3: less prostacyclin with intact thromboxane tips the balance toward thrombosis.",
+"w": [
+"The opposite imbalance would protect against clots.",
+"Coxibs do not raise coronary leukotrienes.",
+"Gastric PGE₂ explains ulcers, not MI.",
+"",
+"Coxibs do not activate PLA2."
+]
 },
 {
- "t": "Lecture 5 · Eicosanoid Metabolism",
- "s": "A 16-year-old boy with persistent asthma is treated with a drug that blocks leukotriene binding to receptors on airway smooth muscle. Which leukotriene effects will this drug block?",
- "c": [
-  "Formation of 5-HPETE",
-  "Formation of LTA₄",
-  "Release of arachidonic acid",
-  "Formation of thromboxane A₂",
-  "Actions of LTC₄, LTD₄, LTE₄"
- ],
- "a": 4,
- "e": "Step 1: montelukast and zafirlukast are leukotriene receptor antagonists.\nStep 2: they block the receptor for the peptidoleukotrienes LTC₄, LTD₄ and LTE₄, the slow-reacting substance of anaphylaxis.\nStep 3: leukotriene synthesis itself continues, so earlier steps are unaffected.",
- "w": [
-  "Receptor blockers do not stop synthesis.",
-  "LTA₄ is still made.",
-  "PLA2 is upstream and unaffected.",
-  "Thromboxane comes from the COX branch.",
-  ""
- ]
+"t": "Lecture 5 · Eicosanoid Metabolism",
+"s": "A 16-year-old boy with persistent asthma is treated with a drug that blocks leukotriene binding to receptors on airway smooth muscle. Which leukotriene effects will this drug block?",
+"c": [
+"Formation of 5-HPETE",
+"Formation of LTA₄",
+"Release of arachidonic acid",
+"Formation of thromboxane A₂",
+"Actions of LTC₄, LTD₄, LTE₄"
+],
+"a": 4,
+"e": "Step 1: montelukast and zafirlukast are leukotriene receptor antagonists.\nStep 2: they block the receptor for the peptidoleukotrienes LTC₄, LTD₄ and LTE₄, the slow-reacting substance of anaphylaxis.\nStep 3: leukotriene synthesis itself continues, so earlier steps are unaffected.",
+"w": [
+"Receptor blockers do not stop synthesis.",
+"LTA₄ is still made.",
+"PLA2 is upstream and unaffected.",
+"Thromboxane comes from the COX branch.",
+""
+]
 },
 {
- "t": "Lecture 5 · Eicosanoid Metabolism",
- "s": "A newborn's eicosanoid profile is studied. Which cell type in her blood will make no prostaglandins, thromboxanes or leukotrienes?",
- "c": [
-  "Mature erythrocytes",
-  "Circulating platelets",
-  "Segmented neutrophils",
-  "Circulating monocytes",
-  "Circulating basophils"
- ],
- "a": 0,
- "e": "Step 1: all mammalian cells except erythrocytes synthesize eicosanoids.\nStep 2: platelets make TXA₂ using COX-1, and leukocytes make leukotrienes and, when activated, COX-2 products.",
- "w": [
-  "",
-  "Platelets make TXA₂.",
-  "Neutrophils make leukotrienes.",
-  "Monocytes make prostaglandins through COX-2.",
-  "Basophils make leukotrienes."
- ]
+"t": "Lecture 5 · Eicosanoid Metabolism",
+"s": "A newborn's eicosanoid profile is studied. Which cell type in her blood will make no prostaglandins, thromboxanes or leukotrienes?",
+"c": [
+"Mature erythrocytes",
+"Circulating platelets",
+"Segmented neutrophils",
+"Circulating monocytes",
+"Circulating basophils"
+],
+"a": 0,
+"e": "Step 1: all mammalian cells except erythrocytes synthesize eicosanoids.\nStep 2: platelets make TXA₂ using COX-1, and leukocytes make leukotrienes and, when activated, COX-2 products.",
+"w": [
+"",
+"Platelets make TXA₂.",
+"Neutrophils make leukotrienes.",
+"Monocytes make prostaglandins through COX-2.",
+"Basophils make leukotrienes."
+]
 },
 {
- "t": "Lecture 5 · Eicosanoid Metabolism",
- "s": "A 40-year-old man eats a diet completely lacking linoleic acid for many months. Which eicosanoid precursor will his cells be least able to make?",
- "c": [
-  "Eicosapentaenoic acid",
-  "Arachidonic acid",
-  "α-Linolenic acid",
-  "Palmitic acid",
-  "Phosphatidylcholine"
- ],
- "a": 1,
- "e": "Step 1: linoleic acid is the immediate dietary precursor of arachidonic acid.\nStep 2: arachidonic acid is the source of the principal eicosanoids in humans.\nStep 3: EPA comes from α-linolenic acid, a separate essential fatty acid, so it is not limited here.",
- "w": [
-  "EPA comes from α-linolenic acid.",
-  "",
-  "α-Linolenic acid is a separate essential fatty acid from the diet.",
-  "Palmitate is made from glucose.",
-  "Phosphatidylcholine can still be made."
- ]
+"t": "Lecture 5 · Eicosanoid Metabolism",
+"s": "A 40-year-old man eats a diet completely lacking linoleic acid for many months. Which eicosanoid precursor will his cells be least able to make?",
+"c": [
+"Eicosapentaenoic acid",
+"Arachidonic acid",
+"α-Linolenic acid",
+"Palmitic acid",
+"Phosphatidylcholine"
+],
+"a": 1,
+"e": "Step 1: linoleic acid is the immediate dietary precursor of arachidonic acid.\nStep 2: arachidonic acid is the source of the principal eicosanoids in humans.\nStep 3: EPA comes from α-linolenic acid, a separate essential fatty acid, so it is not limited here.",
+"w": [
+"EPA comes from α-linolenic acid.",
+"",
+"α-Linolenic acid is a separate essential fatty acid from the diet.",
+"Palmitate is made from glucose.",
+"Phosphatidylcholine can still be made."
+]
+},
+{
+"t": "Lecture 6 · Lipoprotein Metabolism",
+"s": "A 9-year-old girl is brought for evaluation of recurrent abdominal pain. Examination shows small yellow papules on her buttocks and an enlarged liver and spleen. A blood sample left in the refrigerator overnight forms a creamy top layer over a clear lower layer. Which additional finding is expected?",
+"c": [
+"Tendon xanthomas on the Achilles",
+"No added risk of atherosclerosis",
+"Very high plasma LDL cholesterol",
+"Orange-yellow enlarged tonsils",
+"Acanthocytes on the blood smear"
+],
+"a": 1,
+"e": "Step 1: a creamy top layer over clear plasma means excess chylomicrons, with normal VLDL.\nStep 2: with eruptive xanthomas, hepatosplenomegaly and pancreatitis-like pain, this is type I, LPL or apo C-II deficiency.\nStep 3: chylomicrons are too large to enter the arterial wall, so atherosclerosis risk is not increased.",
+"w": [
+"Tendon xanthomas suggest familial hypercholesterolemia.",
+"",
+"LDL is not raised in type I.",
+"Orange tonsils suggest Tangier disease.",
+"Acanthocytes suggest abetalipoproteinemia."
+],
+"fig": [
+"figs/crs/lp-type1",
+"figs/crs/lp-chylo"
+]
+},
+{
+"t": "Lecture 6 · Lipoprotein Metabolism",
+"s": "A 42-year-old man has a total cholesterol of 340 mg/dL and a triglyceride level of 390 mg/dL. He has yellow creases in his palms and nodules over his elbows. His apolipoprotein E genotype is E2/E2. Which particle is most elevated in his plasma?",
+"c": [
+"Chylomicron and VLDL remnants",
+"Nascent discoidal HDL",
+"Small dense LDL alone",
+"Lipoprotein X particles",
+"Chylomicrons with intact apo C-II"
+],
+"a": 0,
+"e": "Step 1: palmar and tuberous xanthomas with raised cholesterol and TAG suggest type III, dysbetalipoproteinemia.\nStep 2: apo E2 binds hepatic receptors poorly.\nStep 3: chylomicron and VLDL remnants cannot be cleared, so they accumulate.",
+"w": [
+"",
+"HDL is not the defect.",
+"Remnants, not LDL, accumulate.",
+"Lipoprotein X is seen in LCAT deficiency.",
+"Intact chylomicrons are cleared normally by LPL."
+],
+"fig": [
+"figs/crs/lp-type3"
+]
+},
+{
+"t": "Lecture 6 · Lipoprotein Metabolism",
+"s": "A 30-year-old woman is started on a statin for familial hypercholesterolemia, and her LDL cholesterol falls by 40%. Through which mechanism does lower hepatocyte cholesterol reduce plasma LDL?",
+"c": [
+"SREBP inhibition lowers LDL receptors",
+"SREBP activation raises LDL receptors",
+"ACAT activation stores more esters",
+"CETP inhibition keeps esters in HDL",
+"LCAT activation esterifies LDL"
+],
+"a": 1,
+"e": "Step 1: statins block HMG-CoA reductase, lowering cholesterol in the hepatocyte.\nStep 2: low cholesterol activates SREBP.\nStep 3: SREBP increases LDL receptor synthesis, so more LDL is cleared from blood.",
+"w": [
+"Low cholesterol activates SREBP.",
+"",
+"ACAT is not the statin mechanism.",
+"Statins do not inhibit CETP.",
+"LCAT acts on HDL."
+],
+"fig": [
+"figs/crs/lp-ldl-uptake"
+]
+},
+{
+"t": "Lecture 6 · Lipoprotein Metabolism",
+"s": "A 52-year-old man has crushing chest pain and ST elevation in the anterior leads. Angiography shows a thrombus over a ruptured plaque in the left anterior descending artery. Years earlier, which cell type formed the earliest lesion of this plaque?",
+"c": [
+"Platelets on exposed collagen",
+"Smooth muscle cells making collagen",
+"Neutrophils releasing proteases",
+"Macrophages full of oxidized LDL",
+"Fibroblasts depositing calcium"
+],
+"a": 3,
+"e": "Step 1: LDL enters the intima and is oxidized.\nStep 2: monocytes become macrophages and take up oxidized LDL through scavenger receptors, becoming foam cells.\nStep 3: foam cells form the fatty streak, the earliest lesion. Smooth muscle, collagen, calcium and rupture with thrombosis come later.",
+"w": [
+"Platelets act after rupture.",
+"Smooth muscle cells build the later plaque.",
+"Neutrophils are not the early cell.",
+"",
+"Calcification is late."
+],
+"fig": [
+"figs/crs/lp-oxldl",
+"figs/crs/lp-athero-1",
+"figs/crs/lp-athero-2"
+]
+},
+{
+"t": "Lecture 6 · Lipoprotein Metabolism",
+"s": "A 14-year-old boy has large orange-yellow tonsils, an enlarged spleen and decreased sensation in his feet. His plasma HDL cholesterol is 3 mg/dL. A defect in which process is most likely?",
+"c": [
+"Cholesterol efflux to apo A-I",
+"Esterification of HDL cholesterol",
+"Hydrolysis of chylomicron TAG",
+"Uptake of LDL by its receptor",
+"Assembly of apo B lipoproteins"
+],
+"a": 0,
+"e": "Step 1: orange tonsils, neuropathy, splenomegaly and near-absent HDL indicate Tangier disease.\nStep 2: ABCA1 normally moves free cholesterol from cells to apo A-I to form HDL.\nStep 3: without it, HDL cannot form and cholesterol builds up in reticuloendothelial and peripheral tissues.",
+"w": [
+"",
+"LCAT deficiency causes corneal and kidney disease.",
+"LPL deficiency causes type I.",
+"That causes familial hypercholesterolemia.",
+"That causes abetalipoproteinemia."
+],
+"fig": [
+"figs/crs/lp-tangier",
+"figs/crs/lp-hdl"
+]
+},
+{
+"t": "Lecture 6 · Lipoprotein Metabolism",
+"s": "A 50-year-old woman has gradually worsening vision. Slit-lamp examination shows diffuse corneal clouding. Her HDL is very low, and the proportion of her plasma cholesterol that is esterified is reduced. Her urinalysis and creatinine are normal. Which diagnosis is most likely?",
+"c": [
+"Complete LCAT deficiency",
+"Tangier disease",
+"Abetalipoproteinemia",
+"Familial hypercholesterolemia",
+"Fish-eye disease"
+],
+"a": 4,
+"e": "Step 1: corneal opacity, low HDL and less esterified cholesterol point to a defect in LCAT.\nStep 2: normal kidney function argues against complete LCAT deficiency.\nStep 3: partial LCAT loss, fish-eye disease, affects mainly the cornea and progresses slowly.",
+"w": [
+"Complete deficiency causes progressive kidney disease.",
+"Tangier gives orange tonsils and neuropathy.",
+"Abetalipoproteinemia gives steatorrhea and ataxia.",
+"FH gives very high LDL.",
+""
+],
+"fig": [
+"figs/crs/lp-fisheye",
+"figs/crs/lp-type4-lcat"
+]
+},
+{
+"t": "Lecture 6 · Lipoprotein Metabolism",
+"s": "A 3-year-old boy has failure to thrive and pale, bulky, foul-smelling stools. A blood smear shows red cells with irregular spiky projections. Plasma triglyceride is 8 mg/dL, and no apo B can be detected. Supplementation with which vitamin is most important to prevent his progressive neurologic decline?",
+"c": [
+"Vitamin B12",
+"Vitamin C",
+"Vitamin E",
+"Thiamine",
+"Folic acid"
+],
+"a": 2,
+"e": "Step 1: steatorrhea, acanthocytes and absent apo B point to abetalipoproteinemia, an MTTP defect.\nStep 2: without chylomicrons, fat-soluble vitamins A, D, E and K are malabsorbed.\nStep 3: vitamin E deficiency causes spinocerebellar ataxia and retinal degeneration, so high-dose vitamin E is key.",
+"w": [
+"B12 is water soluble and absorbed in the ileum.",
+"Vitamin C is water soluble.",
+"",
+"Thiamine is water soluble.",
+"Folate is water soluble."
+],
+"fig": [
+"figs/crs/lp-abeta"
+]
+},
+{
+"t": "Lecture 6 · Lipoprotein Metabolism",
+"s": "A drug under study inhibits cholesteryl ester transfer protein. Compared with before treatment, which change in plasma lipoproteins is expected?",
+"c": [
+"HDL cholesteryl ester falls",
+"VLDL cholesteryl ester rises",
+"HDL cholesteryl ester rises",
+"HDL triglyceride rises",
+"LDL cholesterol rises"
+],
+"a": 2,
+"e": "Step 1: CETP moves cholesteryl esters from HDL to VLDL and TAG from VLDL to HDL.\nStep 2: blocking CETP stops this exchange.\nStep 3: cholesteryl esters stay in HDL, so HDL cholesterol rises, and less ester reaches VLDL and LDL.",
+"w": [
+"Opposite.",
+"VLDL gets less ester.",
+"",
+"HDL gets less TAG.",
+"Less ester reaches the LDL pathway."
+],
+"fig": [
+"figs/crs/lp-cetp"
+]
 }
 ]
 },
@@ -5546,324 +5735,514 @@ window.NBME_QUIZZES = [
 ]
 },
 {
- "t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
- "s": "A 62-year-old man receives a norepinephrine infusion for septic shock. His cardiac output stays at 6 L/min while his mean arterial pressure rises from 54 to 78 mmHg. Right atrial pressure stays at 6 mmHg. By about what percentage did his total peripheral resistance rise?",
- "c": [
-  "About 25%",
-  "About 44%",
-  "About 50%",
-  "About 75%",
-  "About 100%"
- ],
- "a": 2,
- "e": "Step 1: TPR = (MAP − RAP)/CO.\nStep 2: before, (54 − 6)/6 = 8. After, (78 − 6)/6 = 12 mmHg·min/L.\nStep 3: 12/8 = 1.5, a 50% rise from α₁-mediated arteriolar constriction.",
- "w": [
-  "This forgets to subtract RAP or misreads the ratio.",
-  "This is (78 − 54)/54, ignoring RAP.",
-  "",
-  "Off by the RAP correction.",
-  "That would need TPR to double."
- ]
+"t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
+"s": "A 62-year-old man receives a norepinephrine infusion for septic shock. His cardiac output stays at 6 L/min while his mean arterial pressure rises from 54 to 78 mmHg. Right atrial pressure stays at 6 mmHg. By about what percentage did his total peripheral resistance rise?",
+"c": [
+"About 25%",
+"About 44%",
+"About 50%",
+"About 75%",
+"About 100%"
+],
+"a": 2,
+"e": "Step 1: TPR = (MAP − RAP)/CO.\nStep 2: before, (54 − 6)/6 = 8. After, (78 − 6)/6 = 12 mmHg·min/L.\nStep 3: 12/8 = 1.5, a 50% rise from α₁-mediated arteriolar constriction.",
+"w": [
+"This forgets to subtract RAP or misreads the ratio.",
+"This is (78 − 54)/54, ignoring RAP.",
+"",
+"Off by the RAP correction.",
+"That would need TPR to double."
+]
 },
 {
- "t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
- "s": "A coronary arteriole dilates during exercise so that its radius increases by 20%. Perfusion pressure and blood viscosity do not change. By about how much does flow through the arteriole change?",
- "c": [
-  "Increases about 1.2-fold",
-  "Increases about 1.4-fold",
-  "Increases about 4-fold",
-  "Increases about 2.1-fold",
-  "Decreases about 2.1-fold"
- ],
- "a": 3,
- "e": "Step 1: Poiseuille's law gives Q ∝ r⁴ when ΔP, η and L are fixed.\nStep 2: 1.2⁴ = 1.44 × 1.44 ≈ 2.07.\nStep 3: a 20% wider radius roughly doubles flow, which is why arterioles are such powerful flow regulators.",
- "w": [
-  "That scales with r.",
-  "That scales with r².",
-  "That would need about a 41% rise in radius.",
-  "",
-  "Dilation raises flow."
- ]
+"t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
+"s": "A coronary arteriole dilates during exercise so that its radius increases by 20%. Perfusion pressure and blood viscosity do not change. By about how much does flow through the arteriole change?",
+"c": [
+"Increases about 1.2-fold",
+"Increases about 1.4-fold",
+"Increases about 4-fold",
+"Increases about 2.1-fold",
+"Decreases about 2.1-fold"
+],
+"a": 3,
+"e": "Step 1: Poiseuille's law gives Q ∝ r⁴ when ΔP, η and L are fixed.\nStep 2: 1.2⁴ = 1.44 × 1.44 ≈ 2.07.\nStep 3: a 20% wider radius roughly doubles flow, which is why arterioles are such powerful flow regulators.",
+"w": [
+"That scales with r.",
+"That scales with r².",
+"That would need about a 41% rise in radius.",
+"",
+"Dilation raises flow."
+]
 },
 {
- "t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
- "s": "A 70-year-old man with severe peripheral artery disease has a femoral artery stenosis that cuts the lumen radius to one third of normal over a short segment. Which change best describes flow in the narrowed segment compared with the vessel just upstream?",
- "c": [
-  "Lower velocity and laminar flow",
-  "Same velocity and laminar flow",
-  "Lower velocity and turbulence",
-  "Lower flow and lower velocity",
-  "Higher velocity and turbulence"
- ],
- "a": 4,
- "e": "Step 1: flow (Q) is the same through vessels in series, what goes in must come out.\nStep 2: v = Q/A, and the area falls to one ninth, so velocity rises about ninefold.\nStep 3: high velocity plus an abrupt change in geometry raises the Reynolds number, so flow turns turbulent and a bruit is heard.",
- "w": [
-  "Smaller area at the same flow raises velocity.",
-  "Area has changed, so velocity cannot stay the same.",
-  "Velocity rises, not falls.",
-  "In series, the flow through each segment is the same.",
-  ""
- ]
+"t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
+"s": "A 70-year-old man with severe peripheral artery disease has a femoral artery stenosis that cuts the lumen radius to one third of normal over a short segment. Which change best describes flow in the narrowed segment compared with the vessel just upstream?",
+"c": [
+"Lower velocity and laminar flow",
+"Same velocity and laminar flow",
+"Lower velocity and turbulence",
+"Lower flow and lower velocity",
+"Higher velocity and turbulence"
+],
+"a": 4,
+"e": "Step 1: flow (Q) is the same through vessels in series, what goes in must come out.\nStep 2: v = Q/A, and the area falls to one ninth, so velocity rises about ninefold.\nStep 3: high velocity plus an abrupt change in geometry raises the Reynolds number, so flow turns turbulent and a bruit is heard.",
+"w": [
+"Smaller area at the same flow raises velocity.",
+"Area has changed, so velocity cannot stay the same.",
+"Velocity rises, not falls.",
+"In series, the flow through each segment is the same.",
+""
+]
 },
 {
- "t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
- "s": "Arterial compliance in a healthy 25-year-old is 2 mL/mmHg, and in an 80-year-old it is 1 mL/mmHg. Both have a stroke volume of 70 mL. Using PP ≈ SV/compliance, what is the expected pulse pressure in the 80-year-old?",
- "c": [
-  "About 70 mmHg",
-  "About 35 mmHg",
-  "About 140 mmHg",
-  "About 50 mmHg",
-  "About 105 mmHg"
- ],
- "a": 0,
- "e": "Step 1: PP ≈ SV/C.\nStep 2: for the 25-year-old, 70/2 = 35 mmHg. For the 80-year-old, 70/1 = 70 mmHg.\nStep 3: halving compliance doubles pulse pressure, which is why stiff arteries cause isolated systolic hypertension.",
- "w": [
-  "",
-  "This is the young patient's value.",
-  "This multiplies instead of dividing.",
-  "This does not follow from the numbers.",
-  "This is not SV/C."
- ]
+"t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
+"s": "Arterial compliance in a healthy 25-year-old is 2 mL/mmHg, and in an 80-year-old it is 1 mL/mmHg. Both have a stroke volume of 70 mL. Using PP ≈ SV/compliance, what is the expected pulse pressure in the 80-year-old?",
+"c": [
+"About 70 mmHg",
+"About 35 mmHg",
+"About 140 mmHg",
+"About 50 mmHg",
+"About 105 mmHg"
+],
+"a": 0,
+"e": "Step 1: PP ≈ SV/C.\nStep 2: for the 25-year-old, 70/2 = 35 mmHg. For the 80-year-old, 70/1 = 70 mmHg.\nStep 3: halving compliance doubles pulse pressure, which is why stiff arteries cause isolated systolic hypertension.",
+"w": [
+"",
+"This is the young patient's value.",
+"This multiplies instead of dividing.",
+"This does not follow from the numbers.",
+"This is not SV/C."
+]
 },
 {
- "t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
- "s": "A 34-year-old woman with Graves disease has a heart rate of 118/min, warm moist skin and a blood pressure of 150/58 mmHg. Thyroid hormone has raised her cardiac output and dilated her peripheral arterioles. Which pair of changes best explains her wide pulse pressure?",
- "c": [
-  "Lower stroke volume and higher TPR",
-  "Higher stroke volume and lower TPR",
-  "Lower compliance and higher TPR",
-  "Higher venous compliance alone",
-  "Lower stroke volume and lower TPR"
- ],
- "a": 1,
- "e": "Step 1: PP ≈ SV/compliance, so a bigger stroke volume raises systolic pressure.\nStep 2: diastolic pressure is set mainly by TPR, and peripheral vasodilation lets blood run off faster, so diastolic pressure falls.\nStep 3: a high systolic and low diastolic pressure give a wide pulse pressure in hyperthyroidism.",
- "w": [
-  "Both changes would narrow pulse pressure.",
-  "",
-  "Higher TPR would raise diastolic pressure.",
-  "Venous compliance does not set arterial pulse pressure.",
-  "Lower stroke volume would lower systolic pressure."
- ]
+"t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
+"s": "A 34-year-old woman with Graves disease has a heart rate of 118/min, warm moist skin and a blood pressure of 150/58 mmHg. Thyroid hormone has raised her cardiac output and dilated her peripheral arterioles. Which pair of changes best explains her wide pulse pressure?",
+"c": [
+"Lower stroke volume and higher TPR",
+"Higher stroke volume and lower TPR",
+"Lower compliance and higher TPR",
+"Higher venous compliance alone",
+"Lower stroke volume and lower TPR"
+],
+"a": 1,
+"e": "Step 1: PP ≈ SV/compliance, so a bigger stroke volume raises systolic pressure.\nStep 2: diastolic pressure is set mainly by TPR, and peripheral vasodilation lets blood run off faster, so diastolic pressure falls.\nStep 3: a high systolic and low diastolic pressure give a wide pulse pressure in hyperthyroidism.",
+"w": [
+"Both changes would narrow pulse pressure.",
+"",
+"Higher TPR would raise diastolic pressure.",
+"Venous compliance does not set arterial pulse pressure.",
+"Lower stroke volume would lower systolic pressure."
+]
 },
 {
- "t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
- "s": "Organ beds A, B and C are arranged in parallel with resistances of 20, 20 and 10 units. If organ C is removed and mean arterial pressure is held constant, what happens to total flow through the remaining circuit?",
- "c": [
-  "It falls to one quarter",
-  "It stays the same",
-  "It falls to half",
-  "It falls to one third",
-  "It rises to double"
- ],
- "a": 2,
- "e": "Step 1: before, 1/R = 1/20 + 1/20 + 1/10 = 0.2, so R = 5.\nStep 2: after, 1/R = 1/20 + 1/20 = 0.1, so R = 10.\nStep 3: Q = ΔP/R, and resistance doubled at the same pressure, so flow halves. Losing a parallel bed raises TPR.",
- "w": [
-  "Resistance only doubled.",
-  "Resistance changed, so flow must change.",
-  "",
-  "Resistance did not triple.",
-  "Removing a parallel path raises resistance."
- ]
+"t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
+"s": "Organ beds A, B and C are arranged in parallel with resistances of 20, 20 and 10 units. If organ C is removed and mean arterial pressure is held constant, what happens to total flow through the remaining circuit?",
+"c": [
+"It falls to one quarter",
+"It stays the same",
+"It falls to half",
+"It falls to one third",
+"It rises to double"
+],
+"a": 2,
+"e": "Step 1: before, 1/R = 1/20 + 1/20 + 1/10 = 0.2, so R = 5.\nStep 2: after, 1/R = 1/20 + 1/20 = 0.1, so R = 10.\nStep 3: Q = ΔP/R, and resistance doubled at the same pressure, so flow halves. Losing a parallel bed raises TPR.",
+"w": [
+"Resistance only doubled.",
+"Resistance changed, so flow must change.",
+"",
+"Resistance did not triple.",
+"Removing a parallel path raises resistance."
+]
 },
 {
- "t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
- "s": "A 45-year-old man has a blood pressure of 130/85 mmHg and a cardiac output of 6 L/min. His right atrial pressure is near 0. What is his total peripheral resistance?",
- "c": [
-  "About 6 mmHg·min/L",
-  "About 14 mmHg·min/L",
-  "About 22 mmHg·min/L",
-  "About 17 mmHg·min/L",
-  "About 600 mmHg·min/L"
- ],
- "a": 3,
- "e": "Step 1: MAP ≈ DP + ⅓PP = 85 + 15 = 100 mmHg.\nStep 2: TPR = MAP/CO = 100/6 ≈ 17 mmHg·min/L.",
- "w": [
-  "This is the cardiac output.",
-  "This uses diastolic pressure alone.",
-  "This uses systolic pressure alone.",
-  "",
-  "This multiplies MAP by CO."
- ]
+"t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
+"s": "A 45-year-old man has a blood pressure of 130/85 mmHg and a cardiac output of 6 L/min. His right atrial pressure is near 0. What is his total peripheral resistance?",
+"c": [
+"About 6 mmHg·min/L",
+"About 14 mmHg·min/L",
+"About 22 mmHg·min/L",
+"About 17 mmHg·min/L",
+"About 600 mmHg·min/L"
+],
+"a": 3,
+"e": "Step 1: MAP ≈ DP + ⅓PP = 85 + 15 = 100 mmHg.\nStep 2: TPR = MAP/CO = 100/6 ≈ 17 mmHg·min/L.",
+"w": [
+"This is the cardiac output.",
+"This uses diastolic pressure alone.",
+"This uses systolic pressure alone.",
+"",
+"This multiplies MAP by CO."
+]
 },
 {
- "t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
- "s": "A 3-year-old boy with sickle cell anemia has a hemoglobin of 7 g/dL. A soft systolic murmur is heard over the precordium. Two weeks after a blood transfusion raises his hemoglobin to 10 g/dL, the murmur is fainter. Which change explains the softer murmur?",
- "c": [
-  "Lower viscosity lowers the Reynolds number",
-  "Higher velocity raises the Reynolds number",
-  "Larger aortic diameter raises turbulence",
-  "Higher compliance narrows the pulse pressure",
-  "Higher viscosity lowers the Reynolds number"
- ],
- "a": 4,
- "e": "Step 1: anemia lowers viscosity and raises cardiac output, both of which raise the Reynolds number and cause a flow murmur.\nStep 2: transfusion raises hematocrit, so viscosity rises and the compensatory high output falls.\nStep 3: a lower Reynolds number means less turbulence, so the murmur softens.",
- "w": [
-  "Viscosity rises after transfusion.",
-  "Velocity falls as output normalizes.",
-  "Aortic diameter does not change.",
-  "Pulse pressure does not create the murmur.",
-  ""
- ]
+"t": "Lecture 6 · Hemodynamics: Flow, Pressure & Resistance",
+"s": "A 3-year-old boy with sickle cell anemia has a hemoglobin of 7 g/dL. A soft systolic murmur is heard over the precordium. Two weeks after a blood transfusion raises his hemoglobin to 10 g/dL, the murmur is fainter. Which change explains the softer murmur?",
+"c": [
+"Lower viscosity lowers the Reynolds number",
+"Higher velocity raises the Reynolds number",
+"Larger aortic diameter raises turbulence",
+"Higher compliance narrows the pulse pressure",
+"Higher viscosity lowers the Reynolds number"
+],
+"a": 4,
+"e": "Step 1: anemia lowers viscosity and raises cardiac output, both of which raise the Reynolds number and cause a flow murmur.\nStep 2: transfusion raises hematocrit, so viscosity rises and the compensatory high output falls.\nStep 3: a lower Reynolds number means less turbulence, so the murmur softens.",
+"w": [
+"Viscosity rises after transfusion.",
+"Velocity falls as output normalizes.",
+"Aortic diameter does not change.",
+"Pulse pressure does not create the murmur.",
+""
+]
 },
 {
- "t": "Lecture 7 · Cardiac & Vascular Function Curves",
- "s": "A 72-year-old woman is admitted with a large anterior MI. She is started on a dobutamine infusion. Compared with before the infusion, which set of changes is expected at her new steady state?",
- "c": [
-  "↑ CO, ↑ RAP, ↑ venous return",
-  "↓ CO, ↑ RAP, ↓ venous return",
-  "↓ CO, ↓ RAP, ↓ venous return",
-  "↑ CO, ↓ RAP, ↑ venous return",
-  "↑ CO, no change in RAP or return"
- ],
- "a": 3,
- "e": "Step 1: dobutamine is a β1 agonist and a positive inotrope, so the cardiac function curve shifts up.\nStep 2: the stronger ventricle empties more fully, so less blood is left behind and RAP falls.\nStep 3: a lower RAP widens the MSFP − RAP gradient, so venous return rises to match the higher CO.",
- "w": [
-  "A higher RAP with higher output fits added volume.",
-  "Lower output with higher RAP fits negative inotropy.",
-  "Both falling fits blood loss.",
-  "",
-  "RAP changes when the cardiac curve moves."
- ]
+"t": "Lecture 7 · Cardiac & Vascular Function Curves",
+"s": "A 72-year-old woman is admitted with a large anterior MI. She is started on a dobutamine infusion. Compared with before the infusion, which set of changes is expected at her new steady state?",
+"c": [
+"↑ CO, ↑ RAP, ↑ venous return",
+"↓ CO, ↑ RAP, ↓ venous return",
+"↓ CO, ↓ RAP, ↓ venous return",
+"↑ CO, ↓ RAP, ↑ venous return",
+"↑ CO, no change in RAP or return"
+],
+"a": 3,
+"e": "Step 1: dobutamine is a β1 agonist and a positive inotrope, so the cardiac function curve shifts up.\nStep 2: the stronger ventricle empties more fully, so less blood is left behind and RAP falls.\nStep 3: a lower RAP widens the MSFP − RAP gradient, so venous return rises to match the higher CO.",
+"w": [
+"A higher RAP with higher output fits added volume.",
+"Lower output with higher RAP fits negative inotropy.",
+"Both falling fits blood loss.",
+"",
+"RAP changes when the cardiac curve moves."
+]
 },
 {
- "t": "Lecture 7 · Cardiac & Vascular Function Curves",
- "s": "A 19-year-old man is stabbed in the abdomen and loses about 1.5 L of blood. Before any treatment, which change in the function curves best explains his hypotension?",
- "c": [
-  "VR curve shifts left in parallel",
-  "VR curve rotates counterclockwise",
-  "Cardiac curve shifts downward",
-  "Cardiac curve shifts upward",
-  "VR curve shifts right in parallel"
- ],
- "a": 0,
- "e": "Step 1: hemorrhage lowers blood volume.\nStep 2: lower volume lowers mean systemic filling pressure, the x-intercept of the venous return curve.\nStep 3: the curve shifts down and left with the same slope, so it meets the cardiac curve at a lower RAP and a lower CO.",
- "w": [
-  "",
-  "Rotation is a TPR effect.",
-  "Contractility is not the primary problem.",
-  "Contractility has not risen.",
-  "That follows a transfusion."
- ]
+"t": "Lecture 7 · Cardiac & Vascular Function Curves",
+"s": "A 19-year-old man is stabbed in the abdomen and loses about 1.5 L of blood. Before any treatment, which change in the function curves best explains his hypotension?",
+"c": [
+"VR curve shifts left in parallel",
+"VR curve rotates counterclockwise",
+"Cardiac curve shifts downward",
+"Cardiac curve shifts upward",
+"VR curve shifts right in parallel"
+],
+"a": 0,
+"e": "Step 1: hemorrhage lowers blood volume.\nStep 2: lower volume lowers mean systemic filling pressure, the x-intercept of the venous return curve.\nStep 3: the curve shifts down and left with the same slope, so it meets the cardiac curve at a lower RAP and a lower CO.",
+"w": [
+"",
+"Rotation is a TPR effect.",
+"Contractility is not the primary problem.",
+"Contractility has not risen.",
+"That follows a transfusion."
+]
 },
 {
- "t": "Lecture 7 · Cardiac & Vascular Function Curves",
- "s": "A researcher stops the heart of an anesthetized dog and measures the pressure that equalizes throughout the circulation within seconds. Which manipulation would raise this pressure?",
- "c": [
-  "Infusing a pure arteriolar dilator",
-  "Infusing a negative inotrope",
-  "Infusing 1 L of whole blood",
-  "Infusing a venodilator",
-  "Removing 500 mL of blood"
- ],
- "a": 2,
- "e": "Step 1: the pressure measured with the heart stopped is mean systemic filling pressure.\nStep 2: MSFP depends on blood volume and venous tone, not on arterioles or the heart.\nStep 3: adding blood raises MSFP and shifts the venous return curve up in parallel.",
- "w": [
-  "Arterioles do not set MSFP.",
-  "The heart is stopped, and inotropy does not set MSFP.",
-  "",
-  "Venodilation lowers MSFP.",
-  "Removing blood lowers MSFP."
- ]
+"t": "Lecture 7 · Cardiac & Vascular Function Curves",
+"s": "A researcher stops the heart of an anesthetized dog and measures the pressure that equalizes throughout the circulation within seconds. Which manipulation would raise this pressure?",
+"c": [
+"Infusing a pure arteriolar dilator",
+"Infusing a negative inotrope",
+"Infusing 1 L of whole blood",
+"Infusing a venodilator",
+"Removing 500 mL of blood"
+],
+"a": 2,
+"e": "Step 1: the pressure measured with the heart stopped is mean systemic filling pressure.\nStep 2: MSFP depends on blood volume and venous tone, not on arterioles or the heart.\nStep 3: adding blood raises MSFP and shifts the venous return curve up in parallel.",
+"w": [
+"Arterioles do not set MSFP.",
+"The heart is stopped, and inotropy does not set MSFP.",
+"",
+"Venodilation lowers MSFP.",
+"Removing blood lowers MSFP."
+]
 },
 {
- "t": "Lecture 7 · Cardiac & Vascular Function Curves",
- "s": "A 30-year-old man undergoing knee surgery under spinal anesthesia becomes hypotensive. His central venous pressure falls from 6 to 1 mmHg. Which treatment directly corrects the mechanism of his low cardiac output?",
- "c": [
-  "IV furosemide to cut volume",
-  "IV nitroglycerin infusion",
-  "IV metoprolol for rate control",
-  "IV hydralazine for afterload",
-  "IV fluid with phenylephrine"
- ],
- "a": 4,
- "e": "Step 1: spinal anesthesia blocks sympathetic outflow, so veins dilate and pool blood.\nStep 2: lower venous tone lowers MSFP, shifting the venous return curve down, so RAP and CO fall.\nStep 3: fluid raises volume and phenylephrine restores venous and arterial tone, raising MSFP and venous return.",
- "w": [
-  "A diuretic lowers volume further.",
-  "Nitroglycerin is a venodilator.",
-  "A β-blocker lowers CO.",
-  "Hydralazine lowers TPR without restoring MSFP.",
-  ""
- ]
+"t": "Lecture 7 · Cardiac & Vascular Function Curves",
+"s": "A 30-year-old man undergoing knee surgery under spinal anesthesia becomes hypotensive. His central venous pressure falls from 6 to 1 mmHg. Which treatment directly corrects the mechanism of his low cardiac output?",
+"c": [
+"IV furosemide to cut volume",
+"IV nitroglycerin infusion",
+"IV metoprolol for rate control",
+"IV hydralazine for afterload",
+"IV fluid with phenylephrine"
+],
+"a": 4,
+"e": "Step 1: spinal anesthesia blocks sympathetic outflow, so veins dilate and pool blood.\nStep 2: lower venous tone lowers MSFP, shifting the venous return curve down, so RAP and CO fall.\nStep 3: fluid raises volume and phenylephrine restores venous and arterial tone, raising MSFP and venous return.",
+"w": [
+"A diuretic lowers volume further.",
+"Nitroglycerin is a venodilator.",
+"A β-blocker lowers CO.",
+"Hydralazine lowers TPR without restoring MSFP.",
+""
+]
 },
 {
- "t": "Lecture 7 · Cardiac & Vascular Function Curves",
- "s": "A 45-year-old man on long-term hemodialysis through a large forearm arteriovenous fistula has a resting cardiac output of 9 L/min. His RAP is normal. Which pair of changes in the function curves best explains these findings?",
- "c": [
-  "Only the VR curve shifts right",
-  "Both curves move upward",
-  "Only the cardiac curve shifts up",
-  "Both curves shift downward",
-  "VR curve rotates down alone"
- ],
- "a": 1,
- "e": "Step 1: a fistula lets blood bypass the arterioles, lowering TPR.\nStep 2: lower TPR rotates the venous return curve upward with the same MSFP, and lower afterload lifts the cardiac curve.\nStep 3: with both curves raised, they meet at a much higher CO with RAP about unchanged.",
- "w": [
-  "That would raise RAP.",
-  "",
-  "That would lower RAP.",
-  "His output is high, not low.",
-  "That follows a rise in TPR."
- ]
+"t": "Lecture 7 · Cardiac & Vascular Function Curves",
+"s": "A 45-year-old man on long-term hemodialysis through a large forearm arteriovenous fistula has a resting cardiac output of 9 L/min. His RAP is normal. Which pair of changes in the function curves best explains these findings?",
+"c": [
+"Only the VR curve shifts right",
+"Both curves move upward",
+"Only the cardiac curve shifts up",
+"Both curves shift downward",
+"VR curve rotates down alone"
+],
+"a": 1,
+"e": "Step 1: a fistula lets blood bypass the arterioles, lowering TPR.\nStep 2: lower TPR rotates the venous return curve upward with the same MSFP, and lower afterload lifts the cardiac curve.\nStep 3: with both curves raised, they meet at a much higher CO with RAP about unchanged.",
+"w": [
+"That would raise RAP.",
+"",
+"That would lower RAP.",
+"His output is high, not low.",
+"That follows a rise in TPR."
+]
 },
 {
- "t": "Lecture 7 · Cardiac & Vascular Function Curves",
- "s": "A healthy volunteer has a mean systemic filling pressure of 7 mmHg, a right atrial pressure of 2 mmHg and a resistance to venous return of 1.25 mmHg·min/L. After a rapid saline infusion, MSFP rises to 10 mmHg and RAP rises to 3 mmHg. What is the change in venous return?",
- "c": [
-  "From 5 to 7 L/min",
-  "From 4 to 8 L/min",
-  "From 5.6 to 4 L/min",
-  "From 4 to 5.6 L/min",
-  "From 4 to 10 L/min"
- ],
- "a": 3,
- "e": "Step 1: VR = (MSFP − RAP)/RVR.\nStep 2: before, (7 − 2)/1.25 = 4 L/min. After, (10 − 3)/1.25 = 5.6 L/min.\nStep 3: the rise in MSFP outweighs the small rise in RAP, so venous return and cardiac output both rise.",
- "w": [
-  "This ignores the resistance of 1.25.",
-  "This ignores the rise in RAP.",
-  "This reverses the direction.",
-  "",
-  "This uses MSFP alone."
- ]
+"t": "Lecture 7 · Cardiac & Vascular Function Curves",
+"s": "A healthy volunteer has a mean systemic filling pressure of 7 mmHg, a right atrial pressure of 2 mmHg and a resistance to venous return of 1.25 mmHg·min/L. After a rapid saline infusion, MSFP rises to 10 mmHg and RAP rises to 3 mmHg. What is the change in venous return?",
+"c": [
+"From 5 to 7 L/min",
+"From 4 to 8 L/min",
+"From 5.6 to 4 L/min",
+"From 4 to 5.6 L/min",
+"From 4 to 10 L/min"
+],
+"a": 3,
+"e": "Step 1: VR = (MSFP − RAP)/RVR.\nStep 2: before, (7 − 2)/1.25 = 4 L/min. After, (10 − 3)/1.25 = 5.6 L/min.\nStep 3: the rise in MSFP outweighs the small rise in RAP, so venous return and cardiac output both rise.",
+"w": [
+"This ignores the resistance of 1.25.",
+"This ignores the rise in RAP.",
+"This reverses the direction.",
+"",
+"This uses MSFP alone."
+]
 },
 {
- "t": "Lecture 7 · Cardiac & Vascular Function Curves",
- "s": "A 64-year-old man with septic shock is started on norepinephrine, which raises his total peripheral resistance. His contractility and blood volume do not change. Which change is expected at his new operating point?",
- "c": [
-  "Lower CO, similar RAP",
-  "Higher CO, similar RAP",
-  "Lower CO, much higher RAP",
-  "Higher CO, lower RAP",
-  "Lower CO, much lower RAP"
- ],
- "a": 0,
- "e": "Step 1: higher TPR raises afterload, shifting the cardiac curve down.\nStep 2: higher TPR also rotates the venous return curve down without changing MSFP.\nStep 3: both curves fall together, so the operating point moves to a lower CO at about the same RAP.",
- "w": [
-  "",
-  "Higher TPR lowers output when nothing else changes.",
-  "A large RAP rise fits pump failure.",
-  "That pattern fits positive inotropy.",
-  "A large RAP fall fits volume loss."
- ]
+"t": "Lecture 7 · Cardiac & Vascular Function Curves",
+"s": "A 64-year-old man with septic shock is started on norepinephrine, which raises his total peripheral resistance. His contractility and blood volume do not change. Which change is expected at his new operating point?",
+"c": [
+"Lower CO, similar RAP",
+"Higher CO, similar RAP",
+"Lower CO, much higher RAP",
+"Higher CO, lower RAP",
+"Lower CO, much lower RAP"
+],
+"a": 0,
+"e": "Step 1: higher TPR raises afterload, shifting the cardiac curve down.\nStep 2: higher TPR also rotates the venous return curve down without changing MSFP.\nStep 3: both curves fall together, so the operating point moves to a lower CO at about the same RAP.",
+"w": [
+"",
+"Higher TPR lowers output when nothing else changes.",
+"A large RAP rise fits pump failure.",
+"That pattern fits positive inotropy.",
+"A large RAP fall fits volume loss."
+]
 },
 {
- "t": "Lecture 7 · Cardiac & Vascular Function Curves",
- "s": "A 58-year-old man has an acute MI that leaves his left ventricle hypokinetic. Within hours his jugular venous pressure is elevated and his cardiac output is low. Over the next few days, his kidneys retain salt and water. What is the effect of this fluid retention on his operating point?",
- "c": [
-  "CO falls further while RAP falls",
-  "CO rises and RAP falls to normal",
-  "CO rises some, RAP rises more",
-  "CO is unchanged while RAP falls",
-  "CO falls further while RAP rises"
- ],
- "a": 2,
- "e": "Step 1: the MI shifts the cardiac curve down, lowering CO and raising RAP.\nStep 2: fluid retention raises blood volume and MSFP, shifting the venous return curve up.\nStep 3: the new crossing on the depressed cardiac curve is at a higher CO but an even higher RAP, which is why edema and congestion follow.",
- "w": [
-  "More volume raises CO and RAP.",
-  "RAP rises with more volume.",
-  "",
-  "More volume does not lower RAP.",
-  "More volume raises CO on the depressed curve."
- ]
+"t": "Lecture 7 · Cardiac & Vascular Function Curves",
+"s": "A 58-year-old man has an acute MI that leaves his left ventricle hypokinetic. Within hours his jugular venous pressure is elevated and his cardiac output is low. Over the next few days, his kidneys retain salt and water. What is the effect of this fluid retention on his operating point?",
+"c": [
+"CO falls further while RAP falls",
+"CO rises and RAP falls to normal",
+"CO rises some, RAP rises more",
+"CO is unchanged while RAP falls",
+"CO falls further while RAP rises"
+],
+"a": 2,
+"e": "Step 1: the MI shifts the cardiac curve down, lowering CO and raising RAP.\nStep 2: fluid retention raises blood volume and MSFP, shifting the venous return curve up.\nStep 3: the new crossing on the depressed cardiac curve is at a higher CO but an even higher RAP, which is why edema and congestion follow.",
+"w": [
+"More volume raises CO and RAP.",
+"RAP rises with more volume.",
+"",
+"More volume does not lower RAP.",
+"More volume raises CO on the depressed curve."
+]
+},
+{
+"t": "Lecture 8 · Regulation of Blood Pressure",
+"s": "A 68-year-old man is found to have a heart rate of 44/min while shaving with a tight collar. The episodes stop when he wears loose shirts. Which afferent pathway is responsible?",
+"c": [
+"Aortic arch via CN X",
+"Carotid body via CN X",
+"Carotid sinus via CN IX",
+"Atrial receptors via CN X",
+"Aortic body via CN IX"
+],
+"a": 2,
+"e": "Step 1: pressure on the neck stretches the carotid sinus as if blood pressure were high.\nStep 2: carotid sinus afferents travel in CN IX to the NTS.\nStep 3: the medulla raises vagal and lowers sympathetic outflow, slowing the heart. This is carotid sinus hypersensitivity.",
+"w": [
+"The aortic arch is not pressed by a collar.",
+"The carotid body is a chemoreceptor and uses CN IX.",
+"",
+"Atrial receptors sense volume.",
+"Aortic bodies use CN X."
+],
+"fig": [
+"figs/crs/bp-baro-arc",
+"figs/crs/bp-baro-panels"
+]
+},
+{
+"t": "Lecture 8 · Regulation of Blood Pressure",
+"s": "A 25-year-old man loses 1 L of blood in a car crash. Within 30 seconds, which set of changes occurs?",
+"c": [
+"↑ Baroreceptor firing, ↓ HR, ↓ TPR",
+"↓ Baroreceptor firing, ↓ HR, ↓ TPR",
+"↑ Baroreceptor firing, ↑ HR, ↑ TPR",
+"↓ Baroreceptor firing, ↑ HR, ↓ TPR",
+"↓ Baroreceptor firing, ↑ HR, ↑ TPR"
+],
+"a": 4,
+"e": "Step 1: blood loss lowers arterial pressure and stretch at the carotid sinus and aortic arch.\nStep 2: baroreceptor firing falls, so sympathetic outflow rises and vagal outflow falls.\nStep 3: heart rate, contractility and arteriolar tone rise, raising CO and TPR to restore pressure.",
+"w": [
+"That is the response to hypertension.",
+"HR and TPR rise.",
+"Firing falls in hypotension.",
+"TPR rises from vasoconstriction.",
+""
+],
+"fig": [
+"figs/crs/bp-baro-hypo",
+"figs/crs/bp-baro-ans"
+]
+},
+{
+"t": "Lecture 8 · Regulation of Blood Pressure",
+"s": "A 70-year-old man with chronic hypertension has a stable blood pressure of 165/95 mmHg despite intact baroreceptors. Why don't his baroreceptors lower his pressure toward normal?",
+"c": [
+"They reset to the new level",
+"They are no longer stretched",
+"They detect only hypotension",
+"They send no signals to the NTS",
+"They raise sympathetic outflow"
+],
+"a": 0,
+"e": "Baroreceptors adapt within a few days of a sustained pressure change. They then defend the new level instead of the old one, which is why long-term pressure is set by renal control of volume through RAAS and ANP.",
+"w": [
+"",
+"They are stretched at the new level.",
+"They sense rises and falls.",
+"Signaling continues after resetting.",
+"High firing lowers sympathetic outflow."
+],
+"fig": [
+"figs/crs/bp-short-long"
+]
+},
+{
+"t": "Lecture 8 · Regulation of Blood Pressure",
+"s": "A 60-year-old man with COPD has a PaO2 of 50 mmHg. Through peripheral chemoreceptors, which change in sympathetic activity and blood pressure is expected?",
+"c": [
+"Sympathetic down, pressure down",
+"Sympathetic up, pressure up",
+"Sympathetic up, pressure down",
+"Sympathetic down, pressure up",
+"No change in either"
+],
+"a": 1,
+"e": "A PaO2 below 60 mmHg activates carotid and aortic body chemoreceptors. They excite the pressor and cardioaccelerator zones of the vasomotor center, raising sympathetic tone, TPR, CO and pressure, along with breathing.",
+"w": [
+"Opposite.",
+"",
+"Higher sympathetic tone raises pressure.",
+"Pressure rises from sympathetic drive.",
+"Hypoxemia activates the reflex."
+],
+"fig": [
+"figs/crs/bp-chemo"
+]
+},
+{
+"t": "Lecture 8 · Regulation of Blood Pressure",
+"s": "A 55-year-old woman with heart failure is started on a drug. Over the next week her plasma renin rises, angiotensin I rises, angiotensin II falls and aldosterone falls. Which drug was started?",
+"c": [
+"Enalapril",
+"Losartan",
+"Spironolactone",
+"Metoprolol",
+"Hydrochlorothiazide"
+],
+"a": 0,
+"e": "Step 1: Ang I rising while Ang II falls means the block is at ACE.\nStep 2: losing Ang II removes feedback on renin, so renin and Ang I rise.\nStep 3: less Ang II means less aldosterone. Enalapril is an ACE inhibitor.",
+"w": [
+"",
+"An ARB raises Ang II.",
+"Spironolactone raises aldosterone.",
+"β-blockers lower renin.",
+"Thiazides raise renin but not by blocking ACE."
+],
+"fig": [
+"figs/crs/bp-raas-drugs",
+"figs/crs/bp-raas-hack"
+]
+},
+{
+"t": "Lecture 8 · Regulation of Blood Pressure",
+"s": "A 72-year-old man with hypertension and peripheral artery disease is started on lisinopril. A week later his serum creatinine has risen from 1.1 to 2.6 mg/dL. Imaging is most likely to show which finding?",
+"c": [
+"Unilateral stenosis with a normal kidney",
+"Bilateral ureteral obstruction",
+"Polycystic kidneys",
+"Bilateral renal artery stenosis",
+"Normal renal arteries"
+],
+"a": 3,
+"e": "Step 1: an abrupt creatinine rise after starting an ACE inhibitor suggests GFR depended on Ang II.\nStep 2: in bilateral stenosis, Ang II constricts the efferent arteriole to hold up glomerular pressure.\nStep 3: removing it drops glomerular pressure and GFR, causing AKI.",
+"w": [
+"The normal kidney keeps GFR up.",
+"Obstruction is not linked to ACE inhibitors.",
+"Not the classic cause.",
+"",
+"A normal kidney tolerates ACE inhibition."
+],
+"fig": [
+"figs/crs/bp-ras-tx",
+"figs/crs/bp-ras-zones"
+]
+},
+{
+"t": "Lecture 8 · Regulation of Blood Pressure",
+"s": "A 45-year-old woman receives a rapid 2 L saline infusion. Which hormone change helps return her blood volume to normal?",
+"c": [
+"ANP falls, renin rises",
+"ANP rises, renin falls",
+"ANP rises, renin rises",
+"ANP falls, aldosterone rises",
+"Renin rises, ADH rises"
+],
+"a": 1,
+"e": "Step 1: the saline stretches the atria.\nStep 2: atrial myocytes release ANP.\nStep 3: ANP causes vasodilation, natriuresis and diuresis and lowers renin and aldosterone, so volume and pressure fall.",
+"w": [
+"Volume expansion raises ANP.",
+"",
+"Renin falls.",
+"Aldosterone falls.",
+"Both fall with volume expansion."
+],
+"fig": [
+"figs/crs/bp-anp",
+"figs/crs/bp-anp-steps"
+]
+},
+{
+"t": "Lecture 8 · Regulation of Blood Pressure",
+"s": "A 40-year-old man has a low-sodium diet for two weeks. Which signal at the kidney increases renin release?",
+"c": [
+"More stretch of the afferent arteriole",
+"More ANP acting on JG cells",
+"Less NaCl sensed at the macula densa",
+"Less β1 stimulation of JG cells",
+"More Ang II acting on JG cells"
+],
+"a": 2,
+"e": "Less dietary sodium lowers NaCl delivery to the macula densa, which signals the JG cells to release renin. Renin then raises Ang II and aldosterone to retain Na⁺.",
+"w": [
+"More stretch lowers renin.",
+"ANP lowers renin.",
+"",
+"Less β1 lowers renin.",
+"Ang II lowers renin by feedback."
+],
+"fig": [
+"figs/crs/bp-md-jg",
+"figs/crs/bp-raas"
+]
 }
 ]
 }

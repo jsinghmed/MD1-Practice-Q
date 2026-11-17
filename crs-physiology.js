@@ -1,5 +1,5 @@
 // CRS Physiology — Dr. Sampath V. lecture slides. Reworked set: fewer, multi-concept, high-yield questions; lv = Easy/Hard; sampath = Challenge Yourself questions from the slides, word for word
-window.CRS_PH_TOPICS = ["Big Picture & Cardiac Cell Types", "Conduction System Anatomy", "Fast vs Slow Response", "Phase 0 & Na⁺ Channel Gates", "Phase 1 · The Notch", "Phase 2 · Plateau & E–C Coupling", "Phases 3 & 4 · Reset and Rest", "Refractory Periods", "Na⁺ Channel States", "Why the AP & Refractory Period Are Long", "Challenge Yourself · Sampath's Q's", "Pacemaker Cells, Automaticity & Key Terms", "Slow vs Fast Response APs", "Phase 4 · Pacemaker Potential", "Phase 0 · L-type Ca²⁺ Upstroke", "Phase 3 · Nodal Repolarization", "Pacemaker Hierarchy & Overdrive Suppression", "Challenge · Pacemaker Currents", "Autonomic Control: Chrono-, Dromo- & Inotropy", "Sympathetic β1 → Gs → cAMP Cascade", "Sympathetic Effects on SA Node, AV Node & Ventricle", "Parasympathetic M2 → Gi: Two Arms", "Integrated SA Node Effects & Summary", "Drugs That Hit These Channels", "Challenge · Cardiac Nerves", "Cardiac Cycle Timing: Systole vs Diastole", "Key Volumes: EDV, ESV, SV & EF", "Wiggers Diagram: Phases A–G, Valves & Heart Sounds", "Atrial Systole & Ventricular Filling", "Isovolumetric Phases & Ejection", "Jugular Venous Pulse & Aortic Pressure Curve", "Pressure Map: Normal Chamber Pressures", "Cardiac Output & Cardiac Reserve", "Preload, Afterload & Contractility", "Frank–Starling Law", "PV Loop: Phases & Valve Events", "PV Loop Shifts: Preload, Afterload, Contractility", "Cardiac Work", "Measuring CO: Indicator Dilution & Fick", "Sampath's Q's · Very Easy Set", "Sampath's Q's · Medium Set", "Sampath's Q's · Medium-Hard Set", "Sampath's Q's · Hard Set", "Sampath's Q's · Cardiac Cycle MCQs", "Sampath's Q's · Wiggers Diagram MCQs", "Sampath's Q's · Wiggers Diagram Easy", "Sampath's Q's · Cardiac Cycle Clinical Quiz", "Ohm's Law & the Pressure Gradient", "Poiseuille's Law & Vessel Radius", "Series vs Parallel Resistance", "Laminar vs Turbulent Flow", "Flow vs Velocity", "Compliance, Pulse Pressure & MAP", "Venous Return & the Vascular Function Curve", "Shifting the Venous Return Curve: Volume, Venous Tone & TPR", "Cardiac Function Curve: Preload, Afterload & Inotropy", "The Operating Point: CO = VR", "Clinical Scenarios: Blood Volume Changes", "Clinical Scenarios: Inotropy & Afterload"];
+window.CRS_PH_TOPICS = ["Big Picture & Cardiac Cell Types", "Conduction System Anatomy", "Fast vs Slow Response", "Phase 0 & Na⁺ Channel Gates", "Phase 1 · The Notch", "Phase 2 · Plateau & E–C Coupling", "Phases 3 & 4 · Reset and Rest", "Refractory Periods", "Na⁺ Channel States", "Why the AP & Refractory Period Are Long", "Challenge Yourself · Sampath's Q's", "Pacemaker Cells, Automaticity & Key Terms", "Slow vs Fast Response APs", "Phase 4 · Pacemaker Potential", "Phase 0 · L-type Ca²⁺ Upstroke", "Phase 3 · Nodal Repolarization", "Pacemaker Hierarchy & Overdrive Suppression", "Challenge · Pacemaker Currents", "Autonomic Control: Chrono-, Dromo- & Inotropy", "Sympathetic β1 → Gs → cAMP Cascade", "Sympathetic Effects on SA Node, AV Node & Ventricle", "Parasympathetic M2 → Gi: Two Arms", "Integrated SA Node Effects & Summary", "Drugs That Hit These Channels", "Challenge · Cardiac Nerves", "Cardiac Cycle Timing: Systole vs Diastole", "Key Volumes: EDV, ESV, SV & EF", "Wiggers Diagram: Phases A–G, Valves & Heart Sounds", "Atrial Systole & Ventricular Filling", "Isovolumetric Phases & Ejection", "Jugular Venous Pulse & Aortic Pressure Curve", "Pressure Map: Normal Chamber Pressures", "Cardiac Output & Cardiac Reserve", "Preload, Afterload & Contractility", "Frank–Starling Law", "PV Loop: Phases & Valve Events", "PV Loop Shifts: Preload, Afterload, Contractility", "Cardiac Work", "Measuring CO: Indicator Dilution & Fick", "Sampath's Q's · Very Easy Set", "Sampath's Q's · Medium Set", "Sampath's Q's · Medium-Hard Set", "Sampath's Q's · Hard Set", "Sampath's Q's · Cardiac Cycle MCQs", "Sampath's Q's · Wiggers Diagram MCQs", "Sampath's Q's · Wiggers Diagram Easy", "Sampath's Q's · Cardiac Cycle Clinical Quiz", "Ohm's Law & the Pressure Gradient", "Poiseuille's Law & Vessel Radius", "Series vs Parallel Resistance", "Laminar vs Turbulent Flow", "Flow vs Velocity", "Compliance, Pulse Pressure & MAP", "Venous Return & the Vascular Function Curve", "Shifting the Venous Return Curve: Volume, Venous Tone & TPR", "Cardiac Function Curve: Preload, Afterload & Inotropy", "The Operating Point: CO = VR", "Clinical Scenarios: Blood Volume Changes", "Clinical Scenarios: Inotropy & Afterload", "Baroreceptor Reflex: Arc & Response", "Vasomotor Center & Chemoreceptors", "RAAS: Renin Triggers & Angiotensin II", "ANP: Response to High Blood Pressure", "RAAS Blockers & Renal Artery Stenosis"];
 window.CRS_PH_QUESTIONS = [
 {
 "t": "Big Picture & Cardiac Cell Types",
@@ -6119,8 +6119,7 @@ window.CRS_PH_QUESTIONS = [
 "SV rises."
 ],
 "src": "lec"
-}
-,
+},
 {
 "t": "Ohm's Law & the Pressure Gradient",
 "lv": "Easy",
@@ -7362,8 +7361,7 @@ window.CRS_PH_QUESTIONS = [
 ],
 "usmle": 1,
 "src": "usm"
-}
-,
+},
 {
 "t": "Venous Return & the Vascular Function Curve",
 "lv": "Easy",
@@ -8045,5 +8043,813 @@ window.CRS_PH_QUESTIONS = [
 "Slower rate and more filling would not lower RAP."
 ],
 "src": "lec"
+},
+{
+"t": "Baroreceptor Reflex: Arc & Response",
+"lv": "Easy",
+"s": "Mean arterial pressure is the product of which two variables?",
+"c": [
+"Cardiac output and TPR",
+"Heart rate and stroke volume",
+"Stroke volume and TPR",
+"Cardiac output and venous return",
+"Heart rate and blood volume"
+],
+"a": 0,
+"e": "BP = CO × TPR. Anything that raises cardiac output or total peripheral resistance raises blood pressure, and the reflexes in this lecture work by changing one or both.",
+"w": [
+"",
+"Heart rate × stroke volume is cardiac output, not pressure.",
+"Stroke volume must be multiplied by heart rate first.",
+"Venous return equals cardiac output at steady state.",
+"Blood volume is not a direct factor in the equation."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-co-tpr"
+]
+},
+{
+"t": "Baroreceptor Reflex: Arc & Response",
+"lv": "Easy",
+"s": "Which nerve carries afferent signals from the carotid sinus baroreceptors to the medulla?",
+"c": [
+"Vagus nerve branch, CN X",
+"Glossopharyngeal nerve, CN IX",
+"Hypoglossal nerve, CN XII",
+"Facial nerve branch, CN VII",
+"Spinal accessory nerve, CN XI"
+],
+"a": 1,
+"e": "Carotid sinus baroreceptors send their signals through Hering's nerve, a branch of the glossopharyngeal nerve, CN IX, to the nucleus tractus solitarius. Aortic arch baroreceptors use the vagus, CN X.",
+"w": [
+"The vagus carries signals from the aortic arch.",
+"",
+"CN XII is motor to the tongue.",
+"CN VII does not carry baroreceptor afferents.",
+"CN XI is motor to neck muscles."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-baro-arc"
+]
+},
+{
+"t": "Baroreceptor Reflex: Arc & Response",
+"lv": "Easy",
+"s": "Baroreceptor afferents from the carotid sinus and aortic arch first synapse in which medullary nucleus?",
+"c": [
+"Nucleus ambiguus",
+"Dorsal motor nucleus of vagus",
+"Nucleus tractus solitarius",
+"Hypoglossal nucleus",
+"Paraventricular nucleus"
+],
+"a": 2,
+"e": "Both CN IX and CN X baroreceptor afferents end in the nucleus tractus solitarius, NTS, in the medulla. The NTS then adjusts autonomic outflow through the cardiovascular center.",
+"w": [
+"Nucleus ambiguus sends vagal efferents to the heart.",
+"The dorsal motor nucleus is an efferent vagal nucleus.",
+"",
+"The hypoglossal nucleus controls the tongue.",
+"The paraventricular nucleus is hypothalamic."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-baro-arc"
+]
+},
+{
+"t": "Baroreceptor Reflex: Arc & Response",
+"lv": "Easy",
+"s": "What happens to the firing rate of carotid sinus baroreceptors when arterial pressure rises?",
+"c": [
+"It decreases",
+"It stops completely",
+"It does not change",
+"It increases",
+"It reverses in direction"
+],
+"a": 3,
+"e": "Baroreceptors are stretch receptors. Higher pressure stretches the vessel wall more, so they fire faster. Sympathetic outflow is inversely related to this firing.",
+"w": [
+"Firing falls when pressure falls.",
+"Firing falls but continues at low pressures.",
+"Firing tracks pressure.",
+"",
+"Receptor firing has no direction to reverse."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-baro-ans"
+]
+},
+{
+"t": "Baroreceptor Reflex: Arc & Response",
+"lv": "Easy",
+"s": "Arterial pressure suddenly falls. How does the baroreceptor reflex change autonomic outflow?",
+"c": [
+"Sympathetic down, parasympathetic up",
+"Both sympathetic and parasympathetic up",
+"Both sympathetic and parasympathetic down",
+"Only parasympathetic outflow rises",
+"Sympathetic up, parasympathetic down"
+],
+"a": 4,
+"e": "Low pressure lowers baroreceptor firing. The medulla responds by activating the sympathetic system and inhibiting the parasympathetic system, which raises heart rate, contractility and vascular tone.",
+"w": [
+"That is the response to high pressure.",
+"The two arms move in opposite directions.",
+"The two arms move in opposite directions.",
+"Parasympathetic outflow falls in hypotension.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-baro-hypo"
+]
+},
+{
+"t": "Baroreceptor Reflex: Arc & Response",
+"lv": "Easy",
+"s": "Sympathetic outflow from the medulla relates to baroreceptor firing in which way?",
+"c": [
+"Inversely, less firing gives more",
+"Directly, more firing gives more",
+"Not at all, they are independent",
+"Only during exercise",
+"Only when MAP falls below 40 mmHg"
+],
+"a": 0,
+"e": "Sympathetic activation is inversely proportional to baroreceptor firing. Low pressure means less firing and more sympathetic drive, and high pressure means more firing and less sympathetic drive.",
+"w": [
+"",
+"That describes the parasympathetic arm.",
+"Baroreceptor firing directly sets sympathetic tone.",
+"The reflex works at rest.",
+"The reflex works across the normal pressure range."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-baro-ans"
+]
+},
+{
+"t": "Baroreceptor Reflex: Arc & Response",
+"lv": "Easy",
+"s": "Which effect of the baroreceptor response to hypotension raises total peripheral resistance?",
+"c": [
+"Increased heart rate",
+"Arteriolar vasoconstriction",
+"Increased contractility",
+"Increased stroke volume",
+"Dilation of the capacitance veins"
+],
+"a": 1,
+"e": "In hypotension, sympathetic activation constricts arterioles, raising TPR. Faster heart rate and stronger contraction raise cardiac output instead. Together they restore BP = CO × TPR.",
+"w": [
+"Heart rate raises cardiac output, not TPR.",
+"",
+"Contractility raises cardiac output, not TPR.",
+"Stroke volume is part of cardiac output.",
+"Sympathetic drive constricts veins."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-baro-hypo"
+]
+},
+{
+"t": "Baroreceptor Reflex: Arc & Response",
+"lv": "Easy",
+"s": "Why does the body need a separate long-term system to control blood pressure?",
+"c": [
+"Baroreceptors respond too slowly",
+"Baroreceptors only detect high pressure",
+"Baroreceptors adapt within days",
+"The kidney cannot sense pressure",
+"Hormones act faster than nerves"
+],
+"a": 2,
+"e": "Baroreceptors reset to a sustained pressure over a few days, so they buffer moment-to-moment changes but cannot hold pressure at a set point long term. The kidneys, through RAAS and fluid volume, do that job.",
+"w": [
+"Baroreceptors respond within seconds.",
+"They detect both rises and falls.",
+"",
+"The kidney senses perfusion pressure through JG cells.",
+"Neural control is faster than hormonal control."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-short-long"
+]
+},
+{
+"t": "Baroreceptor Reflex: Arc & Response",
+"lv": "Hard",
+"s": "A 72-year-old man stands up quickly from bed and feels lightheaded for a few seconds before it passes. His pressure fell transiently on standing. Which sequence of events restored his pressure?",
+"c": [
+"More carotid stretch, less sympathetic drive",
+"Less carotid stretch, more vagal drive",
+"Renin release, then aldosterone secretion",
+"Less carotid stretch, more sympathetic drive",
+"Atrial stretch, then ANP release"
+],
+"a": 3,
+"e": "Step 1: standing pools blood in the legs, so venous return, cardiac output and arterial pressure fall.\nStep 2: the carotid sinus is stretched less, so CN IX firing to the NTS falls.\nStep 3: the medulla raises sympathetic and lowers vagal outflow, raising heart rate, contractility and TPR within seconds.",
+"w": [
+"Pressure fell, so stretch fell.",
+"Vagal drive falls in hypotension.",
+"RAAS is too slow for a few seconds.",
+"",
+"Atrial stretch falls on standing, and ANP lowers pressure."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-baro-hypo",
+"figs/crs/bp-baro-panels"
+]
+},
+{
+"t": "Baroreceptor Reflex: Arc & Response",
+"lv": "Hard",
+"s": "A 64-year-old man with a carotid stenosis has a stent placed. During balloon inflation, the carotid sinus is stretched hard and his heart rate drops to 38/min. Which pathway explains this?",
+"c": [
+"CN X to NTS, then more sympathetic outflow",
+"CN IX to NTS, then more sympathetic outflow",
+"CN XII to NTS, then less vagal outflow",
+"Aortic body to NTS, then less vagal outflow",
+"CN IX to NTS, then more vagal outflow"
+],
+"a": 4,
+"e": "Step 1: the balloon stretches the carotid sinus as if pressure were very high.\nStep 2: baroreceptor firing rises along CN IX to the NTS.\nStep 3: the medulla raises parasympathetic and lowers sympathetic outflow, so the SA node slows and bradycardia follows.",
+"w": [
+"The carotid sinus uses CN IX, and sympathetic drive falls.",
+"Sympathetic drive falls when firing rises.",
+"CN XII carries no baroreceptor signals.",
+"Aortic bodies are chemoreceptors.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-baro-arc",
+"figs/crs/bp-baro-panels"
+]
+},
+{
+"t": "Baroreceptor Reflex: Arc & Response",
+"lv": "Hard",
+"s": "A 45-year-old woman's mean arterial pressure rises suddenly from 95 to 125 mmHg after an IV dose of phenylephrine, a pure α1 agonist. Within seconds, which change is expected?",
+"c": [
+"Heart rate falls",
+"Heart rate rises",
+"TPR falls below baseline",
+"Contractility rises",
+"Vagal outflow falls"
+],
+"a": 0,
+"e": "Step 1: phenylephrine constricts arterioles, so TPR and pressure rise.\nStep 2: higher pressure raises baroreceptor firing.\nStep 3: the reflex raises vagal and lowers sympathetic drive to the heart, so heart rate falls. This reflex bradycardia is how the drug is used to slow some tachycardias.",
+"w": [
+"",
+"High pressure slows the heart by reflex.",
+"The drug holds arterioles constricted.",
+"Sympathetic drive to the heart falls.",
+"Vagal outflow rises."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-baro-panels"
+]
+},
+{
+"t": "Vasomotor Center & Chemoreceptors",
+"lv": "Easy",
+"s": "Peripheral chemoreceptors that raise sympathetic tone are located in which structures?",
+"c": [
+"Carotid sinus and aortic arch",
+"Carotid and aortic bodies",
+"Juxtaglomerular apparatus",
+"Cardiac atria",
+"Ventral medullary surface"
+],
+"a": 1,
+"e": "Peripheral chemoreceptors sit in the carotid and aortic bodies. The carotid sinus and aortic arch hold the baroreceptors, which sense stretch.",
+"w": [
+"Those hold baroreceptors.",
+"",
+"The JG apparatus senses renal perfusion and NaCl.",
+"Atrial receptors sense volume.",
+"That is where central chemoreceptors are."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-chemo"
+]
+},
+{
+"t": "Vasomotor Center & Chemoreceptors",
+"lv": "Easy",
+"s": "Which arterial value most strongly activates the peripheral chemoreceptors?",
+"c": [
+"PaO2 of 95 mmHg",
+"PaCO2 of 40 mmHg",
+"PaO2 below 60 mmHg",
+"Arterial pH of 7.40",
+"Hemoglobin of 10 g/dL"
+],
+"a": 2,
+"e": "Peripheral chemoreceptors respond to hypoxemia, PaO2 below about 60 mmHg, which is their primary stimulus. They also respond to a high PaCO2 and a low pH.",
+"w": [
+"A normal PaO2 does not activate them.",
+"That is a normal PaCO2.",
+"",
+"That is a normal pH.",
+"Anemia lowers O2 content but not PaO2."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-chemo"
+]
+},
+{
+"t": "Vasomotor Center & Chemoreceptors",
+"lv": "Easy",
+"s": "Central chemoreceptors in the medulla respond most directly to which change?",
+"c": [
+"Lower arterial PaO2",
+"Higher arterial pressure",
+"Lower plasma bicarbonate alone",
+"Lower pH of the CSF",
+"Higher arterial O2 content"
+],
+"a": 3,
+"e": "Central chemoreceptors sense H⁺. CO2 crosses the blood-brain barrier, forms H⁺ in the CSF and lowers its pH, so they respond to CO2 indirectly through pH.",
+"w": [
+"Hypoxemia acts on peripheral chemoreceptors.",
+"Pressure is sensed by baroreceptors.",
+"Plasma H⁺ and bicarbonate cross the barrier poorly.",
+"",
+"They do not sense O2 content."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-chemo"
+]
+},
+{
+"t": "Vasomotor Center & Chemoreceptors",
+"lv": "Hard",
+"s": "A 56-year-old man with severe COPD has a PaO2 of 52 mmHg and a PaCO2 of 58 mmHg. His heart rate and blood pressure are both elevated. Which pathway best explains his raised pressure?",
+"c": [
+"Baroreceptors detect low pressure",
+"Central chemoreceptors detect high PaO2",
+"JG cells sense high NaCl load",
+"Atrial stretch triggers ANP release",
+"Chemoreceptors excite the pressor area"
+],
+"a": 4,
+"e": "Step 1: a PaO2 below 60 mmHg and a high PaCO2 activate the carotid and aortic body chemoreceptors.\nStep 2: they excite the pressor and cardioaccelerator zones of the vasomotor center.\nStep 3: sympathetic discharge rises, causing vasoconstriction and a faster heart rate, so TPR, CO and pressure rise.",
+"w": [
+"His pressure is high, not low.",
+"His PaO2 is low, and that acts peripherally.",
+"High NaCl at the macula densa lowers renin.",
+"ANP lowers pressure.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-chemo"
+]
+},
+{
+"t": "RAAS: Renin Triggers & Angiotensin II",
+"lv": "Easy",
+"s": "What is the rate-limiting step of the renin-angiotensin-aldosterone system?",
+"c": [
+"Renin release from JG cells",
+"Angiotensinogen release from liver",
+"ACE activity in the lung",
+"Aldosterone release from cortex",
+"Angiotensin II receptor binding"
+],
+"a": 0,
+"e": "Renin release from the juxtaglomerular cells of the afferent arteriole is the rate-limiting step. Angiotensinogen and ACE are present in excess, so renin sets how much angiotensin II is made.",
+"w": [
+"",
+"Angiotensinogen is plentiful in plasma.",
+"ACE is abundant and not limiting.",
+"Aldosterone is a downstream effect.",
+"Receptor binding follows Ang II formation."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-raas"
+]
+},
+{
+"t": "RAAS: Renin Triggers & Angiotensin II",
+"lv": "Easy",
+"s": "Which change stimulates renin release from the juxtaglomerular cells?",
+"c": [
+"More stretch of the afferent arteriole",
+"Less NaCl at the macula densa",
+"Higher plasma ANP",
+"β1 receptor blockade",
+"Higher renal perfusion pressure"
+],
+"a": 1,
+"e": "Renin release rises with three triggers: lower renal perfusion pressure sensed by JG cells, more sympathetic β1 stimulation, and less NaCl delivered to the macula densa.",
+"w": [
+"More stretch means more pressure, which lowers renin.",
+"",
+"ANP lowers renin.",
+"β1 stimulation raises renin, so blockade lowers it.",
+"Higher pressure lowers renin."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-raas",
+"figs/crs/bp-md-jg"
+]
+},
+{
+"t": "RAAS: Renin Triggers & Angiotensin II",
+"lv": "Easy",
+"s": "Sympathetic nerves stimulate renin release by acting on which receptor on the JG cells?",
+"c": [
+"α1 adrenergic receptor",
+"β2 adrenergic receptor",
+"β1 adrenergic receptor",
+"M2 muscarinic receptor",
+"α2 adrenergic receptor"
+],
+"a": 2,
+"e": "JG cells carry β1 receptors. Sympathetic activity releases norepinephrine onto them and increases renin secretion, which is why β-blockers lower renin.",
+"w": [
+"α1 receptors constrict vessels.",
+"β2 receptors relax smooth muscle.",
+"",
+"Muscarinic receptors are parasympathetic.",
+"α2 receptors are mostly presynaptic."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-raas"
+]
+},
+{
+"t": "RAAS: Renin Triggers & Angiotensin II",
+"lv": "Easy",
+"s": "Where is angiotensin I converted to angiotensin II?",
+"c": [
+"Renal juxtaglomerular cells",
+"Hepatocytes of the liver",
+"Adrenal zona glomerulosa",
+"Lung vascular endothelium",
+"Atrial myocytes of the heart"
+],
+"a": 3,
+"e": "Angiotensin-converting enzyme on the vascular endothelium, mainly in the lungs, cleaves the decapeptide angiotensin I into the octapeptide angiotensin II.",
+"w": [
+"JG cells release renin.",
+"The liver makes angiotensinogen.",
+"The adrenal makes aldosterone.",
+"",
+"Atria make ANP."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-raas-organs",
+"figs/crs/bp-raas-relay"
+]
+},
+{
+"t": "RAAS: Renin Triggers & Angiotensin II",
+"lv": "Easy",
+"s": "Which organ produces angiotensinogen, the substrate for renin?",
+"c": [
+"Kidney",
+"Lung",
+"Adrenal cortex",
+"Heart",
+"Liver"
+],
+"a": 4,
+"e": "The liver makes angiotensinogen and releases it into plasma. Renin from the kidney cleaves it to angiotensin I, ACE in the lung makes angiotensin II, and the adrenal releases aldosterone.",
+"w": [
+"The kidney releases renin.",
+"The lung supplies ACE.",
+"The adrenal makes aldosterone.",
+"The heart makes ANP.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-raas-relay"
+]
+},
+{
+"t": "RAAS: Renin Triggers & Angiotensin II",
+"lv": "Easy",
+"s": "Which is NOT a direct effect of angiotensin II?",
+"c": [
+"Increased renin release",
+"Arteriolar vasoconstriction",
+"Aldosterone secretion",
+"ADH release",
+"Increased thirst"
+],
+"a": 0,
+"e": "Angiotensin II constricts arterioles, stimulates aldosterone from the zona glomerulosa, increases ADH release and stimulates thirst. It feeds back to lower, not raise, renin release.",
+"w": [
+"",
+"Ang II is a potent vasoconstrictor.",
+"Ang II stimulates the zona glomerulosa.",
+"Ang II increases ADH.",
+"Ang II increases thirst."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-raas"
+]
+},
+{
+"t": "RAAS: Renin Triggers & Angiotensin II",
+"lv": "Easy",
+"s": "Aldosterone raises blood volume mainly by acting on which part of the nephron?",
+"c": [
+"Proximal convoluted tubule",
+"Distal tubule and collecting duct",
+"Thin descending limb of Henle",
+"Glomerular capillary tuft",
+"Parietal layer of Bowman's capsule"
+],
+"a": 1,
+"e": "Aldosterone increases Na⁺ reabsorption and K⁺ secretion in the distal tubule and collecting duct. Water follows the Na⁺, so volume and pressure rise.",
+"w": [
+"The PCT is not the main aldosterone target.",
+"",
+"The thin descending limb is not an aldosterone site.",
+"Glomeruli filter and do not reabsorb.",
+"Bowman's capsule collects filtrate."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-raas"
+]
+},
+{
+"t": "RAAS: Renin Triggers & Angiotensin II",
+"lv": "Hard",
+"s": "A 34-year-old woman has a blood pressure of 100/60 mmHg after several days of vomiting. Her urine sodium is very low and her serum potassium is low. Which hormone, made in which zone, best explains both urine findings?",
+"c": [
+"Cortisol, zona fasciculata",
+"ANP, atrial myocytes of the heart",
+"Aldosterone, zona glomerulosa",
+"ADH, posterior pituitary",
+"Renin, zona glomerulosa"
+],
+"a": 2,
+"e": "Step 1: volume loss lowers renal perfusion, so JG cells release renin.\nStep 2: angiotensin II stimulates aldosterone from the zona glomerulosa.\nStep 3: aldosterone retains Na⁺ and secretes K⁺ in the distal tubule and collecting duct, so urine Na⁺ falls and K⁺ is lost.",
+"w": [
+"Cortisol is not the main regulator of Na⁺ and K⁺.",
+"ANP causes natriuresis.",
+"",
+"ADH retains water, not Na⁺ in exchange for K⁺.",
+"Renin comes from the kidney."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-raas-organs"
+]
+},
+{
+"t": "RAAS: Renin Triggers & Angiotensin II",
+"lv": "Hard",
+"s": "A 58-year-old man has a sustained fall in renal perfusion. His renin, angiotensin II and aldosterone stay high for weeks. Which long-term change is expected?",
+"c": [
+"Lower blood volume and pressure",
+"Higher urine sodium output",
+"Lower plasma ADH levels",
+"Higher blood volume and pressure",
+"Lower total peripheral resistance"
+],
+"a": 3,
+"e": "Step 1: sustained RAAS activity keeps Ang II high, constricting arterioles and raising TPR.\nStep 2: aldosterone and ADH keep retaining Na⁺ and water, and Ang II drives thirst.\nStep 3: volume and pressure rise, which compensates at first but becomes maladaptive hypertension and edema.",
+"w": [
+"RAAS raises volume.",
+"Aldosterone lowers urine sodium.",
+"Ang II raises ADH.",
+"",
+"Ang II raises TPR."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-raas",
+"figs/crs/bp-short-long"
+]
+},
+{
+"t": "ANP: Response to High Blood Pressure",
+"lv": "Easy",
+"s": "What is the main stimulus for atrial natriuretic peptide secretion?",
+"c": [
+"Low arterial pressure",
+"High plasma angiotensin II",
+"Sympathetic β1 stimulation",
+"Low NaCl at the macula densa",
+"Stretch of the atrial walls"
+],
+"a": 4,
+"e": "ANP is released by atrial myocytes when the atria are stretched by higher blood volume, venous return or atrial pressure.",
+"w": [
+"Low pressure lowers ANP.",
+"Ang II does not trigger ANP.",
+"β1 stimulation releases renin.",
+"Low NaCl at the macula densa releases renin.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-anp"
+]
+},
+{
+"t": "ANP: Response to High Blood Pressure",
+"lv": "Easy",
+"s": "Which set of effects does atrial natriuretic peptide produce?",
+"c": [
+"Vasodilation, natriuresis, less renin",
+"Vasoconstriction, Na retention, more renin",
+"Vasodilation, Na retention, more renin",
+"Vasoconstriction, natriuresis, less renin",
+"Thirst, ADH release, more aldosterone"
+],
+"a": 0,
+"e": "ANP dilates vessels, causes natriuresis and diuresis, and lowers renin, angiotensin II and aldosterone. Together these lower blood volume and pressure.",
+"w": [
+"",
+"Those are RAAS effects.",
+"ANP causes Na⁺ loss and lowers renin.",
+"ANP is a vasodilator.",
+"Those are Ang II effects."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-anp",
+"figs/crs/bp-anp-steps"
+]
+},
+{
+"t": "ANP: Response to High Blood Pressure",
+"lv": "Hard",
+"s": "A 62-year-old woman receives 3 L of IV saline over a few hours. Her jugular venous pressure rises. Which hormone change helps her excrete the extra sodium?",
+"c": [
+"ANP falls and aldosterone rises",
+"ANP rises and aldosterone falls",
+"ANP rises and renin rises",
+"Renin rises and ADH rises",
+"ANP falls and renin falls"
+],
+"a": 1,
+"e": "Step 1: the saline expands volume and stretches the atria.\nStep 2: atrial myocytes release ANP.\nStep 3: ANP causes natriuresis directly and lowers renin and aldosterone, and the high perfusion pressure also lowers renin, so she excretes the extra Na⁺ and water.",
+"w": [
+"Volume expansion raises ANP.",
+"",
+"ANP lowers renin.",
+"Volume expansion lowers renin and ADH.",
+"Atrial stretch raises ANP."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-anp"
+]
+},
+{
+"t": "RAAS Blockers & Renal Artery Stenosis",
+"lv": "Easy",
+"s": "Which drug blocks the conversion of angiotensin I to angiotensin II?",
+"c": [
+"Losartan",
+"Spironolactone",
+"Lisinopril",
+"Eplerenone",
+"Propranolol"
+],
+"a": 2,
+"e": "Lisinopril is an ACE inhibitor, so it blocks the conversion of angiotensin I to angiotensin II in the lungs and elsewhere.",
+"w": [
+"Losartan blocks the Ang II receptor.",
+"Spironolactone blocks the aldosterone receptor.",
+"",
+"Eplerenone blocks the aldosterone receptor.",
+"Propranolol is a β-blocker."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-raas-drugs",
+"figs/crs/bp-raas-hack"
+]
+},
+{
+"t": "RAAS Blockers & Renal Artery Stenosis",
+"lv": "Easy",
+"s": "Spironolactone lowers blood pressure by acting at which step?",
+"c": [
+"ACE in the pulmonary endothelium",
+"Angiotensin II AT1 receptors on vessels",
+"Renin release from the JG cells",
+"Aldosterone receptors in the nephron",
+"ANP receptors in the collecting duct"
+],
+"a": 3,
+"e": "Spironolactone and eplerenone are aldosterone antagonists. They block aldosterone receptors in the distal tubule and collecting duct, reducing Na⁺ and water retention.",
+"w": [
+"That is the ACE inhibitor site.",
+"That is the ARB site.",
+"β-blockers lower renin release.",
+"",
+"They do not act on ANP receptors."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-raas-drugs"
+]
+},
+{
+"t": "RAAS Blockers & Renal Artery Stenosis",
+"lv": "Easy",
+"s": "Unilateral renal artery stenosis causes hypertension through which sequence?",
+"c": [
+"More perfusion, less renin, less Ang II",
+"Less perfusion, less renin, more ANP",
+"More perfusion, more renin, less Ang II",
+"Less perfusion, more ANP, less renin",
+"Less perfusion, more renin, more Ang II"
+],
+"a": 4,
+"e": "The narrowed artery lowers perfusion pressure at the JG cells. They release more renin, so angiotensin II and aldosterone rise, causing vasoconstriction, Na⁺ retention and hypertension.",
+"w": [
+"Stenosis lowers perfusion.",
+"Low perfusion raises renin.",
+"Higher perfusion lowers renin.",
+"ANP is released by atrial stretch.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-ras-zones"
+]
+},
+{
+"t": "RAAS Blockers & Renal Artery Stenosis",
+"lv": "Hard",
+"s": "A 68-year-old man with hypertension has bilateral renal artery stenosis. Two weeks after starting an ACE inhibitor, his creatinine doubles. What best explains the acute kidney injury?",
+"c": [
+"Loss of efferent arteriolar constriction",
+"Loss of afferent arteriolar dilation",
+"Direct toxicity to the renal tubules",
+"Higher glomerular capillary pressure",
+"Higher aldosterone secretion by the adrenal"
+],
+"a": 0,
+"e": "Step 1: with both renal arteries narrowed, glomerular filtration depends on Ang II constricting the efferent arteriole to keep glomerular pressure up.\nStep 2: the ACE inhibitor removes Ang II, so the efferent arteriole dilates.\nStep 3: glomerular pressure and GFR fall, causing acute kidney injury. This is why ACEIs and ARBs are relatively contraindicated in bilateral stenosis or a solitary kidney.",
+"w": [
+"",
+"Ang II acts mainly on the efferent arteriole.",
+"ACE inhibitors are not tubular toxins.",
+"Glomerular pressure falls.",
+"ACE inhibitors lower aldosterone."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-ras-tx",
+"figs/crs/bp-raas-drugs"
+]
+},
+{
+"t": "RAAS Blockers & Renal Artery Stenosis",
+"lv": "Hard",
+"s": "A 35-year-old woman has hypertension, a bruit over the left flank and a high plasma renin. Imaging shows fibromuscular dysplasia of the left renal artery, and the right kidney is normal. Which drug class is first-line while she awaits treatment of the stenosis?",
+"c": [
+"Aldosterone antagonist alone",
+"ACE inhibitor or ARB",
+"Direct renin release stimulator",
+"High-dose loop diuretic",
+"Avoid all antihypertensives"
+],
+"a": 1,
+"e": "Step 1: unilateral stenosis lowers left renal perfusion, so renin and Ang II drive her hypertension.\nStep 2: an ACE inhibitor or ARB blocks the cause directly.\nStep 3: the normal right kidney keeps GFR up, so the AKI risk seen in bilateral stenosis or a solitary kidney is small.",
+"w": [
+"It blocks only the last step and is not first-line here.",
+"",
+"Renin is already high and is the cause.",
+"Volume depletion would raise renin further.",
+"Her hypertension should be treated."
+],
+"src": "lec",
+"fig": [
+"figs/crs/bp-ras-tx"
+]
 }
 ];

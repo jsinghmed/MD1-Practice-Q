@@ -1,5 +1,5 @@
 // CRS Biochemistry — Dr. S. Shetty lecture slides. Reworked set: fewer, multi-concept, high-yield questions; lv = Easy/Hard; shetty = practice questions from the slides, word for word
-window.CRS_BC_TOPICS = ["Overview & Activation", "Carnitine Shuttle", "Carnitine & CPT Deficiencies", "β-Oxidation Reactions", "Energetics & Regulation", "Unsaturated & Odd-Chain Fatty Acids", "Methylmalonic Aciduria", "Peroxisomal, α- & ω-Oxidation", "MCAD Deficiency & Jamaican Vomiting Sickness", "Zellweger, X-ALD & Refsum", "Synthesis vs β-Oxidation & Sites", "Citrate Shuttle: Acetyl-CoA to Cytosol", "Sources of NADPH", "Acetyl-CoA Carboxylase Reaction", "Regulation of Acetyl-CoA Carboxylase", "Fatty Acid Synthase Complex", "FAS Cycle & Palmitate Stoichiometry", "Elongation & Desaturation", "Triacylglycerol Synthesis", "TAG Fate & Lipolysis", "Practice Questions (from the slides)", "Fuel Fate & Why the Liver Makes Ketones", "Ketogenesis: Pathway & HMG-CoA Synthase", "The Three Ketone Bodies", "Ketolysis: Thiophorase & Extrahepatic Use", "Brain Fuel During Fasting & Starvation", "Ketosis: Hormones, Levels & Causes", "Diabetic Ketoacidosis", "Practice Question · Ketone Bodies (from the slides)", "Phospholipid Structure & Synthesis", "DPPC, Surfactant & L/S Ratio", "Phosphatidylinositol & PIP2 Signaling", "GPI Anchors & PNH", "Cardiolipin & Phosphatidylglycerol", "Phospholipases & Degradation", "Plasmalogens & PAF", "Sphingolipids, Ceramide & Sphingomyelin", "Glycolipid Classes", "Lysosomal Storage Disorders Overview", "Niemann-Pick Disease", "Gaucher Disease", "Tay-Sachs & GM2 Gangliosidoses", "Fabry, Krabbe, MLD & Other Sphingolipidoses", "Practice Questions · Complex Lipids (from the slides)", "Eicosanoid Classes & Effects", "Arachidonic Acid Release & PLA2", "COX Pathway & Prostanoids", "NSAIDs, Aspirin & COX-2 Inhibitors", "Lipoxygenase Pathway & Leukotrienes", "Practice Questions · Eicosanoids (from the slides)"];
+window.CRS_BC_TOPICS = ["Overview & Activation", "Carnitine Shuttle", "Carnitine & CPT Deficiencies", "β-Oxidation Reactions", "Energetics & Regulation", "Unsaturated & Odd-Chain Fatty Acids", "Methylmalonic Aciduria", "Peroxisomal, α- & ω-Oxidation", "MCAD Deficiency & Jamaican Vomiting Sickness", "Zellweger, X-ALD & Refsum", "Synthesis vs β-Oxidation & Sites", "Citrate Shuttle: Acetyl-CoA to Cytosol", "Sources of NADPH", "Acetyl-CoA Carboxylase Reaction", "Regulation of Acetyl-CoA Carboxylase", "Fatty Acid Synthase Complex", "FAS Cycle & Palmitate Stoichiometry", "Elongation & Desaturation", "Triacylglycerol Synthesis", "TAG Fate & Lipolysis", "Practice Questions (from the slides)", "Fuel Fate & Why the Liver Makes Ketones", "Ketogenesis: Pathway & HMG-CoA Synthase", "The Three Ketone Bodies", "Ketolysis: Thiophorase & Extrahepatic Use", "Brain Fuel During Fasting & Starvation", "Ketosis: Hormones, Levels & Causes", "Diabetic Ketoacidosis", "Practice Question · Ketone Bodies (from the slides)", "Phospholipid Structure & Synthesis", "DPPC, Surfactant & L/S Ratio", "Phosphatidylinositol & PIP2 Signaling", "GPI Anchors & PNH", "Cardiolipin & Phosphatidylglycerol", "Phospholipases & Degradation", "Plasmalogens & PAF", "Sphingolipids, Ceramide & Sphingomyelin", "Glycolipid Classes", "Lysosomal Storage Disorders Overview", "Niemann-Pick Disease", "Gaucher Disease", "Tay-Sachs & GM2 Gangliosidoses", "Fabry, Krabbe, MLD & Other Sphingolipidoses", "Practice Questions · Complex Lipids (from the slides)", "Eicosanoid Classes & Effects", "Arachidonic Acid Release & PLA2", "COX Pathway & Prostanoids", "NSAIDs, Aspirin & COX-2 Inhibitors", "Lipoxygenase Pathway & Leukotrienes", "Practice Questions · Eicosanoids (from the slides)", "Lipoprotein Structure & Classification", "Chylomicron Metabolism & Lipoprotein Lipase", "VLDL, IDL & LDL Metabolism", "LDL Receptor, ACAT & Atherosclerosis", "HDL & Reverse Cholesterol Transport", "Hyperlipoproteinemias: Types I, IIa, III & IV", "LCAT Deficiency, Fish-Eye, Tangier & Abetalipoproteinemia", "Practice Questions · Lipoproteins (from the slides)"];
 window.CRS_BC_QUESTIONS = [
 {
 "t": "Overview & Activation",
@@ -2296,8 +2296,7 @@ window.CRS_BC_QUESTIONS = [
 "Sphingomyelinase deficiency is Niemann-Pick, which also has hepatosplenomegaly."
 ],
 "src": "lec"
-}
-,
+},
 {
 "t": "Eicosanoid Classes & Effects",
 "lv": "Easy",
@@ -3512,5 +3511,1098 @@ window.CRS_BC_QUESTIONS = [
 ],
 "usmle": 1,
 "src": "usm"
+},
+{
+"t": "Lipoprotein Structure & Classification",
+"lv": "Easy",
+"s": "Which lipids are found in the hydrophobic core of a lipoprotein particle?",
+"c": [
+"Triglycerides and cholesteryl esters",
+"Phospholipids and free cholesterol",
+"Apolipoproteins and phospholipids",
+"Free fatty acids and glycerol",
+"Free cholesterol and apolipoproteins"
+],
+"a": 0,
+"e": "A lipoprotein has a nonpolar core of triglycerides and cholesteryl esters. The surface shell is made of amphipathic phospholipids, free cholesterol and apolipoproteins, which keep the particle soluble in plasma.",
+"w": [
+"",
+"These form the surface shell.",
+"These sit on the surface.",
+"These are released when LPL acts.",
+"These sit on the surface."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-structure"
+]
+},
+{
+"t": "Lipoprotein Structure & Classification",
+"lv": "Easy",
+"s": "On serum lipoprotein electrophoresis, which lipoprotein runs in the pre-beta band?",
+"c": [
+"LDL",
+"VLDL",
+"HDL",
+"Chylomicrons",
+"Lipoprotein X"
+],
+"a": 1,
+"e": "Electrophoresis separates lipoproteins by charge: HDL moves farthest as the alpha band, VLDL is pre-beta, LDL is beta, and chylomicrons stay at the origin.",
+"w": [
+"LDL is the beta band.",
+"",
+"HDL is the alpha band.",
+"Chylomicrons stay at the origin.",
+"Lipoprotein X is not one of the four main bands."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-classes"
+]
+},
+{
+"t": "Lipoprotein Structure & Classification",
+"lv": "Easy",
+"s": "Which lipoprotein has the highest density and the highest protein content?",
+"c": [
+"LDL",
+"VLDL",
+"HDL",
+"IDL",
+"Chylomicron"
+],
+"a": 2,
+"e": "Density rises as the protein-to-lipid ratio rises. HDL is about 40% protein, so it is the densest and the smallest, and it sinks lowest on ultracentrifugation. Chylomicrons are the least dense and float to the top.",
+"w": [
+"LDL is mostly cholesteryl ester.",
+"VLDL is mostly triglyceride.",
+"",
+"IDL is between VLDL and LDL.",
+"Chylomicrons are the least dense."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-classes"
+]
+},
+{
+"t": "Lipoprotein Structure & Classification",
+"lv": "Easy",
+"s": "Which apolipoprotein is the main structural protein of HDL?",
+"c": [
+"Apo B-100",
+"Apo B-48",
+"Apo C-II",
+"Apo A-I",
+"Apo E"
+],
+"a": 3,
+"e": "Apo A-I is the main apoprotein of HDL. It accepts free cholesterol and phospholipid from cells through ABCA1 and activates LCAT.",
+"w": [
+"Apo B-100 is the structural protein of VLDL, IDL and LDL.",
+"Apo B-48 is the structural protein of chylomicrons.",
+"Apo C-II activates lipoprotein lipase.",
+"",
+"Apo E mediates remnant uptake by the liver."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-apo-table",
+"figs/crs/lp-hdl"
+]
+},
+{
+"t": "Lipoprotein Structure & Classification",
+"lv": "Easy",
+"s": "Which lipoprotein carries dietary triglyceride from the intestine to peripheral tissues?",
+"c": [
+"Very low-density lipoprotein",
+"Low-density lipoprotein",
+"High-density lipoprotein",
+"Intermediate-density lipoprotein",
+"Chylomicron"
+],
+"a": 4,
+"e": "Chylomicrons are made in intestinal mucosal cells from dietary lipid and carry dietary TAG, cholesterol and fat-soluble vitamins. VLDL carries TAG made in the liver.",
+"w": [
+"VLDL carries liver-made TAG.",
+"LDL carries mostly cholesterol.",
+"HDL collects cholesterol from tissues.",
+"IDL comes from VLDL.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-apo-table"
+]
+},
+{
+"t": "Chylomicron Metabolism & Lipoprotein Lipase",
+"lv": "Easy",
+"s": "Lipoprotein lipase needs which apolipoprotein as its activator?",
+"c": [
+"Apo C-II",
+"Apo E",
+"Apo B-48",
+"Apo A-I",
+"Apo B-100"
+],
+"a": 0,
+"e": "Apo C-II, acquired from HDL, activates lipoprotein lipase on the capillary wall. Without it, LPL cannot hydrolyze the TAG in chylomicrons and VLDL.",
+"w": [
+"",
+"Apo E mediates uptake by receptors.",
+"Apo B-48 is structural.",
+"Apo A-I activates LCAT.",
+"Apo B-100 binds the LDL receptor."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-chylo"
+]
+},
+{
+"t": "Chylomicron Metabolism & Lipoprotein Lipase",
+"lv": "Easy",
+"s": "Lipoprotein lipase is anchored to the capillary endothelium by which molecule?",
+"c": [
+"Apo C-II",
+"Heparan sulfate",
+"Hyaluronic acid",
+"Clathrin",
+"Apo B-100"
+],
+"a": 1,
+"e": "LPL is an extracellular enzyme held to the luminal surface of capillaries by heparan sulfate proteoglycans. That is why an IV dose of heparin releases LPL into plasma.",
+"w": [
+"Apo C-II activates, but does not anchor, LPL.",
+"",
+"Hyaluronic acid does not anchor LPL.",
+"Clathrin coats pits for endocytosis.",
+"Apo B-100 is a lipoprotein protein."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-chylo"
+]
+},
+{
+"t": "Chylomicron Metabolism & Lipoprotein Lipase",
+"lv": "Easy",
+"s": "Which hormone increases synthesis of lipoprotein lipase in adipose tissue?",
+"c": [
+"Glucagon",
+"Epinephrine",
+"Insulin",
+"Cortisol",
+"Growth hormone"
+],
+"a": 2,
+"e": "Insulin stimulates LPL synthesis, especially in adipose tissue, so after a meal fat is cleared from chylomicrons and stored. Glucagon and epinephrine favor fat breakdown instead.",
+"w": [
+"Glucagon favors lipolysis.",
+"Epinephrine favors lipolysis.",
+"",
+"Cortisol does not drive LPL for storage.",
+"GH favors fat mobilization."
+],
+"src": "lec"
+},
+{
+"t": "Chylomicron Metabolism & Lipoprotein Lipase",
+"lv": "Easy",
+"s": "Which protein is required to assemble a chylomicron in the intestinal cell?",
+"c": [
+"Cholesteryl ester transfer protein",
+"Lecithin-cholesterol acyltransferase",
+"Hormone-sensitive lipase of adipose tissue",
+"Microsomal triglyceride transfer protein",
+"Acyl-CoA cholesterol acyltransferase"
+],
+"a": 3,
+"e": "Microsomal triglyceride transfer protein loads TAG onto apo B-48 to assemble the chylomicron, and onto apo B-100 for VLDL in the liver. Its defect causes abetalipoproteinemia.",
+"w": [
+"CETP swaps lipids between lipoproteins in plasma.",
+"LCAT esterifies cholesterol in HDL.",
+"HSL breaks down stored fat in adipocytes.",
+"",
+"ACAT esterifies cholesterol inside cells."
+],
+"src": "lec"
+},
+{
+"t": "Chylomicron Metabolism & Lipoprotein Lipase",
+"lv": "Easy",
+"s": "A nascent chylomicron becomes mature after it receives which apolipoproteins from HDL?",
+"c": [
+"Apo A-I and apo B-48",
+"Apo B-100 and apo E",
+"Apo A-I and apo C-II",
+"Apo B-48 and apo B-100",
+"Apo C-II and apo E"
+],
+"a": 4,
+"e": "The nascent chylomicron leaves the intestine with apo B-48. In the blood, HDL transfers apo C-II and apo E to it, which makes it mature: C-II activates LPL and E later lets the remnant be taken up by the liver.",
+"w": [
+"Apo B-48 is already present, and A-I is HDL's.",
+"Apo B-100 is not on chylomicrons.",
+"Apo A-I is not transferred to it.",
+"Apo B is made with the particle.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-chylo"
+]
+},
+{
+"t": "Chylomicron Metabolism & Lipoprotein Lipase",
+"lv": "Easy",
+"s": "How are chylomicron remnants cleared from the blood?",
+"c": [
+"Apo E binds liver receptors",
+"Apo C-II binds liver receptors",
+"Apo B-48 binds the LDL receptor",
+"LCAT esterifies their cholesterol",
+"CETP moves them into HDL"
+],
+"a": 0,
+"e": "After LPL removes most of the TAG, the remnant returns apo C-II to HDL but keeps apo E. Apo E binds receptors on hepatocytes, and the remnant is taken up by endocytosis.",
+"w": [
+"",
+"Apo C-II activates LPL and is returned to HDL.",
+"Apo B-48 lacks the LDL receptor binding region.",
+"LCAT acts on HDL cholesterol.",
+"CETP exchanges lipids, not whole particles."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-chylo"
+]
+},
+{
+"t": "Chylomicron Metabolism & Lipoprotein Lipase",
+"lv": "Hard",
+"s": "A 4-year-old boy has recurrent abdominal pain and episodes of pancreatitis. His fasting plasma looks milky, with a creamy layer on top after standing overnight. An IV heparin test shows no rise in plasma lipase activity. Which step of lipoprotein metabolism is defective?",
+"c": [
+"Uptake of LDL by hepatocytes",
+"Hydrolysis of chylomicron TAG",
+"Assembly of VLDL in the liver",
+"Esterification of HDL cholesterol",
+"Efflux of cholesterol to HDL"
+],
+"a": 1,
+"e": "Step 1: milky plasma with a creamy top layer means chylomicrons persist after fasting.\nStep 2: heparin normally releases LPL into plasma, and no rise in lipase activity points to LPL deficiency, type I hyperlipoproteinemia.\nStep 3: LPL cannot hydrolyze chylomicron TAG, so very high TAG causes pancreatitis.",
+"w": [
+"That is familial hypercholesterolemia.",
+"",
+"VLDL assembly needs MTP.",
+"That is LCAT deficiency.",
+"That is Tangier disease."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-chylo",
+"figs/crs/lp-type1"
+]
+},
+{
+"t": "VLDL, IDL & LDL Metabolism",
+"lv": "Easy",
+"s": "VLDL is produced in which organ?",
+"c": [
+"Small intestine",
+"Adipose tissue",
+"Liver",
+"Skeletal muscle",
+"Spleen"
+],
+"a": 2,
+"e": "The liver makes and secretes VLDL, which carries endogenous TAG, about 60% of its content, plus some cholesterol and apo B-100.",
+"w": [
+"The intestine makes chylomicrons.",
+"Adipose tissue stores TAG.",
+"",
+"Muscle uses fatty acids.",
+"The spleen does not make lipoproteins."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-vldl-ldl"
+]
+},
+{
+"t": "VLDL, IDL & LDL Metabolism",
+"lv": "Easy",
+"s": "Which enzyme converts IDL into LDL?",
+"c": [
+"Lipoprotein lipase",
+"Hormone-sensitive lipase",
+"Pancreatic lipase",
+"Hepatic lipase",
+"Lysosomal acid lipase"
+],
+"a": 3,
+"e": "LPL turns VLDL into IDL. Hepatic lipase then removes more TAG from IDL, giving LDL, which is rich in cholesteryl ester and poor in TAG.",
+"w": [
+"LPL turns VLDL into IDL.",
+"HSL acts inside adipocytes.",
+"Pancreatic lipase digests dietary fat.",
+"",
+"Lysosomal acid lipase acts inside cells."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-vldl-ldl"
+]
+},
+{
+"t": "VLDL, IDL & LDL Metabolism",
+"lv": "Easy",
+"s": "Which protein moves cholesteryl esters from HDL to VLDL in exchange for triglyceride?",
+"c": [
+"LCAT",
+"ACAT",
+"MTP",
+"LPL",
+"CETP"
+],
+"a": 4,
+"e": "Cholesteryl ester transfer protein exchanges lipids between particles: HDL gives cholesteryl esters to VLDL and receives TAG in return.",
+"w": [
+"LCAT makes cholesteryl esters within HDL.",
+"ACAT esterifies cholesterol inside cells.",
+"MTP assembles B-lipoproteins.",
+"LPL hydrolyzes TAG.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-cetp"
+]
+},
+{
+"t": "VLDL, IDL & LDL Metabolism",
+"lv": "Easy",
+"s": "Which apolipoprotein lets LDL bind the LDL receptor?",
+"c": [
+"Apo B-100",
+"Apo B-48",
+"Apo C-II",
+"Apo A-I",
+"Apo C-III"
+],
+"a": 0,
+"e": "LDL keeps apo B-100 as its only apolipoprotein, and apo B-100 is the ligand for the LDL receptor on hepatocytes and extrahepatic tissues.",
+"w": [
+"",
+"Apo B-48 lacks the receptor binding region.",
+"Apo C-II activates LPL.",
+"Apo A-I belongs to HDL.",
+"Apo D is not the receptor ligand."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-vldl-ldl"
+]
+},
+{
+"t": "VLDL, IDL & LDL Metabolism",
+"lv": "Hard",
+"s": "As a VLDL particle circulates, it loses apo C-II and apo E to HDL and much of its TAG to tissues, then is processed by hepatic lipase. What does it become, and where does it go?",
+"c": [
+"HDL, back to the liver only",
+"LDL, to liver and other tissues",
+"Chylomicron remnant, to the liver",
+"IDL, to adipose tissue",
+"VLDL remnant, to the intestine"
+],
+"a": 1,
+"e": "Step 1: LPL removes TAG from VLDL, making IDL.\nStep 2: hepatic lipase removes more TAG, and the apo C and E return to HDL.\nStep 3: the result is LDL with apo B-100, rich in cholesteryl ester, which delivers cholesterol to the liver and extrahepatic tissues.",
+"w": [
+"VLDL never becomes HDL.",
+"",
+"Remnants come from chylomicrons.",
+"IDL is the step before LDL.",
+"Lipoproteins do not return to the intestine."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-vldl-ldl"
+]
+},
+{
+"t": "LDL Receptor, ACAT & Atherosclerosis",
+"lv": "Easy",
+"s": "LDL receptor complexes are taken into the cell through which structure?",
+"c": [
+"Caveolae of the membrane",
+"Gap junctions",
+"Clathrin-coated pits",
+"Tight junctions",
+"Phagocytic cups"
+],
+"a": 2,
+"e": "LDL binds its receptor, and the complex is internalized through clathrin-coated pits by receptor-mediated endocytosis. The vesicle then fuses with an endosome and lysosome.",
+"w": [
+"Caveolae are not the LDL route.",
+"Gap junctions link cell cytoplasms.",
+"",
+"Tight junctions seal epithelia.",
+"Phagocytosis is not used for LDL."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-ldl-uptake"
+]
+},
+{
+"t": "LDL Receptor, ACAT & Atherosclerosis",
+"lv": "Easy",
+"s": "Which enzyme stores excess free cholesterol inside cells as cholesteryl esters?",
+"c": [
+"Lecithin-cholesterol acyltransferase",
+"Cholesteryl ester transfer protein",
+"HMG-CoA reductase",
+"Acyl-CoA cholesterol acyltransferase",
+"Hormone-sensitive lipase"
+],
+"a": 3,
+"e": "ACAT transfers a fatty acid from acyl-CoA to free cholesterol, forming cholesteryl esters that are stored in cytoplasmic lipid droplets.",
+"w": [
+"LCAT acts in plasma on HDL.",
+"CETP moves esters between lipoproteins.",
+"HMG-CoA reductase makes cholesterol.",
+"",
+"HSL breaks down stored TAG."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-ldl-uptake"
+]
+},
+{
+"t": "LDL Receptor, ACAT & Atherosclerosis",
+"lv": "Easy",
+"s": "When intracellular cholesterol is high, how does the cell change its LDL receptors?",
+"c": [
+"More receptors, as SREBP is activated",
+"Fewer receptors, as SREBP is activated",
+"More receptors, as SREBP is inhibited",
+"No change, as receptors are constant",
+"Fewer receptors, as SREBP is inhibited"
+],
+"a": 4,
+"e": "High cellular cholesterol inhibits SREBP, the transcription factor for the LDL receptor gene, so fewer receptors are made and LDL uptake falls.",
+"w": [
+"SREBP is active when cholesterol is low.",
+"An active SREBP raises receptor numbers.",
+"Inhibited SREBP lowers receptor numbers.",
+"Receptor numbers are regulated.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-ldl-uptake"
+]
+},
+{
+"t": "LDL Receptor, ACAT & Atherosclerosis",
+"lv": "Easy",
+"s": "Macrophages take up oxidized LDL to become foam cells through which receptors?",
+"c": [
+"Scavenger receptors",
+"LDL receptors",
+"SR-B1 receptors on hepatocytes",
+"Apo E receptors on hepatocytes",
+"Insulin receptors"
+],
+"a": 0,
+"e": "Oxidized LDL is taken up by low-affinity, nonspecific scavenger receptors that are not downregulated by cholesterol, so macrophages keep filling with lipid and become foam cells.",
+"w": [
+"",
+"LDL receptors are downregulated by cholesterol.",
+"SR-B1 takes up HDL esters in the liver.",
+"Apo E receptors clear remnants.",
+"Insulin receptors do not take up LDL."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-oxldl"
+]
+},
+{
+"t": "LDL Receptor, ACAT & Atherosclerosis",
+"lv": "Easy",
+"s": "What is the earliest visible lesion of atherosclerosis?",
+"c": [
+"Fibrous cap",
+"Fatty streak",
+"Calcified plaque",
+"Ruptured plaque",
+"Occlusive thrombus"
+],
+"a": 1,
+"e": "Foam cells accumulate in the intima to form the fatty streak, the earliest visible lesion. Smooth muscle migration, collagen and calcium come later.",
+"w": [
+"The fibrous cap forms later.",
+"",
+"Calcification is a late change.",
+"Rupture is a late complication.",
+"Thrombosis follows rupture."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-athero-1"
+]
+},
+{
+"t": "LDL Receptor, ACAT & Atherosclerosis",
+"lv": "Easy",
+"s": "A deficiency of a lysosomal enzyme leads to cholesterol from LDL building up in lysosomes. Which disorder fits?",
+"c": [
+"Tangier disease",
+"Familial hypercholesterolemia",
+"Niemann-Pick type C",
+"Abetalipoproteinemia",
+"Fish-eye disease"
+],
+"a": 2,
+"e": "LDL is delivered to lysosomes, where it is broken down to release free cholesterol. In Niemann-Pick type C and in Wolman disease, cholesterol or its esters accumulate in the lysosome.",
+"w": [
+"Tangier is an ABCA1 efflux defect.",
+"FH is an LDL receptor defect.",
+"",
+"Abetalipoproteinemia is an MTP defect.",
+"Fish-eye disease is partial LCAT deficiency."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-ldl-uptake"
+]
+},
+{
+"t": "LDL Receptor, ACAT & Atherosclerosis",
+"lv": "Hard",
+"s": "A 60-year-old smoker has a plaque in his coronary artery. Biopsy of an early lesion shows lipid-laden cells in the intima that have engulfed modified LDL. Which step was necessary for these cells to form?",
+"c": [
+"Esterification of HDL cholesterol",
+"Hydrolysis of VLDL by LPL",
+"Transfer of apo C-II to LDL",
+"Oxidation of LDL in the intima",
+"Uptake of LDL by hepatocytes"
+],
+"a": 3,
+"e": "Step 1: LDL enters the subendothelial space and is trapped in the intima.\nStep 2: oxidative stress converts it into oxidized LDL, which is the form that causes problems.\nStep 3: monocytes become macrophages and take up oxidized LDL through scavenger receptors, becoming foam cells.",
+"w": [
+"LCAT does not form foam cells.",
+"LPL acts on VLDL in capillaries.",
+"LDL does not carry apo C-II.",
+"",
+"Hepatic uptake removes LDL from blood."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-oxldl",
+"figs/crs/lp-athero-1"
+]
+},
+{
+"t": "LDL Receptor, ACAT & Atherosclerosis",
+"lv": "Hard",
+"s": "A 55-year-old man has crushing chest pain. Angiography shows a thrombus at the site of a coronary plaque. Which event most directly triggered the thrombus?",
+"c": [
+"Formation of a fatty streak",
+"Migration of smooth muscle cells",
+"Uptake of LDL by hepatocytes",
+"Release of apo E to HDL",
+"Rupture of the fibrous cap"
+],
+"a": 4,
+"e": "Step 1: an advanced plaque has a fibrous cap over a lipid core.\nStep 2: inflammation thins the cap until it ruptures.\nStep 3: the exposed contents trigger platelet aggregation and thrombus formation, occluding the artery and causing an MI.",
+"w": [
+"Fatty streaks are early and do not cause thrombosis.",
+"SMC migration builds the plaque.",
+"Hepatic uptake lowers LDL.",
+"Apo E transfer is normal metabolism.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-athero-2"
+]
+},
+{
+"t": "HDL & Reverse Cholesterol Transport",
+"lv": "Easy",
+"s": "Free cholesterol leaves peripheral cells and moves onto nascent HDL through which transporter?",
+"c": [
+"ABCA1",
+"SR-B1",
+"LDL receptor",
+"CETP",
+"MTP"
+],
+"a": 0,
+"e": "ABCA1, an ATP-binding cassette transporter, moves free cholesterol and phospholipid from cells to apo A-I on nascent HDL. Its loss causes Tangier disease.",
+"w": [
+"",
+"SR-B1 takes cholesterol esters into liver cells.",
+"The LDL receptor brings cholesterol in.",
+"CETP exchanges lipids between particles.",
+"MTP assembles B-lipoproteins."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-hdl"
+]
+},
+{
+"t": "HDL & Reverse Cholesterol Transport",
+"lv": "Easy",
+"s": "Which enzyme esterifies free cholesterol in HDL, turning discoidal nascent HDL into a spherical particle?",
+"c": [
+"ACAT",
+"LCAT",
+"CETP",
+"Hepatic lipase",
+"HMG-CoA reductase"
+],
+"a": 1,
+"e": "Lecithin-cholesterol acyltransferase transfers a fatty acid from lecithin to free cholesterol, making cholesteryl esters that move into the core. HDL becomes spherical and can carry more cholesterol.",
+"w": [
+"ACAT works inside cells.",
+"",
+"CETP exchanges lipids between particles.",
+"Hepatic lipase acts on IDL and HDL TAG.",
+"HMG-CoA reductase makes cholesterol."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-hdl"
+]
+},
+{
+"t": "HDL & Reverse Cholesterol Transport",
+"lv": "Easy",
+"s": "Mature HDL delivers its cholesteryl esters to the liver through which receptor?",
+"c": [
+"LDL receptor",
+"Scavenger receptor A",
+"SR-B1",
+"ABCA1",
+"Apo E receptor"
+],
+"a": 2,
+"e": "Scavenger receptor class B type 1 on hepatocytes takes up cholesteryl esters from HDL, completing reverse cholesterol transport. The liver then excretes cholesterol into bile or makes bile acids.",
+"w": [
+"The LDL receptor binds apo B-100.",
+"Scavenger receptor A takes oxLDL in macrophages.",
+"",
+"ABCA1 moves cholesterol out of cells.",
+"The apo E receptor clears remnants."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-hdl"
+]
+},
+{
+"t": "HDL & Reverse Cholesterol Transport",
+"lv": "Easy",
+"s": "Which change raises HDL cholesterol?",
+"c": [
+"Cigarette smoking",
+"Abdominal obesity",
+"Metabolic syndrome",
+"Regular aerobic exercise",
+"Poorly controlled diabetes"
+],
+"a": 3,
+"e": "Exercise and a healthy diet raise HDL. Smoking and obesity lower it, and in metabolic syndrome or diabetes HDL can become dysfunctional even at normal levels.",
+"w": [
+"Smoking lowers HDL.",
+"Obesity lowers HDL.",
+"HDL is low or dysfunctional.",
+"",
+"HDL becomes dysfunctional."
+],
+"src": "lec"
+},
+{
+"t": "HDL & Reverse Cholesterol Transport",
+"lv": "Hard",
+"s": "A drug activates liver X receptors in macrophages in the arterial wall. Which effect would most likely protect against atherosclerosis?",
+"c": [
+"More scavenger receptors on macrophages",
+"Less LCAT activity in plasma",
+"More LDL oxidation in the intima",
+"Less apo A-I production",
+"More ABCA1-driven cholesterol efflux"
+],
+"a": 4,
+"e": "Step 1: LXRs and PPARs increase expression of ABCA1.\nStep 2: more ABCA1 moves free cholesterol from macrophages onto apo A-I and nascent HDL.\nStep 3: this clears cholesterol from the arterial wall, preventing foam cells and plaque buildup.",
+"w": [
+"More scavenger receptors would make more foam cells.",
+"LCAT is needed to load HDL.",
+"Oxidized LDL drives foam cells.",
+"Apo A-I is needed to accept cholesterol.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Hyperlipoproteinemias: Types I, IIa, III & IV",
+"lv": "Easy",
+"s": "Familial hypercholesterolemia, type IIa, is caused by a defect in which pathway?",
+"c": [
+"LDL receptor-mediated uptake",
+"Lipoprotein lipase activity",
+"Apo E binding to remnants",
+"VLDL overproduction in liver",
+"ABCA1 cholesterol efflux"
+],
+"a": 0,
+"e": "Type IIa is autosomal dominant and results from defects in the LDL receptor or in apo B-100 binding to it, so LDL cannot be cleared and LDL cholesterol rises.",
+"w": [
+"",
+"That causes type I.",
+"That causes type III.",
+"That causes type IV.",
+"That causes Tangier disease."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-type2a"
+]
+},
+{
+"t": "Hyperlipoproteinemias: Types I, IIa, III & IV",
+"lv": "Easy",
+"s": "Which physical finding is most suggestive of familial hypercholesterolemia?",
+"c": [
+"Eruptive xanthomas",
+"Tendon xanthomas",
+"Palmar xanthomas",
+"Orange tonsils",
+"Corneal opacity with kidney disease"
+],
+"a": 1,
+"e": "Tendon xanthomas, especially of the Achilles tendon and extensor tendons of the hand, are highly suggestive of familial hypercholesterolemia. Xanthelasma may also appear on the eyelids.",
+"w": [
+"Eruptive xanthomas suggest high TAG.",
+"",
+"Palmar xanthomas suggest type III.",
+"Orange tonsils suggest Tangier disease.",
+"That suggests LCAT deficiency."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-type2a"
+]
+},
+{
+"t": "Hyperlipoproteinemias: Types I, IIa, III & IV",
+"lv": "Easy",
+"s": "Dysbetalipoproteinemia, type III, results from a mutation in which gene?",
+"c": [
+"Apo B-100",
+"Apo C-II",
+"Apo E",
+"LDL receptor",
+"Lipoprotein lipase"
+],
+"a": 2,
+"e": "In type III, abnormal apo E cannot bind its receptors, so chylomicron and VLDL remnants are not cleared. Both cholesterol and TAG rise, and premature atherosclerosis follows.",
+"w": [
+"Apo B-100 defects cause type IIa.",
+"Apo C-II defects cause type I.",
+"",
+"LDL receptor defects cause type IIa.",
+"LPL defects cause type I."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-type3"
+]
+},
+{
+"t": "Hyperlipoproteinemias: Types I, IIa, III & IV",
+"lv": "Easy",
+"s": "Which disorder is caused by overproduction of VLDL by the liver?",
+"c": [
+"Type I hyperlipoproteinemia",
+"Type IIa hyperlipoproteinemia",
+"Type III hyperlipoproteinemia",
+"Type IV hyperlipoproteinemia",
+"Abetalipoproteinemia"
+],
+"a": 3,
+"e": "Type IV, familial hypertriglyceridemia, results from the liver making too much VLDL. It worsens with obesity, diabetes, alcohol and a high-carbohydrate diet and is linked to metabolic syndrome.",
+"w": [
+"Type I is LPL or apo C-II deficiency.",
+"Type IIa is an LDL receptor defect.",
+"Type III is an apo E defect.",
+"",
+"That is a failure to make B-lipoproteins."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-type4-lcat"
+]
+},
+{
+"t": "Hyperlipoproteinemias: Types I, IIa, III & IV",
+"lv": "Easy",
+"s": "Which hyperlipoproteinemia does NOT increase the risk of atherosclerosis?",
+"c": [
+"Type IIa",
+"Type III",
+"Type IV",
+"Lipoprotein X disease",
+"Type I"
+],
+"a": 4,
+"e": "In type I, chylomicrons accumulate, but they are too large to enter the arterial wall, so atherosclerosis risk is not increased. The main danger is pancreatitis.",
+"w": [
+"Type IIa causes early atherosclerosis.",
+"Type III causes premature atherosclerosis.",
+"Type IV is linked to metabolic syndrome.",
+"LCAT deficiency damages vessels and kidneys.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-type1"
+]
+},
+{
+"t": "Hyperlipoproteinemias: Types I, IIa, III & IV",
+"lv": "Hard",
+"s": "A 38-year-old man has yellowish nodules on his elbows and knees and orange-yellow creases in his palms. Total cholesterol and triglycerides are both elevated. Which defect best explains these findings?",
+"c": [
+"Abnormal apo E, poor remnant clearance",
+"Absent LDL receptors with high LDL alone",
+"Absent LPL with high chylomicrons only",
+"Liver VLDL overproduction alone",
+"Defective ABCA1 with low HDL"
+],
+"a": 0,
+"e": "Step 1: palmar xanthomas and tuberous xanthomas on the elbows and knees point to type III.\nStep 2: in type III, abnormal apo E cannot bind receptors, so chylomicron and VLDL remnants are not cleared.\nStep 3: remnants carry both cholesterol and TAG, so both rise.",
+"w": [
+"",
+"FH raises mainly LDL and gives tendon xanthomas.",
+"Type I does not cause these xanthomas.",
+"Type IV raises mainly TAG.",
+"Tangier causes low HDL."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-type3"
+]
+},
+{
+"t": "Hyperlipoproteinemias: Types I, IIa, III & IV",
+"lv": "Hard",
+"s": "A 45-year-old man with obesity, type 2 diabetes and heavy alcohol use has severe epigastric pain radiating to his back. His triglycerides are 1,400 mg/dL, and his LDL is near normal. Small yellow papules cover his trunk. Which lipoprotein abnormality best fits?",
+"c": [
+"Absence of LDL receptors",
+"Overproduction of VLDL",
+"Defective apo E",
+"Loss of ABCA1",
+"Absence of apo B-100"
+],
+"a": 1,
+"e": "Step 1: obesity, diabetes and alcohol increase hepatic VLDL output.\nStep 2: this is type IV, familial hypertriglyceridemia, with eruptive xanthomas.\nStep 3: a TAG above 1,000 mg/dL causes acute pancreatitis, which explains his pain.",
+"w": [
+"That raises LDL.",
+"",
+"That raises remnants with both lipids.",
+"That lowers HDL.",
+"That lowers all B-lipoproteins."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-type4-lcat"
+]
+},
+{
+"t": "LCAT Deficiency, Fish-Eye, Tangier & Abetalipoproteinemia",
+"lv": "Easy",
+"s": "Which abnormal lipoprotein is found in patients with LCAT deficiency?",
+"c": [
+"Lipoprotein a",
+"Beta-VLDL",
+"Lipoprotein X",
+"Small dense LDL",
+"Oxidized LDL"
+],
+"a": 2,
+"e": "Without LCAT, free cholesterol cannot be esterified, so it accumulates and forms abnormal, non-functional particles called lipoprotein X.",
+"w": [
+"Lp(a) is a separate genetic LDL variant.",
+"Beta-VLDL is seen in type III.",
+"",
+"Small dense LDL is seen with high TAG.",
+"oxLDL forms in the intima."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-type4-lcat"
+]
+},
+{
+"t": "LCAT Deficiency, Fish-Eye, Tangier & Abetalipoproteinemia",
+"lv": "Easy",
+"s": "How does fish-eye disease differ from complete LCAT deficiency?",
+"c": [
+"It raises HDL levels",
+"It causes no corneal change",
+"It is an ABCA1 defect",
+"It spares the kidneys",
+"It causes acanthocytes"
+],
+"a": 3,
+"e": "Fish-eye disease is a partial loss of LCAT activity. It causes corneal opacities and low HDL but progresses more slowly and does not usually cause the kidney disease seen in complete LCAT deficiency.",
+"w": [
+"HDL is low.",
+"Corneal opacity is its main sign.",
+"Tangier is the ABCA1 defect.",
+"",
+"Acanthocytes suggest abetalipoproteinemia."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-fisheye"
+]
+},
+{
+"t": "LCAT Deficiency, Fish-Eye, Tangier & Abetalipoproteinemia",
+"lv": "Easy",
+"s": "Tangier disease is caused by mutations in which gene?",
+"c": [
+"LCAT",
+"Apo E",
+"MTTP",
+"LDL receptor",
+"ABCA1"
+],
+"a": 4,
+"e": "In Tangier disease, defective ABCA1 blocks cholesterol efflux from cells, so HDL is very low and cholesterol builds up in tissues, causing orange tonsils, neuropathy and hepatosplenomegaly.",
+"w": [
+"LCAT defects cause LCAT deficiency or fish-eye disease.",
+"Apo E defects cause type III.",
+"MTTP defects cause abetalipoproteinemia.",
+"LDL receptor defects cause FH.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-tangier"
+]
+},
+{
+"t": "LCAT Deficiency, Fish-Eye, Tangier & Abetalipoproteinemia",
+"lv": "Easy",
+"s": "Abetalipoproteinemia is caused by a defect in which protein?",
+"c": [
+"Microsomal TG transfer protein",
+"Lipoprotein lipase",
+"Lecithin-cholesterol acyltransferase",
+"Cholesteryl ester transfer protein",
+"Apolipoprotein E"
+],
+"a": 0,
+"e": "A defect in MTTP stops assembly of apo B-containing lipoproteins, so the intestine cannot release chylomicrons and the liver cannot release VLDL.",
+"w": [
+"",
+"LPL deficiency causes type I.",
+"LCAT deficiency causes lipoprotein X.",
+"CETP is not the cause.",
+"Apo E defects cause type III."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-abeta"
+]
+},
+{
+"t": "LCAT Deficiency, Fish-Eye, Tangier & Abetalipoproteinemia",
+"lv": "Hard",
+"s": "A 6-year-old boy has fatty, foul-smelling stools, an unsteady gait and poor night vision. His blood smear shows red cells with spiky projections, and his serum triglyceride and cholesterol are very low. Which finding is also expected?",
+"c": [
+"Orange tonsils on examination",
+"Fat-filled enterocytes on biopsy",
+"Tendon xanthomas on the Achilles",
+"Milky plasma after an overnight fast",
+"Very high plasma HDL levels"
+],
+"a": 1,
+"e": "Step 1: steatorrhea, acanthocytes, ataxia and night blindness with very low TAG and cholesterol point to abetalipoproteinemia.\nStep 2: MTTP is defective, so no apo B lipoproteins are made.\nStep 3: chylomicrons cannot be released, so fat builds up in enterocytes, and vitamins A, D, E and K are malabsorbed.",
+"w": [
+"Orange tonsils suggest Tangier disease.",
+"",
+"Tendon xanthomas suggest FH.",
+"Milky plasma suggests type I.",
+"Lipids are very low overall."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-abeta"
+]
+},
+{
+"t": "LCAT Deficiency, Fish-Eye, Tangier & Abetalipoproteinemia",
+"lv": "Hard",
+"s": "A 40-year-old man has corneal clouding, proteinuria and anemia. His plasma has high free cholesterol and very little esterified cholesterol, and an abnormal lipoprotein is present. Which reaction is defective?",
+"c": [
+"Cholesterol esterification inside cells",
+"Cholesterol efflux through ABCA1",
+"Cholesterol esterification in plasma",
+"LDL uptake by its receptor",
+"TAG hydrolysis by LPL"
+],
+"a": 2,
+"e": "Step 1: high free cholesterol with little ester points to a failure to esterify cholesterol in plasma.\nStep 2: LCAT normally makes cholesteryl esters in HDL, so its deficiency leaves lipoprotein X.\nStep 3: free cholesterol deposits in the cornea, kidney and vessels, and kidney disease appears with complete deficiency.",
+"w": [
+"That is ACAT, which works inside cells.",
+"ABCA1 loss causes Tangier disease.",
+"",
+"That causes FH.",
+"That causes type I."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-type4-lcat",
+"figs/crs/lp-fisheye"
+]
+},
+{
+"t": "Practice Questions · Lipoproteins (from the slides)",
+"s": "A 35-year-old man presents to his primary care physician for a routine check-up. His family history is significant for early-onset coronary artery disease; his father had a myocardial infarction at age 42, and his older brother had a heart attack at 39. On physical examination, the physician notes yellowish plaques on the Achilles tendon and around the eyelids. Laboratory results reveal an elevated total cholesterol of 380 mg/dL (normal <200 mg/dL) and an LDL cholesterol level of 300 mg/dL (normal <130 mg/dL).\nWhich of the following is the most likely diagnosis?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Type I hyperlipoproteinemia (Familial hyperchylomicronemia)",
+"Type IIa hyperlipoproteinemia (Familial hypercholesterolemia)",
+"Type III hyperlipoproteinemia (Dysbetalipoproteinemia)",
+"Type IV hyperlipoproteinemia (Familial hypertriglyceridemia)",
+"Type V hyperlipoproteinemia (Mixed hyperlipoproteinemia)"
+],
+"a": 1,
+"e": "Early coronary disease in the family, tendon xanthomas on the Achilles, xanthelasma around the eyelids and a very high LDL point to type IIa, familial hypercholesterolemia. It is autosomal dominant and caused by defects in the LDL receptor or apo B-100, so LDL is not cleared.",
+"w": [
+"Type I raises chylomicrons and TAG and does not raise atherosclerosis risk.",
+"",
+"Type III raises both cholesterol and TAG and gives palmar and tuberous xanthomas.",
+"Type IV raises VLDL and TAG, not LDL.",
+"Type V raises chylomicrons and VLDL, mainly TAG."
+],
+"src": "lec",
+"fig": [
+"figs/crs/lp-type2a"
+]
 }
 ];
