@@ -690,6 +690,24 @@ html.jjlock #app{visibility:hidden!important}
 .jjlockmsg{position:fixed;inset:0;z-index:9995;display:grid;place-items:center;text-align:center;padding:24px;background:#1b3550;color:#e6edf3;font:15px/1.5 Inter,system-ui,sans-serif}
 .jjlockmsg b{display:block;font-size:20px;margin-bottom:6px}
 .jjlockmsg button{margin-top:14px;background:#fff;color:#1b3550;border:none;border-radius:9px;padding:10px 18px;font:600 15px Inter,system-ui,sans-serif;cursor:pointer}
+/* first-visit year and module chooser */
+html.jjlock .cpick{visibility:hidden}
+.cpick{position:fixed;inset:0;z-index:9990;background:var(--bg);display:grid;place-items:center;padding:24px;overflow:auto}
+.cpk{width:min(720px,100%);text-align:center}
+.cpk-h{font-size:26px;font-weight:800;letter-spacing:-.01em}
+.cpk-s{color:var(--muted);font-size:15px;margin:6px 0 22px}
+.cpk-yrs,.cpk-mods{display:grid;gap:12px}
+.cpk-yrs{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.cpk-mods{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.cpk-yr,.cpk-mod{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;background:var(--panel);border:1px solid var(--line2);border-radius:14px;padding:16px 18px;color:var(--text);font:inherit;cursor:pointer;transition:border-color .15s,transform .15s}
+.cpk-yr:hover,.cpk-mod:hover,.cpk-yr:focus-visible,.cpk-mod:focus-visible{border-color:var(--acc);transform:translateY(-1px);outline:none}
+.cpk-yr b{font-size:22px}.cpk-mod b{font-size:18px}
+.cpk-yr span,.cpk-mod span{color:var(--muted);font-size:13px;line-height:1.35}
+.cpk-yr small,.cpk-mod small{color:var(--acc);font-size:12px;font-weight:700;margin-top:4px}
+.cpk-mod.empty small{color:var(--muted)}
+.cpk-back{background:none;border:0;color:var(--muted);font:inherit;font-size:13px;font-weight:600;cursor:pointer;margin-bottom:10px}
+.cpk-back:hover{color:var(--text)}
+.cpk-f{color:var(--muted);font-size:12.5px;margin-top:18px}
 /* welcome screen */
 .splash{position:fixed;inset:0;z-index:9999;background:#1b3550;background:radial-gradient(ellipse at 50% 40%,#22436a 0%,#1b3550 55%,#152a40 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(28px,6vh,56px);padding:24px;transition:opacity .45s ease,visibility .45s;color:#fff}
 .splash.out{opacity:0;visibility:hidden}
@@ -1364,6 +1382,7 @@ const KEY = "msk-summative-v1";
 let JJ_RETURNING = false; try { JJ_RETURNING = !!localStorage.getItem(KEY); } catch(e) {}   // read before anything is saved this visit
 let S = {};
 try { S = JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e) { S = {}; }
+let JJ_FRESH = false; try { JJ_FRESH = !localStorage.getItem(KEY); } catch(e) {}   // first visit on this browser: ask which year and module
 S.ans ??= {}; S.sel ??= {}; S.strike ??= {}; S.flag ??= {}; S.notes ??= {}; S.nimg ??= {}; S.hl ??= {}; S.order ??= {};
 S.scr ??= {}; S.qshuf ??= {}; S.posId ??= {}; S.pos ??= {}; S.snap ??= {}; S.tests ??= []; S.testSeq ??= 0;
 S.first ??= {}; S.chgq ??= {}; S.ac ??= []; S.qtime ??= {}; S.anki ??= [];
@@ -1387,6 +1406,7 @@ if (S.v === 2) {
   S.v = 3;
 }
 S.course = COURSE_BY_ID[S.course] ? S.course : "msk"; S.curBy ??= {};
+if (JJ_FRESH) S.needPick = true;
 function save(){ if (window.JJ_HOLD) return; try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){ toast("Couldn't save — browser storage is full or blocked"); } }
 // Related questions module (followups.js) works through this small window into the app
 if (window.JJFU) JJFU.bind({ get S(){ return S; }, get view(){ return view; }, set view(v){ view = v; }, byId, STATIC,
@@ -4431,6 +4451,30 @@ themeLabel();
 if (S.openSec === undefined) S.openSec = secOf(S.cur) || (courseSecs()[0] ? courseSecs()[0].prefix : null);
 save();
 renderAll();
+
+// ---- First visit: choose your year, then your module (instead of landing on MSK) ----
+function showPicker(yr){
+  let el = $("cpick"); if (!el) { el = document.createElement("div"); el.id = "cpick"; el.className = "cpick"; el.setAttribute("role","dialog"); el.setAttribute("aria-modal","true"); el.setAttribute("aria-label","Choose your year and module"); document.body.appendChild(el); }
+  const qs = c => c.count || c.items.length;
+  if (!yr) {
+    el.innerHTML = `<div class="cpk"><div class="cpk-h">Welcome to JJ QBank</div><div class="cpk-s">Which year are you in?</div>
+      <div class="cpk-yrs">${YEARS.map(y=>{ const cs = COURSES.filter(c=>c.year===y), n = cs.reduce((a,c)=>a+qs(c),0);
+        return `<button class="cpk-yr" data-pyear="${y}"><b>${y}</b><span>${cs.map(c=>esc(c.name)).join(" · ")}</span><small>${n ? n.toLocaleString()+" questions" : "Coming soon"}</small></button>`; }).join("")}</div>
+      <div class="cpk-f">You can switch year or module any time from the top of the menu.</div></div>`;
+  } else {
+    el.innerHTML = `<div class="cpk"><button class="cpk-back" data-pback>← Years</button><div class="cpk-h">${esc(yr)}</div><div class="cpk-s">Which module are you studying?</div>
+      <div class="cpk-mods">${COURSES.filter(c=>c.year===yr).map(c=>{ const n = qs(c);
+        return `<button class="cpk-mod${n?"":" empty"}" data-pcourse="${c.id}"><b>${esc(c.name)}</b><span>${esc(c.full)}</span><small>${n ? n.toLocaleString()+" questions" : "No questions yet"}</small></button>`; }).join("")}</div></div>`;
+  }
+  el.onclick = e => {
+    const y = e.target.closest("[data-pyear]"), c = e.target.closest("[data-pcourse]");
+    if (y) return showPicker(y.dataset.pyear);
+    if (e.target.closest("[data-pback]")) return showPicker();
+    if (c) { delete S.needPick; el.remove(); if (c.dataset.pcourse === S.course) { view = "home"; save(); renderAll(); } else switchCourse(c.dataset.pcourse); }
+  };
+  const f = el.querySelector("button"); if (f) setTimeout(()=>f.focus(), 0);
+}
+if (S.needPick) showPicker();
 // Progress summary used by sign-in sync / the admin page (computed from any saved state).
 window.JJ_STATS = function(st){
   st = st || S; const s = {ans: st.ans || {}};
