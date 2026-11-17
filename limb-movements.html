@@ -62,6 +62,20 @@ mark{background:var(--acc-soft);color:inherit;border-radius:3px;padding:0 1px}
 .stage .sub{font:13.5px var(--body);fill:var(--muted)}
 .stage .arc{fill:none;stroke:var(--acc);stroke-width:2;stroke-dasharray:4 4}
 .stage .lead{stroke:var(--muted);stroke-width:1.2}
+.stage .lo{fill:none;stroke:var(--muted);stroke-linecap:round;stroke-linejoin:round}
+.stage .li{fill:none;stroke:var(--panel);stroke-linecap:round;stroke-linejoin:round}
+.stage .ghost{opacity:.22}
+.stage .mus{fill:none;stroke:#E0533D;stroke-linecap:round}
+.stage .jt{fill:var(--line)}
+.stage .mk{fill:var(--acc)}
+.stage .scp{fill:var(--acc-soft)}
+.stage .sp{fill:none;stroke:var(--muted);stroke-width:3;stroke-linecap:round}
+.stage .bn{stroke:var(--line);stroke-width:12;stroke-linecap:round}
+.stage .bn.rad{stroke:var(--acc);opacity:.75}
+.stage .palm{fill:var(--acc-soft);stroke:var(--muted);stroke-width:2}
+.stage .sole{stroke:var(--acc);stroke-width:5;stroke-linecap:round}
+.stage .bx{fill:none;stroke:none}
+.stage .vw{font:700 12px var(--body);fill:var(--acc);letter-spacing:.03em}
 @media (prefers-reduced-motion:reduce){.anim .ctl::after{content:"Animation paused for reduced motion · press Play";}}
 @media (max-width:560px){.grid{grid-template-columns:1fr}.wrap{padding:18px 14px 50px}select{max-width:100%;flex:1 1 100%}}
 </style>
@@ -114,16 +128,17 @@ const ANIM={
 };
 const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
 function startAnim(box,key){
-  const A=ANIM[key];box.innerHTML=A.svg+`<div class="ctl"><button type="button" data-pp>Pause</button><span>Contracting muscle glows as it works</span><span class="ang"></span></div>`;
+  const A=ANIM[key];box.innerHTML=A.svg+`<div class="ctl"><button type="button" data-pp>Pause</button><span>Main movers glow red as they contract · faint outline = starting position</span><span class="ang"></span></div>`;
   const ang=box.querySelector(".ang"),pp=box.querySelector("[data-pp]");let t0=performance.now(),paused=matchMedia("(prefers-reduced-motion: reduce)").matches,held=0,raf;
   if(paused)pp.textContent="Play";
   const P=3600;
-  function draw(now){const t=((paused?held:now-t0)%P)/P;let deg,act;
-    if(t<.42){const k=ease(t/.42);deg=A.from+(A.to-A.from)*k;act=1;}
-    else if(t<.5){deg=A.to;act=1;}
-    else if(t<.92){const k=ease((t-.5)/.42);deg=A.to+(A.from-A.to)*k;act=.25;}
-    else{deg=A.from;act=.25;}
-    A.frame(box,deg,act);ang.textContent="Knee bent "+Math.round(deg)+"°";
+  function draw(now){const t=((paused?held:now-t0)%P)/P;let k,act;
+    if(t<.42){k=ease(t/.42);act=1;}
+    else if(t<.5){k=1;act=1;}
+    else if(t<.92){k=1-ease((t-.5)/.42);act=.25;}
+    else{k=0;act=.25;}
+    if(A.gen){A.frame(box,0,act,k);ang.textContent=A.label(k);}
+    else{const deg=A.from+(A.to-A.from)*k;A.frame(box,deg,act);ang.textContent="Knee bent "+Math.round(deg)+"°";}
     if(!paused)raf=requestAnimationFrame(draw);}
   pp.onclick=()=>{if(paused){t0=performance.now()-held;paused=false;pp.textContent="Pause";raf=requestAnimationFrame(draw);}else{held=performance.now()-t0;paused=true;pp.textContent="Play";cancelAnimationFrame(raf);}};
   box._stop=()=>cancelAnimationFrame(raf);
@@ -135,6 +150,175 @@ document.addEventListener("click",e=>{const b=e.target.closest("[data-anim]");if
 
 const $=id=>document.getElementById(id);
 const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+// ---- Generic 2D movement engine: every movement below is drawn from simple segments that rotate at their joints ----
+const RAD=Math.PI/180;
+const P2=(p,len,a)=>[p[0]+len*Math.cos(a*RAD),p[1]+len*Math.sin(a*RAD)];
+const LERP=(a,b,k)=>a+(b-a)*k;
+const f1=n=>n.toFixed(1);
+// a point along segment p→q at fraction t, pushed sideways by off (positive = left of the direction of travel on screen)
+function along(p,q,t,off){const dx=q[0]-p[0],dy=q[1]-p[1],L=Math.hypot(dx,dy)||1;return [p[0]+dx*t+off*dy/L,p[1]+dy*t-off*dx/L];}
+// limbs: list of [p,q,width]; drawn as an outline pass then a fill pass so joints merge cleanly
+function limbs(list){let o="",i="",x="";for(const [p,q,w] of list){const d=`M${f1(p[0])} ${f1(p[1])}L${f1(q[0])} ${f1(q[1])}`;o+=`<path d="${d}" class="lo" stroke-width="${w+4}"/>`;i+=`<path d="${d}" class="li" stroke-width="${w}"/>`;
+  // invisible end caps so the auto-fit measures the full stroke width
+  x+=`<circle class="bx" cx="${f1(p[0])}" cy="${f1(p[1])}" r="${w/2+2}"/><circle class="bx" cx="${f1(q[0])}" cy="${f1(q[1])}" r="${w/2+2}"/>`;}return x+o+i;}
+function blob(cx,cy,rx,ry,rot){return `<ellipse class="skin" cx="${f1(cx)}" cy="${f1(cy)}" rx="${rx}" ry="${ry}"${rot?` transform="rotate(${f1(rot)} ${f1(cx)} ${f1(cy)})"`:""}/>`;}
+// muscle line of pull from p to q, bowed by bend, glowing with activity
+function mus(p,q,bend,act,w){const m=along(p,q,.5,bend||0);return `<path class="mus" d="M${f1(p[0])} ${f1(p[1])}Q${f1(m[0])} ${f1(m[1])} ${f1(q[0])} ${f1(q[1])}" stroke-width="${w||8}" style="opacity:${(.28+.72*act).toFixed(2)}"/>`;}
+function dot(p,cls){return `<circle class="${cls||"jt"}" cx="${f1(p[0])}" cy="${f1(p[1])}" r="4.5"/>`;}
+function txt(x,y,s,cls,anchor){return `<text class="${cls}" x="${x}" y="${y}"${anchor?` text-anchor="${anchor}"`:""}>${s}</text>`;}
+
+// ---- Figures. Each returns {s: limb markup, a: named anchor points} for a pose ----
+const FIG={
+ // arm from the side, person facing right. sh = arm angle from hanging (+ = forward), el = elbow flexion
+ armSide(P){const S=[262,118],sh=90-P.sh,E=P2(S,112,sh),fa=sh-P.el,W=P2(E,98,fa),H=P2(W,34,fa);
+   return {s:limbs([[S,E,24],[E,W,19],[W,H,16]]),a:{S,E,W,sh,fa,
+     antArm:along(S,E,.45,-11),postArm:along(S,E,.3,11),antArmHi:along(S,E,.12,-12),postArmHi:along(S,E,.12,12),
+     antFore:along(E,W,.22,-9),olec:P2(E,10,fa+180)}};},
+ trunkSide(){return `<path class="skin" d="M232 92 C 226 150, 228 230, 236 300 L 296 300 C 304 230, 300 150, 292 92 C 286 80, 240 80, 232 92 Z"/><circle class="skin" cx="266" cy="52" r="26"/>`;},
+ // arm from the front, person's right arm on the viewer's left. ab = abduction angle
+ armFront(P){const S=[218,118],a=90+P.ab,E=P2(S,112,a),W=P2(E,98,a),H=P2(W,34,a);
+   return {s:limbs([[S,E,24],[E,W,19],[W,H,16]]),a:{S,E,W,a,lat:along(S,E,.42,11),med:along(S,E,.4,-11),tub:along(S,E,.06,13)}};},
+ trunkFront(){return `<path class="skin" d="M222 100 C 214 170, 226 240, 234 300 L 326 300 C 334 240, 346 170, 338 100 C 320 88, 240 88, 222 100 Z"/><circle class="skin" cx="280" cy="56" r="27"/>`;},
+ // from above, elbow bent 90°: forearm angle on screen (90 = straight ahead, toward the bottom)
+ armTop(P){const E=[176,212],a=90-P.rot,W=P2(E,112,a),H=P2(W,30,a);
+   return {s:`<ellipse class="skin" cx="282" cy="168" rx="118" ry="50"/><circle class="skin" cx="282" cy="168" r="30"/>`+limbs([[E,W,19],[W,H,15]])+`<circle class="skin" cx="176" cy="196" r="20"/>`+dot(P2([176,196],15,a),"mk"),a:{E,W}};},
+ // scapula from behind (right side): shift dx,dy and rotation r (degrees, - = upward rotation)
+ scap(P){const c=[327,160],R=(x,y)=>{const a=P.r*RAD,X=x-c[0],Y=y-c[1];return [c[0]+P.dx+X*Math.cos(a)-Y*Math.sin(a),c[1]+P.dy+X*Math.sin(a)+Y*Math.cos(a)];};
+   const sup=R(296,112),inf=R(308,232),gl=R(382,128),sp1=R(300,140),acr=R(390,112);
+   const s=`<path class="skin scp" d="M${f1(sup[0])} ${f1(sup[1])}L${f1(gl[0])} ${f1(gl[1])}L${f1(inf[0])} ${f1(inf[1])}Z"/><path class="sp" d="M${f1(sp1[0])} ${f1(sp1[1])}L${f1(acr[0])} ${f1(acr[1])}"/>`+dot(gl,"mk");
+   return {s,a:{sup,inf,gl,sp1,acr,med:R(302,175),medLo:R(304,215),lat:R(362,170)}};},
+ back(){return `<path class="skin" d="M168 92 C 158 170, 176 250, 188 320 L 372 320 C 384 250, 402 170, 392 92 C 350 72, 210 72, 168 92 Z"/><path class="skin" d="M262 30 C 262 60, 258 76, 250 86 L 310 86 C 302 76, 298 60, 298 30 Z"/><path class="sp" d="M280 90 V 318" style="stroke-dasharray:3 6"/>`;},
+ // forearm from the front: pr = pronation (0 = palm facing you, 80 = palm facing away)
+ fore(P){const k=P.pr/80,U1=[312,78],U2=[312,262],R1=[262,78],R2=[LERP(258,318,k),LERP(262,252,k)];
+   const sx=Math.cos(P.pr*RAD*1.1),hx=(R2[0]+U2[0])/2+6*k;
+   const hand=`<g transform="translate(${f1(hx)} 284) scale(${f1(Math.max(.18,Math.abs(sx)))} 1)"><path class="${sx>0?"palm":"skin"}" d="M-34 -14 C -36 30, -26 74, 0 78 C 26 74, 36 30, 34 -14 Z"/><path class="${sx>0?"palm":"skin"}" d="M-34 -2 C -58 8, -64 26, -56 36 C -48 32, -40 22, -32 18 Z" transform="scale(${sx>0?1:-1} 1)"/></g>`;
+   return {s:`<path class="skin" d="M246 62 C 240 140, 246 220, 254 270 L 328 270 C 336 220, 340 140, 330 62 Z"/>`+`<path class="bn" d="M${U1[0]} ${U1[1]}L${U2[0]} ${U2[1]}"/><path class="bn rad" d="M${R1[0]} ${R1[1]}L${f1(R2[0])} ${f1(R2[1])}"/>`+hand,
+     a:{U1,U2,R1,R2,Rm:along(R1,R2,.5,0),Rq:along(R1,R2,.9,0),Uq:along(U1,U2,.9,0),Rt:along(R1,R2,.14,0),Rs:along(R1,R2,.28,0)}};},
+ // wrist from the side, palm down: fl = flexion (+ down)
+ wristSide(P){const El=[110,196],W=[330,196],a=P.fl,K=P2(W,64,a),T=P2(K,46,a);
+   return {s:limbs([[El,W,30],[W,K,30],[K,T,20]]),a:{W,K,El,top:along(W,K,.45,-15),bot:along(W,K,.45,15)}};},
+ // hand from the front (palm view), hanging down. dev = + radial deviation (toward the thumb, viewer's left)
+ wristFront(P){const W=[290,196],a=90+P.dev,K=P2(W,70,a),T=P2(K,52,a),th=P2(along(W,K,.3,0),44,a+52);
+   return {s:limbs([[[290,40],W,40],[W,K,46],[K,T,34],[along(W,K,.3,-14),th,13]]),a:{W,K,rad:along(W,K,.12,-22),uln:along(W,K,.12,22)}};},
+ // one finger from the side: mcp, pip, dip flexion
+ finger(P){const B=[118,200],M=[262,200],a1=P.mcp,X1=P2(M,70,a1),a2=a1+P.pip,X2=P2(X1,46,a2),a3=a2+P.dip,X3=P2(X2,34,a3);
+   return {s:limbs([[[60,200],B,36],[B,M,34],[M,X1,20],[X1,X2,18],[X2,X3,16]])+dot(M)+dot(X1)+dot(X2),a:{B,M,X1,X2,X3,a1,a2,a3,
+     palm1:[90,214],palm2:[230,214],dor1:[90,186],dor2:[230,186],
+     p1b:along(M,X1,.2,9),p2b:along(X1,X2,.15,8),p3b:along(X2,X3,.2,7),d1:along(M,X1,.3,-9),d3:along(X2,X3,.5,-7),pmid:along(M,X1,.55,-9)}};},
+ // palm view, fingers up: spr = spread (degrees each side)
+ handSpread(P){const base=[[236,190],[268,184],[300,186],[330,194]],ang=[-90-P.spr,-90,-90+P.spr*.6,-90+P.spr*1.25];
+   let L=[[[280,300],[280,230],96]],a={};
+   base.forEach((b,i)=>{const t=P2(b,108,ang[i]);L.push([b,t,22]);a["f"+i]=along(b,t,.12,0);a["t"+i]=t;});
+   L.push([[226,250],P2([226,250],60,-150),20]);
+   return {s:limbs(L),a};},
+ // palm view, fingers up; thumb on the viewer's left. ct = thumb carpometacarpal angle, mc/ip = flexion, lf = little finger flexion
+ thumbPalm(P){let s=limbs([[[282,320],[282,226],100]]);const tips=[[236,186],[266,180],[296,182],[326,190]];let L=[];
+   tips.forEach((b,i)=>{const len=i===3?86:104;if(i===3&&P.lf){const m=P2(b,len*.5,-90),t=P2(m,len*.5,-90-P.lf);L.push([b,m,22],[m,t,20]);}else L.push([b,P2(b,len,-90),22]);});
+   const C=[234,272],M1=P2(C,58,P.ct),M2=P2(M1,40,P.ct+P.mc),T=P2(M2,32,P.ct+P.mc+P.ip);L.push([C,M1,24],[M1,M2,20],[M2,T,18]);
+   return {s:s+limbs(L),a:{C,M1,M2,T,mcMid:along(C,M1,.5,0),flex:along(M2,T,.35,0)}};},
+ // thumb side view: palm faces right. ab = abduction (thumb swings away from the palm, to the right)
+ thumbSide(P){const C=[250,250],a=-100+P.ab,M1=P2(C,64,a),M2=P2(M1,40,a+8),T=P2(M2,30,a+14);
+   return {s:`<path class="skin" d="M226 330 L 226 120 C 226 100, 260 100, 262 120 L 268 330 Z"/>`+limbs([[C,M1,24],[M1,M2,20],[M2,T,18]]),a:{C,M1,lat:along(C,M1,.6,-12),med:along(C,M1,.6,12)}};},
+ // standing, from the side, facing right: hf = hip flexion, kf = knee flexion
+ legSide(P){const H=[276,150],a=90-P.hf,K=P2(H,122,a),b=a+P.kf,A=P2(K,118,b),T=P2(A,52,b-90);
+   return {s:`<path class="skin" d="M238 40 C 232 90, 236 140, 246 170 L 306 170 C 314 140, 314 90, 306 40 Z"/>`+limbs([[H,K,32],[K,A,24],[A,T,16]]),a:{H,K,A,
+     front:along(H,K,.15,-15),back:along(H,K,.28,15),tib:along(K,A,.12,13)}};},
+ // standing, from the front; person's right leg on the viewer's left: ab = abduction
+ legFront(P){const H=[250,160],a=90+P.ab,K=P2(H,124,a),A=P2(K,118,a),F=P2(A,30,a);
+   return {s:`<path class="skin" d="M216 70 C 206 110, 210 150, 222 176 L 338 176 C 350 150, 354 110, 344 70 Z"/>`+limbs([[[310,160],[310,402],28],[H,K,32],[K,A,24],[A,F,18]]),a:{H,K,A,lat:along(H,K,.12,15),med:along(H,K,.62,-15)}};},
+ // seated, from the front: thigh points at you, leg hangs from the knee. sw = foot swing (+ toward the viewer's left)
+ seatFront(P){const Kn=[236,170],a=90+P.sw,A=P2(Kn,130,a),F=P2(A,26,a);
+   return {s:`<rect class="seat" x="150" y="150" width="270" height="14" rx="5"/><path class="skin" d="M196 70 C 188 100, 192 130, 204 152 L 356 152 C 368 130, 372 100, 364 70 Z"/><circle class="skin" cx="236" cy="150" r="28"/><circle class="skin" cx="324" cy="150" r="28"/>`+limbs([[[324,170],[324,300],22],[Kn,A,24],[A,F,22]])+`<circle class="skin" cx="236" cy="150" r="22"/>`,a:{Kn,A}};},
+ // from above: knee bent, looking down the leg at the foot (front of the body toward the bottom). tw = toe turn (+ toward the viewer's left)
+ footTop(P){const A=[262,150],a=90+P.tw,T=P2(A,118,a);
+   return {s:`<circle class="skin" cx="262" cy="120" r="40"/>`+limbs([[P2(A,22,a+180),T,44]])+`<circle class="skin" cx="262" cy="150" r="20"/>`+dot(T,"mk"),a:{A,T,toeM:along(A,T,.4,-24),toeL:along(A,T,.4,24)}};},
+ // top view of the extended knee: femoral condyles turning on the tibial plateau
+ kneeTop(P){const c=[280,190],r=P.r;return {s:`<ellipse class="skin" cx="280" cy="196" rx="100" ry="64"/><g transform="rotate(${f1(r)} 280 190)"><ellipse class="skin cond" cx="236" cy="190" rx="38" ry="50"/><ellipse class="skin cond" cx="324" cy="190" rx="38" ry="50"/><path class="sp" d="M280 120 V 150"/></g>`,a:{c,lat:[352,236],post:[262,250]}};},
+ // ankle from the side, facing right: pf = plantarflexion (+ down)
+ ankle(P){const K=[250,40],A=[256,250],a=12+P.pf,F=P2(A,16,a+90),T=P2(F,118,a),Hl=P2(F,42,a+180);
+   return {s:limbs([[K,A,34],[Hl,T,30]])+dot(A),a:{A,T,Hl,dorsum:along(A,T,.4,-14),calf:[236,112]}};},
+ // right foot from behind: heel tilt (+ = inversion, sole turns toward the viewer's left)
+ heel(P){const A=[280,240],R=(x,y)=>{const a=P.inv*RAD;return [A[0]+x*Math.cos(a)-y*Math.sin(a),A[1]+x*Math.sin(a)+y*Math.cos(a)];};
+   const c=R(0,28),med=R(-36,20),lat=R(36,20);
+   return {s:limbs([[[280,40],A,46]])+`<g transform="rotate(${f1(P.inv)} 280 240)"><rect class="skin" x="-50" y="8" width="100" height="44" rx="16" transform="translate(280 240)"/><path class="sole" d="M232 290 H 328"/></g>`+dot(A),a:{A,c,med,lat}};},
+ // toes from the side: tf = toe flexion (+ down)
+ toes(P){const H=[120,250],M=[360,250],T=P2(M,48,P.tf);
+   return {s:limbs([[[196,40],[200,226],34],[H,M,34],[M,T,22]])+dot(M),a:{M,T,plant:along(M,T,.6,9),dors:along(M,T,.6,-9)}};}
+};
+
+// ---- Movements: pose at the start (0) and end (1), what to draw behind, which muscles glow ----
+const ARM=(sh,el)=>({sh,el}),LEG=(hf,kf)=>({hf,kf});
+const MV={
+ "Scapula|Elevation":{v:"back",view:"From behind, right side",lb:"Upper trapezius + levator scapulae",nv:"Accessory nerve CN XI · dorsal scapular C3–C5",f:"scap",p0:{dx:0,dy:0,r:0},p1:{dx:0,dy:-30,r:0},m:a=>[[[300,40],a.acr,-14],[[292,58],a.sup,8]],ang:k=>k>.5?"Shoulders shrug up":"Scapula rising"},
+ "Scapula|Depression":{v:"back",view:"From behind, right side",lb:"Lower trapezius",nv:"Accessory nerve · CN XI",f:"scap",p0:{dx:0,dy:-20,r:0},p1:{dx:0,dy:24,r:0},m:a=>[[[284,300],a.sp1,-10]],ang:k=>k<.5?"Scapula moving down":"Scapula pulled down"},
+ "Scapula|Protraction":{v:"back",view:"From behind, right side",lb:"Serratus anterior",nv:"Long thoracic nerve · C5–C7",f:"scap",p0:{dx:-14,dy:0,r:0},p1:{dx:40,dy:0,r:0},m:a=>[[a.med,[388,240],-18],[a.medLo,[386,276],-14]],ang:k=>"Scapula slides forward around the chest",note:"Serratus runs under the scapula to the ribs at the side"},
+ "Scapula|Retraction":{v:"back",view:"From behind, right side",lb:"Rhomboids + middle trapezius",nv:"Dorsal scapular C4–C5 · accessory CN XI",f:"scap",p0:{dx:28,dy:0,r:0},p1:{dx:-18,dy:0,r:0},m:a=>[[[284,130],a.med,4],[[284,190],a.medLo,4],[[284,112],a.acr,-6]],ang:k=>"Scapula pulled toward the spine"},
+ "Scapula|Upward rotation":{v:"back",view:"From behind, right side",lb:"Serratus anterior + upper and lower trapezius",nv:"Long thoracic C5–C7 · accessory CN XI",f:"scap",p0:{dx:0,dy:0,r:0},p1:{dx:8,dy:-4,r:-34},m:a=>[[[300,40],a.acr,-14],[[284,290],a.sp1,-10],[a.inf,[388,276],-10]],ang:k=>"Glenoid turns up "+Math.round(34*k)+"°",note:"Needed to raise the arm above 90°"},
+ "Scapula|Downward rotation":{v:"back",view:"From behind, right side",lb:"Rhomboids",nv:"Dorsal scapular nerve · C4–C5",f:"scap",p0:{dx:8,dy:-4,r:-30},p1:{dx:0,dy:0,r:4},m:a=>[[[284,130],a.med,4],[[284,190],a.medLo,4]],ang:k=>"Glenoid turns down"},
+ "Shoulder|Flexion":{v:"trunkSide",view:"Side view, facing right",lb:"Anterior deltoid + clavicular pectoralis major",nv:"Axillary C5–C6 · lateral pectoral C5–C7",f:"armSide",p0:ARM(0,0),p1:ARM(150,0),m:a=>[[[282,104],a.antArm,-6],[[290,128],a.antArmHi,-4]],ang:k=>"Shoulder flexed "+Math.round(150*k)+"°"},
+ "Shoulder|Extension":{v:"trunkSide",view:"Side view, facing right",lb:"Latissimus dorsi + posterior deltoid",nv:"Thoracodorsal C6–C8 · axillary C5–C6",f:"armSide",p0:ARM(60,0),p1:ARM(-45,0),m:a=>[[[238,250],a.postArmHi,8],[[246,104],a.postArm,6]],ang:k=>{const d=Math.round(60-105*k);return d>=0?"Shoulder flexed "+d+"°":"Shoulder extended "+(-d)+"°";}},
+ "Shoulder|Abduction":{v:"trunkFront",view:"From the front, right arm",lb:"Supraspinatus 0–15°, then middle deltoid 15–90°",nv:"Suprascapular C5–C6 · axillary C5–C6",f:"armFront",p0:{ab:0},p1:{ab:90},m:(a,k,act)=>{const d=90*k;return [[[262,102],a.tub,-6,d<15?act:.1],[[206,104],a.lat,8,d>=12?act:.1]];},ang:k=>"Arm abducted "+Math.round(90*k)+"°",note:"Above 90° the scapula must rotate upward (trapezius + serratus)"},
+ "Shoulder|Adduction":{v:"trunkFront",view:"From the front, right arm",lb:"Pectoralis major + latissimus dorsi",nv:"Pectoral nerves C5–T1 · thoracodorsal C6–C8",f:"armFront",p0:{ab:90},p1:{ab:0},m:a=>[[[276,150],a.med,-8],[[238,260],a.med,10]],ang:k=>"Arm abducted "+Math.round(90-90*k)+"°"},
+ "Shoulder|Medial rotation":{v:null,view:"From above, elbow bent 90°",lb:"Subscapularis",nv:"Upper and lower subscapular nerves · C5–C6",f:"armTop",p0:{rot:0},p1:{rot:70},m:a=>[[[240,150],[188,212],-8]],ang:k=>"Medial rotation "+Math.round(70*k)+"°: forearm swings toward the belly",front:1},
+ "Shoulder|Lateral rotation":{v:null,view:"From above, elbow bent 90°",lb:"Infraspinatus + teres minor",nv:"Suprascapular C5–C6 · axillary C5–C6",f:"armTop",p0:{rot:0},p1:{rot:-60},m:a=>[[[240,128],[164,184],10]],ang:k=>"Lateral rotation "+Math.round(60*k)+"°: forearm swings outward",front:1},
+ "Elbow|Flexion":{v:"trunkSide",view:"Side view, facing right",lb:"Brachialis + biceps brachii",nv:"Musculocutaneous nerve · C5–C6",f:"armSide",p0:ARM(0,0),p1:ARM(0,140),m:a=>[[a.antArmHi,a.antFore,-8]],ang:k=>"Elbow flexed "+Math.round(140*k)+"°"},
+ "Elbow|Extension":{v:"trunkSide",view:"Side view, facing right",lb:"Triceps brachii",nv:"Radial nerve · C6–C8, mainly C7",f:"armSide",p0:ARM(0,130),p1:ARM(0,0),m:a=>[[a.postArmHi,a.olec,8]],ang:k=>"Elbow flexed "+Math.round(130-130*k)+"°"},
+ "Forearm|Supination":{v:null,view:"From the front, right forearm",lb:"Supinator + biceps brachii",nv:"Deep radial C5–C6 · musculocutaneous C5–C6",f:"fore",p0:{pr:80},p1:{pr:0},m:a=>[[[248,72],a.Rs,-6],[[282,20],a.Rt,0]],ang:k=>k>.5?"Palm turning to face you":"Palm faces away (pronated)",note:"The radius swings back to lie beside the ulna"},
+ "Forearm|Pronation":{v:null,view:"From the front, right forearm",lb:"Pronator teres + pronator quadratus",nv:"Median C6–C7 · anterior interosseous C8–T1",f:"fore",p0:{pr:0},p1:{pr:80},m:a=>[[[326,70],a.Rm,6],[a.Uq,a.Rq,0]],ang:k=>k>.5?"Palm turning away":"Palm faces you (supinated)",note:"The radius crosses over the ulna; the ulna stays put"},
+ "Wrist|Flexion":{v:null,view:"Side view, palm down",lb:"Flexor carpi radialis + flexor carpi ulnaris",nv:"Median C6–C7 · ulnar C7–C8",f:"wristSide",p0:{fl:0},p1:{fl:75},m:a=>[[[130,212],a.bot,-4]],ang:k=>"Wrist flexed "+Math.round(75*k)+"°"},
+ "Wrist|Extension":{v:null,view:"Side view, palm down",lb:"Extensor carpi radialis longus, brevis + ulnaris",nv:"Radial C6–C8 · posterior interosseous C7–C8",f:"wristSide",p0:{fl:0},p1:{fl:-65},m:a=>[[[130,180],a.top,4]],ang:k=>"Wrist extended "+Math.round(65*k)+"°"},
+ "Wrist|Abduction, radial deviation":{v:null,view:"Palm view, right hand",lb:"Flexor carpi radialis + ECRL and ECRB",nv:"Median C6–C7 · radial C6–C8",f:"wristFront",p0:{dev:0},p1:{dev:20},m:a=>[[[272,60],a.rad,6]],ang:k=>"Radial deviation "+Math.round(20*k)+"°"},
+ "Wrist|Adduction, ulnar deviation":{v:null,view:"Palm view, right hand",lb:"Flexor carpi ulnaris + extensor carpi ulnaris",nv:"Ulnar C7–C8 · posterior interosseous C7–C8",f:"wristFront",p0:{dev:0},p1:{dev:-35},m:a=>[[[308,60],a.uln,-6]],ang:k=>"Ulnar deviation "+Math.round(35*k)+"°"},
+ "Fingers|Flexion at DIP joints":{v:null,view:"One finger from the side, palm down",lb:"Flexor digitorum profundus",nv:"Anterior interosseous (2–3) · ulnar (4–5) · C8–T1",f:"finger",p0:{mcp:0,pip:0,dip:0},p1:{mcp:0,pip:0,dip:65},m:a=>[[a.palm1,a.palm2,0],[a.palm2,a.p1b,0],[a.p1b,a.p2b,0],[a.p2b,a.p3b,0]],w:5,ang:k=>"DIP flexed "+Math.round(65*k)+"°"},
+ "Fingers|Flexion at PIP joints":{v:null,view:"One finger from the side, palm down",lb:"Flexor digitorum superficialis",nv:"Median nerve · C7–T1",f:"finger",p0:{mcp:0,pip:0,dip:0},p1:{mcp:0,pip:95,dip:0},m:a=>[[a.palm1,a.palm2,0],[a.palm2,a.p1b,0],[a.p1b,a.p2b,0]],w:5,ang:k=>"PIP flexed "+Math.round(95*k)+"°"},
+ "Fingers|Flexion at MCP joints with IP extension":{v:null,view:"One finger from the side, palm down",lb:"Lumbricals + interossei",nv:"Median (lumbricals 1–2) · deep ulnar · C8–T1",f:"finger",p0:{mcp:0,pip:0,dip:0},p1:{mcp:70,pip:0,dip:0},m:a=>[[[206,214],a.pmid,10]],w:7,ang:k=>"MCP flexed "+Math.round(70*k)+"°, IP joints straight",note:"Table-top position: lumbricals flex the MCP and straighten the IP joints"},
+ "Fingers|Extension":{v:null,view:"One finger from the side, palm down",lb:"Extensor digitorum",nv:"Posterior interosseous nerve · C7–C8",f:"finger",p0:{mcp:80,pip:95,dip:60},p1:{mcp:0,pip:0,dip:0},m:a=>[[a.dor1,a.dor2,0],[a.dor2,a.d1,0],[a.d1,a.d3,-2]],w:5,ang:k=>k>.9?"Finger straight":"Fist opening"},
+ "Fingers|Abduction":{v:null,view:"Palm view, right hand",lb:"Dorsal interossei (DAB)",nv:"Deep branch of ulnar nerve · C8–T1",f:"handSpread",p0:{spr:0},p1:{spr:14},m:a=>[[a.f1,a.f0,0],[a.f1,a.f2,0],[a.f2,a.f3,0]],w:6,ang:k=>"Fingers spread from the middle finger",note:"Axis is the middle finger: DAB = Dorsal ABduct"},
+ "Fingers|Adduction":{v:null,view:"Palm view, right hand",lb:"Palmar interossei (PAD)",nv:"Deep branch of ulnar nerve · C8–T1",f:"handSpread",p0:{spr:14},p1:{spr:0},m:a=>[[a.f0,a.f1,0],[a.f2,a.f1,0],[a.f3,a.f2,0]],w:6,ang:k=>"Fingers drawn toward the middle finger",note:"PAD = Palmar ADduct"},
+ "Thumb|Flexion":{v:null,view:"Palm view, right hand",lb:"Flexor pollicis longus",nv:"Anterior interosseous nerve · C8–T1",f:"thumbPalm",p0:{ct:-125,mc:0,ip:0,lf:0},p1:{ct:-105,mc:40,ip:55,lf:0},m:a=>[[[262,330],a.M2,8],[a.M2,a.flex,0]],w:6,ang:k=>"Thumb bends across the palm"},
+ "Thumb|Extension":{v:null,view:"Palm view, right hand",lb:"Extensor pollicis longus + brevis",nv:"Posterior interosseous nerve · C7–C8",f:"thumbPalm",p0:{ct:-115,mc:20,ip:20,lf:0},p1:{ct:-160,mc:0,ip:0,lf:0},m:a=>[[[240,340],a.M1,-10],[a.M1,a.T,0]],w:5,ang:k=>"Thumb swings out to the side, in the plane of the palm"},
+ "Thumb|Abduction":{v:null,view:"Thumb side, palm faces right",lb:"Abductor pollicis brevis + longus",nv:"Recurrent median C8–T1 · posterior interosseous C7–C8",f:"thumbSide",p0:{ab:0},p1:{ab:55},m:a=>[[[262,300],a.med,6]],ang:k=>"Thumb lifts forward, away from the palm "+Math.round(55*k)+"°"},
+ "Thumb|Adduction":{v:null,view:"Thumb side, palm faces right",lb:"Adductor pollicis",nv:"Deep branch of ulnar nerve · C8–T1",f:"thumbSide",p0:{ab:55},p1:{ab:0},m:a=>[[[266,200],a.med,-4]],ang:k=>"Thumb brought back to the palm"},
+ "Thumb|Opposition":{v:null,view:"Palm view, right hand",lb:"Opponens pollicis",nv:"Recurrent branch of median nerve · C8–T1",f:"thumbPalm",p0:{ct:-125,mc:0,ip:0,lf:0},p1:{ct:-58,mc:22,ip:18,lf:40},m:a=>[[[274,262],a.mcMid,6]],ang:k=>"Thumb pad meets the little finger"},
+ "Hip|Flexion":{v:null,view:"Side view, facing right",lb:"Iliopsoas: psoas major + iliacus",nv:"Lumbar rami L1–L3 · femoral L2–L3",f:"legSide",p0:LEG(0,0),p1:LEG(110,100),m:a=>[[[290,96],a.front,-10]],ang:k=>"Hip flexed "+Math.round(110*k)+"°"},
+ "Hip|Extension":{v:null,view:"Side view, facing right",lb:"Gluteus maximus + hamstrings",nv:"Inferior gluteal L5–S2 · tibial division of sciatic L5–S2",f:"legSide",p0:LEG(60,0),p1:LEG(-15,0),m:a=>[[[246,120],a.back,10],[[262,166],a.tib,8]],ang:k=>{const d=Math.round(60-75*k);return d>=0?"Hip flexed "+d+"°":"Hip extended "+(-d)+"°";}},
+ "Hip|Abduction":{v:null,view:"From the front, right leg",lb:"Gluteus medius + minimus",nv:"Superior gluteal nerve · L4–S1",f:"legFront",p0:{ab:0},p1:{ab:40},m:a=>[[[214,88],a.lat,8]],ang:k=>"Hip abducted "+Math.round(40*k)+"°",note:"Same muscles keep the pelvis level on one leg (Trendelenburg sign)"},
+ "Hip|Adduction":{v:null,view:"From the front, right leg",lb:"Adductor longus, brevis + magnus",nv:"Obturator nerve · L2–L4",f:"legFront",p0:{ab:30},p1:{ab:-12},m:a=>[[[284,170],a.med,-8]],ang:k=>{const d=Math.round(30-42*k);return d>=0?"Hip abducted "+d+"°":"Leg crosses the midline "+(-d)+"°";}},
+ "Hip|Medial rotation":{v:null,view:"Seated, from the front, right leg",lb:"Anterior gluteus medius and minimus + TFL",nv:"Superior gluteal nerve · L4–S1",f:"seatFront",p0:{sw:0},p1:{sw:35},m:a=>[[[204,92],[214,160],-6]],ang:k=>"Medial rotation "+Math.round(35*k)+"°",note:"With the knee bent, hip medial rotation swings the foot outward"},
+ "Hip|Lateral rotation":{v:null,view:"Seated, from the front, right leg",lb:"Gluteus maximus + piriformis",nv:"Inferior gluteal L5–S2 · nerve to piriformis S1–S2",f:"seatFront",p0:{sw:0},p1:{sw:-40},m:a=>[[[276,96],[214,150],8]],ang:k=>"Lateral rotation "+Math.round(40*k)+"°",note:"With the knee bent, hip lateral rotation swings the foot inward"},
+ "Knee|Flexion":{v:null,view:"Side view, facing right",lb:"Hamstrings + short head of biceps femoris",nv:"Sciatic nerve, tibial and common fibular divisions · L5–S2",f:"legSide",p0:LEG(0,0),p1:LEG(0,110),m:a=>[[[262,166],a.tib,8]],ang:k=>"Knee flexed "+Math.round(110*k)+"°"},
+ "Knee|Unlocking the extended knee":{v:null,view:"From above, right knee",lb:"Popliteus",nv:"Tibial nerve · L4–S1",f:"kneeTop",p0:{r:0},p1:{r:-9},m:a=>[[a.lat,a.post,-14]],ang:k=>"Femur turns laterally "+Math.round(9*k)+"° on the tibia",note:"Weight-bearing: the femur turns laterally on the fixed tibia"},
+ "Knee|Medial rotation of tibia, knee flexed":{v:null,view:"From above, knee bent 90°",lb:"Semitendinosus + semimembranosus",nv:"Tibial division of sciatic nerve · L5–S2",f:"footTop",p0:{tw:0},p1:{tw:-28},m:a=>[[[300,96],a.toeM,-10]],ang:k=>"Toes turn inward "+Math.round(28*k)+"°",front:1},
+ "Knee|Lateral rotation of tibia, knee flexed":{v:null,view:"From above, knee bent 90°",lb:"Biceps femoris",nv:"Sciatic nerve, both divisions · L5–S2",f:"footTop",p0:{tw:0},p1:{tw:38},m:a=>[[[224,96],a.toeL,10]],ang:k=>"Toes turn outward "+Math.round(38*k)+"°",front:1},
+ "Ankle|Dorsiflexion":{v:null,view:"Side view, facing right",lb:"Tibialis anterior",nv:"Deep fibular nerve · L4–L5",f:"ankle",p0:{pf:0},p1:{pf:-22},m:a=>[[[274,70],a.dorsum,-8]],ang:k=>"Dorsiflexed "+Math.round(22*k)+"°",note:"Weak dorsiflexion = foot drop (common fibular nerve at the fibular neck)"},
+ "Ankle|Plantarflexion":{v:null,view:"Side view, facing right",lb:"Gastrocnemius + soleus",nv:"Tibial nerve · S1–S2",f:"ankle",p0:{pf:0},p1:{pf:42},m:a=>[[a.calf,a.Hl,8]],ang:k=>"Plantarflexed "+Math.round(42*k)+"°",note:"Ankle reflex tests S1"},
+ "Foot|Inversion":{v:null,view:"Right foot from behind",lb:"Tibialis posterior + tibialis anterior",nv:"Tibial L4–L5 · deep fibular L4–L5",f:"heel",p0:{inv:0},p1:{inv:26},m:a=>[[[264,110],a.med,-8]],ang:k=>"Sole turns inward "+Math.round(26*k)+"°"},
+ "Foot|Eversion":{v:null,view:"Right foot from behind",lb:"Fibularis longus + brevis",nv:"Superficial fibular nerve · L5–S2",f:"heel",p0:{inv:0},p1:{inv:-16},m:a=>[[[298,100],a.lat,8]],ang:k=>"Sole turns outward "+Math.round(16*k)+"°"},
+ "Toes|Flexion":{v:null,view:"Side view, facing right",lb:"Flexor digitorum longus + flexor hallucis longus",nv:"Tibial nerve · S2–S3",f:"toes",p0:{tf:0},p1:{tf:40},m:a=>[[[188,120],[230,266],10],[[230,266],a.plant,4]],w:6,ang:k=>"Toes flexed "+Math.round(40*k)+"°"},
+ "Toes|Extension":{v:null,view:"Side view, facing right",lb:"Extensor digitorum longus + extensor hallucis longus",nv:"Deep fibular nerve · L5–S1",f:"toes",p0:{tf:0},p1:{tf:-45},m:a=>[[[212,80],[300,236],-8],[[300,236],a.dors,-4]],w:6,ang:k=>"Toes extended "+Math.round(45*k)+"°"}
+};
+function lerpPose(a,b,k){const o={};for(const n in a)o[n]=LERP(a[n],b[n],k);return o;}
+function figMarkup(M,k,act){
+  const back=M.v?FIG[M.v]():"";const g=FIG[M.f](M.p0),cur=FIG[M.f](lerpPose(M.p0,M.p1,k));
+  const ms=M.m(cur.a,k,act).map(x=>mus(x[0],x[1],x[2],x[3]!==undefined?x[3]:act,M.w)).join("");
+  return back+`<g class="ghost">${g.s}</g>`+cur.s+ms;}
+// scale and centre each figure so the whole movement fits between the labels and the footer
+let MEAS=null;
+function fitFor(M){if(M._fit)return M._fit;
+  if(!MEAS){MEAS=document.createElementNS("http://www.w3.org/2000/svg","svg");MEAS.setAttribute("class","stage");MEAS.setAttribute("viewBox","0 0 560 450");MEAS.style.cssText="position:absolute;left:-9999px;top:0;width:560px;height:450px";document.body.appendChild(MEAS);}
+  MEAS.innerHTML=`<g>${figMarkup(M,0,1)}${figMarkup(M,.5,1)}${figMarkup(M,1,1)}</g>`;const bb=MEAS.firstChild.getBBox(),b={x:bb.x-8,y:bb.y-8,width:bb.width+16,height:bb.height+16};MEAS.innerHTML="";
+  const top=M.front||M.note?96:90,bot=M.front&&M.note?400:M.front||M.note?414:430,W=520,Hh=bot-top;
+  const sc=Math.min(W/b.width,Hh/b.height,1.5);
+  return M._fit={sc,tx:280-sc*(b.x+b.width/2),ty:(top+bot)/2-sc*(b.y+b.height/2)};}
+function drawMove(M,k,act){const F=fitFor(M);
+  return `<g transform="translate(${f1(F.tx)} ${f1(F.ty)}) scale(${F.sc.toFixed(3)})">${figMarkup(M,k,act)}</g>`+
+    txt(18,28,M.lb,"lbl")+txt(18,48,M.nv,"sub")+txt(18,68,M.view,"vw")+
+    (M.front?txt(280,M.note?418:440,"Front of the body ↓","sub","middle"):"")+(M.note?txt(280,440,M.note,"sub","middle"):"");
+}
+for(const key in MV){const M=MV[key];ANIM[key]={gen:1,
+  svg:`<svg class="stage" viewBox="0 0 560 450" role="img" aria-label="${esc(key.replace("|",": "))}"></svg>`,
+  frame(el,deg,act,k){el.querySelector("svg.stage").innerHTML=drawMove(M,k,act);},label:M.ang};}
+
 const base=v=>v.replace(/,.*$/,"").replace(/ and C3–C4 cervical nerves/,"");
 function nerves(){const set=new Set();D.filter(d=>d.r===R).forEach(d=>d.x.forEach(x=>x.v.split(/; | and (?=[A-Z])/).forEach(v=>set.add(base(v)))));
   const cur=$("nerve").value;$("nerve").innerHTML='<option value="">All nerves</option>'+[...set].sort().map(n=>`<option${n===cur?" selected":""}>${esc(n)}</option>`).join("");}
