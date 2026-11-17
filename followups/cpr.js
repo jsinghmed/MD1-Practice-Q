@@ -10105,5 +10105,1509 @@ Object.assign(window.JJ_FU, {
 ]
 }
 ]
+},
+"cpr354": {
+"k": "BP = CO × TPR",
+"q": [
+{
+"id": "cpr354-f1",
+"lv": "Easy",
+"s": "If cardiac output doubles while TPR halves, what happens to mean arterial pressure?",
+"c": [
+"It doubles in size",
+"It stays the same",
+"It halves in size",
+"It rises four times",
+"It falls to zero"
+],
+"a": 1,
+"e": "MAP = CO × TPR, so 2 × ½ = 1, and pressure is unchanged.",
+"w": [
+"The halved TPR cancels it.",
+"",
+"The doubled CO cancels it.",
+"Not the product.",
+"Not the product."
+]
+},
+{
+"id": "cpr354-f2",
+"lv": "Hard",
+"s": "A drug lowers TPR by 20%, and the baroreflex raises cardiac output by 10%. What is the net change in MAP?",
+"c": [
+"About 10% higher",
+"About 20% lower",
+"About 30% lower",
+"No change at all",
+"About 12% lower"
+],
+"a": 4,
+"e": "1.1 × 0.8 = 0.88, so MAP falls about 12%. The reflex only partly compensates.",
+"w": [
+"The fall in TPR is larger.",
+"Ignores the reflex.",
+"Adds the changes wrongly.",
+"Partial compensation leaves a fall.",
+""
+]
+}
+]
+},
+"cpr355": {
+"k": "Carotid sinus uses CN IX",
+"q": [
+{
+"id": "cpr355-f1",
+"lv": "Easy",
+"s": "Aortic arch baroreceptors send their signals along which nerve?",
+"c": [
+"Glossopharyngeal nerve, CN IX",
+"Phrenic nerve",
+"Vagus nerve, CN X",
+"Hypoglossal nerve",
+"Greater splanchnic nerve"
+],
+"a": 2,
+"e": "Aortic arch baroreceptors use the vagus, CN X. The carotid sinus uses CN IX.",
+"w": [
+"CN IX serves the carotid sinus.",
+"Phrenic is motor to the diaphragm.",
+"",
+"CN XII is motor to the tongue.",
+"Splanchnic nerves are sympathetic."
+]
+},
+{
+"id": "cpr355-f2",
+"lv": "Hard",
+"s": "A tumor at the jugular foramen damages CN IX but spares CN X. Which baroreceptor input is lost?",
+"c": [
+"Carotid sinus",
+"Aortic arch",
+"Both carotid and aortic",
+"Neither carotid nor aortic",
+"Cardiac atrial receptors"
+],
+"a": 0,
+"e": "CN IX carries the carotid sinus input, so only that is lost. The aortic arch input runs in CN X.",
+"w": [
+"",
+"CN X is spared.",
+"CN X is spared.",
+"CN IX is damaged.",
+"Atrial receptors use CN X."
+]
+}
+]
+},
+"cpr356": {
+"k": "Afferents end in the NTS",
+"q": [
+{
+"id": "cpr356-f1",
+"lv": "Easy",
+"s": "Where do baroreceptor afferents synapse first?",
+"c": [
+"Nucleus ambiguus",
+"Locus coeruleus of pons",
+"Red nucleus of midbrain",
+"Nucleus tractus solitarius",
+"Ventral posterior thalamus"
+],
+"a": 3,
+"e": "Both CN IX and CN X baroreceptor afferents synapse in the NTS of the medulla.",
+"w": [
+"That is an efferent vagal nucleus.",
+"Not the baroreceptor relay.",
+"A motor nucleus.",
+"",
+"Not the first synapse."
+]
+},
+{
+"id": "cpr356-f2",
+"lv": "Hard",
+"s": "A lesion destroys both nuclei tractus solitarii. What happens to blood pressure?",
+"c": [
+"It stays perfectly stable",
+"It becomes labile and high",
+"It falls permanently to zero",
+"Only heart rate is affected",
+"Only respiration is affected"
+],
+"a": 1,
+"e": "Without the NTS, baroreceptor input cannot buffer pressure, so pressure becomes labile and often high.",
+"w": [
+"Buffering is lost.",
+"",
+"Sympathetic tone persists.",
+"Vessels are also affected.",
+"Pressure control is affected."
+]
+}
+]
+},
+"cpr357": {
+"k": "Firing rises with pressure",
+"q": [
+{
+"id": "cpr357-f1",
+"lv": "Easy",
+"s": "Baroreceptors are which type of receptor?",
+"c": [
+"Blood gas chemoreceptors",
+"Thermoreceptors",
+"Pain nociceptors",
+"Osmoreceptors",
+"Stretch receptors"
+],
+"a": 4,
+"e": "Baroreceptors are stretch receptors in the vessel wall, firing faster as pressure stretches it.",
+"w": [
+"Those sense blood gases.",
+"Those sense temperature.",
+"Those sense pain.",
+"Those sense osmolality.",
+""
+]
+},
+{
+"id": "cpr357-f2",
+"lv": "Hard",
+"s": "Arterial pressure falls from 100 to 70 mmHg. What happens to CN IX firing and sympathetic outflow?",
+"c": [
+"Firing rises, sympathetic rises",
+"Firing falls, sympathetic falls",
+"Firing falls, sympathetic rises",
+"Firing rises, sympathetic falls",
+"Both stay the same"
+],
+"a": 2,
+"e": "Less stretch lowers firing, and lower firing releases sympathetic outflow.",
+"w": [
+"Firing falls.",
+"Sympathetic rises.",
+"",
+"Firing falls.",
+"Pressure changed."
+]
+}
+]
+},
+"cpr358": {
+"k": "Hypotension: sympathetic up, vagal down",
+"q": [
+{
+"id": "cpr358-f1",
+"lv": "Easy",
+"s": "In hypotension, what happens to heart rate through the baroreflex?",
+"c": [
+"It rises",
+"It falls",
+"It stops",
+"It does not change",
+"It becomes irregular"
+],
+"a": 0,
+"e": "Sympathetic activation and vagal withdrawal raise heart rate.",
+"w": [
+"",
+"Opposite.",
+"Not physiological.",
+"The reflex changes it.",
+"Not the reflex effect."
+]
+},
+{
+"id": "cpr358-f2",
+"lv": "Hard",
+"s": "A patient on a β-blocker has a sudden fall in pressure. Which part of the baroreflex is most blunted?",
+"c": [
+"Arteriolar vasoconstriction",
+"Constriction of large veins",
+"Withdrawal of vagal tone",
+"Rise in heart rate and force",
+"Sensing by the carotid sinus"
+],
+"a": 3,
+"e": "β1 receptors mediate the cardiac response, so the rise in heart rate and contractility is blunted. α1 vasoconstriction still works.",
+"w": [
+"α1-mediated, intact.",
+"α1-mediated, intact.",
+"Vagal withdrawal still happens.",
+"",
+"Sensing is intact."
+]
+}
+]
+},
+"cpr359": {
+"k": "Sympathetic outflow inverse to firing",
+"q": [
+{
+"id": "cpr359-f1",
+"lv": "Easy",
+"s": "Increased baroreceptor firing leads to which change?",
+"c": [
+"More sympathetic outflow",
+"Less sympathetic outflow",
+"More renin release",
+"More vasoconstriction",
+"Faster heart rate"
+],
+"a": 1,
+"e": "More firing inhibits sympathetic outflow and activates the parasympathetic system.",
+"w": [
+"Opposite.",
+"",
+"Sympathetic drive falls.",
+"Opposite direction.",
+"Opposite direction."
+]
+},
+{
+"id": "cpr359-f2",
+"lv": "Hard",
+"s": "Both carotid sinuses are denervated in an experiment. What happens to sympathetic outflow?",
+"c": [
+"It falls",
+"It stops",
+"It stays unchanged",
+"It reverses",
+"It rises"
+],
+"a": 4,
+"e": "Loss of input looks like zero firing, which the medulla reads as low pressure, so sympathetic outflow and pressure rise.",
+"w": [
+"No firing is read as hypotension.",
+"Not stopped.",
+"It changes.",
+"Not meaningful.",
+""
+]
+}
+]
+},
+"cpr360": {
+"k": "Vasoconstriction raises TPR",
+"q": [
+{
+"id": "cpr360-f1",
+"lv": "Easy",
+"s": "Sympathetic vasoconstriction of arterioles acts through which receptor?",
+"c": [
+"β1",
+"β2",
+"α1",
+"M3",
+"D1"
+],
+"a": 2,
+"e": "Norepinephrine on α1 receptors constricts arterioles and raises TPR.",
+"w": [
+"β1 acts on the heart.",
+"β2 relaxes vessels.",
+"",
+"M3 is muscarinic.",
+"D1 dilates renal vessels."
+]
+},
+{
+"id": "cpr360-f2",
+"lv": "Hard",
+"s": "Which baroreflex effect raises cardiac output rather than TPR?",
+"c": [
+"More contractility",
+"Arteriolar constriction",
+"Less arteriolar radius",
+"Higher vessel resistance",
+"Splanchnic arteriolar constriction"
+],
+"a": 0,
+"e": "Contractility raises stroke volume and so cardiac output. The others raise TPR.",
+"w": [
+"",
+"Raises TPR.",
+"Raises TPR.",
+"Raises TPR.",
+"Raises TPR."
+]
+}
+]
+},
+"cpr361": {
+"k": "Baroreceptor adaptation",
+"q": [
+{
+"id": "cpr361-f1",
+"lv": "Easy",
+"s": "Over a few days of sustained hypertension, baroreceptors do what?",
+"c": [
+"Fire faster and faster",
+"Stop firing completely",
+"Lower sympathetic tone more",
+"Reset to the new pressure",
+"Release renin into blood"
+],
+"a": 3,
+"e": "They adapt and reset, so they defend the new pressure instead of lowering it.",
+"w": [
+"They adapt.",
+"They keep firing.",
+"They reset.",
+"",
+"They are not a long-term control."
+]
+},
+{
+"id": "cpr361-f2",
+"lv": "Hard",
+"s": "Which system holds blood pressure at a set point over weeks?",
+"c": [
+"Carotid sinus baroreflex",
+"Renal control of fluid volume",
+"Aortic arch baroreflex",
+"Peripheral chemoreceptor reflex",
+"Cushing reflex of the brain"
+],
+"a": 1,
+"e": "The kidney, through RAAS and pressure natriuresis, sets long-term pressure by adjusting volume.",
+"w": [
+"Adapts in days.",
+"",
+"Adapts in days.",
+"Responds to blood gases.",
+"An emergency reflex."
+]
+}
+]
+},
+"cpr362": {
+"k": "Orthostatic baroreflex",
+"q": [
+{
+"id": "cpr362-f1",
+"lv": "Easy",
+"s": "On standing, blood pools in which part of the body?",
+"c": [
+"Arteries of the arms",
+"Pulmonary capillaries",
+"Cerebral arteries",
+"Coronary veins",
+"Veins of the legs"
+],
+"a": 4,
+"e": "Gravity pools blood in the compliant leg veins, lowering venous return.",
+"w": [
+"Not where it pools.",
+"Not where it pools.",
+"Not where it pools.",
+"Not where it pools.",
+""
+]
+},
+{
+"id": "cpr362-f2",
+"lv": "Hard",
+"s": "A patient with autonomic failure stands and faints, with no rise in heart rate. Which part of the reflex is failing?",
+"c": [
+"Sensing of carotid sinus stretch",
+"Venous pooling in legs",
+"Efferent sympathetic outflow",
+"Fall in cardiac output",
+"Fall in arterial pressure"
+],
+"a": 2,
+"e": "Pressure falls and is sensed, but the efferent sympathetic response does not happen.",
+"w": [
+"Sensing works.",
+"That is the trigger.",
+"",
+"That is the trigger.",
+"That is the trigger."
+]
+}
+]
+},
+"cpr363": {
+"k": "Carotid stretch slows the heart",
+"q": [
+{
+"id": "cpr363-f1",
+"lv": "Easy",
+"s": "Carotid sinus massage slows the heart by raising which outflow?",
+"c": [
+"Vagal",
+"Sympathetic",
+"Somatic motor",
+"Renin",
+"ADH"
+],
+"a": 0,
+"e": "Stretching the carotid sinus mimics high pressure and raises vagal outflow to the SA node.",
+"w": [
+"",
+"Sympathetic falls.",
+"Not involved.",
+"Not neural outflow.",
+"Not involved."
+]
+},
+{
+"id": "cpr363-f2",
+"lv": "Hard",
+"s": "Carotid massage converts an AV nodal reentrant tachycardia. Which effect causes this?",
+"c": [
+"Faster AV node conduction",
+"Shorter ventricular refractoriness",
+"More SA node automaticity",
+"Slower AV node conduction",
+"More atrial contractility"
+],
+"a": 3,
+"e": "More vagal tone slows conduction through the AV node, breaking the reentry circuit.",
+"w": [
+"Opposite.",
+"Not the vagal effect.",
+"Opposite.",
+"",
+"Not the vagal effect."
+]
+}
+]
+},
+"cpr364": {
+"k": "Reflex bradycardia to pure vasoconstriction",
+"q": [
+{
+"id": "cpr364-f1",
+"lv": "Easy",
+"s": "Phenylephrine raises blood pressure by stimulating which receptor?",
+"c": [
+"β1",
+"α1",
+"β2",
+"M2",
+"α2"
+],
+"a": 1,
+"e": "Phenylephrine is a pure α1 agonist that constricts arterioles.",
+"w": [
+"Not stimulated.",
+"",
+"Not stimulated.",
+"Not stimulated.",
+"Not its main receptor."
+]
+},
+{
+"id": "cpr364-f2",
+"lv": "Hard",
+"s": "A patient given phenylephrine has a rise in pressure but a fall in heart rate. Giving atropine first would change this how?",
+"c": [
+"Pressure would not rise",
+"Heart rate would fall more",
+"Pressure would fall",
+"No change in either",
+"Heart rate would not fall"
+],
+"a": 4,
+"e": "The fall in heart rate is vagal. Atropine blocks muscarinic receptors, so the reflex bradycardia is lost while pressure still rises.",
+"w": [
+"α1 effect is intact.",
+"Atropine blocks the fall.",
+"Pressure still rises.",
+"Atropine changes heart rate.",
+""
+]
+}
+]
+},
+"cpr365": {
+"k": "Peripheral chemoreceptor location",
+"q": [
+{
+"id": "cpr365-f1",
+"lv": "Easy",
+"s": "The carotid body is a sensor for what?",
+"c": [
+"Arterial stretch",
+"Plasma osmolality",
+"Blood gases",
+"Atrial volume",
+"Body temperature"
+],
+"a": 2,
+"e": "The carotid body is a peripheral chemoreceptor for O2, CO2 and pH.",
+"w": [
+"The carotid sinus senses stretch.",
+"Hypothalamic osmoreceptors.",
+"",
+"Atrial receptors.",
+"Hypothalamic sensors."
+]
+},
+{
+"id": "cpr365-f2",
+"lv": "Hard",
+"s": "Which structure would you stimulate to raise both breathing and sympathetic tone?",
+"c": [
+"Carotid body",
+"Carotid sinus",
+"Macula densa",
+"Atrial wall",
+"Aortic arch wall"
+],
+"a": 0,
+"e": "Carotid body chemoreceptors raise respiration and sympathetic tone.",
+"w": [
+"",
+"Raises vagal tone when stretched.",
+"Controls renin.",
+"Releases ANP.",
+"A baroreceptor site."
+]
+}
+]
+},
+"cpr366": {
+"k": "Hypoxemia drives peripheral chemoreceptors",
+"q": [
+{
+"id": "cpr366-f1",
+"lv": "Easy",
+"s": "Peripheral chemoreceptors fire strongly below which PaO2?",
+"c": [
+"About 100 mmHg",
+"About 150 mmHg",
+"About 40 mmHg of PaCO2",
+"About 60 mmHg",
+"About 200 mmHg"
+],
+"a": 3,
+"e": "Firing rises steeply once PaO2 falls below about 60 mmHg.",
+"w": [
+"Normal PaO2.",
+"Above normal.",
+"That is a PaCO2 value.",
+"",
+"Far above normal."
+]
+},
+{
+"id": "cpr366-f2",
+"lv": "Hard",
+"s": "A patient with anemia has a hemoglobin of 7 g/dL and a PaO2 of 98 mmHg. Do his peripheral chemoreceptors fire strongly?",
+"c": [
+"Yes, because O2 content is low",
+"No, because PaO2 is normal",
+"Yes, because pH is high",
+"No, because PaCO2 is high",
+"Yes, because PaO2 is low"
+],
+"a": 1,
+"e": "Chemoreceptors sense PaO2, not O2 content, so anemia alone does not activate them strongly.",
+"w": [
+"They sense PaO2.",
+"",
+"Not given.",
+"Not given.",
+"His PaO2 is normal."
+]
+}
+]
+},
+"cpr367": {
+"k": "Central chemoreceptors sense CSF pH",
+"q": [
+{
+"id": "cpr367-f1",
+"lv": "Easy",
+"s": "Which gas crosses the blood-brain barrier to change CSF pH?",
+"c": [
+"O2",
+"H⁺",
+"HCO3⁻",
+"N2",
+"CO2"
+],
+"a": 4,
+"e": "CO2 crosses freely and forms H⁺ in the CSF, which central chemoreceptors sense.",
+"w": [
+"Not sensed centrally.",
+"Crosses poorly.",
+"Crosses poorly.",
+"Not relevant.",
+""
+]
+},
+{
+"id": "cpr367-f2",
+"lv": "Hard",
+"s": "A patient's arterial pH falls from metabolic acidosis, but his PaCO2 falls too. Which receptors drive his breathing at first?",
+"c": [
+"Central chemoreceptors",
+"Arterial baroreceptors",
+"Peripheral chemoreceptors",
+"Atrial stretch receptors",
+"Renal juxtaglomerular cells"
+],
+"a": 2,
+"e": "Plasma H⁺ crosses the blood-brain barrier poorly, so peripheral chemoreceptors respond first.",
+"w": [
+"CSF pH changes slowly.",
+"Pressure sensors.",
+"",
+"Volume sensors.",
+"Renin release."
+]
+}
+]
+},
+"cpr368": {
+"k": "Chemoreflex raises pressure",
+"q": [
+{
+"id": "cpr368-f1",
+"lv": "Easy",
+"s": "Activation of peripheral chemoreceptors raises sympathetic discharge to which targets?",
+"c": [
+"Arterioles and heart",
+"Bronchial glands only",
+"Sweat glands only",
+"Skeletal muscle fibers",
+"Salivary glands only"
+],
+"a": 0,
+"e": "The pressor and accelerator zones of the VMC raise sympathetic discharge to arterioles and heart.",
+"w": [
+"",
+"Not the main target.",
+"Not the main target.",
+"Not autonomic targets.",
+"Not the main target."
+]
+},
+{
+"id": "cpr368-f2",
+"lv": "Hard",
+"s": "A man with obstructive sleep apnea has repeated episodes of hypoxemia each night. Which chronic change is most likely?",
+"c": [
+"Daytime hypotension",
+"Low sympathetic tone",
+"Low heart rate at rest",
+"Daytime hypertension",
+"High vagal tone at rest"
+],
+"a": 3,
+"e": "Repeated hypoxemia activates chemoreceptors and raises sympathetic tone, which leads to hypertension.",
+"w": [
+"Opposite.",
+"Opposite.",
+"Opposite.",
+"",
+"Opposite."
+]
+}
+]
+},
+"cpr369": {
+"k": "Renin release is rate-limiting",
+"q": [
+{
+"id": "cpr369-f1",
+"lv": "Easy",
+"s": "Juxtaglomerular cells are modified smooth muscle cells in which vessel?",
+"c": [
+"Efferent arteriole",
+"Afferent arteriole",
+"Peritubular capillary",
+"Vasa recta",
+"Renal vein"
+],
+"a": 1,
+"e": "JG cells sit in the wall of the afferent arteriole and release renin.",
+"w": [
+"Not where JG cells are.",
+"",
+"Not where JG cells are.",
+"Not where JG cells are.",
+"Not where JG cells are."
+]
+},
+{
+"id": "cpr369-f2",
+"lv": "Hard",
+"s": "A drug directly inhibits renin. Which plasma level falls first in the cascade?",
+"c": [
+"Angiotensinogen",
+"ACE",
+"Aldosterone",
+"Potassium",
+"Angiotensin I"
+],
+"a": 4,
+"e": "Renin turns angiotensinogen into angiotensin I, so Ang I falls first.",
+"w": [
+"It rises slightly.",
+"An enzyme, not a product.",
+"Falls later.",
+"Potassium may rise.",
+""
+]
+}
+]
+},
+"cpr370": {
+"k": "Three renin triggers",
+"q": [
+{
+"id": "cpr370-f1",
+"lv": "Easy",
+"s": "Which change lowers renin release?",
+"c": [
+"Low renal perfusion pressure",
+"Sympathetic β1 stimulation",
+"More NaCl at macula densa",
+"Acute hemorrhage of 1 L",
+"Dehydration from diarrhea"
+],
+"a": 2,
+"e": "High NaCl delivery to the macula densa signals plenty of volume and lowers renin.",
+"w": [
+"Raises renin.",
+"Raises renin.",
+"",
+"Raises renin.",
+"Raises renin."
+]
+},
+{
+"id": "cpr370-f2",
+"lv": "Hard",
+"s": "A patient's GFR falls, so less NaCl reaches the macula densa. What happens to renin?",
+"c": [
+"It rises",
+"It falls",
+"It stays the same",
+"It is degraded",
+"It stops completely"
+],
+"a": 0,
+"e": "Low NaCl at the macula densa signals the JG cells to release more renin.",
+"w": [
+"",
+"Opposite.",
+"It changes.",
+"Not the effect.",
+"Not the effect."
+]
+}
+]
+},
+"cpr371": {
+"k": "JG cells have β1 receptors",
+"q": [
+{
+"id": "cpr371-f1",
+"lv": "Easy",
+"s": "Which drug class lowers renin release?",
+"c": [
+"α1 agonists",
+"Loop diuretics",
+"Vasodilators",
+"β-blockers",
+"ACE inhibitors"
+],
+"a": 3,
+"e": "β-blockers block β1 receptors on JG cells and lower renin.",
+"w": [
+"Not their effect.",
+"Raise renin.",
+"Raise renin by reflex.",
+"",
+"Raise renin by losing feedback."
+]
+},
+{
+"id": "cpr371-f2",
+"lv": "Hard",
+"s": "A patient with hemorrhage has a high sympathetic tone. How does this affect renin?",
+"c": [
+"Lowers it through α1",
+"Raises it through β1",
+"Lowers it through β2",
+"No effect on renin",
+"Raises it through M3"
+],
+"a": 1,
+"e": "Sympathetic activity raises renin through β1 receptors on JG cells.",
+"w": [
+"Not the mechanism.",
+"",
+"Not the mechanism.",
+"Sympathetic drive raises renin.",
+"Muscarinic is parasympathetic."
+]
+}
+]
+},
+"cpr372": {
+"k": "ACE in the lung",
+"q": [
+{
+"id": "cpr372-f1",
+"lv": "Easy",
+"s": "How many amino acids are in angiotensin II?",
+"c": [
+"Ten",
+"Twelve",
+"Six",
+"Fourteen",
+"Eight"
+],
+"a": 4,
+"e": "ACE cleaves the decapeptide angiotensin I into the octapeptide angiotensin II.",
+"w": [
+"That is angiotensin I.",
+"Not correct.",
+"Not correct.",
+"Not correct.",
+""
+]
+},
+{
+"id": "cpr372-f2",
+"lv": "Hard",
+"s": "Besides making Ang II, ACE breaks down bradykinin. ACE inhibitors therefore raise which substance?",
+"c": [
+"Angiotensin II",
+"Aldosterone",
+"Bradykinin",
+"Renin release",
+"Potassium excretion"
+],
+"a": 2,
+"e": "ACE also inactivates bradykinin, so ACE inhibitors raise bradykinin, which causes cough and angioedema.",
+"w": [
+"Lowered by ACEI.",
+"Lowered by ACEI.",
+"",
+"Renin rises.",
+"Potassium excretion falls."
+]
+}
+]
+},
+"cpr373": {
+"k": "Angiotensinogen from the liver",
+"q": [
+{
+"id": "cpr373-f1",
+"lv": "Easy",
+"s": "Angiotensinogen is cleaved by which enzyme?",
+"c": [
+"Renin",
+"ACE",
+"Aminopeptidase",
+"Chymase",
+"Neprilysin"
+],
+"a": 0,
+"e": "Renin cleaves angiotensinogen into angiotensin I.",
+"w": [
+"",
+"Acts on angiotensin I.",
+"Acts later.",
+"Alternative pathway.",
+"Breaks down ANP."
+]
+},
+{
+"id": "cpr373-f2",
+"lv": "Hard",
+"s": "A patient has severe liver failure. Which RAAS component is most likely to be low?",
+"c": [
+"Renin from the kidney",
+"ACE in the lung",
+"Aldosterone receptors",
+"Angiotensinogen",
+"Renal JG cells"
+],
+"a": 3,
+"e": "The liver makes angiotensinogen, so liver failure can lower it and limit Ang II production.",
+"w": [
+"Made by the kidney.",
+"Made on lung endothelium.",
+"Not made by the liver.",
+"",
+"Renal cells."
+]
+}
+]
+},
+"cpr374": {
+"k": "Ang II effects",
+"q": [
+{
+"id": "cpr374-f1",
+"lv": "Easy",
+"s": "Angiotensin II increases thirst by acting on which organ?",
+"c": [
+"Kidney",
+"Brain",
+"Lung",
+"Liver",
+"Adrenal medulla"
+],
+"a": 1,
+"e": "Ang II acts on the hypothalamus to increase thirst and ADH release.",
+"w": [
+"Not thirst.",
+"",
+"Not thirst.",
+"Not thirst.",
+"Not thirst."
+]
+},
+{
+"id": "cpr374-f2",
+"lv": "Hard",
+"s": "Which pair of Ang II effects raises both TPR and blood volume?",
+"c": [
+"Vasodilation and natriuresis",
+"Bradycardia and diuresis",
+"Vasodilation and ADH release",
+"Natriuresis and thirst",
+"Constriction and aldosterone"
+],
+"a": 4,
+"e": "Vasoconstriction raises TPR, and aldosterone retains Na⁺ and water to raise volume.",
+"w": [
+"Lower pressure.",
+"Not Ang II effects.",
+"Ang II constricts.",
+"Ang II retains Na⁺.",
+""
+]
+}
+]
+},
+"cpr375": {
+"k": "Aldosterone on distal nephron",
+"q": [
+{
+"id": "cpr375-f1",
+"lv": "Easy",
+"s": "Aldosterone increases secretion of which ion into the urine?",
+"c": [
+"Sodium",
+"Calcium",
+"Potassium",
+"Glucose",
+"Bicarbonate"
+],
+"a": 2,
+"e": "Aldosterone increases Na⁺ reabsorption and K⁺ secretion in the distal tubule and collecting duct.",
+"w": [
+"It retains Na⁺.",
+"Not its main action.",
+"",
+"Not an ion it secretes.",
+"Not its main action."
+]
+},
+{
+"id": "cpr375-f2",
+"lv": "Hard",
+"s": "A patient has an aldosterone-secreting tumor. Which pair of findings is expected?",
+"c": [
+"Hypertension and low potassium",
+"Hypotension and high potassium",
+"Hypertension and high potassium",
+"Hypotension and low potassium",
+"Normal pressure and potassium"
+],
+"a": 0,
+"e": "Excess aldosterone retains Na⁺ and water and wastes K⁺, causing hypertension and hypokalemia.",
+"w": [
+"",
+"Opposite.",
+"K⁺ is low.",
+"Pressure is high.",
+"Pressure and K⁺ change."
+]
+}
+]
+},
+"cpr376": {
+"k": "Volume loss activates RAAS",
+"q": [
+{
+"id": "cpr376-f1",
+"lv": "Easy",
+"s": "Which part of the adrenal makes aldosterone?",
+"c": [
+"Zona fasciculata",
+"Zona reticularis",
+"Adrenal medulla",
+"Zona glomerulosa",
+"Capsule"
+],
+"a": 3,
+"e": "The zona glomerulosa makes aldosterone in response to Ang II and high K⁺.",
+"w": [
+"Makes cortisol.",
+"Makes androgens.",
+"Makes catecholamines.",
+"",
+"No hormone."
+]
+},
+{
+"id": "cpr376-f2",
+"lv": "Hard",
+"s": "A runner loses 2 L of sweat. Which hormone change leads to low urine sodium?",
+"c": [
+"Higher ANP release",
+"Higher aldosterone",
+"Lower renin release",
+"Lower angiotensin II",
+"Lower ADH release"
+],
+"a": 1,
+"e": "Volume loss raises renin, Ang II and aldosterone, which retains Na⁺.",
+"w": [
+"ANP falls.",
+"",
+"Renin rises.",
+"Ang II rises.",
+"ADH rises."
+]
+}
+]
+},
+"cpr377": {
+"k": "Sustained RAAS is maladaptive",
+"q": [
+{
+"id": "cpr377-f1",
+"lv": "Easy",
+"s": "Over the long term, sustained RAAS activity in heart failure causes what?",
+"c": [
+"Low blood volume",
+"High urine sodium",
+"Low peripheral resistance",
+"Weight loss",
+"Edema and congestion"
+],
+"a": 4,
+"e": "Persistent Na⁺ and water retention raises volume, causing edema and congestion.",
+"w": [
+"Volume rises.",
+"Urine sodium falls.",
+"TPR rises.",
+"Fluid adds weight.",
+""
+]
+},
+{
+"id": "cpr377-f2",
+"lv": "Hard",
+"s": "Why do aldosterone antagonists help patients with chronic heart failure?",
+"c": [
+"They raise renin release from JG cells",
+"They raise angiotensin II levels",
+"They limit maladaptive Na⁺ retention",
+"They constrict efferent arterioles",
+"They block the effects of ANP"
+],
+"a": 2,
+"e": "Chronic RAAS activation is maladaptive. Blocking aldosterone limits Na⁺ and water retention and remodeling.",
+"w": [
+"Not their benefit.",
+"Not their benefit.",
+"",
+"Not their benefit.",
+"They do not block ANP."
+]
+}
+]
+},
+"cpr378": {
+"k": "ANP from atrial stretch",
+"q": [
+{
+"id": "cpr378-f1",
+"lv": "Easy",
+"s": "Which cells secrete ANP?",
+"c": [
+"Atrial myocytes",
+"Ventricular myocytes only",
+"JG cells",
+"Adrenal cortex cells",
+"Hepatocytes"
+],
+"a": 0,
+"e": "Atrial myocytes release ANP when stretched.",
+"w": [
+"",
+"BNP comes mainly from ventricles.",
+"Release renin.",
+"Release aldosterone.",
+"Make angiotensinogen."
+]
+},
+{
+"id": "cpr378-f2",
+"lv": "Hard",
+"s": "In which condition is ANP highest?",
+"c": [
+"Severe dehydration",
+"Hemorrhage",
+"Standing for a long time",
+"Volume overload",
+"Severe diarrhea"
+],
+"a": 3,
+"e": "Volume overload stretches the atria and raises ANP.",
+"w": [
+"Low volume lowers ANP.",
+"Low volume lowers ANP.",
+"Less venous return lowers ANP.",
+"",
+"Low volume lowers ANP."
+]
+}
+]
+},
+"cpr379": {
+"k": "ANP effects",
+"q": [
+{
+"id": "cpr379-f1",
+"lv": "Easy",
+"s": "ANP causes natriuresis. What does natriuresis mean?",
+"c": [
+"Sodium retention",
+"Sodium loss in urine",
+"Water retention",
+"Potassium loss in urine",
+"Glucose loss in urine"
+],
+"a": 1,
+"e": "Natriuresis is excretion of Na⁺ in urine. Water follows, giving diuresis.",
+"w": [
+"Opposite.",
+"",
+"Opposite.",
+"Not the term.",
+"Not the term."
+]
+},
+{
+"id": "cpr379-f2",
+"lv": "Hard",
+"s": "How does ANP lower aldosterone?",
+"c": [
+"It raises renin release from JG cells",
+"It raises angiotensin II formation",
+"It raises ACE activity in the lung",
+"It raises plasma potassium levels",
+"It lowers renin and adrenal output"
+],
+"a": 4,
+"e": "ANP inhibits renin release and acts on the adrenal cortex, so Ang II and aldosterone fall.",
+"w": [
+"Opposite.",
+"Opposite.",
+"Not an ANP action.",
+"High K⁺ raises aldosterone.",
+""
+]
+}
+]
+},
+"cpr380": {
+"k": "Volume expansion: ANP up, RAAS down",
+"q": [
+{
+"id": "cpr380-f1",
+"lv": "Easy",
+"s": "After a large saline load, what happens to renin?",
+"c": [
+"It rises",
+"It stays the same",
+"It falls",
+"It doubles",
+"It is unmeasurable"
+],
+"a": 2,
+"e": "More volume raises perfusion pressure and ANP, both of which lower renin.",
+"w": [
+"Opposite.",
+"It changes.",
+"",
+"Opposite.",
+"Not the effect."
+]
+},
+{
+"id": "cpr380-f2",
+"lv": "Hard",
+"s": "A patient with heart failure has high ANP but still retains sodium. Why?",
+"c": [
+"RAAS activity outweighs ANP",
+"ANP raises aldosterone",
+"ANP causes Na⁺ retention",
+"Renin is fully suppressed",
+"Blood volume is actually low"
+],
+"a": 0,
+"e": "In heart failure, strong RAAS and sympathetic activation override ANP's natriuretic effect.",
+"w": [
+"",
+"ANP lowers aldosterone.",
+"ANP causes Na⁺ loss.",
+"Renin is high.",
+"Volume is high."
+]
+}
+]
+},
+"cpr381": {
+"k": "ACE inhibitors",
+"q": [
+{
+"id": "cpr381-f1",
+"lv": "Easy",
+"s": "Which drug is an angiotensin II receptor blocker?",
+"c": [
+"Lisinopril",
+"Spironolactone",
+"Eplerenone",
+"Losartan",
+"Enalapril"
+],
+"a": 3,
+"e": "Losartan blocks AT1 receptors.",
+"w": [
+"ACE inhibitor.",
+"Aldosterone antagonist.",
+"Aldosterone antagonist.",
+"",
+"ACE inhibitor."
+]
+},
+{
+"id": "cpr381-f2",
+"lv": "Hard",
+"s": "A patient on an ACE inhibitor develops a dry cough. Which drug blocks the same pathway without raising bradykinin?",
+"c": [
+"Enalapril",
+"Losartan",
+"Captopril",
+"Ramipril",
+"Benazepril"
+],
+"a": 1,
+"e": "ARBs block Ang II receptors and do not affect bradykinin breakdown, so they avoid the cough.",
+"w": [
+"ACE inhibitor.",
+"",
+"ACE inhibitor.",
+"ACE inhibitor.",
+"ACE inhibitor."
+]
+}
+]
+},
+"cpr382": {
+"k": "Aldosterone antagonists",
+"q": [
+{
+"id": "cpr382-f1",
+"lv": "Easy",
+"s": "Eplerenone blocks the effect of which hormone?",
+"c": [
+"Angiotensin II",
+"Renin",
+"Atrial natriuretic peptide",
+"Antidiuretic hormone",
+"Aldosterone"
+],
+"a": 4,
+"e": "Eplerenone, like spironolactone, blocks aldosterone receptors.",
+"w": [
+"ARBs block Ang II.",
+"Not its target.",
+"Not its target.",
+"Not its target.",
+""
+]
+},
+{
+"id": "cpr382-f2",
+"lv": "Hard",
+"s": "A patient starts spironolactone. Which serum change should be monitored?",
+"c": [
+"Falling potassium",
+"Rising sodium",
+"Rising potassium",
+"Falling calcium",
+"Rising glucose"
+],
+"a": 2,
+"e": "Blocking aldosterone reduces K⁺ secretion, so hyperkalemia can occur.",
+"w": [
+"Opposite.",
+"Sodium tends to fall.",
+"",
+"Not the main risk.",
+"Not the main risk."
+]
+}
+]
+},
+"cpr383": {
+"k": "RAS causes renin-driven hypertension",
+"q": [
+{
+"id": "cpr383-f1",
+"lv": "Easy",
+"s": "In renal artery stenosis, what is the plasma renin level?",
+"c": [
+"High",
+"Low",
+"Normal",
+"Absent",
+"Unmeasurable"
+],
+"a": 0,
+"e": "Low perfusion at the JG cells raises renin.",
+"w": [
+"",
+"Opposite.",
+"It rises.",
+"It rises.",
+"It rises."
+]
+},
+{
+"id": "cpr383-f2",
+"lv": "Hard",
+"s": "Which bedside finding supports renal artery stenosis as a cause of hypertension?",
+"c": [
+"A pericardial friction rub",
+"A carotid bruit alone",
+"An S3 gallop at the apex",
+"A flank or abdominal bruit",
+"A wide pulse pressure"
+],
+"a": 3,
+"e": "Turbulent flow through the narrowed renal artery gives an abdominal or flank bruit.",
+"w": [
+"Pericardial sign.",
+"Carotid disease.",
+"Heart failure sign.",
+"",
+"Not specific."
+]
+}
+]
+},
+"cpr384": {
+"k": "Bilateral RAS: AKI with ACEI or ARB",
+"q": [
+{
+"id": "cpr384-f1",
+"lv": "Easy",
+"s": "In the glomerulus, angiotensin II constricts which arteriole more?",
+"c": [
+"Afferent arteriole",
+"Efferent arteriole",
+"Both equally",
+"Neither arteriole",
+"Interlobar artery"
+],
+"a": 1,
+"e": "Ang II mainly constricts the efferent arteriole, which supports glomerular pressure and GFR.",
+"w": [
+"Less affected.",
+"",
+"Mainly efferent.",
+"It constricts.",
+"Not the target."
+]
+},
+{
+"id": "cpr384-f2",
+"lv": "Hard",
+"s": "A patient with a single kidney and renal artery stenosis is started on an ARB. What happens to GFR?",
+"c": [
+"It rises",
+"It stays the same",
+"It doubles",
+"It rises then normalizes",
+"It falls"
+],
+"a": 4,
+"e": "Losing Ang II's efferent constriction drops glomerular pressure, so GFR falls and AKI can follow.",
+"w": [
+"Opposite.",
+"It changes.",
+"Opposite.",
+"It falls.",
+""
+]
+}
+]
+},
+"cpr385": {
+"k": "Unilateral RAS: ACEI or ARB first-line",
+"q": [
+{
+"id": "cpr385-f1",
+"lv": "Easy",
+"s": "ACE inhibitors are first-line for unilateral RAS when what is true?",
+"c": [
+"Both arteries are narrowed",
+"There is only one kidney",
+"The other kidney is normal",
+"Potassium is high",
+"Creatinine is rising fast"
+],
+"a": 2,
+"e": "A normal contralateral kidney maintains GFR, so the AKI risk is small.",
+"w": [
+"Bilateral is a relative contraindication.",
+"Solitary kidney is a relative contraindication.",
+"",
+"Caution with high K⁺.",
+"Caution with rising creatinine."
+]
+},
+{
+"id": "cpr385-f2",
+"lv": "Hard",
+"s": "Why is the risk of AKI with an ACE inhibitor low in unilateral RAS?",
+"c": [
+"The normal kidney keeps GFR up",
+"Ang II does not affect GFR",
+"The narrowed kidney gains GFR",
+"Renin falls in renal stenosis",
+"Aldosterone rises with an ACEI"
+],
+"a": 0,
+"e": "The healthy kidney does not depend on Ang II for its GFR, so total GFR is preserved.",
+"w": [
+"",
+"Ang II supports GFR in RAS.",
+"It may lose GFR.",
+"Renin rises.",
+"Aldosterone falls."
+]
+}
+]
 }
 });

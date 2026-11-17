@@ -6860,5 +6860,2073 @@ Object.assign(window.JJ_FU, {
 ]
 }
 ]
+},
+"cbr159": {
+"k": "Lipoprotein core vs surface",
+"q": [
+{
+"id": "cbr159-f1",
+"lv": "Easy",
+"s": "Which molecules make up the surface shell of a lipoprotein?",
+"c": [
+"Triglycerides and cholesteryl esters",
+"Phospholipid, cholesterol, protein",
+"Free fatty acids and glycerol only",
+"Cholesteryl esters and apoproteins",
+"Triglycerides and phospholipids"
+],
+"a": 1,
+"e": "The amphipathic shell is phospholipid, free cholesterol and apolipoproteins.",
+"w": [
+"Those form the core.",
+"",
+"Not lipoprotein parts.",
+"Esters are in the core.",
+"TAG is in the core."
+]
+},
+{
+"id": "cbr159-f2",
+"lv": "Hard",
+"s": "Why are cholesteryl esters found in the core instead of the surface?",
+"c": [
+"They carry a net charge",
+"They bind apoproteins",
+"They are water soluble",
+"They are amphipathic",
+"They are fully nonpolar"
+],
+"a": 4,
+"e": "Esterifying the OH group removes cholesterol's only polar part, so the ester is fully nonpolar.",
+"w": [
+"Not charged.",
+"Apoproteins are on the surface.",
+"Opposite.",
+"Free cholesterol is amphipathic.",
+""
+]
+}
+]
+},
+"cbr160": {
+"k": "Electrophoresis bands",
+"q": [
+{
+"id": "cbr160-f1",
+"lv": "Easy",
+"s": "Which lipoprotein stays at the origin on electrophoresis?",
+"c": [
+"Low-density lipoprotein",
+"Very low-density lipoprotein",
+"Chylomicron",
+"High-density lipoprotein",
+"Intermediate lipoprotein"
+],
+"a": 2,
+"e": "Chylomicrons do not move from the origin.",
+"w": [
+"Beta band.",
+"Pre-beta band.",
+"",
+"Alpha band.",
+"Broad beta region."
+]
+},
+{
+"id": "cbr160-f2",
+"lv": "Hard",
+"s": "A patient's electrophoresis shows a very dense beta band only. Which disorder fits best?",
+"c": [
+"Familial hypercholesterolemia",
+"Lipoprotein lipase deficiency",
+"Tangier disease of HDL",
+"Abetalipoproteinemia",
+"Fish-eye disease of LCAT"
+],
+"a": 0,
+"e": "LDL runs in the beta band, so a dense beta band means high LDL, as in type IIa.",
+"w": [
+"",
+"Chylomicrons at the origin.",
+"Low alpha band.",
+"No beta band.",
+"Low alpha band."
+]
+}
+]
+},
+"cbr161": {
+"k": "HDL densest",
+"q": [
+{
+"id": "cbr161-f1",
+"lv": "Easy",
+"s": "Which lipoprotein floats highest on ultracentrifugation?",
+"c": [
+"High-density lipoprotein",
+"Low-density lipoprotein",
+"Intermediate lipoprotein",
+"Chylomicron",
+"Very low-density lipoprotein"
+],
+"a": 3,
+"e": "Chylomicrons have the most lipid and lowest density, so they float on top.",
+"w": [
+"Densest, sinks lowest.",
+"Below VLDL.",
+"Between VLDL and LDL.",
+"",
+"Below chylomicrons."
+]
+},
+{
+"id": "cbr161-f2",
+"lv": "Hard",
+"s": "Rank by density from lowest to highest.",
+"c": [
+"HDL, LDL, VLDL, chylomicron",
+"Chylomicron, VLDL, LDL, HDL",
+"VLDL, chylomicron, HDL, LDL",
+"LDL, HDL, VLDL, chylomicron",
+"Chylomicron, LDL, VLDL, HDL"
+],
+"a": 1,
+"e": "Density rises as lipid falls and protein rises: chylomicron, VLDL, IDL, LDL, HDL.",
+"w": [
+"Reversed.",
+"",
+"Not the order.",
+"Not the order.",
+"VLDL and LDL swapped."
+]
+}
+]
+},
+"cbr162": {
+"k": "Apo A-I in HDL",
+"q": [
+{
+"id": "cbr162-f1",
+"lv": "Easy",
+"s": "Apo A-I activates which enzyme?",
+"c": [
+"LPL",
+"Hepatic lipase",
+"ACAT",
+"CETP",
+"LCAT"
+],
+"a": 4,
+"e": "Apo A-I activates LCAT, which esterifies cholesterol in HDL.",
+"w": [
+"Apo C-II activates LPL.",
+"Not activated by A-I.",
+"Intracellular.",
+"Not an activation target.",
+""
+]
+},
+{
+"id": "cbr162-f2",
+"lv": "Hard",
+"s": "A patient has a complete absence of apo A-I. Which finding is expected?",
+"c": [
+"Very high HDL",
+"Very high chylomicrons",
+"Very low HDL",
+"Very low LDL",
+"Very high VLDL"
+],
+"a": 2,
+"e": "Apo A-I is the main HDL protein, so without it HDL cannot form.",
+"w": [
+"Opposite.",
+"Not apo A-I related.",
+"",
+"Not apo A-I related.",
+"Not apo A-I related."
+]
+}
+]
+},
+"cbr163": {
+"k": "Chylomicrons carry dietary TAG",
+"q": [
+{
+"id": "cbr163-f1",
+"lv": "Easy",
+"s": "Which apolipoprotein is unique to chylomicrons?",
+"c": [
+"Apo B-48",
+"Apo B-100",
+"Apo A-I",
+"Apo C-II",
+"Apo E"
+],
+"a": 0,
+"e": "Apo B-48 is made in the intestine and is the structural protein of chylomicrons.",
+"w": [
+"",
+"VLDL and LDL.",
+"HDL.",
+"Shared.",
+"Shared."
+]
+},
+{
+"id": "cbr163-f2",
+"lv": "Hard",
+"s": "Besides TAG, what else do chylomicrons carry from the diet?",
+"c": [
+"Glucose from starch",
+"Absorbed amino acids",
+"Water-soluble vitamins",
+"Fat-soluble vitamins",
+"Conjugated bile salts"
+],
+"a": 3,
+"e": "They carry dietary TAG, cholesterol, cholesteryl esters and vitamins A, D, E and K.",
+"w": [
+"Carried by the portal vein.",
+"Carried by the portal vein.",
+"Carried by the portal vein.",
+"",
+"Recycled to the liver."
+]
+}
+]
+},
+"cbr164": {
+"k": "Apo C-II activates LPL",
+"q": [
+{
+"id": "cbr164-f1",
+"lv": "Easy",
+"s": "Where does a chylomicron get its apo C-II?",
+"c": [
+"From LDL",
+"From HDL",
+"From the liver directly",
+"From adipose tissue",
+"From the pancreas"
+],
+"a": 1,
+"e": "HDL transfers apo C-II and apo E to the nascent chylomicron.",
+"w": [
+"LDL has only B-100.",
+"",
+"Not the source.",
+"Not the source.",
+"Not the source."
+]
+},
+{
+"id": "cbr164-f2",
+"lv": "Hard",
+"s": "A child has milky plasma and pancreatitis, but LPL protein is normal. Which defect fits?",
+"c": [
+"Apo E deficiency",
+"LDL receptor defect",
+"ABCA1 defect",
+"MTP defect",
+"Apo C-II deficiency"
+],
+"a": 4,
+"e": "Without its activator apo C-II, LPL cannot work, giving type I.",
+"w": [
+"Type III.",
+"Type IIa.",
+"Tangier.",
+"Abetalipoproteinemia.",
+""
+]
+}
+]
+},
+"cbr165": {
+"k": "Heparan sulfate anchors LPL",
+"q": [
+{
+"id": "cbr165-f1",
+"lv": "Easy",
+"s": "Lipoprotein lipase acts where?",
+"c": [
+"Inside the hepatocytes",
+"Inside the lysosomes",
+"On capillary walls",
+"In the intestinal lumen",
+"In the mitochondria"
+],
+"a": 2,
+"e": "LPL is extracellular, on the luminal surface of capillaries.",
+"w": [
+"Not LPL.",
+"Lysosomal acid lipase.",
+"",
+"Pancreatic lipase.",
+"Not a lipase site."
+]
+},
+{
+"id": "cbr165-f2",
+"lv": "Hard",
+"s": "Why does an IV dose of heparin raise plasma lipase activity?",
+"c": [
+"It frees LPL from its anchor",
+"It activates LPL synthesis",
+"It adds apo C-II to plasma",
+"It blocks the breakdown of LPL",
+"It activates hepatic ACAT"
+],
+"a": 0,
+"e": "Heparin competes for the heparan sulfate binding, releasing LPL into plasma.",
+"w": [
+"",
+"Too fast for synthesis.",
+"Not apo C-II.",
+"Not the mechanism.",
+"Unrelated."
+]
+}
+]
+},
+"cbr166": {
+"k": "Insulin stimulates LPL",
+"q": [
+{
+"id": "cbr166-f1",
+"lv": "Easy",
+"s": "After a meal, LPL in adipose tissue does what?",
+"c": [
+"Falls to save fat",
+"Stops completely",
+"Moves to the liver",
+"Rises to store fat",
+"Stays unchanged"
+],
+"a": 3,
+"e": "Insulin raises adipose LPL, so dietary fat is stored.",
+"w": [
+"Opposite.",
+"Not the effect.",
+"Not the effect.",
+"",
+"Insulin changes it."
+]
+},
+{
+"id": "cbr166-f2",
+"lv": "Hard",
+"s": "In uncontrolled type 1 diabetes, what happens to chylomicron clearance?",
+"c": [
+"It speeds as LPL rises",
+"It slows as LPL falls",
+"It is unchanged",
+"It speeds as apo E rises",
+"It slows as LCAT falls"
+],
+"a": 1,
+"e": "Low insulin lowers LPL synthesis, so chylomicrons and TAG stay high.",
+"w": [
+"Opposite.",
+"",
+"Insulin matters.",
+"Not the mechanism.",
+"Not the main mechanism."
+]
+}
+]
+},
+"cbr167": {
+"k": "MTP assembles chylomicrons",
+"q": [
+{
+"id": "cbr167-f1",
+"lv": "Easy",
+"s": "MTP is needed to assemble which lipoproteins?",
+"c": [
+"HDL and LDL particles",
+"Only nascent HDL",
+"Only mature LDL",
+"The abnormal lipoprotein X",
+"Chylomicrons and VLDL"
+],
+"a": 4,
+"e": "MTP loads TAG onto apo B-48 and apo B-100, so it assembles chylomicrons and VLDL.",
+"w": [
+"Not assembled by MTP.",
+"Not assembled by MTP.",
+"Made from VLDL.",
+"Abnormal particle.",
+""
+]
+},
+{
+"id": "cbr167-f2",
+"lv": "Hard",
+"s": "A drug that inhibits MTP would lower which plasma lipoprotein most?",
+"c": [
+"HDL",
+"Lipoprotein X",
+"LDL",
+"Apo A-I",
+"Free fatty acids"
+],
+"a": 2,
+"e": "Without VLDL secretion, less LDL is made, so LDL falls.",
+"w": [
+"Not B-containing.",
+"Not related.",
+"",
+"HDL protein.",
+"Not a lipoprotein."
+]
+}
+]
+},
+"cbr168": {
+"k": "Nascent to mature chylomicron",
+"q": [
+{
+"id": "cbr168-f1",
+"lv": "Easy",
+"s": "A nascent chylomicron leaves the intestine through which route?",
+"c": [
+"The lymphatics",
+"The portal vein",
+"The bile duct",
+"The hepatic artery",
+"The renal vein"
+],
+"a": 0,
+"e": "Chylomicrons are too large for capillaries and enter the lacteals and lymph.",
+"w": [
+"",
+"Water-soluble nutrients.",
+"Not the route.",
+"Not the route.",
+"Not the route."
+]
+},
+{
+"id": "cbr168-f2",
+"lv": "Hard",
+"s": "Without HDL to donate apo C-II and apo E, a nascent chylomicron would do what?",
+"c": [
+"Become LDL right away",
+"Turn into HDL",
+"Be taken up by muscle",
+"Stay large, uncleared",
+"Be cleared faster"
+],
+"a": 3,
+"e": "Without apo C-II, LPL cannot hydrolyze its TAG, and without apo E its remnant cannot be cleared.",
+"w": [
+"Never becomes LDL.",
+"Not possible.",
+"Not the effect.",
+"",
+"Opposite."
+]
+}
+]
+},
+"cbr169": {
+"k": "Apo E clears remnants",
+"q": [
+{
+"id": "cbr169-f1",
+"lv": "Easy",
+"s": "Which apolipoprotein is kept on the chylomicron remnant?",
+"c": [
+"Apo C-II",
+"Apo E",
+"Apo A-I",
+"Apo B-100",
+"Apo D"
+],
+"a": 1,
+"e": "The remnant returns apo C-II to HDL but keeps apo E and B-48.",
+"w": [
+"Returned to HDL.",
+"",
+"HDL protein.",
+"Not on chylomicrons.",
+"Not the key one."
+]
+},
+{
+"id": "cbr169-f2",
+"lv": "Hard",
+"s": "If apo E is defective, which particles accumulate?",
+"c": [
+"Nascent discoidal HDL disks",
+"Only LDL from the liver",
+"Lipoprotein X particles",
+"Free fatty acids in plasma",
+"Chylomicron, VLDL remnants"
+],
+"a": 4,
+"e": "Remnants need apo E for liver uptake, so they accumulate, as in type III.",
+"w": [
+"Not apo E dependent.",
+"LDL uses B-100.",
+"LCAT deficiency.",
+"Not a lipoprotein.",
+""
+]
+}
+]
+},
+"cbr170": {
+"k": "LPL deficiency, type I",
+"q": [
+{
+"id": "cbr170-f1",
+"lv": "Easy",
+"s": "Type I hyperlipoproteinemia raises which particle?",
+"c": [
+"LDL particles",
+"HDL particles",
+"Chylomicrons",
+"IDL particles",
+"Lipoprotein X"
+],
+"a": 2,
+"e": "LPL or apo C-II deficiency leaves chylomicrons uncleared.",
+"w": [
+"Type IIa.",
+"Not raised.",
+"",
+"Type III.",
+"LCAT deficiency."
+]
+},
+{
+"id": "cbr170-f2",
+"lv": "Hard",
+"s": "A child with type I hyperlipoproteinemia should be treated with which diet?",
+"c": [
+"Very low fat",
+"Very low protein",
+"Very low carbohydrate",
+"High cholesterol",
+"High fat"
+],
+"a": 0,
+"e": "Limiting dietary fat lowers chylomicron production.",
+"w": [
+"",
+"Not the problem.",
+"Not the main treatment.",
+"Opposite.",
+"Opposite."
+]
+}
+]
+},
+"cbr171": {
+"k": "VLDL from the liver",
+"q": [
+{
+"id": "cbr171-f1",
+"lv": "Easy",
+"s": "What is the main lipid in VLDL?",
+"c": [
+"Cholesteryl ester",
+"Phospholipid",
+"Free fatty acid",
+"Triglyceride",
+"Protein"
+],
+"a": 3,
+"e": "VLDL is about 60% endogenous TAG made in the liver.",
+"w": [
+"Main lipid in LDL.",
+"Surface lipid.",
+"Not packaged.",
+"",
+"Not a lipid."
+]
+},
+{
+"id": "cbr171-f2",
+"lv": "Hard",
+"s": "A high-carbohydrate diet raises which lipoprotein most?",
+"c": [
+"HDL",
+"VLDL",
+"LDL receptor",
+"Chylomicron",
+"Apo A-I"
+],
+"a": 1,
+"e": "Excess carbohydrate is turned into fatty acids and TAG in the liver and exported as VLDL.",
+"w": [
+"Not raised.",
+"",
+"Not a lipoprotein.",
+"Dietary fat raises these.",
+"Not raised."
+]
+}
+]
+},
+"cbr172": {
+"k": "Hepatic lipase: IDL to LDL",
+"q": [
+{
+"id": "cbr172-f1",
+"lv": "Easy",
+"s": "Which particle is made when LPL acts on VLDL?",
+"c": [
+"HDL",
+"Chylomicron",
+"LDL directly",
+"Lipoprotein X",
+"IDL"
+],
+"a": 4,
+"e": "LPL turns VLDL into IDL, which is smaller and denser.",
+"w": [
+"Not formed.",
+"Not formed.",
+"Needs hepatic lipase.",
+"Not formed.",
+""
+]
+},
+{
+"id": "cbr172-f2",
+"lv": "Hard",
+"s": "Hepatic lipase deficiency would cause which particle to accumulate?",
+"c": [
+"HDL",
+"Chylomicrons",
+"IDL",
+"Apo A-I",
+"Free cholesterol"
+],
+"a": 2,
+"e": "Without hepatic lipase, IDL cannot become LDL.",
+"w": [
+"Not the main one.",
+"LPL clears them.",
+"",
+"Not a particle.",
+"LCAT deficiency."
+]
+}
+]
+},
+"cbr173": {
+"k": "CETP exchange",
+"q": [
+{
+"id": "cbr173-f1",
+"lv": "Easy",
+"s": "CETP gives HDL which lipid in exchange for cholesteryl esters?",
+"c": [
+"Triglyceride",
+"Free cholesterol",
+"Phospholipid",
+"Apo C-II",
+"Apo E"
+],
+"a": 0,
+"e": "CETP moves cholesteryl esters from HDL to VLDL and TAG from VLDL to HDL.",
+"w": [
+"",
+"Not exchanged.",
+"Not exchanged.",
+"A protein.",
+"A protein."
+]
+},
+{
+"id": "cbr173-f2",
+"lv": "Hard",
+"s": "A CETP inhibitor would change HDL how?",
+"c": [
+"HDL cholesterol falls",
+"HDL disappears",
+"HDL TAG rises",
+"HDL cholesterol rises",
+"HDL becomes LDL"
+],
+"a": 3,
+"e": "Blocking CETP keeps cholesteryl esters in HDL, raising HDL cholesterol.",
+"w": [
+"Opposite.",
+"Not the effect.",
+"Opposite.",
+"",
+"Not possible."
+]
+}
+]
+},
+"cbr174": {
+"k": "Apo B-100 binds the LDL receptor",
+"q": [
+{
+"id": "cbr174-f1",
+"lv": "Easy",
+"s": "Apo B-100 is the structural protein of which lipoproteins?",
+"c": [
+"Chylomicrons only",
+"VLDL, IDL and LDL",
+"HDL only",
+"Chylomicrons and HDL",
+"HDL and LDL"
+],
+"a": 1,
+"e": "Apo B-100 is made in the liver and stays with VLDL as it becomes IDL and LDL.",
+"w": [
+"Apo B-48.",
+"",
+"Apo A-I.",
+"Not B-100.",
+"HDL has A-I."
+]
+},
+{
+"id": "cbr174-f2",
+"lv": "Hard",
+"s": "A mutation in apo B-100 lowers its binding to the LDL receptor. Which disorder results?",
+"c": [
+"Type I hyperlipoproteinemia",
+"Tangier disease with low HDL",
+"Type IV hyperlipoproteinemia",
+"Fish-eye disease, partial LCAT",
+"Familial hypercholesterolemia"
+],
+"a": 4,
+"e": "Defective apo B-100 binding acts like a receptor defect, raising LDL as in type IIa.",
+"w": [
+"LPL or apo C-II.",
+"ABCA1.",
+"VLDL overproduction.",
+"Partial LCAT.",
+""
+]
+}
+]
+},
+"cbr175": {
+"k": "VLDL to LDL path",
+"q": [
+{
+"id": "cbr175-f1",
+"lv": "Easy",
+"s": "Where do LDL particles deliver cholesterol?",
+"c": [
+"The small intestine only",
+"HDL particles only",
+"Liver and other tissues",
+"Adipose tissue only",
+"The lungs only"
+],
+"a": 2,
+"e": "LDL delivers cholesterol to the liver and to extrahepatic tissues by receptor uptake.",
+"w": [
+"Not the target.",
+"Not the target.",
+"",
+"Not the main target.",
+"Not the main target."
+]
+},
+{
+"id": "cbr175-f2",
+"lv": "Hard",
+"s": "As VLDL becomes LDL, what happens to its TAG and cholesterol content?",
+"c": [
+"Less TAG, more cholesterol",
+"More TAG, less cholesterol",
+"Both rise together",
+"Both fall equally",
+"No change in either"
+],
+"a": 0,
+"e": "TAG is removed by LPL and hepatic lipase, so the cholesterol share rises.",
+"w": [
+"",
+"Opposite.",
+"TAG falls.",
+"Proportions change.",
+"They change."
+]
+}
+]
+},
+"cbr176": {
+"k": "Clathrin-coated pits",
+"q": [
+{
+"id": "cbr176-f1",
+"lv": "Easy",
+"s": "After endocytosis, LDL is broken down in which organelle?",
+"c": [
+"Mitochondrion",
+"Peroxisome",
+"Golgi",
+"Lysosome",
+"Nucleus"
+],
+"a": 3,
+"e": "LDL reaches lysosomes, where its esters are hydrolyzed to free cholesterol.",
+"w": [
+"Not the site.",
+"Not the site.",
+"Not the site.",
+"",
+"Not the site."
+]
+},
+{
+"id": "cbr176-f2",
+"lv": "Hard",
+"s": "A cell cannot form clathrin-coated pits. What happens to LDL uptake?",
+"c": [
+"It rises above normal",
+"It fails after binding",
+"It is unchanged overall",
+"It occurs instead by SR-B1",
+"It occurs instead by ABCA1"
+],
+"a": 1,
+"e": "LDL can bind its receptor, but without coated pits the complex is not internalized.",
+"w": [
+"Opposite.",
+"",
+"It changes.",
+"SR-B1 takes HDL esters.",
+"ABCA1 exports cholesterol."
+]
+}
+]
+},
+"cbr177": {
+"k": "ACAT stores cholesterol",
+"q": [
+{
+"id": "cbr177-f1",
+"lv": "Easy",
+"s": "ACAT uses which molecule as the fatty acid donor?",
+"c": [
+"Lecithin",
+"Triglyceride",
+"Free fatty acid",
+"Phosphatidylserine",
+"Acyl-CoA"
+],
+"a": 4,
+"e": "ACAT transfers a fatty acid from acyl-CoA to cholesterol.",
+"w": [
+"LCAT uses lecithin.",
+"Not the donor.",
+"Not activated.",
+"Not the donor.",
+""
+]
+},
+{
+"id": "cbr177-f2",
+"lv": "Hard",
+"s": "Why does a cell store cholesterol as esters rather than leaving it free?",
+"c": [
+"Esters are more polar",
+"Esters leave the cell quickly",
+"Free excess harms membranes",
+"Esters make bile",
+"Free cholesterol is inert"
+],
+"a": 2,
+"e": "Excess free cholesterol stiffens and damages membranes, so it is stored as inert esters in droplets.",
+"w": [
+"Esters are less polar.",
+"They are stored.",
+"",
+"Not the purpose.",
+"It is not inert."
+]
+}
+]
+},
+"cbr178": {
+"k": "SREBP controls LDL receptors",
+"q": [
+{
+"id": "cbr178-f1",
+"lv": "Easy",
+"s": "SREBP is a transcription factor that is active when cell cholesterol is what?",
+"c": [
+"Low",
+"High",
+"Normal",
+"Absent from plasma",
+"Esterified"
+],
+"a": 0,
+"e": "Low cholesterol activates SREBP, raising LDL receptors and HMG-CoA reductase.",
+"w": [
+"",
+"High cholesterol inhibits it.",
+"Not the trigger.",
+"Not the trigger.",
+"Not the trigger."
+]
+},
+{
+"id": "cbr178-f2",
+"lv": "Hard",
+"s": "Statins lower liver cholesterol. How does this lower plasma LDL?",
+"c": [
+"SREBP falls, fewer receptors",
+"LCAT rises, more HDL forms",
+"CETP falls, less lipid exchange",
+"SREBP rises, more LDL receptors",
+"ACAT rises, more esters stored"
+],
+"a": 3,
+"e": "Less liver cholesterol activates SREBP, so more LDL receptors clear LDL from blood.",
+"w": [
+"Opposite.",
+"Not the mechanism.",
+"Not the mechanism.",
+"",
+"Not the mechanism."
+]
+}
+]
+},
+"cbr179": {
+"k": "Scavenger receptors make foam cells",
+"q": [
+{
+"id": "cbr179-f1",
+"lv": "Easy",
+"s": "Why do scavenger receptors cause lipid overload in macrophages?",
+"c": [
+"They are downregulated quickly",
+"They are not downregulated",
+"They export cholesterol",
+"They bind only HDL",
+"They need insulin"
+],
+"a": 1,
+"e": "Unlike LDL receptors, scavenger receptors are not turned down by cell cholesterol.",
+"w": [
+"Opposite.",
+"",
+"ABCA1 exports.",
+"They bind oxLDL.",
+"Not true."
+]
+},
+{
+"id": "cbr179-f2",
+"lv": "Hard",
+"s": "Antioxidants such as vitamin E would act at which step of atherogenesis?",
+"c": [
+"Rupture of the cap",
+"Calcium deposition",
+"Platelet aggregation",
+"Smooth muscle migration",
+"Oxidation of LDL"
+],
+"a": 4,
+"e": "Antioxidants block LDL oxidation, the step that lets scavenger receptors take it up.",
+"w": [
+"Late event.",
+"Late event.",
+"After rupture.",
+"Later step.",
+""
+]
+}
+]
+},
+"cbr180": {
+"k": "Fatty streak",
+"q": [
+{
+"id": "cbr180-f1",
+"lv": "Easy",
+"s": "Fatty streaks are made mainly of which cells?",
+"c": [
+"Fibroblasts",
+"Neutrophils",
+"Foam cells",
+"Red cells",
+"Platelets"
+],
+"a": 2,
+"e": "Foam cells accumulating in the intima form the fatty streak.",
+"w": [
+"Not the main cell.",
+"Not the main cell.",
+"",
+"Not the main cell.",
+"Not the main cell."
+]
+},
+{
+"id": "cbr180-f2",
+"lv": "Hard",
+"s": "Which step comes right after foam cells release cytokines in plaque growth?",
+"c": [
+"Smooth muscle moves to intima",
+"LDL enters the subendothelium",
+"Monocytes first adhere to wall",
+"Thrombus occludes the artery",
+"The fatty streak first appears"
+],
+"a": 0,
+"e": "Cytokines drive smooth muscle migration from the media to the intima.",
+"w": [
+"",
+"An early step.",
+"An early step.",
+"A late step.",
+"Before cytokines."
+]
+}
+]
+},
+"cbr181": {
+"k": "Lysosomal cholesterol storage",
+"q": [
+{
+"id": "cbr181-f1",
+"lv": "Easy",
+"s": "Wolman disease is a deficiency of which enzyme?",
+"c": [
+"Lipoprotein lipase",
+"Hepatic lipase",
+"Pancreatic lipase",
+"Lysosomal acid lipase",
+"Hormone-sensitive lipase"
+],
+"a": 3,
+"e": "Wolman disease is lysosomal acid lipase deficiency, so cholesteryl esters and TAG build up in lysosomes.",
+"w": [
+"Type I.",
+"IDL buildup.",
+"Fat maldigestion.",
+"",
+"Not this disease."
+]
+},
+{
+"id": "cbr181-f2",
+"lv": "Hard",
+"s": "In Niemann-Pick type C, cholesterol released from LDL is trapped where?",
+"c": [
+"In the ER",
+"In lysosomes",
+"In mitochondria",
+"In plasma",
+"In HDL"
+],
+"a": 1,
+"e": "Defective NPC proteins prevent free cholesterol from leaving lysosomes.",
+"w": [
+"Not where it is trapped.",
+"",
+"Not where it is trapped.",
+"Not intracellular.",
+"Not intracellular."
+]
+}
+]
+},
+"cbr182": {
+"k": "oxLDL forms foam cells",
+"q": [
+{
+"id": "cbr182-f1",
+"lv": "Easy",
+"s": "Which risk factor increases LDL oxidation?",
+"c": [
+"Exercise",
+"High HDL",
+"Vitamin E intake",
+"Low LDL",
+"Smoking"
+],
+"a": 4,
+"e": "Smoking raises oxidative stress, which oxidizes LDL.",
+"w": [
+"Protective.",
+"Protective.",
+"Antioxidant.",
+"Less substrate.",
+""
+]
+},
+{
+"id": "cbr182-f2",
+"lv": "Hard",
+"s": "Monocytes enter the intima after what event?",
+"c": [
+"Plaque calcification",
+"Cap rupture",
+"Endothelial injury",
+"Thrombus formation",
+"Fatty streak regression"
+],
+"a": 2,
+"e": "Endothelial injury, partly from oxidized LDL, lets monocytes adhere and migrate in.",
+"w": [
+"Late.",
+"Late.",
+"",
+"Late.",
+"Not an event."
+]
+}
+]
+},
+"cbr183": {
+"k": "Cap rupture triggers thrombus",
+"q": [
+{
+"id": "cbr183-f1",
+"lv": "Easy",
+"s": "What makes a plaque unstable?",
+"c": [
+"A thin fibrous cap",
+"A thick fibrous cap",
+"Few inflammatory cells",
+"Small lipid core",
+"Low LDL"
+],
+"a": 0,
+"e": "Inflammation thins the fibrous cap, making rupture more likely.",
+"w": [
+"",
+"Stable.",
+"Stable.",
+"Stable.",
+"Stable."
+]
+},
+{
+"id": "cbr183-f2",
+"lv": "Hard",
+"s": "A thrombus forms in a cerebral artery after plaque rupture. What results?",
+"c": [
+"Myocardial infarction",
+"Pulmonary embolism",
+"Pancreatitis",
+"Stroke",
+"Fatty streak"
+],
+"a": 3,
+"e": "In cerebral arteries, plaque rupture and thrombosis cause a stroke.",
+"w": [
+"Coronary.",
+"Venous.",
+"Not related.",
+"",
+"An early lesion."
+]
+}
+]
+},
+"cbr184": {
+"k": "ABCA1 efflux",
+"q": [
+{
+"id": "cbr184-f1",
+"lv": "Easy",
+"s": "ABCA1 moves free cholesterol onto which acceptor?",
+"c": [
+"Apo B-100",
+"Apo A-I",
+"Apo C-II",
+"Apo E",
+"Apo B-48"
+],
+"a": 1,
+"e": "ABCA1 transfers cholesterol and phospholipid to lipid-poor apo A-I.",
+"w": [
+"LDL protein.",
+"",
+"LPL activator.",
+"Remnant protein.",
+"Chylomicron protein."
+]
+},
+{
+"id": "cbr184-f2",
+"lv": "Hard",
+"s": "A drug blocks ABCA1. Which change in arterial macrophages follows?",
+"c": [
+"More HDL is formed",
+"More cholesterol reaches liver",
+"Fewer foam cells form",
+"More LCAT is made in plasma",
+"More cholesterol stays inside"
+],
+"a": 4,
+"e": "Without efflux, cholesterol stays in macrophages, promoting foam cells.",
+"w": [
+"Less HDL.",
+"Less transport.",
+"More foam cells.",
+"Not linked.",
+""
+]
+}
+]
+},
+"cbr185": {
+"k": "LCAT matures HDL",
+"q": [
+{
+"id": "cbr185-f1",
+"lv": "Easy",
+"s": "Nascent HDL has which shape?",
+"c": [
+"Spherical",
+"Rod",
+"Discoidal",
+"Ring",
+"Star"
+],
+"a": 2,
+"e": "Nascent pre-β HDL is disc-shaped and cholesterol-poor. LCAT makes it spherical.",
+"w": [
+"Mature HDL.",
+"Not HDL shape.",
+"",
+"Not HDL shape.",
+"Not HDL shape."
+]
+},
+{
+"id": "cbr185-f2",
+"lv": "Hard",
+"s": "LCAT uses which phospholipid as the fatty acid donor?",
+"c": [
+"Phosphatidylcholine",
+"Phosphatidylserine",
+"Sphingomyelin",
+"Phosphatidylinositol",
+"Cardiolipin"
+],
+"a": 0,
+"e": "LCAT transfers a fatty acid from lecithin, phosphatidylcholine, to cholesterol, leaving lysolecithin.",
+"w": [
+"",
+"Not used.",
+"Not used.",
+"Not used.",
+"Mitochondrial."
+]
+}
+]
+},
+"cbr186": {
+"k": "SR-B1 completes reverse transport",
+"q": [
+{
+"id": "cbr186-f1",
+"lv": "Easy",
+"s": "Reverse cholesterol transport moves cholesterol from where to where?",
+"c": [
+"Liver to tissues",
+"Intestine to liver",
+"Liver to intestine",
+"Tissues to liver",
+"Muscle to fat"
+],
+"a": 3,
+"e": "HDL carries cholesterol from peripheral tissues back to the liver.",
+"w": [
+"LDL route.",
+"Chylomicron route.",
+"Not via HDL.",
+"",
+"Not the definition."
+]
+},
+{
+"id": "cbr186-f2",
+"lv": "Hard",
+"s": "Once in the liver, how is cholesterol from HDL removed from the body?",
+"c": [
+"Exhaled as gas",
+"Excreted into bile",
+"Stored in the liver forever",
+"Excreted in urine",
+"Burned for ATP"
+],
+"a": 1,
+"e": "The liver excretes cholesterol into bile or converts it to bile acids.",
+"w": [
+"Not possible.",
+"",
+"Not true.",
+"Not the route.",
+"Not burned."
+]
+}
+]
+},
+"cbr187": {
+"k": "Lifestyle and HDL",
+"q": [
+{
+"id": "cbr187-f1",
+"lv": "Easy",
+"s": "Which effect does smoking have on HDL?",
+"c": [
+"Raises it",
+"No effect",
+"Doubles it",
+"Converts it to LDL",
+"Lowers it"
+],
+"a": 4,
+"e": "Smoking lowers HDL.",
+"w": [
+"Opposite.",
+"It changes.",
+"Not the effect.",
+"Not possible.",
+""
+]
+},
+{
+"id": "cbr187-f2",
+"lv": "Hard",
+"s": "A patient with diabetes has a normal HDL level but still has rapid atherosclerosis. Why?",
+"c": [
+"HDL is always protective",
+"LDL is irrelevant",
+"HDL may be dysfunctional",
+"Diabetes raises good HDL",
+"HDL is too high"
+],
+"a": 2,
+"e": "In diabetes and metabolic syndrome HDL can lose its protective functions despite normal levels.",
+"w": [
+"Not always.",
+"LDL matters.",
+"",
+"Not the point.",
+"Not the cause."
+]
+}
+]
+},
+"cbr188": {
+"k": "LXR and PPAR raise ABCA1",
+"q": [
+{
+"id": "cbr188-f1",
+"lv": "Easy",
+"s": "Liver X receptors increase the expression of which transporter?",
+"c": [
+"ABCA1",
+"SR-B1",
+"LDL receptor",
+"MTP",
+"CETP"
+],
+"a": 0,
+"e": "LXRs and PPARs promote ABCA1 and cholesterol efflux.",
+"w": [
+"",
+"Not the slide's target.",
+"Not raised by LXR.",
+"Not raised by LXR.",
+"Not raised by LXR."
+]
+},
+{
+"id": "cbr188-f2",
+"lv": "Hard",
+"s": "Which outcome would follow raising ABCA1 in macrophages?",
+"c": [
+"More foam cells",
+"Lower HDL",
+"More LDL oxidation",
+"Fewer foam cells",
+"More scavenger receptors"
+],
+"a": 3,
+"e": "More efflux to HDL keeps macrophages from becoming foam cells.",
+"w": [
+"Opposite.",
+"HDL rises.",
+"Not linked.",
+"",
+"Not linked."
+]
+}
+]
+},
+"cbr189": {
+"k": "FH: LDL receptor defect",
+"q": [
+{
+"id": "cbr189-f1",
+"lv": "Easy",
+"s": "How is familial hypercholesterolemia inherited?",
+"c": [
+"Autosomal recessive",
+"Autosomal dominant",
+"X-linked recessive",
+"Mitochondrial",
+"X-linked dominant"
+],
+"a": 1,
+"e": "Type IIa is autosomal dominant.",
+"w": [
+"Not the pattern.",
+"",
+"Not the pattern.",
+"Not the pattern.",
+"Not the pattern."
+]
+},
+{
+"id": "cbr189-f2",
+"lv": "Hard",
+"s": "A child has LDL above 600 mg/dL and an MI at age 12. Which genotype fits best?",
+"c": [
+"Heterozygous LDL receptor defect",
+"Homozygous apo E2",
+"Heterozygous LPL defect",
+"Homozygous ABCA1 defect",
+"Homozygous LDL receptor defect"
+],
+"a": 4,
+"e": "Two defective LDL receptor alleles give extreme LDL and childhood MI.",
+"w": [
+"Milder, MI in adulthood.",
+"Type III, later onset.",
+"Raises TAG.",
+"Tangier.",
+""
+]
+}
+]
+},
+"cbr190": {
+"k": "FH xanthomas",
+"q": [
+{
+"id": "cbr190-f1",
+"lv": "Easy",
+"s": "Xanthelasma are cholesterol deposits found where?",
+"c": [
+"Palms",
+"Tonsils",
+"Eyelids",
+"Buttocks",
+"Cornea"
+],
+"a": 2,
+"e": "Xanthelasma are yellow cholesterol deposits on the eyelids.",
+"w": [
+"Type III.",
+"Tangier.",
+"",
+"Eruptive.",
+"Corneal arcus or opacity."
+]
+},
+{
+"id": "cbr190-f2",
+"lv": "Hard",
+"s": "Tendon xanthomas in FH come from which lipoprotein?",
+"c": [
+"LDL",
+"Chylomicrons",
+"VLDL",
+"HDL",
+"Lipoprotein X"
+],
+"a": 0,
+"e": "High LDL deposits cholesterol in tendons.",
+"w": [
+"",
+"Eruptive.",
+"Eruptive.",
+"Not deposited.",
+"LCAT deficiency."
+]
+}
+]
+},
+"cbr191": {
+"k": "Type III: apo E",
+"q": [
+{
+"id": "cbr191-f1",
+"lv": "Easy",
+"s": "Which lipids are raised in type III?",
+"c": [
+"Only LDL cholesterol",
+"Only the triglycerides",
+"Only HDL cholesterol",
+"Cholesterol and TAG",
+"Neither of the two"
+],
+"a": 3,
+"e": "Remnants carry both, so both rise.",
+"w": [
+"Type IIa.",
+"Type I or IV.",
+"Not raised.",
+"",
+"Both rise."
+]
+},
+{
+"id": "cbr191-f2",
+"lv": "Hard",
+"s": "In type III, which particles accumulate because they cannot bind receptors?",
+"c": [
+"Nascent intestinal chylomicrons",
+"Chylomicron and VLDL remnants",
+"Mature spherical HDL",
+"Small dense LDL particles",
+"Lipoprotein X particles"
+],
+"a": 1,
+"e": "Abnormal apo E prevents uptake of remnants.",
+"w": [
+"Not apo E dependent.",
+"",
+"Not affected.",
+"Not affected.",
+"LCAT deficiency."
+]
+}
+]
+},
+"cbr192": {
+"k": "Type IV: VLDL overproduction",
+"q": [
+{
+"id": "cbr192-f1",
+"lv": "Easy",
+"s": "Which lipid is mainly raised in type IV?",
+"c": [
+"LDL cholesterol",
+"HDL cholesterol",
+"Free cholesterol",
+"Phospholipid",
+"Triglyceride"
+],
+"a": 4,
+"e": "Excess VLDL raises plasma TAG.",
+"w": [
+"Type IIa.",
+"Not raised.",
+"LCAT deficiency.",
+"Not the main one.",
+""
+]
+},
+{
+"id": "cbr192-f2",
+"lv": "Hard",
+"s": "A patient with type IV has TAG of 1,200 mg/dL. What is the most urgent risk?",
+"c": [
+"Corneal opacity",
+"Orange tonsils",
+"Acute pancreatitis",
+"Night blindness",
+"Achilles tendon rupture"
+],
+"a": 2,
+"e": "TAG above 1,000 mg/dL causes acute pancreatitis.",
+"w": [
+"LCAT deficiency.",
+"Tangier.",
+"",
+"Abetalipoproteinemia.",
+"Not the risk."
+]
+}
+]
+},
+"cbr193": {
+"k": "Type I does not raise atherosclerosis risk",
+"q": [
+{
+"id": "cbr193-f1",
+"lv": "Easy",
+"s": "Type I hyperlipoproteinemia commonly causes which complication?",
+"c": [
+"Pancreatitis",
+"Myocardial infarction",
+"Stroke",
+"Corneal opacity",
+"Tendon xanthomas"
+],
+"a": 0,
+"e": "Very high TAG from chylomicrons causes pancreatitis.",
+"w": [
+"",
+"Not increased.",
+"Not increased.",
+"Not type I.",
+"Type IIa."
+]
+},
+{
+"id": "cbr193-f2",
+"lv": "Hard",
+"s": "Why do chylomicrons not cause atherosclerosis in type I?",
+"c": [
+"They carry no lipid at all",
+"They are cleared very fast",
+"They are taken up by HDL particles",
+"They are too big to enter the wall",
+"They carry only apoprotein"
+],
+"a": 3,
+"e": "Chylomicrons are too large to cross into the arterial intima.",
+"w": [
+"They carry TAG.",
+"They are not cleared.",
+"Not the reason.",
+"",
+"Not true."
+]
+}
+]
+},
+"cbr194": {
+"k": "Type III xanthomas",
+"q": [
+{
+"id": "cbr194-f1",
+"lv": "Easy",
+"s": "Palmar xanthomas suggest which type?",
+"c": [
+"Type I",
+"Type III",
+"Type IIa",
+"Type IV",
+"Tangier"
+],
+"a": 1,
+"e": "Palmar and tuberous xanthomas suggest dysbetalipoproteinemia.",
+"w": [
+"Eruptive.",
+"",
+"Tendon.",
+"Eruptive.",
+"Orange tonsils."
+]
+},
+{
+"id": "cbr194-f2",
+"lv": "Hard",
+"s": "Which apo E form is linked to type III?",
+"c": [
+"Apo E3",
+"Apo E4",
+"Apo A-I",
+"Apo C-II",
+"Apo E2"
+],
+"a": 4,
+"e": "Apo E2 binds receptors poorly and is linked to type III.",
+"w": [
+"Normal form.",
+"Linked to Alzheimer.",
+"Not apo E.",
+"Not apo E.",
+""
+]
+}
+]
+},
+"cbr195": {
+"k": "Type IV triggers",
+"q": [
+{
+"id": "cbr195-f1",
+"lv": "Easy",
+"s": "Which factor worsens type IV?",
+"c": [
+"Low-carb diet",
+"Weight loss",
+"Alcohol",
+"Exercise",
+"Fish oil"
+],
+"a": 2,
+"e": "Alcohol raises hepatic VLDL output.",
+"w": [
+"Lowers TAG.",
+"Lowers TAG.",
+"",
+"Lowers TAG.",
+"Lowers TAG."
+]
+},
+{
+"id": "cbr195-f2",
+"lv": "Hard",
+"s": "Type IV is part of which syndrome?",
+"c": [
+"Metabolic syndrome",
+"Nephrotic syndrome",
+"Cushing syndrome",
+"Down syndrome",
+"Marfan syndrome"
+],
+"a": 0,
+"e": "Type IV is linked to abdominal obesity and insulin resistance.",
+"w": [
+"",
+"Not on the slides.",
+"Not on the slides.",
+"Not linked.",
+"Not linked."
+]
+}
+]
+},
+"cbr196": {
+"k": "LCAT deficiency: lipoprotein X",
+"q": [
+{
+"id": "cbr196-f1",
+"lv": "Easy",
+"s": "In complete LCAT deficiency, which organ is damaged?",
+"c": [
+"Liver",
+"Pancreas",
+"Lung",
+"Kidney",
+"Spleen"
+],
+"a": 3,
+"e": "Progressive kidney disease occurs in complete LCAT deficiency.",
+"w": [
+"Not the main one.",
+"Not the main one.",
+"Not the main one.",
+"",
+"Not the main one."
+]
+},
+{
+"id": "cbr196-f2",
+"lv": "Hard",
+"s": "Why is HDL low in LCAT deficiency?",
+"c": [
+"HDL is overproduced",
+"Nascent HDL can't mature",
+"LDL receptors are absent",
+"ABCA1 is overactive",
+"Apo E is missing"
+],
+"a": 1,
+"e": "Without esterification, HDL cannot fill its core and stays immature.",
+"w": [
+"Opposite.",
+"",
+"Not the cause.",
+"Not the cause.",
+"Not the cause."
+]
+}
+]
+},
+"cbr197": {
+"k": "Fish-eye disease",
+"q": [
+{
+"id": "cbr197-f1",
+"lv": "Easy",
+"s": "Fish-eye disease is a partial loss of which enzyme?",
+"c": [
+"LPL",
+"ACAT",
+"CETP",
+"Hepatic lipase",
+"LCAT"
+],
+"a": 4,
+"e": "Fish-eye disease is partial LCAT deficiency.",
+"w": [
+"Type I.",
+"Not this.",
+"Not this.",
+"Not this.",
+""
+]
+},
+{
+"id": "cbr197-f2",
+"lv": "Hard",
+"s": "A patient has corneal opacity and low HDL but normal kidneys. Which disorder fits?",
+"c": [
+"Complete LCAT deficiency",
+"Type I",
+"Fish-eye disease",
+"Abetalipoproteinemia",
+"Type IIa"
+],
+"a": 2,
+"e": "Corneal opacity with low HDL but no kidney disease fits fish-eye disease.",
+"w": [
+"Kidney disease.",
+"Pancreatitis.",
+"",
+"Ataxia.",
+"High LDL."
+]
+}
+]
+},
+"cbr198": {
+"k": "Tangier: ABCA1",
+"q": [
+{
+"id": "cbr198-f1",
+"lv": "Easy",
+"s": "Which finding is typical of Tangier disease?",
+"c": [
+"Orange-yellow tonsils",
+"Palmar xanthomas",
+"Milky fasting plasma",
+"Acanthocytes on smear",
+"Tendon xanthomas"
+],
+"a": 0,
+"e": "Cholesterol builds up in tonsils, making them orange-yellow.",
+"w": [
+"",
+"Type III.",
+"Type I.",
+"Abetalipoproteinemia.",
+"FH."
+]
+},
+{
+"id": "cbr198-f2",
+"lv": "Hard",
+"s": "A man has peripheral neuropathy, an enlarged spleen and near-zero HDL. Which defect fits?",
+"c": [
+"LCAT",
+"LPL",
+"MTP",
+"ABCA1",
+"Apo E"
+],
+"a": 3,
+"e": "Near-zero HDL with tissue cholesterol buildup is Tangier disease.",
+"w": [
+"Corneal and kidney.",
+"Type I.",
+"Low B-lipoproteins.",
+"",
+"Type III."
+]
+}
+]
+},
+"cbr199": {
+"k": "Abetalipoproteinemia: MTTP",
+"q": [
+{
+"id": "cbr199-f1",
+"lv": "Easy",
+"s": "Abetalipoproteinemia shows absence of which apolipoproteins?",
+"c": [
+"Apo A-I and A-II",
+"Apo B-100 and B-48",
+"Apo C-II and apo E",
+"Apo E and apo A-I",
+"Apo D only"
+],
+"a": 1,
+"e": "Without MTTP, no apo B-100 or B-48 lipoproteins are made.",
+"w": [
+"Tangier.",
+"",
+"Not affected.",
+"Not the defect.",
+"Not the defect."
+]
+},
+{
+"id": "cbr199-f2",
+"lv": "Hard",
+"s": "Why does abetalipoproteinemia cause ataxia and retinal degeneration?",
+"c": [
+"Cholesterol is far too high",
+"Glucose is low",
+"LDL is too high",
+"Ketones are high",
+"Vitamin E is malabsorbed"
+],
+"a": 4,
+"e": "Fat-soluble vitamins, especially vitamin E, cannot be absorbed, damaging nerves and retina.",
+"w": [
+"It is low.",
+"Not the cause.",
+"Absent.",
+"Not the cause.",
+""
+]
+}
+]
+},
+"cbr200": {
+"k": "Abetalipoproteinemia signs",
+"q": [
+{
+"id": "cbr200-f1",
+"lv": "Easy",
+"s": "Abetalipoproteinemia causes deficiency of which vitamins?",
+"c": [
+"B1 and B12",
+"C and folate",
+"A, D, E and K",
+"B6 and niacin",
+"Biotin and B2"
+],
+"a": 2,
+"e": "Fat-soluble vitamins need chylomicrons to be absorbed.",
+"w": [
+"Water-soluble.",
+"Water-soluble.",
+"",
+"Water-soluble.",
+"Water-soluble."
+]
+},
+{
+"id": "cbr200-f2",
+"lv": "Hard",
+"s": "Night blindness in abetalipoproteinemia comes from lack of which vitamin?",
+"c": [
+"Vitamin A",
+"Vitamin D",
+"Vitamin K",
+"Vitamin C",
+"Vitamin B12"
+],
+"a": 0,
+"e": "Vitamin A is needed for rhodopsin, so its lack causes night blindness.",
+"w": [
+"",
+"Bone.",
+"Clotting.",
+"Water-soluble.",
+"Water-soluble."
+]
+}
+]
+},
+"cbr201": {
+"k": "Plasma esterification by LCAT",
+"q": [
+{
+"id": "cbr201-f1",
+"lv": "Easy",
+"s": "Where does LCAT work?",
+"c": [
+"Inside hepatocytes",
+"In lysosomes",
+"In mitochondria",
+"In plasma on HDL",
+"In the ER"
+],
+"a": 3,
+"e": "LCAT is a plasma enzyme acting on HDL.",
+"w": [
+"ACAT works in cells.",
+"Acid lipase.",
+"Not the site.",
+"",
+"ACAT works in the ER."
+]
+},
+{
+"id": "cbr201-f2",
+"lv": "Hard",
+"s": "Which test result supports LCAT deficiency?",
+"c": [
+"Mostly ester, little free cholesterol",
+"Mostly free, little ester",
+"High apo B-48 in plasma",
+"Low free cholesterol level",
+"Very high HDL cholesterol"
+],
+"a": 1,
+"e": "Without LCAT, free cholesterol stays high and esters stay low.",
+"w": [
+"Opposite.",
+"",
+"Not related.",
+"Opposite.",
+"HDL is low."
+]
+}
+]
+},
+"cbr202": {
+"k": "Practice question: FH",
+"q": [
+{
+"id": "cbr202-f1",
+"lv": "Easy",
+"s": "Which lab value best confirms FH in this patient?",
+"c": [
+"TAG of 2,000 mg/dL",
+"HDL of 5 mg/dL",
+"Low apo B-48",
+"Normal LDL",
+"LDL of 300 mg/dL"
+],
+"a": 4,
+"e": "Very high LDL is the hallmark of FH.",
+"w": [
+"Type I or IV.",
+"Tangier.",
+"Abetalipoproteinemia.",
+"Rules it out.",
+""
+]
+},
+{
+"id": "cbr202-f2",
+"lv": "Hard",
+"s": "His children should be screened because FH is inherited how?",
+"c": [
+"Autosomal recessive",
+"X-linked",
+"Autosomal dominant",
+"Mitochondrial",
+"Not inherited"
+],
+"a": 2,
+"e": "Each child has a 50% chance with one affected parent.",
+"w": [
+"Not the pattern.",
+"Not the pattern.",
+"",
+"Not the pattern.",
+"It is inherited."
+]
+}
+]
 }
 });
