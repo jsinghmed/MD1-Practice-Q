@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>function jjTheme(){try{var th=localStorage.getItem("msk-theme");document.documentElement.setAttribute("data-theme",th==="light"?"light":"dark");}catch(e){}}jjTheme();window.addEventListener("storage",function(e){if(e.key==="msk-theme")jjTheme();});window.addEventListener("message",function(e){if(e.data==="jj-theme")jjTheme();});</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Limb movements · JJ QBank</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Spectral:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EDF1F0;--panel:#FFFFFF;--ink:#16212C;--muted:#55626E;--line:#CDD5D8;--soft:#F4F7F6;--acc:#127566;--acc-soft:#DDF0EC;--nerve-ink:#6B5000;--nerve-soft:#FFF5D1;--focus:#2462C4;
+--body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;--head:"Spectral",Georgia,serif}
+:root[data-theme="dark"]{--bg:#0F151B;--panel:#18212A;--ink:#E6ECEF;--muted:#9DAAB4;--line:#2B3740;--soft:#1E2832;--acc:#52C4AF;--acc-soft:#173A35;--nerve-ink:#F5D97C;--nerve-soft:#3A3116;--focus:#86AEF2}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15.5px;line-height:1.5}
+.wrap{max-width:1100px;margin:0 auto;padding:26px 20px 60px}
+h1{font-family:var(--head);font-weight:600;font-size:clamp(26px,4vw,38px);margin:0 0 6px;letter-spacing:-.01em}
+.lead{margin:0;color:var(--muted);max-width:70ch}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);padding:14px 0 12px;margin-top:10px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-bottom:1px solid var(--line)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--panel)}
+.seg button{border:0;background:none;color:var(--ink);font:inherit;font-weight:700;padding:8px 16px;cursor:pointer}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button.on{background:var(--acc);color:var(--panel)}
+input,select{font:inherit;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:8px 12px}
+input{flex:1 1 220px;min-width:180px}
+select{max-width:280px}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.jumps{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0}
+.jumps a{font-size:13px;font-weight:700;color:var(--acc);text-decoration:none;border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:3px 11px}
+.legend{font-size:13px;color:var(--muted);margin:10px 0 0}
+.legend b{color:var(--ink)}
+.joint{margin:26px 0 0;scroll-margin-top:80px}
+.joint h2{font-family:var(--head);font-weight:600;font-size:24px;margin:0 0 10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.card h3{margin:0 0 8px;font-size:16.5px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+td{padding:6px 0;vertical-align:top;border-top:1px solid var(--line)}
+tr:first-child td{border-top:0}
+td.mu{padding-right:10px;width:46%}
+td.mu.p{font-weight:700}
+.nv{display:block;color:var(--ink)}
+.rt{display:inline-block;margin-top:3px;font-size:12px;font-weight:700;color:var(--nerve-ink);background:var(--nerve-soft);border-radius:4px;padding:1px 6px}
+.note{margin:10px 0 0;font-size:13.5px;color:var(--muted);border-left:3px solid var(--acc);padding:2px 0 2px 10px}
+mark{background:var(--acc-soft);color:inherit;border-radius:3px;padding:0 1px}
+.empty{margin:30px 0;color:var(--muted)}
+.mvbtn{margin:12px 0 0;display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:13.5px;font-weight:700;color:var(--acc);background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:6px 12px;cursor:pointer}
+.mvbtn svg{width:14px;height:14px}
+.anim{margin:12px 0 0;border:1px solid var(--line);border-radius:10px;background:var(--soft);padding:10px 12px 12px}
+.anim svg.stage{width:100%;max-width:620px;height:auto;display:block;margin:0 auto}
+.card.open{grid-column:1/-1}
+.anim .ctl{display:flex;align-items:center;gap:10px;margin-top:6px;font-size:13px;color:var(--muted)}
+.anim .ctl button{font:inherit;font-weight:700;font-size:13px;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:4px 10px;cursor:pointer}
+.anim .ctl .ang{margin-left:auto;font-variant-numeric:tabular-nums;color:var(--ink);font-weight:700}
+.stage .skin{fill:var(--panel);stroke:var(--muted);stroke-width:2}
+.stage .bone{fill:none;stroke:var(--line);stroke-width:7;stroke-linecap:round}
+.stage .seat{fill:var(--line)}
+.stage .quad{fill:#E0533D}
+.stage .ham{fill:var(--muted);opacity:.18}
+.stage .lbl{font:700 15px var(--body);fill:var(--ink)}
+.stage .sub{font:13.5px var(--body);fill:var(--muted)}
+.stage .arc{fill:none;stroke:var(--acc);stroke-width:2;stroke-dasharray:4 4}
+.stage .lead{stroke:var(--muted);stroke-width:1.2}
+@media (prefers-reduced-motion:reduce){.anim .ctl::after{content:"Animation paused for reduced motion · press Play";}}
+@media (max-width:560px){.grid{grid-template-columns:1fr}.wrap{padding:18px 14px 50px}select{max-width:100%;flex:1 1 100%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Limb movements</h1>
+<p class="lead">Every movement of the upper and lower limb with the muscles that produce it, their nerves and root levels. Main movers are in bold.</p>
+<div class="bar">
+  <div class="seg" role="tablist" aria-label="Limb">
+    <button role="tab" data-r="upper" class="on" aria-selected="true">Upper limb</button>
+    <button role="tab" data-r="lower" aria-selected="false">Lower limb</button>
+  </div>
+  <input id="q" type="search" placeholder="Search a muscle, nerve or root, like L5" aria-label="Search">
+  <select id="nerve" aria-label="Filter by nerve"><option value="">All nerves</option></select>
+</div>
+<div class="jumps" id="jumps"></div>
+<p class="legend"><b>Bold</b> = main mover · <span class="rt">C5–C6</span> = root levels</p>
+<div id="out"></div>
+</div>
+<script>
+const D=[{"r": "upper", "j": "Scapula", "m": "Elevation", "x": [{"n": "Trapezius, upper fibers", "v": "Accessory nerve, CN XI", "k": "CN XI", "p": 1}, {"n": "Levator scapulae", "v": "Dorsal scapular nerve and C3–C4 cervical nerves", "k": "C3–C5", "p": 1}], "t": ""}, {"r": "upper", "j": "Scapula", "m": "Depression", "x": [{"n": "Trapezius, lower fibers", "v": "Accessory nerve, CN XI", "k": "CN XI", "p": 1}, {"n": "Pectoralis minor", "v": "Medial pectoral nerve", "k": "C8–T1", "p": 0}], "t": ""}, {"r": "upper", "j": "Scapula", "m": "Protraction", "x": [{"n": "Serratus anterior", "v": "Long thoracic nerve", "k": "C5–C7", "p": 1}, {"n": "Pectoralis minor", "v": "Medial pectoral nerve", "k": "C8–T1", "p": 0}], "t": "Long thoracic nerve injury gives a winged scapula."}, {"r": "upper", "j": "Scapula", "m": "Retraction", "x": [{"n": "Rhomboid major and minor", "v": "Dorsal scapular nerve", "k": "C4–C5", "p": 1}, {"n": "Trapezius, middle fibers", "v": "Accessory nerve, CN XI", "k": "CN XI", "p": 1}], "t": ""}, {"r": "upper", "j": "Scapula", "m": "Upward rotation", "x": [{"n": "Serratus anterior", "v": "Long thoracic nerve", "k": "C5–C7", "p": 1}, {"n": "Trapezius, upper and lower fibers", "v": "Accessory nerve, CN XI", "k": "CN XI", "p": 1}], "t": "Needed to raise the arm above 90°."}, {"r": "upper", "j": "Scapula", "m": "Downward rotation", "x": [{"n": "Rhomboids", "v": "Dorsal scapular nerve", "k": "C4–C5", "p": 1}, {"n": "Levator scapulae", "v": "Dorsal scapular nerve and C3–C4 cervical nerves", "k": "C3–C5", "p": 0}, {"n": "Pectoralis minor", "v": "Medial pectoral nerve", "k": "C8–T1", "p": 0}], "t": ""}, {"r": "upper", "j": "Shoulder", "m": "Flexion", "x": [{"n": "Pectoralis major, clavicular head", "v": "Lateral pectoral nerve", "k": "C5–C7", "p": 1}, {"n": "Deltoid, anterior fibers", "v": "Axillary nerve", "k": "C5–C6", "p": 1}, {"n": "Coracobrachialis", "v": "Musculocutaneous nerve", "k": "C5–C7", "p": 0}, {"n": "Biceps brachii", "v": "Musculocutaneous nerve", "k": "C5–C6", "p": 0}], "t": ""}, {"r": "upper", "j": "Shoulder", "m": "Extension", "x": [{"n": "Latissimus dorsi", "v": "Thoracodorsal nerve", "k": "C6–C8", "p": 1}, {"n": "Deltoid, posterior fibers", "v": "Axillary nerve", "k": "C5–C6", "p": 1}, {"n": "Teres major", "v": "Lower subscapular nerve", "k": "C5–C6", "p": 0}, {"n": "Triceps brachii, long head", "v": "Radial nerve", "k": "C6–C8", "p": 0}], "t": ""}, {"r": "upper", "j": "Shoulder", "m": "Abduction", "x": [{"n": "Supraspinatus, first 0–15°", "v": "Suprascapular nerve", "k": "C5–C6", "p": 1}, {"n": "Deltoid, middle fibers, 15–90°", "v": "Axillary nerve", "k": "C5–C6", "p": 1}, {"n": "Serratus anterior and trapezius, above 90°", "v": "Long thoracic nerve; CN XI", "k": "C5–C7; CN XI", "p": 0}], "t": "Axillary nerve injury, as with a surgical neck fracture, weakens abduction past 15°."}, {"r": "upper", "j": "Shoulder", "m": "Adduction", "x": [{"n": "Pectoralis major", "v": "Medial and lateral pectoral nerves", "k": "C5–T1", "p": 1}, {"n": "Latissimus dorsi", "v": "Thoracodorsal nerve", "k": "C6–C8", "p": 1}, {"n": "Teres major", "v": "Lower subscapular nerve", "k": "C5–C6", "p": 0}], "t": ""}, {"r": "upper", "j": "Shoulder", "m": "Medial rotation", "x": [{"n": "Subscapularis", "v": "Upper and lower subscapular nerves", "k": "C5–C6", "p": 1}, {"n": "Pectoralis major", "v": "Medial and lateral pectoral nerves", "k": "C5–T1", "p": 0}, {"n": "Latissimus dorsi", "v": "Thoracodorsal nerve", "k": "C6–C8", "p": 0}, {"n": "Teres major", "v": "Lower subscapular nerve", "k": "C5–C6", "p": 0}], "t": ""}, {"r": "upper", "j": "Shoulder", "m": "Lateral rotation", "x": [{"n": "Infraspinatus", "v": "Suprascapular nerve", "k": "C5–C6", "p": 1}, {"n": "Teres minor", "v": "Axillary nerve", "k": "C5–C6", "p": 1}, {"n": "Deltoid, posterior fibers", "v": "Axillary nerve", "k": "C5–C6", "p": 0}], "t": ""}, {"r": "upper", "j": "Elbow", "m": "Flexion", "x": [{"n": "Brachialis", "v": "Musculocutaneous nerve", "k": "C5–C6", "p": 1}, {"n": "Biceps brachii", "v": "Musculocutaneous nerve", "k": "C5–C6", "p": 1}, {"n": "Brachioradialis", "v": "Radial nerve", "k": "C5–C6", "p": 0}], "t": "Biceps reflex tests C5–C6; brachioradialis reflex tests C6."}, {"r": "upper", "j": "Elbow", "m": "Extension", "x": [{"n": "Triceps brachii", "v": "Radial nerve", "k": "C6–C8, mainly C7", "p": 1}, {"n": "Anconeus", "v": "Radial nerve", "k": "C7–C8", "p": 0}], "t": "Triceps reflex tests C7."}, {"r": "upper", "j": "Forearm", "m": "Supination", "x": [{"n": "Supinator", "v": "Deep branch of radial nerve", "k": "C5–C6", "p": 1}, {"n": "Biceps brachii, strongest with elbow flexed", "v": "Musculocutaneous nerve", "k": "C5–C6", "p": 1}], "t": ""}, {"r": "upper", "j": "Forearm", "m": "Pronation", "x": [{"n": "Pronator teres", "v": "Median nerve", "k": "C6–C7", "p": 1}, {"n": "Pronator quadratus", "v": "Anterior interosseous nerve, median", "k": "C8–T1", "p": 1}], "t": ""}, {"r": "upper", "j": "Wrist", "m": "Flexion", "x": [{"n": "Flexor carpi radialis", "v": "Median nerve", "k": "C6–C7", "p": 1}, {"n": "Flexor carpi ulnaris", "v": "Ulnar nerve", "k": "C7–C8", "p": 1}, {"n": "Palmaris longus", "v": "Median nerve", "k": "C7–C8", "p": 0}], "t": ""}, {"r": "upper", "j": "Wrist", "m": "Extension", "x": [{"n": "Extensor carpi radialis longus", "v": "Radial nerve", "k": "C6–C7", "p": 1}, {"n": "Extensor carpi radialis brevis", "v": "Deep radial nerve", "k": "C7–C8", "p": 1}, {"n": "Extensor carpi ulnaris", "v": "Posterior interosseous nerve", "k": "C7–C8", "p": 1}], "t": "Radial nerve injury at the humerus gives wrist drop."}, {"r": "upper", "j": "Wrist", "m": "Abduction, radial deviation", "x": [{"n": "Flexor carpi radialis", "v": "Median nerve", "k": "C6–C7", "p": 1}, {"n": "Extensor carpi radialis longus and brevis", "v": "Radial nerve", "k": "C6–C8", "p": 1}], "t": ""}, {"r": "upper", "j": "Wrist", "m": "Adduction, ulnar deviation", "x": [{"n": "Flexor carpi ulnaris", "v": "Ulnar nerve", "k": "C7–C8", "p": 1}, {"n": "Extensor carpi ulnaris", "v": "Posterior interosseous nerve", "k": "C7–C8", "p": 1}], "t": ""}, {"r": "upper", "j": "Fingers", "m": "Flexion at DIP joints", "x": [{"n": "Flexor digitorum profundus, digits 2–3", "v": "Anterior interosseous nerve, median", "k": "C8–T1", "p": 1}, {"n": "Flexor digitorum profundus, digits 4–5", "v": "Ulnar nerve", "k": "C8–T1", "p": 1}], "t": ""}, {"r": "upper", "j": "Fingers", "m": "Flexion at PIP joints", "x": [{"n": "Flexor digitorum superficialis", "v": "Median nerve", "k": "C7–T1", "p": 1}, {"n": "Flexor digitorum profundus", "v": "Median and ulnar nerves", "k": "C8–T1", "p": 0}], "t": ""}, {"r": "upper", "j": "Fingers", "m": "Flexion at MCP joints with IP extension", "x": [{"n": "Lumbricals 1–2", "v": "Median nerve", "k": "C8–T1", "p": 1}, {"n": "Lumbricals 3–4", "v": "Deep branch of ulnar nerve", "k": "C8–T1", "p": 1}, {"n": "Interossei", "v": "Deep branch of ulnar nerve", "k": "C8–T1", "p": 1}], "t": ""}, {"r": "upper", "j": "Fingers", "m": "Extension", "x": [{"n": "Extensor digitorum", "v": "Posterior interosseous nerve", "k": "C7–C8", "p": 1}, {"n": "Extensor indicis", "v": "Posterior interosseous nerve", "k": "C7–C8", "p": 0}, {"n": "Extensor digiti minimi", "v": "Posterior interosseous nerve", "k": "C7–C8", "p": 0}], "t": ""}, {"r": "upper", "j": "Fingers", "m": "Abduction", "x": [{"n": "Dorsal interossei, DAB", "v": "Deep branch of ulnar nerve", "k": "C8–T1", "p": 1}, {"n": "Abductor digiti minimi", "v": "Deep branch of ulnar nerve", "k": "C8–T1", "p": 0}], "t": "Ulnar nerve injury weakens finger abduction and adduction."}, {"r": "upper", "j": "Fingers", "m": "Adduction", "x": [{"n": "Palmar interossei, PAD", "v": "Deep branch of ulnar nerve", "k": "C8–T1", "p": 1}], "t": ""}, {"r": "upper", "j": "Thumb", "m": "Flexion", "x": [{"n": "Flexor pollicis longus", "v": "Anterior interosseous nerve, median", "k": "C8–T1", "p": 1}, {"n": "Flexor pollicis brevis", "v": "Recurrent branch of median nerve", "k": "C8–T1", "p": 0}], "t": ""}, {"r": "upper", "j": "Thumb", "m": "Extension", "x": [{"n": "Extensor pollicis longus", "v": "Posterior interosseous nerve", "k": "C7–C8", "p": 1}, {"n": "Extensor pollicis brevis", "v": "Posterior interosseous nerve", "k": "C7–C8", "p": 1}], "t": ""}, {"r": "upper", "j": "Thumb", "m": "Abduction", "x": [{"n": "Abductor pollicis brevis", "v": "Recurrent branch of median nerve", "k": "C8–T1", "p": 1}, {"n": "Abductor pollicis longus", "v": "Posterior interosseous nerve", "k": "C7–C8", "p": 1}], "t": ""}, {"r": "upper", "j": "Thumb", "m": "Adduction", "x": [{"n": "Adductor pollicis", "v": "Deep branch of ulnar nerve", "k": "C8–T1", "p": 1}], "t": "Froment sign shows weak adductor pollicis in ulnar nerve injury."}, {"r": "upper", "j": "Thumb", "m": "Opposition", "x": [{"n": "Opponens pollicis", "v": "Recurrent branch of median nerve", "k": "C8–T1", "p": 1}], "t": "Lost when the recurrent branch is cut, as in a palm laceration."}, {"r": "lower", "j": "Hip", "m": "Flexion", "x": [{"n": "Iliopsoas: psoas major", "v": "Anterior rami of lumbar nerves", "k": "L1–L3", "p": 1}, {"n": "Iliopsoas: iliacus", "v": "Femoral nerve", "k": "L2–L3", "p": 1}, {"n": "Rectus femoris", "v": "Femoral nerve", "k": "L2–L4", "p": 0}, {"n": "Sartorius", "v": "Femoral nerve", "k": "L2–L3", "p": 0}, {"n": "Pectineus", "v": "Femoral nerve", "k": "L2–L3", "p": 0}], "t": ""}, {"r": "lower", "j": "Hip", "m": "Extension", "x": [{"n": "Gluteus maximus", "v": "Inferior gluteal nerve", "k": "L5–S2", "p": 1}, {"n": "Hamstrings: semitendinosus, semimembranosus, long head of biceps femoris", "v": "Tibial division of sciatic nerve", "k": "L5–S2", "p": 1}], "t": "Inferior gluteal nerve injury makes rising from a chair and climbing stairs hard."}, {"r": "lower", "j": "Hip", "m": "Abduction", "x": [{"n": "Gluteus medius", "v": "Superior gluteal nerve", "k": "L4–S1", "p": 1}, {"n": "Gluteus minimus", "v": "Superior gluteal nerve", "k": "L4–S1", "p": 1}, {"n": "Tensor fasciae latae", "v": "Superior gluteal nerve", "k": "L4–S1", "p": 0}], "t": "Superior gluteal nerve injury gives a positive Trendelenburg sign: the pelvis drops on the opposite side."}, {"r": "lower", "j": "Hip", "m": "Adduction", "x": [{"n": "Adductor longus, brevis and magnus, adductor part", "v": "Obturator nerve", "k": "L2–L4", "p": 1}, {"n": "Gracilis", "v": "Obturator nerve", "k": "L2–L3", "p": 0}, {"n": "Adductor magnus, hamstring part", "v": "Tibial division of sciatic nerve", "k": "L4", "p": 0}, {"n": "Pectineus", "v": "Femoral nerve", "k": "L2–L3", "p": 0}], "t": ""}, {"r": "lower", "j": "Hip", "m": "Medial rotation", "x": [{"n": "Gluteus medius and minimus, anterior fibers", "v": "Superior gluteal nerve", "k": "L4–S1", "p": 1}, {"n": "Tensor fasciae latae", "v": "Superior gluteal nerve", "k": "L4–S1", "p": 1}], "t": ""}, {"r": "lower", "j": "Hip", "m": "Lateral rotation", "x": [{"n": "Gluteus maximus", "v": "Inferior gluteal nerve", "k": "L5–S2", "p": 1}, {"n": "Piriformis", "v": "Nerve to piriformis", "k": "S1–S2", "p": 1}, {"n": "Obturator internus and superior gemellus", "v": "Nerve to obturator internus", "k": "L5–S2", "p": 0}, {"n": "Quadratus femoris and inferior gemellus", "v": "Nerve to quadratus femoris", "k": "L4–S1", "p": 0}, {"n": "Obturator externus", "v": "Obturator nerve", "k": "L3–L4", "p": 0}], "t": ""}, {"r": "lower", "j": "Knee", "m": "Extension", "x": [{"n": "Quadriceps femoris: rectus femoris and the three vasti", "v": "Femoral nerve", "k": "L2–L4", "p": 1}], "t": "Patellar reflex tests L3–L4."}, {"r": "lower", "j": "Knee", "m": "Flexion", "x": [{"n": "Hamstrings: semitendinosus, semimembranosus, biceps femoris long head", "v": "Tibial division of sciatic nerve", "k": "L5–S2", "p": 1}, {"n": "Biceps femoris, short head", "v": "Common fibular division of sciatic nerve", "k": "L5–S2", "p": 1}, {"n": "Gastrocnemius", "v": "Tibial nerve", "k": "S1–S2", "p": 0}, {"n": "Gracilis", "v": "Obturator nerve", "k": "L2–L3", "p": 0}, {"n": "Sartorius", "v": "Femoral nerve", "k": "L2–L3", "p": 0}], "t": ""}, {"r": "lower", "j": "Knee", "m": "Unlocking the extended knee", "x": [{"n": "Popliteus", "v": "Tibial nerve", "k": "L4–S1", "p": 1}], "t": "Popliteus laterally rotates the femur on the fixed tibia, unlocking the extended knee so flexion can begin."}, {"r": "lower", "j": "Knee", "m": "Medial rotation of tibia, knee flexed", "x": [{"n": "Semitendinosus and semimembranosus", "v": "Tibial division of sciatic nerve", "k": "L5–S2", "p": 1}, {"n": "Popliteus", "v": "Tibial nerve", "k": "L4–S1", "p": 0}], "t": ""}, {"r": "lower", "j": "Knee", "m": "Lateral rotation of tibia, knee flexed", "x": [{"n": "Biceps femoris", "v": "Sciatic nerve, both divisions", "k": "L5–S2", "p": 1}], "t": ""}, {"r": "lower", "j": "Ankle", "m": "Dorsiflexion", "x": [{"n": "Tibialis anterior", "v": "Deep fibular nerve", "k": "L4–L5", "p": 1}, {"n": "Extensor hallucis longus", "v": "Deep fibular nerve", "k": "L5", "p": 0}, {"n": "Extensor digitorum longus", "v": "Deep fibular nerve", "k": "L5–S1", "p": 0}, {"n": "Fibularis tertius", "v": "Deep fibular nerve", "k": "L5–S1", "p": 0}], "t": "Common fibular nerve injury at the fibular neck gives foot drop and a steppage gait."}, {"r": "lower", "j": "Ankle", "m": "Plantarflexion", "x": [{"n": "Gastrocnemius", "v": "Tibial nerve", "k": "S1–S2", "p": 1}, {"n": "Soleus", "v": "Tibial nerve", "k": "S1–S2", "p": 1}, {"n": "Plantaris", "v": "Tibial nerve", "k": "S1–S2", "p": 0}, {"n": "Tibialis posterior, flexor hallucis longus, flexor digitorum longus", "v": "Tibial nerve", "k": "L4–S3", "p": 0}], "t": "Achilles reflex tests S1."}, {"r": "lower", "j": "Foot", "m": "Inversion", "x": [{"n": "Tibialis posterior", "v": "Tibial nerve", "k": "L4–L5", "p": 1}, {"n": "Tibialis anterior", "v": "Deep fibular nerve", "k": "L4–L5", "p": 1}], "t": ""}, {"r": "lower", "j": "Foot", "m": "Eversion", "x": [{"n": "Fibularis longus", "v": "Superficial fibular nerve", "k": "L5–S2", "p": 1}, {"n": "Fibularis brevis", "v": "Superficial fibular nerve", "k": "L5–S2", "p": 1}, {"n": "Fibularis tertius", "v": "Deep fibular nerve", "k": "L5–S1", "p": 0}], "t": ""}, {"r": "lower", "j": "Toes", "m": "Flexion", "x": [{"n": "Flexor digitorum longus", "v": "Tibial nerve", "k": "S2–S3", "p": 1}, {"n": "Flexor hallucis longus", "v": "Tibial nerve", "k": "S2–S3", "p": 1}, {"n": "Flexor digitorum brevis", "v": "Medial plantar nerve", "k": "S2–S3", "p": 0}], "t": ""}, {"r": "lower", "j": "Toes", "m": "Extension", "x": [{"n": "Extensor digitorum longus", "v": "Deep fibular nerve", "k": "L5–S1", "p": 1}, {"n": "Extensor hallucis longus", "v": "Deep fibular nerve", "k": "L5", "p": 1}, {"n": "Extensor digitorum brevis", "v": "Deep fibular nerve", "k": "L5–S1", "p": 0}], "t": "Weak big-toe extension is a sign of L5 root injury."}];
+let R="upper";
+const ANIM={
+ "Knee|Extension":{svg:`<svg class="stage" viewBox="0 0 560 390" role="img" aria-label="Seated side view: the lower leg swings from bent to straight as the quadriceps contracts">
+  <rect class="seat" x="80" y="198" width="225" height="12" rx="4"/>
+  <rect class="seat" x="92" y="210" width="10" height="150" rx="3"/>
+  <path class="skin" d="M112 176 C 96 132, 98 84, 118 30 L 176 30 C 186 78, 184 128, 178 160 Z"/>
+  <path class="skin" d="M108 150 C 150 136, 262 138, 330 154 C 348 160, 348 188, 330 196 L 122 198 C 100 192, 96 162, 108 150 Z"/>
+  <path class="ham" d="M128 186 C 200 194, 280 192, 326 190 L 322 196 L 124 198 Z"/>
+  <path class="quad" id="kq" d="M132 150 C 190 134, 272 138, 326 156 C 322 166, 302 164, 282 162 C 232 154, 182 154, 136 164 Z"/>
+  <line class="bone" x1="128" y1="172" x2="322" y2="176"/>
+  <path class="arc" id="karc" d=""/>
+  <g id="kleg">
+    <path class="skin" d="M-6 -17 C 50 -17, 120 -12, 172 -9 L 176 9 C 120 14, 70 30, 30 24 C 6 22, -10 14, -12 2 Z"/>
+    <line class="bone" x1="10" y1="-4" x2="168" y2="-1"/>
+    <path class="skin" d="M166 -9 L 168 -46 C 170 -60, 190 -62, 192 -48 L 196 4 C 196 16, 178 18, 166 10 Z"/>
+  </g>
+  <ellipse class="skin" cx="338" cy="162" rx="7" ry="10" style="fill:var(--soft)"/>
+  <line class="lead" x1="232" y1="144" x2="232" y2="84"/>
+  <text class="lbl" x="232" y="74" text-anchor="middle">Quadriceps femoris contracts</text>
+  <text class="sub" x="232" y="56" text-anchor="middle">Femoral nerve · L2–L4</text>
+ </svg>`,
+ knee:[330,176],from:90,to:0,
+ frame(el,deg,act){el.querySelector("#kleg").setAttribute("transform",`translate(330 176) rotate(${deg})`);
+   el.querySelector("#kq").style.opacity=(.35+.65*act).toFixed(2);
+   const r=70,a=deg*Math.PI/180,x=330+r*Math.cos(a),y=176+r*Math.sin(a);
+   el.querySelector("#karc").setAttribute("d",deg>1?`M${330+r} 176 A${r} ${r} 0 0 1 ${x.toFixed(1)} ${y.toFixed(1)}`:"");}
+ }
+};
+const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+function startAnim(box,key){
+  const A=ANIM[key];box.innerHTML=A.svg+`<div class="ctl"><button type="button" data-pp>Pause</button><span>Contracting muscle glows as it works</span><span class="ang"></span></div>`;
+  const ang=box.querySelector(".ang"),pp=box.querySelector("[data-pp]");let t0=performance.now(),paused=matchMedia("(prefers-reduced-motion: reduce)").matches,held=0,raf;
+  if(paused)pp.textContent="Play";
+  const P=3600;
+  function draw(now){const t=((paused?held:now-t0)%P)/P;let deg,act;
+    if(t<.42){const k=ease(t/.42);deg=A.from+(A.to-A.from)*k;act=1;}
+    else if(t<.5){deg=A.to;act=1;}
+    else if(t<.92){const k=ease((t-.5)/.42);deg=A.to+(A.from-A.to)*k;act=.25;}
+    else{deg=A.from;act=.25;}
+    A.frame(box,deg,act);ang.textContent="Knee bent "+Math.round(deg)+"°";
+    if(!paused)raf=requestAnimationFrame(draw);}
+  pp.onclick=()=>{if(paused){t0=performance.now()-held;paused=false;pp.textContent="Pause";raf=requestAnimationFrame(draw);}else{held=performance.now()-t0;paused=true;pp.textContent="Play";cancelAnimationFrame(raf);}};
+  box._stop=()=>cancelAnimationFrame(raf);
+  draw(performance.now());
+}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-anim]");if(!b)return;const box=b.nextElementSibling;
+  if(box.hidden){box.hidden=false;b.closest(".card").classList.add("open");b.setAttribute("aria-expanded","true");b.lastChild.textContent="Hide movement";startAnim(box,b.dataset.anim);}
+  else{box._stop&&box._stop();box.hidden=true;box.innerHTML="";b.closest(".card").classList.remove("open");b.setAttribute("aria-expanded","false");b.lastChild.textContent="Show movement";}});
+
+const $=id=>document.getElementById(id);
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const base=v=>v.replace(/,.*$/,"").replace(/ and C3–C4 cervical nerves/,"");
+function nerves(){const set=new Set();D.filter(d=>d.r===R).forEach(d=>d.x.forEach(x=>x.v.split(/; | and (?=[A-Z])/).forEach(v=>set.add(base(v)))));
+  const cur=$("nerve").value;$("nerve").innerHTML='<option value="">All nerves</option>'+[...set].sort().map(n=>`<option${n===cur?" selected":""}>${esc(n)}</option>`).join("");}
+function hl(s,q){if(!q)return esc(s);const i=s.toLowerCase().indexOf(q);if(i<0)return esc(s);return esc(s.slice(0,i))+"<mark>"+esc(s.slice(i,i+q.length))+"</mark>"+esc(s.slice(i+q.length));}
+function rootHit(k,q){const m=q.match(/^([ct])(\d)$|^([ls])(\d)$/i);if(!m)return false;const want=q.toUpperCase();
+  const toN=s=>{const c=s[0],n=+s.slice(1);return ({C:0,T:8,L:20,S:25})[c]+n;};
+  const parts=k.replace(/,.*$/,"").split(/; /);return parts.some(p=>{const r=p.match(/([CTLS]\d)(?:–([CTLS]?\d))?/);if(!r)return false;let a=r[1],b=r[2]||r[1];if(/^\d$/.test(b))b=a[0]+b;return toN(want)>=toN(a)&&toN(want)<=toN(b);});}
+function render(){
+  const q=$("q").value.trim().toLowerCase(),nv=$("nerve").value;
+  const list=D.filter(d=>d.r===R).map(d=>{
+    let rows=d.x;
+    if(nv)rows=rows.filter(x=>x.v.toLowerCase().includes(nv.toLowerCase()));
+    if(!rows.length)return null;
+    if(q){const mv=(d.j+" "+d.m).toLowerCase().includes(q);
+      const hit=rows.filter(x=>x.n.toLowerCase().includes(q)||x.v.toLowerCase().includes(q)||rootHit(x.k,q));
+      if(!mv&&!hit.length&&!d.t.toLowerCase().includes(q))return null;}
+    return {...d,x:rows};}).filter(Boolean);
+  const joints=[...new Set(list.map(d=>d.j))];
+  $("jumps").innerHTML=joints.map(j=>`<a href="#j-${j}">${esc(j)}</a>`).join("");
+  $("out").innerHTML=joints.length?joints.map(j=>`<section class="joint" id="j-${j}"><h2>${esc(j)}</h2><div class="grid">`+list.filter(d=>d.j===j).map(d=>
+    `<article class="card"><h3>${hl(d.m,q)}</h3><table>${d.x.map(x=>`<tr><td class="mu${x.p?" p":""}">${hl(x.n,q)}</td><td><span class="nv">${hl(x.v,q)}</span><span class="rt">${esc(x.k)}</span></td></tr>`).join("")}</table>${d.t?`<p class="note">${hl(d.t,q)}</p>`:""}${ANIM[d.j+"|"+d.m]?`<button type="button" class="mvbtn" data-anim="${esc(d.j+"|"+d.m)}" aria-expanded="false"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5v14l12-7z"/></svg>Show movement</button><div class="anim" hidden></div>`:""}</article>`).join("")+`</div></section>`).join("")
+    :`<p class="empty">No movements match. Try another muscle, nerve or root level.</p>`;
+}
+document.querySelectorAll(".seg button").forEach(b=>b.onclick=()=>{R=b.dataset.r;document.querySelectorAll(".seg button").forEach(x=>{x.classList.toggle("on",x===b);x.setAttribute("aria-selected",x===b)});$("nerve").value="";nerves();render();});
+$("q").oninput=render;$("nerve").onchange=render;
+if(location.hash==="#lower")document.querySelector('[data-r="lower"]').click();else{nerves();render();}
+</script>
+</body>
+</html>
