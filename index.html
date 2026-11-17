@@ -941,6 +941,14 @@ html.jjlock .cpick{visibility:hidden}
 .gvbody td{padding:7px 9px;border:1px solid var(--line);vertical-align:top}
 .gvbody .box{border:1.5px solid var(--red);background:var(--red-bg);border-radius:10px;padding:10px 14px;margin:12px 0}
 .gvbody .box b.t{color:var(--red)}
+.gvbody h4{font-size:14.5px;margin:12px 0 4px;color:var(--muted)}
+.gvbody .box.kc{border-color:#1f8a8a;background:rgba(31,138,138,.10)}.gvbody .box.kc b.t{color:#1f9c9c}
+.gvbody .box.ep{border-color:#5f8a2a;background:rgba(95,138,42,.10)}.gvbody .box.ep b.t{color:#6a9a2e}
+.gvbody .box.mnb{border-color:#7a52a8;background:rgba(122,82,168,.10)}.gvbody .box.mnb b.t{color:#9a72c8}
+.gvbody .box.wo{border-color:#b07a10;background:rgba(176,122,16,.10)}.gvbody .box.wo b.t{color:#c08a20}
+.gvbody .gfig{margin:12px 0 16px;text-align:center}
+.gvbody .gfig img{max-width:100%;max-height:460px;border-radius:8px;background:#fff;border:1px solid var(--line);cursor:zoom-in}
+.gvbody .gfig figcaption{font-size:13px;color:var(--muted);font-style:italic;margin-top:6px;text-align:left}
 .gview .hy{color:var(--red);font-weight:600}
 .gview .mn{color:var(--blue);font-style:italic}
 .gvbody sub,.gvbody sup{font-size:.72em}
@@ -1820,7 +1828,7 @@ const GUIDES = {
         ["msk-biochem","MSK Biochemistry","Glycolysis, glycogen & storage diseases, GAGs, collagen & elastin",4],
         ["msk-anatomy","MSK Anatomy","Upper & lower limb: plexus, nerve injuries, compartments, joints, vessels",6],
         ["msk-embryology","MSK Embryology","Bone formation, growth plate, vertebrae, skull & sutures, limbs, skin",3]],
-  crs: [["crs-biochem","CRS Biochemistry NBME guide","High-yield, commonly tested NBME content · Lecture 1–6 · grows with each lecture",0],["crs-physiology","CRS Physiology NBME guide","High-yield, commonly tested NBME content · Lecture 1–8 · grows with each lecture",0],["crs-histology","CRS Histology NBME guide","Every slide from Lectures 1–4: smooth & cardiac muscle, arteries, capillaries & veins, blood",0]]
+  crs: [["crs-biochem","CRS Biochemistry NBME guide","High-yield, commonly tested NBME content · Lecture 1–6 · grows with each lecture",0],["crs-physiology","CRS Physiology NBME guide","High-yield, commonly tested NBME content · Lecture 1–8 · grows with each lecture",0],["crs-histology","CRS Histology NBME guide","Every slide from Lectures 1–4: smooth & cardiac muscle, arteries, capillaries & veins, blood",0],["crs-anatomy","CRS Anatomy NBME guide","Thorax, Lectures 1–11: chest wall, mediastinum, heart, pericardium, lungs, airways, diaphragm, esophagus, radiology, clinicals",0]]
 };
 function guideCards(list){
   return `<div class="gdgrid">` + list.map(([f,nm,desc,pg])=>`<div class="gdcard"><div class="gdi">${NVI.guide}</div><div class="gdt"><b>${esc(nm)}</b><small>${esc(desc)}</small><span class="gdm">${pg?"PDF":"Read on site or download as PDF · updated each lecture"}</span></div>
@@ -1835,7 +1843,7 @@ function renderGuideView(){
     <div class="gvhead"><h2>${esc(nm)}</h2><p class="sub">${esc(desc)}</p><div class="gvleg"><span><span class="hy">Red</span> = extra high yield (classic NBME)</span><span>Black/white = core content</span><span class="mn">Italic = mnemonic</span></div></div>`;
   if (!window.GUIDE_HTML) {
     showPage(`<div class="page gview">${top}<div class="emptybox"><p>Loading study guide…</p></div></div>`);
-    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=14";
+    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=15";
       sc.onload = ()=>{ guideLoading = false; if (view==="guide") renderGuideView(); };
       sc.onerror = ()=>{ guideLoading = false; toast("Couldn't load the study guide — check your connection"); };
       document.head.appendChild(sc); }
@@ -1856,17 +1864,25 @@ async function guidePdf(f, btn){
   const nm = info.g[1].replace(/ NBME guide$/,""), desc = info.g[2], old = btn.innerHTML;
   btn.dataset.busy = "1"; btn.innerHTML = "Preparing PDF…";
   try {
-    if (!window.GUIDE_HTML) await gpdfScript("guides.js?v=14");
+    if (!window.GUIDE_HTML) await gpdfScript("guides.js?v=15");
     for (const s of GPDF_LIBS) await gpdfScript(s);
     const yr = new Date().getFullYear(), RED = "#c00000", NAVY = "#0b2447";
-    const body = htmlToPdfmake(window.GUIDE_HTML[f] || "", {tableAutoSize:true, defaultStyles:{
+    let ghtml = window.GUIDE_HTML[f] || "";
+    const srcs = [...new Set([...ghtml.matchAll(/<img[^>]*src="([^"]+)"/g)].map(m=>m[1]))];
+    for (const src of srcs) { try { const bl = await (await fetch(src)).blob(); const du = await new Promise(ok=>{ const r = new FileReader(); r.onload = ()=>ok(r.result); r.readAsDataURL(bl); }); ghtml = ghtml.split('src="'+src+'"').join('src="'+du+'"'); } catch(e) { ghtml = ghtml.split('<img').join('<span').replace(/src="[^"]*"/g,""); } }
+    const body = htmlToPdfmake(ghtml, {tableAutoSize:true, defaultStyles:{
       h2:{fontSize:12, bold:true, color:"#fff", marginTop:10, marginBottom:5}, h3:{fontSize:10.5, bold:true, margin:[0,7,0,3]},
       p:{margin:[0,2,0,5]}, ul:{margin:[4,0,0,5]}, ol:{margin:[4,0,0,5]}, li:{marginBottom:1.5}, th:{bold:true, fillColor:"#eef1f5"}, td:{}, table:{margin:[0,2,0,7]}}});
     const fix = n => { if (Array.isArray(n)) return n.map(fix); if (!n || typeof n !== "object") return n;
       for (const k of ["stack","text","ul","ol"]) if (Array.isArray(n[k])) n[k] = n[k].map(fix);
       if (n.table) { n.table.body = n.table.body.map(r=>r.map(fix)); n.layout = {hLineColor:()=>"#bbb", vLineColor:()=>"#bbb", paddingTop:()=>3, paddingBottom:()=>3}; }
       if (n.nodeName === "H2") return {table:{widths:["*"], body:[[Object.assign({}, n, {margin:[4,2,4,2]})]]}, layout:{fillColor:()=>NAVY, hLineWidth:()=>0, vLineWidth:()=>0}, margin:[0,10,0,5]};
-      if (n.nodeName === "DIV" && /\bbox\b/.test(n.style ? [].concat(n.style).join(" ") : "")) return {table:{widths:["*"], body:[[Object.assign({}, n, {margin:[5,4,5,4]})]]}, layout:{fillColor:()=>"#fff4f4", hLineColor:()=>RED, vLineColor:()=>RED}, margin:[0,6,0,6]};
+      if (n.image) { delete n.width; delete n.height; n.fit = [500, 300]; n.alignment = "center"; n.margin = [0,6,0,2]; return n; }
+      const cls = n.style ? [].concat(n.style).join(" ") : "";
+      if (n.nodeName === "DIV" && /\bbox\b/.test(cls)) { const bc = /\bkc\b/.test(cls) ? ["#1f8a8a","#eef7f7"] : /\bep\b/.test(cls) ? ["#5f8a2a","#f2f7ea"] : /\bmnb\b/.test(cls) ? ["#7a52a8","#f4eefa"] : /\bwo\b/.test(cls) ? ["#b07a10","#fdf6e6"] : [RED,"#fff4f4"];
+        return {table:{widths:["*"], body:[[Object.assign({}, n, {margin:[5,4,5,4]})]]}, layout:{fillColor:()=>bc[1], hLineColor:()=>bc[0], vLineColor:()=>bc[0]}, margin:[0,6,0,6], unbreakable:true}; }
+      if (n.nodeName === "FIGCAPTION") { n.fontSize = 8; n.italics = true; n.color = "#555"; n.margin = [0,2,0,8]; }
+      if (n.nodeName === "H4") { n.fontSize = 9.5; n.bold = true; n.color = "#2e4a4c"; n.margin = [0,5,0,2]; }
       return n; };
     const dd = {pageSize:"LETTER", pageMargins:[38,40,38,44], defaultStyle:{font:"DejaVu", fontSize:9, lineHeight:1.2},
       info:{title:nm+" — NBME Study Guide", author:"JJ QBank", subject:"© "+yr+" JJ QBank. Free to share, redistribute and use with AI tools for study."},
