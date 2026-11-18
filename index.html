@@ -2050,6 +2050,7 @@ function addSection(sec){            // same as the start-up loop above, for a s
   const co = sec.course;
   const qs = sec.qs.map((q,i)=>Object.assign({id:sec.prefix+(i+1), sec:sec.name, pfx:sec.prefix, num:i+1, course:co}, q));
   sec.items = qs; Q.push(...qs); qs.forEach(q=>byId[q.id] = q);
+  SEARCH_IDX.push(...qs.map(searchEntry));   // so the late-loaded section (Ethics) is searchable too
   const add = c=>{ STATIC.push(c); STATIC_BY_KEY[c.key] = c; };
   add({key:sec.prefix+":all", name:sec.all, sec:sec.name, pfx:sec.prefix, course:co, head:true, ids:qs.map(q=>q.id), kind:"static"});
   sec.topics.forEach(t=>{ const ids = qs.filter(q=>q.t===t).map(q=>q.id); if (ids.length) add({key:sec.prefix+":t:"+t, name:t, sec:sec.name, pfx:sec.prefix, course:co, ids, kind:"static"}); });
@@ -3050,10 +3051,11 @@ function downloadNotes(){
 }
 
 // ---------- Search ----------
-const SEARCH_IDX = Q.map(q=>({q, fields:[
+const searchEntry = q=>({q, fields:[
   ["question", plainS(q.s)], ["choices", (q.c||[]).map(plainS).join(" · ")], ["answer", q.ans||""],
   ["explanation", [plainS(q.eh), q.se, q.e].filter(Boolean).join(" ")]
-]}));
+]});
+const SEARCH_IDX = Q.map(searchEntry);
 function searchQs(terms, scope){
   const ts = terms.map(t=>t.toLowerCase()), res = [];
   SEARCH_IDX.forEach(x=>{
