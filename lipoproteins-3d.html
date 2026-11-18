@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lipoprotein Pathways · 3D</title>
+<script>function jjTheme(){try{var th=localStorage.getItem("msk-theme");document.documentElement.setAttribute("data-theme",th==="light"?"light":"dark");}catch(e){}}jjTheme();window.addEventListener("storage",function(e){if(e.key==="msk-theme")jjTheme();});window.addEventListener("message",function(e){if(e.data==="jj-theme"){jjTheme();if(window.lpTheme)window.lpTheme();}});</script>
+<style>
+:root{--bg:#0d1117;--panel:#161b22;--card:#1c2129;--line:#2a313c;--line2:#353d4a;--text:#e6edf3;--muted:#8b949e;--acc:#4fb8b0;--accbg:rgba(79,184,176,.14)}
+:root[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#f6f8fa;--line:#d0d7de;--line2:#c3cad2;--text:#1f2328;--muted:#59636e;--acc:#1a8c84;--accbg:rgba(26,140,132,.1)}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{padding:14px 16px 20px;max-width:1500px;margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.top h1{font-size:18px;margin:0}.top .sub{color:var(--muted);font-size:13px}
+.tb{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn{background:var(--card);border:1px solid var(--line2);border-radius:9px;padding:7px 12px;font-weight:600;font-size:13px}
+.btn.on{background:var(--accbg);border-color:var(--acc)}
+.seg{display:inline-flex;background:var(--card);border:1px solid var(--line2);border-radius:9px;padding:2px;flex-wrap:wrap}
+.seg button{background:none;border:none;border-radius:7px;padding:5px 11px;font-size:12.5px;font-weight:600;color:var(--muted)}
+.seg button.on{background:var(--accbg);color:var(--text);box-shadow:inset 0 0 0 1px var(--acc)}
+.grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(300px,1fr);gap:14px;align-items:start}
+@media (max-width:980px){.grid{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;min-width:0}
+.card h3{margin:0 0 8px;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+#stage{position:relative;height:min(68vh,640px);min-height:380px;border-radius:12px;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#172131,#0b0f15)}
+:root[data-theme="light"] #stage{background:radial-gradient(ellipse at 50% 40%,#ffffff,#e7ecf2)}
+#stage canvas{display:block;width:100%;height:100%;touch-action:none}
+.ctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.ctrl .sp{color:var(--muted);font-size:12.5px;margin-left:auto}
+#cap{position:absolute;left:12px;top:10px;font-size:12px;font-weight:600;letter-spacing:.02em;color:#fff;background:rgba(0,0,0,.42);padding:5px 10px;border-radius:8px;pointer-events:none;display:none}
+#note{position:absolute;left:12px;right:12px;top:42px;font-size:12.5px;color:#fff;background:rgba(0,0,0,.5);padding:7px 11px;border-radius:9px;pointer-events:none;display:none;max-width:560px}
+body.jv #cap{display:block}body:not(.jv) #note{display:none!important}body.jv #pw button[data-p="all"]{display:none}
+.hint{position:absolute;left:12px;bottom:10px;font-size:11.5px;color:var(--muted);pointer-events:none}
+.steps{display:flex;flex-direction:column;gap:6px}
+.step{display:flex;gap:10px;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 10px;width:100%}
+.step .n{flex:0 0 22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;background:var(--line);color:var(--muted)}
+.step div>b{display:block;font-size:13px}.step span b{color:var(--text)}.step span{font-size:12.5px;color:var(--muted)}
+.step.on{border-color:var(--acc);background:var(--accbg)}.step.on .n{background:var(--acc);color:#fff}
+.step.on span{color:var(--text)}
+.key{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;font-size:12px;color:var(--muted)}
+.key i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.tp{margin-top:12px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
+.tp b{color:var(--text)}
+</style></head><body>
+<div class="wrap">
+  <div class="top">
+    <div><h1>Lipoprotein pathways</h1><div class="sub">Ride along with each particle through the lymph, blood, capillaries and liver. Close-up follows one particle; Map shows the whole route.</div></div>
+    <div class="tb"><div class="seg" id="vw"><button data-v="j" class="on">Close-up</button><button data-v="map">Map</button></div><div class="seg" id="pw">
+      <button data-p="chylo" class="on">Chylomicron</button><button data-p="vldl">VLDL → IDL → LDL</button><button data-p="hdl">HDL</button><button data-p="all">All together</button>
+    </div></div>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div id="stage"><div id="cap"></div><div id="note"></div><div class="hint">Drag to rotate · scroll or pinch to zoom</div></div>
+      <div class="ctrl">
+        <button class="btn" id="prev">← Back</button>
+        <button class="btn on" id="play">Pause</button>
+        <button class="btn" id="next">Next →</button>
+        <button class="btn" id="restart">Restart</button>
+        <div class="seg" id="spd"><button data-s="0.6">Slow</button><button data-s="1" class="on">Normal</button><button data-s="1.7">Fast</button></div>
+        <span class="sp" id="pos"></span>
+      </div>
+    </div>
+    <div class="right">
+      <div class="card"><h3 id="stitle">Steps</h3><div class="steps" id="steps"></div></div>
+      <div class="card" style="margin-top:14px"><h3>Key</h3>
+        <div class="key">
+          <div><i style="background:#f2c94c"></i>Triglyceride-rich core</div><div><i style="background:#ff8c42"></i>Cholesterol ester-rich core</div>
+          <div><i style="background:#4fb8ff"></i>apoB-48</div><div><i style="background:#2f6bff"></i>apoB-100</div>
+          <div><i style="background:#3fb950"></i>apoC-II</div><div><i style="background:#b48cff"></i>apoE</div>
+          <div><i style="background:#ff5fa2"></i>apoA-I</div><div><i style="background:#ffffff;border:1px solid #888"></i>Free cholesterol</div>
+        </div>
+        <div class="tp"><b>Size:</b> chylomicron &gt; VLDL &gt; IDL &gt; LDL &gt; HDL. <b>Density</b> runs the other way: HDL is the densest and has the most protein.</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function(){
+const V=(x,y,z)=>new THREE.Vector3(x,y,z);
+const W={gut:V(-9,-1.2,3),lac:V(-7.6,1.3,2.2),lym:V(-6.6,4.4,0.6),duct:V(-4,6.2,-1.4),v1:V(0,6.6,-2.4),v2:V(4.6,5.6,-2.2),
+ liverIn:V(7.4,3.1,-0.8),liv:V(10.2,2.6,-1),liverOut:V(7.6,0.6,0.4),v3:V(6.8,-2.2,2.2),musc:V(3,-5,3),adip:V(-2.2,-5,3),v4:V(-6.2,-2.2,1.2),
+ periphNear:V(8.2,-3.4,3.6),periph:V(10.2,-4.6,5.4)};
+const APO={B48:0x4fb8ff,B100:0x2f6bff,C2:0x3fb950,E:0xb48cff,A1:0xff5fa2};
+const TG=new THREE.Color(0xf2c94c),CE=new THREE.Color(0xff8c42);
+
+// ---------- scene ----------
+const stage=document.getElementById("stage");
+const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});
+renderer.setPixelRatio(Math.min(2,window.devicePixelRatio||1));stage.appendChild(renderer.domElement);
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(42,1,0.1,200);camera.position.set(-1,3,33);
+const controls=new THREE.OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.target.set(0,0.3,1);controls.minDistance=8;controls.maxDistance=55;
+let userMoved=0;controls.addEventListener("start",()=>{userMoved=performance.now();});
+scene.add(new THREE.HemisphereLight(0xffffff,0x334455,0.75));
+const dl=new THREE.DirectionalLight(0xffffff,0.75);dl.position.set(6,12,10);scene.add(dl);
+const isLight=()=>document.documentElement.getAttribute("data-theme")==="light";
+
+function mat(c,o={}){return new THREE.MeshStandardMaterial(Object.assign({color:c,roughness:.55,metalness:.05},o));}
+function tube(points,r,color,o={}){const cv=new THREE.CatmullRomCurve3(points,!!o.closed);const m=new THREE.Mesh(new THREE.TubeGeometry(cv,160,r,14,!!o.closed),mat(color,{transparent:true,opacity:o.op||1}));scene.add(m);return m;}
+// text sprites
+const sprites=[];
+function label(text,pos,o={}){
+  const c=document.createElement("canvas"),x=c.getContext("2d"),fs=o.fs||38;x.font=`600 ${fs}px Inter,system-ui,sans-serif`;
+  const w=Math.ceil(x.measureText(text).width)+28,h=fs+22;c.width=w;c.height=h;
+  const s=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),depthTest:false,transparent:true}));
+  s.userData={c,text,fs,bg:o.bg,col:o.col};drawLabel(s);s.position.copy(pos);const k=(o.scale||1)*0.016;s.scale.set(w*k,h*k,1);s.renderOrder=10;scene.add(s);sprites.push(s);return s;}
+function drawLabel(s){const {c,text,fs,bg,col}=s.userData,x=c.getContext("2d");x.font=`600 ${fs}px Inter,system-ui,sans-serif`;const nw=Math.ceil(x.measureText(text).width)+28;if(nw!==c.width){c.width=nw;s.material.map.dispose();s.material.map=new THREE.CanvasTexture(c);}x.clearRect(0,0,c.width,c.height);
+  x.fillStyle=bg||(isLight()?"rgba(255,255,255,.88)":"rgba(13,17,23,.78)");const r=12;x.beginPath();x.moveTo(r,0);x.arcTo(c.width,0,c.width,c.height,r);x.arcTo(c.width,c.height,0,c.height,r);x.arcTo(0,c.height,0,0,r);x.arcTo(0,0,c.width,0,r);x.fill();
+  x.font=`600 ${fs}px Inter,system-ui,sans-serif`;x.fillStyle=col||(isLight()?"#1f2328":"#e6edf3");x.textBaseline="middle";x.fillText(text,14,c.height/2+1);s.material.map.needsUpdate=true;}
+window.lpTheme=()=>sprites.forEach(drawLabel);
+
+// intestine: coiled tube
+const gutPts=[];for(let i=0;i<=40;i++){const t=i/40;gutPts.push(V(-11+4*t+Math.sin(t*18)*0.5,-2.4+Math.cos(t*18)*0.9,3+Math.sin(t*9)*1.2));}
+tube(gutPts,0.55,0xe39aa6);label("Small intestine",V(-10.6,-4.2,3.4));
+// lymph and thoracic duct
+tube([W.gut,W.lac,W.lym,W.duct],0.16,0x9fe0c9,{op:.9});label("Lymph → thoracic duct",V(-8.8,4.6,0.8),{scale:.8});
+// blood loop (closed)
+const loop=[W.duct,W.v1,W.v2,W.liverIn,W.v3,W.musc,W.adip,W.v4];
+tube(loop,0.42,0xc0392b,{closed:true,op:.38});label("Blood",V(1.5,8,-2.6),{scale:.85});
+// liver
+const liver=new THREE.Mesh(new THREE.SphereGeometry(2.6,40,30),mat(0x8a3b22,{roughness:.7}));liver.scale.set(1.3,0.85,1);liver.position.copy(W.liv);scene.add(liver);
+label("Liver",V(9.6,5.4,-1));
+// capillary beds
+function bed(pos,color,name){const g=new THREE.Mesh(new THREE.BoxGeometry(3.6,1.6,2.4),mat(color,{transparent:true,opacity:.55,roughness:.8}));g.position.copy(pos).add(V(0,-1.35,0));scene.add(g);label(name,pos.clone().add(V(0,-3,0.6)),{scale:.8});return g;}
+const muscBed=bed(W.musc,0xa1453c,"Muscle"),adipBed=bed(W.adip,0xf3dc8a,"Adipose");
+// peripheral cell + its capillary branch, and the liver's vessels
+tube([W.v3,W.periphNear,W.periph],0.2,0xc0392b,{op:.4});tube([W.liverIn,W.liv],0.24,0xc0392b,{op:.35});tube([W.liv,W.liverOut],0.24,0xc0392b,{op:.35});
+const cell=new THREE.Mesh(new THREE.SphereGeometry(1.6,36,26),mat(0x5b8def,{transparent:true,opacity:.75}));cell.position.copy(W.periph);scene.add(cell);
+label("Peripheral cell",W.periph.clone().add(V(0,2.3,0)),{scale:.8});
+// enzyme / receptor tags (shown per step)
+const tags={};
+function tag(id,text,pos,col){const s=label(text,pos,{scale:.78,bg:col,col:"#fff"});s.visible=false;tags[id]=s;}
+tag("lplM","LPL",W.musc.clone().add(V(0,1.15,0.4)),"rgba(63,185,80,.92)");tag("lplA","LPL",W.adip.clone().add(V(0,1.15,0.4)),"rgba(63,185,80,.92)");
+tag("hl","Hepatic lipase",W.liverIn.clone().add(V(-2.6,0.6,0.6)),"rgba(210,120,40,.95)");
+tag("apoErec","apoE receptor",W.liv.clone().add(V(1.8,2.9,1.2)),"rgba(150,100,230,.95)");
+tag("ldlr","LDL receptor",W.periph.clone().add(V(-1.7,-1.6,0.4)),"rgba(47,107,255,.95)");
+tag("ldlrL","LDL receptor",W.liv.clone().add(V(0.6,-2.6,1.6)),"rgba(47,107,255,.95)");
+tag("abca1","ABCA1",W.periph.clone().add(V(-2,0.9,0.2)),"rgba(90,140,220,.95)");
+tag("lcat","LCAT",W.periphNear.clone().add(V(-1.2,1.3,0)),"rgba(255,95,162,.95)");
+tag("cetp","CETP",W.musc.clone().add(V(1.2,1.6,0.3)),"rgba(255,140,66,.95)");
+tag("srb1","SR-B1",W.liv.clone().add(V(3.6,0.4,1.4)),"rgba(255,95,162,.95)");
+tag("b48","apoB-48",W.lac.clone().add(V(1.4,0.6,0)),"rgba(79,184,255,.95)");
+
+// ---------- particles ----------
+function particle(){
+  const g=new THREE.Group();
+  const core=new THREE.Mesh(new THREE.SphereGeometry(1,32,24),mat(0xf2c94c,{roughness:.35,transparent:true,opacity:.96}));g.add(core);
+  const shell=new THREE.Mesh(new THREE.SphereGeometry(1.06,32,24),mat(0xffffff,{transparent:true,opacity:.12,roughness:.2}));g.add(shell);
+  g.userData={core,apos:[],tg:1,size:1,flat:1,fade:1};
+  g.lab=label("",V(),{scale:.75});scene.add(g);return g;}
+const fib=n=>{const a=[];for(let i=0;i<n;i++){const y=1-(i+.5)*2/n,r=Math.sqrt(1-y*y),t=i*2.39996;a.push(V(Math.cos(t)*r,y,Math.sin(t)*r));}return a;};
+function setApos(p,list){ // list of keys
+  p.userData.apos.forEach(m=>p.remove(m));p.userData.apos=[];const dirs=fib(Math.max(list.length,1)*1);
+  list.forEach((k,i)=>{const m=new THREE.Mesh(new THREE.SphereGeometry(0.2,14,10),mat(APO[k],{emissive:APO[k],emissiveIntensity:.35}));m.position.copy(dirs[i]).multiplyScalar(1.05);m.userData.k=k;p.add(m);p.userData.apos.push(m);});}
+function applyState(p,s){const u=p.userData;const sz=s.size*u.fade;p.scale.set(sz,sz*s.flat,sz);u.core.material.color.copy(CE).lerp(TG,s.tg);
+  u.core.material.opacity=.96*u.fade;p.visible=u.fade>0.02;
+  p.userData.apos.forEach(m=>{m.scale.setScalar(1/Math.max(s.size,.3)*0.9);});}
+// small cargo dots (FFA, cholesterol, apo transfer)
+const dots=[];function dot(from,to,color,dur,size=0.16,delay=0){const m=new THREE.Mesh(new THREE.SphereGeometry(size,10,8),mat(color,{emissive:color,emissiveIntensity:.5}));m.position.copy(from);m.visible=false;scene.add(m);dots.push({m,from:from.clone(),to:to.clone(),t:-delay,dur});}
+
+// ---------- pathways ----------
+// state: size, tg (1 = TG-rich yellow, 0 = CE-rich orange), flat (y squash), apos, name
+const P={
+chylo:{title:"Chylomicron: dietary fat",steps:[
+ {k:"Packaging in the enterocyte",t:"Dietary triglycerides and cholesterol are packaged with <b>apoB-48</b> into a nascent chylomicron, the largest and least dense lipoprotein.",path:["gut","lac"],from:{size:1.35,tg:1,flat:1,apos:["B48"]},to:{size:1.35,tg:1,flat:1},name:"Nascent chylomicron",tags:["b48"],focus:"lac"},
+ {k:"Into the lymph",t:"Chylomicrons are too big for blood capillaries, so they enter <b>lacteals</b> and travel in lymph to the <b>thoracic duct</b>, bypassing the liver.",path:["lac","lym","duct"],to:{size:1.35,tg:1},name:"Nascent chylomicron",focus:"lym"},
+ {k:"Picks up apoC-II and apoE from HDL",t:"In the blood, HDL hands over <b>apoC-II</b> (activates LPL) and <b>apoE</b> (for liver uptake later). Now it is a mature chylomicron.",path:["duct","v1"],to:{size:1.35,tg:1},addApos:["C2","E"],donate:true,name:"Mature chylomicron",focus:"v1"},
+ {k:"LPL in muscle capillaries",t:"<b>Lipoprotein lipase</b> on capillary endothelium, activated by <b>apoC-II</b>, hydrolyzes triglycerides. Free fatty acids enter muscle for energy.",path:["v1","v2","liverIn","v3","musc"],to:{size:1.05,tg:.6},ffa:"musc",tags:["lplM"],name:"Mature chylomicron",focus:"musc"},
+ {k:"LPL in adipose capillaries",t:"More triglyceride is removed in adipose tissue. The fatty acids are re-esterified and stored as triglyceride. Insulin raises adipose LPL.",path:["musc","adip"],to:{size:.8,tg:.3},ffa:"adip",tags:["lplA"],name:"Mature chylomicron",focus:"adip"},
+ {k:"Becomes a chylomicron remnant",t:"The smaller, cholesterol-rich particle returns <b>apoC-II</b> to HDL and keeps <b>apoE</b> and <b>apoB-48</b>: a chylomicron remnant.",path:["adip","v4","duct","v1"],to:{size:.75,tg:.2},dropApos:["C2"],name:"Chylomicron remnant",focus:"v4"},
+ {k:"Taken up by the liver",t:"The liver takes up the remnant through <b>apoE</b> binding its receptor (remnant receptor / LDL receptor), by receptor-mediated endocytosis.",path:["v1","v2","liverIn","liv"],to:{size:.75,tg:.2},fadeOut:true,tags:["apoErec"],name:"Chylomicron remnant",focus:"liverIn"}]},
+vldl:{title:"VLDL → IDL → LDL: liver-made fat",steps:[
+ {k:"The liver makes VLDL",t:"The liver packages <b>endogenous</b> triglycerides and cholesterol with <b>apoB-100</b> into VLDL.",path:["liv","liverOut"],from:{size:1.05,tg:.95,flat:1,apos:["B100"]},to:{size:1.05,tg:.95},name:"Nascent VLDL",focus:"liverOut"},
+ {k:"Picks up apoC-II and apoE",t:"As with chylomicrons, HDL donates <b>apoC-II</b> and <b>apoE</b> in the blood.",path:["liverOut","v3"],to:{size:1.05,tg:.95},addApos:["C2","E"],donate:true,name:"Mature VLDL",focus:"v3"},
+ {k:"LPL makes IDL",t:"<b>LPL</b> (activated by apoC-II) strips triglycerides in muscle and adipose. The smaller particle is <b>IDL</b>.",path:["v3","musc","adip"],to:{size:.78,tg:.45},ffa:"both",tags:["lplM","lplA"],name:"IDL",focus:"musc"},
+ {k:"IDL: some to the liver, the rest becomes LDL",t:"Part of IDL is taken up by the liver through <b>apoE</b>. The rest is trimmed by <b>hepatic lipase</b>, loses apoC-II and apoE, and becomes <b>LDL</b> (only apoB-100).",path:["adip","v4","duct","v1","v2","liverIn"],to:{size:.6,tg:.08},dropApos:["C2","E"],tags:["hl"],name:"LDL",focus:"liverIn"},
+ {k:"LDL carries cholesterol to tissues",t:"LDL is the main cholesterol carrier to peripheral tissues (and back to the liver), the \"bad\" cholesterol.",path:["liverIn","v3","periphNear"],to:{size:.6,tg:.08},name:"LDL",focus:"periphNear"},
+ {k:"LDL receptor uptake",t:"<b>apoB-100</b> binds the <b>LDL receptor</b> and LDL enters by receptor-mediated endocytosis. Absent receptors = familial hypercholesterolemia.",path:["periphNear","periph"],to:{size:.6,tg:.08},fadeOut:true,tags:["ldlr","ldlrL"],name:"LDL",focus:"periph"}]},
+hdl:{title:"HDL: reverse cholesterol transport",steps:[
+ {k:"Nascent HDL from liver and gut",t:"The liver (and intestine) secrete flat, discoidal nascent HDL carrying <b>apoA-I</b>. HDL is also the reservoir of apoC-II and apoE for other particles.",path:["liv","liverOut"],from:{size:.5,tg:.0,flat:.35,apos:["A1","C2","E"]},to:{size:.5,tg:0,flat:.35},name:"Nascent HDL",focus:"liverOut"},
+ {k:"Collects cholesterol via ABCA1",t:"<b>ABCA1</b> on peripheral cells moves free cholesterol out onto nascent HDL.",path:["liverOut","v3","periphNear"],to:{size:.5,tg:0,flat:.35},chol:true,tags:["abca1"],name:"Nascent HDL",focus:"periphNear"},
+ {k:"LCAT makes mature HDL",t:"<b>LCAT</b>, activated by <b>apoA-I</b>, esterifies the cholesterol. Cholesterol esters fill the core and HDL becomes spherical (mature HDL).",path:["periphNear","v3"],to:{size:.5,tg:0,flat:1},tags:["lcat"],name:"Mature HDL",focus:"v3"},
+ {k:"CETP swaps lipids",t:"<b>CETP</b> moves cholesterol esters from HDL to VLDL/IDL/LDL in exchange for triglycerides.",path:["v3","musc"],to:{size:.5,tg:.15,flat:1},cetp:true,tags:["cetp"],name:"Mature HDL",focus:"musc"},
+ {k:"Delivers cholesterol to the liver",t:"HDL returns cholesterol to the liver through <b>SR-B1</b> (and to steroid-making tissues). This is reverse cholesterol transport, the \"good\" cholesterol.",path:["musc","adip","v4","duct","v1","v2","liverIn","liv"],to:{size:.46,tg:.15,flat:1},fadeOut:true,tags:["srb1"],name:"Mature HDL",focus:"liverIn"}]}
+};
+// ---------- runner ----------
+const runs=[];let mode="chylo",playing=true,speed=1;
+function newRun(key){const p=particle();p.userData.fade=1;const r={key,p,i:0,t:0,s:null,donor:null};startStep(r,0);return r;}
+function cur(r){return P[r.key].steps[r.i];}
+function startStep(r,i){
+  r.i=i;r.t=0;const st=cur(r),p=r.p;
+  if(i===0||!r.s){const f=P[r.key].steps[0].from;r.s=Object.assign({},f);setApos(p,f.apos.slice());p.userData.fade=1;}
+  if(st.from&&i===0){}
+  r.s0=Object.assign({},r.s);
+  const pts=st.path.map(k=>W[k].clone());if(pts.length<2)pts.push(pts[0].clone());
+  r.curve=new THREE.CatmullRomCurve3(pts);r.len=r.curve.getLength();r.dur=Math.max(2.8,r.len/3.2);
+  r.events={ffa:false,apo:false,drop:false,chol:false,cetp:false};
+  p.lab.userData.text=st.name;drawLabel(p.lab);const w=p.lab.userData.c.width,h=p.lab.userData.c.height;p.lab.scale.set(w*.013,h*.013,1);
+}
+// rebuild a run's state at the start of step i (for Back / step clicks)
+function jump(r,i){const steps=P[r.key].steps;const f=steps[0].from;r.s=Object.assign({},f);let apos=f.apos.slice();
+  for(let j=0;j<i;j++){const st=steps[j];Object.assign(r.s,st.to);if(st.addApos)apos=apos.concat(st.addApos);if(st.dropApos)apos=apos.filter(a=>!st.dropApos.includes(a));}
+  setApos(r.p,apos);r.p.userData.fade=1;startStep(r,i);}
+function stepEvents(r,u){const st=cur(r),p=r.p;
+  if(st.ffa&&!r.events.ffa&&u>.55){r.events.ffa=true;const where=st.ffa==="both"?["musc","adip"]:[st.ffa];
+    where.forEach((w,wi)=>{for(let k=0;k<7;k++)dot(p.position.clone().add(V((Math.random()-.5)*.6,0,(Math.random()-.5)*.6)),W[w].clone().add(V((Math.random()-.5)*2.6,-1.6-Math.random()*.6,(Math.random()-.5)*1.6)),0xf2c94c,1.6,.14,k*.12+wi*.4);});}
+  if(st.addApos&&!r.events.apo&&u>.35){r.events.apo=true;const from=p.position.clone().add(V(-2.2,1.6,0));
+    const h=new THREE.Mesh(new THREE.SphereGeometry(.42,20,14),mat(0xff8c42,{transparent:true,opacity:.9}));h.position.copy(from);scene.add(h);r.donor={m:h,t:0};
+    st.addApos.forEach((a,k)=>dot(from,p.position.clone(),APO[a],1.1,.2,k*.25));
+    setTimeout(()=>{const keys=r.p.userData.apos.map(m=>m.userData.k).concat(st.addApos);setApos(r.p,keys);},1300/speed);}
+  if(st.dropApos&&!r.events.drop&&u>.6){r.events.drop=true;st.dropApos.forEach((a,k)=>dot(p.position.clone(),p.position.clone().add(V(-1.6,2.2,-.6)),APO[a],1.1,.2,k*.2));
+    setApos(r.p,r.p.userData.apos.map(m=>m.userData.k).filter(k=>!st.dropApos.includes(k)));}
+  if(st.chol&&!r.events.chol&&u>.7){r.events.chol=true;for(let k=0;k<8;k++)dot(W.periph.clone().add(V((Math.random()-.5)*1.2,(Math.random()-.5)*1.2,-1)),W.periphNear.clone(),0xffffff,1.2,.13,k*.15);}
+  if(st.cetp&&!r.events.cetp&&u>.5){r.events.cetp=true;const v=new THREE.Mesh(new THREE.SphereGeometry(.85,24,18),mat(0xf2c94c,{transparent:true,opacity:.8}));v.position.copy(W.musc.clone().add(V(1.8,.8,-.4)));scene.add(v);r.donor={m:v,t:0};
+    for(let k=0;k<4;k++){dot(p.position.clone(),v.position.clone(),0xff8c42,1.1,.15,k*.2);dot(v.position.clone(),p.position.clone(),0xf2c94c,1.1,.15,.1+k*.2);}}
+}
+const ease=x=>x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2;
+function tickRun(r,dt){const st=cur(r);
+  if(playing)r.t+=dt*speed/r.dur;const u=Math.min(1,r.t),e=ease(u);
+  r.p.position.copy(r.curve.getPointAt(e));
+  const s={};["size","tg","flat"].forEach(k=>{const a=r.s0[k],b=(st.to[k]!==undefined?st.to[k]:a);s[k]=a+(b-a)*e;});
+  r.p.userData.fade=st.fadeOut?Math.max(0,1-Math.max(0,(u-.82)/.18)):1;
+  applyState(r.p,s);r.p.lab.position.copy(r.p.position).add(V(0,s.size*1.3+.55,0));r.p.lab.visible=r.p.visible;
+  stepEvents(r,u);
+  if(r.donor){r.donor.t+=dt*speed;r.donor.m.material.opacity=Math.max(0,.9-r.donor.t*.35);if(r.donor.t>2.6){scene.remove(r.donor.m);r.donor=null;}}
+  if(u>=1){r.s=Object.assign({},r.s0,st.to);
+    if(r.i<P[r.key].steps.length-1){startStep(r,r.i+1);if(mode!=="all"&&r===runs[0])render();}
+    else if(mode==="all"){jump(r,0);} else {playing=false;setPlay();r.t=1;}}
+}
+function tickDots(dt){for(let i=dots.length-1;i>=0;i--){const d=dots[i];if(playing)d.t+=dt*speed;const u=d.t/d.dur;
+  if(u<0){d.m.visible=false;continue;} if(u>=1){scene.remove(d.m);dots.splice(i,1);continue;}
+  d.m.visible=true;d.m.position.lerpVectors(d.from,d.to,ease(u));d.m.position.y+=Math.sin(u*Math.PI)*.5;}}
+function clearAll(){runs.forEach(r=>{scene.remove(r.p);scene.remove(r.p.lab);if(r.donor)scene.remove(r.donor.m);});runs.length=0;dots.forEach(d=>scene.remove(d.m));dots.length=0;}
+function setMode(m){mode=m;clearAll();if(m==="all"){["chylo","vldl","hdl"].forEach((k,i)=>{const r=newRun(k);jump(r,i===0?0:i===1?1:0);runs.push(r);});}else runs.push(newRun(m));
+  playing=true;setPlay();render();}
+// ================= CLOSE-UP JOURNEY =================
+let view="j";
+const jscene=new THREE.Scene();
+const jcam=new THREE.PerspectiveCamera(45,1,.1,140);jcam.position.set(0,.9,16.5);
+const jctl=new THREE.OrbitControls(jcam,renderer.domElement);
+Object.assign(jctl,{enableDamping:true,minDistance:6,maxDistance:26,minPolarAngle:.9,maxPolarAngle:1.85,minAzimuthAngle:-.85,maxAzimuthAngle:.85,enabled:false});
+jctl.target.set(0,-1.5,0);let jMoved=-1e9;jctl.addEventListener("start",()=>{jMoved=performance.now();});
+jscene.add(new THREE.HemisphereLight(0xfff4ec,0x40202a,.9));
+const jdl=new THREE.DirectionalLight(0xffffff,.75);jdl.position.set(-4,10,12);jscene.add(jdl);
+const jpl=new THREE.PointLight(0xffe6d8,.55,45);jpl.position.set(0,2,7);jscene.add(jpl);
+
+const R=4.2,FY=-3.2,JS=1.15;
+const lerp=(a,b,t)=>a+(b-a)*t,cl=x=>Math.max(0,Math.min(1,x)),ph=(u,a,b)=>{if(b<=a)return u>=b?1:0;const x=cl((u-a)/(b-a));return x*x*(3-2*x);};
+function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+const rnd=Math.random;
+// ---------- procedural textures ----------
+const TX={};const tx=(k,f)=>TX[k]||(TX[k]=f());
+function cobbleTex(base,seed){const Wd=512,Ht=256,gx=12,gy=10,r=rng(seed),pts=[];
+  for(let j=0;j<gy;j++)for(let i=0;i<gx;i++)pts.push([(i+.5+(r()-.5)*.75)*Wd/gx,(j+.5+(r()-.5)*.7)*Ht/gy,.88+r()*.22]);
+  const c=document.createElement("canvas");c.width=Wd;c.height=Ht;const x=c.getContext("2d"),im=x.createImageData(Wd,Ht),d=im.data,cw=Wd/gx,ch=Ht/gy;
+  for(let py=0;py<Ht;py++)for(let px=0;px<Wd;px++){const ci=Math.floor(px/cw),cj=Math.floor(py/ch);let d1=1e9,d2=1e9,b=pts[0];
+    for(let dj=-1;dj<=1;dj++)for(let di=-1;di<=1;di++){let ii=ci+di,jj=cj+dj,ox=0,oy=0;if(ii<0){ii+=gx;ox=-Wd;}if(ii>=gx){ii-=gx;ox=Wd;}if(jj<0){jj+=gy;oy=-Ht;}if(jj>=gy){jj-=gy;oy=Ht;}
+      const p=pts[jj*gx+ii],dx=(p[0]+ox-px)/cw,dy=(p[1]+oy-py)/ch,dd=Math.sqrt(dx*dx+dy*dy);if(dd<d1){d2=d1;d1=dd;b=p;}else if(dd<d2)d2=dd;}
+    const edge=Math.min(1,(d2-d1)*7);let k=b[2]*(.55+.45*edge)*(1.05-.3*d1);if(d1<.2)k*=1.13;
+    const o=(py*Wd+px)*4;d[o]=Math.min(255,base[0]*k);d[o+1]=Math.min(255,base[1]*k);d[o+2]=Math.min(255,base[2]*k);d[o+3]=255;}
+  x.putImageData(im,0,0);const t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;return t;}
+function memTex(base,seed){const S=256,n=24,c=document.createElement("canvas");c.width=c.height=S;const x=c.getContext("2d"),r=rng(seed);
+  x.fillStyle=`rgb(${base.map(v=>v*.5|0)})`;x.fillRect(0,0,S,S);const cs=S/n;
+  for(let j=-1;j<=n;j++)for(let i=-1;i<=n;i++){const cx=(i+.5+(j&1)*.5)*cs+(r()-.5)*2,cy=(j+.5)*cs+(r()-.5)*2,rad=cs*.5;
+    const g=x.createRadialGradient(cx-rad*.35,cy-rad*.35,rad*.1,cx,cy,rad);g.addColorStop(0,`rgb(${base.map(v=>Math.min(255,v*1.35)|0)})`);g.addColorStop(1,`rgb(${base.map(v=>v*.8|0)})`);
+    x.fillStyle=g;x.beginPath();x.arc(cx,cy,rad,0,7);x.fill();}
+  const t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;return t;}
+function striTex(){const c=document.createElement("canvas");c.width=8;c.height=64;const x=c.getContext("2d");
+  for(let i=0;i<64;i++){const v=.5+.5*Math.cos(i/64*Math.PI*2);x.fillStyle=`rgb(${150+60*v|0},${48+30*v|0},${52+28*v|0})`;x.fillRect(0,i,8,1);}
+  const t=new THREE.CanvasTexture(c);t.wrapS=t.wrapT=THREE.RepeatWrapping;return t;}
+
+// ---------- kit (the set for one step) ----------
+let kit=null;
+function clearKit(){if(!kit)return;jscene.remove(kit.g);
+  kit.g.traverse(o=>{if(o.geometry&&!o.geometry.keep)o.geometry.dispose();if(o.material&&!o.material.keep){if(o.isSprite&&o.material.map)o.material.map.dispose();o.material.dispose();}});
+  for(let i=sprites.length-1;i>=0;i--)if(sprites[i].userData.j)sprites.splice(i,1);kit=null;}
+function jlabel(text,pos,o={}){const c=document.createElement("canvas"),fs=o.fs||34;c.width=1;c.height=fs+22;
+  const s=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),depthTest:false,transparent:true}));
+  s.userData={c,text,fs,bg:o.bg,col:o.col,j:1,k:(o.scale||1)*.0125};drawLabel(s);s.scale.set(c.width*s.userData.k,c.height*s.userData.k,1);
+  s.position.copy(pos);s.renderOrder=20;(o.parent||kit.g).add(s);sprites.push(s);return s;}
+function setText(s,t){if(s.userData.text===t)return;s.userData.text=t;drawLabel(s);s.scale.set(s.userData.c.width*s.userData.k,s.userData.c.height*s.userData.k,1);}
+const ENZ=(c)=>`rgba(${c},.94)`;
+function yRec(color,h=1){const g=new THREE.Group(),m=mat(color,{emissive:color,emissiveIntensity:.2});
+  const st=new THREE.Mesh(new THREE.CylinderGeometry(.06,.06,.55*h,6),m);st.position.y=.27*h;g.add(st);
+  [-1,1].forEach(sd=>{const a=new THREE.Mesh(new THREE.CylinderGeometry(.055,.055,.38,6),m);a.position.set(sd*.13,.66*h,0);a.rotation.z=-sd*.6;g.add(a);
+    const hd=new THREE.Mesh(new THREE.SphereGeometry(.1,10,8),m);hd.position.set(sd*.25,.82*h,0);g.add(hd);});return g;}
+function enzyme(color,stalk=.55){const g=new THREE.Group();const st=new THREE.Mesh(new THREE.CylinderGeometry(.045,.045,stalk,6),mat(0xd8d0c0));st.position.y=stalk/2;g.add(st);
+  const m=mat(color,{emissive:color,emissiveIntensity:.3});[-1,1].forEach(sd=>{const b=new THREE.Mesh(new THREE.SphereGeometry(.25,16,12),m);b.position.set(sd*.21,stalk+.12,0);g.add(b);});return g;}
+const UP=V(0,1,0);
+function floorAt(z){return kit.type==="ves"?-Math.sqrt(R*R-z*z):FY;}
+
+function buildVessel(o,g){const lym=o.fluid==="lymph";
+  const tex=lym?tx("lym",()=>cobbleTex([200,164,122],7)):tx("bld",()=>cobbleTex([228,124,128],3));tex.repeat.set(1.7,3.3);
+  const th0=THREE.MathUtils.degToRad(76),thL=THREE.MathUtils.degToRad(194);
+  const gi=new THREE.CylinderGeometry(R,R,46,110,1,true,th0,thL);gi.rotateZ(-Math.PI/2);
+  g.add(new THREE.Mesh(gi,mat(0xffffff,{map:tex,bumpMap:tex,bumpScale:.05,side:THREE.DoubleSide,roughness:.6})));
+  const go=new THREE.CylinderGeometry(R+.4,R+.4,46,110,1,true,th0,thL);go.rotateZ(-Math.PI/2);
+  g.add(new THREE.Mesh(go,mat(lym?0xb89a74:0x7d3036,{side:THREE.DoubleSide,roughness:.9})));
+  [th0,th0+thL].forEach(th=>{const rim=new THREE.Mesh(new THREE.BoxGeometry(46,.42,.05),mat(lym?0xd4b48c:0x9c4249,{roughness:.9}));const rr=R+.2;
+    rim.position.set(0,-rr*Math.sin(th),rr*Math.cos(th));rim.rotation.x=th+Math.PI/2;g.add(rim);});
+  const ty=-R-.55;kit.cells=[];
+  const adip=(x0,x1)=>{const dm=mat(0xf2c94c,{roughness:.3,emissive:0x5a4510,emissiveIntensity:.25}),om=mat(0xf7e9be,{transparent:true,opacity:.42,roughness:.4,depthWrite:false}),nm=mat(0x6b4fa0);
+    [[-1.4,1.75,0],[1.9,1.95,1.7],[.3,5.1,.85]].forEach(([z,dy,xo])=>{for(let x=x0+xo;x<=x1;x+=3.5){const rr=1.55+((Math.abs(x*7+z*3)|0)%3)*.1;
+      const cg=new THREE.Group();cg.position.set(x,ty-dy,z);
+      cg.add(new THREE.Mesh(new THREE.SphereGeometry(rr,28,20),om));const dr=new THREE.Mesh(new THREE.SphereGeometry(rr*.84,26,18),dm);cg.add(dr);
+      const nu=new THREE.Mesh(new THREE.SphereGeometry(.38,12,8),nm);nu.scale.set(1,.45,1);nu.position.set(.55,.75,.75).normalize().multiplyScalar(rr*.93);cg.add(nu);g.add(cg);
+      kit.cells.push({x,pt:()=>cg.position.clone().add(V((rnd()-.5)*rr,(rnd()-.3)*rr*.8,(rnd()-.2)*rr*.6)),feed:()=>{dr.scale.multiplyScalar(1.004);if(dr.scale.x>1.1)dr.scale.setScalar(1.1);}});}});
+    kit.labels.push(["Adipocytes",V((x0+x1)/2>0?5.6:-5.6,ty-3.9,3.6)]);};
+  const musc=(x0,x1)=>{const st=tx("stri",striTex);const L=x1-x0;
+    [[-1.8,1],[0,1],[1.85,1],[-.9,2.85],[.95,2.85],[2.8,2.85]].forEach(([z,dy])=>{const t=st.clone();t.needsUpdate=true;t.repeat.set(1,L*1.6);
+      const m=new THREE.Mesh(new THREE.CylinderGeometry(.88,.88,L,26,1),mat(0xffffff,{map:t,roughness:.65}));m.rotation.z=Math.PI/2;m.position.set((x0+x1)/2,ty-dy,z);g.add(m);
+      for(let k=0;k<Math.floor(L/3.2);k++){const nu=new THREE.Mesh(new THREE.SphereGeometry(.2,10,8),mat(0x6b4fa0));nu.scale.set(2.2,.6,.8);nu.position.set(x0+1.5+k*3.2+(z*1.3%1),ty-dy+.55,z+.62);g.add(nu);}
+      kit.cells.push({x:(x0+x1)/2,musc:1,pt:()=>V(Math.max(x0+.5,Math.min(x1-.5,(rnd()-.5)*7)),ty-dy+(rnd()-.2)*.7,z+.55),feed:()=>{}});});
+    kit.labels.push(["Skeletal muscle fibers",V(-5.6,ty-3.9,3.6)]);};
+  if(o.tissue==="adipose")adip(-18,18);else if(o.tissue==="muscle")musc(-20,20);
+  else if(o.tissue==="mixed"){musc(-20,-.6);adip(1,18);}
+  else{const sl=new THREE.Mesh(new THREE.BoxGeometry(46,6,7.2),mat(lym?0x5e4a36:0x4a2228,{roughness:1}));sl.position.set(0,ty-3.1,-.2);g.add(sl);}
+  if(o.lpl){[-7.6,-3.9,0,3.7,7.5].forEach((x,i)=>{const z=i===2?.35:(i%2?-.95:-.2);const e=enzyme(0x2ea043);e.position.set(x,floorAt(z)+.02,z);
+      e.quaternion.setFromUnitVectors(UP,V(0,-e.position.y,-z).normalize());g.add(e);});
+    kit.labels.push(["Lipoprotein lipase (LPL)",V(6.2,-2.5,1.6),{bg:ENZ("46,160,67"),col:"#fff"}]);}
+  // RBCs or lymphocytes drifting behind
+  kit.amb=[];const r=rng(9);
+  if(lym){for(let i=0;i<4;i++){const c=new THREE.Group();c.add(new THREE.Mesh(new THREE.SphereGeometry(.75,20,14),mat(0xeef0f6,{transparent:true,opacity:.8})));
+      c.add(new THREE.Mesh(new THREE.SphereGeometry(.55,16,12),mat(0x5b4f9a)));c.position.set(-18+i*10+r()*3,-1+r()*3.2,-2.4-r()*.8);g.add(c);kit.amb.push({m:c,v:.7+r()*.3});}}
+  else{const rg=rbcGeo();rg.keep=1;const rm=mat(0xb5222c,{roughness:.45,emissive:0x400008,emissiveIntensity:.3});
+    for(let i=0;i<10;i++){const c=new THREE.Mesh(rg,rm);c.scale.setScalar(1.15+r()*.2);c.position.set(-20+i*4.3+r()*2,-2+r()*4.8,-2.1-r()*1.4);c.rotation.set(r()*3,r()*3,r()*3);g.add(c);kit.amb.push({m:c,v:.8+r()*.4,rx:(r()-.5)*.6,ry:(r()-.5)*.6});}}
+  kit.labels.push([lym?"Lymph":"Capillary lumen (plasma)",V(-6.6,3.1,-2.6)],["Endothelium",V(-6.4,-2.6,-3.3)]);
+  if(!lym)kit.labels.push(["Red blood cells",V(6.6,3.3,-2.6)]);
+  kit.bg=lym?0x3a2e1f:0x3b1217;}
+let RBCG=null;function rbcGeo(){if(RBCG)return RBCG;const pts=[],N=26;
+  for(let i=0;i<=N;i++){const r=i/N,h=.5*Math.sqrt(Math.max(0,1-r*r))*(.21+2*r*r-1.12*r*r*r*r);pts.push(new THREE.Vector2(Math.max(r,.001),h+.02));}
+  for(let i=N;i>=0;i--){const r=i/N,h=.5*Math.sqrt(Math.max(0,1-r*r))*(.21+2*r*r-1.12*r*r*r*r);pts.push(new THREE.Vector2(Math.max(r,.001),-h-.02));}
+  RBCG=new THREE.LatheGeometry(pts,40);RBCG.keep=1;return RBCG;}
+
+const CELLC={hep:[176,98,72],ent:[214,150,140],per:[112,146,214],mac:[150,132,206]};
+function buildMem(o,g,s){const C=CELLC[o.cell],cc=new THREE.Color(`rgb(${C})`);kit.cells=[];
+  const mt=tx("mem"+o.cell,()=>memTex(C,11));mt.repeat.set(.42,.42);
+  const PX=0,PZ=.6,pr=o.pit?s.size*JS*1.02+.32:0;kit.pr=pr;
+  const sh=new THREE.Shape();sh.moveTo(-23,-5.2);sh.lineTo(23,-5.2);sh.lineTo(23,6);sh.lineTo(-23,6);sh.lineTo(-23,-5.2);
+  if(pr){const h=new THREE.Path();h.absarc(PX,-PZ,pr,0,Math.PI*2,true);sh.holes.push(h);}
+  const fg=new THREE.ShapeGeometry(sh,48);fg.rotateX(-Math.PI/2);const memM=mat(0xffffff,{map:mt,bumpMap:mt,bumpScale:.03,roughness:.55,side:THREE.DoubleSide});
+  const fl=new THREE.Mesh(fg,memM);fl.position.y=FY;g.add(fl);
+  // cut face of the cell and the back of the cytoplasm
+  const cyt=cc.clone().multiplyScalar(.55);
+  const back=new THREE.Mesh(new THREE.PlaneGeometry(46,7),mat(cyt.clone().multiplyScalar(.7),{roughness:1}));back.position.set(0,FY-3.5,-5.3);g.add(back);
+  const front=new THREE.Mesh(new THREE.PlaneGeometry(46,7),mat(cyt,{transparent:true,opacity:.5,depthWrite:false,roughness:1}));front.position.set(0,FY-3.6,5.2);g.add(front);
+  const edge=new THREE.Mesh(new THREE.BoxGeometry(46,.22,.12),mat(cc.clone().multiplyScalar(1.1)));edge.position.set(0,FY-.1,5.2);g.add(edge);
+  const nu=new THREE.Mesh(new THREE.SphereGeometry(2.1,30,22),mat(0x5a3f8f,{roughness:.6}));nu.position.set(8.5,FY-4.6,-1.5);g.add(nu);
+  if(o.cell!=="per"&&o.cell!=="mac"){const nu2=nu.clone();nu2.position.set(-9.5,FY-4.9,-2);g.add(nu2);}
+  kit.cells.push({x:0,pt:()=>V((rnd()-.5)*6,FY-1.1-rnd()*3,.2+rnd()*3),feed:()=>{}});
+  const NM={hep:"Hepatocyte",ent:"Enterocyte",per:"Peripheral cell",mac:"Macrophage"}[o.cell];
+  kit.labels.push([NM,V(-5.2,FY-2.2,5.3)],[o.fluid==="lymph"?"Lacteal (lymph)":o.cell==="hep"?"Liver sinusoid (blood)":"Interstitial fluid",V(-6,.9,-2.6)]);
+  // vesicle / pit
+  if(pr){const pg=new THREE.Group();pg.position.set(PX,FY,PZ);g.add(pg);
+    const bowl=new THREE.Mesh(new THREE.SphereGeometry(pr,36,18,0,Math.PI*2,Math.PI/2,Math.PI/2),mat(0xffffff,{map:mt,side:THREE.DoubleSide,roughness:.55,transparent:true}));pg.add(bowl);
+    const top=new THREE.Mesh(new THREE.SphereGeometry(pr,36,18,0,Math.PI*2,0,Math.PI/2),mat(cc.clone().multiplyScalar(1.15),{side:THREE.DoubleSide,transparent:true,opacity:0,depthWrite:false,roughness:.5}));pg.add(top);
+    let coat=null;if(o.recs){const pts=fib(150).filter(p=>p.y<-.1);coat=new THREE.InstancedMesh(new THREE.IcosahedronGeometry(.09,0),mat(0xc9d1d9,{roughness:.4,transparent:true}),pts.length);
+      const m4=new THREE.Matrix4();pts.forEach((p,i)=>{m4.makeTranslation(p.x*(pr+.1),p.y*(pr+.1),p.z*(pr+.1));coat.setMatrixAt(i,m4);});pg.add(coat);
+      kit.labels.push(["Clathrin-coated pit",V(4.2,FY-1.3,4.9),{scale:.85}]);
+      const rc=o.recs==="E"?0xb48cff:0x2f6bff;[[0,-1,0],[.6,-.75,.2],[-.6,-.75,.2],[0,-.75,.6],[0,-.7,-.6]].forEach(d=>{const dv=V(...d).normalize();const y=yRec(rc,.8);y.position.copy(dv).multiplyScalar(pr-.02);y.quaternion.setFromUnitVectors(UP,dv.clone().negate());bowl.add(y);});}
+    const cap=new THREE.Mesh(new THREE.CircleGeometry(pr,40),memM);cap.rotation.x=-Math.PI/2;cap.position.set(PX,FY+.004,PZ);cap.scale.setScalar(o.exo?1:.001);g.add(cap);
+    kit.pit={pg,bowl,top,cap,coat};}
+  if(o.recs){const rc=o.recs==="E"?0xb48cff:0x2f6bff;[-8,-5.6,-3.1,3.2,5.8,8.4].forEach((x,i)=>{const y=yRec(rc);y.position.set(x,FY,i%2?-.8:.9);g.add(y);});
+    kit.labels.push([o.recs==="E"?"apoE receptor":"LDL receptor",V(-5.4,FY+1.6,1.4),{bg:o.recs==="E"?ENZ("150,100,230"):ENZ("47,107,255"),col:"#fff"}]);}
+  if(o.hl){[-7,-3.6,0,3.8,7.4].forEach((x,i)=>{const e=enzyme(0xd2782a);e.position.set(x,FY,i===2?.7:(i%2?-.9:.2));g.add(e);});
+    kit.labels.push(["Hepatic lipase",V(3.4,FY+2.1,1.8),{bg:ENZ("210,120,40"),col:"#fff"}]);
+    const rc=0xb48cff;[-9.4,-5.4,5.6,9.6].forEach((x,i)=>{const y=yRec(rc);y.position.set(x,FY,i%2?.9:-.6);g.add(y);});}
+  if(o.srb1){[-7.4,-3.8,0,3.8,7.6].forEach((x,i)=>{const sg=new THREE.Group(),m=mat(0xff5fa2,{emissive:0xff5fa2,emissiveIntensity:.25});
+      [-1,1].forEach(sd=>{const c=new THREE.Mesh(new THREE.CylinderGeometry(.07,.07,.75,6),m);c.position.set(sd*.18,.3,0);sg.add(c);});
+      const tp=new THREE.Mesh(new THREE.TorusGeometry(.32,.12,8,16,Math.PI),m);tp.position.y=.66;sg.add(tp);sg.position.set(x,FY,i===2?.7:(i%2?-.9:.2));g.add(sg);});
+    kit.labels.push(["SR-B1",V(2.6,FY+2,1.8),{bg:ENZ("255,95,162"),col:"#fff"}]);}
+  if(o.abca1){[-6,0,6].forEach((x,i)=>{const b=new THREE.Mesh(new THREE.CylinderGeometry(.42,.42,1.3,18,1,true),mat(0x4a8fe0,{side:THREE.DoubleSide,emissive:0x1a3a70,emissiveIntensity:.3}));b.position.set(x,FY+.05,i===1?.6:-.5);g.add(b);});
+    kit.labels.push(["ABCA1",V(2.2,FY+1.6,1.8),{bg:ENZ("74,143,224"),col:"#fff"}]);
+    const fm=mat(0xffffff,{emissive:0xffffff,emissiveIntensity:.35});for(let i=0;i<26;i++){const d=new THREE.Mesh(new THREE.SphereGeometry(.09,8,6),fm);d.position.set((rnd()-.5)*9,FY-1-rnd()*3.5,(rnd()-.3)*4);g.add(d);}
+    kit.labels.push(["Free cholesterol",V(3.6,FY-2.6,5.3),{scale:.85}]);}
+  kit.bg=o.fluid==="lymph"?0x3a2e1f:o.cell==="hep"?0x3b1217:0x22202e;}
+
+function build(o,s){clearKit();kit={g:new THREE.Group(),type:o.t,labels:[],parts:[],amb:[],cells:[]};jscene.add(kit.g);
+  if(o.t==="ves")buildVessel(o,kit.g);else buildMem(o,kit.g,s);
+  kit.labels.forEach(([t,p,op])=>jlabel(t,p,Object.assign({scale:.9},op||{})));
+  if(performance.now()-jMoved>4000){const mem=o.t!=="ves";jcam.position.set(0,mem?2.9:.9,mem?15.5:16.5);jctl.target.set(0,mem?-3.3:-1.5,0);}
+  jscene.background=new THREE.Color(kit.bg);jscene.fog=new THREE.Fog(kit.bg,20,48);}
+
+// ---------- particles ----------
+const APOD={B48:V(-.55,-.38,.74),B100:V(-.55,-.38,.74),C2:V(.16,-.6,.78),E:V(.64,.14,.76),A1:V(-.36,.58,.73)};
+const APON={B48:"apoB-48",B100:"apoB-100",C2:"apoC-II",E:"apoE",A1:"apoA-I"};
+const APOCSS={B48:"79,184,255",B100:"47,107,255",C2:"46,160,67",E:"150,100,230",A1:"230,70,140"};
+function apoBlob(k){const g=new THREE.Group(),r=rng(k.charCodeAt(0)*31+k.length),m=mat(APO[k],{emissive:APO[k],emissiveIntensity:.25,roughness:.45});
+  for(let i=0;i<4;i++){const s=new THREE.Mesh(new THREE.SphereGeometry(.19+r()*.1,14,10),m);s.position.set((r()-.5)*.36,(r()-.5)*.36,(r()-.5)*.3);g.add(s);}
+  g.userData.k=k;g.userData.lab=jlabel(APON[k],V(0,.62,0),{parent:g,scale:.62,bg:ENZ(APOCSS[k]),col:"#fff"});return g;}
+const HEADG=new THREE.SphereGeometry(.07,8,6),COREG=new THREE.SphereGeometry(1,14,10);HEADG.keep=COREG.keep=1;
+const PL=new THREE.Color(0x8fb0c4),FC=new THREE.Color(0xffffff);
+function jPart(st,apos,name){const g=new THREE.Group(),r=rng(5);
+  const shell=new THREE.Mesh(new THREE.SphereGeometry(1,40,28),mat(0xf7ecd6,{transparent:true,opacity:.2,roughness:.15,depthWrite:false}));g.add(shell);
+  const NH=380,hd=fib(NH),heads=new THREE.InstancedMesh(HEADG,mat(0xffffff,{roughness:.5,transparent:true}),NH),m4=new THREE.Matrix4();
+  const ho=[];hd.forEach((p,i)=>{m4.makeTranslation(p.x,p.y,p.z);heads.setMatrixAt(i,m4);heads.setColorAt(i,PL);ho.push(r());});g.add(heads);
+  const NC=46,core=new THREE.InstancedMesh(COREG,mat(0xffffff,{roughness:.3,transparent:true}),NC),cd=[];
+  for(let i=0;i<NC;i++){let p;do{p=V(r()*2-1,r()*2-1,r()*2-1);}while(p.length()>1);p.multiplyScalar(.6);cd.push({p,s:.2+r()*.15,o:(i+.5)/NC});core.setColorAt(i,TG);}
+  for(let i=NC-1;i>0;i--){const j=Math.floor(r()*(i+1));[cd[i].o,cd[j].o]=[cd[j].o,cd[i].o];}
+  g.add(core);g.userData={shell,heads,core,cd,ho,NH,NC,apos:{}};kit.g.add(g);
+  const part={p:g,st:Object.assign({fade:1},st),pos:V(-30,0,0),lab:jlabel(name,V(),{scale:.85})};part.lab.userData.j=1;
+  apos.forEach(k=>addApo(part,k));kit.parts.push(part);applyJ(part);return part;}
+function addApo(part,k){if(part.p.userData.apos[k])return;const b=apoBlob(k);b.position.copy(APOD[k]).multiplyScalar(1.03);part.p.add(b);part.p.userData.apos[k]=b;}
+function removeApo(part,k){const b=part.p.userData.apos[k];if(!b)return;part.p.remove(b);delete part.p.userData.apos[k];}
+function slotWorld(part,k){part.p.updateMatrixWorld(true);return part.p.localToWorld(APOD[k].clone().multiplyScalar(1.03));}
+function applyJ(part){const p=part.p,u=p.userData,st=part.st,f=st.fade==null?1:st.fade,S=Math.max(.001,st.size*JS*f);
+  p.scale.set(S,S*st.flat,S);p.visible=f>.02;const q=new THREE.Quaternion(),m4=new THREE.Matrix4();
+  const nv=Math.round(u.NC*(st.cv==null?1:st.cv));const key=nv+"|"+st.tg.toFixed(3);
+  if(u.ck!==key){u.ck=key;for(let i=0;i<u.NC;i++){const d=u.cd[i],s=i<nv?d.s:0;m4.compose(d.p,q,V(s,s,s));u.core.setMatrixAt(i,m4);u.core.setColorAt(i,d.o<st.tg?TG:CE);}
+    u.core.instanceMatrix.needsUpdate=true;u.core.instanceColor.needsUpdate=true;}
+  const fk=(st.fc||0).toFixed(3);if(u.fk!==fk){u.fk=fk;for(let i=0;i<u.NH;i++)u.heads.setColorAt(i,u.ho[i]<(st.fc||0)?FC:PL);u.heads.instanceColor.needsUpdate=true;}
+  u.shell.material.opacity=.2*f;u.heads.material.opacity=f;u.core.material.opacity=f;
+  Object.values(u.apos).forEach(b=>{b.scale.set(.9*f/S,.9*f/(S*st.flat),.9*f/S);b.userData.lab.visible=f>.5;});
+  p.position.copy(part.pos);part.lab.position.copy(part.pos).add(V(0,S*st.flat+1.05,0));part.lab.visible=f>.5&&!part.noLab;}
+
+// ---------- flying things: apoproteins, fatty acids, cholesterol ----------
+const fl=[];
+function fly(m,a,b,dur,o={}){m.visible=false;kit.g.add(m);fl.push(Object.assign({m,a,b,t:-(o.delay||0),dur},o));}
+const VAL=v=>typeof v==="function"?v():v;
+function tickFly(dt){for(let i=fl.length-1;i>=0;i--){const f=fl[i];if(playing)f.t+=dt*speed;const u=f.t/f.dur;if(u<0){f.m.visible=false;continue;}
+  const A=VAL(f.a),B=VAL(f.b);
+  if(u>=1){if(f.onDone)f.onDone(f);if(kit)kit.g.remove(f.m);fl.splice(i,1);continue;}
+  f.m.visible=true;const e=f.lin?u:ph(u,0,1);let p;
+  if(f.via){const C=VAL(f.via);p=A.clone().multiplyScalar((1-e)*(1-e)).add(C.clone().multiplyScalar(2*(1-e)*e)).add(B.clone().multiplyScalar(e*e));}
+  else{p=A.clone().lerp(B,e);p.y+=Math.sin(u*Math.PI)*(f.arc||0);}
+  if(f.look){f.m.lookAt(p.clone().multiplyScalar(2).sub(f.m.position));f.m.rotateZ(f.t*9);}
+  f.m.position.copy(p);}}
+const FFAG=(()=>{const pts=[];for(let i=0;i<=18;i++){const t=i/18;pts.push(V(Math.sin(t*Math.PI*3)*.1,0,t*1.1-.55));}const g=new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts),24,.055,6,false);g.keep=1;return g;})();
+const FFAM=mat(0xf6d04d,{emissive:0x8a6a10,emissiveIntensity:.5}),FFAH=mat(0xff6b4a,{emissive:0x80301a,emissiveIntensity:.4}),HG2=new THREE.SphereGeometry(.1,10,8);HG2.keep=1;FFAM.keep=FFAH.keep=1;
+function ffaMesh(){const g=new THREE.Group();g.add(new THREE.Mesh(FFAG,FFAM));const h=new THREE.Mesh(HG2,FFAH);h.position.z=.58;g.add(h);g.userData.keepMat=1;return g;}
+function spawnFFA(part,cells){if(!cells.length)return;const near=cells.filter(c=>Math.abs(c.x)<7||c.musc),cell=(near.length?near:cells)[Math.floor(rnd()*(near.length||cells.length))];
+  const S=part.st.size*JS,a=part.pos.clone().add(V((rnd()-.5)*S*1.1,-S*.75,.2+rnd()*S*.5)),z=a.z+.3+rnd()*.5;
+  const via=V(a.x+(rnd()-.5)*1.6,floorAt(Math.max(-3,Math.min(3,z)))-.35,z),b=cell.pt();
+  fly(ffaMesh(),a,b,1.7+rnd()*.6,{via,look:1,onDone:()=>cell.feed()});}
+function dotM(color,r=.11){return new THREE.Mesh(new THREE.SphereGeometry(r,10,8),mat(color,{emissive:color,emissiveIntensity:.45}));}
+function transfer(from,to,k,delay=0){const b=from.p.userData.apos[k];if(!b)return;const wp=V(0,0,0);b.getWorldPosition(wp);removeApo(from,k);
+  const m=apoBlob(k);m.scale.setScalar(.9);fly(m,wp,()=>slotWorld(to,k),1.4,{arc:.9,delay,onDone:()=>addApo(to,k)});}
+
+// ---------- step scripts ----------
+const once=(c,n,cond,fn)=>{if(cond&&!c.ev[n]){c.ev[n]=1;fn();}};
+function seg(c,u,keys){// keys: [u,x,y,z] with smooth interpolation; y may be a function
+  let k=0;while(k<keys.length-2&&u>keys[k+1][0])k++;const A=keys[k],B=keys[k+1],e=ph(u,A[0],B[0]);
+  const gy=v=>typeof v==="function"?v():v;c.pos.set(lerp(A[1],B[1],e),lerp(gy(A[2]),gy(B[2]),e),lerp(A[3],B[3],e));}
+const rad=c=>c.main.st.size*JS;
+function stream(c,dt,u,a,b,every,fn){if(u<a||u>b||!playing)return;c.acc+=dt*speed;while(c.acc>every){c.acc-=every;fn();}}
+function donorPath(c,u,inU,outU,at){const d=c.don;const e1=ph(u,0,inU),e2=ph(u,outU,Math.min(1,outU+.28));
+  d.pos.set(lerp(lerp(14,at.x,e1),15,e2),lerp(lerp(3.6,at.y,e1),4.4,e2),at.z);}
+const HDLS={size:.5,tg:.12,flat:1,fc:.1,cv:1};
+const RUN={
+ travel:{dur:6.5,tick(c,u){c.pos.set(lerp(-13,13,u),-.45+Math.sin(u*7)*.25,.8);}},
+ receive:{dur:9,setup(c){c.don=jPart(HDLS,["A1","C2","E"],"HDL");},
+  tick(c,u){seg(c,u,[[0,-13,-.5,.8],[.3,-1.9,-.6,.8],[.84,-1.9,-.6,.8],[1,13,-.3,.8]]);donorPath(c,u,.28,.66,V(2.9,1.5,.1));
+   (c.st.addApos||[]).forEach((k,i)=>once(c,"a"+i,u>.33+i*.12,()=>transfer(c.don,c.main,k)));}},
+ give:{dur:8,setup(c){c.don=jPart(HDLS,["A1"],"HDL");},
+  tick(c,u){seg(c,u,[[0,-13,-.5,.8],[.3,-1.9,-.6,.8],[.82,-1.9,-.6,.8],[1,13,-.3,.8]]);donorPath(c,u,.28,.66,V(2.9,1.5,.1));
+   (c.st.dropApos||[]).forEach((k,i)=>once(c,"d"+i,u>.4+i*.1,()=>transfer(c.main,c.don,k)));}},
+ lpl:{dur:11,win:[.34,.8],tick(c,u,dt){const dock=()=>floorAt(.35)+.86+rad(c)*.93;
+   seg(c,u,[[0,-13,-.3,.35],[.3,0,dock,.35],[.84,0,dock,.35],[1,13,-.2,.35]]);stream(c,dt,u,.34,.8,.085,()=>spawnFFA(c.main,kit.cells));}},
+ endo:{dur:10,tick(c,u){const P_=kit.pit,pr=kit.pr,r_=rad(c);
+   const gy=FY-ph(u,.55,.85)*(pr+2);P_.pg.position.y=gy;
+   P_.top.material.opacity=ph(u,.45,.6)*.55;P_.cap.scale.setScalar(Math.max(.001,ph(u,.55,.72)));
+   if(u<.45)seg(c,u,[[0,-13,.8,.6],[.3,0,FY+r_+.6,.6],[.45,0,FY-r_*.12,.6]]);else c.pos.set(0,gy-r_*.12,.6);
+   const f=1-ph(u,.86,1);c.main.st.fade=f;P_.bowl.material.opacity=f;if(P_.coat)P_.coat.material.opacity=f;P_.top.material.opacity*=f;
+   once(c,"n",u>.62,()=>{c.lab2=jlabel(c.jd.inside||"Endosome",V(4.2,FY-2.9,4.9),{scale:.85});});}},
+ exo:{dur:10,grow:[0,.22],tick(c,u){const P_=kit.pit,pr=kit.pr;const y0=FY-pr-2;
+   const gy=lerp(y0,FY,ph(u,.22,.45));P_.pg.position.y=gy;P_.top.material.opacity=.55*(1-ph(u,.42,.5));P_.cap.scale.setScalar(Math.max(.001,1-ph(u,.42,.52)));
+   P_.bowl.scale.y=Math.max(.02,1-ph(u,.66,.86));P_.bowl.visible=u<.86;
+   if(u<.5)c.pos.set(0,gy,.6);else seg(c,u,[[.5,0,FY,.6],[.76,0,.4,.6],[1,13,.5,.6]]);
+   once(c,"n",u>.02,()=>{c.lab2=jlabel(c.jd.inside||"Secretory vesicle",V(4.2,FY-2.9,4.9),{scale:.85});});}},
+ hl:{dur:11,win:[.34,.76],setup(c){c.don=jPart(HDLS,["A1"],"HDL");},
+  tick(c,u,dt){const dock=()=>FY+.9+rad(c)*.95;seg(c,u,[[0,-13,.6,.7],[.3,0,dock,.7],[.84,0,dock,.7],[1,13,.4,.7]]);
+   donorPath(c,u,.42,.8,V(4.4,.5,.1));stream(c,dt,u,.34,.74,.12,()=>spawnFFA(c.main,kit.cells));
+   (c.st.dropApos||[]).forEach((k,i)=>once(c,"d"+i,u>.56+i*.08,()=>transfer(c.main,c.don,k)));}},
+ abca1:{dur:10,win:[.3,.85],tick(c,u,dt){const dock=()=>FY+1.3+rad(c)*c.main.st.flat;seg(c,u,[[0,-13,.8,.6],[.28,0,dock,.6],[.86,0,dock,.6],[1,13,.5,.6]]);
+   stream(c,dt,u,.3,.8,.11,()=>{const a=V((rnd()-.5)*5,FY-2.4-rnd()*1.2,.6+(rnd()-.5)*2.4);
+     fly(dotM(0xffffff,.09),a,()=>c.main.pos.clone().add(V((rnd()-.5)*rad(c)*1.2,0,(rnd()-.5)*.6)),1.5,{via:V(0,FY-.1,.6)});});}},
+ lcat:{dur:9,win:[.34,.84],setup(c){const g=new THREE.Group(),m=mat(0xff5fa2,{emissive:0xff5fa2,emissiveIntensity:.3});
+    for(let i=0;i<5;i++){const s=new THREE.Mesh(new THREE.SphereGeometry(.24,14,10),m);s.position.set((rnd()-.5)*.5,(rnd()-.5)*.5,(rnd()-.5)*.4);g.add(s);}
+    jlabel("LCAT",V(0,.75,0),{parent:g,scale:.8,bg:ENZ("230,70,140"),col:"#fff"});kit.g.add(g);c.lc=g;},
+  tick(c,u){seg(c,u,[[0,-13,-.3,.8],[.22,-.8,-.3,.8],[.86,-.8,-.3,.8],[1,13,-.2,.8]]);
+   const side=c.pos.clone().add(V(rad(c)*.96+.32,.15,.25));const e1=ph(u,.1,.3),e2=ph(u,.84,1);
+   c.lc.position.copy(V(9,5,-1).lerp(side,e1)).lerp(V(12,6,-1),e2);}},
+ cetp:{dur:10,win:[.3,.8],setup(c){c.don=jPart({size:1.05,tg:.92,flat:1,fc:0,cv:1},["B100","C2","E"],"VLDL");c.dS0=.92;
+    const br=new THREE.Mesh(new THREE.CylinderGeometry(.2,.2,1,14),mat(0xe0a458,{emissive:0x6a4a10,emissiveIntensity:.3}));br.rotation.z=Math.PI/2;kit.g.add(br);c.br=br;
+    c.brl=jlabel("CETP",V(),{scale:.9,bg:ENZ("200,140,60"),col:"#fff"});},
+  tick(c,u,dt){seg(c,u,[[0,-13,-.4,.9],[.22,-2.4,-.4,.9],[.84,-2.4,-.4,.9],[1,13,-1.2,.9]]);
+   const d=c.don,e1=ph(u,0,.22),e2=ph(u,.84,1);d.pos.set(lerp(lerp(14,3.3,e1),15,e2),lerp(lerp(1,-.2,e1),1.4,e2),.5);d.st.tg=lerp(.92,.8,ph(u,.3,.8));
+   const a=c.pos.clone().add(V(rad(c)*.95,0,0)),b=d.pos.clone().add(V(-d.st.size*JS*.95,0,0)),on=ph(u,.22,.3)*(1-ph(u,.8,.86));
+   c.br.position.copy(a).lerp(b,.5);c.br.scale.set(Math.max(.001,on),Math.max(.001,a.distanceTo(b)),Math.max(.001,on));c.br.visible=on>.01;c.brl.position.copy(c.br.position).add(V(0,.8,0));c.brl.visible=on>.5;
+   let n=0;stream(c,dt,u,.3,.78,.16,()=>{n++;const ce=(c.k=(c.k||0)+1)%2;const A=ce?a.clone():b.clone(),B=ce?b.clone():a.clone();
+     fly(dotM(ce?0xff8c42:0xf2c94c,.12),A,B,1,{via:A.clone().lerp(B,.5).add(V(0,ce?.45:-.45,0))});});}},
+ srb1:{dur:10,win:[.36,.76],tick(c,u,dt){const dock=()=>FY+1.05+rad(c)*.95;seg(c,u,[[0,-13,.8,.7],[.3,0,dock,.7],[.84,0,dock,.7],[1,13,1.4,.7]]);
+   stream(c,dt,u,.36,.74,.13,()=>{const a=c.pos.clone().add(V((rnd()-.5)*.6,-rad(c)*.8,0));fly(dotM(0xff8c42,.11),a,V((rnd()-.5)*5,FY-1.3-rnd()*2.6,.4+rnd()*2.6),1.4,{via:V(0,FY+.2,.7)});});}}
+};
+const JD={
+ chylo:[
+  {place:"Inside an enterocyte, at the edge of a lacteal",kit:{t:"mem",cell:"ent",fluid:"lymph",exo:1},run:"exo",inside:"Secretory vesicle"},
+  {place:"Lacteal → lymph → thoracic duct",kit:{t:"ves",fluid:"lymph"},run:"travel"},
+  {place:"Plasma: meeting HDL",kit:{t:"ves",fluid:"blood"},run:"receive"},
+  {place:"Skeletal muscle capillary",kit:{t:"ves",fluid:"blood",tissue:"muscle",lpl:1},run:"lpl"},
+  {place:"Adipose tissue capillary",kit:{t:"ves",fluid:"blood",tissue:"adipose",lpl:1},run:"lpl"},
+  {place:"Plasma: handing apoC-II back",kit:{t:"ves",fluid:"blood"},run:"give"},
+  {place:"Liver: hepatocyte surface",kit:{t:"mem",cell:"hep",fluid:"blood",recs:"E"},run:"endo",inside:"Endosome → lysosome",note:"apoE binds the receptor in a clathrin-coated pit, and the whole remnant is pulled in."}],
+ vldl:[
+  {place:"Inside a hepatocyte",kit:{t:"mem",cell:"hep",fluid:"blood",exo:1},run:"exo",inside:"Secretory vesicle"},
+  {place:"Plasma: meeting HDL",kit:{t:"ves",fluid:"blood"},run:"receive"},
+  {place:"Muscle and adipose capillaries",kit:{t:"ves",fluid:"blood",tissue:"mixed",lpl:1},run:"lpl"},
+  {place:"Liver sinusoid: hepatocyte surface",kit:{t:"mem",cell:"hep",fluid:"blood",hl:1},run:"hl",note:"Hepatic lipase trims more triglyceride. apoC-II and apoE go back to HDL, leaving LDL with only apoB-100."},
+  {place:"Plasma",kit:{t:"ves",fluid:"blood"},run:"travel"},
+  {place:"Peripheral cell surface",kit:{t:"mem",cell:"per",fluid:"blood",recs:"B"},run:"endo",inside:"Endosome → lysosome",note:"apoB-100 binds the LDL receptor in a clathrin-coated pit, and LDL is pulled in."}],
+ hdl:[
+  {place:"Inside a hepatocyte",kit:{t:"mem",cell:"hep",fluid:"blood",exo:1},run:"exo",inside:"Secretory vesicle",j:{from:{fc:.06,cv:.12}}},
+  {place:"Peripheral cell surface",kit:{t:"mem",cell:"mac",fluid:"blood",abca1:1},run:"abca1",j:{to:{fc:.62}},note:"White dots = free cholesterol leaving the cell through ABCA1 onto the flat HDL disc."},
+  {place:"Plasma",kit:{t:"ves",fluid:"blood"},run:"lcat",j:{to:{fc:.1,cv:1}},note:"LCAT turns free cholesterol into cholesterol ester, which moves into the core. The disc swells into a sphere."},
+  {place:"Plasma: HDL meets VLDL",kit:{t:"ves",fluid:"blood"},run:"cetp",note:"Orange = cholesterol ester going to VLDL. Yellow = triglyceride coming back to HDL."},
+  {place:"Liver: hepatocyte surface",kit:{t:"mem",cell:"hep",fluid:"blood",srb1:1},run:"srb1",note:"Selective uptake: the cholesterol ester goes into the liver, and the HDL particle itself goes back out."}]};
+
+const J={i:0,t:0,c:null,dur:8};
+function jState(key,i){const steps=P[key].steps,jd=JD[key];const s=Object.assign({fc:0,cv:1},steps[0].from,(jd[0].j||{}).from||{});let apos=steps[0].from.apos.slice();
+  for(let j=0;j<i;j++){Object.assign(s,steps[j].to,(jd[j].j||{}).to||{});if(steps[j].addApos)apos=apos.concat(steps[j].addApos);if(steps[j].dropApos)apos=apos.filter(a=>!steps[j].dropApos.includes(a));}
+  delete s.apos;return {s,apos};}
+function jStart(i){fl.length=0;const key=mode;J.i=i;J.t=0;
+  const st=P[key].steps[i],jd=JD[key][i],{s,apos}=jState(key,i);const s1=Object.assign({},s,st.to,(jd.j||{}).to||{});delete s1.apos;
+  build(Object.assign({pit:jd.kit.exo||jd.kit.recs?1:0},jd.kit),s1.size>s.size?s1:s);
+  const c={key,i,st,jd,s0:s,s1,run:RUN[jd.run],ev:{},pos:V(-30,0,0),acc:0,prev:i>0?P[key].steps[i-1].name:null};
+  c.main=jPart(s,apos,st.name);if(c.run.setup)c.run.setup(c);J.c=c;J.dur=c.run.dur;
+  $("cap").textContent=jd.place;$("note").textContent=jd.note||"";$("note").style.display=jd.note?"block":"none";}
+function jTick(dt){const c=J.c;if(!c)return;if(playing)J.t+=dt*speed/J.dur;const u=Math.min(1,J.t);
+  const w=c.run.win?ph(u,c.run.win[0],c.run.win[1]):0,ms=c.main.st;["size","tg","flat","fc","cv"].forEach(k=>{ms[k]=lerp(c.s0[k],c.s1[k],w);});
+  if(c.run.grow)ms.size*=lerp(.3,1,ph(u,c.run.grow[0],c.run.grow[1]));ms.fade=1;
+  c.run.tick(c,u,dt);c.main.pos.copy(c.pos);
+  const tm=performance.now()/1000;kit.parts.forEach(pt=>{pt.p.rotation.y=Math.sin(tm*.6+pt.pos.x)*.2;pt.p.rotation.z=Math.sin(tm*.43)*.06;applyJ(pt);});
+  setText(c.main.lab,(c.prev&&u<.55&&c.prev!==c.st.name)?c.prev:c.st.name);
+  tickFly(dt);kit.amb.forEach(a=>{a.m.position.x+=dt*a.v*speed*(playing?1:.15);if(a.m.position.x>21)a.m.position.x-=42;if(a.rx){a.m.rotation.x+=dt*a.rx;a.m.rotation.y+=dt*a.ry;}});
+  if(performance.now()-jMoved>4000){const tx_=Math.max(-3.2,Math.min(3.2,c.pos.x*.35)),dx=(tx_-jctl.target.x)*.03;jctl.target.x+=dx;jcam.position.x+=dx;}
+  if(J.t>=1){if(J.i<P[mode].steps.length-1){jStart(J.i+1);render();}else{playing=false;setPlay();J.t=1;}}}
+
+// ---------- UI ----------
+const $=id=>document.getElementById(id);
+function setPlay(){$("play").textContent=playing?"Pause":"Play";$("play").classList.toggle("on",playing);}
+function curI(){return view==="j"?J.i:runs[0].i;}
+function render(){
+  document.querySelectorAll("#pw button").forEach(b=>b.classList.toggle("on",b.dataset.p===mode));
+  document.querySelectorAll("#vw button").forEach(b=>b.classList.toggle("on",b.dataset.v===view));
+  document.body.classList.toggle("jv",view==="j");
+  Object.values(tags).forEach(t=>t.visible=false);
+  if(mode==="all"){$("stitle").textContent="All three pathways";$("steps").innerHTML=["chylo","vldl","hdl"].map(k=>`<button class="step" data-mode="${k}"><span class="n">›</span><div><b>${P[k].title}</b><span>Open this pathway step by step</span></div></button>`).join("");$("pos").textContent="Looping all three particles";Object.values(tags).forEach(t=>t.visible=true);return;}
+  const i=curI(),steps=P[mode].steps;$("stitle").textContent=P[mode].title;
+  $("steps").innerHTML=steps.map((s,k)=>`<button class="step ${k===i?"on":""}" data-i="${k}"><span class="n">${k+1}</span><div><b>${s.k}</b>${k===i?`<span>${s.t}</span>`:""}</div></button>`).join("");
+  if(view!=="j")(steps[i].tags||[]).forEach(id=>tags[id].visible=true);
+  $("pos").textContent=`Step ${i+1} of ${steps.length}`;
+}
+function goStep(i){if(view==="j"){jStart(i);}else{jump(runs[0],i);dotsReset();}playing=true;setPlay();render();}
+function setPath(m){if(view==="j"&&m==="all")m="chylo";mode=m;if(view==="j"){clearAll();runs.push(newRun(m==="all"?"chylo":m));jStart(0);playing=true;setPlay();render();}else setMode(m);}
+function setView(v){view=v;controls.enabled=v!=="j";jctl.enabled=v==="j";
+  if(v==="j"){if(mode==="all")mode="chylo";setPath(mode);}else{clearKit();fl.length=0;J.c=null;setMode(mode);}
+  try{history.replaceState(null,"","#p="+mode+(v==="map"?"&v=map":""));}catch(e){}}
+$("pw").addEventListener("click",e=>{const b=e.target.closest("button");if(b)setPath(b.dataset.p);});
+$("vw").addEventListener("click",e=>{const b=e.target.closest("button");if(b&&b.dataset.v!==view)setView(b.dataset.v);});
+$("steps").addEventListener("click",e=>{const b=e.target.closest(".step");if(!b)return;if(b.dataset.mode){setPath(b.dataset.mode);return;}goStep(+b.dataset.i);});
+function dotsReset(){dots.forEach(d=>scene.remove(d.m));dots.length=0;}
+function atEnd(){return view==="j"?(J.t>=1&&J.i===P[mode].steps.length-1):(runs[0].t>=1&&runs[0].i===P[mode].steps.length-1);}
+$("play").onclick=()=>{if(mode!=="all"&&atEnd()){goStep(0);return;}playing=!playing;setPlay();};
+$("next").onclick=()=>{if(mode==="all")return;const i=curI();if(i<P[mode].steps.length-1)goStep(i+1);};
+$("prev").onclick=()=>{if(mode==="all")return;const t=view==="j"?J.t:runs[0].t;goStep(Math.max(0,curI()-(t<.15?1:0)));};
+$("restart").onclick=()=>{mode==="all"?setMode("all"):goStep(0);};
+$("spd").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;speed=+b.dataset.s;document.querySelectorAll("#spd button").forEach(x=>x.classList.toggle("on",x===b));});
+function resize(){const w=stage.clientWidth,h=stage.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();jcam.aspect=w/h;jcam.updateProjectionMatrix();}
+window.addEventListener("resize",resize);
+// deep link: #p=chylo|vldl|hdl|all  &v=map
+const hm=(location.hash.match(/p=(\w+)/)||[])[1],hv=/v=map/.test(location.hash)||hm==="all"?"map":"j";
+mode=P[hm]||hm==="all"?hm:"chylo";resize();setView(hv);
+let last=performance.now();
+(function loop(now){const dt=Math.min(.05,(now-last)/1000);last=now;
+  if(view==="j"){jTick(dt);jctl.update();renderer.render(jscene,jcam);}
+  else{runs.forEach(r=>tickRun(r,dt));tickDots(dt);liver.rotation.y+=dt*.05;controls.update();renderer.render(scene,camera);}
+  requestAnimationFrame(loop);})(last);
+})();
+</script>
+</body></html>
