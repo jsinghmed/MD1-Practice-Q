@@ -1173,7 +1173,7 @@ button.dst:hover{background:var(--hover)}
 <script>(function(){var w=document.getElementById("spLogo");if(!w)return;var t=w.querySelector(".sp-tx"),c=t.cloneNode();c.className="sp-ic";c.alt="";c.setAttribute("aria-hidden","true");w.insertBefore(c,t);if(!(window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches))setTimeout(function(){w.classList.add("beat")},2300);})();</script>
 <div class="app" id="app">
   <aside class="side" id="side">
-    <div class="brand" id="brandHome" title="Home"><button class="sidecol-btn" id="sideColBtn" type="button" title="Collapse the menu (\)" aria-label="Collapse the menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/><path d="M20 4v16"/></svg></button><div class="jjlogo" aria-label="JJ QBank"><span class="lg-mark"><i class="t"></i><i class="w"></i></span><span class="lg-word"><i class="t"></i><i class="w"></i></span></div><div class="bcourse"><h1 id="brandTitle">MSK Summative</h1><p id="brandSub"></p></div></div>
+    <div class="brand" id="brandHome" title="Home"><button class="sidecol-btn" id="sideColBtn" type="button" title="Collapse the menu (\)" aria-label="Collapse the menu"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/><path d="M20 4v16"/></svg></button><div class="jjlogo" aria-label="JJ QBank"><span class="lg-mark"><i class="t"></i><i class="w"></i></span><span class="lg-word"><i class="t"></i><i class="w"></i></span></div><div class="bcourse"><h1 id="brandTitle">MSK Module</h1><p id="brandSub"></p></div></div>
     <div class="ytabs" id="ytabs"></div>
     <div class="ctabs" id="ctabs"></div>
     <div class="stools">
@@ -1253,7 +1253,15 @@ const COURSES = [
   {id:"rns", name:"RNS", full:"Renal and Nervous System I", year:"MD2"},
   {id:"ghs", name:"GHS", full:"GI and Hepatobiliary System I", year:"MD2"},
   {id:"ers", name:"ERS", full:"Endocrine and Reproductive System I", year:"MD2"},
-  {id:"neu", name:"Neuro", full:"Neuroscience", year:"MD2"}
+  {id:"neu", name:"Neuro", full:"Neuroscience", year:"MD2"},
+  // MD3 and MD4 modules: empty until questions are added.
+  {id:"fbs2", name:"FBS II", full:"Fundamentals of Basic Sciences II", year:"MD3"},
+  {id:"nis", name:"NIS", full:"Neoplasia and Immune System", year:"MD3"},
+  {id:"chs", name:"CHS", full:"Cardiovascular and Hematologic System II", year:"MD3"},
+  {id:"rns2", name:"RNS II", full:"Respiratory and Nervous System II", year:"MD4"},
+  {id:"ghs2", name:"GHS II", full:"GI and Hepatobiliary System II", year:"MD4"},
+  {id:"ers2", name:"ERS II", full:"Endocrine and Reproductive System II", year:"MD4"},
+  {id:"rms", name:"RMS", full:"Renal and Musculoskeletal System II", year:"MD4"}
 ];
 const YEARS = [...new Set(COURSES.map(c=>c.year))];
 // Lecture-grouped sidebar entries: each lecture, its topics, then its Easy/Hard (and slide practice Q) chips; course-wide filters at the bottom.
@@ -2190,7 +2198,7 @@ function renderChaps(){
   const yr = course().year;
   $("ytabs").innerHTML = YEARS.map(y=>`<button class="ytab ${y===yr?"on":""}" data-year="${y}">${y}</button>`).join("");
   $("ctabs").innerHTML = COURSES.filter(c=>c.year===yr).map(c=>`<button class="ctab ${c.id===S.course?"on":""}" data-course="${c.id}" title="${esc(c.full)}">${esc(c.name)}<small>${c.count ? c.count+" Qs" : c.items.length ? c.items.length+" Qs" : "empty"}</small></button>`).join("");
-  $("brandTitle").textContent = course().name + " Summative";
+  $("brandTitle").textContent = course().name + " Module";
   $("brandSub").textContent = (course().full !== course().name ? course().full + " · " : "") + (course().count ? course().count + " questions" : course().items.length ? course().items.length + " questions" : "no questions yet");
   document.title = "JJ QBank · " + course().name;
   $("buildBtn").classList.toggle("on", view==="builder");
@@ -2453,7 +2461,7 @@ function renderCard(){
       ${n2 ? `<button class="btn" data-ankidl="1" title="Download all your cards as one file Anki can import">⬇ Download ${n2} card${n2===1?"":"s"} for Anki</button>` : ""}
       ${n2 ? `<button class="btn danger" id="ankiClear" title="Remove every card from your Anki export list">Reset Anki cards</button>` : ""}
       <button class="btn ghost" id="ankiHelpBtn" title="How to import">?</button>
-      <div class="ankihelp" id="ankiHelp" hidden><b>Importing into Anki:</b> click <i>Download</i>, then in Anki choose <b>File → Import</b> and pick the downloaded .txt file. Anki reads the settings from the file automatically (Basic cards, HTML on, a deck per section, tags for summative/section/topic) — just click <b>Import</b>. Re-importing later updates cards that are already there instead of duplicating them.</div>
+      <div class="ankihelp" id="ankiHelp" hidden><b>Importing into Anki:</b> click <i>Download</i>, then in Anki choose <b>File → Import</b> and pick the downloaded .txt file. Anki reads the settings from the file automatically (Basic cards, HTML on, a deck per section, tags for module/section/topic) — just click <b>Import</b>. Re-importing later updates cards that are already there instead of duplicating them.</div>
     </div>`;
   }
   $("card").innerHTML = h;
@@ -2811,9 +2819,9 @@ function mockCards(){
 function renderHome(){
   const all = courseQ(), done = all.filter(q=>answered(q,S)), ok = done.filter(q=>status(q,S)==="ok").length;
   if (!all.length) {
-    showPage(`<div class="page"><div class="hero"><div><h2>${esc(course().name)} Summative</h2><p class="sub">${esc(course().full)}</p></div></div>${homeSearchBox()}${homeGoogleBox()}
-      <div class="emptybox"><h3>${course().year==="MD2" ? esc(course().name)+" questions are coming soon" : "No "+esc(course().name)+" questions yet"}</h3>
-      <p>${course().year==="MD2" ? "This MD2 module is set up and ready. Questions, NBME practice and study guides will be added as the module's lectures begin." : "This summative is set up and ready."} Once questions are added, its sections, review lists, tests, search and notes will all appear here — kept separate from your other summatives.</p></div></div>`);
+    showPage(`<div class="page"><div class="hero"><div><h2>${esc(course().name)} Module</h2><p class="sub">${esc(course().full)}</p></div></div>${homeSearchBox()}${homeGoogleBox()}
+      <div class="emptybox"><h3>${course().year!=="MD1" ? esc(course().name)+" questions are coming soon" : "No "+esc(course().name)+" questions yet"}</h3>
+      <p>${course().year!=="MD1" ? "This "+course().year+" module is set up and ready. Questions, NBME practice and study guides will be added as the module's lectures begin." : "This module is set up and ready."} Once questions are added, its sections, review lists, tests, search and notes will all appear here — kept separate from your other modules.</p></div></div>`);
     return;
   }
   const acc = done.length ? Math.round(ok*100/done.length) : 0, bad = done.length - ok;
@@ -2821,7 +2829,7 @@ function renderHome(){
   const c = chap(), cs = changeStats(q=>q.course===S.course), chg = cs.wc + cs.cw + cs.ww, nm = esc(course().name);
   const tests = courseTests();
   let h = `<div class="page dash">
-    <div class="dtop"><div><h2>${nm} Summative</h2><p class="sub">${esc(course().full)} · ${done.length} of ${all.length} questions answered${done.length?` · ${acc}% correct`:""}</p></div>
+    <div class="dtop"><div><h2>${nm} Module</h2><p class="sub">${esc(course().full)} · ${done.length} of ${all.length} questions answered${done.length?` · ${acc}% correct`:""}</p></div>
       <div class="ptools" style="margin:0"><button class="btn primary" data-act="build">＋ Create test</button></div></div>`;
   h += `<div class="dstrip">
     <div class="dst"><b class="${done.length?"g":""}">${done.length?acc+"%":"—"}</b><span>Correct</span></div>
@@ -2874,15 +2882,15 @@ function renderBuilder(){
   const cs = bCourses(), csNames = cs.map(id=>COURSE_BY_ID[id].name).join(" + ");
   const avail = builderPool().length;
   const nVal = Math.max(1, Math.min(B.n, avail||1));
-  let h = `<div class="page"><h2>Build a test <span class="muted" style="font-weight:600">· ${cs.length ? esc(csNames) : "no summative selected"}</span></h2>
+  let h = `<div class="page"><h2>Build a test <span class="muted" style="font-weight:600">· ${cs.length ? esc(csNames) : "no module selected"}</span></h2>
     <p class="sub">Pick what to include, how many questions, and the mode. Questions are drawn at random and shuffled. The "Identify the slide" show-answer cards aren't included because they're self-graded.</p>
-    <div class="box"><h3>1 · Summatives</h3><p class="muted" style="margin:0 0 10px;font-size:13px">Tick more than one to mix them into a single test.</p><div class="bcourses">` +
+    <div class="box"><h3>1 · Modules</h3><p class="muted" style="margin:0 0 10px;font-size:13px">Tick more than one to mix them into a single test.</p><div class="bcourses">` +
     COURSES.map(c=>{ const has = c.items.length, on = has && B.cx[c.id];
       return `<label class="bcx ${on?"on":""} ${has?"":"off"}"><input type="checkbox" data-bcx="${c.id}" ${on?"checked":""} ${has?"":"disabled"}>
         <span><b>${esc(c.name)}</b> <span class="muted">${esc(c.full)}</span><br><span class="cnt">${has ? c.items.filter(q=>q.type!=="reveal").length+" questions" : "no questions yet"}</span></span></label>`; }).join("") +
     `</div></div>
     <div class="box"><h3>2 · Sections and topics</h3>`;
-  if (!cs.length) h += `<p class="muted">Tick at least one summative above.</p>`;
+  if (!cs.length) h += `<p class="muted">Tick at least one module above.</p>`;
   SECTIONS.filter(s=>cs.includes(s.course) && !s.nbme).forEach((s,i,arr)=>{
     if (cs.length > 1 && (i===0 || arr[i-1].course!==s.course)) h += `<div class="bch">${esc(COURSE_BY_ID[s.course].name)} · ${esc(COURSE_BY_ID[s.course].full)}</div>`;
     const allQ = s.items.filter(q=>q.type!=="reveal");
@@ -2967,7 +2975,7 @@ function renderReport(t){
       <div class="tile2"><div class="v">${na}</div><div class="l">${t.mode==="timed"?"not answered":"not yet answered"}</div></div>
       ${used!==null ? `<div class="tile2"><div class="v">${fmtTime(used)}</div><div class="l">time used · ${fmtTime(used/Math.max(1,qs.length))} per question</div></div>` : ""}
     </div>
-    ${isMixed(t) ? `<div class="box"><h3>By summative</h3><table class="rt"><thead><tr><th>Summative</th><th>Correct</th><th style="width:40%"></th></tr></thead><tbody>` +
+    ${isMixed(t) ? `<div class="box"><h3>By module</h3><table class="rt"><thead><tr><th>Module</th><th>Correct</th><th style="width:40%"></th></tr></thead><tbody>` +
       testCourses(t).map(cid=>{ const cq = qs.filter(q=>q.course===cid); if (!cq.length) return "";
         const c = cq.filter(q=>status(q,t)==="ok").length, p = Math.round(c*100/cq.length);
         return `<tr><td>${esc(COURSE_BY_ID[cid].name)} <span class="muted">· ${esc(COURSE_BY_ID[cid].full)}</span></td><td>${c}/${cq.length} · ${p}%</td><td><div class="bar"><i class="${p<50?"low":p<75?"mid":""}" style="width:${p}%"></i></div></td></tr>`; }).join("") +
@@ -3025,7 +3033,7 @@ function renderNotes(){
   fillImgs($("pageView"));
 }
 function downloadNotes(){
-  let out = course().name + " Summative — my notes\n" + new Date().toLocaleString() + "\n";
+  let out = course().name + " Module — my notes\n" + new Date().toLocaleString() + "\n";
   courseSecs().forEach(s=>{
     const mine = s.items.filter(q=>S.notes[q.id] && S.notes[q.id].trim());
     if (!mine.length) return;
@@ -3037,7 +3045,7 @@ function downloadNotes(){
   });
   const a = document.createElement("a");
   a.href = URL.createObjectURL(new Blob([out], {type:"text/plain"}));
-  a.download = course().name + "-Summative-notes.txt"; document.body.appendChild(a); a.click();
+  a.download = course().name + "-Module-notes.txt"; document.body.appendChild(a); a.click();
   setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 500);
 }
 
@@ -3098,16 +3106,16 @@ function renderSearch(){
   const all = searchScope==="all";
   // While typing on the search page, only refresh the results so the box keeps focus.
   if ($("pageSearchIn") && !$("pageView").hidden) {
-    $("searchTitle").textContent = all ? "Search all summatives" : "Search " + course().name;
+    $("searchTitle").textContent = all ? "Search all modules" : "Search " + course().name;
     $("schips").innerHTML = chipsHTML();
     $("sresWrap").innerHTML = searchResultsHTML();
     document.querySelectorAll("[data-sscope]").forEach(b=>b.classList.toggle("on", b.dataset.sscope===searchScope));
     return;
   }
   const h = `<div class="page"><div class="ptools" style="margin-bottom:12px"><button class="btn" id="searchBack">← Back to ${esc(backLabel())}</button></div>
-    <h2 id="searchTitle">${all ? "Search all summatives" : "Search " + esc(course().name)}</h2>
+    <h2 id="searchTitle">${all ? "Search all modules" : "Search " + esc(course().name)}</h2>
     <div class="psearch tokens" id="psearchBox"><span class="ic">⌕</span><span id="schips">${chipsHTML()}</span><input id="pageSearchIn" type="search" autocomplete="off" placeholder="${searchChips.length?"Add another topic…":"Search a topic, press Enter to add another…"}" value="${esc(searchTerm)}"></div>
-    <div class="sscope"><button class="chip2 ${!all?"on":""}" data-sscope="course">${esc(course().name)} only</button><button class="chip2 ${all?"on":""}" data-sscope="all">All summatives (FBS · MSK · CRS)</button></div>
+    <div class="sscope"><button class="chip2 ${!all?"on":""}" data-sscope="course">${esc(course().name)} only</button><button class="chip2 ${all?"on":""}" data-sscope="all">All modules (FBS · MSK · CRS)</button></div>
     <div id="sresWrap">${searchResultsHTML()}</div></div>`;
   showPage(h);
   const inp = $("pageSearchIn"); inp.focus(); inp.setSelectionRange(inp.value.length, inp.value.length);
