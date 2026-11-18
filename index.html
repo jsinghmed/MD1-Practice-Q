@@ -403,6 +403,32 @@ input[type=checkbox],input[type=radio]{accent-color:var(--blue);width:16px;heigh
 .ankirow .btn{font-size:13px;padding:6px 11px}
 .btn.ghost{background:transparent}
 .ankihelp{flex-basis:100%;font-size:13px;line-height:1.5;color:var(--muted);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+.fcp{flex-basis:100%;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px 12px;margin-top:4px}
+.fcrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.fcseg{display:inline-flex;border:1px solid var(--line);border-radius:9px;padding:2px;background:var(--bg)}
+.fcseg button{border:0;background:none;color:var(--muted);padding:4px 13px;border-radius:7px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.fcseg button.on{background:var(--teal);color:#fff}
+.fclbl{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--muted);flex:1;min-width:200px}
+.fcin{flex:1;width:100%;box-sizing:border-box;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 9px;font:inherit;font-size:13.5px}
+.fcl{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:12px 0 5px;font-weight:600}
+.fctb{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px}
+.fctb button{border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:6px;padding:2px 9px;font:inherit;font-size:13px;cursor:pointer;min-width:30px}
+.fctb button:hover{border-color:var(--teal)}
+.fctb .fcred{color:#e5534b;font-weight:700}
+.fctb .fcz{border-color:var(--teal);color:var(--teal);font-weight:600}
+.fced{background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:9px 11px;min-height:56px;line-height:1.5;font-size:14px;outline:none;overflow-wrap:anywhere}
+.fced:focus{border-color:var(--blue)}
+.fced2{min-height:40px}
+.fcprev{border:1px dashed var(--line2);border-radius:9px;padding:9px 11px;margin-top:12px;font-size:13.5px;line-height:1.5}
+.fcprev .fcl{margin-top:0}
+.fcblank{color:var(--blue);font-weight:700}
+.fcwarn{color:var(--muted);font-style:italic}
+.fcact{justify-content:flex-end;margin-top:12px}
+.fcact .muted{margin-right:auto}
+.fcc{border:1px solid var(--line);border-radius:9px;padding:8px 11px;margin-bottom:7px;font-size:13.5px;line-height:1.45}
+.fccm{font-size:12px;color:var(--muted);margin-top:4px}
+.fccm a{color:var(--teal);cursor:pointer}
+.fcz1{background:rgba(63,185,166,.16);color:var(--teal);border-radius:4px;padding:0 3px}
 .ankibox{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:22px}
 b.g{color:var(--green)} b.r{color:var(--red)}
 .hsearch,.psearch{position:relative;margin:0 0 18px}
@@ -1401,7 +1427,7 @@ try { S = JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e) { S = {}; }
 let JJ_FRESH = false; try { JJ_FRESH = !localStorage.getItem(KEY); } catch(e) {}   // first visit on this browser: ask which year and module
 S.ans ??= {}; S.sel ??= {}; S.strike ??= {}; S.flag ??= {}; S.notes ??= {}; S.nimg ??= {}; S.hl ??= {}; S.order ??= {};
 S.scr ??= {}; S.qshuf ??= {}; S.posId ??= {}; S.pos ??= {}; S.snap ??= {}; S.tests ??= []; S.testSeq ??= 0;
-S.first ??= {}; S.chgq ??= {}; S.ac ??= []; S.qtime ??= {}; S.anki ??= [];
+S.first ??= {}; S.chgq ??= {}; S.ac ??= []; S.qtime ??= {}; S.anki ??= []; S.fc ??= []; S.fcPref ??= {};
 if (!(S.v >= 2)) {
   // chapter positions/scramble used to be stored by list number; move them to chapter keys
   const pos = {}, scr = {};
@@ -2170,7 +2196,7 @@ function renderChaps(){
     return `<button class="tgh" data-tg="${key}" aria-expanded="${op}"><i class="tdot ${cls}"></i><span>${esc(name)}</span><span class="tgn">${rows.length}</span><svg class="tchev" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>`
       + `<div class="tgb"${op?"":" hidden"}>` + rows.map(r=>toolRow(...r)).join("") + `</div>`; };
   (TOOL_GROUPS[S.course]||[]).forEach(([name, cls, rows])=>{ tools += toolGroup(S.course+"-"+cls, name, cls, rows); });
-  if (S.anki && S.anki.length) tools += toolGroup(S.course+"-other", "Export", "oth", [["anki", "anki", "Anki export", S.anki.length, "Anki export"]]);
+  if ((S.anki && S.anki.length) || (S.fc && S.fc.length)) tools += toolGroup(S.course+"-other", "Export", "oth", [["anki", "anki", "Anki export", S.anki.length + S.fc.length, "Anki export"]]);
   if (tools) {
     const nT = (tools.match(/data-act=/g)||[]).length, onTool = /data-act="[^"]+"[^>]*class="[^"]*\bon\b|class="[^"]*\bon\b[^"]*"[^>]*data-act=/.test(tools);
     let open = onTool; try { const v = localStorage.getItem("jj-tools-open"); if (v!==null) open = v==="1" || onTool; } catch(e) {}
@@ -2456,13 +2482,14 @@ function renderCard(){
   }
   const shownNow = isReveal ? s.ans[q.id] !== undefined : (done && !timed);
   if (!timedActive() && shownNow) {
-    const inA = S.anki.includes(q.id), n2 = S.anki.length;
+    const inA = S.anki.includes(q.id), n2 = S.anki.length + S.fc.length, fcOn = FCD && FCD.open && FCD.qid===q.id;
     h += `<div class="ankirow">
-      <button class="btn ${inA?"on":""}" id="ankiAdd" title="${inA?"Remove this question from":"Add this question to"} your Anki export">🃏 ${inA?"✓ In Anki export — remove":"Make Anki card"}</button>
+      <button class="btn ${fcOn?"on":""}" id="fcBtn" title="Write your own Cloze or Basic card for this question">✎ Write Anki flashcard</button>
       ${n2 ? `<button class="btn" data-ankidl="1" title="Download all your cards as one file Anki can import">⬇ Download ${n2} card${n2===1?"":"s"} for Anki</button>` : ""}
       ${n2 ? `<button class="btn danger" id="ankiClear" title="Remove every card from your Anki export list">Reset Anki cards</button>` : ""}
       <button class="btn ghost" id="ankiHelpBtn" title="How to import">?</button>
-      <div class="ankihelp" id="ankiHelp" hidden><b>Importing into Anki:</b> click <i>Download</i>, then in Anki choose <b>File → Import</b> and pick the downloaded .txt file. Anki reads the settings from the file automatically (Basic cards, HTML on, a deck per section, tags for module/section/topic) — just click <b>Import</b>. Re-importing later updates cards that are already there instead of duplicating them.</div>
+      ${fcOn ? fcPanel(q) : ""}
+      <div class="ankihelp" id="ankiHelp" hidden><b>Importing into Anki:</b> click <i>Download</i>, then in Anki choose <b>File → Import</b> and pick the downloaded .txt file. Anki reads the settings from the file automatically (card type, HTML on, deck and tags for every card, including the flashcards you wrote) — just click <b>Import</b>. Re-importing later updates cards that are already there instead of duplicating them.</div>
     </div>`;
   }
   $("card").innerHTML = h;
@@ -2473,10 +2500,113 @@ function renderCard(){
   if (U) renderUBar();
 }
 
+// ---------- Write-your-own flashcards (Cloze or Basic), exported in the same Anki file ----------
+let FCD = null;   // the card being written: {qid, open, type, text, extra, tags, deck, edit}
+function fcTags(q){ const tg = x=>String(x).replace(/[^A-Za-z0-9]+/g,"_").replace(/^_|_$/g,""), cn = COURSE_BY_ID[q.course].name; return tg(cn) + "::" + tg(String(q.sec).replace(cn + " ", "")); }
+function fcOpen(q){
+  const stem = (q.html ? q.s : esc(q.s)).replace(/<img[^>]*>/g,"");
+  const ans = q.type==="reveal" ? esc(q.ans||"") : esc(q.c[q.a]);
+  const tk = String(q.e||"").match(/Takeaway:\s*([^\n]+)/);
+  FCD = {qid:q.id, open:true, type:"cloze", text: fcClean(stem) + "<br><br>Answer: {{c1::" + ans + "}}", extra: tk ? esc(tk[1]) : "", tags: fcTags(q), deck: (S.fcPref && S.fcPref.deck) || "JJ QBank", edit:-1};
+}
+function fcEdit(i){
+  const c = S.fc[i]; if (!c) return;
+  FCD = {qid:c.qid, open:true, type:c.type, text:c.text, extra:c.extra, tags:c.tags, deck:c.deck, edit:i};
+  fcRender(); setTimeout(()=>{ const p = $("fcText"); p && p.scrollIntoView({block:"center", behavior:"smooth"}); }, 30);
+}
+function fcRender(){ if (view==="quiz") renderCard(); else renderAll(); }
+// Keep only simple formatting: bold, italic, underline, line breaks, colour, lists.
+function fcClean(html){
+  const t = document.createElement("template"); t.innerHTML = String(html||"");
+  const OK = {B:1, STRONG:1, I:1, EM:1, U:1, BR:1, DIV:1, P:1, SPAN:1, FONT:1, SUB:1, SUP:1, UL:1, OL:1, LI:1};
+  (function walk(n){ [...n.childNodes].forEach(c=>{
+    if (c.nodeType===3) return;
+    if (c.nodeType!==1 || !OK[c.tagName]) { if (c.nodeType===1 && !/^(SCRIPT|STYLE|IFRAME|OBJECT|IMG|SVG|VIDEO|AUDIO)$/.test(c.tagName)) { walk(c); c.replaceWith(...c.childNodes); } else c.remove(); return; }
+    const col = c.style && c.style.color, fc = c.tagName==="FONT" && c.getAttribute("color");
+    [...c.attributes].forEach(a=>c.removeAttribute(a.name));
+    if (col) c.style.color = col; if (fc) c.setAttribute("color", fc);
+    walk(c);
+  }); })(t.content);
+  return t.innerHTML;
+}
+const fcPlain = h=>{ const d = document.createElement("div"); d.innerHTML = h; return d.textContent.replace(/\s+/g," ").trim(); };
+function fcShow(h){ return fcClean(h).replace(/\{\{c(\d+)::([\s\S]*?)(?:::([^}]*))?\}\}/g, (m,n,x)=>`<span class="fcz1">${x}</span>`); }
+function fcPrevHTML(){
+  const d = FCD; if (!d) return "";
+  if (d.type==="basic") return `<div class="fcl">Front preview</div>${fcPlain(d.text) ? fcClean(d.text) : '<span class="fcwarn">Write the front of the card.</span>'}`;
+  if (!/\{\{c\d+::/.test(d.text)) return `<div class="fcl">Preview</div><span class="fcwarn">Select the words to hide and click [&hellip;] Cloze.</span>`;
+  const first = Math.min(...[...d.text.matchAll(/\{\{c(\d+)::/g)].map(m=>+m[1]));
+  const front = fcClean(d.text).replace(/\{\{c(\d+)::([\s\S]*?)(?:::([^}]*))?\}\}/g, (m,n,x,hint)=> +n===first ? `<span class="fcblank">[${hint ? esc(hint) : "&hellip;"}]</span>` : x);
+  return `<div class="fcl">Card ${first} preview</div>${front}`;
+}
+function fcPanel(q){
+  const d = FCD, cz = d.type==="cloze", mine = S.fc.map((c,i)=>[c,i]).filter(([c])=>c.qid===q.id);
+  return `<div class="fcp" id="fcp">
+    <div class="fcrow"><span class="fcseg"><button data-fct="cloze" class="${cz?"on":""}">Cloze</button><button data-fct="basic" class="${cz?"":"on"}">Basic</button></span>
+      <label class="fclbl">Deck <input id="fcDeck" class="fcin" value="${esc(d.deck)}" spellcheck="false" placeholder="Deck name, e.g. AnKing Step Deck or My Decks::CRS" title="Any deck name. Use :: for a subdeck, e.g. My Decks::CRS. Anki creates the deck if it doesn't exist."></label></div>
+    <div class="fcl">${cz ? "Text" : "Front"}</div>
+    <div class="fctb"><button data-fcx="bold" title="Bold (Cmd/Ctrl+B)"><b>B</b></button><button data-fcx="italic" title="Italic (Cmd/Ctrl+I)"><i>I</i></button><button data-fcx="underline" title="Underline (Cmd/Ctrl+U)"><u>U</u></button><button data-fcx="red" class="fcred" title="Red text">A</button><button data-fcx="clear" title="Remove formatting">T&#x338;</button>${cz ? `<button data-fcx="cz" class="fcz" title="Hide the selected words as a new cloze (Cmd/Ctrl+Shift+C)">[&hellip;] Cloze</button><button data-fcx="czs" title="Hide the selected words in the same card as the last cloze (Cmd/Ctrl+Shift+Option+C)">[&hellip;] Same card</button>` : ""}</div>
+    <div class="fced" id="fcText" contenteditable="true">${fcClean(d.text)}</div>
+    <div class="fcl">${cz ? "Back Extra" : "Back"}</div>
+    <div class="fced fced2" id="fcExtra" contenteditable="true">${fcClean(d.extra)}</div>
+    <div class="fcl">Tags</div><input id="fcTags" class="fcin" value="${esc(d.tags)}" spellcheck="false" placeholder="Separate tags with spaces, e.g. CRS::Biochemistry Eicosanoids" title="Type any tags, separated by spaces. Use :: for nested tags.">
+    <div class="fcprev" id="fcPrev">${fcPrevHTML()}</div>
+    <div class="fcrow fcact"><span class="muted" style="font-size:12.5px">${S.fc.length ? S.fc.length + " flashcard" + (S.fc.length===1?"":"s") + " written · " : ""}Downloaded with your other Anki cards</span><button class="btn" id="fcCancel">${d.edit>=0 ? "Cancel edit" : "Close"}</button><button class="btn primary" id="fcSave">${d.edit>=0 ? "Save changes" : "Add card"}</button></div>
+    ${mine.length ? `<div class="fcl">Your flashcards from this question</div>` + mine.map(([c,i])=>`<div class="fcc">${fcShow(c.text)}${c.extra ? `<div class="fccm" style="color:var(--text);opacity:.8">${fcClean(c.extra)}</div>` : ""}<div class="fccm">${c.type==="cloze" ? "Cloze" : "Basic"} · ${esc(c.deck)}${c.tags ? " · " + esc(c.tags) : ""} · <a data-fce="${i}">edit</a> · <a data-fcd="${i}">delete</a></div></div>`).join("") : ""}
+  </div>`;
+}
+function fcAllList(){
+  if (!S.fc.length) return "";
+  return `<div class="h3" style="margin-top:6px">Flashcards you wrote · ${S.fc.length}</div>` + S.fc.map((c,i)=>{ const q = byId[c.qid];
+    return `<div class="fcc">${fcShow(c.text)}${c.extra ? `<div class="fccm" style="color:var(--text);opacity:.8">${fcClean(c.extra)}</div>` : ""}<div class="fccm">${c.type==="cloze" ? "Cloze" : "Basic"} · ${esc(c.deck)}${c.tags ? " · " + esc(c.tags) : ""}${q ? " · " + esc(COURSE_BY_ID[q.course].name + " · " + q.sec) : ""} · <a data-fce="${i}">edit</a> · <a data-fcd="${i}">delete</a></div></div>`; }).join("");
+}
+function fcSync(){
+  if (!FCD) return; const tx = $("fcText"), ex = $("fcExtra"), tg = $("fcTags"), dk = $("fcDeck");
+  if (tx) FCD.text = tx.innerHTML; if (ex) FCD.extra = ex.innerHTML; if (tg) FCD.tags = tg.value; if (dk) FCD.deck = dk.value;
+  const p = $("fcPrev"); if (p) p.innerHTML = fcPrevHTML();
+}
+function fcCmd(c){
+  const a = document.activeElement, ed = a && (a.id==="fcText" || a.id==="fcExtra") ? a : $("fcText"); if (!ed) return;
+  if (c==="cz" || c==="czs") return fcCloze(c==="czs");
+  ed.focus();
+  if (c==="red") document.execCommand("foreColor", false, "#e5534b");
+  else if (c==="clear") document.execCommand("removeFormat");
+  else document.execCommand(c);
+  fcSync();
+}
+function fcCloze(same){
+  const ed = $("fcText"), sel = window.getSelection();
+  if (!ed || !sel.rangeCount || !ed.contains(sel.getRangeAt(0).commonAncestorContainer)) { toast("Select the words to hide in the Text box first"); return; }
+  const nums = [...ed.innerHTML.matchAll(/\{\{c(\d+)::/g)].map(m=>+m[1]), max = nums.length ? Math.max(...nums) : 0, n = same ? Math.max(1, max) : max + 1;
+  const box = document.createElement("div"); box.appendChild(sel.getRangeAt(0).cloneContents());
+  ed.focus(); document.execCommand("insertHTML", false, "{{c" + n + "::" + box.innerHTML + "}}");
+  fcSync();
+}
+function fcSave(){
+  fcSync(); const d = FCD, text = fcClean(d.text).trim(), extra = fcClean(d.extra).trim();
+  if (!fcPlain(text)) { toast("Write the " + (d.type==="cloze" ? "Text" : "Front") + " first"); return; }
+  if (d.type==="cloze" && !/\{\{c\d+::/.test(text)) { toast("Add a cloze: select the words to hide and click […] Cloze"); return; }
+  const card = {qid:d.qid, type:d.type, text, extra, tags:d.tags.trim().replace(/\s+/g," "), deck:(d.deck.trim() || "JJ QBank").replace(/\t/g," "), at:Date.now()};
+  const editing = d.edit >= 0;
+  if (editing) S.fc[d.edit] = card; else S.fc.push(card);
+  S.fcPref = {deck:card.deck}; save();
+  FCD = Object.assign(d, {text:"", extra:"", edit:-1});
+  toast(editing ? "Flashcard updated" : "Flashcard added · " + S.fc.length + " written");
+  renderAll();
+}
+function fcRow(c){ return [c.type==="cloze" ? "Cloze" : "Basic", c.deck, ankiField(c.text), ankiField(c.extra), c.tags].join("\t"); }
+document.addEventListener("input", e=>{ if (e.target.closest && e.target.closest("#fcp")) fcSync(); });
+document.addEventListener("mousedown", e=>{ if (e.target.closest && e.target.closest(".fctb button")) e.preventDefault(); });
+document.addEventListener("paste", e=>{ if (!(e.target.closest && e.target.closest(".fced"))) return; e.preventDefault(); const tx = (e.clipboardData||window.clipboardData).getData("text/plain"); document.execCommand("insertText", false, tx); });
+document.addEventListener("keydown", e=>{
+  if (!(e.target.closest && e.target.closest(".fced"))) return;
+  if ((e.metaKey || e.ctrlKey) && e.shiftKey && (e.code==="KeyC")) { e.preventDefault(); e.stopPropagation(); fcCloze(e.altKey); }
+}, true);
 // ---------- Anki export ----------
 function ankiHomeBox(){
-  const n = S.anki.length; if (!n) return "";
-  const per = COURSES.map(c=>[c.name, S.anki.filter(id=>byId[id] && byId[id].course===c.id).length]).filter(x=>x[1]).map(x=>x[0]+" "+x[1]).join(" · ");
+  const n = S.anki.length + S.fc.length; if (!n) return "";
+  const cOf = id=>byId[id] && byId[id].course;
+  const per = COURSES.map(c=>[c.name, S.anki.filter(id=>cOf(id)===c.id).length + S.fc.filter(f=>cOf(f.qid)===c.id).length]).filter(x=>x[1]).map(x=>x[0]+" "+x[1]).join(" · ");
   return `<div class="h3">Anki export</div><div class="ankibox"><div><b>${n}</b> card${n===1?"":"s"} ready <span class="muted">(${per})</span><div class="muted" style="font-size:13px;margin-top:2px">In Anki: File → Import → choose the downloaded file → Import.</div></div>
     <div class="ptools" style="margin:0"><button class="btn primary" data-ankidl="1">⬇ Download for Anki</button><button class="btn danger" id="ankiClear">Reset Anki cards</button></div></div>`;
 }
@@ -2507,7 +2637,7 @@ function ankiCard(q){
   const deck = ["Summative Q-Bank", cn, sec].map(x=>x.replace(/::/g,":")).join("::");
   const tag = x => String(x).replace(/[^A-Za-z0-9]+/g,"_").replace(/^_|_$/g,"");
   const tags = [tag(cn), tag(cn)+"::"+tag(sec), tag(cn)+"::"+tag(sec)+"::"+tag(q.t), "qbank_"+q.id].join(" ");
-  return [ankiField(front), ankiField(back), deck, tags].join("\t");
+  return ["Basic", deck, ankiField(front), ankiField(back), tags].join("\t");
 }
 function ensureAnkiImages(cb){
   const need = new Set();
@@ -2518,16 +2648,16 @@ function ensureAnkiImages(cb){
   need.forEach(file=>{ const sc = document.createElement("script"); sc.src = file+"?v=34"; sc.onload = sc.onerror = ()=>{ lazyState[file] = 2; if (--left === 0) cb(); }; document.head.appendChild(sc); });
 }
 function downloadAnki(){
-  const ids = S.anki.filter(id=>byId[id]);
-  if (!ids.length) { toast("No cards yet — use “Make Anki card” on a question"); return; }
+  const ids = S.anki.filter(id=>byId[id]), n = ids.length + S.fc.length;
+  if (!n) { toast("No cards yet — use “Write Anki flashcard” on a question"); return; }
   ensureAnkiImages(()=>{
-    const head = ["#separator:tab", "#html:true", "#notetype:Basic", "#deck column:3", "#tags column:4"];
-    const txt = head.concat(ids.map(id=>ankiCard(byId[id]))).join("\n") + "\n";
+    const head = ["#separator:tab", "#html:true", "#notetype column:1", "#deck column:2", "#tags column:5"];
+    const txt = head.concat(ids.map(id=>ankiCard(byId[id])), S.fc.map(fcRow)).join("\n") + "\n";
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([txt], {type:"text/plain;charset=utf-8"}));
     a.download = "anki-cards-" + new Date().toISOString().slice(0,10) + ".txt";
     document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 1500);
-    toast(`Downloaded ${ids.length} card${ids.length===1?"":"s"} — import it in Anki with File → Import`);
+    toast(`Downloaded ${n} card${n===1?"":"s"} — import it in Anki with File → Import`);
   });
 }
 
@@ -2791,7 +2921,7 @@ function placeGBubble(){
   const sel = window.getSelection();
   if (!sel || sel.isCollapsed || !sel.rangeCount) { b.classList.remove("on"); return; }
   const r = sel.getRangeAt(0), card = $("card");
-  if (!card || !card.contains(r.commonAncestorContainer)) { b.classList.remove("on"); return; }
+  if (!card || !card.contains(r.commonAncestorContainer) || (r.commonAncestorContainer.parentElement||r.commonAncestorContainer).closest?.(".fcp")) { b.classList.remove("on"); return; }
   const txt = sel.toString().replace(/\s+/g," ").trim();
   if (txt.length < 2 || txt.length > 300) { b.classList.remove("on"); return; }
   const rect = r.getBoundingClientRect(); if (!rect.width && !rect.height) { b.classList.remove("on"); return; }
@@ -3888,7 +4018,7 @@ function renderAll(){
   else if (view==="ethlock") ethLockPage();
   else if (view==="guides") renderGuides();
   else if (view==="guide") renderGuideView();
-  else if (view==="anki") showPage(`<div class="page dash"><div class="dtop"><div><h2>Anki export</h2><p class="sub">Questions you've added as Anki cards, ready to download</p></div></div>${ankiHomeBox().replace('<div class="h3">Anki export</div>','') || `<div class="emptybox"><h3>No Anki cards yet</h3><p>Add questions to your Anki list while you study, and they'll collect here for download.</p></div>`}</div>`);
+  else if (view==="anki") showPage(`<div class="page dash"><div class="dtop"><div><h2>Anki export</h2><p class="sub">Flashcards you wrote, ready to download for Anki</p></div></div>${ankiHomeBox().replace('<div class="h3">Anki export</div>','') || `<div class="emptybox"><h3>No Anki cards yet</h3><p>Use “Write Anki flashcard” after answering a question, and your cards will collect here for download.</p></div>`}${FCD && FCD.open && FCD.edit>=0 && byId[FCD.qid] ? `<div class="ankirow" style="border:0;padding:0">${fcPanel(byId[FCD.qid])}</div>` : ""}${fcAllList()}</div>`);
   else if (view==="search") renderSearch();
   else if (view==="bj") renderBJ();
   else if (view==="report") { const t = S.tests.find(x=>x.id===reportTest); if (t) renderReport(t); else { view="quiz"; renderAll(); } }
@@ -4138,7 +4268,7 @@ document.addEventListener("click", e=>{
   if (smb) { searchMatch = smb.dataset.smatch; renderSearch(); return; }
   if (t.closest("#psearchBox") && !t.closest("input")) { $("pageSearchIn").focus(); return; }
   if (t.closest("[data-ankidl]")) { downloadAnki(); return; }
-  if (t.closest("#ankiClear")) { if (!confirm("Are you sure you want to reset the Anki cards you added?\n\nThis removes all "+S.anki.length+" card"+(S.anki.length===1?"":"s")+" from your Anki export list. Your answers and notes are not affected.")) return; S.anki = []; save(); renderAll(); toast("Anki cards reset"); return; }
+  if (t.closest("#ankiClear")) { const nA = S.anki.length + S.fc.length; if (!confirm("Are you sure you want to reset the Anki cards you added?\n\nThis removes all "+nA+" card"+(nA===1?"":"s")+" from your Anki export list, including flashcards you wrote. Your answers and notes are not affected.")) return; S.anki = []; S.fc = []; FCD = null; save(); renderAll(); toast("Anki cards reset"); return; }
   const sopen = t.closest("[data-sopen]");
   const ssc = t.closest("[data-sscope]");
   if (ssc) { searchScope = ssc.dataset.sscope; searchFilter = "all"; renderSearch(); return; }
@@ -4202,6 +4332,13 @@ document.addEventListener("click", e=>{
     save(); renderChaps(); renderRail(); renderStats(); renderCard(); return;
   }
   if (t.closest("#qtimerBtn")) { qtHidden = !qtHidden; try { localStorage.setItem("msk-qtimer", qtHidden ? "hide" : "show"); } catch(e) {} renderCard(); return; }
+  if (t.closest("#fcBtn")) { if (FCD && FCD.open && FCD.qid===curQ().id) FCD.open = false; else fcOpen(curQ()); renderCard(); if (FCD.open) setTimeout(()=>{ const p = $("fcp"); p && p.scrollIntoView({block:"nearest", behavior:"smooth"}); }, 30); return; }
+  if (t.closest("[data-fct]")) { fcSync(); FCD.type = t.closest("[data-fct]").dataset.fct; fcRender(); return; }
+  if (t.closest("[data-fcx]")) { fcCmd(t.closest("[data-fcx]").dataset.fcx); return; }
+  if (t.closest("#fcSave")) { fcSave(); return; }
+  if (t.closest("#fcCancel")) { if (FCD.edit >= 0) { FCD = Object.assign(FCD, {text:"", extra:"", edit:-1}); } else FCD.open = false; fcRender(); return; }
+  if (t.closest("[data-fce]")) { fcEdit(+t.closest("[data-fce]").dataset.fce); return; }
+  if (t.closest("[data-fcd]")) { const i = +t.closest("[data-fcd]").dataset.fcd; if (!confirm("Delete this flashcard?")) return; S.fc.splice(i,1); if (FCD && FCD.edit===i) FCD.edit = -1; else if (FCD && FCD.edit > i) FCD.edit--; save(); renderAll(); toast("Flashcard deleted"); return; }
   if (t.closest("#ankiAdd")) { const id = curQ().id, i = S.anki.indexOf(id); if (i>=0) { S.anki.splice(i,1); toast("Removed from your Anki export"); } else { S.anki.push(id); toast("Added — "+S.anki.length+" card"+(S.anki.length===1?"":"s")+" ready to download"); } save(); renderCard(); return; }
   if (t.closest("#ankiHelpBtn")) { const b = document.getElementById("ankiHelp"); if (b) b.hidden = !b.hidden; return; }
   if (t.closest("#qShufBtn")) {
@@ -4434,7 +4571,7 @@ $("note").addEventListener("input", e=>{
 });
 document.addEventListener("keydown", e=>{
   if (e.key==="Escape" && $("hlMenu") && $("hlMenu").classList.contains("open")) { $("hlMenu").classList.remove("open"); return; }
-  if (e.target.matches("textarea,input,select")) return;
+  if (e.target.matches("textarea,input,select") || e.target.isContentEditable) return;
   if (e.key==="Escape") {
     if ($("lightbox").classList.contains("on")) { $("lightbox").classList.remove("on"); return; }
     if (openMenu) { openMenu = null; renderTools(); return; }
