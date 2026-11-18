@@ -6132,15 +6132,18 @@ window.CRS_PH_QUESTIONS = [
 "500 mmHg·min/L"
 ],
 "a": 0,
-"e": "Rearrange Q = ΔP/R to R = ΔP/Q. The pressure gradient is aortic minus right atrial pressure, 100 − 0 = 100 mmHg. Divide by the flow of 5 L/min to get 20 mmHg·min/L.",
+"e": "Ohm's law for blood flow: Q = ΔP / R, so R = ΔP / Q.\nStep 1: For the systemic circulation, the pressure gradient is mean aortic (arterial) pressure minus right atrial pressure: 100 − 0 = 100 mmHg.\nStep 2: Flow is the cardiac output, 5 L/min.\nStep 3: TPR = 100 / 5 = 20 mmHg·min/L.\nThe same relationship written as MAP ≈ CO × TPR is the basis of every blood pressure question.\n\nTakeaway: TPR = (MAP − RAP) / CO. Normal is about 20 mmHg·min/L.",
 "w": [
 "",
-"This is Q/ΔP, the inverse of resistance.",
-"This is the cardiac output, not the resistance.",
-"This is the pressure gradient alone.",
-"This multiplies ΔP by Q instead of dividing."
+"0.05 is CO ÷ ΔP (5/100), which is conductance, the inverse of resistance.",
+"5 is just the cardiac output. It is not divided into the pressure gradient.",
+"100 is the pressure gradient alone, without dividing by flow.",
+"500 comes from multiplying ΔP by CO instead of dividing."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-ohm-circuit"
+]
 },
 {
 "t": "Ohm's Law & the Pressure Gradient",
@@ -6154,15 +6157,18 @@ window.CRS_PH_QUESTIONS = [
 "Across the large veins"
 ],
 "a": 1,
-"e": "Pressure falls most where resistance is highest. Arterioles have a small radius, relatively fast flow and the highest ratio of wall area to lumen area, so the biggest pressure drop happens there.",
+"e": "Pressure falls along a vessel in proportion to its resistance (ΔP = Q × R). Since total flow through each series section is the same, the biggest pressure drop happens where resistance is greatest.\nArterioles have the highest resistance of any section. They are narrow (and resistance rises with 1/r⁴), and their thick smooth muscle walls can constrict further. Mean pressure falls from about 90 mmHg in small arteries to about 35 mmHg at the capillary entrance, the largest single drop.\nThis is also why arterioles are the main site where TPR, and therefore blood pressure, is controlled.\n\nTakeaway: Arterioles = highest resistance = biggest pressure drop = main controller of TPR.",
 "w": [
-"The aorta and large arteries have low resistance, so pressure falls only a little.",
+"The aorta and large arteries are wide and have low resistance, so pressure falls only slightly there.",
 "",
-"Pressure falls only slightly across the capillaries because flow there is slow.",
-"Venules sit after most of the drop has already happened.",
-"Venous pressure is already low and falls little further."
+"Each capillary is narrow, but there are so many in parallel that total capillary resistance is lower than arteriolar resistance. Pressure falls only from about 35 to 15 mmHg.",
+"By the venules, most of the pressure drop has already happened across the arterioles and capillaries.",
+"Large veins are a low-pressure, low-resistance reservoir, so pressure falls little more there."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-pressure-drop"
+]
 },
 {
 "t": "Ohm's Law & the Pressure Gradient",
@@ -6176,15 +6182,18 @@ window.CRS_PH_QUESTIONS = [
 "About three times normal"
 ],
 "a": 2,
-"e": "TPR = (MAP − RAP)/CO = (56 − 2)/9 = 6 mmHg·min/L, which is about 30% of 20. Warm, flushed skin with high output and low pressure fits septic shock, where widespread arteriolar dilation drops resistance. MAP = CO × TPR, so pressure falls even though output is high.",
+"e": "Step 1: TPR = (MAP − RAP) / CO = (56 − 2) / 9 = 54 / 9 = 6 mmHg·min/L.\nStep 2: Compared with a normal 20 mmHg·min/L, that is 6/20 = 0.3, about one third of normal.\nStep 3: High cardiac output, low pressure and warm, flushed skin fit septic (distributive) shock. Inflammatory mediators such as nitric oxide dilate arterioles throughout the body, collapsing TPR. Because MAP = CO × TPR, pressure falls even though the heart pumps more than normal.\n\nTakeaway: Septic shock = ↓↓ TPR with ↑ CO and warm skin. Calculate TPR = (MAP − RAP)/CO.",
 "w": [
-"Half of normal would be 10 mmHg·min/L.",
+"Half of normal would be 10 mmHg·min/L. The calculated value is 6.",
 "Two thirds of normal would be about 13 mmHg·min/L.",
 "",
-"A normal TPR with CO 9 would give a MAP near 180 mmHg.",
-"High resistance would raise pressure, and the warm skin points to dilation."
+"With a normal TPR of 20 and a CO of 9, MAP would be about 180 mmHg, not 56.",
+"High resistance would raise pressure, and his warm, flushed skin shows vasodilation, not constriction."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-ohm-circuit"
+]
 },
 {
 "t": "Ohm's Law & the Pressure Gradient",
@@ -6199,15 +6208,18 @@ window.CRS_PH_QUESTIONS = [
 "It reverses direction"
 ],
 "a": 3,
-"e": "Q = ΔP/R. The pressure gradient is unchanged, but constriction raises the resistance of that bed, so flow to the gut falls. This is how the body redirects blood flow, by changing resistance rather than pressure.",
+"e": "Flow to any organ is Q = ΔP / R.\n• ΔP is set by mean arterial pressure minus venous pressure, which is unchanged here.\n• Sympathetic stimulation of α1 receptors constricts the gut's arterioles, raising that bed's resistance.\nWith the same pressure gradient and higher resistance, flow through the gut falls. This is how the body redistributes cardiac output, for example away from the gut and skin during exercise or hemorrhage, by changing resistance in individual beds rather than changing pressure.\n\nTakeaway: Organ flow = ΔP/R. Constricting an organ's arterioles lowers its flow even if MAP stays the same.",
 "w": [
-"Higher resistance with the same ΔP lowers flow.",
-"Flow depends on resistance as well as pressure.",
-"Constriction gives no transient rise in flow.",
+"Higher resistance with an unchanged pressure gradient lowers flow, it does not raise it.",
+"Flow depends on both the pressure gradient and the resistance, so a resistance change alters flow.",
+"Arteriolar constriction does not produce an initial surge of flow. Flow simply falls.",
 "",
-"The pressure gradient still runs forward."
+"The pressure gradient still runs from arteries to veins, so flow continues forward, only reduced."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-ohm-circuit"
+]
 },
 {
 "t": "Ohm's Law & the Pressure Gradient",
@@ -6221,15 +6233,18 @@ window.CRS_PH_QUESTIONS = [
 "Arterial stretch and arteriolar resistance"
 ],
 "a": 4,
-"e": "Arterial pressure is pulsatile because ejection is periodic. The stretchy arterial walls absorb part of each pulse, and the resistance of the small arteries and arterioles damps the rest, so pulsations fall almost to zero in the capillaries.",
+"e": "The left ventricle ejects intermittently, so aortic pressure rises and falls with each beat (about 120/80). Two features damp these pulsations along the circulation:\n1. Compliance: the elastic aorta and large arteries stretch in systole, storing some of the ejected volume, and recoil in diastole. This is the Windkessel effect, which keeps flow going between beats and shrinks the pressure swings.\n2. Resistance: the high resistance of small arteries and arterioles further damps the remaining oscillation.\nBy the capillaries, flow is almost steady and non-pulsatile, which suits exchange.\n\nTakeaway: Arterial compliance plus arteriolar resistance smooth pulsatile output into steady capillary flow.",
 "w": [
-"Capillaries have no muscle to contract.",
-"Capillary velocity is the slowest in the circuit.",
-"Venous valves are downstream and do not damp arterial pulses.",
-"Ejection happens only in systole.",
+"Capillaries have no smooth muscle, only endothelium, so they cannot contract against the pulse.",
+"Capillary flow velocity is the slowest in the whole circulation, because their total cross-sectional area is the largest.",
+"Venous valves are downstream of the capillaries, so they cannot damp the arterial pulse before it reaches them.",
+"The ventricle ejects only during systole. The continuous diastolic flow comes from arterial recoil, not ejection.",
 ""
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-pressure-drop"
+]
 },
 {
 "t": "Poiseuille's Law & Vessel Radius",
@@ -6243,15 +6258,18 @@ window.CRS_PH_QUESTIONS = [
 "It decreases 16-fold"
 ],
 "a": 0,
-"e": "Poiseuille's law gives R = 8ηL/πr⁴, so R ∝ 1/r⁴. Halving r multiplies R by 2⁴ = 16.",
+"e": "Poiseuille's law: R = 8ηL / (πr⁴). Resistance is inversely proportional to the radius to the fourth power.\nHalving the radius: R_new / R_old = (r / 0.5r)⁴ = 2⁴ = 16.\nSo even small changes in arteriolar radius cause large changes in resistance, which is why arterioles control TPR and the distribution of flow so effectively.\n\nTakeaway: R ∝ 1/r⁴. Halve the radius → 16× the resistance.",
 "w": [
 "",
-"That would be R ∝ 1/r.",
-"That would be R ∝ 1/r².",
-"That would be R ∝ 1/r³.",
-"Narrowing raises resistance."
+"A 2-fold rise would be true only if resistance scaled with 1/r.",
+"A 4-fold rise would be true only if resistance scaled with 1/r².",
+"An 8-fold rise would be true only if resistance scaled with 1/r³.",
+"Narrowing a vessel raises its resistance. It does not lower it."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-radius4"
+]
 },
 {
 "t": "Poiseuille's Law & Vessel Radius",
@@ -6266,15 +6284,18 @@ window.CRS_PH_QUESTIONS = [
 "It stays the same"
 ],
 "a": 1,
-"e": "Doubling the radius lowers resistance 2⁴ = 16-fold. With ΔP unchanged, Q = ΔP/R, so flow rises 16-fold.",
+"e": "Combine Poiseuille's law with Ohm's law:\n• R ∝ 1/r⁴, so doubling the radius lowers resistance by 2⁴ = 16-fold.\n• Q = ΔP/R. With ΔP unchanged, flow is inversely proportional to resistance, so flow rises 16-fold.\nThis steep relationship lets arteriolar dilation increase flow to exercising muscle many-fold with only a modest change in diameter.\n\nTakeaway: Q ∝ r⁴ at constant ΔP. Double the radius → 16× the flow.",
 "w": [
-"Flow scales with r⁴, not r.",
+"A 2-fold rise would require flow to scale with r, but it scales with r⁴.",
 "",
-"Flow scales with r⁴, not r².",
-"Dilation raises flow.",
-"Lower resistance with the same ΔP raises flow."
+"A 4-fold rise would require flow to scale with r².",
+"Dilation lowers resistance, so flow rises rather than falls.",
+"Lower resistance with the same pressure gradient always increases flow."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-radius4"
+]
 },
 {
 "t": "Poiseuille's Law & Vessel Radius",
@@ -6288,15 +6309,18 @@ window.CRS_PH_QUESTIONS = [
 "Decreased about 2.4-fold"
 ],
 "a": 2,
-"e": "The new radius is 0.8r. R ∝ 1/r⁴, so R rises by 1/0.8⁴ = 1/0.41 ≈ 2.4. With the same ΔP, flow falls to about 41% of normal, which is why a modest narrowing causes ischemia on exertion.",
+"e": "Step 1: A 20% reduction leaves the radius at 0.8 of normal.\nStep 2: R ∝ 1/r⁴, so R_new / R_old = 1 / 0.8⁴ = 1 / 0.41 ≈ 2.4. Resistance rises about 2.4-fold.\nStep 3: At the same pressure gradient, flow falls to about 41% of normal (Q ∝ r⁴). At rest that may be enough, but when myocardial O₂ demand rises with exertion, the narrowed vessel cannot deliver enough flow, causing stable angina.\n\nTakeaway: Small narrowings have big effects. A 20% smaller radius → about 2.4× the resistance → flow drops to about 40%.",
 "w": [
-"That is 1/0.8, scaling with r instead of r⁴.",
-"That is 1/0.8², scaling with r².",
+"1.25-fold (1/0.8) treats resistance as proportional to 1/r instead of 1/r⁴.",
+"1.6-fold (1/0.8²) treats resistance as proportional to 1/r².",
 "",
-"That would need a radius drop of about 30%.",
-"Narrowing raises resistance."
+"A 4-fold rise would need the radius to fall by about 30% (0.7⁴ ≈ 0.24).",
+"Narrowing raises resistance. It cannot lower it."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-radius4"
+]
 },
 {
 "t": "Poiseuille's Law & Vessel Radius",
@@ -6310,15 +6334,18 @@ window.CRS_PH_QUESTIONS = [
 "They are the longest vessels in the circuit"
 ],
 "a": 3,
-"e": "Arterioles have thick smooth muscle walls relative to their lumen. Because R ∝ 1/r⁴, the small radius changes they can make have a huge effect on resistance. They are the faucets of the circulation.",
+"e": "Arterioles are the 'faucets' of the circulation:\n• Their walls have a thick layer of smooth muscle relative to their small lumen, richly supplied by sympathetic α1 fibers and responsive to local metabolites.\n• Because R ∝ 1/r⁴ (Poiseuille), even a small change in their radius causes a large change in resistance.\n• They are already the highest-resistance segment, so changing them changes TPR the most.\nThat lets arterioles set both total peripheral resistance (and so MAP) and how blood is distributed among organs.\n\nTakeaway: Arterioles control TPR because their smooth muscle can change a small radius, and resistance depends on r⁴.",
 "w": [
-"Capillaries have the largest total cross-sectional area.",
-"Veins hold most of the blood volume.",
-"Veins are the most compliant vessels.",
+"Capillaries, not arterioles, have the largest total cross-sectional area, which is why flow is slowest there.",
+"Veins hold most of the blood volume (about 60–70%) as the capacitance vessels.",
+"Veins are the most compliant vessels. Arterioles are muscular resistance vessels.",
 "",
-"Vessel length is fairly constant and is not how resistance is regulated."
+"Vessel length is essentially fixed and is not adjusted from moment to moment to control resistance."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-radius4"
+]
 },
 {
 "t": "Poiseuille's Law & Vessel Radius",
@@ -6333,15 +6360,18 @@ window.CRS_PH_QUESTIONS = [
 "Higher viscosity raising resistance"
 ],
 "a": 4,
-"e": "Headaches, itching after bathing, a hematocrit of 66% and JAK2 point to polycythemia vera. Viscosity (η) is set mainly by hematocrit, and R = 8ηL/πr⁴, so more red cells raise resistance and lower flow for the same pressure gradient.",
+"e": "Step 1: Headaches, blurred vision, itching after hot showers (aquagenic pruritus), a hematocrit of 66% and a JAK2 mutation point to polycythemia vera, a myeloproliferative neoplasm with too many red cells.\nStep 2: Blood viscosity (η) depends mainly on hematocrit, so packing in more red cells makes blood much thicker.\nStep 3: Poiseuille: R = 8ηL/πr⁴. Higher η raises resistance, so for the same pressure gradient flow falls (Q = ΔP/R). Sluggish flow causes hyperviscosity symptoms (headache, visual blurring) and raises thrombosis risk.\n\nTakeaway: Hematocrit ↑ → viscosity ↑ → resistance ↑ → flow ↓ (polycythemia). Anemia does the reverse.",
 "w": [
-"Vessel length does not change in polycythemia.",
-"Nothing in the stem suggests plaque.",
-"Viscosity is high here, not low.",
-"Venous pooling is not the cause of hyperviscosity symptoms.",
+"Vessel length does not change in polycythemia, so length is not what raises resistance.",
+"Nothing in the stem suggests atherosclerotic plaque, and his problem is systemic, not focal.",
+"Viscosity is high, not low, with a hematocrit of 66%. Low viscosity is the anemia picture.",
+"Venous pooling does not explain hyperviscosity symptoms. The problem is thick blood flowing slowly through all vessels.",
 ""
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-equations"
+]
 },
 {
 "t": "Poiseuille's Law & Vessel Radius",
@@ -6355,15 +6385,18 @@ window.CRS_PH_QUESTIONS = [
 "Blood density"
 ],
 "a": 0,
-"e": "In R = 8ηL/πr⁴, length (L) is normally constant, but added tissue in obesity lengthens the vascular network and raises resistance.",
+"e": "In Poiseuille's law, R = 8ηL/πr⁴:\n• Radius (r) changes constantly with smooth muscle tone and is the main control variable.\n• Viscosity (η) changes with hematocrit.\n• Length (L) is usually fixed. In obesity, though, added adipose tissue needs its own blood supply, so the total length of the vascular network increases, which raises resistance. This is one reason obesity contributes to hypertension.\n\nTakeaway: Vessel length is normally constant, but it increases with obesity and raises resistance.",
 "w": [
 "",
-"Viscosity depends mainly on hematocrit.",
-"Radius changes moment to moment with smooth muscle tone.",
-"The pressure gradient is not part of the resistance formula.",
-"Density is part of the Reynolds number, not Poiseuille's law."
+"Viscosity varies with hematocrit (polycythemia, anemia), not mainly with obesity.",
+"Radius changes all the time with arteriolar smooth muscle tone. It is not a 'usually constant' term.",
+"The pressure gradient is not part of the resistance formula. It belongs to Q = ΔP/R.",
+"Blood density appears in the Reynolds number for turbulence, not in Poiseuille's resistance equation."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-equations"
+]
 },
 {
 "t": "Series vs Parallel Resistance",
@@ -6377,15 +6410,18 @@ window.CRS_PH_QUESTIONS = [
 "30 units"
 ],
 "a": 1,
-"e": "In series, resistances add: 2 + 3 + 5 = 10. Total series resistance is always greater than any one resistance.",
+"e": "When vessels are in series, the same flow passes through each one in turn, and each adds its own pressure drop. So series resistances simply add:\nR_total = R1 + R2 + R3 = 2 + 3 + 5 = 10 units.\nThe total series resistance is always greater than the largest single resistance. Within an organ, the artery → arterioles → capillaries → venules → veins sequence is a series arrangement.\n\nTakeaway: Series: R_total = R1 + R2 + R3 (bigger than any one).",
 "w": [
-"This is the parallel total.",
+"0.97 units is the parallel total (1/R = 1/2 + 1/3 + 1/5), which applies to side-by-side beds.",
 "",
-"This is only the smallest resistance.",
-"This is only the largest resistance.",
-"This multiplies the resistances."
+"2 units is just the smallest resistance. Series resistances add.",
+"5 units is only the largest resistance. The total must be larger than that.",
+"Multiplying resistances has no physical meaning here."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-series-parallel"
+]
 },
 {
 "t": "Series vs Parallel Resistance",
@@ -6399,15 +6435,18 @@ window.CRS_PH_QUESTIONS = [
 "100 units"
 ],
 "a": 2,
-"e": "In parallel, 1/R = 1/10 + 1/10 = 2/10, so R = 5. Total parallel resistance is always less than any one branch.",
+"e": "In parallel circuits, blood can take either path, so adding paths makes it easier for blood to flow. Conductances (1/R) add:\n1/R_total = 1/10 + 1/10 = 2/10 → R_total = 5 units.\nTotal parallel resistance is always less than the smallest branch. That is why the systemic organ beds, which are arranged in parallel, have a combined resistance lower than any single organ's.\n\nTakeaway: Parallel: 1/R_total = 1/R1 + 1/R2 + … (smaller than any one branch). Two equal branches halve the resistance.",
 "w": [
-"This would need four equal branches.",
-"This is a single branch.",
+"2.5 units would need four equal branches of 10 in parallel.",
+"10 units is the resistance of a single branch. Adding a second parallel path lowers the total.",
 "",
-"This adds them as if in series.",
-"This multiplies them."
+"20 units adds them as if they were in series.",
+"Multiplying the resistances is not how resistances combine."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-series-parallel"
+]
 },
 {
 "t": "Series vs Parallel Resistance",
@@ -6421,15 +6460,18 @@ window.CRS_PH_QUESTIONS = [
 "It stays the same because output adjusts"
 ],
 "a": 3,
-"e": "Organ beds sit in parallel, so 1/TPR is the sum of 1/R for each bed. Removing a kidney removes one of those terms, which makes 1/TPR smaller and TPR larger.",
+"e": "Step 1: The organ beds of the systemic circulation (kidneys, gut, muscle, brain and so on) are arranged in parallel, each branching from the aorta.\nStep 2: For parallel beds, 1/TPR = 1/R_kidney L + 1/R_kidney R + 1/R_gut + … Each bed adds conductance.\nStep 3: Removing the left kidney removes one of those terms. 1/TPR gets smaller, so TPR rises.\nIt is the same logic as closing one lane on a highway: total resistance goes up even though no individual road changed.\n\nTakeaway: Removing any parallel bed (nephrectomy, amputation) raises TPR. Adding parallel paths (exercise vasodilation) lowers it.",
 "w": [
-"Removing a parallel path raises total resistance.",
-"The kidneys are in parallel with other beds.",
-"Losing any parallel branch raises the total.",
+"Less tissue does not lower resistance. Removing a parallel path reduces total conductance, so TPR rises.",
+"The kidneys are in parallel with the other organ beds, not in series.",
+"Whether renal resistance was high or low, losing any parallel branch increases the total.",
 "",
-"TPR is set by the vessels, not by cardiac output."
+"TPR is set by the vessels. Cardiac output depends on it, not the other way around, and the removal itself raises TPR."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-series-parallel"
+]
 },
 {
 "t": "Series vs Parallel Resistance",
@@ -6443,15 +6485,18 @@ window.CRS_PH_QUESTIONS = [
 "Each organ's flow can be regulated independently"
 ],
 "a": 4,
-"e": "Each organ gets arterial blood at about the same pressure, and its own arterioles set its own resistance. That lets one organ's flow change without forcing changes in the others.",
+"e": "With a parallel arrangement:\n1. Every organ receives arterial blood at about the same pressure, the MAP.\n2. Each organ's own arterioles set its resistance.\n3. Flow to each organ = MAP / R_organ, so one organ can dilate and increase its flow (for example skeletal muscle during exercise, or the gut after a meal) without forcing changes in the others.\n4. Each organ also gets fully oxygenated blood, rather than blood already used by another organ.\nIn series, all organs would get the same flow, and later organs would get partly deoxygenated blood.\n\nTakeaway: Parallel organ beds = same driving pressure + independent control of each organ's flow.",
 "w": [
-"Parallel resistance is less than any single bed.",
-"Organ flows differ widely.",
-"That describes a series arrangement.",
-"That also describes a series arrangement.",
+"Parallel arrangement makes total resistance less, not greater, than any single bed.",
+"Organ flows differ widely (kidneys about 20% of CO, brain about 15%), set by each bed's resistance.",
+"Blood passing through every organ in turn describes a series arrangement.",
+"A gradual pressure fall through one organ after another also describes a series arrangement.",
 ""
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-series-parallel"
+]
 },
 {
 "t": "Laminar vs Turbulent Flow",
@@ -6465,15 +6510,18 @@ window.CRS_PH_QUESTIONS = [
 "It changes randomly with eddies"
 ],
 "a": 0,
-"e": "Laminar flow moves in smooth parallel layers. Friction slows the layer at the wall to almost zero, so the fastest layer is in the center, giving a parabolic profile.",
+"e": "In laminar flow, blood moves in smooth, concentric layers:\n• The layer touching the vessel wall is held almost still by friction (velocity ≈ 0).\n• Each layer moving inward slides past the slower one outside it.\n• The central layer moves fastest.\nThis creates a parabolic velocity profile. Laminar flow is silent and energy-efficient. When it breaks down into turbulence, it becomes audible as a murmur or bruit.\n\nTakeaway: Laminar flow = parabolic profile, fastest in the center, near zero at the wall, silent.",
 "w": [
 "",
-"The wall layer is the slowest.",
-"Velocity varies across the lumen.",
-"The peak is in the center.",
-"Random eddies describe turbulent flow."
+"The layer next to the wall is the slowest because friction with the wall holds it back.",
+"Velocity is not uniform. It varies from near zero at the wall to maximal in the center.",
+"The peak velocity is in the center of the lumen, not halfway out.",
+"Random eddies describe turbulent flow, not laminar flow."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-laminar-turbulent"
+]
 },
 {
 "t": "Laminar vs Turbulent Flow",
@@ -6488,15 +6536,18 @@ window.CRS_PH_QUESTIONS = [
 "Lower blood density"
 ],
 "a": 1,
-"e": "Reynolds number = ρDv/η. Turbulence becomes more likely as density, diameter or velocity rise, or as viscosity falls, for example in anemia.",
+"e": "Reynolds number: Re = (ρ × D × v) / η\n(ρ = density, D = diameter, v = velocity, η = viscosity).\nTurbulence becomes more likely as Re rises:\n• ↑ velocity (high cardiac output, stenosis).\n• ↑ diameter.\n• ↓ viscosity, because η is in the denominator.\nAnemia is the classic example. Low hematocrit lowers viscosity, and the compensatory high cardiac output raises velocity, so Re rises and flow murmurs appear.\n\nTakeaway: Re = ρDv/η. Low viscosity (anemia) or high velocity → turbulence.",
 "w": [
-"Viscosity is in the denominator, so a rise lowers the Reynolds number.",
+"Viscosity is in the denominator, so higher viscosity lowers Re and makes turbulence less likely.",
 "",
-"Lower velocity lowers the Reynolds number.",
-"Diameter is in the numerator.",
-"Density is in the numerator."
+"Lower velocity lowers Re and favors laminar flow.",
+"Diameter is in the numerator, so a smaller diameter lowers Re. A stenosis causes turbulence mainly through the sharp rise in velocity and abrupt geometry change.",
+"Density is in the numerator, so lower density lowers Re."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-laminar-turbulent"
+]
 },
 {
 "t": "Laminar vs Turbulent Flow",
@@ -6510,15 +6561,18 @@ window.CRS_PH_QUESTIONS = [
 "Narrower aorta lowering the Reynolds number"
 ],
 "a": 2,
-"e": "Heavy bleeding has caused iron deficiency anemia. Fewer red cells lower blood viscosity, and the high cardiac output raises velocity. Both raise the Reynolds number, so flow across normal valves becomes turbulent and audible as a flow murmur.",
+"e": "Step 1: Heavy menstrual bleeding has caused iron deficiency anemia (Hb 6.8 g/dL).\nStep 2: Fewer red cells → lower blood viscosity. To maintain O₂ delivery, cardiac output rises (HR 112), increasing flow velocity across the valves.\nStep 3: Re = ρDv/η. Lower η and higher v both raise the Reynolds number, so flow across normal aortic and pulmonary valves becomes turbulent and audible as a soft midsystolic 'flow' (innocent) murmur. Normal valves on echo confirm it is not structural.\n\nTakeaway: Anemia murmur = ↓ viscosity + ↑ velocity → ↑ Reynolds number → turbulence.",
 "w": [
-"Anemia lowers viscosity.",
-"The echo shows normal valves.",
+"Anemia lowers viscosity. Higher viscosity would also lower, not raise, the Reynolds number.",
+"The echocardiogram shows normal valves, so there is no stenosis.",
 "",
-"Flow is faster in anemia, not slower.",
-"Aortic size has not changed."
+"In anemia, aortic flow is faster, not slower, because cardiac output is high.",
+"The aorta has not narrowed, and a narrower diameter would lower Re anyway."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-laminar-turbulent"
+]
 },
 {
 "t": "Laminar vs Turbulent Flow",
@@ -6532,15 +6586,18 @@ window.CRS_PH_QUESTIONS = [
 "Reduced compliance of the jugular vein"
 ],
 "a": 3,
-"e": "A bruit is the sound of turbulent flow over a vessel. An atherosclerotic plaque abruptly changes the vessel's geometry and creates turbulence, which makes noise. Laminar flow is silent.",
+"e": "A bruit is the sound of turbulent flow over an artery.\n1. An atherosclerotic plaque narrows the carotid artery.\n2. At the narrowing, blood velocity rises sharply (v = Q/A) and the vessel geometry changes abruptly.\n3. Laminar layers break into eddies → turbulence → vibration of the vessel wall heard as a 'whoosh' with the stethoscope.\nA carotid bruit suggests carotid stenosis and raises stroke risk. Laminar flow is silent.\n\nTakeaway: Bruits and murmurs = turbulent flow, usually from a narrowing (high velocity + abrupt geometry change).",
 "w": [
-"Laminar flow is silent.",
-"Slow flow makes turbulence less likely.",
-"Higher viscosity makes turbulence less likely.",
+"Laminar flow is silent. Only turbulent flow makes noise.",
+"Slow flow lowers the Reynolds number and makes turbulence less likely.",
+"Higher viscosity lowers the Reynolds number and makes turbulence less likely.",
 "",
-"The bruit comes from the artery, not the vein."
+"The bruit is heard over the carotid artery. Jugular venous compliance does not generate an arterial bruit."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-laminar-turbulent"
+]
 },
 {
 "t": "Laminar vs Turbulent Flow",
@@ -6554,15 +6611,18 @@ window.CRS_PH_QUESTIONS = [
 "2000"
 ],
 "a": 4,
-"e": "When the Reynolds number exceeds about 2000, flow becomes turbulent even without any narrowing or branch point.",
+"e": "The Reynolds number predicts flow pattern:\n• Re < about 2000: laminar flow in a straight, smooth tube.\n• Re > about 2000: turbulent flow, even without any obstruction.\nIn the body, turbulence can occur at lower Re where vessels branch or narrow, such as the aortic root during peak ejection, valves and stenoses. In a straight, smooth vessel, about 2000 is the threshold.\n\nTakeaway: Reynolds number > about 2000 → turbulence, even in a smooth, straight vessel.",
 "w": [
-"Far too low.",
-"Still well within laminar flow.",
-"Turbulence starts far below this.",
-"Turbulence starts far below this.",
+"Re of 20 is far too low. Flow at this level is strongly laminar.",
+"Re of 200 is still well within laminar flow.",
+"Turbulence begins far below 20,000.",
+"Turbulence begins far below 200,000.",
 ""
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-laminar-turbulent"
+]
 },
 {
 "t": "Flow vs Velocity",
@@ -6577,15 +6637,18 @@ window.CRS_PH_QUESTIONS = [
 "Venae cavae"
 ],
 "a": 0,
-"e": "v = Q/A. Flow is the same at every level, but the capillaries have by far the largest total cross-sectional area, so velocity there is lowest. This gives time for O₂, CO₂ and nutrient exchange.",
+"e": "Velocity = flow / total cross-sectional area (v = Q/A).\nThe same total flow (the cardiac output) passes through each level of the circulation, but total area changes enormously:\n• Aorta: about 4 cm² → fastest (about 20 cm/s mean).\n• Capillaries: billions in parallel, about 2500–5000 cm² total → slowest (under 0.1 cm/s).\n• Venae cavae: area shrinks again → velocity rises.\nSlow capillary transit gives time for O₂, CO₂ and nutrient exchange.\n\nTakeaway: v = Q/A. Capillaries have the greatest total area → slowest flow → time for exchange.",
 "w": [
 "",
-"The aorta has the smallest total area and the highest velocity.",
-"Large arteries have a small total area.",
-"Arterioles have less total area than capillaries.",
-"The venae cavae have a small total area, so velocity rises again."
+"The aorta has the smallest total cross-sectional area and the highest velocity.",
+"Large arteries have a small total area, so velocity is high.",
+"Arterioles have more total area than arteries but much less than capillaries.",
+"The venae cavae have a small total area, so velocity rises again there."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-area-velocity"
+]
 },
 {
 "t": "Flow vs Velocity",
@@ -6599,15 +6662,18 @@ window.CRS_PH_QUESTIONS = [
 "About 1250 cm/s"
 ],
 "a": 1,
-"e": "Convert flow: 5 L/min = 5000 mL/min ≈ 83 mL/s, which is 83 cm³/s. Then v = Q/A = 83/4 ≈ 21 cm/s.",
+"e": "v = Q / A, with consistent units.\nStep 1: Convert flow to mL/s (cm³/s): 5 L/min = 5000 mL/min ÷ 60 ≈ 83 mL/s = 83 cm³/s.\nStep 2: Divide by the area: v = 83 cm³/s ÷ 4 cm² ≈ 21 cm/s.\nVelocity (distance per time) is not the same as flow (volume per time). Always convert to matching units before dividing.\n\nTakeaway: v = Q/A. 5 L/min through a 4 cm² aorta ≈ 21 cm/s.",
 "w": [
-"Off by a factor of 10.",
+"About 2 cm/s is off by a factor of 10, a unit conversion error.",
 "",
-"This is the flow in mL/s, not divided by area.",
-"Off by a factor of 10.",
-"This uses mL/min instead of mL/s."
+"About 83 cm/s is the flow in mL/s without dividing by the area.",
+"About 210 cm/s is off by a factor of 10.",
+"About 1250 cm/s comes from using mL/min (5000/4) instead of converting to mL/s."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-area-velocity"
+]
 },
 {
 "t": "Flow vs Velocity",
@@ -6622,15 +6688,18 @@ window.CRS_PH_QUESTIONS = [
 "It reverses direction"
 ],
 "a": 2,
-"e": "v = Q/A. With flow unchanged and total area larger, velocity falls. Slower transit gives more time for O₂ and nutrient exchange.",
+"e": "v = Q / A.\n• Flow to the muscle (Q) is unchanged.\n• Opening previously closed capillaries ('capillary recruitment') increases the total cross-sectional area (A).\nSo velocity in each capillary falls. Slower transit, plus more capillaries open and a shorter diffusion distance to the cells, increases the time and surface area for O₂ and nutrient exchange. This is what happens in exercising muscle.\n\nTakeaway: Capillary recruitment ↑ total area → ↓ velocity → more time for exchange.",
 "w": [
-"More area at the same flow lowers velocity.",
-"Velocity depends on area.",
+"More area at the same flow lowers velocity. It does not raise it.",
+"Velocity depends on area, so increasing area changes it.",
 "",
-"Slower flow makes turbulence less likely.",
-"Flow direction does not change."
+"Slower flow lowers the Reynolds number and makes turbulence less likely.",
+"Opening capillaries does not reverse the pressure gradient, so flow continues forward."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-area-velocity"
+]
 },
 {
 "t": "Compliance, Pulse Pressure & MAP",
@@ -6644,15 +6713,18 @@ window.CRS_PH_QUESTIONS = [
 "In the heart chambers"
 ],
 "a": 3,
-"e": "Veins are highly compliant, so they hold a large volume with little change in pressure. They are the volume reservoirs, or capacitance vessels, and contain the unstressed volume.",
+"e": "Compliance = ΔV/ΔP, how much volume a vessel takes up for a given rise in pressure.\n• Veins are very compliant, about 20 times more than arteries. They hold a large volume at low pressure: about 60–70% of the blood volume, mostly as unstressed volume (volume that fills the vessel without stretching it or raising pressure).\n• Arteries are stiffer and hold the smaller stressed volume at high pressure.\nSympathetic venoconstriction shifts unstressed volume into the circulation, raising venous return. It is like an autotransfusion during hemorrhage.\n\nTakeaway: Veins = capacitance vessels holding most of the blood (unstressed volume). Arteries = stressed volume.",
 "w": [
-"Arteries have low compliance and hold the stressed volume.",
-"Arterioles hold little volume.",
-"Capillaries hold a small fraction of the blood.",
+"Arteries are less compliant and hold the stressed volume at high pressure, a much smaller fraction of total blood.",
+"Arterioles are resistance vessels and hold little volume.",
+"Capillaries hold only about 5% of the blood volume at any moment.",
 "",
-"The heart holds only a small part of the total volume."
+"The heart chambers hold only a small part of the total blood volume."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-compliance"
+]
 },
 {
 "t": "Compliance, Pulse Pressure & MAP",
@@ -6666,15 +6738,18 @@ window.CRS_PH_QUESTIONS = [
 "About 93 mmHg"
 ],
 "a": 4,
-"e": "MAP ≈ DP + ⅓(PP). Pulse pressure is 120 − 80 = 40, so MAP ≈ 80 + 13 = 93 mmHg. It sits closer to diastolic because diastole lasts longer than systole.",
+"e": "MAP is the time-weighted average arterial pressure. Because the heart spends about two thirds of each cycle in diastole at rest, MAP is closer to diastolic pressure:\nMAP ≈ DP + ⅓ × PP.\nStep 1: Pulse pressure = 120 − 80 = 40 mmHg.\nStep 2: MAP ≈ 80 + 40/3 ≈ 80 + 13 = 93 mmHg.\n(At fast heart rates diastole shortens, so MAP moves closer to the simple average.)\n\nTakeaway: MAP ≈ DP + ⅓PP. For 120/80, MAP ≈ 93 mmHg.",
 "w": [
-"This adds only a sixth of the pulse pressure.",
-"This is the simple average of systolic and diastolic.",
-"This adds two thirds of the pulse pressure.",
-"This is the pulse pressure.",
+"About 87 mmHg adds only a sixth of the pulse pressure (80 + 40/6).",
+"About 100 mmHg is the simple average of systolic and diastolic, which ignores that diastole lasts longer.",
+"About 107 mmHg adds two thirds of the pulse pressure, weighting systole too heavily.",
+"About 40 mmHg is the pulse pressure, not the mean pressure.",
 ""
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-equations"
+]
 },
 {
 "t": "Compliance, Pulse Pressure & MAP",
@@ -6688,15 +6763,18 @@ window.CRS_PH_QUESTIONS = [
 "230 mmHg"
 ],
 "a": 0,
-"e": "Pulse pressure = SP − DP = 160 − 70 = 90 mmHg.",
+"e": "Pulse pressure is the difference between systolic and diastolic pressure:\nPP = SP − DP = 160 − 70 = 90 mmHg.\nA normal PP is about 40 mmHg. A wide pulse pressure like this suggests a larger stroke volume (aortic regurgitation, hyperthyroidism, anemia) or stiff, less compliant arteries, as in older adults with isolated systolic hypertension.\n\nTakeaway: PP = SP − DP (normal about 40). PP ≈ stroke volume ÷ arterial compliance.",
 "w": [
 "",
-"This is the diastolic pressure.",
-"This is the MAP.",
-"This is the simple average.",
-"This adds the two pressures."
+"70 mmHg is the diastolic pressure, not the difference.",
+"100 mmHg is approximately the MAP (70 + 90/3), not the pulse pressure.",
+"115 mmHg is the simple average of 160 and 70.",
+"230 mmHg adds the two pressures instead of subtracting."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-equations"
+]
 },
 {
 "t": "Compliance, Pulse Pressure & MAP",
@@ -6711,15 +6789,18 @@ window.CRS_PH_QUESTIONS = [
 "Smaller stroke volume from tamponade"
 ],
 "a": 1,
-"e": "PP ≈ SV/compliance. With no murmur, stroke volume is not raised by a leaky valve. With age, arteries lose elastin and become stiff, so compliance falls and the same stroke volume produces a larger pulse pressure, giving isolated systolic hypertension.",
+"e": "Step 1: Pulse pressure = 172 − 68 = 104 mmHg, which is very wide. PP ≈ stroke volume / arterial compliance, so it widens if SV rises or compliance falls.\nStep 2: Normal heart sounds with no murmur argue against aortic regurgitation, the classic cause of a large SV.\nStep 3: With age, the aorta loses elastin and gains collagen, so it becomes stiff (low compliance). It cannot stretch to absorb each ejection, so systolic pressure spikes, and it cannot recoil well in diastole, so diastolic pressure falls. The result is isolated systolic hypertension with a wide pulse pressure.\n\nTakeaway: Elderly + wide PP + no murmur = ↓ arterial compliance (stiff arteries) → isolated systolic hypertension.",
 "w": [
-"There is no murmur to suggest aortic regurgitation.",
+"A larger stroke volume from aortic regurgitation would cause a diastolic murmur, and none is heard.",
 "",
-"Higher compliance would narrow pulse pressure.",
-"TPR mainly sets diastolic pressure, not pulse pressure.",
-"Reduced stroke volume would narrow pulse pressure."
+"Higher aortic compliance would narrow the pulse pressure, not widen it.",
+"TPR mainly sets diastolic pressure and MAP. It does not explain the very wide pulse pressure.",
+"A smaller stroke volume from tamponade would narrow the pulse pressure."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-compliance"
+]
 },
 {
 "t": "Compliance, Pulse Pressure & MAP",
@@ -6733,15 +6814,18 @@ window.CRS_PH_QUESTIONS = [
 "Lower venous compliance"
 ],
 "a": 2,
-"e": "A blowing diastolic decrescendo murmur with bounding pulses means aortic regurgitation. Blood that leaks back is ejected again, so stroke volume rises. PP ≈ SV/compliance, so a larger SV widens pulse pressure.",
+"e": "Step 1: A high-pitched, blowing, decrescendo diastolic murmur just after S2 at the left sternal border, with bounding pulses, is aortic regurgitation.\nStep 2: In diastole, blood leaks back from the aorta into the left ventricle. The LV then ejects that regurgitant volume plus the normal filling volume, so total stroke volume is large → systolic pressure rises.\nStep 3: The rapid backflow and runoff drain the aorta in diastole → diastolic pressure falls. PP ≈ SV/compliance, so a larger SV widens pulse pressure (168/44 → PP 124).\n\nTakeaway: Aortic regurgitation → ↑ stroke volume + diastolic runoff → very wide pulse pressure and bounding pulses.",
 "w": [
-"Smaller SV would narrow pulse pressure.",
-"Higher compliance would narrow pulse pressure.",
+"A smaller stroke volume would narrow, not widen, the pulse pressure.",
+"Higher compliance would absorb more of each ejection and narrow the pulse pressure.",
 "",
-"Higher TPR would raise diastolic pressure, not lower it.",
-"Venous compliance does not set arterial pulse pressure."
+"Higher TPR would raise diastolic pressure, but his diastolic pressure is low.",
+"Venous compliance does not determine arterial pulse pressure."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-equations"
+]
 },
 {
 "t": "Compliance, Pulse Pressure & MAP",
@@ -6755,15 +6839,18 @@ window.CRS_PH_QUESTIONS = [
 "Higher blood viscosity"
 ],
 "a": 3,
-"e": "Hypotension, distended neck veins and muffled heart sounds are Beck's triad of cardiac tamponade. Fluid around the heart limits filling, so stroke volume falls. PP ≈ SV/compliance, so pulse pressure narrows.",
+"e": "Step 1: Hypotension, distended neck veins and muffled heart sounds after a chest stab wound are Beck's triad of cardiac tamponade.\nStep 2: Blood in the pericardial sac compresses the heart and limits diastolic filling, so end-diastolic volume and stroke volume fall.\nStep 3: PP ≈ SV/compliance. A small stroke volume produces a narrow pulse pressure (84 − 70 = 14 mmHg). Pulsus paradoxus is also typical.\n\nTakeaway: Narrow pulse pressure = low stroke volume (tamponade, hemorrhage, severe aortic stenosis, heart failure).",
 "w": [
-"A larger SV would widen pulse pressure.",
-"Lower compliance would widen pulse pressure.",
-"Lower TPR mainly lowers diastolic pressure.",
+"A larger stroke volume would widen the pulse pressure.",
+"Lower arterial compliance would widen the pulse pressure.",
+"Lower TPR mainly lowers diastolic pressure and would tend to widen, not narrow, the pulse pressure.",
 "",
-"Viscosity does not set pulse pressure."
+"Viscosity affects resistance and flow, not pulse pressure directly."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-equations"
+]
 },
 {
 "t": "Compliance, Pulse Pressure & MAP",
@@ -6777,15 +6864,18 @@ window.CRS_PH_QUESTIONS = [
 "Total peripheral resistance"
 ],
 "a": 4,
-"e": "Diastolic pressure is the minimum before the next ejection and is set mainly by how fast blood runs off through the arterioles, which is total peripheral resistance.",
+"e": "Arterial pressure in diastole falls as blood runs off from the arteries through the arterioles while the aortic valve is closed. How far it falls before the next beat depends mainly on how fast that runoff occurs, which is set by total peripheral resistance:\n• ↑ TPR (vasoconstriction) → slower runoff → higher diastolic pressure.\n• ↓ TPR (sepsis, vasodilators) → faster runoff → lower diastolic pressure.\nBy contrast, systolic pressure and pulse pressure depend mainly on stroke volume and arterial compliance.\n\nTakeaway: Diastolic pressure ≈ TPR. Systolic pressure and pulse pressure ≈ stroke volume and compliance.",
 "w": [
-"Stroke volume mainly sets systolic and pulse pressure.",
-"Compliance mainly shapes pulse pressure.",
-"Valve area is not a determinant here.",
-"Venous compliance does not set arterial diastolic pressure.",
+"Stroke volume mainly determines systolic pressure and pulse pressure.",
+"Arterial compliance mainly shapes pulse pressure, damping or exaggerating the systolic peak.",
+"Aortic valve area matters in stenosis but is not the main determinant of diastolic pressure.",
+"Venous compliance sets venous capacitance, not arterial diastolic pressure.",
 ""
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/hd-equations"
+]
 },
 {
 "t": "Sympathetic β1 → Gs → cAMP Cascade",
@@ -7374,15 +7464,18 @@ window.CRS_PH_QUESTIONS = [
 "Pulmonary artery pressure"
 ],
 "a": 0,
-"e": "Venous return is driven by the gradient from the peripheral veins (mean systemic filling pressure, about 7 mmHg) to the right atrium. Right atrial pressure is the downstream pressure, so the higher it is, the smaller the gradient and the lower the venous return.",
+"e": "Venous return follows Ohm's law across the venous system:\nVR = (MSFP − RAP) / RVR\n• Mean systemic filling pressure (MSFP, about 7 mmHg) is the average pressure in the systemic vessels when flow stops. It is the upstream driving pressure, set by blood volume and venous tone.\n• Right atrial pressure (RAP) is the downstream back-pressure.\n• RVR is the resistance to venous return.\nAs RAP rises toward MSFP, the gradient shrinks and venous return falls. That is why the vascular function curve slopes down to the right.\n\nTakeaway: RAP opposes venous return. MSFP drives it. VR depends on the gradient MSFP − RAP.",
 "w": [
 "",
-"MSFP is the upstream pressure that drives venous return.",
-"Arterial pressure drives flow through the arterioles, not back to the heart.",
-"Left atrial pressure belongs to the pulmonary circuit.",
-"Pulmonary artery pressure is not in the equation."
+"MSFP is the upstream pressure that drives blood back to the heart, not the back-pressure.",
+"Mean arterial pressure drives flow through the arterioles but is not part of the venous return gradient.",
+"Left atrial pressure belongs to the pulmonary circuit, not systemic venous return.",
+"Pulmonary artery pressure is downstream of the right ventricle and not part of this equation."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-vr-curve"
+]
 },
 {
 "t": "Venous Return & the Vascular Function Curve",
@@ -7396,15 +7489,18 @@ window.CRS_PH_QUESTIONS = [
 "14 L/min"
 ],
 "a": 1,
-"e": "VR = (MSFP − RAP)/RVR = (7 − 2)/1 = 5 L/min. The gradient, not either pressure alone, sets the flow back to the heart.",
+"e": "Use the venous return equation:\nVR = (MSFP − RAP) / RVR\nStep 1: Gradient = 7 − 2 = 5 mmHg.\nStep 2: VR = 5 mmHg ÷ 1 mmHg·min/L = 5 L/min.\nAt steady state venous return equals cardiac output, so 5 L/min is a normal resting value. It is the gradient, not either pressure alone, that sets the flow.\n\nTakeaway: VR = (MSFP − RAP)/RVR. Here (7 − 2)/1 = 5 L/min.",
 "w": [
-"This adds the pressures instead of subtracting.",
+"9 L/min adds the pressures instead of subtracting them.",
 "",
-"This is the right atrial pressure alone.",
-"This is MSFP alone.",
-"This multiplies the pressures."
+"2 is the right atrial pressure, not the venous return.",
+"7 is the mean systemic filling pressure alone, ignoring the back-pressure.",
+"14 comes from multiplying the pressures, which is not how the equation works."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-vr-curve"
+]
 },
 {
 "t": "Venous Return & the Vascular Function Curve",
@@ -7418,15 +7514,18 @@ window.CRS_PH_QUESTIONS = [
 "When cardiac output plateaus"
 ],
 "a": 2,
-"e": "Venous return needs a gradient from MSFP to RAP. When RAP rises to equal MSFP, about 7 mmHg normally, there is no gradient and venous return stops. That is where the curve meets the x-axis.",
+"e": "On the vascular function curve, venous return is plotted against right atrial pressure:\n• As RAP rises, the gradient (MSFP − RAP) falls, so VR falls linearly.\n• When RAP = MSFP (about 7 mmHg normally), there is no gradient and VR = 0. This x-intercept equals the mean systemic filling pressure.\n• When RAP falls below 0, the great veins collapse, so VR plateaus.\nAnything that raises MSFP (transfusion, venoconstriction) shifts the x-intercept right. Anything that lowers MSFP (hemorrhage, venodilation) shifts it left.\n\nTakeaway: The vascular function curve hits zero VR at RAP = MSFP. The x-intercept is the MSFP.",
 "w": [
-"At an RAP of zero the gradient is large and venous return is high.",
-"Arterial pressure is not part of the venous return gradient.",
+"At an RAP of zero the gradient is large (MSFP − 0), so venous return is high, not zero.",
+"Mean arterial pressure is not part of the venous return gradient.",
 "",
-"Below zero the great veins collapse and venous return plateaus at its highest.",
-"The cardiac curve plateau does not set the x-intercept of the venous curve."
+"Below zero RAP the great veins collapse and venous return plateaus at its maximum.",
+"The plateau of the cardiac function curve has nothing to do with where the vascular function curve crosses the x-axis."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-vr-curve"
+]
 },
 {
 "t": "Venous Return & the Vascular Function Curve",
@@ -7440,15 +7539,18 @@ window.CRS_PH_QUESTIONS = [
 "Aortic diastolic pressure"
 ],
 "a": 3,
-"e": "The central veins in the thorax and the right atrium form one central venous compartment, so central venous pressure is used as right atrial pressure, the x-axis of both function curves.",
+"e": "The superior vena cava, inferior vena cava and right atrium form one continuous central venous compartment with no valve between them. So central venous pressure (CVP) measured in the SVC ≈ right atrial pressure (RAP), normally about 0–5 mmHg.\nRAP is the x-axis for both function curves:\n• Cardiac function curve: RAP is the preload for the right heart.\n• Vascular function curve: RAP is the back-pressure opposing venous return.\nClinically, jugular venous distension reflects a high CVP/RAP, and flat neck veins a low one.\n\nTakeaway: CVP ≈ RAP, the shared x-axis of the cardiac and vascular function curves.",
 "w": [
-"Left atrial pressure is estimated by the wedge pressure.",
-"MSFP is the pressure in the peripheral veins with the heart stopped.",
-"Pulmonary artery pressure is measured beyond the right ventricle.",
+"Left atrial pressure is estimated by the pulmonary capillary wedge pressure, not CVP.",
+"MSFP is the pressure throughout the systemic vessels when flow stops. It is the x-intercept of the venous return curve, not the CVP.",
+"Pulmonary artery pressure is measured beyond the right ventricle with a Swan-Ganz catheter.",
 "",
-"Aortic pressure is on the arterial side."
+"Aortic diastolic pressure is on the arterial side, far higher than central venous pressure."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-vr-curve"
+]
 },
 {
 "t": "Venous Return & the Vascular Function Curve",
@@ -7462,15 +7564,18 @@ window.CRS_PH_QUESTIONS = [
 "Great veins collapse entering the chest"
 ],
 "a": 4,
-"e": "Lowering RAP widens the gradient only up to a point. Below about 0 mmHg the great veins entering the thorax collapse, which limits flow, so the vascular function curve flattens into a plateau.",
+"e": "On the vascular function curve:\n• From RAP = MSFP down to about 0 mmHg, venous return rises linearly as the gradient (MSFP − RAP) widens.\n• Below about 0 mmHg, RAP is below the surrounding intrathoracic pressure. The thin-walled great veins entering the chest collapse, which raises their resistance and limits flow. Making RAP more negative no longer increases venous return, so the curve plateaus.\nThis is why the heart cannot 'suck' unlimited blood back by lowering RAP.\n\nTakeaway: Venous return plateaus below RAP ≈ 0 because the great veins collapse as they enter the thorax.",
 "w": [
-"MSFP depends on blood volume and venous tone, not on RAP.",
-"The tricuspid valve opens in diastole whatever the RAP.",
-"No reflex arteriolar change creates the plateau.",
+"MSFP depends on blood volume and venous tone. It does not fall when RAP falls.",
+"The tricuspid valve opens in diastole regardless of RAP. Valve closure does not cause the plateau.",
+"No reflex arteriolar constriction creates the plateau. It is a mechanical effect of venous collapse.",
 "Venous valves prevent backflow but do not cap forward flow.",
 ""
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-vr-curve"
+]
 },
 {
 "t": "Venous Return & the Vascular Function Curve",
@@ -7484,15 +7589,18 @@ window.CRS_PH_QUESTIONS = [
 "Falls from 5 to 0 L/min"
 ],
 "a": 0,
-"e": "A failing right ventricle empties poorly, so blood backs up and right atrial pressure rises. Before: (7 − 2)/1 = 5 L/min. After: (7 − 5)/1 = 2 L/min. The smaller gradient from the periphery to the right atrium cuts venous return.",
+"e": "Step 1: An inferior MI from right coronary artery occlusion can infarct the right ventricle. A failing RV empties poorly, so blood backs up and RAP rises (2 → 5 mmHg).\nStep 2: Venous return = (MSFP − RAP)/RVR.\n• Before: (7 − 2)/1 = 5 L/min.\n• After: (7 − 5)/1 = 2 L/min.\nStep 3: The smaller gradient from the periphery to the right atrium cuts venous return, and with it left ventricular filling and cardiac output. This is why RV infarction causes hypotension with distended neck veins and clear lungs, and why it is treated with IV fluids.\n\nTakeaway: ↑ RAP shrinks the MSFP − RAP gradient → ↓ venous return. Calculate (MSFP − RAP)/RVR.",
 "w": [
 "",
-"A higher RAP lowers, not raises, venous return.",
-"The gradient changed, so venous return must change.",
-"Venous return started at 5, not 7.",
-"Venous return reaches zero only when RAP equals MSFP."
+"A higher RAP lowers, not raises, venous return because the gradient shrinks.",
+"The gradient changed from 5 to 2 mmHg, so venous return must change.",
+"Venous return started at (7 − 2)/1 = 5 L/min, not 7.",
+"Venous return reaches zero only when RAP equals MSFP (7 mmHg). Here RAP is 5."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-vr-curve"
+]
 },
 {
 "t": "Shifting the Venous Return Curve: Volume, Venous Tone & TPR",
@@ -7506,15 +7614,18 @@ window.CRS_PH_QUESTIONS = [
 "Arteriolar constriction"
 ],
 "a": 1,
-"e": "More blood in the veins raises MSFP. The curve moves up and to the right with the same slope, so the x-intercept, which is the MSFP, moves right.",
+"e": "The vascular function curve moves in two different ways:\n• Parallel shift (MSFP changes): blood volume or venous tone changes. The slope is unchanged, but the x-intercept (MSFP) moves.\n• Rotation (TPR changes): arteriolar resistance changes. The slope changes, but the x-intercept stays.\nA transfusion adds volume to the compliant veins, raising MSFP, so the curve shifts up and to the right in parallel. Venous return is higher at every RAP.\n\nTakeaway: Volume or venous tone ↑ → MSFP ↑ → parallel shift up and right (transfusion). TPR changes rotate the curve.",
 "w": [
-"Hemorrhage lowers MSFP and shifts the curve down.",
+"Acute hemorrhage lowers MSFP and shifts the curve down and left.",
 "",
-"Spinal anesthesia dilates veins and lowers MSFP.",
-"Arteriolar dilation rotates the curve without changing MSFP.",
-"Arteriolar constriction rotates the curve downward."
+"Spinal anesthesia blocks sympathetic venous tone, lowers MSFP and shifts the curve down.",
+"Arteriolar dilation lowers TPR and rotates the curve up without changing MSFP.",
+"Arteriolar constriction raises TPR and rotates the curve down without changing MSFP."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-vr-volume"
+]
 },
 {
 "t": "Shifting the Venous Return Curve: Volume, Venous Tone & TPR",
@@ -7528,15 +7639,18 @@ window.CRS_PH_QUESTIONS = [
 "No change in the curve at all"
 ],
 "a": 2,
-"e": "Losing blood volume lowers mean systemic filling pressure. The curve keeps its slope but moves down and to the left, crossing the x-axis at a lower pressure.",
+"e": "Blood loss removes volume from the veins, which hold most of the blood, so mean systemic filling pressure falls.\nOn the vascular function curve:\n• The slope (set by resistance to venous return) is unchanged.\n• The x-intercept (= MSFP) moves left.\n• So the whole curve shifts down and to the left in parallel. Venous return is lower at every RAP.\nThe new operating point has both lower cardiac output and lower RAP, matching hypotension with flat neck veins.\n\nTakeaway: Hemorrhage → ↓ MSFP → parallel shift down and left → ↓ CO and ↓ RAP.",
 "w": [
-"That is the effect of a transfusion.",
-"Rotation without a change in MSFP is a TPR effect.",
+"A shift up with higher MSFP is what a transfusion does.",
+"Rotation without a change in MSFP is a TPR effect, not a volume effect.",
 "",
-"Rotation down is the effect of higher TPR.",
-"Blood volume always shifts the curve."
+"Rotation down with the same MSFP follows a rise in TPR, not blood loss.",
+"Changing blood volume always shifts the curve, because MSFP depends on volume."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-vr-volume"
+]
 },
 {
 "t": "Shifting the Venous Return Curve: Volume, Venous Tone & TPR",
@@ -7550,15 +7664,18 @@ window.CRS_PH_QUESTIONS = [
 "Does not change"
 ],
 "a": 3,
-"e": "Lower arteriolar resistance lets blood reach the veins more easily, so the curve becomes steeper and venous return rises at every RAP. Blood volume and venous tone are unchanged, so MSFP and the x-intercept stay the same.",
+"e": "Arteriolar tone changes the slope of the vascular function curve, not its x-intercept:\n• Lower TPR lets blood flow more easily from the arteries into the veins, so at any given RAP more blood returns to the heart. The curve becomes steeper, rotating upward.\n• Blood volume and venous tone are unchanged, so MSFP stays the same, and the curve still crosses the x-axis at the same point.\nAt the same time, lower afterload shifts the cardiac function curve up, so cardiac output rises (as in exercise).\n\nTakeaway: ↓ TPR → VR curve rotates up (steeper) around the same MSFP. ↑ TPR → rotates down.",
 "w": [
-"A parallel shift up needs more volume or venous tone.",
-"A parallel shift down needs less volume or tone.",
-"Rotation down follows a rise in TPR.",
+"A parallel shift up needs more blood volume or more venous tone, which raises MSFP.",
+"A parallel shift down needs less volume or less venous tone.",
+"Rotation down follows a rise in TPR, not a fall.",
 "",
-"TPR changes alter the slope of the curve."
+"Changes in TPR alter the slope of the vascular function curve."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-vr-tpr"
+]
 },
 {
 "t": "Shifting the Venous Return Curve: Volume, Venous Tone & TPR",
@@ -7572,15 +7689,18 @@ window.CRS_PH_QUESTIONS = [
 "Raising mean systemic filling pressure"
 ],
 "a": 4,
-"e": "Veins hold most of the blood volume. Venoconstriction squeezes this reservoir, raising MSFP, so the gradient to the right atrium widens and the curve shifts up in parallel.",
+"e": "Veins hold about 60–70% of the blood volume, much of it as unstressed volume. Sympathetic stimulation of α1 receptors on venous smooth muscle:\n1. Reduces venous capacitance (lower compliance), turning unstressed volume into stressed volume.\n2. This raises mean systemic filling pressure, the upstream driving pressure.\n3. The gradient (MSFP − RAP) widens, so the vascular function curve shifts up and to the right in parallel, like a transfusion.\nThis 'autotransfusion' is an important compensation in hemorrhage.\n\nTakeaway: Venoconstriction ↑ MSFP → ↑ venous return (parallel shift up). It is the body's built-in transfusion.",
 "w": [
-"Venoconstriction acts on the upstream pressure, not RAP.",
-"Higher resistance would lower venous return.",
-"Arteriolar tone is a separate effect.",
-"Venoconstriction lowers compliance.",
+"Venoconstriction raises the upstream pressure (MSFP). It does not act by lowering RAP.",
+"Higher resistance to venous return would lower venous return, which is the opposite of the effect.",
+"Arteriolar resistance is a separate effect on the slope, not the mechanism of venoconstriction.",
+"Venoconstriction lowers venous compliance. It does not increase it.",
 ""
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-co-flowchart"
+]
 },
 {
 "t": "Shifting the Venous Return Curve: Volume, Venous Tone & TPR",
@@ -7594,15 +7714,18 @@ window.CRS_PH_QUESTIONS = [
 "3 L/min"
 ],
 "a": 0,
-"e": "VR = (MSFP − RAP)/RVR = (10 − 2)/1 = 8 L/min, up from (7 − 2)/1 = 5 L/min. The larger gradient explains the upward shift of the curve.",
+"e": "Use VR = (MSFP − RAP) / RVR.\nStep 1: New gradient = 10 − 2 = 8 mmHg.\nStep 2: VR = 8 / 1 = 8 L/min.\nStep 3: Before the transfusion, VR was (7 − 2)/1 = 5 L/min. Raising MSFP by 3 mmHg increased venous return by 3 L/min, which is the parallel upward shift of the vascular function curve.\n\nTakeaway: VR = (MSFP − RAP)/RVR. A transfusion raises MSFP → bigger gradient → higher venous return.",
 "w": [
 "",
-"This uses the old MSFP of 7.",
-"This is MSFP alone.",
-"This adds RAP instead of subtracting it.",
-"This subtracts the old MSFP."
+"5 L/min uses the old MSFP of 7 mmHg.",
+"10 L/min is MSFP alone, without subtracting the right atrial back-pressure.",
+"12 L/min adds RAP instead of subtracting it.",
+"3 L/min is just the change in MSFP, not the venous return."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-vr-volume"
+]
 },
 {
 "t": "Shifting the Venous Return Curve: Volume, Venous Tone & TPR",
@@ -7616,15 +7739,18 @@ window.CRS_PH_QUESTIONS = [
 "Steeper curve from lower venous resistance"
 ],
 "a": 1,
-"e": "Spinal anesthesia blocks sympathetic outflow below the block. Veins lose their tone and pool blood, so MSFP falls, much like losing blood volume. The curve shifts down in parallel, and venous return, cardiac output and central venous pressure all fall.",
+"e": "Step 1: Spinal anesthesia blocks sympathetic preganglionic fibers below the level of the block, removing tone from both veins and arterioles in the lower body.\nStep 2: Venodilation increases venous capacitance, so blood pools in the dilated veins. Mean systemic filling pressure falls, much as if he had lost blood volume.\nStep 3: The vascular function curve shifts down in parallel. It meets the cardiac curve at a lower RAP (falling CVP) and a lower cardiac output, so his blood pressure falls. The treatment is IV fluid and a vasopressor (phenylephrine) to restore venous tone.\n\nTakeaway: Sympathectomy (spinal anesthesia) → venodilation → ↓ MSFP → ↓ VR, ↓ CO, ↓ CVP.",
 "w": [
-"Lower TPR would raise venous return.",
+"Lower TPR rotates the curve up, which would raise venous return, not explain his low venous return and falling CVP.",
 "",
-"MSFP falls, not rises, with venodilation.",
-"Sympathetic block lowers, not raises, TPR.",
-"Lower venous resistance would raise venous return."
+"MSFP falls, not rises, when the veins dilate.",
+"Sympathetic block lowers TPR. It does not raise it.",
+"Lower venous resistance would increase venous return, not decrease it."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-vr-volume"
+]
 },
 {
 "t": "Cardiac Function Curve: Preload, Afterload & Inotropy",
@@ -7638,15 +7764,18 @@ window.CRS_PH_QUESTIONS = [
 "Mean systemic filling pressure"
 ],
 "a": 2,
-"e": "The cardiac function curve is the Frank–Starling curve: cardiac output against preload, measured as right atrial or end-diastolic pressure. It shares this x-axis with the vascular function curve.",
+"e": "The cardiac function curve is the Frank–Starling curve viewed at the level of the whole heart:\n• y-axis: cardiac output.\n• x-axis: preload, measured as right atrial pressure (or end-diastolic pressure or volume).\nIt shows how much the heart pumps for a given filling pressure. Plotting it on the same axes as the vascular function curve (venous return vs RAP) lets you find the operating point where CO = VR.\n\nTakeaway: Cardiac function curve = CO vs RAP (preload). It shares its x-axis with the vascular function curve.",
 "w": [
-"MAP is an afterload measure.",
-"TPR changes the position of the curve, not its axis.",
+"MAP is a measure of afterload. It is not the x-axis of the cardiac function curve.",
+"TPR changes the position of the curve through afterload, but it is not plotted on the axis.",
 "",
-"Heart rate is one determinant of CO, not its x-axis.",
-"MSFP is the x-intercept of the vascular curve."
+"Heart rate is a determinant of CO (CO = HR × SV), not the curve's x-axis.",
+"MSFP is the x-intercept of the vascular function curve, not the axis of the cardiac curve."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-starling"
+]
 },
 {
 "t": "Cardiac Function Curve: Preload, Afterload & Inotropy",
@@ -7660,15 +7789,18 @@ window.CRS_PH_QUESTIONS = [
 "Ohm's law of flow"
 ],
 "a": 3,
-"e": "A higher preload stretches the sarcomeres toward their optimal length, so the next beat is stronger and stroke volume rises. That is the Frank–Starling relationship.",
+"e": "The Frank–Starling law: the more the ventricle is filled in diastole (higher preload, higher RAP and EDV), the more forcefully it contracts.\nMechanism: stretching the sarcomeres toward their optimal length (about 2.2 µm) improves actin–myosin overlap and increases the Ca²⁺ sensitivity of troponin C, so the next beat generates more force and ejects a larger stroke volume.\nThis lets the heart automatically match its output to venous return, and the right and left ventricular outputs to each other.\n\nTakeaway: Frank–Starling = ↑ preload → ↑ stroke volume. It is the rising limb of the cardiac function curve.",
 "w": [
-"Poiseuille's law describes resistance.",
-"Laplace relates wall tension to pressure and radius.",
-"Fick measures cardiac output from O₂ uptake.",
+"Poiseuille's law relates resistance to vessel radius, length and viscosity.",
+"The law of Laplace relates wall tension to pressure and radius (T = P × r / 2h). It explains afterload, not the rising curve.",
+"The Fick principle calculates cardiac output from O₂ consumption and the arteriovenous O₂ difference.",
 "",
-"Ohm's law relates flow, pressure and resistance."
+"Ohm's law (Q = ΔP/R) relates flow, pressure and resistance in vessels."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-starling"
+]
 },
 {
 "t": "Cardiac Function Curve: Preload, Afterload & Inotropy",
@@ -7682,15 +7814,18 @@ window.CRS_PH_QUESTIONS = [
 "Cardiac output reaches its ceiling"
 ],
 "a": 4,
-"e": "Cardiac output has a limited ceiling. Once filling is high, more preload no longer adds much force, so the curve plateaus.",
+"e": "On the cardiac function curve:\n• At low to moderate RAP, more filling stretches the sarcomeres toward their optimal length, so output rises steeply (Frank–Starling).\n• At high RAP, the sarcomeres are already near optimal length and the ventricle is limited by its contractility, heart rate and the stiff pericardium. Extra filling adds little more force, so cardiac output reaches its ceiling and the curve plateaus.\nThe height of the plateau is set by contractility and afterload. Positive inotropes raise it, and heart failure lowers it.\n\nTakeaway: The cardiac curve plateaus at high RAP because output has a ceiling. More preload no longer adds force.",
 "w": [
-"Venous return is a separate curve.",
+"Venous return is a separate curve. It does not set the plateau of the cardiac curve.",
 "Afterload does not fall as filling rises.",
-"MSFP belongs to the vascular curve.",
-"Heart rate does not set the plateau.",
+"MSFP belongs to the vascular function curve, not the cardiac curve.",
+"Heart rate does not slow at high filling and is not what creates the plateau.",
 ""
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-starling"
+]
 },
 {
 "t": "Cardiac Function Curve: Preload, Afterload & Inotropy",
@@ -7704,15 +7839,18 @@ window.CRS_PH_QUESTIONS = [
 "It does not change"
 ],
 "a": 0,
-"e": "Digoxin is a positive inotrope, so the heart pumps more at every preload and the cardiac function curve shifts upward. Venous return is not changed directly.",
+"e": "Digoxin inhibits the Na⁺/K⁺-ATPase in cardiac myocytes. Less Na⁺ gradient means less Ca²⁺ is pumped out by the Na⁺/Ca²⁺ exchanger, so more Ca²⁺ is stored in the sarcoplasmic reticulum and released each beat. The result is stronger contraction, a positive inotropic effect.\nOn the function curves:\n• Cardiac function curve shifts upward (more CO at every RAP).\n• Venous return curve is not directly changed.\n• New operating point: higher CO at a lower RAP.\n\nTakeaway: Positive inotropes (digoxin, dobutamine, sympathetic stimulation) shift the cardiac curve up → ↑ CO, ↓ RAP.",
 "w": [
 "",
-"Downward shifts follow negative inotropes.",
-"Rotation of the VR curve is a TPR effect.",
-"A rightward VR shift needs more volume or venous tone.",
-"Inotropes change the cardiac curve."
+"A downward shift follows negative inotropes such as heart failure, MI or β-blockers.",
+"Rotation of the venous return curve is a TPR effect, not an inotropic one.",
+"A rightward shift of the VR curve needs more blood volume or venous tone.",
+"Inotropes change the cardiac function curve."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-inotropy-curves"
+]
 },
 {
 "t": "Cardiac Function Curve: Preload, Afterload & Inotropy",
@@ -7726,15 +7864,18 @@ window.CRS_PH_QUESTIONS = [
 "Does not change"
 ],
 "a": 1,
-"e": "Lower afterload lets the ventricle eject more against less resistance, so stroke volume and cardiac output rise at every preload. The curve shifts up and to the left.",
+"e": "Afterload is the load the ventricle must overcome to eject, reflected by aortic pressure and TPR.\n• Lower afterload → the ventricle shortens more and ejects more blood per beat → stroke volume rises → end-systolic volume falls.\n• So cardiac output is higher at every preload, and the cardiac function curve shifts up and to the left.\nVasodilators (for example in heart failure) use this effect to raise output.\n\nTakeaway: ↓ Afterload → cardiac curve shifts up (more CO at each RAP). ↑ Afterload → shifts down.",
 "w": [
-"Less output follows a rise in afterload.",
+"Less output at each RAP follows a rise in afterload.",
 "",
-"Lower afterload raises the plateau.",
-"A rightward shift means less output, which is the opposite.",
-"Afterload is one determinant of the curve."
+"Lower afterload raises the plateau. It does not flatten the curve to a low level.",
+"A rightward shift would mean less output at each RAP, which is the opposite.",
+"Afterload is one of the determinants of the cardiac function curve."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-inotropy-curves"
+]
 },
 {
 "t": "The Operating Point: CO = VR",
@@ -7748,15 +7889,18 @@ window.CRS_PH_QUESTIONS = [
 "Mean arterial pressure equals RAP"
 ],
 "a": 2,
-"e": "The heart can pump only what returns to it, so at steady state CO = VR. The curves cross at the one right atrial pressure where this is true.",
+"e": "At steady state, the heart can only pump what returns to it, and what it pumps out must return. So cardiac output = venous return.\nGraphically:\n• Cardiac function curve: output rises with RAP.\n• Vascular function curve: return falls with RAP.\n• They intersect at one RAP where CO = VR. That is the operating (equilibrium) point.\nAny change, such as an inotrope, a transfusion or a change in TPR, moves one or both curves and creates a new operating point.\n\nTakeaway: Operating point = where the curves cross = CO equals VR at one specific RAP.",
 "w": [
-"That is where venous return is zero.",
-"Output is not zero at steady state.",
+"RAP equals MSFP where venous return is zero, the x-intercept of the vascular curve, not the operating point.",
+"Cardiac output is not zero at steady state.",
 "",
-"At steady state the two are equal.",
-"MAP is far higher than RAP."
+"At steady state the two flows are equal. Venous return cannot exceed output for long.",
+"Mean arterial pressure (about 93 mmHg) is far higher than RAP (about 2 mmHg)."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-operating-point"
+]
 },
 {
 "t": "The Operating Point: CO = VR",
@@ -7770,15 +7914,18 @@ window.CRS_PH_QUESTIONS = [
 "Output keeps exceeding return"
 ],
 "a": 3,
-"e": "Pumping out more than returns drains the right atrium, so RAP falls. A lower RAP widens the gradient for venous return and lowers preload for the heart, so the two flows meet again at the operating point.",
+"e": "If output briefly exceeds return:\n1. More blood leaves the right atrium than enters, so the right atrium partly empties and RAP falls.\n2. Lower RAP increases venous return, because the gradient MSFP − RAP widens.\n3. Lower RAP also lowers preload, so by Frank–Starling, output falls.\n4. The two flows converge, and the system settles back at the operating point where CO = VR.\nThis self-correction through RAP keeps the two sides matched beat to beat.\n\nTakeaway: CO > VR → RAP falls → VR rises and CO falls → back to the operating point.",
 "w": [
-"RAP falls, not rises, when the atrium is drained.",
-"MSFP depends on volume and venous tone.",
-"TPR is not the self-correcting variable here.",
+"RAP falls, not rises, when the heart pumps out more than returns, because the atrium is drained.",
+"MSFP depends on blood volume and venous tone, which do not change beat to beat.",
+"TPR is not the self-correcting variable here. RAP is.",
 "",
-"CO and VR cannot differ for long."
+"CO and VR cannot differ for more than a few beats. Changes in RAP bring them back into balance."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-operating-point"
+]
 },
 {
 "t": "The Operating Point: CO = VR",
@@ -7792,15 +7939,18 @@ window.CRS_PH_QUESTIONS = [
 "RAP 2 mmHg, CO 5 L/min"
 ],
 "a": 4,
-"e": "At steady state CO = VR, so 2.5 × RAP = 7 − RAP. Then 3.5 × RAP = 7, giving RAP = 2 mmHg and CO = 2.5 × 2 = 5 L/min.",
+"e": "At the operating point, CO = VR:\nStep 1: Set the equations equal: 2.5 × RAP = 7 − RAP.\nStep 2: 3.5 × RAP = 7 → RAP = 2 mmHg.\nStep 3: CO = 2.5 × 2 = 5 L/min. Check with VR = (7 − 2)/1 = 5 L/min. ✓\nThis is a normal resting operating point: RAP about 2 mmHg, CO about 5 L/min.\n\nTakeaway: Find the operating point by setting CO = VR and solving for RAP.",
 "w": [
-"This is where venous return is zero.",
-"The heart pumps nothing at an RAP of 0 on this line.",
-"CO would be 10, not 3, at an RAP of 4.",
-"CO would be 7.5, not 4, at an RAP of 3.",
+"RAP 7 mmHg is where venous return is zero (the MSFP), not where the curves cross.",
+"At an RAP of 0, this cardiac curve gives a CO of 0, not 7.",
+"At an RAP of 4, the cardiac curve gives a CO of 10, which does not match a VR of 3.",
+"At an RAP of 3, the cardiac curve gives a CO of 7.5, which does not match a VR of 4.",
 ""
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-operating-point"
+]
 },
 {
 "t": "Clinical Scenarios: Blood Volume Changes",
@@ -7814,15 +7964,18 @@ window.CRS_PH_QUESTIONS = [
 "Same cardiac output, higher RAP"
 ],
 "a": 0,
-"e": "A transfusion raises MSFP and shifts the venous return curve up and right. It now meets the unchanged cardiac curve further up, so VR, RAP and CO all rise.",
+"e": "Step 1: Two units of blood add volume to the veins, raising MSFP.\nStep 2: The vascular function curve shifts up and to the right in parallel. The cardiac curve is unchanged.\nStep 3: The new intersection lies further up the rising limb of the unchanged cardiac curve: higher RAP (more preload) and, through Frank–Starling, higher cardiac output.\n\nTakeaway: Volume (transfusion, fluids) → ↑ MSFP → new operating point at ↑ CO and ↑ RAP.",
 "w": [
 "",
-"A lower RAP with higher CO fits positive inotropy.",
-"Lower CO with higher RAP fits negative inotropy.",
-"Lower CO and RAP fit blood loss.",
-"More volume raises output."
+"A higher CO at a lower RAP is the signature of a positive inotrope, not more volume.",
+"A lower CO at a higher RAP fits a negative inotrope such as heart failure.",
+"A lower CO at a lower RAP fits blood loss.",
+"More volume moves the operating point up the cardiac curve, so CO rises too."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-volume-shift"
+]
 },
 {
 "t": "Clinical Scenarios: Blood Volume Changes",
@@ -7836,15 +7989,18 @@ window.CRS_PH_QUESTIONS = [
 "Vasopressor infusion"
 ],
 "a": 1,
-"e": "Hemorrhage lowers MSFP and shifts the venous return curve down and left, so it meets the cardiac curve at a lower RAP and a lower CO.",
+"e": "Each pattern of change at the operating point has a typical cause:\n• Hemorrhage: ↓ MSFP → VR curve shifts down and left → new point at lower CO and lower RAP (flat neck veins).\n• Positive inotrope: ↑ CO, ↓ RAP.\n• Volume: ↑ CO, ↑ RAP.\n• Negative inotrope (MI): ↓ CO, ↑ RAP.\n• ↑ TPR (vasopressor): ↓ CO, RAP about unchanged.\n\nTakeaway: ↓ CO with ↓ RAP = loss of volume (hemorrhage, dehydration) or venous tone.",
 "w": [
-"Dobutamine raises CO and lowers RAP.",
+"Dobutamine is a positive inotrope that raises CO and lowers RAP.",
 "",
-"Fluid raises both CO and RAP.",
-"MI lowers CO but raises RAP.",
-"Vasopressors lower CO with RAP about unchanged."
+"Fluid infusion raises both CO and RAP.",
+"An MI is a negative inotrope that lowers CO but raises RAP.",
+"A vasopressor raises TPR, lowering CO with RAP roughly unchanged."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-volume-shift"
+]
 },
 {
 "t": "Clinical Scenarios: Blood Volume Changes",
@@ -7858,15 +8014,18 @@ window.CRS_PH_QUESTIONS = [
 "Arterial diastolic blood pressure"
 ],
 "a": 2,
-"e": "Extra fluid fills the compliant veins, raising MSFP. That widens the gradient to the right atrium, shifts the venous return curve up and pushes the operating point to a higher CO.",
+"e": "Step 1: The infused saline enters the circulation and largely fills the very compliant veins.\nStep 2: More volume in the veins raises mean systemic filling pressure, the upstream pressure that drives venous return.\nStep 3: The gradient MSFP − RAP widens, so the vascular function curve shifts up and to the right. The operating point moves to a higher RAP and, by Frank–Starling, a higher cardiac output.\n\nTakeaway: IV fluid → ↑ MSFP (first) → ↑ venous return → ↑ RAP and ↑ CO.",
 "w": [
-"Fluid does not raise arteriolar resistance.",
-"Higher RVR would lower venous return.",
+"Fluid does not directly raise arteriolar resistance.",
+"A higher resistance to venous return would lower, not raise, venous return.",
 "",
-"Left atrial pressure is on the pulmonary side.",
-"Arterial pressure does not drive venous return."
+"Left atrial pressure is on the pulmonary side. It rises later as a consequence, not first.",
+"Arterial pressure does not drive venous return. The gradient from the veins to the right atrium does."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-volume-shift"
+]
 },
 {
 "t": "Clinical Scenarios: Blood Volume Changes",
@@ -7880,15 +8039,18 @@ window.CRS_PH_QUESTIONS = [
 "Higher RAP from right heart failure"
 ],
 "a": 3,
-"e": "A femur fracture can hide more than a liter of blood in the thigh. Losing volume lowers MSFP, so the venous return curve shifts down in parallel and meets the cardiac curve at a lower RAP, which fits the flat neck veins, and a lower CO.",
+"e": "Step 1: A swollen, deformed thigh after trauma means a femoral fracture, which can hide 1–1.5 L of blood. Tachycardia and hypotension point to hemorrhagic shock.\nStep 2: Losing volume lowers MSFP, so the vascular function curve shifts down in parallel.\nStep 3: It meets the unchanged cardiac curve at a lower RAP, matching his flat neck veins, and a lower cardiac output, which causes his hypotension. The tachycardia is the baroreflex trying to compensate.\n\nTakeaway: Hypotension + flat neck veins after trauma = hypovolemia → ↓ MSFP → ↓ RAP and ↓ CO.",
 "w": [
-"Pump failure would raise RAP and distend the neck veins.",
-"His low output comes from lost volume, not a TPR change.",
-"Blood loss lowers MSFP.",
+"Lower contractility (pump failure) would raise RAP and distend the neck veins, but his are flat.",
+"His low output comes from lost volume, not a change in TPR. In fact TPR rises in hemorrhage as a compensation.",
+"Blood loss lowers MSFP. It does not raise it.",
 "",
-"Flat neck veins mean a low RAP."
+"Flat neck veins mean a low RAP, which argues against right heart failure."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-volume-shift"
+]
 },
 {
 "t": "Clinical Scenarios: Inotropy & Afterload",
@@ -7902,15 +8064,18 @@ window.CRS_PH_QUESTIONS = [
 "Higher CO at a lower RAP"
 ],
 "a": 4,
-"e": "Dobutamine is a positive inotrope, so the cardiac curve shifts up. The heart empties more fully, ESV falls, less blood is left in the right atrium and RAP falls, which also widens the gradient for venous return. CO rises at a lower RAP.",
+"e": "Step 1: Dobutamine is a β1 agonist and a positive inotrope, so the cardiac function curve shifts up. The heart pumps more at every RAP.\nStep 2: The stronger ventricle empties more completely, so less blood is left behind and right atrial pressure falls.\nStep 3: A lower RAP also widens the venous return gradient (MSFP − RAP), so venous return rises to match. The new operating point has a higher CO at a lower RAP.\n\nTakeaway: Positive inotrope → ↑ CO with ↓ RAP. This combination is unique to increased contractility.",
 "w": [
-"Higher RAP with higher CO fits more blood volume.",
-"Lower CO with higher RAP fits negative inotropy.",
-"Lower CO and RAP fit blood loss.",
-"CO rises with a positive inotrope.",
+"A higher CO at a higher RAP fits added blood volume.",
+"A lower CO at a higher RAP fits a negative inotrope such as an MI.",
+"A lower CO at a lower RAP fits blood loss.",
+"Cardiac output rises with a positive inotrope, so it does not stay the same.",
 ""
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-inotropy-shift"
+]
 },
 {
 "t": "Clinical Scenarios: Inotropy & Afterload",
@@ -7924,15 +8089,18 @@ window.CRS_PH_QUESTIONS = [
 "Catecholamine release"
 ],
 "a": 0,
-"e": "Negative inotropes include heart failure with reduced EF, narcotic overdose, sympathetic inhibition and myocardial infarction. They lower the cardiac curve.",
+"e": "Negative inotropes reduce myocardial contractility and shift the cardiac function curve down, so there is less output at every RAP. Examples:\n• Heart failure with reduced ejection fraction.\n• Myocardial infarction (loss of contracting muscle).\n• Narcotic (opioid) overdose and other depressant drugs.\n• Sympathetic inhibition or β-blockers.\nThe new operating point has a lower CO and a higher RAP.\n\nTakeaway: Negative inotropes (heart failure, MI, narcotic overdose, β-blockers) → cardiac curve down → ↓ CO, ↑ RAP.",
 "w": [
 "",
-"Dobutamine is a positive inotrope.",
-"Digoxin is a positive inotrope.",
-"Exercise raises contractility.",
-"Catecholamines raise contractility."
+"Dobutamine is a β1 agonist that increases contractility.",
+"Digoxin increases intracellular Ca²⁺ and is a positive inotrope.",
+"Exercise raises sympathetic drive and contractility.",
+"Catecholamines act on β1 receptors to increase contractility."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-inotropy-shift"
+]
 },
 {
 "t": "Clinical Scenarios: Inotropy & Afterload",
@@ -7946,15 +8114,18 @@ window.CRS_PH_QUESTIONS = [
 "Lower CO and a much lower RAP"
 ],
 "a": 1,
-"e": "Higher TPR lowers both curves: the cardiac curve falls because afterload rises, and the venous return curve rotates down with the same MSFP. They meet at a lower CO with RAP roughly unchanged.",
+"e": "A vasopressor that raises TPR affects both curves:\n• Cardiac function curve: higher afterload means the ventricle ejects less → shifts down.\n• Vascular function curve: higher arteriolar resistance slows flow into the veins → rotates down. MSFP is unchanged because blood volume and venous tone are the same.\n• New operating point: lower cardiac output, with RAP roughly unchanged, because both curves move down together.\n(MAP may still rise, since MAP = CO × TPR and TPR rose more than CO fell.)\n\nTakeaway: ↑ TPR → both curves move down → ↓ CO with RAP about unchanged.",
 "w": [
-"Higher TPR lowers output.",
+"Higher TPR lowers cardiac output. It does not raise it.",
 "",
-"RAP rises sharply with pump failure, not a TPR rise.",
-"A lower RAP with higher CO fits positive inotropy.",
+"A sharply higher RAP occurs with pump failure, not with a rise in TPR alone.",
+"A higher CO with a lower RAP fits a positive inotrope.",
 "A much lower RAP fits blood loss."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-afterload-shift"
+]
 },
 {
 "t": "Clinical Scenarios: Inotropy & Afterload",
@@ -7968,15 +8139,18 @@ window.CRS_PH_QUESTIONS = [
 "Unchanged output and higher RAP"
 ],
 "a": 2,
-"e": "A large infarct is a negative inotrope, so the cardiac curve shifts down. The weak heart leaves more blood behind, RAP rises, and the curves cross at a lower CO, matching her cool hands and raised jugular venous pressure.",
+"e": "Step 1: A large anterior wall MI destroys a large area of left ventricular muscle, acting as a negative inotrope. The cardiac function curve shifts down.\nStep 2: The weak heart cannot eject all the blood it receives, so blood backs up and RAP (and left atrial pressure) rises. This causes raised JVP and pulmonary congestion with shortness of breath.\nStep 3: The curves now cross at a lower cardiac output and a higher RAP. Low output with compensatory vasoconstriction explains her cool hands. This is cardiogenic shock physiology.\n\nTakeaway: Pump failure (MI, heart failure) → ↓ CO with ↑ RAP (raised JVP, congestion).",
 "w": [
-"That fits a positive inotrope.",
-"Lower RAP with lower CO fits blood loss.",
+"Higher output with lower RAP fits a positive inotrope.",
+"Lower output with lower RAP fits blood loss, not pump failure. Her JVP is raised.",
 "",
 "Higher output does not fit pump failure.",
 "Output falls when contractility falls."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-inotropy-shift"
+]
 },
 {
 "t": "Clinical Scenarios: Inotropy & Afterload",
@@ -7990,15 +8164,18 @@ window.CRS_PH_QUESTIONS = [
 "Higher RVR flattening VR"
 ],
 "a": 3,
-"e": "The fistula lets arterial blood bypass the arterioles, lowering TPR. The venous return curve rotates up, and lower afterload lifts the cardiac curve, so the operating point moves to a higher CO with RAP about the same.",
+"e": "Step 1: An arteriovenous fistula is a low-resistance shortcut from artery to vein that bypasses the arterioles. The continuous bruit is turbulent flow through it, and bounding pulses reflect high output with fast diastolic runoff.\nStep 2: Bypassing the arterioles lowers TPR:\n• The venous return curve rotates up (steeper), because blood reaches the veins more easily, with MSFP unchanged.\n• Lower afterload lifts the cardiac function curve.\nStep 3: Both curves rise, so they meet at a much higher cardiac output with RAP about the same. This is high-output physiology, which can eventually cause high-output heart failure.\n\nTakeaway: AV fistula → ↓ TPR → VR curve rotates up + cardiac curve up → ↑↑ CO.",
 "w": [
-"A fistula lowers, not raises, TPR.",
-"The fistula does not lower volume or MSFP.",
-"Contractility is normal.",
+"A fistula lowers TPR by providing a low-resistance path. Higher TPR would lower CO.",
+"A fistula does not remove blood volume or venous tone, so MSFP is not lowered.",
+"His contractility is normal. The high output is driven by low TPR.",
 "",
-"Higher RVR would lower venous return."
+"A higher resistance to venous return would lower, not raise, venous return."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-afterload-shift"
+]
 },
 {
 "t": "Clinical Scenarios: Inotropy & Afterload",
@@ -8012,15 +8189,18 @@ window.CRS_PH_QUESTIONS = [
 "Both curves shift up together"
 ],
 "a": 4,
-"e": "Positive inotropy raises the cardiac curve, while venoconstriction raises MSFP and lower TPR steepens the venous return curve. With both curves raised, they cross at a much higher CO at about the same RAP.",
+"e": "Exercise changes three things at once:\n1. Sympathetic β1 stimulation increases contractility and heart rate → cardiac function curve shifts up.\n2. Sympathetic venoconstriction (plus the muscle pump and deeper breathing) raises MSFP → venous return curve shifts up and right.\n3. Metabolic vasodilation in exercising muscle lowers TPR → venous return curve becomes steeper and afterload falls.\nOn its own, an inotrope would lower RAP and extra venous return would raise it. With both curves raised together, the new intersection is at a much higher CO (4–5×) with RAP almost unchanged.\n\nTakeaway: In exercise, both curves shift up together → ↑↑ CO at about the same RAP.",
 "w": [
-"The cardiac curve alone would lower RAP.",
-"A VR shift alone would raise RAP.",
-"Exercise raises both curves.",
-"Venous return stops if RAP equals MSFP.",
+"Raising only the cardiac curve would increase CO but lower RAP noticeably.",
+"Shifting only the venous return curve would raise RAP and give a smaller rise in CO.",
+"Exercise raises both curves. Shifting both down describes something like general anesthesia or shock.",
+"If RAP rose to equal MSFP, venous return would stop. RAP stays close to its resting value.",
 ""
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-afterload-shift"
+]
 },
 {
 "t": "Clinical Scenarios: Inotropy & Afterload",
@@ -8034,15 +8214,18 @@ window.CRS_PH_QUESTIONS = [
 "Slower heart rate raising filling"
 ],
 "a": 0,
-"e": "Digoxin is a positive inotrope. The ventricle empties more fully, so end-systolic volume falls and cardiac output rises. More blood is pumped out and less is left behind in the right atrium, so RAP and central venous pressure fall, which also widens the gradient for venous return.",
+"e": "Step 1: In heart failure with reduced EF, the weak ventricle leaves a large end-systolic volume, so blood backs up, raising RAP and CVP and causing edema.\nStep 2: Digoxin inhibits the Na⁺/K⁺-ATPase, which raises intracellular Ca²⁺ and contractility, a positive inotrope. The cardiac function curve shifts up.\nStep 3: The ventricle now empties more fully: end-systolic volume falls and stroke volume rises. Less blood is left behind to back up into the right atrium, so RAP and CVP fall. The wider MSFP − RAP gradient also helps venous return match the higher output, and less venous congestion improves the edema.\n\nTakeaway: Positive inotrope in heart failure → fuller emptying → ↓ RAP/CVP with ↑ CO.",
 "w": [
 "",
-"Higher MSFP would raise RAP.",
-"Digoxin is not a vasodilator.",
-"He has not bled.",
-"Slower rate and more filling would not lower RAP."
+"Venoconstriction would raise MSFP and tend to raise RAP. Digoxin is not acting this way.",
+"Digoxin is a positive inotrope, not an arteriolar vasodilator.",
+"He has not bled, and lower venous return would not explain improved edema with higher output.",
+"Digoxin does slow AV conduction, but a slower rate with more filling would raise, not lower, RAP."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/fc-inotropy-shift"
+]
 },
 {
 "t": "Baroreceptor Reflex: Arc & Response",
@@ -8056,13 +8239,13 @@ window.CRS_PH_QUESTIONS = [
 "Heart rate and blood volume"
 ],
 "a": 0,
-"e": "BP = CO × TPR. Anything that raises cardiac output or total peripheral resistance raises blood pressure, and the reflexes in this lecture work by changing one or both.",
+"e": "Mean arterial pressure follows the hemodynamic version of Ohm's law: ΔP = Q × R, so MAP ≈ CO × TPR (right atrial pressure is close to 0).\n• CO = heart rate × stroke volume, so it reflects the heart.\n• TPR is set mainly by arteriolar tone, so it reflects the vessels.\nEvery blood pressure control system acts on one or both. The baroreflex changes HR, contractility and arteriolar tone within seconds. RAAS and ANP change TPR and blood volume (and through that, stroke volume) over hours to days.\n\nTakeaway: MAP = CO × TPR. Every BP reflex works by changing cardiac output, TPR, or both.",
 "w": [
 "",
-"Heart rate × stroke volume is cardiac output, not pressure.",
-"Stroke volume must be multiplied by heart rate first.",
-"Venous return equals cardiac output at steady state.",
-"Blood volume is not a direct factor in the equation."
+"Heart rate × stroke volume equals cardiac output, a flow, not a pressure.",
+"Stroke volume must be multiplied by heart rate to give cardiac output before multiplying by TPR.",
+"Venous return equals cardiac output at steady state. Multiplying them does not give pressure.",
+"Blood volume affects pressure indirectly through preload and CO, but it is not a factor in the equation."
 ],
 "src": "lec",
 "fig": [
@@ -8081,13 +8264,13 @@ window.CRS_PH_QUESTIONS = [
 "Spinal accessory nerve, CN XI"
 ],
 "a": 1,
-"e": "Carotid sinus baroreceptors send their signals through Hering's nerve, a branch of the glossopharyngeal nerve, CN IX, to the nucleus tractus solitarius. Aortic arch baroreceptors use the vagus, CN X.",
+"e": "The baroreceptor reflex has two sensing sites with different afferent nerves:\n• Carotid sinus (at the bifurcation of the common carotid) → Hering's nerve → glossopharyngeal nerve (CN IX) → NTS.\n• Aortic arch → vagus nerve (CN X) → NTS.\nThe carotid sinus responds to both rises and falls in pressure, while the aortic arch mainly signals rises. That is why carotid sinus massage or a tight collar can trigger reflex bradycardia.\n\nTakeaway: Carotid sinus → CN IX. Aortic arch → CN X. Both go to the NTS.",
 "w": [
-"The vagus carries signals from the aortic arch.",
+"The vagus (CN X) carries signals from the aortic arch baroreceptors and aortic bodies, not the carotid sinus.",
 "",
-"CN XII is motor to the tongue.",
-"CN VII does not carry baroreceptor afferents.",
-"CN XI is motor to neck muscles."
+"CN XII is a pure motor nerve to the tongue muscles.",
+"CN VII supplies facial expression, taste from the front of the tongue and some glands. It carries no baroreceptor signals.",
+"CN XI is motor to the sternocleidomastoid and trapezius."
 ],
 "src": "lec",
 "fig": [
@@ -8106,13 +8289,13 @@ window.CRS_PH_QUESTIONS = [
 "Paraventricular nucleus"
 ],
 "a": 2,
-"e": "Both CN IX and CN X baroreceptor afferents end in the nucleus tractus solitarius, NTS, in the medulla. The NTS then adjusts autonomic outflow through the cardiovascular center.",
+"e": "Both baroreceptor afferent pathways converge on the nucleus tractus solitarius (NTS) in the dorsal medulla, the main visceral sensory nucleus.\nFrom the NTS, signals go to the medullary cardiovascular center:\n• Excitation of the nucleus ambiguus and dorsal motor nucleus of the vagus → ↑ parasympathetic outflow to the heart.\n• Inhibition of the rostral ventrolateral medulla (vasomotor center) → ↓ sympathetic outflow.\nSo higher baroreceptor firing → slower heart and vasodilation.\n\nTakeaway: Baroreceptor afferents (CN IX, X) → NTS → adjust vagal and sympathetic outflow.",
 "w": [
-"Nucleus ambiguus sends vagal efferents to the heart.",
-"The dorsal motor nucleus is an efferent vagal nucleus.",
+"The nucleus ambiguus contains vagal motor (efferent) neurons to the heart. It receives input from the NTS, but it is not where afferents first synapse.",
+"The dorsal motor nucleus of the vagus is an efferent parasympathetic nucleus, not the sensory relay.",
 "",
-"The hypoglossal nucleus controls the tongue.",
-"The paraventricular nucleus is hypothalamic."
+"The hypoglossal nucleus is the motor nucleus for the tongue.",
+"The paraventricular nucleus is in the hypothalamus (ADH, oxytocin, CRH), not the first medullary relay."
 ],
 "src": "lec",
 "fig": [
@@ -8131,13 +8314,13 @@ window.CRS_PH_QUESTIONS = [
 "It reverses in direction"
 ],
 "a": 3,
-"e": "Baroreceptors are stretch receptors. Higher pressure stretches the vessel wall more, so they fire faster. Sympathetic outflow is inversely related to this firing.",
+"e": "Baroreceptors are stretch (mechano)receptors in the walls of the carotid sinus and aortic arch.\n• ↑ arterial pressure → more wall stretch → ↑ firing rate.\n• ↓ arterial pressure → less stretch → ↓ firing rate.\nThey fire in proportion to both the level and the rate of change of pressure, and they are most sensitive around normal MAP.\nIn the medulla, higher firing inhibits sympathetic outflow and excites vagal outflow, so pressure is brought back down.\n\nTakeaway: ↑ BP → ↑ stretch → ↑ baroreceptor firing → ↓ sympathetic, ↑ vagal.",
 "w": [
-"Firing falls when pressure falls.",
-"Firing falls but continues at low pressures.",
-"Firing tracks pressure.",
+"Firing decreases when pressure falls, not when it rises.",
+"Firing stops only at very low pressures. Higher pressure increases it.",
+"Firing closely tracks arterial pressure.",
 "",
-"Receptor firing has no direction to reverse."
+"Afferent firing changes in rate. It has no direction to reverse."
 ],
 "src": "lec",
 "fig": [
@@ -8156,12 +8339,12 @@ window.CRS_PH_QUESTIONS = [
 "Sympathetic up, parasympathetic down"
 ],
 "a": 4,
-"e": "Low pressure lowers baroreceptor firing. The medulla responds by activating the sympathetic system and inhibiting the parasympathetic system, which raises heart rate, contractility and vascular tone.",
+"e": "When arterial pressure falls:\n1. Baroreceptors are stretched less → ↓ firing along CN IX and X to the NTS.\n2. The NTS releases its inhibition of the vasomotor center → ↑ sympathetic outflow:\n• Heart (β1): ↑ heart rate and ↑ contractility → ↑ CO.\n• Arterioles (α1): vasoconstriction → ↑ TPR.\n• Veins (α1): venoconstriction → ↑ venous return.\n3. Vagal (parasympathetic) outflow to the SA node falls → heart rate rises further.\nTogether these raise MAP = CO × TPR back toward normal.\n\nTakeaway: Hypotension → ↓ baroreceptor firing → sympathetic ↑, parasympathetic ↓.",
 "w": [
-"That is the response to high pressure.",
-"The two arms move in opposite directions.",
-"The two arms move in opposite directions.",
-"Parasympathetic outflow falls in hypotension.",
+"Sympathetic down with parasympathetic up is the reflex response to high pressure.",
+"The two arms move in opposite directions in the baroreflex.",
+"The two arms move in opposite directions, not the same direction.",
+"Parasympathetic outflow falls in hypotension, and sympathetic outflow also rises.",
 ""
 ],
 "src": "lec",
@@ -8181,13 +8364,13 @@ window.CRS_PH_QUESTIONS = [
 "Only when MAP falls below 40 mmHg"
 ],
 "a": 0,
-"e": "Sympathetic activation is inversely proportional to baroreceptor firing. Low pressure means less firing and more sympathetic drive, and high pressure means more firing and less sympathetic drive.",
+"e": "The medulla reads baroreceptor firing as a measure of pressure, and sympathetic outflow moves in the opposite direction (the handwritten note on the slide):\n• Low pressure → less firing → more sympathetic activity → vasoconstriction, ↑ HR and contractility.\n• High pressure → more firing → less sympathetic activity → vasodilation, ↓ HR.\nParasympathetic (vagal) outflow moves in the same direction as firing. This inverse relationship is what makes the baroreflex a negative feedback loop.\n\nTakeaway: Sympathetic outflow is inversely proportional to baroreceptor firing. Vagal outflow is directly proportional.",
 "w": [
 "",
-"That describes the parasympathetic arm.",
-"Baroreceptor firing directly sets sympathetic tone.",
-"The reflex works at rest.",
-"The reflex works across the normal pressure range."
+"A direct relationship describes the parasympathetic arm, which rises with baroreceptor firing.",
+"Baroreceptor firing is the main input setting moment-to-moment sympathetic tone.",
+"The baroreflex works continuously at rest. In exercise its set point is actually reset upward.",
+"The reflex works across the normal pressure range, centered around normal MAP."
 ],
 "src": "lec",
 "fig": [
@@ -8206,13 +8389,13 @@ window.CRS_PH_QUESTIONS = [
 "Dilation of the capacitance veins"
 ],
 "a": 1,
-"e": "In hypotension, sympathetic activation constricts arterioles, raising TPR. Faster heart rate and stronger contraction raise cardiac output instead. Together they restore BP = CO × TPR.",
+"e": "MAP = CO × TPR. The baroreflex response to hypotension raises both:\n• TPR: sympathetic α1 stimulation constricts arterioles, the resistance vessels → ↑ TPR.\n• Cardiac output: β1 stimulation raises heart rate (with vagal withdrawal) and contractility, and venoconstriction raises venous return and preload → ↑ stroke volume.\nOf these, only arteriolar vasoconstriction acts on the resistance term.\n\nTakeaway: Arteriolar vasoconstriction (α1) raises TPR. Heart rate, contractility and venoconstriction raise CO.",
 "w": [
-"Heart rate raises cardiac output, not TPR.",
+"Heart rate is part of cardiac output (HR × SV). It raises CO, not TPR.",
 "",
-"Contractility raises cardiac output, not TPR.",
-"Stroke volume is part of cardiac output.",
-"Sympathetic drive constricts veins."
+"Contractility raises stroke volume and therefore CO, not TPR.",
+"Stroke volume is a component of cardiac output.",
+"Sympathetic drive constricts, not dilates, the capacitance veins, and veins add little to TPR."
 ],
 "src": "lec",
 "fig": [
@@ -8231,13 +8414,13 @@ window.CRS_PH_QUESTIONS = [
 "Hormones act faster than nerves"
 ],
 "a": 2,
-"e": "Baroreceptors reset to a sustained pressure over a few days, so they buffer moment-to-moment changes but cannot hold pressure at a set point long term. The kidneys, through RAAS and fluid volume, do that job.",
+"e": "The baroreceptor reflex is fast (seconds) but it adapts. If pressure stays high or low for a few days, the baroreceptors reset to the new level and treat it as normal. So they buffer moment-to-moment changes (standing up, straining) but cannot hold pressure at a set point long term.\nLong-term control comes from the kidneys, which adjust blood volume through:\n• RAAS (renin → Ang II → aldosterone → Na⁺ and water retention).\n• Pressure natriuresis and ANP.\nThat is why chronic hypertension reflects a renal set point, not baroreceptor failure.\n\nTakeaway: Baroreceptors = fast but adapt within days. Kidney volume control (RAAS, ANP) = slow but long-term.",
 "w": [
-"Baroreceptors respond within seconds.",
-"They detect both rises and falls.",
+"Baroreceptors respond within seconds. Speed is their strength, not their weakness.",
+"Carotid sinus baroreceptors detect both rises and falls in pressure.",
 "",
-"The kidney senses perfusion pressure through JG cells.",
-"Neural control is faster than hormonal control."
+"The kidney senses perfusion pressure through the JG cells, which is how it runs long-term control.",
+"Neural control is faster than hormonal control, not slower."
 ],
 "src": "lec",
 "fig": [
@@ -8282,12 +8465,12 @@ window.CRS_PH_QUESTIONS = [
 "CN IX to NTS, then more vagal outflow"
 ],
 "a": 4,
-"e": "Step 1: the balloon stretches the carotid sinus as if pressure were very high.\nStep 2: baroreceptor firing rises along CN IX to the NTS.\nStep 3: the medulla raises parasympathetic and lowers sympathetic outflow, so the SA node slows and bradycardia follows.",
+"e": "Step 1: Inflating the balloon in the carotid artery stretches the carotid sinus wall, exactly as if arterial pressure had risen sharply.\nStep 2: Carotid sinus baroreceptor firing rises along Hering's nerve → CN IX → NTS.\nStep 3: The NTS excites vagal (parasympathetic) outflow from the nucleus ambiguus to the SA and AV nodes and inhibits sympathetic outflow. Acetylcholine on M2 receptors slows SA node firing → bradycardia (here 38/min), often with hypotension. That is why atropine is kept ready during carotid stenting.\n\nTakeaway: Carotid sinus stretch → CN IX → NTS → ↑ vagal, ↓ sympathetic → bradycardia.",
 "w": [
-"The carotid sinus uses CN IX, and sympathetic drive falls.",
-"Sympathetic drive falls when firing rises.",
-"CN XII carries no baroreceptor signals.",
-"Aortic bodies are chemoreceptors.",
+"The carotid sinus uses CN IX, not CN X, and sympathetic outflow falls rather than rises.",
+"The afferent is right, but more firing lowers sympathetic outflow. More sympathetic drive would speed the heart.",
+"CN XII is motor to the tongue and carries no baroreceptor signals.",
+"Aortic bodies are chemoreceptors, and less vagal outflow would speed, not slow, the heart.",
 ""
 ],
 "src": "lec",
@@ -8308,13 +8491,13 @@ window.CRS_PH_QUESTIONS = [
 "Vagal outflow falls"
 ],
 "a": 0,
-"e": "Step 1: phenylephrine constricts arterioles, so TPR and pressure rise.\nStep 2: higher pressure raises baroreceptor firing.\nStep 3: the reflex raises vagal and lowers sympathetic drive to the heart, so heart rate falls. This reflex bradycardia is how the drug is used to slow some tachycardias.",
+"e": "Step 1: Phenylephrine is a pure α1 agonist. It constricts arterioles → ↑ TPR → MAP rises (95 → 125 mmHg). It has no β1 effect on the heart.\nStep 2: Higher pressure stretches the carotid sinus and aortic arch → ↑ baroreceptor firing.\nStep 3: The reflex increases vagal and decreases sympathetic outflow to the heart → heart rate falls (reflex bradycardia). This is the classic 'pure pressor' pattern and is used clinically to terminate some supraventricular tachycardias.\n\nTakeaway: Pure α1 agonist → ↑ BP → baroreflex → ↓ heart rate.",
 "w": [
 "",
-"High pressure slows the heart by reflex.",
-"The drug holds arterioles constricted.",
-"Sympathetic drive to the heart falls.",
-"Vagal outflow rises."
+"High pressure slows the heart by reflex. Phenylephrine has no direct β1 effect to speed it.",
+"The drug keeps arterioles constricted, so TPR stays above baseline.",
+"Reflex sympathetic drive to the heart falls, so contractility does not rise.",
+"Vagal outflow rises when baroreceptor firing increases."
 ],
 "src": "lec",
 "fig": [
@@ -8333,13 +8516,13 @@ window.CRS_PH_QUESTIONS = [
 "Ventral medullary surface"
 ],
 "a": 1,
-"e": "Peripheral chemoreceptors sit in the carotid and aortic bodies. The carotid sinus and aortic arch hold the baroreceptors, which sense stretch.",
+"e": "There are two kinds of arterial sensors near the same sites, and they are easy to confuse:\n• Baroreceptors (stretch): carotid sinus (CN IX) and aortic arch (CN X).\n• Peripheral chemoreceptors (blood gases): the carotid bodies (CN IX) and aortic bodies (CN X). These small, highly perfused glomus cell clusters sense low PaO₂, high PaCO₂ and low pH.\nWhen stimulated, they raise breathing and sympathetic outflow to the vasomotor center, raising blood pressure.\n\nTakeaway: Carotid and aortic bodies = chemoreceptors. Carotid sinus and aortic arch = baroreceptors.",
 "w": [
-"Those hold baroreceptors.",
+"The carotid sinus and aortic arch contain baroreceptors that sense stretch, not blood gases.",
 "",
-"The JG apparatus senses renal perfusion and NaCl.",
-"Atrial receptors sense volume.",
-"That is where central chemoreceptors are."
+"The JG apparatus senses renal perfusion pressure and tubular NaCl and controls renin release.",
+"Atrial receptors sense volume and stretch and trigger ANP release.",
+"The ventral medullary surface holds the central chemoreceptors, which sense CSF pH."
 ],
 "src": "lec",
 "fig": [
@@ -8358,13 +8541,13 @@ window.CRS_PH_QUESTIONS = [
 "Hemoglobin of 10 g/dL"
 ],
 "a": 2,
-"e": "Peripheral chemoreceptors respond to hypoxemia, PaO2 below about 60 mmHg, which is their primary stimulus. They also respond to a high PaCO2 and a low pH.",
+"e": "Peripheral chemoreceptors (carotid and aortic bodies) respond mainly to hypoxemia, a low arterial PO₂ (PaO₂). Their firing rises steeply once PaO₂ falls below about 60 mmHg, which is their primary stimulus. They also respond to ↑ PaCO₂ and ↓ pH.\nStimulation increases ventilation and activates the pressor and cardioaccelerator zones, raising TPR, CO and MAP.\nThey sense dissolved O₂ (PaO₂), not O₂ content, so anemia and CO poisoning do not strongly activate them.\n\nTakeaway: PaO₂ < 60 mmHg is the main peripheral chemoreceptor stimulus.",
 "w": [
-"A normal PaO2 does not activate them.",
-"That is a normal PaCO2.",
+"A PaO₂ of 95 mmHg is normal and causes little chemoreceptor firing.",
+"A PaCO₂ of 40 mmHg is normal and does not activate them.",
 "",
-"That is a normal pH.",
-"Anemia lowers O2 content but not PaO2."
+"A pH of 7.40 is normal.",
+"Anemia lowers O₂ content but not PaO₂, so the chemoreceptors are not strongly activated."
 ],
 "src": "lec",
 "fig": [
@@ -8383,13 +8566,13 @@ window.CRS_PH_QUESTIONS = [
 "Higher arterial O2 content"
 ],
 "a": 3,
-"e": "Central chemoreceptors sense H⁺. CO2 crosses the blood-brain barrier, forms H⁺ in the CSF and lowers its pH, so they respond to CO2 indirectly through pH.",
+"e": "Central chemoreceptors on the ventral surface of the medulla respond to H⁺ in the cerebrospinal fluid:\n1. CO₂ crosses the blood-brain barrier freely.\n2. In the CSF, CO₂ + H₂O → H₂CO₃ → H⁺ + HCO₃⁻.\n3. CSF has little protein buffer, so its pH falls sharply, and that drop in pH stimulates the receptors.\nSo central chemoreceptors respond to CO₂ indirectly, through CSF pH. Plasma H⁺ and HCO₃⁻ cross the barrier poorly, so they act mainly through the peripheral chemoreceptors.\n\nTakeaway: Central chemoreceptors sense ↓ CSF pH (from ↑ PaCO₂). Peripheral ones sense ↓ PaO₂.",
 "w": [
-"Hypoxemia acts on peripheral chemoreceptors.",
-"Pressure is sensed by baroreceptors.",
-"Plasma H⁺ and bicarbonate cross the barrier poorly.",
+"Hypoxemia acts on the peripheral chemoreceptors. It actually depresses central neurons.",
+"Arterial pressure is sensed by baroreceptors, not chemoreceptors.",
+"Plasma bicarbonate and H⁺ cross the blood-brain barrier poorly, so they act mainly on peripheral chemoreceptors.",
 "",
-"They do not sense O2 content."
+"Central chemoreceptors do not sense O₂ content."
 ],
 "src": "lec",
 "fig": [
@@ -8433,13 +8616,13 @@ window.CRS_PH_QUESTIONS = [
 "Angiotensin II receptor binding"
 ],
 "a": 0,
-"e": "Renin release from the juxtaglomerular cells of the afferent arteriole is the rate-limiting step. Angiotensinogen and ACE are present in excess, so renin sets how much angiotensin II is made.",
+"e": "The RAAS cascade:\nangiotensinogen (liver) → [renin, kidney] → angiotensin I → [ACE, lung] → angiotensin II → aldosterone (adrenal).\nAngiotensinogen and ACE are always present in excess, so the amount of Ang II formed depends on how much renin is released. Renin release from the juxtaglomerular cells of the afferent arteriole is therefore the rate-limiting step. That is why every regulator (perfusion pressure, β1, macula densa NaCl, ANP, Ang II feedback) acts on renin.\n\nTakeaway: Renin release from JG cells is the rate-limiting step of RAAS.",
 "w": [
 "",
-"Angiotensinogen is plentiful in plasma.",
-"ACE is abundant and not limiting.",
-"Aldosterone is a downstream effect.",
-"Receptor binding follows Ang II formation."
+"Angiotensinogen is made continuously by the liver and is plentiful in plasma, so it does not limit the rate.",
+"ACE is abundant on pulmonary and other vascular endothelium and is not rate-limiting.",
+"Aldosterone release is a downstream effect of Ang II, not the controlling step.",
+"Receptor binding follows Ang II formation. It does not control how much Ang II is made."
 ],
 "src": "lec",
 "fig": [
@@ -8458,13 +8641,13 @@ window.CRS_PH_QUESTIONS = [
 "Higher renal perfusion pressure"
 ],
 "a": 1,
-"e": "Renin release rises with three triggers: lower renal perfusion pressure sensed by JG cells, more sympathetic β1 stimulation, and less NaCl delivered to the macula densa.",
+"e": "Renin release from the JG cells is triggered by three signals, all meaning 'low volume or pressure':\n1. ↓ renal perfusion pressure: JG cells act as baroreceptors, so less stretch of the afferent arteriole → more renin.\n2. ↑ sympathetic activity: norepinephrine on β1 receptors of JG cells → more renin.\n3. ↓ NaCl delivery to the macula densa (distal tubule) → paracrine signals (prostaglandins, less adenosine) → more renin.\nANP, high perfusion pressure and Ang II itself suppress renin.\n\nTakeaway: Renin ↑ with ↓ perfusion pressure, ↑ β1 activity, or ↓ NaCl at the macula densa.",
 "w": [
-"More stretch means more pressure, which lowers renin.",
+"More stretch of the afferent arteriole signals high pressure and suppresses renin.",
 "",
-"ANP lowers renin.",
-"β1 stimulation raises renin, so blockade lowers it.",
-"Higher pressure lowers renin."
+"ANP, released by atrial stretch, inhibits renin release.",
+"β1 stimulation raises renin, so β-blockers lower it.",
+"Higher renal perfusion pressure suppresses renin release."
 ],
 "src": "lec",
 "fig": [
@@ -8484,13 +8667,13 @@ window.CRS_PH_QUESTIONS = [
 "α2 adrenergic receptor"
 ],
 "a": 2,
-"e": "JG cells carry β1 receptors. Sympathetic activity releases norepinephrine onto them and increases renin secretion, which is why β-blockers lower renin.",
+"e": "JG cells carry β1-adrenergic receptors. Sympathetic nerves release norepinephrine onto them → Gs → ↑ cAMP → renin release. This links the baroreflex to RAAS: in hemorrhage, sympathetic activation raises renin within minutes.\nIt is also why β-blockers lower renin and Ang II, part of their antihypertensive effect.\n\nTakeaway: Sympathetic → β1 on JG cells → ↑ renin. β-blockers ↓ renin.",
 "w": [
-"α1 receptors constrict vessels.",
-"β2 receptors relax smooth muscle.",
+"α1 receptors mediate vascular smooth muscle contraction, including renal vasoconstriction, not renin release.",
+"β2 receptors relax bronchial and vascular smooth muscle and are not the main renin receptor.",
 "",
-"Muscarinic receptors are parasympathetic.",
-"α2 receptors are mostly presynaptic."
+"M2 muscarinic receptors are parasympathetic receptors on the heart.",
+"α2 receptors are mostly presynaptic and inhibit norepinephrine release."
 ],
 "src": "lec",
 "fig": [
@@ -8509,13 +8692,13 @@ window.CRS_PH_QUESTIONS = [
 "Atrial myocytes of the heart"
 ],
 "a": 3,
-"e": "Angiotensin-converting enzyme on the vascular endothelium, mainly in the lungs, cleaves the decapeptide angiotensin I into the octapeptide angiotensin II.",
+"e": "Angiotensin-converting enzyme (ACE) sits on the luminal surface of vascular endothelium, most abundantly in the lungs because all of the cardiac output passes through the pulmonary capillaries. ACE removes two amino acids from the decapeptide angiotensin I, forming the octapeptide angiotensin II.\nACE also breaks down bradykinin. ACE inhibitors therefore raise bradykinin, which causes their cough and angioedema.\n\nTakeaway: ACE in lung endothelium: Ang I (10 aa) → Ang II (8 aa). It also inactivates bradykinin.",
 "w": [
-"JG cells release renin.",
-"The liver makes angiotensinogen.",
-"The adrenal makes aldosterone.",
+"JG cells release renin, which forms angiotensin I. They do not convert Ang I to Ang II.",
+"The liver makes angiotensinogen, the substrate at the start of the cascade.",
+"The zona glomerulosa responds to Ang II by making aldosterone.",
 "",
-"Atria make ANP."
+"Atrial myocytes release ANP, which opposes RAAS."
 ],
 "src": "lec",
 "fig": [
@@ -8535,12 +8718,12 @@ window.CRS_PH_QUESTIONS = [
 "Liver"
 ],
 "a": 4,
-"e": "The liver makes angiotensinogen and releases it into plasma. Renin from the kidney cleaves it to angiotensin I, ACE in the lung makes angiotensin II, and the adrenal releases aldosterone.",
+"e": "The RAAS is like a relay across organs:\n1. Liver: makes and secretes angiotensinogen into plasma.\n2. Kidney: JG cells release renin, which cleaves angiotensinogen → angiotensin I.\n3. Lung: endothelial ACE converts angiotensin I → angiotensin II.\n4. Adrenal cortex (zona glomerulosa): Ang II stimulates aldosterone release.\nSevere liver failure can lower angiotensinogen, and estrogens (pregnancy, oral contraceptives) increase it.\n\nTakeaway: Liver → angiotensinogen. Kidney → renin. Lung → ACE. Adrenal → aldosterone.",
 "w": [
-"The kidney releases renin.",
-"The lung supplies ACE.",
-"The adrenal makes aldosterone.",
-"The heart makes ANP.",
+"The kidney releases renin, the enzyme, not its substrate angiotensinogen.",
+"The lung supplies ACE, which acts further down the cascade.",
+"The adrenal cortex makes aldosterone at the end of the cascade.",
+"The heart releases ANP and BNP, which oppose RAAS.",
 ""
 ],
 "src": "lec",
@@ -8560,13 +8743,13 @@ window.CRS_PH_QUESTIONS = [
 "Increased thirst"
 ],
 "a": 0,
-"e": "Angiotensin II constricts arterioles, stimulates aldosterone from the zona glomerulosa, increases ADH release and stimulates thirst. It feeds back to lower, not raise, renin release.",
+"e": "Angiotensin II acts on AT1 receptors to raise blood pressure and volume:\n• Arterioles: potent vasoconstriction → ↑ TPR. It preferentially constricts the renal efferent arteriole, maintaining GFR.\n• Adrenal zona glomerulosa: ↑ aldosterone → Na⁺ and water retention.\n• Posterior pituitary: ↑ ADH → water retention.\n• Hypothalamus: ↑ thirst.\n• Proximal tubule: ↑ Na⁺/H⁺ exchange.\nBut Ang II feeds back negatively on the JG cells to inhibit renin release. It does not increase renin.\n\nTakeaway: Ang II constricts arterioles and raises aldosterone, ADH and thirst. It suppresses renin by negative feedback.",
 "w": [
 "",
-"Ang II is a potent vasoconstrictor.",
-"Ang II stimulates the zona glomerulosa.",
-"Ang II increases ADH.",
-"Ang II increases thirst."
+"Ang II is one of the most potent vasoconstrictors, so this is a direct effect.",
+"Ang II directly stimulates aldosterone synthesis in the zona glomerulosa.",
+"Ang II directly stimulates ADH release from the posterior pituitary.",
+"Ang II acts on the hypothalamus to increase thirst."
 ],
 "src": "lec",
 "fig": [
@@ -8585,13 +8768,13 @@ window.CRS_PH_QUESTIONS = [
 "Parietal layer of Bowman's capsule"
 ],
 "a": 1,
-"e": "Aldosterone increases Na⁺ reabsorption and K⁺ secretion in the distal tubule and collecting duct. Water follows the Na⁺, so volume and pressure rise.",
+"e": "Aldosterone is a mineralocorticoid that binds intracellular receptors in the principal cells of the late distal tubule and collecting duct, increasing gene transcription for:\n• ENaC (apical Na⁺ channels) and Na⁺/K⁺-ATPase → ↑ Na⁺ reabsorption, and water follows.\n• ROMK (K⁺ channels) → ↑ K⁺ secretion.\nIt also increases H⁺ secretion by α-intercalated cells.\nThe net result is expanded ECF volume and blood volume (and blood pressure), with K⁺ lost in the urine. That is why hyperaldosteronism causes hypertension with hypokalemia.\n\nTakeaway: Aldosterone → distal tubule and collecting duct: ↑ Na⁺ reabsorption, ↑ K⁺ and H⁺ secretion.",
 "w": [
-"The PCT is not the main aldosterone target.",
+"The PCT reabsorbs most filtered Na⁺, but this is driven mainly by Ang II and the Na⁺/H⁺ exchanger, not aldosterone.",
 "",
-"The thin descending limb is not an aldosterone site.",
-"Glomeruli filter and do not reabsorb.",
-"Bowman's capsule collects filtrate."
+"The thin descending limb is water-permeable and is not an aldosterone target.",
+"The glomerulus filters plasma. It does not reabsorb Na⁺.",
+"Bowman's capsule collects filtrate and has no aldosterone-regulated transport."
 ],
 "src": "lec",
 "fig": [
@@ -8610,13 +8793,13 @@ window.CRS_PH_QUESTIONS = [
 "Renin, zona glomerulosa"
 ],
 "a": 2,
-"e": "Step 1: volume loss lowers renal perfusion, so JG cells release renin.\nStep 2: angiotensin II stimulates aldosterone from the zona glomerulosa.\nStep 3: aldosterone retains Na⁺ and secretes K⁺ in the distal tubule and collecting duct, so urine Na⁺ falls and K⁺ is lost.",
+"e": "Step 1: Days of vomiting cause volume depletion, so blood pressure is low and renal perfusion pressure falls.\nStep 2: JG cells release renin → Ang II → aldosterone from the zona glomerulosa.\nStep 3: Aldosterone acts on the distal tubule and collecting duct:\n• Very avid Na⁺ reabsorption → very low urine Na⁺.\n• Increased K⁺ secretion → K⁺ is lost in the urine → low serum K⁺. Vomiting also causes metabolic alkalosis, which drives K⁺ into cells and further increases renal K⁺ loss.\n\nTakeaway: Volume loss → RAAS → aldosterone (zona glomerulosa) → low urine Na⁺ + hypokalemia.",
 "w": [
-"Cortisol is not the main regulator of Na⁺ and K⁺.",
-"ANP causes natriuresis.",
+"Cortisol from the zona fasciculata has some mineralocorticoid activity but is not the main regulator of Na⁺/K⁺ balance in volume depletion.",
+"ANP causes natriuresis (high urine Na⁺) and falls in volume depletion.",
 "",
-"ADH retains water, not Na⁺ in exchange for K⁺.",
-"Renin comes from the kidney."
+"ADH retains free water. It does not cause Na⁺ retention in exchange for K⁺.",
+"Renin comes from the kidney's JG cells, not the zona glomerulosa."
 ],
 "src": "lec",
 "fig": [
@@ -8635,13 +8818,13 @@ window.CRS_PH_QUESTIONS = [
 "Lower total peripheral resistance"
 ],
 "a": 3,
-"e": "Step 1: sustained RAAS activity keeps Ang II high, constricting arterioles and raising TPR.\nStep 2: aldosterone and ADH keep retaining Na⁺ and water, and Ang II drives thirst.\nStep 3: volume and pressure rise, which compensates at first but becomes maladaptive hypertension and edema.",
+"e": "Step 1: Sustained low renal perfusion keeps renin, Ang II and aldosterone high.\nStep 2: Ang II constricts arterioles (↑ TPR) and stimulates thirst and ADH. Aldosterone keeps retaining Na⁺, and water follows.\nStep 3: Over weeks, blood volume and blood pressure rise. At first this compensates for the poor perfusion, but if it continues it becomes maladaptive: hypertension, edema and cardiac and vascular remodeling, as in renal artery stenosis and heart failure. That is why RAAS blockers help in these conditions.\n\nTakeaway: Chronic RAAS activation → ↑ blood volume + ↑ TPR → ↑ BP. Compensatory at first, then maladaptive.",
 "w": [
-"RAAS raises volume.",
-"Aldosterone lowers urine sodium.",
-"Ang II raises ADH.",
+"RAAS retains Na⁺ and water, increasing, not decreasing, volume and pressure.",
+"Aldosterone lowers urine sodium by increasing reabsorption.",
+"Angiotensin II stimulates ADH release, so ADH rises.",
 "",
-"Ang II raises TPR."
+"Angiotensin II is a vasoconstrictor that raises TPR."
 ],
 "src": "lec",
 "fig": [
@@ -8661,12 +8844,12 @@ window.CRS_PH_QUESTIONS = [
 "Stretch of the atrial walls"
 ],
 "a": 4,
-"e": "ANP is released by atrial myocytes when the atria are stretched by higher blood volume, venous return or atrial pressure.",
+"e": "Atrial natriuretic peptide (ANP) is stored in granules in atrial myocytes. It is released when the atrial walls are stretched by:\n• Increased blood volume (volume overload, IV fluids).\n• Increased venous return.\n• Increased atrial pressure (heart failure).\nANP is the body's 'volume too high' signal and counterbalances RAAS. BNP is the ventricular counterpart, released with ventricular wall stretch, and is used to diagnose heart failure.\n\nTakeaway: Atrial stretch (high volume) → ANP release.",
 "w": [
-"Low pressure lowers ANP.",
-"Ang II does not trigger ANP.",
-"β1 stimulation releases renin.",
-"Low NaCl at the macula densa releases renin.",
+"Low pressure means less volume and less atrial stretch, which lowers ANP.",
+"Ang II does not trigger ANP. The two systems oppose each other.",
+"β1 stimulation of JG cells releases renin, not ANP.",
+"Low NaCl at the macula densa triggers renin release, not ANP.",
 ""
 ],
 "src": "lec",
@@ -8686,13 +8869,13 @@ window.CRS_PH_QUESTIONS = [
 "Thirst, ADH release, more aldosterone"
 ],
 "a": 0,
-"e": "ANP dilates vessels, causes natriuresis and diuresis, and lowers renin, angiotensin II and aldosterone. Together these lower blood volume and pressure.",
+"e": "ANP binds natriuretic peptide receptors (guanylyl cyclase → ↑ cGMP) and lowers blood volume and pressure:\n• Vessels: vasodilation → ↓ TPR.\n• Kidney: dilates the afferent arteriole (and constricts the efferent) → ↑ GFR, and inhibits Na⁺ reabsorption in the collecting duct → natriuresis and diuresis.\n• RAAS: inhibits renin release and aldosterone secretion → ↓ Ang II and ↓ aldosterone.\nNet effect: lower blood volume and lower blood pressure, the opposite of RAAS.\n\nTakeaway: ANP = vasodilation + natriuresis + ↓ renin/aldosterone → ↓ volume and ↓ BP.",
 "w": [
 "",
-"Those are RAAS effects.",
-"ANP causes Na⁺ loss and lowers renin.",
-"ANP is a vasodilator.",
-"Those are Ang II effects."
+"Vasoconstriction, Na⁺ retention and more renin are RAAS effects, the opposite of ANP.",
+"ANP causes Na⁺ loss, not retention, and it lowers renin.",
+"ANP is a vasodilator, not a vasoconstrictor.",
+"Thirst, ADH release and more aldosterone are Ang II effects."
 ],
 "src": "lec",
 "fig": [
@@ -8712,13 +8895,13 @@ window.CRS_PH_QUESTIONS = [
 "ANP falls and renin falls"
 ],
 "a": 1,
-"e": "Step 1: the saline expands volume and stretches the atria.\nStep 2: atrial myocytes release ANP.\nStep 3: ANP causes natriuresis directly and lowers renin and aldosterone, and the high perfusion pressure also lowers renin, so she excretes the extra Na⁺ and water.",
+"e": "Step 1: 3 L of IV saline rapidly expands ECF and plasma volume, so venous return rises and the atria are stretched (rising JVP).\nStep 2: Atrial myocytes release ANP.\nStep 3: ANP causes natriuresis directly (↑ GFR, ↓ collecting duct Na⁺ reabsorption) and suppresses renin and aldosterone. The higher renal perfusion pressure also lowers renin directly. With less aldosterone, less Na⁺ is reabsorbed distally, so she excretes the extra Na⁺ and water over the next hours.\n\nTakeaway: Volume expansion → ↑ ANP and ↓ RAAS (↓ renin, ↓ aldosterone) → natriuresis.",
 "w": [
-"Volume expansion raises ANP.",
+"Volume expansion raises ANP and suppresses aldosterone, the opposite of this pattern.",
 "",
-"ANP lowers renin.",
-"Volume expansion lowers renin and ADH.",
-"Atrial stretch raises ANP."
+"ANP suppresses renin, and high perfusion pressure also lowers it.",
+"Volume expansion lowers both renin and ADH.",
+"Atrial stretch raises, not lowers, ANP."
 ],
 "src": "lec",
 "fig": [
@@ -8737,13 +8920,13 @@ window.CRS_PH_QUESTIONS = [
 "Propranolol"
 ],
 "a": 2,
-"e": "Lisinopril is an ACE inhibitor, so it blocks the conversion of angiotensin I to angiotensin II in the lungs and elsewhere.",
+"e": "RAAS drugs act at three levels:\n• ACE inhibitors ('-pril': lisinopril, enalapril, captopril) block Ang I → Ang II. They also raise bradykinin, causing cough and angioedema.\n• ARBs ('-sartan': losartan, valsartan) block the Ang II AT1 receptor. Bradykinin is unaffected, so there is no cough.\n• Aldosterone antagonists (spironolactone, eplerenone) block the mineralocorticoid receptor in the collecting duct. They are K⁺-sparing.\nWith ACE inhibitors, renin and Ang I rise (loss of feedback), while Ang II and aldosterone fall.\n\nTakeaway: '-pril' = ACE inhibitor (blocks Ang I → Ang II). '-sartan' = AT1 blocker.",
 "w": [
-"Losartan blocks the Ang II receptor.",
-"Spironolactone blocks the aldosterone receptor.",
+"Losartan is an ARB that blocks the AT1 receptor, so Ang II is still formed.",
+"Spironolactone blocks the aldosterone receptor at the end of the cascade.",
 "",
-"Eplerenone blocks the aldosterone receptor.",
-"Propranolol is a β-blocker."
+"Eplerenone is a selective aldosterone receptor antagonist.",
+"Propranolol is a β-blocker. It lowers renin release but does not block ACE."
 ],
 "src": "lec",
 "fig": [
@@ -8763,13 +8946,13 @@ window.CRS_PH_QUESTIONS = [
 "ANP receptors in the collecting duct"
 ],
 "a": 3,
-"e": "Spironolactone and eplerenone are aldosterone antagonists. They block aldosterone receptors in the distal tubule and collecting duct, reducing Na⁺ and water retention.",
+"e": "Spironolactone (and the more selective eplerenone) is a competitive antagonist of the mineralocorticoid (aldosterone) receptor in the principal cells of the late distal tubule and collecting duct.\nBlocking aldosterone → fewer ENaC channels and less Na⁺/K⁺-ATPase activity → less Na⁺ and water reabsorption (mild diuresis, lower BP) and less K⁺ secretion. It is K⁺-sparing, so watch for hyperkalemia.\nIt is used in heart failure, primary hyperaldosteronism, resistant hypertension and cirrhotic ascites. Spironolactone also blocks androgen receptors, causing gynecomastia.\n\nTakeaway: Spironolactone/eplerenone = aldosterone receptor blockers in the collecting duct → ↓ Na⁺ retention, ↑ K⁺ (hyperkalemia risk).",
 "w": [
-"That is the ACE inhibitor site.",
-"That is the ARB site.",
-"β-blockers lower renin release.",
+"ACE in the pulmonary endothelium is the target of ACE inhibitors such as lisinopril.",
+"AT1 receptors are blocked by ARBs such as losartan.",
+"Renin release is lowered by β-blockers, and renin activity is blocked by aliskiren.",
 "",
-"They do not act on ANP receptors."
+"Spironolactone does not act on ANP receptors."
 ],
 "src": "lec",
 "fig": [
@@ -8788,12 +8971,12 @@ window.CRS_PH_QUESTIONS = [
 "Less perfusion, more renin, more Ang II"
 ],
 "a": 4,
-"e": "The narrowed artery lowers perfusion pressure at the JG cells. They release more renin, so angiotensin II and aldosterone rise, causing vasoconstriction, Na⁺ retention and hypertension.",
+"e": "Step 1: A narrowed renal artery (from atherosclerosis in older patients, fibromuscular dysplasia in young women) lowers perfusion pressure beyond the stenosis.\nStep 2: The JG cells of that kidney sense low perfusion and release more renin.\nStep 3: ↑ Ang II → vasoconstriction (↑ TPR), and ↑ aldosterone → Na⁺ and water retention → hypertension (renovascular, secondary hypertension). The affected kidney may shrink, and an abdominal or flank bruit may be heard.\n\nTakeaway: Renal artery stenosis → ↓ renal perfusion → ↑ renin → ↑ Ang II → secondary hypertension.",
 "w": [
-"Stenosis lowers perfusion.",
-"Low perfusion raises renin.",
-"Higher perfusion lowers renin.",
-"ANP is released by atrial stretch.",
+"Stenosis lowers, not raises, renal perfusion, and low perfusion raises renin.",
+"Low perfusion raises renin, and ANP is released by atrial stretch, not by renal stenosis.",
+"Stenosis lowers perfusion, and more renin would raise, not lower, Ang II.",
+"ANP comes from atrial stretch, and low perfusion raises, not lowers, renin.",
 ""
 ],
 "src": "lec",
@@ -8839,13 +9022,13 @@ window.CRS_PH_QUESTIONS = [
 "Avoid all antihypertensives"
 ],
 "a": 1,
-"e": "Step 1: unilateral stenosis lowers left renal perfusion, so renin and Ang II drive her hypertension.\nStep 2: an ACE inhibitor or ARB blocks the cause directly.\nStep 3: the normal right kidney keeps GFR up, so the AKI risk seen in bilateral stenosis or a solitary kidney is small.",
+"e": "Step 1: A young woman with hypertension, a flank bruit and high renin has unilateral renal artery stenosis from fibromuscular dysplasia ('string of beads'). The hypertension is driven by renin → Ang II from the underperfused left kidney.\nStep 2: An ACE inhibitor or ARB blocks the cause directly, the Ang II effect, and is first-line medical therapy while she awaits angioplasty, the definitive treatment.\nStep 3: Because the right kidney is normal and does not depend on Ang II to maintain GFR, total GFR is preserved. The acute kidney injury risk seen in bilateral stenosis or a solitary kidney is small. Creatinine should still be checked after starting.\n\nTakeaway: Unilateral RAS → ACE inhibitor or ARB first-line (plus angioplasty for FMD). Avoid them in bilateral RAS or a solitary kidney.",
 "w": [
-"It blocks only the last step and is not first-line here.",
+"An aldosterone antagonist blocks only the last step and is not first-line for renovascular hypertension.",
 "",
-"Renin is already high and is the cause.",
-"Volume depletion would raise renin further.",
-"Her hypertension should be treated."
+"Renin is already high and is the cause of her hypertension, so stimulating it would make things worse.",
+"Volume depletion from a loop diuretic would raise renin further and does not target the mechanism.",
+"Her hypertension should be treated. Unilateral stenosis with a normal other kidney is not a contraindication to RAAS blockade."
 ],
 "src": "lec",
 "fig": [

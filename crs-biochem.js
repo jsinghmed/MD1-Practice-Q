@@ -2309,13 +2309,13 @@ window.CRS_BC_QUESTIONS = [
 "Prostaglandins only"
 ],
 "a": 0,
-"e": "The eicosanoids are prostaglandins, thromboxanes and leukotrienes. Prostaglandins and thromboxanes, both made by the cyclooxygenase pathway, are together called prostanoids.",
+"e": "Eicosanoids are 20-carbon signaling lipids made from arachidonic acid. They fall into two pathways:\n• Cyclooxygenase (cyclic) pathway → prostaglandins (PGs), prostacyclin (PGI₂) and thromboxanes (TXs). Because all of these come from the cyclic endoperoxide PGH₂ and contain a ring, they are grouped as the prostanoids.\n• Lipoxygenase (linear) pathway → leukotrienes (LTs) and lipoxins, which have no ring.\n\nTakeaway: Prostanoids = prostaglandins + thromboxanes (COX pathway). Leukotrienes are a separate, linear (LOX) family.",
 "w": [
 "",
-"Leukotrienes come from the lipoxygenase pathway and are not prostanoids.",
-"Leukotrienes are not prostanoids.",
-"Leukotrienes are not prostanoids.",
-"Thromboxanes are prostanoids too."
+"Leukotrienes are linear molecules made by 5-lipoxygenase, not by COX, so they are not prostanoids.",
+"Thromboxanes are prostanoids, but leukotrienes come from the lipoxygenase pathway and are not.",
+"Leukotrienes are the non-prostanoid branch of the eicosanoids.",
+"Thromboxanes are also made from PGH₂ by the COX pathway, so prostaglandins alone are incomplete."
 ],
 "src": "lec"
 },
@@ -2331,13 +2331,13 @@ window.CRS_BC_QUESTIONS = [
 "They act on nuclear receptors in target cells"
 ],
 "a": 1,
-"e": "Eicosanoids are made on demand, act on cells close to where they are formed and are broken down quickly, so they are not carried to distant sites.",
+"e": "Eicosanoids behave like hormones in that they bind receptors and change cell function, but three features make them 'local':\n1. They are not stored. They are made on demand when phospholipase A2 releases arachidonic acid.\n2. They act in an autocrine or paracrine way, on the same cell or on cells close by.\n3. They are degraded within seconds to minutes (TXA₂ has a half-life of about 30 seconds), so they never reach useful levels in distant tissues.\n\nTakeaway: Made on demand, act nearby, destroyed fast. That is why they are 'local hormones'.",
 "w": [
-"They are synthesized on demand, not stored.",
+"Eicosanoids are synthesized from membrane phospholipids on demand. Histamine and serotonin are the granule-stored mediators.",
 "",
-"They are not carried to distant organs.",
-"Almost every cell except red cells makes them.",
-"They act through G-protein coupled receptors."
+"They are inactivated so quickly that they do not travel to distant organs the way true endocrine hormones do.",
+"Almost every cell except the red blood cell makes eicosanoids, not just endocrine glands.",
+"Eicosanoids act on cell-surface G-protein coupled receptors. Nuclear receptors bind steroid and thyroid hormones."
 ],
 "src": "lec"
 },
@@ -2353,13 +2353,13 @@ window.CRS_BC_QUESTIONS = [
 "Guanylyl cyclase receptors"
 ],
 "a": 2,
-"e": "Eicosanoids bind G-protein coupled receptors. Depending on the cell, the G-protein raises or lowers cAMP or activates the phosphatidylinositol pathway that releases intracellular Ca²⁺.",
+"e": "Eicosanoids are lipid mediators that bind specific G-protein coupled receptors (GPCRs) on the cell surface, for example the EP receptors for PGE₂, IP for PGI₂, TP for TXA₂ and CysLT1 for LTD₄.\nThe G-protein that is coupled decides the response:\n• Gs → ↑ cAMP (e.g. PGI₂ on platelets → less aggregation).\n• Gi → ↓ cAMP.\n• Gq → phospholipase C → IP₃ and DAG → ↑ intracellular Ca²⁺ (e.g. TXA₂ → platelet aggregation and vasoconstriction).\n\nTakeaway: All eicosanoids act through GPCRs. The same molecule can cause opposite effects in different tissues depending on which receptor and G-protein is present.",
 "w": [
-"That is the insulin receptor type.",
-"That is the steroid hormone receptor type.",
+"Receptor tyrosine kinases are used by insulin and growth factors, not by eicosanoids.",
+"Nuclear receptors bind steroid hormones, thyroid hormone and vitamin D, which act on gene transcription.",
 "",
-"Those mediate fast synaptic signals.",
-"That is the receptor type for ANP."
+"Ligand-gated ion channels such as the nicotinic receptor mediate fast synaptic transmission, not eicosanoid signaling.",
+"Guanylyl cyclase receptors are used by ANP and BNP, which raise cGMP."
 ],
 "src": "lec"
 },
@@ -2375,13 +2375,13 @@ window.CRS_BC_QUESTIONS = [
 "Peptidoleukotrienes"
 ],
 "a": 3,
-"e": "Prostaglandins such as PGE₂ and PGI₂ have a cyclopentane ring. Thromboxanes are similar but have a six-membered ring instead.",
+"e": "Both prostaglandins and thromboxanes come from PGH₂, but their rings differ:\n• Prostaglandins (PGE₂, PGF₂α, PGD₂, PGI₂) keep a five-carbon cyclopentane ring.\n• Thromboxanes (TXA₂, TXB₂) have a six-membered ring that contains an oxygen atom (an oxane ring), made by thromboxane synthase in platelets.\n\nTakeaway: Five-membered ring = prostaglandin. Six-membered oxygen-containing ring = thromboxane. Leukotrienes have no ring at all.",
 "w": [
-"Prostaglandins have the cyclopentane ring.",
-"Leukotrienes are linear and have no ring.",
-"Prostacyclin is PGI₂, a prostaglandin.",
+"Prostaglandins keep the five-carbon cyclopentane ring.",
+"Leukotrienes are linear molecules with no ring.",
+"Prostacyclin (PGI₂) is a prostaglandin with a cyclopentane ring plus a second, fused ring.",
 "",
-"These are linear leukotrienes with amino acids."
+"Peptidoleukotrienes are linear leukotrienes carrying glutathione-derived amino acids."
 ],
 "src": "lec"
 },
@@ -2397,12 +2397,12 @@ window.CRS_BC_QUESTIONS = [
 "The number of C=C double bonds"
 ],
 "a": 4,
-"e": "The subscript gives the number of carbon-carbon double bonds in the side chains. The letter code reflects ring modifications such as hydroxyl or keto groups.",
+"e": "Eicosanoid names carry two pieces of information:\n• The letter (A, E, F, I…) tells you how the ring is substituted, for example with keto or hydroxyl groups.\n• The subscript number tells you how many carbon-carbon double bonds are in the side chains.\nArachidonic acid (20:4) gives the series-2 prostanoids (PGE₂, TXA₂) and the series-4 leukotrienes (LTB₄). Eicosapentaenoic acid (20:5, from fish oil) gives series-3 prostanoids, which have one more double bond.\n\nTakeaway: Subscript = number of C=C double bonds. Arachidonate → series 2 prostanoids and series 4 leukotrienes.",
 "w": [
-"Oxygen count is not shown by the subscript.",
-"Ring size is not shown by the subscript.",
-"Ring substitutions are shown by the letter.",
-"The subscript is structural.",
+"The subscript does not count oxygen atoms. Ring oxygens and substituents are shown by the letter.",
+"All prostaglandins share the same five-carbon ring, so ring size is not what the number shows.",
+"The position and type of ring substituents are encoded by the letter, not the subscript.",
+"The naming is structural. It does not reflect the order in which the compounds were discovered.",
 ""
 ],
 "src": "lec"
@@ -2419,15 +2419,18 @@ window.CRS_BC_QUESTIONS = [
 "C-3, by lipoprotein lipase"
 ],
 "a": 0,
-"e": "Arachidonic acid sits at the C-2 position of membrane phospholipids and is released by phospholipase A2.",
+"e": "Membrane phospholipids carry a saturated fatty acid at C-1 and usually an unsaturated one, often arachidonic acid, at C-2. Phospholipase A2 (PLA2) cleaves the ester bond at C-2, releasing free arachidonic acid. This is the first and rate-limiting step for making every eicosanoid.\nPLA2 is activated by stimuli that raise intracellular Ca²⁺, such as epinephrine, thrombin, bradykinin and angiotensin II, and it is inhibited by corticosteroids.\n\nTakeaway: Arachidonate sits at C-2 and is released by PLA2. Blocking PLA2 (steroids) shuts down both the COX and LOX pathways.",
 "w": [
 "",
-"PLA1 acts at C-1, which does not carry arachidonate.",
-"PLC cleaves the phosphate head group, releasing DAG and IP3.",
-"PLD removes the head group, not the fatty acid.",
-"Lipoprotein lipase acts on circulating triglycerides."
+"PLA1 cleaves at C-1, which usually carries a saturated fatty acid such as palmitate, not arachidonate.",
+"PLC cleaves the phosphate head group of PIP₂ to release DAG and IP₃. Arachidonate can later be freed from DAG, but this is not the main route.",
+"PLD removes the polar head group to leave phosphatidic acid. It does not release fatty acids.",
+"Lipoprotein lipase hydrolyzes triglycerides in chylomicrons and VLDL. It does not act on membrane phospholipids."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/ei-cox-pathway"
+]
 },
 {
 "t": "Arachidonic Acid Release & PLA2",
@@ -2441,13 +2444,13 @@ window.CRS_BC_QUESTIONS = [
 "Oleic acid"
 ],
 "a": 1,
-"e": "Arachidonate is made from the essential fatty acid linoleic acid. α-Linolenic acid gives eicosapentaenoic acid, the source of the minor eicosanoids.",
+"e": "Humans cannot make linoleic acid (ω-6, 18:2), so it is an essential fatty acid. The body elongates and desaturates it: linoleic acid → γ-linolenic acid → dihomo-γ-linolenic acid → arachidonic acid (20:4, ω-6).\nThe ω-3 essential fatty acid, α-linolenic acid (18:3), follows a parallel path to eicosapentaenoic acid (EPA, 20:5), which forms the less inflammatory series-3 prostanoids and series-5 leukotrienes.\n\nTakeaway: Linoleic acid (ω-6) → arachidonic acid → main eicosanoids. α-Linolenic acid (ω-3) → EPA → minor, less inflammatory eicosanoids.",
 "w": [
-"α-Linolenic acid leads to EPA, not arachidonate.",
+"α-Linolenic acid is the ω-3 precursor of EPA, not of arachidonic acid.",
 "",
-"EPA is the source of the minor eicosanoids.",
-"Palmitate is saturated and not a precursor.",
-"Oleate cannot be converted to arachidonate."
+"EPA is made from α-linolenic acid and gives the series-3 prostanoids. It is not converted to arachidonate.",
+"Palmitic acid is a saturated 16-carbon fatty acid. Humans cannot add double bonds beyond C-9, so it cannot become arachidonate.",
+"Oleic acid is an ω-9 monounsaturated fatty acid. It cannot be turned into the ω-6 arachidonic acid."
 ],
 "src": "lec"
 },
@@ -2463,13 +2466,13 @@ window.CRS_BC_QUESTIONS = [
 "Gastric mucosal cells"
 ],
 "a": 2,
-"e": "All mammalian cells except erythrocytes synthesize eicosanoids.",
+"e": "Making eicosanoids needs membrane-bound enzymes such as PGH₂ synthase (COX) on the endoplasmic reticulum, plus the ability to make new enzyme protein.\nMature erythrocytes have no nucleus, no ER and no mitochondria, so they cannot make eicosanoids.\nPlatelets also lack a nucleus, but they keep COX-1 and thromboxane synthase from their megakaryocyte parent, so they do make TXA₂. They just cannot replace COX once aspirin destroys it.\n\nTakeaway: Every cell except the red blood cell makes eicosanoids. Platelets make TXA₂ but cannot resynthesize COX.",
 "w": [
-"Platelets make TXA₂.",
-"Macrophages make prostaglandins through COX-2.",
+"Platelets make large amounts of TXA₂ through COX-1 and thromboxane synthase.",
+"Activated macrophages make prostaglandins through inducible COX-2 and leukotrienes through 5-lipoxygenase.",
 "",
-"Endothelium makes PGI₂.",
-"Gastric mucosa uses COX-1."
+"Endothelial cells make prostacyclin (PGI₂) through prostacyclin synthase.",
+"Gastric mucosal cells use constitutive COX-1 to make protective PGE₂ and PGI₂."
 ],
 "src": "lec"
 },
@@ -2485,15 +2488,18 @@ window.CRS_BC_QUESTIONS = [
 "Thyroxine"
 ],
 "a": 3,
-"e": "Epinephrine, thrombin and bradykinin activate phospholipase A2, which frees arachidonic acid to start eicosanoid synthesis.",
+"e": "Phospholipase A2 is activated when intracellular Ca²⁺ rises. Hormones and mediators that do this through their receptors include epinephrine, thrombin, bradykinin and angiotensin II. Once activated, PLA2 releases arachidonic acid from C-2 of membrane phospholipids, starting eicosanoid synthesis.\nBradykinin is a classic example: in inflammation it causes pain and vasodilation partly by triggering prostaglandin release, and it is also why ACE inhibitors, which raise bradykinin, can increase prostaglandin production.\n\nTakeaway: PLA2 activators are epinephrine, thrombin, bradykinin and angiotensin II. Its main inhibitors are corticosteroids.",
 "w": [
-"Insulin is not a PLA2 activator.",
-"Glucagon is not a PLA2 activator.",
-"Aldosterone acts on nuclear receptors.",
+"Insulin acts through a receptor tyrosine kinase and is not a classic activator of PLA2.",
+"Glucagon raises cAMP in the liver and does not trigger arachidonate release.",
+"Aldosterone binds an intracellular mineralocorticoid receptor and acts on gene expression, not on PLA2.",
 "",
-"Thyroxine acts on nuclear receptors."
+"Thyroxine binds nuclear thyroid hormone receptors and does not activate PLA2."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/ei-cox-pathway"
+]
 },
 {
 "t": "Arachidonic Acid Release & PLA2",
@@ -2507,15 +2513,18 @@ window.CRS_BC_QUESTIONS = [
 "Phospholipase A2"
 ],
 "a": 4,
-"e": "Prednisone is a corticosteroid. Because both the prostaglandin and leukotriene branches fell, the block must be before they split. Corticosteroids inhibit phospholipase A2, so less arachidonic acid is released for either pathway.",
+"e": "Step 1: Both prostaglandin and leukotriene metabolites fell, so the block must be upstream of where the COX and lipoxygenase pathways split.\nStep 2: The only shared step is the release of arachidonic acid from membrane phospholipids by phospholipase A2.\nStep 3: Corticosteroids such as prednisone act on nuclear receptors to induce lipocortin (annexin A1), which inhibits PLA2, and they also reduce COX-2 expression. With less free arachidonate, both prostanoids and leukotrienes fall.\n\nTakeaway: Steroids block PLA2 → ↓ prostaglandins AND ↓ leukotrienes. NSAIDs block only COX, so leukotrienes are spared.",
 "w": [
-"COX-1 blockade would spare leukotrienes.",
-"COX-2 blockade would spare leukotrienes.",
-"5-Lipoxygenase blockade would spare prostaglandins.",
-"This would lower only thromboxane.",
+"COX-1 inhibition lowers prostanoids only. Arachidonate would still reach 5-lipoxygenase, so leukotrienes would not fall.",
+"COX-2 inhibition would also spare the leukotriene pathway.",
+"Blocking 5-lipoxygenase, as zileuton does, lowers leukotrienes but leaves prostaglandin production intact.",
+"Thromboxane synthase inhibition lowers only TXA₂ and would not affect leukotrienes or other prostaglandins.",
 ""
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/ei-cox-pathway"
+]
 },
 {
 "t": "COX Pathway & Prostanoids",
@@ -2529,15 +2538,18 @@ window.CRS_BC_QUESTIONS = [
 "A biotin-dependent carboxylase"
 ],
 "a": 0,
-"e": "PGH₂ synthase, also called prostaglandin endoperoxide synthase, is a heme-containing dioxygenase bound to ER membranes. A dioxygenase adds O₂ to its substrate.",
+"e": "PGH₂ synthase, also called prostaglandin endoperoxide synthase or COX, is a heme-containing enzyme bound to the endoplasmic reticulum membrane. It has two active sites:\n1. Cyclooxygenase activity, a dioxygenase reaction that adds two O₂ molecules to arachidonic acid to form PGG₂.\n2. Peroxidase activity, which reduces PGG₂ to PGH₂ using glutathione.\nA dioxygenase incorporates both atoms of O₂ into its substrate, which is why it is called that.\n\nTakeaway: COX = a membrane-bound, heme-containing dioxygenase on the ER with both cyclooxygenase and peroxidase activities.",
 "w": [
 "",
-"It is a membrane-bound dioxygenase.",
-"It is on the ER, not in mitochondria.",
-"It is not a lysosomal enzyme.",
-"It is not a carboxylase."
+"It does not use NADPH, and it sits on the ER membrane rather than free in the cytosol.",
+"It is on the endoplasmic reticulum, not in mitochondria, and it is not a flavoprotein.",
+"Lysosomal acid hydrolases break down macromolecules. COX is a biosynthetic ER enzyme.",
+"Biotin-dependent carboxylases, such as acetyl-CoA carboxylase, add CO₂. COX adds O₂."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/ei-cox-steps"
+]
 },
 {
 "t": "COX Pathway & Prostanoids",
@@ -2551,15 +2563,18 @@ window.CRS_BC_QUESTIONS = [
 "Thiamine pyrophosphate"
 ],
 "a": 1,
-"e": "The cyclooxygenase activity adds 2 O₂ to arachidonate to form PGG₂. The peroxidase activity then reduces PGG₂ to PGH₂ using 2 GSH, which become GSSG.",
+"e": "PGH₂ synthase works in two steps:\n1. Its cyclooxygenase site adds 2 O₂ to arachidonic acid, forming the cyclic endoperoxide PGG₂, which carries a hydroperoxide group.\n2. Its peroxidase site reduces that hydroperoxide to a hydroxyl group, forming PGH₂. The reducing agent is glutathione: 2 GSH are oxidized to GSSG.\n\nTakeaway: COX site → PGG₂, then the peroxidase site uses glutathione (2 GSH → GSSG) → PGH₂, the branch point for all prostanoids.",
 "w": [
-"NADPH is not used in this step.",
+"NADPH is used by reductases such as glutathione reductase, but not directly in the PGG₂ to PGH₂ step.",
 "",
-"FAD is not used in this step.",
-"Biotin is for carboxylation.",
-"TPP is for decarboxylation."
+"FAD is a cofactor for dehydrogenases and oxidases, not for this peroxidase step.",
+"Biotin is the cofactor for carboxylation reactions such as acetyl-CoA carboxylase.",
+"Thiamine pyrophosphate is used in oxidative decarboxylations such as pyruvate dehydrogenase."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/ei-cox-steps"
+]
 },
 {
 "t": "COX Pathway & Prostanoids",
@@ -2573,15 +2588,18 @@ window.CRS_BC_QUESTIONS = [
 "Only COX-1 forms PGG₂ from arachidonate"
 ],
 "a": 2,
-"e": "COX-1 is made all the time in gastric mucosa, kidney, platelets and endothelium. COX-2 is induced in macrophages and monocytes during inflammation. Both convert arachidonic acid to PGG₂ and then PGH₂.",
+"e": "There are two COX isoforms:\n• COX-1 is constitutive, always present, in gastric mucosa, kidney, platelets and vascular endothelium. It makes 'housekeeping' prostanoids: protective PGE₂ and PGI₂ in the stomach, TXA₂ in platelets, and PGs that maintain renal blood flow.\n• COX-2 is inducible. It is switched on in macrophages and monocytes by inflammatory signals such as IL-1 and platelet-activating factor, and it makes the prostaglandins that cause pain, fever and inflammation.\nBoth convert arachidonate to PGG₂ and then PGH₂.\n\nTakeaway: COX-1 = constitutive, protective (stomach, platelets, kidney). COX-2 = inducible, inflammatory. That split explains NSAID side effects and why celecoxib is gentler on the stomach.",
 "w": [
-"The reverse is true.",
-"COX-1 is widespread in tissues.",
+"This reverses them: COX-1 is the constitutive form and COX-2 is induced during inflammation.",
+"COX-1 is found in many tissues, including the stomach, platelets and kidney, not only in macrophages.",
 "",
-"Platelets use COX-1.",
-"Both isoforms make PGG₂."
+"Platelets use COX-1 to make TXA₂, which is why low-dose aspirin works as an antiplatelet drug.",
+"Both isoforms carry out the same reaction, arachidonate → PGG₂ → PGH₂."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/ei-cox-pathway"
+]
 },
 {
 "t": "COX Pathway & Prostanoids",
@@ -2595,15 +2613,18 @@ window.CRS_BC_QUESTIONS = [
 "Glucagon"
 ],
 "a": 3,
-"e": "COX-2 is induced in macrophages and monocytes in response to inflammation. Its main triggers are platelet-activating factor and interleukin-1.",
+"e": "COX-2 is the inducible isoform. In macrophages and monocytes, its gene is switched on by inflammatory mediators, chiefly interleukin-1 and platelet-activating factor (and TNF-α). The resulting surge of prostaglandins, especially PGE₂, causes the vasodilation, pain and fever of inflammation. PGE₂ acting on the hypothalamus raises the temperature set point.\nCorticosteroids suppress this induction, which adds to their anti-inflammatory effect.\n\nTakeaway: COX-2 is induced by IL-1 and PAF in macrophages. Its PGE₂ drives fever, pain and inflammation.",
 "w": [
-"Insulin is not a COX-2 trigger.",
-"EPO acts on marrow precursors.",
-"Thyroxine is not a COX-2 trigger.",
+"Insulin regulates fuel metabolism and is not an inflammatory trigger for COX-2.",
+"Erythropoietin stimulates red cell production in the marrow and does not induce COX-2.",
+"Thyroxine raises metabolic rate through nuclear receptors and is not a COX-2 inducer.",
 "",
-"Glucagon is not a COX-2 trigger."
+"Glucagon acts on the liver to raise blood glucose and has no role in inducing COX-2."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/ei-cox-pathway"
+]
 },
 {
 "t": "COX Pathway & Prostanoids",
@@ -2617,15 +2638,18 @@ window.CRS_BC_QUESTIONS = [
 "PGH₂"
 ],
 "a": 4,
-"e": "COX converts arachidonic acid to PGG₂, and the peroxidase step makes PGH₂. PGH₂ is the branch point for every prostanoid.",
+"e": "The COX pathway runs:\narachidonic acid → (cyclooxygenase) PGG₂ → (peroxidase) PGH₂.\nPGH₂ is the branch point. Tissue-specific enzymes then convert it:\n• Prostacyclin synthase (endothelium) → PGI₂.\n• Thromboxane synthase (platelets) → TXA₂.\n• Isomerases and reductases → PGE₂, PGD₂ and PGF₂α.\nSo every prostanoid passes through PGH₂, and which product forms depends on the enzymes present in that cell.\n\nTakeaway: PGH₂ is the common precursor of all prostanoids. The cell type decides the final product.",
 "w": [
-"PGG₂ comes before PGH₂.",
-"LTA₄ is the leukotriene branch point.",
-"5-HPETE leads to leukotrienes.",
-"TXB₂ is the stable product of TXA₂.",
+"PGG₂ comes one step before PGH₂. It is reduced to PGH₂ first, so it is not the immediate common precursor.",
+"LTA₄ is the branch point of the leukotriene (lipoxygenase) pathway, not the prostanoids.",
+"5-HPETE is the first product of 5-lipoxygenase and leads to the leukotrienes.",
+"TXB₂ is the inactive breakdown product of TXA₂ and is not a precursor of anything.",
 ""
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/ei-cox-pathway"
+]
 },
 {
 "t": "COX Pathway & Prostanoids",
@@ -2639,15 +2663,18 @@ window.CRS_BC_QUESTIONS = [
 "Glutathione peroxidase"
 ],
 "a": 0,
-"e": "In platelets, thromboxane synthase converts PGH₂ to TXA₂, which is then broken down to the stable TXB₂. Prostacyclin synthase in endothelium makes PGI₂ instead.",
+"e": "Platelets express thromboxane synthase, which converts PGH₂ into TXA₂. TXA₂ is a potent vasoconstrictor and platelet aggregator. It is very unstable, with a half-life of about 30 seconds, and is quickly hydrolyzed to inactive TXB₂.\nEndothelial cells instead express prostacyclin synthase, which turns PGH₂ into PGI₂. PGI₂ does the opposite: it dilates vessels and inhibits aggregation.\nThe balance between platelet TXA₂ and endothelial PGI₂ controls clotting at the vessel wall.\n\nTakeaway: Platelets → thromboxane synthase → TXA₂ (clot, constrict). Endothelium → prostacyclin synthase → PGI₂ (anti-clot, dilate).",
 "w": [
 "",
-"Prostacyclin synthase makes PGI₂.",
-"5-Lipoxygenase starts the leukotriene branch.",
-"PLA2 releases arachidonate upstream.",
-"This is not a prostanoid-forming enzyme."
+"Prostacyclin synthase is in endothelium and makes PGI₂, which opposes TXA₂.",
+"5-Lipoxygenase acts on arachidonic acid to start the leukotriene pathway, not on PGH₂.",
+"PLA2 acts upstream, releasing arachidonic acid from membrane phospholipids.",
+"Glutathione peroxidase detoxifies peroxides and does not make prostanoids."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/ei-cox-pathway"
+]
 },
 {
 "t": "NSAIDs, Aspirin & COX-2 Inhibitors",
@@ -2661,15 +2688,18 @@ window.CRS_BC_QUESTIONS = [
 "It competes with glutathione"
 ],
 "a": 1,
-"e": "Aspirin acetylates the serine hydroxyl near the COX active site, which stops arachidonate binding. The block is irreversible.",
+"e": "Aspirin (acetylsalicylic acid) transfers its acetyl group onto a serine hydroxyl near the cyclooxygenase active site of COX-1 and COX-2. The acetylated serine physically blocks arachidonic acid from entering, so the enzyme is permanently inactivated. The block is covalent, so it lasts until the cell makes new enzyme.\nThis is different from all other NSAIDs, which block the arachidonate channel reversibly.\n\nTakeaway: Aspirin = irreversible acetylation of COX. Other NSAIDs = reversible competitive blockade. That is why aspirin's effect on anucleate platelets lasts their whole lifespan.",
 "w": [
-"This is how ibuprofen works.",
+"Reversible blockade of the hydrophobic channel is how ibuprofen and the other NSAIDs work, not aspirin.",
 "",
-"Corticosteroids inhibit PLA2.",
-"Montelukast blocks leukotriene receptors.",
-"Aspirin does not act on the peroxidase cofactor."
+"Corticosteroids, not aspirin, inhibit phospholipase A2.",
+"Leukotriene receptor antagonists such as montelukast block CysLT1 receptors. Aspirin does not act on leukotriene receptors.",
+"Aspirin does not target the glutathione-dependent peroxidase step. It blocks the cyclooxygenase site."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/ei-cox-pathway"
+]
 },
 {
 "t": "NSAIDs, Aspirin & COX-2 Inhibitors",
@@ -2683,15 +2713,18 @@ window.CRS_BC_QUESTIONS = [
 "It blocks thromboxane receptors"
 ],
 "a": 2,
-"e": "Ibuprofen and related compounds block the hydrophobic channel by which arachidonate enters the COX active site. Unlike aspirin, this is reversible.",
+"e": "Ibuprofen, naproxen, indomethacin and the other traditional NSAIDs bind inside the long hydrophobic channel through which arachidonic acid reaches the cyclooxygenase active site. They compete with arachidonate, so the inhibition is reversible: when the drug leaves, the enzyme works again.\nAspirin is the exception. It irreversibly acetylates a serine in the active site.\n\nTakeaway: Ibuprofen = reversible block of the arachidonate channel on COX-1 and COX-2. Its antiplatelet effect wears off as the drug is cleared, unlike aspirin's.",
 "w": [
-"That is aspirin.",
-"That is corticosteroids.",
+"Irreversible serine acetylation is aspirin's mechanism, not ibuprofen's.",
+"Phospholipase A2 is inhibited by corticosteroids, not by NSAIDs.",
 "",
-"That is zileuton.",
-"That is not how ibuprofen works."
+"5-Lipoxygenase is inhibited by zileuton, not ibuprofen.",
+"Ibuprofen acts on COX itself. It does not block thromboxane receptors."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/ei-cox-pathway"
+]
 },
 {
 "t": "NSAIDs, Aspirin & COX-2 Inhibitors",
@@ -2705,15 +2738,18 @@ window.CRS_BC_QUESTIONS = [
 "Aspirin binds plasma proteins for a week"
 ],
 "a": 3,
-"e": "Aspirin irreversibly acetylates COX. Most cells resynthesize the enzyme, but platelets have no nucleus, so they cannot. Their TXA₂ production stays low for the rest of their lifespan, which is why aspirin is used daily for its anticlotting effect.",
+"e": "Step 1: Low-dose aspirin irreversibly acetylates COX-1 in platelets, so they can no longer make TXA₂, which is needed for aggregation.\nStep 2: Most cells overcome this within hours by making new COX protein. Platelets cannot, because they have no nucleus and so cannot transcribe new mRNA.\nStep 3: The antiplatelet effect therefore lasts the platelet's whole lifespan, about 7 to 10 days, long after aspirin itself has left the blood. Function returns only as new platelets are released from the marrow, which is why aspirin is stopped about 7 days before elective surgery.\n\nTakeaway: Aspirin + anucleate platelets = antiplatelet effect lasting the platelet's lifespan (7 to 10 days).",
 "w": [
-"Aspirin is not stored in platelets.",
-"Aspirin acts on COX, not the TXA₂ receptor.",
-"Aspirin does not destroy megakaryocytes.",
+"Aspirin is not stored in platelet granules. It acts once, covalently, on COX.",
+"Aspirin does not block the TXA₂ receptor. It stops platelets from making TXA₂ in the first place.",
+"Aspirin does not destroy megakaryocytes. New, normal platelets keep being released, which is how function recovers.",
 "",
-"Protein binding does not explain the long effect."
+"Protein binding cannot explain the effect. Aspirin is cleared within hours, but the COX inactivation is permanent."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/ei-cox-pathway"
+]
 },
 {
 "t": "NSAIDs, Aspirin & COX-2 Inhibitors",
@@ -2727,15 +2763,18 @@ window.CRS_BC_QUESTIONS = [
 "COX-1 in gastric mucosa"
 ],
 "a": 4,
-"e": "Naproxen is an NSAID that inhibits both COX-1 and COX-2. COX-1 is constitutive in gastric mucosa, and its loss is what links NSAIDs to ulceration.",
+"e": "Step 1: Naproxen is a non-selective NSAID that inhibits both COX-1 and COX-2.\nStep 2: In the stomach, constitutive COX-1 makes PGE₂ and PGI₂, which protect the mucosa. They increase mucus and bicarbonate secretion, maintain mucosal blood flow, and reduce acid secretion by parietal cells.\nStep 3: Blocking COX-1 removes this protection, so acid damages the mucosa, causing an ulcer that can bleed and produce black, tarry stools (melena).\nCOX-2 inhibition is what gives the anti-inflammatory benefit. That is why selective COX-2 inhibitors such as celecoxib cause fewer ulcers.\n\nTakeaway: NSAID ulcers come from loss of COX-1-derived protective prostaglandins in the gastric mucosa.",
 "w": [
-"COX-2 inhibition gives the anti-inflammatory effect, not the ulcer.",
-"NSAIDs do not inhibit PLA2.",
-"NSAIDs do not inhibit 5-lipoxygenase.",
-"NSAIDs act on COX, not thromboxane synthase.",
+"COX-2 inhibition in macrophages produces the anti-inflammatory and analgesic effect, not the gastric injury.",
+"NSAIDs do not inhibit phospholipase A2. Corticosteroids do.",
+"NSAIDs do not inhibit 5-lipoxygenase. In fact, blocking COX can divert more arachidonate to leukotrienes.",
+"NSAIDs act on COX upstream of thromboxane synthase. Lowering platelet TXA₂ worsens bleeding but does not cause the ulcer itself.",
 ""
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/ei-cox-pathway"
+]
 },
 {
 "t": "NSAIDs, Aspirin & COX-2 Inhibitors",
@@ -2749,15 +2788,18 @@ window.CRS_BC_QUESTIONS = [
 "Ibuprofen"
 ],
 "a": 0,
-"e": "The ulcer history means avoiding COX-1 inhibition in the gut. The isoform induced in macrophages during inflammation is COX-2, and celecoxib is a selective COX-2 inhibitor.",
+"e": "Step 1: A recent bleeding ulcer means the drug should spare COX-1, which protects the gastric mucosa.\nStep 2: The isoform induced in macrophages and other inflammatory cells is COX-2.\nStep 3: Celecoxib selectively inhibits COX-2. It fits into a side pocket that exists only in COX-2. It controls inflammation with less gastric injury.\nTrade-off: COX-2 inhibitors reduce endothelial PGI₂ but not platelet TXA₂, tipping the balance toward thrombosis, so they carry an increased risk of MI and stroke.\n\nTakeaway: Celecoxib = selective COX-2 inhibitor. Fewer ulcers, but more cardiovascular thrombotic risk.",
 "w": [
 "",
-"Aspirin inhibits both COX-1 and COX-2.",
-"Indomethacin inhibits both isoforms.",
-"Naproxen inhibits both isoforms.",
-"Ibuprofen inhibits both isoforms."
+"Aspirin irreversibly inhibits both COX-1 and COX-2 and is especially ulcerogenic, so it is a poor choice after a bleeding ulcer.",
+"Indomethacin is a potent non-selective COX inhibitor with a high risk of gastric injury.",
+"Naproxen inhibits COX-1 as well as COX-2, so it removes gastric protection.",
+"Ibuprofen is non-selective and inhibits gastric COX-1."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/ei-cox-pathway"
+]
 },
 {
 "t": "Lipoxygenase Pathway & Leukotrienes",
@@ -2771,15 +2813,18 @@ window.CRS_BC_QUESTIONS = [
 "Prostacyclin synthase"
 ],
 "a": 1,
-"e": "Leukotrienes are made by the linear, lipoxygenase pathway. 5-Lipoxygenase converts arachidonic acid to 5-HPETE, which then forms LTA₄ and the other leukotrienes.",
+"e": "Arachidonic acid can go down two paths:\n• Cyclooxygenase (cyclic) → prostanoids.\n• Lipoxygenase (linear) → leukotrienes.\nIn neutrophils, mast cells and macrophages, 5-lipoxygenase, helped by 5-lipoxygenase-activating protein (FLAP), adds oxygen at C-5 of arachidonate to form 5-HPETE. 5-HPETE is converted to the unstable epoxide LTA₄, which becomes LTB₄ (by hydrolase) or LTC₄ (by adding glutathione).\nZileuton inhibits 5-lipoxygenase and is used in asthma.\n\nTakeaway: 5-Lipoxygenase → 5-HPETE → LTA₄ → leukotrienes. Zileuton blocks this step.",
 "w": [
-"COX-1 starts the prostanoid branch.",
+"COX-1 forms PGG₂ and starts the prostanoid branch, not the leukotrienes.",
 "",
-"COX-2 starts the prostanoid branch.",
-"This acts on PGH₂.",
-"This acts on PGH₂."
+"COX-2 also forms PGG₂ for prostanoids.",
+"Thromboxane synthase acts on PGH₂ in platelets to make TXA₂.",
+"Prostacyclin synthase acts on PGH₂ in endothelium to make PGI₂."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/ei-lox-pathway"
+]
 },
 {
 "t": "Lipoxygenase Pathway & Leukotrienes",
@@ -2793,15 +2838,18 @@ window.CRS_BC_QUESTIONS = [
 "LTF₄"
 ],
 "a": 2,
-"e": "LTC₄, LTD₄, LTE₄ and LTF₄ contain amino acids from glutathione and are called peptidoleukotrienes. LTB₄ is formed from LTA₄ without adding glutathione.",
+"e": "LTA₄ splits two ways:\n• LTA₄ hydrolase → LTB₄, which contains no amino acids.\n• LTC₄ synthase adds glutathione → LTC₄. LTC₄ is then trimmed to LTD₄ and LTE₄ (and LTF₄).\nBecause LTC₄, LTD₄, LTE₄ and LTF₄ carry amino acids from glutathione, they are the peptidoleukotrienes (cysteinyl leukotrienes). They cause bronchoconstriction and vascular leak.\nLTB₄ instead acts on leukocytes. It is a powerful chemotactic agent for neutrophils.\n\nTakeaway: LTB₄ = no peptide, neutrophil chemotaxis. LTC₄/D₄/E₄ = peptidoleukotrienes, bronchoconstriction (asthma).",
 "w": [
-"LTC₄ carries glutathione.",
-"LTD₄ is LTC₄ minus glutamate.",
+"LTC₄ is formed by adding glutathione to LTA₄, so it is a peptidoleukotriene.",
+"LTD₄ is LTC₄ minus glutamate and still carries cysteine and glycine.",
 "",
-"LTE₄ is LTD₄ minus glycine.",
-"LTF₄ is LTE₄ plus glutamate."
+"LTE₄ is LTD₄ minus glycine and still carries cysteine.",
+"LTF₄ is LTE₄ with glutamate added back, so it contains amino acids."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/ei-lox-pathway"
+]
 },
 {
 "t": "Lipoxygenase Pathway & Leukotrienes",
@@ -2815,15 +2863,18 @@ window.CRS_BC_QUESTIONS = [
 "Oxidation by 5-lipoxygenase"
 ],
 "a": 3,
-"e": "LTA₄ adds glutathione to form LTC₄. LTC₄ loses glutamate to form LTD₄, which loses glycine to form LTE₄. Adding glutamate back to LTE₄ gives LTF₄.",
+"e": "Peptidoleukotrienes are built and trimmed step by step:\n1. LTA₄ + glutathione (γ-Glu-Cys-Gly) → LTC₄.\n2. LTC₄ − glutamate (by γ-glutamyl transferase) → LTD₄.\n3. LTD₄ − glycine (by a dipeptidase) → LTE₄.\n4. LTE₄ + glutamate → LTF₄.\nLTD₄ is the most potent bronchoconstrictor, and it is the main ligand for the CysLT1 receptor blocked by montelukast.\n\nTakeaway: LTC₄ → (lose Glu) LTD₄ → (lose Gly) LTE₄.",
 "w": [
-"That forms LTC₄ from LTA₄.",
-"That forms LTE₄ from LTD₄.",
-"That forms LTF₄ from LTE₄.",
+"Adding glutathione makes LTC₄ from LTA₄, the step before this one.",
+"Removing glycine turns LTD₄ into LTE₄, the step after this one.",
+"Adding glutamate turns LTE₄ into LTF₄.",
 "",
-"5-Lipoxygenase acts at the first step."
+"5-Lipoxygenase acts only at the first step, converting arachidonate to 5-HPETE."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/ei-lox-pathway"
+]
 },
 {
 "t": "Lipoxygenase Pathway & Leukotrienes",
@@ -2837,15 +2888,18 @@ window.CRS_BC_QUESTIONS = [
 "LTC₄, LTD₄ and LTE₄"
 ],
 "a": 4,
-"e": "The slow-reacting substance of anaphylaxis is a mixture of LTC₄, LTD₄ and LTE₄.",
+"e": "The slow-reacting substance of anaphylaxis (SRS-A) was the name given to a mediator released from sensitized lung tissue during allergic reactions. Its effect developed more slowly than histamine's. It was later shown to be a mixture of the peptidoleukotrienes LTC₄, LTD₄ and LTE₄.\nThey cause intense, prolonged bronchoconstriction, increased vascular permeability and mucus secretion, which is why they are key in asthma and anaphylaxis, and why montelukast and zafirlukast, which block CysLT1, help in asthma.\n\nTakeaway: SRS-A = LTC₄ + LTD₄ + LTE₄. They cause slow, sustained bronchoconstriction in asthma and anaphylaxis.",
 "w": [
-"LTA₄ is an intermediate and LTB₄ is not a peptidoleukotriene.",
-"LTB₄ is not part of it.",
-"These are prostanoids.",
-"These are prostaglandins.",
+"LTA₄ is an unstable intermediate, and LTB₄ is a neutrophil chemoattractant without a peptide group, so neither is part of SRS-A.",
+"LTB₄ is not a peptidoleukotriene and is not part of SRS-A.",
+"TXA₂, TXB₂ and PGI₂ are prostanoids from the COX pathway.",
+"PGD₂, PGE₂ and PGF₂α are prostaglandins from the COX pathway.",
 ""
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/ei-lox-pathway"
+]
 },
 {
 "t": "Lipoxygenase Pathway & Leukotrienes",
@@ -2859,15 +2913,18 @@ window.CRS_BC_QUESTIONS = [
 "Membrane phospholipid to arachidonate"
 ],
 "a": 0,
-"e": "An oral asthma drug that lowers every leukotriene and needs liver monitoring is zileuton, a 5-lipoxygenase inhibitor. 5-Lipoxygenase converts arachidonic acid to 5-HPETE, the first step of the leukotriene pathway.",
+"e": "Step 1: An oral asthma drug that requires liver function monitoring points to zileuton. Leukotriene receptor blockers such as montelukast do not need LFT monitoring.\nStep 2: The drug lowers every leukotriene, including LTB₄ and all the peptidoleukotrienes, so it must act at the very first step of the pathway, before LTA₄ branches.\nStep 3: That first step is 5-lipoxygenase converting arachidonic acid to 5-HPETE. Zileuton inhibits 5-lipoxygenase, which reduces bronchoconstriction (LTC₄/D₄/E₄) and neutrophil recruitment (LTB₄).\n\nTakeaway: Zileuton = 5-lipoxygenase inhibitor. It blocks arachidonate → 5-HPETE, lowers all leukotrienes, and can cause hepatotoxicity.",
 "w": [
 "",
-"This is the COX step.",
-"Blocking this would spare LTB₄.",
-"Blocking this would spare LTB₄ and LTC₄.",
-"This is PLA2, blocked by corticosteroids."
+"Arachidonic acid → PGG₂ is the cyclooxygenase step blocked by NSAIDs. It makes prostanoids, not leukotrienes.",
+"LTA₄ → LTC₄ (adding glutathione) is downstream of the branch point. Blocking it would spare LTB₄.",
+"LTC₄ → LTD₄ is even further downstream. Blocking it would spare LTB₄ and LTC₄.",
+"Releasing arachidonate from phospholipids is the PLA2 step blocked by corticosteroids. That would lower prostaglandins too, and steroids are not monitored this way for hepatotoxicity."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/ei-lox-pathway"
+]
 },
 {
 "t": "Lipoxygenase Pathway & Leukotrienes",
@@ -2881,15 +2938,18 @@ window.CRS_BC_QUESTIONS = [
 "They inhibit thromboxane synthase"
 ],
 "a": 1,
-"e": "Montelukast (Singulair) and zafirlukast (Accolate) block leukotrienes from binding their receptors on airway smooth muscle cells.",
+"e": "The peptidoleukotrienes LTC₄, LTD₄ and LTE₄ act on CysLT1 receptors, which are G-protein coupled receptors on bronchial smooth muscle. Binding causes bronchoconstriction, mucus secretion and airway edema.\nMontelukast and zafirlukast are competitive antagonists of the CysLT1 receptor. They leave leukotriene production unchanged but stop the leukotrienes from acting. They are oral controller drugs, useful in aspirin-exacerbated and exercise-induced asthma.\n\nTakeaway: '-lukast' drugs block the leukotriene receptor (CysLT1). Zileuton blocks leukotriene synthesis (5-lipoxygenase).",
 "w": [
-"That is zileuton.",
+"Inhibiting 5-lipoxygenase is zileuton's mechanism, which lowers leukotriene production.",
 "",
-"That is corticosteroids.",
-"That is aspirin.",
-"That is not their mechanism."
+"Corticosteroids inhibit phospholipase A2 and lower both prostaglandins and leukotrienes.",
+"Aspirin irreversibly acetylates cyclooxygenase. It can actually worsen asthma in susceptible patients by shunting arachidonate toward leukotrienes.",
+"Thromboxane synthase inhibition would lower TXA₂, not block leukotriene effects in the airway."
 ],
-"src": "lec"
+"src": "lec",
+"fig": [
+"figs/crs/ei-lox-pathway"
+]
 },
 {
 "t": "Practice Questions · Eicosanoids (from the slides)",
@@ -3524,13 +3584,13 @@ window.CRS_BC_QUESTIONS = [
 "Free cholesterol and apolipoproteins"
 ],
 "a": 0,
-"e": "A lipoprotein has a nonpolar core of triglycerides and cholesteryl esters. The surface shell is made of amphipathic phospholipids, free cholesterol and apolipoproteins, which keep the particle soluble in plasma.",
+"e": "Lipids are insoluble in plasma, so they are packaged like a micelle:\n• Hydrophobic core: the completely nonpolar lipids, triacylglycerol (TAG) and cholesteryl esters.\n• Amphipathic surface shell: phospholipids and free (unesterified) cholesterol, with their polar groups facing the water, plus the apolipoproteins.\nThe apolipoproteins also act as enzyme activators (apo C-II for LPL, apo A-I for LCAT) and receptor ligands (apo B-100, apo E).\n\nTakeaway: Core = TAG + cholesteryl esters. Shell = phospholipids + free cholesterol + apoproteins.",
 "w": [
 "",
-"These form the surface shell.",
-"These sit on the surface.",
-"These are released when LPL acts.",
-"These sit on the surface."
+"Phospholipids and free cholesterol are amphipathic, so they sit in the surface shell facing the plasma.",
+"Apolipoproteins and phospholipids both sit on the surface, where they interact with water and with enzymes and receptors.",
+"Free fatty acids and glycerol are the products released when lipoprotein lipase hydrolyzes core TAG. They are not stored in the core.",
+"Free cholesterol has a polar hydroxyl group and sits in the shell with the apolipoproteins."
 ],
 "src": "lec",
 "fig": [
@@ -3549,13 +3609,13 @@ window.CRS_BC_QUESTIONS = [
 "Lipoprotein X"
 ],
 "a": 1,
-"e": "Electrophoresis separates lipoproteins by charge: HDL moves farthest as the alpha band, VLDL is pre-beta, LDL is beta, and chylomicrons stay at the origin.",
+"e": "Electrophoresis separates lipoproteins by charge and size. The bands are named after the plasma proteins they run with:\n• Alpha band (moves farthest) = HDL.\n• Pre-beta band = VLDL.\n• Beta band = LDL.\n• Origin (does not move, too large) = chylomicrons.\nSo a patient with high VLDL (type IV) has a heavy pre-beta band, and familial hypercholesterolemia (high LDL) gives a heavy beta band.\n\nTakeaway: HDL = alpha, VLDL = pre-beta, LDL = beta, chylomicrons = origin.",
 "w": [
-"LDL is the beta band.",
+"LDL runs in the beta band, which is why the high-LDL disorder used to be called hyperbetalipoproteinemia.",
 "",
-"HDL is the alpha band.",
-"Chylomicrons stay at the origin.",
-"Lipoprotein X is not one of the four main bands."
+"HDL runs farthest, in the alpha band, which is why it is called α-lipoprotein.",
+"Chylomicrons are too large to migrate and stay at the origin.",
+"Lipoprotein X is the abnormal particle seen in LCAT deficiency and cholestasis. It is not one of the four normal bands."
 ],
 "src": "lec",
 "fig": [
@@ -3574,13 +3634,13 @@ window.CRS_BC_QUESTIONS = [
 "Chylomicron"
 ],
 "a": 2,
-"e": "Density rises as the protein-to-lipid ratio rises. HDL is about 40% protein, so it is the densest and the smallest, and it sinks lowest on ultracentrifugation. Chylomicrons are the least dense and float to the top.",
+"e": "Lipid is lighter than water and protein is denser, so a lipoprotein's density rises as its protein-to-lipid ratio rises:\n• Chylomicrons: about 1–2% protein, mostly TAG. Least dense and largest. They float to the top on ultracentrifugation.\n• VLDL → IDL → LDL: progressively less TAG and relatively more protein and cholesterol.\n• HDL: about 40% protein. Densest and smallest. It sinks lowest.\n\nTakeaway: Density order (low → high): chylomicron < VLDL < IDL < LDL < HDL. HDL has the most protein.",
 "w": [
-"LDL is mostly cholesteryl ester.",
-"VLDL is mostly triglyceride.",
+"LDL is mostly cholesteryl ester and has much less protein than HDL.",
+"VLDL is about 60% TAG, which makes it light.",
 "",
-"IDL is between VLDL and LDL.",
-"Chylomicrons are the least dense."
+"IDL sits between VLDL and LDL in density, below HDL.",
+"Chylomicrons are almost all TAG and are the least dense lipoproteins."
 ],
 "src": "lec",
 "fig": [
@@ -3599,13 +3659,13 @@ window.CRS_BC_QUESTIONS = [
 "Apo E"
 ],
 "a": 3,
-"e": "Apo A-I is the main apoprotein of HDL. It accepts free cholesterol and phospholipid from cells through ABCA1 and activates LCAT.",
+"e": "Each lipoprotein class has a main structural apolipoprotein:\n• Chylomicron = apo B-48.\n• VLDL, IDL, LDL = apo B-100.\n• HDL = apo A-I.\nApo A-I has two key jobs in reverse cholesterol transport: it accepts free cholesterol and phospholipid from cells through the ABCA1 transporter, forming nascent HDL, and it activates LCAT, which esterifies that cholesterol so HDL can mature.\n\nTakeaway: Apo A-I = HDL's main protein. It accepts cholesterol via ABCA1 and activates LCAT.",
 "w": [
-"Apo B-100 is the structural protein of VLDL, IDL and LDL.",
-"Apo B-48 is the structural protein of chylomicrons.",
-"Apo C-II activates lipoprotein lipase.",
+"Apo B-100 is the structural protein of VLDL, IDL and LDL and the ligand for the LDL receptor.",
+"Apo B-48 is made in the intestine and is the structural protein of chylomicrons.",
+"Apo C-II is carried on HDL and lent to chylomicrons and VLDL, but its role is to activate lipoprotein lipase.",
 "",
-"Apo E mediates remnant uptake by the liver."
+"Apo E is a ligand that lets remnants bind hepatic receptors. It is not HDL's main structural protein."
 ],
 "src": "lec",
 "fig": [
@@ -3625,12 +3685,12 @@ window.CRS_BC_QUESTIONS = [
 "Chylomicron"
 ],
 "a": 4,
-"e": "Chylomicrons are made in intestinal mucosal cells from dietary lipid and carry dietary TAG, cholesterol and fat-soluble vitamins. VLDL carries TAG made in the liver.",
+"e": "There are two routes for transporting TAG:\n• Exogenous (dietary) route: intestinal mucosal cells repackage absorbed dietary fat into chylomicrons, which travel through the lymphatics to the blood and deliver TAG to muscle and adipose tissue. They also carry dietary cholesterol and the fat-soluble vitamins A, D, E and K.\n• Endogenous route: the liver packages the TAG it makes into VLDL.\n\nTakeaway: Chylomicrons = dietary TAG from the gut. VLDL = liver-made TAG.",
 "w": [
-"VLDL carries liver-made TAG.",
-"LDL carries mostly cholesterol.",
-"HDL collects cholesterol from tissues.",
-"IDL comes from VLDL.",
+"VLDL carries TAG made in the liver (endogenous), not dietary TAG.",
+"LDL carries mostly cholesterol to tissues and contains little TAG.",
+"HDL collects excess cholesterol from tissues and returns it to the liver.",
+"IDL is formed from VLDL in the circulation, so it carries liver-derived lipid.",
 ""
 ],
 "src": "lec",
@@ -3650,13 +3710,13 @@ window.CRS_BC_QUESTIONS = [
 "Apo B-100"
 ],
 "a": 0,
-"e": "Apo C-II, acquired from HDL, activates lipoprotein lipase on the capillary wall. Without it, LPL cannot hydrolyze the TAG in chylomicrons and VLDL.",
+"e": "Lipoprotein lipase (LPL) sits on the capillary walls of adipose tissue, heart and skeletal muscle. It hydrolyzes the TAG in chylomicrons and VLDL into free fatty acids and glycerol so tissues can take up the fatty acids.\nLPL needs apo C-II as its activator. Nascent chylomicrons and VLDL lack enough apo C-II, so they get it from HDL in the blood.\nDeficiency of either LPL or apo C-II causes type I hyperlipoproteinemia, in which chylomicrons cannot be cleared.\n\nTakeaway: Apo C-II activates LPL. No C-II → no TAG hydrolysis → type I hyperchylomicronemia.",
 "w": [
 "",
-"Apo E mediates uptake by receptors.",
-"Apo B-48 is structural.",
-"Apo A-I activates LCAT.",
-"Apo B-100 binds the LDL receptor."
+"Apo E is the ligand for hepatic remnant receptors. It does not activate LPL.",
+"Apo B-48 is the structural protein of chylomicrons and has no enzyme-activating role.",
+"Apo A-I activates LCAT, not LPL.",
+"Apo B-100 is the ligand for the LDL receptor."
 ],
 "src": "lec",
 "fig": [
@@ -3675,13 +3735,13 @@ window.CRS_BC_QUESTIONS = [
 "Apo B-100"
 ],
 "a": 1,
-"e": "LPL is an extracellular enzyme held to the luminal surface of capillaries by heparan sulfate proteoglycans. That is why an IV dose of heparin releases LPL into plasma.",
+"e": "LPL is made by adipocytes and muscle cells and moved to the luminal surface of the capillary endothelium, where it is held by heparan sulfate proteoglycans. That location lets it act on passing chylomicrons and VLDL.\nIV heparin competes for the heparan sulfate binding sites and releases LPL into plasma. Measuring 'post-heparin lipase activity' is therefore the test for LPL deficiency.\n\nTakeaway: LPL is anchored by heparan sulfate. Heparin releases it, which is the basis of the post-heparin lipase test.",
 "w": [
-"Apo C-II activates, but does not anchor, LPL.",
+"Apo C-II activates LPL but does not hold it on the endothelium.",
 "",
-"Hyaluronic acid does not anchor LPL.",
-"Clathrin coats pits for endocytosis.",
-"Apo B-100 is a lipoprotein protein."
+"Hyaluronic acid is a glycosaminoglycan in connective tissue matrix and does not anchor LPL.",
+"Clathrin coats the pits used for receptor-mediated endocytosis, such as LDL uptake.",
+"Apo B-100 is a structural protein of VLDL and LDL, not an anchor for LPL."
 ],
 "src": "lec",
 "fig": [
@@ -3700,13 +3760,13 @@ window.CRS_BC_QUESTIONS = [
 "Growth hormone"
 ],
 "a": 2,
-"e": "Insulin stimulates LPL synthesis, especially in adipose tissue, so after a meal fat is cleared from chylomicrons and stored. Glucagon and epinephrine favor fat breakdown instead.",
+"e": "After a meal, insulin rises and promotes fuel storage. Among its effects, it increases LPL synthesis in adipose tissue, so TAG from chylomicrons is hydrolyzed there and the fatty acids are stored as fat.\nIn the fasting state, insulin falls and glucagon and epinephrine rise. They activate hormone-sensitive lipase inside adipocytes to release stored fat instead.\nIn uncontrolled diabetes, low insulin means low LPL, so chylomicrons and VLDL accumulate and TAG rises.\n\nTakeaway: Insulin ↑ adipose LPL → fat storage after meals. Low insulin (diabetes) → high TAG.",
 "w": [
-"Glucagon favors lipolysis.",
-"Epinephrine favors lipolysis.",
+"Glucagon is a fasting hormone that favors fat breakdown, not LPL-driven storage.",
+"Epinephrine activates hormone-sensitive lipase and lipolysis, the opposite of storage.",
 "",
-"Cortisol does not drive LPL for storage.",
-"GH favors fat mobilization."
+"Cortisol promotes fat mobilization in fasting and stress and is not the main stimulus for adipose LPL.",
+"Growth hormone mobilizes fat for fuel rather than promoting fat storage."
 ],
 "src": "lec"
 },
@@ -3722,13 +3782,13 @@ window.CRS_BC_QUESTIONS = [
 "Acyl-CoA cholesterol acyltransferase"
 ],
 "a": 3,
-"e": "Microsomal triglyceride transfer protein loads TAG onto apo B-48 to assemble the chylomicron, and onto apo B-100 for VLDL in the liver. Its defect causes abetalipoproteinemia.",
+"e": "Microsomal triglyceride transfer protein (MTP) sits in the ER of enterocytes and hepatocytes. It loads TAG and other lipids onto the apo B proteins as they are made:\n• In the intestine, onto apo B-48 → chylomicrons.\n• In the liver, onto apo B-100 → VLDL.\nWithout MTP, no apo B-containing lipoproteins are released. That is abetalipoproteinemia: fat builds up in enterocytes, with steatorrhea, very low TAG and cholesterol, and malabsorption of vitamins A, D, E and K.\n\nTakeaway: MTP assembles chylomicrons and VLDL. MTP defect = abetalipoproteinemia.",
 "w": [
-"CETP swaps lipids between lipoproteins in plasma.",
-"LCAT esterifies cholesterol in HDL.",
-"HSL breaks down stored fat in adipocytes.",
+"CETP swaps cholesteryl esters and TAG between lipoproteins already in plasma. It does not assemble them.",
+"LCAT esterifies cholesterol on HDL in plasma.",
+"Hormone-sensitive lipase breaks down stored TAG inside adipocytes during fasting.",
 "",
-"ACAT esterifies cholesterol inside cells."
+"ACAT esterifies cholesterol for storage inside cells. It does not load lipid onto apo B."
 ],
 "src": "lec"
 },
@@ -3744,12 +3804,12 @@ window.CRS_BC_QUESTIONS = [
 "Apo C-II and apo E"
 ],
 "a": 4,
-"e": "The nascent chylomicron leaves the intestine with apo B-48. In the blood, HDL transfers apo C-II and apo E to it, which makes it mature: C-II activates LPL and E later lets the remnant be taken up by the liver.",
+"e": "A nascent chylomicron leaves the enterocyte through the lymph with apo B-48 and a little apo A. In the blood it meets HDL, which donates:\n• Apo C-II, which lets it activate LPL so its TAG can be unloaded.\n• Apo E, which later lets the remnant bind hepatic receptors.\nWith these, it is a mature chylomicron. After LPL acts, apo C-II returns to HDL, and the apo E-bearing remnant is taken up by the liver.\n\nTakeaway: HDL lends apo C-II (for LPL) and apo E (for liver uptake) to make a mature chylomicron.",
 "w": [
-"Apo B-48 is already present, and A-I is HDL's.",
-"Apo B-100 is not on chylomicrons.",
-"Apo A-I is not transferred to it.",
-"Apo B is made with the particle.",
+"Apo B-48 is already part of the chylomicron from its assembly, and apo A-I is not what HDL donates to mature it.",
+"Apo B-100 is made in the liver and is never on chylomicrons.",
+"Apo A-I is not transferred to mature the chylomicron. HDL gives apo C-II and apo E.",
+"Apo B proteins are built into the particle at assembly. They are not transferred from HDL.",
 ""
 ],
 "src": "lec",
@@ -3769,13 +3829,13 @@ window.CRS_BC_QUESTIONS = [
 "CETP moves them into HDL"
 ],
 "a": 0,
-"e": "After LPL removes most of the TAG, the remnant returns apo C-II to HDL but keeps apo E. Apo E binds receptors on hepatocytes, and the remnant is taken up by endocytosis.",
+"e": "Step 1: LPL removes most of the TAG from the chylomicron, leaving a smaller, cholesterol-rich chylomicron remnant.\nStep 2: The remnant gives apo C-II back to HDL but keeps apo E.\nStep 3: Apo E binds hepatic receptors (the LDL receptor-related protein and the LDL receptor), and the remnant is taken into hepatocytes by endocytosis and degraded in lysosomes.\nIf apo E is abnormal (apo E2/E2), remnants build up: type III hyperlipoproteinemia.\n\nTakeaway: Chylomicron remnants are cleared by apo E binding liver receptors. Defective apo E = type III.",
 "w": [
 "",
-"Apo C-II activates LPL and is returned to HDL.",
-"Apo B-48 lacks the LDL receptor binding region.",
-"LCAT acts on HDL cholesterol.",
-"CETP exchanges lipids, not whole particles."
+"Apo C-II activates LPL and is returned to HDL before the remnant is cleared. It is not a receptor ligand.",
+"Apo B-48 lacks the C-terminal region of apo B-100 that binds the LDL receptor.",
+"LCAT esterifies cholesterol on HDL. It does not clear remnants.",
+"CETP exchanges lipids between particles. It does not move whole remnants into HDL."
 ],
 "src": "lec",
 "fig": [
@@ -3820,13 +3880,13 @@ window.CRS_BC_QUESTIONS = [
 "Spleen"
 ],
 "a": 2,
-"e": "The liver makes and secretes VLDL, which carries endogenous TAG, about 60% of its content, plus some cholesterol and apo B-100.",
+"e": "The liver packages the TAG it makes, from excess carbohydrate and fatty acids, with cholesterol and apo B-100 into VLDL. MTP is needed for this step. VLDL is about 60% TAG.\nIn the circulation, VLDL picks up apo C-II and apo E from HDL, delivers TAG to tissues through LPL, and becomes IDL and then LDL.\nOverproduction of VLDL by the liver, for example with obesity, alcohol, diabetes or a high-carbohydrate diet, causes type IV hyperlipoproteinemia.\n\nTakeaway: VLDL = liver-made TAG carrier (apo B-100). Liver VLDL overproduction = type IV.",
 "w": [
-"The intestine makes chylomicrons.",
-"Adipose tissue stores TAG.",
+"The small intestine makes chylomicrons for dietary fat, not VLDL.",
+"Adipose tissue stores TAG and releases free fatty acids. It does not make lipoproteins.",
 "",
-"Muscle uses fatty acids.",
-"The spleen does not make lipoproteins."
+"Skeletal muscle takes up fatty acids from lipoproteins for fuel but does not make VLDL.",
+"The spleen does not synthesize lipoproteins."
 ],
 "src": "lec",
 "fig": [
@@ -3845,13 +3905,13 @@ window.CRS_BC_QUESTIONS = [
 "Lysosomal acid lipase"
 ],
 "a": 3,
-"e": "LPL turns VLDL into IDL. Hepatic lipase then removes more TAG from IDL, giving LDL, which is rich in cholesteryl ester and poor in TAG.",
+"e": "The VLDL cascade:\n1. LPL on capillaries removes TAG from VLDL → IDL (VLDL remnant).\n2. Some IDL is taken up by the liver through apo E.\n3. The rest is processed by hepatic lipase, which removes more TAG (and phospholipid) → LDL. LDL is rich in cholesteryl ester and has only apo B-100.\nHepatic lipase deficiency leads to accumulation of IDL and TAG-rich HDL.\n\nTakeaway: LPL: VLDL → IDL. Hepatic lipase: IDL → LDL.",
 "w": [
-"LPL turns VLDL into IDL.",
-"HSL acts inside adipocytes.",
-"Pancreatic lipase digests dietary fat.",
+"LPL converts VLDL into IDL, the step before.",
+"Hormone-sensitive lipase works inside adipocytes to release stored fat, not on circulating IDL.",
+"Pancreatic lipase digests dietary TAG in the intestinal lumen.",
 "",
-"Lysosomal acid lipase acts inside cells."
+"Lysosomal acid lipase hydrolyzes cholesteryl esters inside lysosomes after LDL is taken up."
 ],
 "src": "lec",
 "fig": [
@@ -3870,12 +3930,12 @@ window.CRS_BC_QUESTIONS = [
 "CETP"
 ],
 "a": 4,
-"e": "Cholesteryl ester transfer protein exchanges lipids between particles: HDL gives cholesteryl esters to VLDL and receives TAG in return.",
+"e": "Cholesteryl ester transfer protein (CETP) is a plasma protein that swaps lipids between lipoproteins:\n• HDL gives cholesteryl esters to VLDL (and LDL).\n• VLDL gives TAG to HDL.\nThis moves cholesterol collected by HDL onto apo B particles, which can deliver it to the liver. The TAG-enriched HDL is then trimmed by hepatic lipase. CETP inhibitors were developed to raise HDL cholesterol.\n\nTakeaway: CETP = cholesteryl esters from HDL → VLDL, in exchange for TAG.",
 "w": [
-"LCAT makes cholesteryl esters within HDL.",
-"ACAT esterifies cholesterol inside cells.",
-"MTP assembles B-lipoproteins.",
-"LPL hydrolyzes TAG.",
+"LCAT makes cholesteryl esters within HDL. It does not transfer them between particles.",
+"ACAT esterifies cholesterol inside cells for storage.",
+"MTP assembles chylomicrons and VLDL inside cells. It does not exchange lipids in plasma.",
+"LPL hydrolyzes TAG in chylomicrons and VLDL. It does not transfer cholesteryl esters.",
 ""
 ],
 "src": "lec",
@@ -3895,13 +3955,13 @@ window.CRS_BC_QUESTIONS = [
 "Apo C-III"
 ],
 "a": 0,
-"e": "LDL keeps apo B-100 as its only apolipoprotein, and apo B-100 is the ligand for the LDL receptor on hepatocytes and extrahepatic tissues.",
+"e": "As VLDL becomes IDL and then LDL, it gives its apo C and apo E back to HDL. LDL is left with apo B-100 as its only apolipoprotein.\nThe C-terminal region of apo B-100 is the ligand that binds the LDL receptor on hepatocytes and extrahepatic tissues, triggering uptake through clathrin-coated pits.\nMutations in apo B-100 that weaken this binding cause familial defective apo B-100, which looks clinically like familial hypercholesterolemia.\n\nTakeaway: Apo B-100 is LDL's only apoprotein and its receptor ligand.",
 "w": [
 "",
-"Apo B-48 lacks the receptor binding region.",
-"Apo C-II activates LPL.",
-"Apo A-I belongs to HDL.",
-"Apo D is not the receptor ligand."
+"Apo B-48 lacks the C-terminal receptor-binding region of apo B-100, so it cannot bind the LDL receptor.",
+"Apo C-II activates lipoprotein lipase and is not on LDL.",
+"Apo A-I belongs to HDL and activates LCAT.",
+"Apo C-III inhibits lipoprotein lipase and remnant clearance. It is not the LDL receptor ligand."
 ],
 "src": "lec",
 "fig": [
@@ -3920,13 +3980,13 @@ window.CRS_BC_QUESTIONS = [
 "VLDL remnant, to the intestine"
 ],
 "a": 1,
-"e": "Step 1: LPL removes TAG from VLDL, making IDL.\nStep 2: hepatic lipase removes more TAG, and the apo C and E return to HDL.\nStep 3: the result is LDL with apo B-100, rich in cholesteryl ester, which delivers cholesterol to the liver and extrahepatic tissues.",
+"e": "Step 1: LPL removes TAG from VLDL, forming IDL.\nStep 2: IDL gives apo C and apo E back to HDL, and hepatic lipase removes more TAG.\nStep 3: The product is LDL: small, cholesteryl ester-rich, carrying only apo B-100. LDL delivers cholesterol to the liver and to extrahepatic tissues (adrenal, gonads, other cells) through LDL receptor-mediated endocytosis.\n\nTakeaway: VLDL → (LPL) → IDL → (hepatic lipase) → LDL, which delivers cholesterol to liver and other tissues.",
 "w": [
-"VLDL never becomes HDL.",
+"VLDL never becomes HDL. HDL is made separately as nascent HDL by the liver and intestine.",
 "",
-"Remnants come from chylomicrons.",
-"IDL is the step before LDL.",
-"Lipoproteins do not return to the intestine."
+"Chylomicron remnants come from chylomicrons, the dietary pathway, not from VLDL.",
+"IDL is the intermediate step before LDL, and adipose tissue is not where it is delivered.",
+"Lipoproteins are not returned to the intestine. LDL delivers cholesterol to the liver and peripheral tissues."
 ],
 "src": "lec",
 "fig": [
@@ -3945,13 +4005,13 @@ window.CRS_BC_QUESTIONS = [
 "Phagocytic cups"
 ],
 "a": 2,
-"e": "LDL binds its receptor, and the complex is internalized through clathrin-coated pits by receptor-mediated endocytosis. The vesicle then fuses with an endosome and lysosome.",
+"e": "LDL uptake is classic receptor-mediated endocytosis:\n1. Apo B-100 binds the LDL receptor, which clusters in clathrin-coated pits.\n2. The pit pinches off as a clathrin-coated vesicle, loses its coat and fuses with an endosome.\n3. The acidic endosome releases LDL from the receptor, and the receptor recycles to the cell surface.\n4. LDL goes to the lysosome, where cholesteryl esters are hydrolyzed to free cholesterol.\n\nTakeaway: LDL enters through clathrin-coated pits. The receptor recycles, and LDL is degraded in lysosomes.",
 "w": [
-"Caveolae are not the LDL route.",
-"Gap junctions link cell cytoplasms.",
+"Caveolae are a different, clathrin-independent invagination and are not the main LDL entry route.",
+"Gap junctions connect the cytoplasm of neighboring cells. They do not internalize particles.",
 "",
-"Tight junctions seal epithelia.",
-"Phagocytosis is not used for LDL."
+"Tight junctions seal the spaces between epithelial cells.",
+"Phagocytosis engulfs large particles such as bacteria. LDL uses receptor-mediated endocytosis."
 ],
 "src": "lec",
 "fig": [
@@ -3970,13 +4030,13 @@ window.CRS_BC_QUESTIONS = [
 "Hormone-sensitive lipase"
 ],
 "a": 3,
-"e": "ACAT transfers a fatty acid from acyl-CoA to free cholesterol, forming cholesteryl esters that are stored in cytoplasmic lipid droplets.",
+"e": "When a cell has more free cholesterol than it needs, it stores the excess as cholesteryl esters in cytoplasmic lipid droplets, because free cholesterol in excess damages membranes.\nThe enzyme is acyl-CoA:cholesterol acyltransferase (ACAT), in the ER. It moves a fatty acid from acyl-CoA onto the 3-OH of cholesterol. High cellular cholesterol activates ACAT.\nCompare LCAT, which does a similar reaction in plasma on HDL using lecithin as the fatty acid donor.\n\nTakeaway: ACAT = inside the cell, acyl-CoA donor, storage. LCAT = in plasma on HDL, lecithin donor.",
 "w": [
-"LCAT acts in plasma on HDL.",
-"CETP moves esters between lipoproteins.",
-"HMG-CoA reductase makes cholesterol.",
+"LCAT esterifies cholesterol in plasma on HDL, not inside cells.",
+"CETP moves cholesteryl esters between lipoproteins in plasma. It does not make them.",
+"HMG-CoA reductase is the rate-limiting enzyme of cholesterol synthesis. High cholesterol inhibits it.",
 "",
-"HSL breaks down stored TAG."
+"Hormone-sensitive lipase breaks down stored TAG in adipocytes."
 ],
 "src": "lec",
 "fig": [
@@ -3995,12 +4055,12 @@ window.CRS_BC_QUESTIONS = [
 "Fewer receptors, as SREBP is inhibited"
 ],
 "a": 4,
-"e": "High cellular cholesterol inhibits SREBP, the transcription factor for the LDL receptor gene, so fewer receptors are made and LDL uptake falls.",
+"e": "SREBP (sterol regulatory element-binding protein) senses cholesterol in the ER:\n• Low cholesterol: SREBP moves to the Golgi, is cleaved and enters the nucleus, switching on the LDL receptor and HMG-CoA reductase genes. The cell makes more receptors and more cholesterol.\n• High cholesterol: SREBP is held in the ER and stays inactive, so fewer LDL receptors are made and LDL uptake falls.\nThis is how statins lower LDL. Less hepatic cholesterol activates SREBP, so more LDL receptors clear LDL from the blood.\n\nTakeaway: High cell cholesterol → SREBP off → ↓ LDL receptors. Statins do the reverse.",
 "w": [
-"SREBP is active when cholesterol is low.",
-"An active SREBP raises receptor numbers.",
-"Inhibited SREBP lowers receptor numbers.",
-"Receptor numbers are regulated.",
+"SREBP is activated when cholesterol is low, not high, and it would raise receptor numbers.",
+"An active SREBP increases receptor synthesis. It does not decrease it.",
+"An inhibited SREBP lowers receptor synthesis. It cannot raise receptor numbers.",
+"LDL receptor numbers are tightly regulated by cellular cholesterol through SREBP.",
 ""
 ],
 "src": "lec",
@@ -4020,13 +4080,13 @@ window.CRS_BC_QUESTIONS = [
 "Insulin receptors"
 ],
 "a": 0,
-"e": "Oxidized LDL is taken up by low-affinity, nonspecific scavenger receptors that are not downregulated by cholesterol, so macrophages keep filling with lipid and become foam cells.",
+"e": "LDL trapped in the arterial intima is oxidized by free radicals. Oxidized LDL is no longer recognized by the LDL receptor. Instead, macrophages take it up through scavenger receptors (such as SR-A and CD36).\nScavenger receptors are low-affinity and nonspecific, and crucially they are not downregulated when the cell fills with cholesterol. So macrophages keep ingesting oxidized LDL until they are lipid-laden foam cells, the basis of the fatty streak.\n\nTakeaway: Oxidized LDL → scavenger receptors (not downregulated) → foam cells.",
 "w": [
 "",
-"LDL receptors are downregulated by cholesterol.",
-"SR-B1 takes up HDL esters in the liver.",
-"Apo E receptors clear remnants.",
-"Insulin receptors do not take up LDL."
+"LDL receptors recognize native, not oxidized, LDL, and they are downregulated when the cell's cholesterol rises, so they cannot cause unlimited uptake.",
+"SR-B1 is on hepatocytes and takes up cholesteryl esters from HDL in reverse cholesterol transport.",
+"Apo E receptors on hepatocytes clear chylomicron and VLDL remnants.",
+"Insulin receptors are tyrosine kinases that regulate glucose metabolism and do not take up LDL."
 ],
 "src": "lec",
 "fig": [
@@ -4045,13 +4105,13 @@ window.CRS_BC_QUESTIONS = [
 "Occlusive thrombus"
 ],
 "a": 1,
-"e": "Foam cells accumulate in the intima to form the fatty streak, the earliest visible lesion. Smooth muscle migration, collagen and calcium come later.",
+"e": "Atherosclerosis progresses in stages:\n1. Endothelial injury lets LDL enter the intima, where it is oxidized.\n2. Monocytes enter, become macrophages and take up oxidized LDL → foam cells.\n3. Collections of foam cells form the fatty streak, the earliest visible lesion. It can be seen even in children and adolescents.\n4. Cytokines draw smooth muscle cells into the intima, where they make collagen, forming a fibrous cap over a lipid core.\n5. Late changes: calcification, cap rupture and thrombosis.\n\nTakeaway: Fatty streak (foam cells) is first. Fibrous cap, calcification, rupture and thrombus come later.",
 "w": [
-"The fibrous cap forms later.",
+"The fibrous cap forms later, when smooth muscle cells migrate in and lay down collagen.",
 "",
-"Calcification is a late change.",
-"Rupture is a late complication.",
-"Thrombosis follows rupture."
+"Calcification is a late change in advanced plaques.",
+"Plaque rupture is a late complication that triggers acute events.",
+"An occlusive thrombus forms after rupture and causes MI or stroke."
 ],
 "src": "lec",
 "fig": [
@@ -4070,13 +4130,13 @@ window.CRS_BC_QUESTIONS = [
 "Fish-eye disease"
 ],
 "a": 2,
-"e": "LDL is delivered to lysosomes, where it is broken down to release free cholesterol. In Niemann-Pick type C and in Wolman disease, cholesterol or its esters accumulate in the lysosome.",
+"e": "After receptor-mediated endocytosis, LDL is delivered to lysosomes. There:\n1. Lysosomal acid lipase hydrolyzes the cholesteryl esters to free cholesterol.\n2. The NPC1 and NPC2 proteins carry the free cholesterol out of the lysosome to the rest of the cell.\nDefects here trap lipid in lysosomes:\n• Niemann-Pick type C (NPC1/NPC2 defect): free cholesterol is stuck in lysosomes.\n• Wolman disease (acid lipase deficiency): cholesteryl esters and TAG accumulate.\n\nTakeaway: Niemann-Pick C and Wolman disease = lysosomal trapping of LDL-derived cholesterol.",
 "w": [
-"Tangier is an ABCA1 efflux defect.",
-"FH is an LDL receptor defect.",
+"Tangier disease is a defect in ABCA1, which moves cholesterol out of cells to HDL. It is not a lysosomal enzyme defect.",
+"Familial hypercholesterolemia is a defect in the LDL receptor, so LDL never reaches the lysosome.",
 "",
-"Abetalipoproteinemia is an MTP defect.",
-"Fish-eye disease is partial LCAT deficiency."
+"Abetalipoproteinemia is an MTP defect that stops chylomicron and VLDL assembly.",
+"Fish-eye disease is a partial LCAT deficiency in plasma, not a lysosomal disorder."
 ],
 "src": "lec",
 "fig": [
@@ -4095,13 +4155,13 @@ window.CRS_BC_QUESTIONS = [
 "Uptake of LDL by hepatocytes"
 ],
 "a": 3,
-"e": "Step 1: LDL enters the subendothelial space and is trapped in the intima.\nStep 2: oxidative stress converts it into oxidized LDL, which is the form that causes problems.\nStep 3: monocytes become macrophages and take up oxidized LDL through scavenger receptors, becoming foam cells.",
+"e": "Step 1: Smoking injures the endothelium, so LDL enters and is trapped in the intima.\nStep 2: Smoking also raises oxidative stress, and free radicals oxidize the trapped LDL. Oxidized LDL is the form that causes problems.\nStep 3: Monocytes migrate in and become macrophages. They take up the oxidized LDL through scavenger receptors, which are not downregulated, until they become lipid-laden foam cells, the cells seen in the biopsy.\n\nTakeaway: Foam cells need oxidized LDL. That is why oxidative stress (smoking, diabetes) drives atherosclerosis.",
 "w": [
-"LCAT does not form foam cells.",
-"LPL acts on VLDL in capillaries.",
-"LDL does not carry apo C-II.",
+"LCAT esterifies HDL cholesterol in plasma, which is part of protective reverse cholesterol transport, not foam cell formation.",
+"LPL hydrolyzes VLDL TAG on capillary walls. This does not directly create foam cells.",
+"LDL does not carry apo C-II, and adding it would not cause macrophage uptake.",
 "",
-"Hepatic uptake removes LDL from blood."
+"Uptake of LDL by hepatocytes clears LDL from the blood and protects against atherosclerosis."
 ],
 "src": "lec",
 "fig": [
@@ -4121,12 +4181,12 @@ window.CRS_BC_QUESTIONS = [
 "Rupture of the fibrous cap"
 ],
 "a": 4,
-"e": "Step 1: an advanced plaque has a fibrous cap over a lipid core.\nStep 2: inflammation thins the cap until it ruptures.\nStep 3: the exposed contents trigger platelet aggregation and thrombus formation, occluding the artery and causing an MI.",
+"e": "Step 1: An advanced atherosclerotic plaque has a lipid-rich, necrotic core covered by a fibrous cap of smooth muscle cells and collagen.\nStep 2: Macrophages in the plaque release metalloproteinases and inflammatory cytokines that digest collagen and thin the cap. An 'unstable' plaque has a thin cap and a large lipid core.\nStep 3: When the cap ruptures, the thrombogenic core (tissue factor, collagen, lipid) is exposed to blood. Platelets adhere and aggregate, the coagulation cascade fires, and a thrombus forms that can occlude the coronary artery, causing an MI.\n\nTakeaway: Acute coronary syndromes come from fibrous cap rupture → platelet aggregation → occlusive thrombus.",
 "w": [
-"Fatty streaks are early and do not cause thrombosis.",
-"SMC migration builds the plaque.",
-"Hepatic uptake lowers LDL.",
-"Apo E transfer is normal metabolism.",
+"Fatty streaks are the earliest, flat lesions and do not have a cap that can rupture.",
+"Smooth muscle migration builds the fibrous cap over years. It stabilizes rather than triggers a thrombus.",
+"Hepatic uptake of LDL lowers plasma LDL and protects against atherosclerosis.",
+"Apo E moving back to HDL is part of normal lipoprotein metabolism, not a thrombotic event.",
 ""
 ],
 "src": "lec",
@@ -4146,13 +4206,13 @@ window.CRS_BC_QUESTIONS = [
 "MTP"
 ],
 "a": 0,
-"e": "ABCA1, an ATP-binding cassette transporter, moves free cholesterol and phospholipid from cells to apo A-I on nascent HDL. Its loss causes Tangier disease.",
+"e": "Reverse cholesterol transport starts at peripheral cells, such as macrophages in the arterial wall:\n1. ABCA1, an ATP-binding cassette transporter in the plasma membrane, uses ATP to pump free cholesterol and phospholipid out of the cell onto lipid-poor apo A-I, forming discoidal nascent HDL.\n2. LCAT then esterifies the cholesterol so HDL matures.\n3. SR-B1 on the liver takes up the esters.\nWithout ABCA1, HDL cannot form: that is Tangier disease, with near-zero HDL and cholesterol buildup in tissues (orange tonsils, neuropathy).\n\nTakeaway: ABCA1 = cholesterol efflux from cells onto apo A-I. ABCA1 defect = Tangier disease.",
 "w": [
 "",
-"SR-B1 takes cholesterol esters into liver cells.",
-"The LDL receptor brings cholesterol in.",
-"CETP exchanges lipids between particles.",
-"MTP assembles B-lipoproteins."
+"SR-B1 works at the other end of the process, taking HDL cholesteryl esters into hepatocytes.",
+"The LDL receptor brings cholesterol into cells, the opposite direction.",
+"CETP exchanges lipids between lipoproteins in plasma. It does not move cholesterol out of cells.",
+"MTP assembles chylomicrons and VLDL inside enterocytes and hepatocytes."
 ],
 "src": "lec",
 "fig": [
@@ -4171,13 +4231,13 @@ window.CRS_BC_QUESTIONS = [
 "HMG-CoA reductase"
 ],
 "a": 1,
-"e": "Lecithin-cholesterol acyltransferase transfers a fatty acid from lecithin to free cholesterol, making cholesteryl esters that move into the core. HDL becomes spherical and can carry more cholesterol.",
+"e": "Nascent HDL is a flat disc of phospholipid, free cholesterol and apo A-I. To mature:\n1. Lecithin-cholesterol acyltransferase (LCAT), activated by apo A-I, moves a fatty acid from lecithin (phosphatidylcholine) onto free cholesterol.\n2. The resulting cholesteryl esters are fully nonpolar, so they move into the particle's core.\n3. As the core fills, HDL becomes spherical (HDL3 → HDL2). This also keeps the surface free to accept more cholesterol from cells, so efflux continues.\nLCAT deficiency leaves free cholesterol and immature HDL, forming lipoprotein X.\n\nTakeaway: LCAT (activated by apo A-I, lecithin donor) esterifies HDL cholesterol → spherical, mature HDL.",
 "w": [
-"ACAT works inside cells.",
+"ACAT esterifies cholesterol inside cells for storage, using acyl-CoA, not on HDL in plasma.",
 "",
-"CETP exchanges lipids between particles.",
-"Hepatic lipase acts on IDL and HDL TAG.",
-"HMG-CoA reductase makes cholesterol."
+"CETP transfers already-formed cholesteryl esters from HDL to VLDL. It does not make them.",
+"Hepatic lipase hydrolyzes TAG and phospholipid in IDL and HDL. It does not esterify cholesterol.",
+"HMG-CoA reductase is the rate-limiting enzyme of cholesterol synthesis inside cells."
 ],
 "src": "lec",
 "fig": [
@@ -4196,13 +4256,13 @@ window.CRS_BC_QUESTIONS = [
 "Apo E receptor"
 ],
 "a": 2,
-"e": "Scavenger receptor class B type 1 on hepatocytes takes up cholesteryl esters from HDL, completing reverse cholesterol transport. The liver then excretes cholesterol into bile or makes bile acids.",
+"e": "The last step of reverse cholesterol transport is in the liver. Scavenger receptor class B type 1 (SR-B1) binds mature HDL and selectively takes up its cholesteryl esters without taking in the whole particle. The emptied HDL returns to the circulation to collect more cholesterol.\nThe liver then disposes of the cholesterol by secreting it into bile or converting it to bile acids, the main route for removing cholesterol from the body. Some HDL esters reach the liver indirectly through CETP, VLDL and LDL.\n\nTakeaway: SR-B1 on hepatocytes takes up HDL cholesteryl esters → bile. That completes reverse cholesterol transport.",
 "w": [
-"The LDL receptor binds apo B-100.",
-"Scavenger receptor A takes oxLDL in macrophages.",
+"The LDL receptor binds apo B-100 and apo E. HDL's apo A-I does not use it.",
+"Scavenger receptor A is on macrophages and takes up oxidized LDL, which forms foam cells.",
 "",
-"ABCA1 moves cholesterol out of cells.",
-"The apo E receptor clears remnants."
+"ABCA1 pumps cholesterol out of peripheral cells at the start of the pathway.",
+"Apo E receptors on the liver clear chylomicron and VLDL remnants, not HDL esters."
 ],
 "src": "lec",
 "fig": [
@@ -4221,13 +4281,13 @@ window.CRS_BC_QUESTIONS = [
 "Poorly controlled diabetes"
 ],
 "a": 3,
-"e": "Exercise and a healthy diet raise HDL. Smoking and obesity lower it, and in metabolic syndrome or diabetes HDL can become dysfunctional even at normal levels.",
+"e": "HDL levels respond to lifestyle:\n• Raise HDL: regular aerobic exercise, weight loss, a healthy diet, moderate alcohol, and stopping smoking.\n• Lower HDL: smoking, abdominal obesity, insulin resistance, physical inactivity.\nIn metabolic syndrome and poorly controlled diabetes, HDL is often low, and the HDL that remains can be dysfunctional (glycated or oxidized) and lose its antiatherogenic function.\n\nTakeaway: Exercise raises HDL. Smoking, obesity and insulin resistance lower it or make it dysfunctional.",
 "w": [
-"Smoking lowers HDL.",
-"Obesity lowers HDL.",
-"HDL is low or dysfunctional.",
+"Smoking lowers HDL and also oxidizes lipoproteins, increasing atherosclerosis risk.",
+"Abdominal obesity lowers HDL as part of the insulin-resistance pattern.",
+"Metabolic syndrome includes low HDL as one of its diagnostic criteria.",
 "",
-"HDL becomes dysfunctional."
+"In poorly controlled diabetes, HDL is often low and becomes glycated and dysfunctional."
 ],
 "src": "lec"
 },
@@ -4243,12 +4303,12 @@ window.CRS_BC_QUESTIONS = [
 "More ABCA1-driven cholesterol efflux"
 ],
 "a": 4,
-"e": "Step 1: LXRs and PPARs increase expression of ABCA1.\nStep 2: more ABCA1 moves free cholesterol from macrophages onto apo A-I and nascent HDL.\nStep 3: this clears cholesterol from the arterial wall, preventing foam cells and plaque buildup.",
+"e": "Step 1: Liver X receptors (LXRs) and PPARs are nuclear receptors that sense cellular sterols. When activated in macrophages, they increase transcription of ABCA1 (and ABCG1).\nStep 2: More ABCA1 pumps more free cholesterol out of the macrophage onto apo A-I, forming nascent HDL.\nStep 3: Macrophages with less cholesterol are less likely to become foam cells, and the cholesterol enters reverse cholesterol transport to the liver. This slows plaque growth.\n\nTakeaway: LXR/PPAR activation → ↑ ABCA1 → ↑ cholesterol efflux to HDL → fewer foam cells.",
 "w": [
-"More scavenger receptors would make more foam cells.",
-"LCAT is needed to load HDL.",
-"Oxidized LDL drives foam cells.",
-"Apo A-I is needed to accept cholesterol.",
+"More scavenger receptors would increase oxidized LDL uptake and make more foam cells, promoting atherosclerosis.",
+"LCAT is needed to esterify and trap cholesterol on HDL. Less LCAT would weaken reverse cholesterol transport.",
+"LDL oxidation is what allows foam cell formation, so more oxidation would worsen plaques.",
+"Apo A-I is the acceptor for ABCA1-driven efflux. Less apo A-I would reduce HDL formation.",
 ""
 ],
 "src": "lec"
@@ -4265,13 +4325,13 @@ window.CRS_BC_QUESTIONS = [
 "ABCA1 cholesterol efflux"
 ],
 "a": 0,
-"e": "Type IIa is autosomal dominant and results from defects in the LDL receptor or in apo B-100 binding to it, so LDL cannot be cleared and LDL cholesterol rises.",
+"e": "Familial hypercholesterolemia (type IIa) is autosomal dominant. It is caused by mutations in the LDL receptor gene, or less often in apo B-100 or PCSK9, that impair receptor-mediated uptake of LDL.\nWithout functioning receptors:\n• LDL stays in the blood (heterozygotes: LDL about 2–3× normal; homozygotes: often over 600 mg/dL).\n• The liver also senses less cholesterol and keeps making it.\nThis leads to tendon xanthomas, xanthelasma, corneal arcus and premature coronary artery disease (MI in the 30s to 40s in heterozygotes, in childhood in homozygotes).\n\nTakeaway: Type IIa = LDL receptor defect (autosomal dominant) → ↑ LDL → early CAD and tendon xanthomas.",
 "w": [
 "",
-"That causes type I.",
-"That causes type III.",
-"That causes type IV.",
-"That causes Tangier disease."
+"LPL deficiency prevents chylomicron TAG hydrolysis and causes type I hyperchylomicronemia.",
+"Defective apo E (apo E2/E2) prevents remnant clearance and causes type III.",
+"Hepatic VLDL overproduction raises TAG and causes type IV.",
+"Defective ABCA1 blocks cholesterol efflux to HDL and causes Tangier disease."
 ],
 "src": "lec",
 "fig": [
@@ -4290,13 +4350,13 @@ window.CRS_BC_QUESTIONS = [
 "Corneal opacity with kidney disease"
 ],
 "a": 1,
-"e": "Tendon xanthomas, especially of the Achilles tendon and extensor tendons of the hand, are highly suggestive of familial hypercholesterolemia. Xanthelasma may also appear on the eyelids.",
+"e": "Very high LDL deposits cholesterol in tissues, giving characteristic signs in familial hypercholesterolemia:\n• Tendon xanthomas: firm nodules in the Achilles tendon and the extensor tendons of the hands. These are the most specific sign of FH.\n• Xanthelasma: yellow plaques on the eyelids.\n• Corneal arcus at a young age.\nOther xanthomas point elsewhere: eruptive (high TAG, types I and IV), palmar crease and tuberous (type III).\n\nTakeaway: Tendon xanthomas (Achilles) = familial hypercholesterolemia. Palmar = type III. Eruptive = high TAG.",
 "w": [
-"Eruptive xanthomas suggest high TAG.",
+"Eruptive xanthomas, small itchy papules on the buttocks and trunk, come from very high TAG, as in types I and IV.",
 "",
-"Palmar xanthomas suggest type III.",
-"Orange tonsils suggest Tangier disease.",
-"That suggests LCAT deficiency."
+"Palmar crease xanthomas are characteristic of type III dysbetalipoproteinemia.",
+"Orange-yellow tonsils are the hallmark of Tangier disease (ABCA1 defect).",
+"Corneal opacity with kidney disease points to complete LCAT deficiency."
 ],
 "src": "lec",
 "fig": [
@@ -4315,13 +4375,13 @@ window.CRS_BC_QUESTIONS = [
 "Lipoprotein lipase"
 ],
 "a": 2,
-"e": "In type III, abnormal apo E cannot bind its receptors, so chylomicron and VLDL remnants are not cleared. Both cholesterol and TAG rise, and premature atherosclerosis follows.",
+"e": "Dysbetalipoproteinemia (type III, 'remnant disease') is caused by abnormal apo E, usually homozygous apo E2, which binds hepatic receptors poorly.\nChylomicron remnants and IDL (VLDL remnants) depend on apo E for liver uptake, so they accumulate. Because remnants carry both TAG and cholesterol, both rise roughly equally.\nIt causes palmar and tuberous xanthomas and premature coronary and peripheral vascular disease. Electrophoresis shows a broad beta band.\n\nTakeaway: Type III = apo E defect (E2/E2) → remnants accumulate → ↑ cholesterol and ↑ TAG, palmar xanthomas.",
 "w": [
-"Apo B-100 defects cause type IIa.",
-"Apo C-II defects cause type I.",
+"Apo B-100 mutations reduce LDL receptor binding and cause a type IIa picture (familial defective apo B-100).",
+"Apo C-II deficiency prevents LPL activation and causes type I.",
 "",
-"LDL receptor defects cause type IIa.",
-"LPL defects cause type I."
+"LDL receptor mutations cause familial hypercholesterolemia, type IIa.",
+"LPL deficiency causes type I hyperchylomicronemia."
 ],
 "src": "lec",
 "fig": [
@@ -4340,13 +4400,13 @@ window.CRS_BC_QUESTIONS = [
 "Abetalipoproteinemia"
 ],
 "a": 3,
-"e": "Type IV, familial hypertriglyceridemia, results from the liver making too much VLDL. It worsens with obesity, diabetes, alcohol and a high-carbohydrate diet and is linked to metabolic syndrome.",
+"e": "Type IV, familial hypertriglyceridemia, is caused by the liver making too much VLDL. Plasma TAG rises (often 200–500 mg/dL) while LDL is near normal.\nIt is made worse by anything that increases hepatic TAG synthesis: obesity, insulin resistance and type 2 diabetes, alcohol, and a high-carbohydrate diet. It is common in metabolic syndrome.\nIf TAG climbs above about 1,000 mg/dL, it can cause acute pancreatitis and eruptive xanthomas.\n\nTakeaway: Type IV = hepatic VLDL overproduction → ↑ TAG. Associated with obesity, diabetes, alcohol and metabolic syndrome.",
 "w": [
-"Type I is LPL or apo C-II deficiency.",
-"Type IIa is an LDL receptor defect.",
-"Type III is an apo E defect.",
+"Type I comes from LPL or apo C-II deficiency, which is a clearance problem, not overproduction.",
+"Type IIa is a defect in LDL receptor-mediated clearance.",
+"Type III is a defect in apo E-mediated remnant clearance.",
 "",
-"That is a failure to make B-lipoproteins."
+"Abetalipoproteinemia is the opposite: no VLDL or chylomicrons can be made because MTP is defective."
 ],
 "src": "lec",
 "fig": [
@@ -4365,12 +4425,12 @@ window.CRS_BC_QUESTIONS = [
 "Type I"
 ],
 "a": 4,
-"e": "In type I, chylomicrons accumulate, but they are too large to enter the arterial wall, so atherosclerosis risk is not increased. The main danger is pancreatitis.",
+"e": "Type I hyperlipoproteinemia (LPL or apo C-II deficiency) causes massive accumulation of chylomicrons, so TAG can exceed 1,000–2,000 mg/dL.\nChylomicrons are very large particles. They cannot cross the endothelium into the arterial intima, so they do not deposit cholesterol in the vessel wall, and atherosclerosis risk is not increased.\nThe danger instead is from the TAG itself: recurrent acute pancreatitis, eruptive xanthomas, lipemia retinalis and hepatosplenomegaly.\n\nTakeaway: Type I = pancreatitis, not atherosclerosis. Chylomicrons are too big to enter the artery wall.",
 "w": [
-"Type IIa causes early atherosclerosis.",
-"Type III causes premature atherosclerosis.",
-"Type IV is linked to metabolic syndrome.",
-"LCAT deficiency damages vessels and kidneys.",
+"Type IIa raises LDL, which easily enters the intima, causing premature atherosclerosis.",
+"Type III raises atherogenic remnants and causes premature coronary and peripheral vascular disease.",
+"Type IV is associated with metabolic syndrome and increased cardiovascular risk.",
+"LCAT deficiency with lipoprotein X damages the kidneys and is associated with vascular disease.",
 ""
 ],
 "src": "lec",
@@ -4390,13 +4450,13 @@ window.CRS_BC_QUESTIONS = [
 "Defective ABCA1 with low HDL"
 ],
 "a": 0,
-"e": "Step 1: palmar xanthomas and tuberous xanthomas on the elbows and knees point to type III.\nStep 2: in type III, abnormal apo E cannot bind receptors, so chylomicron and VLDL remnants are not cleared.\nStep 3: remnants carry both cholesterol and TAG, so both rise.",
+"e": "Step 1: The skin findings are specific. Orange-yellow palmar crease xanthomas plus tuberous (tuberoeruptive) xanthomas over the elbows and knees are characteristic of type III, dysbetalipoproteinemia.\nStep 2: Type III is caused by abnormal apo E (usually E2/E2), which cannot bind hepatic receptors, so chylomicron remnants and IDL are not cleared.\nStep 3: Remnants carry both cholesterol and TAG, so both are raised to a similar degree, matching his labs. He is also at risk of premature coronary and peripheral vascular disease.\n\nTakeaway: Palmar + tuberous xanthomas + ↑ cholesterol AND ↑ TAG = type III (apo E defect).",
 "w": [
 "",
-"FH raises mainly LDL and gives tendon xanthomas.",
-"Type I does not cause these xanthomas.",
-"Type IV raises mainly TAG.",
-"Tangier causes low HDL."
+"Absent LDL receptors (FH) raise mainly LDL cholesterol and cause tendon xanthomas, not palmar xanthomas.",
+"Absent LPL (type I) causes eruptive xanthomas with mainly very high TAG.",
+"Liver VLDL overproduction (type IV) raises mainly TAG and does not cause palmar xanthomas.",
+"Defective ABCA1 (Tangier) causes very low HDL with orange tonsils, not raised cholesterol and TAG."
 ],
 "src": "lec",
 "fig": [
@@ -4415,13 +4475,13 @@ window.CRS_BC_QUESTIONS = [
 "Absence of apo B-100"
 ],
 "a": 1,
-"e": "Step 1: obesity, diabetes and alcohol increase hepatic VLDL output.\nStep 2: this is type IV, familial hypertriglyceridemia, with eruptive xanthomas.\nStep 3: a TAG above 1,000 mg/dL causes acute pancreatitis, which explains his pain.",
+"e": "Step 1: Obesity, type 2 diabetes (insulin resistance) and heavy alcohol use all drive the liver to make more TAG and package it into VLDL.\nStep 2: A very high TAG with near-normal LDL and eruptive xanthomas (small yellow papules on the trunk) fits type IV, familial hypertriglyceridemia, from VLDL overproduction.\nStep 3: TAG above about 1,000 mg/dL causes acute pancreatitis. His epigastric pain radiating to the back is the classic presentation.\n\nTakeaway: Metabolic syndrome or alcohol + very high TAG + eruptive xanthomas → type IV (VLDL overproduction) → risk of pancreatitis.",
 "w": [
-"That raises LDL.",
+"Absent LDL receptors raise LDL, but his LDL is near normal.",
 "",
-"That raises remnants with both lipids.",
-"That lowers HDL.",
-"That lowers all B-lipoproteins."
+"Defective apo E raises remnants, giving high cholesterol and TAG with palmar xanthomas.",
+"Loss of ABCA1 lowers HDL (Tangier disease) and does not cause very high TAG.",
+"Absence of apo B-100 would lower VLDL and LDL, giving very low lipids."
 ],
 "src": "lec",
 "fig": [
@@ -4440,13 +4500,13 @@ window.CRS_BC_QUESTIONS = [
 "Oxidized LDL"
 ],
 "a": 2,
-"e": "Without LCAT, free cholesterol cannot be esterified, so it accumulates and forms abnormal, non-functional particles called lipoprotein X.",
+"e": "LCAT normally esterifies the free cholesterol on HDL. Without it:\n• Free cholesterol and phospholipid build up in plasma and form abnormal, non-functional vesicles called lipoprotein X.\n• HDL stays immature and low.\n• Free cholesterol deposits in tissues: the cornea (diffuse clouding), kidneys (proteinuria, renal failure) and red cells (target cells, anemia).\nLipoprotein X is also seen in cholestasis.\n\nTakeaway: LCAT deficiency → ↑ free cholesterol → lipoprotein X, corneal opacity, kidney disease.",
 "w": [
-"Lp(a) is a separate genetic LDL variant.",
-"Beta-VLDL is seen in type III.",
+"Lp(a) is an LDL-like particle with apo(a) attached, inherited independently and linked to atherosclerosis. It is not from LCAT deficiency.",
+"Beta-VLDL is the cholesterol-rich remnant seen in type III.",
 "",
-"Small dense LDL is seen with high TAG.",
-"oxLDL forms in the intima."
+"Small dense LDL is seen with high TAG and insulin resistance.",
+"Oxidized LDL forms in the arterial intima and drives foam cell formation."
 ],
 "src": "lec",
 "fig": [
@@ -4465,13 +4525,13 @@ window.CRS_BC_QUESTIONS = [
 "It causes acanthocytes"
 ],
 "a": 3,
-"e": "Fish-eye disease is a partial loss of LCAT activity. It causes corneal opacities and low HDL but progresses more slowly and does not usually cause the kidney disease seen in complete LCAT deficiency.",
+"e": "Both disorders come from LCAT mutations, but they differ in severity:\n• Complete (familial) LCAT deficiency: no LCAT activity on any lipoprotein. Corneal opacities, low HDL, anemia and progressive kidney disease (proteinuria leading to renal failure), with lipoprotein X.\n• Fish-eye disease: partial loss, mainly of LCAT activity on HDL. It causes dense corneal opacities (the 'fish eye') and low HDL but usually spares the kidneys and progresses slowly.\n\nTakeaway: Fish-eye = partial LCAT loss → cornea only. Complete LCAT deficiency = cornea + kidneys + anemia.",
 "w": [
-"HDL is low.",
-"Corneal opacity is its main sign.",
-"Tangier is the ABCA1 defect.",
+"HDL is low in fish-eye disease because cholesterol cannot be esterified to mature HDL.",
+"Corneal opacity is its defining feature, which gives the disease its name.",
+"ABCA1 defects cause Tangier disease, a different HDL disorder.",
 "",
-"Acanthocytes suggest abetalipoproteinemia."
+"Acanthocytes are seen in abetalipoproteinemia (MTP defect)."
 ],
 "src": "lec",
 "fig": [
@@ -4490,12 +4550,12 @@ window.CRS_BC_QUESTIONS = [
 "ABCA1"
 ],
 "a": 4,
-"e": "In Tangier disease, defective ABCA1 blocks cholesterol efflux from cells, so HDL is very low and cholesterol builds up in tissues, causing orange tonsils, neuropathy and hepatosplenomegaly.",
+"e": "Tangier disease is an autosomal recessive defect in ABCA1, the transporter that moves free cholesterol and phospholipid from cells onto apo A-I.\nWithout ABCA1:\n• Nascent HDL cannot form, so lipid-poor apo A-I is rapidly cleared and plasma HDL is nearly absent.\n• Cholesterol builds up in macrophages of the reticuloendothelial system: large orange-yellow tonsils, hepatosplenomegaly, peripheral neuropathy and premature atherosclerosis.\n\nTakeaway: Tangier = ABCA1 defect → near-zero HDL + orange tonsils + neuropathy.",
 "w": [
-"LCAT defects cause LCAT deficiency or fish-eye disease.",
-"Apo E defects cause type III.",
-"MTTP defects cause abetalipoproteinemia.",
-"LDL receptor defects cause FH.",
+"LCAT mutations cause complete LCAT deficiency or fish-eye disease.",
+"Apo E mutations cause type III dysbetalipoproteinemia.",
+"MTTP mutations cause abetalipoproteinemia.",
+"LDL receptor mutations cause familial hypercholesterolemia.",
 ""
 ],
 "src": "lec",
@@ -4515,13 +4575,13 @@ window.CRS_BC_QUESTIONS = [
 "Apolipoprotein E"
 ],
 "a": 0,
-"e": "A defect in MTTP stops assembly of apo B-containing lipoproteins, so the intestine cannot release chylomicrons and the liver cannot release VLDL.",
+"e": "Microsomal triglyceride transfer protein (MTTP) loads lipid onto apo B-48 in enterocytes and apo B-100 in hepatocytes. Without it, the cell cannot assemble or secrete chylomicrons or VLDL, and there is no LDL.\nConsequences:\n• Fat accumulates in enterocytes, causing steatorrhea and failure to thrive.\n• Plasma TAG and cholesterol are extremely low.\n• The fat-soluble vitamins A, D, E and K are malabsorbed. Vitamin E deficiency causes ataxia and retinitis pigmentosa.\n• Abnormal red cell membranes make acanthocytes.\n\nTakeaway: Abetalipoproteinemia = MTTP defect → no apo B lipoproteins → steatorrhea, acanthocytes, vitamin E deficiency.",
 "w": [
 "",
-"LPL deficiency causes type I.",
-"LCAT deficiency causes lipoprotein X.",
-"CETP is not the cause.",
-"Apo E defects cause type III."
+"LPL deficiency causes type I, with very high chylomicrons, the opposite lipid pattern.",
+"LCAT deficiency causes lipoprotein X with corneal and kidney disease.",
+"CETP deficiency raises HDL and does not stop chylomicron or VLDL assembly.",
+"Apo E defects cause type III remnant accumulation."
 ],
 "src": "lec",
 "fig": [
