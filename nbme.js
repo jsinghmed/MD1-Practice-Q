@@ -6243,6 +6243,379 @@ window.NBME_QUIZZES = [
 "figs/crs/bp-md-jg",
 "figs/crs/bp-raas"
 ]
+},
+{
+"t": "Lecture 9 · ECG Essentials Part 1",
+"s": "A 66-year-old man with end-stage renal disease misses two dialysis sessions. His ECG shows tall, narrow T waves and a widening QRS. Which change in his myocytes best explains the QRS change?",
+"c": [
+"Hyperpolarization of the resting potential",
+"A prolonged plateau from more Ca²⁺ influx",
+"Faster AV nodal conduction from vagal withdrawal",
+"Delayed repolarization of the papillary muscles",
+"Na⁺ channel inactivation at a less negative rest"
+],
+"a": 4,
+"e": "High extracellular K⁺ makes the resting potential less negative, which inactivates fast Na⁺ channels. Phase 0 slows, conduction slows, and the QRS widens. Peaked T waves come first from faster repolarization.",
+"w": [
+"High K⁺ depolarizes, not hyperpolarizes, the membrane.",
+"Hyperkalemia shortens rather than prolongs repolarization.",
+"AV conduction affects PR, not QRS width.",
+"That gives U waves, as in hypokalemia.",
+""
+],
+"fig": [
+"figs/crs/ecg-twave"
+]
+},
+{
+"t": "Lecture 9 · ECG Essentials Part 1",
+"s": "An ECG is recorded at standard settings. The QT interval measures 11 small squares and the R-R interval 20 small squares. Which statement is correct?",
+"c": [
+"QT is 0.22 s and heart rate is 150/min",
+"QT is 2.2 s and heart rate is 30/min",
+"QT is 0.44 s and heart rate is 75/min",
+"QT is 0.44 s and heart rate is 150/min",
+"QT is 0.11 s and heart rate is 75/min"
+],
+"a": 2,
+"e": "At 25 mm/s each small square = 0.04 s, so QT = 11 × 0.04 = 0.44 s, slightly prolonged for a rate of 75. Heart rate = 1500 ÷ 20 = 75/min.",
+"w": [
+"This uses 0.02 s per square, the value at 50 mm/s.",
+"This uses large-square time for small squares.",
+"",
+"1500 ÷ 20 = 75, not 150.",
+"This forgets to multiply by 0.04 s."
+],
+"fig": [
+"figs/crs/ecg-paper",
+"figs/crs/ecg-qt-rr"
+]
+},
+{
+"t": "Lecture 9 · ECG Essentials Part 1",
+"s": "A patient's QRS is tall and upright in lead I and nearly equally positive and negative in aVF. Where does the mean QRS vector point?",
+"c": [
+"Close to +90°",
+"Close to +120°",
+"Close to −90°",
+"Close to +180°",
+"Close to 0°"
+],
+"a": 4,
+"e": "A lead is isoelectric when the vector is perpendicular to it. aVF lies at +90°, so the vector is near 0° or 180°. Lead I (0°) is strongly positive, so the vector points toward 0°.",
+"w": [
+"+90° would be tallest in aVF and isoelectric in lead I.",
+"+120° would be negative in lead I.",
+"−90° would be deeply negative in aVF.",
+"+180° would be negative in lead I.",
+""
+],
+"fig": [
+"figs/crs/ecg-einthoven",
+"figs/crs/ecg-deflection"
+]
+},
+{
+"t": "Lecture 9 · ECG Essentials Part 1",
+"s": "A 63-year-old woman has 2 hours of chest pain. ST elevation is present in V1–V4. Which region of the heart is injured?",
+"c": [
+"Septum and anterior wall",
+"The inferior wall only",
+"The lateral wall alone",
+"The right atrial wall",
+"The true posterior wall only"
+],
+"a": 0,
+"e": "V1–V2 view the septum and V3–V4 the anterior wall, so ST elevation in V1–V4 means an anteroseptal STEMI.",
+"w": [
+"",
+"Inferior injury shows in II, III and aVF.",
+"Lateral injury shows in I, aVL, V5 and V6.",
+"No lead group isolates the right atrium.",
+"Posterior injury shows as reciprocal changes, not ST elevation in V1–V4."
+],
+"fig": [
+"figs/crs/ecg-precordial",
+"figs/crs/ecg-stemi"
+]
+},
+{
+"t": "Lecture 9 · ECG Essentials Part 1",
+"s": "During an exercise stress test, a 55-year-old man develops chest pain. His ST segments become depressed in V4–V6 and recover with rest. Why is the ST segment depressed?",
+"c": [
+"Injury current from ischemic tissue",
+"Faster repolarization from high K⁺",
+"Slowed conduction through the AV node",
+"Unmasking of atrial repolarization",
+"Necrosis of the full ventricular wall"
+],
+"a": 0,
+"e": "Ischemic subendocardial cells stay partly depolarized, so injury current flows between them and healthy cells. That shifts the ST segment downward during demand ischemia. Elevation suggests transmural injury.",
+"w": [
+"",
+"This would peak the T wave.",
+"This would lengthen the PR interval.",
+"Atrial repolarization is hidden in the QRS, not in ST.",
+"Transmural injury gives ST elevation, and his change resolved."
+],
+"fig": [
+"figs/crs/ecg-injury-current"
+]
+},
+{
+"t": "Lecture 9 · ECG Essentials Part 1",
+"s": "A 19-year-old athlete has a resting PR interval of 0.22 s. After jogging in place for 2 minutes, his heart rate rises and the PR interval falls to 0.16 s. What best explains the resting finding?",
+"c": [
+"High vagal tone slowing the AV node",
+"Fibrosis of the His–Purkinje system",
+"An accessory pathway around the AV node",
+"Left atrial enlargement from training",
+"Hypokalemia from heavy sweating"
+],
+"a": 0,
+"e": "Vagal tone slows AV nodal conduction and lengthens the PR. Exercise withdraws vagal tone and adds sympathetic drive, so the PR shortens. This is a benign, functional first-degree pattern.",
+"w": [
+"",
+"Fibrosis would not reverse with exercise.",
+"An accessory pathway shortens, not lengthens, the PR.",
+"Atrial size changes the P wave, not the AV delay.",
+"Low K⁺ affects T and U waves."
+],
+"fig": [
+"figs/crs/ecg-pr-interval"
+]
+},
+{
+"t": "Lecture 9 · ECG Essentials Part 1",
+"s": "Which ECG interval is the best index of total ventricular electrical systole?",
+"c": [
+"The PR interval",
+"The PQ segment",
+"The ST segment",
+"The QT interval",
+"The R-R interval"
+],
+"a": 3,
+"e": "The QT interval runs from QRS onset to the end of the T wave, so it covers ventricular depolarization plus repolarization. It is normally about 0.25–0.43 s, and it lengthens in ischemia and with QT-prolonging drugs.",
+"w": [
+"PR is AV conduction time.",
+"PQ is the period after atrial depolarization.",
+"ST is only the plateau, not depolarization plus repolarization.",
+"",
+"R-R is the whole cardiac cycle."
+],
+"fig": [
+"figs/crs/ecg-qt-rr"
+]
+},
+{
+"t": "Lecture 9 · ECG Essentials Part 1",
+"s": "A man with long-standing aortic stenosis has a thick left ventricle. On his ECG, which change is most expected?",
+"c": [
+"Tall, peaked T waves in all leads",
+"Tall QRS in the lateral leads",
+"A prolonged PR interval of 0.28 s",
+"Prominent U waves after each T",
+"Absent P waves before each QRS"
+],
+"a": 1,
+"e": "Pressure overload from aortic stenosis causes concentric LV hypertrophy. More muscle depolarizes at once, so QRS voltage increases, most visibly in the leads facing the LV (lateral leads).",
+"w": [
+"Peaked T waves suggest hyperkalemia.",
+"",
+"Hypertrophy does not slow AV conduction.",
+"U waves suggest hypokalemia.",
+"Absent P waves suggest atrial fibrillation."
+],
+"fig": [
+"figs/crs/ecg-qrs"
+]
+},
+{
+"t": "Lecture 10 · ECG Part 2: Blocks & Arrhythmias",
+"s": "A 70-year-old man has an irregularly irregular pulse of 132/min and no discrete P waves. He has hypertension and diabetes. Which therapy most reduces his risk of stroke?",
+"c": [
+"A rate-control drug such as metoprolol",
+"Anticoagulation such as apixaban",
+"Intravenous magnesium sulfate",
+"A permanent ventricular pacemaker",
+"Intravenous atropine bolus"
+],
+"a": 1,
+"e": "Atrial fibrillation causes stasis and clot formation in the atria, which can embolize as a stroke. Anticoagulation (warfarin or a DOAC) prevents this. Rate and rhythm control treat symptoms.",
+"w": [
+"Rate control treats symptoms but does not prevent emboli.",
+"",
+"Magnesium treats torsades de pointes.",
+"Pacing treats high-grade AV block.",
+"Atropine speeds AV conduction and the rate."
+],
+"fig": [
+"figs/crs/ecg-afib",
+"figs/crs/ecg-afib-filter"
+]
+},
+{
+"t": "Lecture 10 · ECG Part 2: Blocks & Arrhythmias",
+"s": "A rhythm strip shows atrial waves at 300/min in a sawtooth pattern and regular QRS complexes at 150/min. Which conduction ratio is present?",
+"c": [
+"2:1",
+"1:1",
+"3:1",
+"4:1",
+"Variable"
+],
+"a": 0,
+"e": "In atrial flutter the AV node cannot conduct every 300/min atrial wave. 300 ÷ 150 = 2, so every other F wave conducts: 2:1 flutter.",
+"w": [
+"",
+"1:1 conduction would give a ventricular rate of 300/min.",
+"3:1 would give 100/min.",
+"4:1 would give 75/min.",
+"A variable ratio would make the ventricular rhythm irregular."
+],
+"fig": [
+"figs/crs/ecg-flutter"
+]
+},
+{
+"t": "Lecture 10 · ECG Part 2: Blocks & Arrhythmias",
+"s": "A 68-year-old woman has a slow pulse. Her ECG shows P waves that march through regularly, QRS complexes that march through at a different regular rate, and P waves landing on T waves. What is the next best step?",
+"c": [
+"Observation only",
+"Anticoagulation",
+"Catheter ablation of the isthmus",
+"Pacemaker placement",
+"IV magnesium sulfate"
+],
+"a": 3,
+"e": "Regular P waves and regular QRS complexes with no relationship between them is third-degree AV block. No atrial impulse reaches the ventricles, so a slow escape rhythm drives them, and a pacemaker is needed.",
+"w": [
+"Complete heart block is life-threatening.",
+"There is no AF or flutter.",
+"Ablation treats atrial flutter.",
+"",
+"Magnesium treats torsades de pointes."
+],
+"fig": [
+"figs/crs/ecg-3rd-degree"
+]
+},
+{
+"t": "Lecture 10 · ECG Part 2: Blocks & Arrhythmias",
+"s": "A patient's strip shows PR intervals of 0.20, 0.26 and 0.32 s, then a P wave with no QRS, and the pattern repeats. Where is the block most likely?",
+"c": [
+"The bundle of His",
+"The bundle branches",
+"The AV node",
+"The SA node",
+"The Purkinje network"
+],
+"a": 2,
+"e": "Progressive PR lengthening before a dropped beat is Mobitz I (Wenckebach). The block is usually within the AV node, it is usually benign, and atropine tends to improve it.",
+"w": [
+"His-level block gives Mobitz II with a constant PR.",
+"Bundle branch block widens the QRS without this pattern.",
+"",
+"SA node problems change P-wave timing.",
+"Purkinje block does not cause progressive PR lengthening."
+],
+"fig": [
+"figs/crs/ecg-mobitz1"
+]
+},
+{
+"t": "Lecture 10 · ECG Part 2: Blocks & Arrhythmias",
+"s": "A 34-year-old woman takes ondansetron for nausea and azithromycin for pneumonia. She faints, and her monitor shows polymorphic VT with twisting QRS peaks. Which underlying change made this possible?",
+"c": [
+"Faster AV nodal conduction",
+"Shortened ventricular action potentials",
+"Complete AV dissociation",
+"Chaotic atrial depolarization",
+"Prolonged ventricular repolarization"
+],
+"a": 4,
+"e": "Ondansetron and macrolides both block K⁺ currents and prolong repolarization (long QT). Prolonged repolarization allows early afterdepolarizations that trigger torsades de pointes.",
+"w": [
+"AV conduction does not cause torsades.",
+"Torsades needs prolonged, not shortened, repolarization.",
+"AV dissociation is third-degree block.",
+"That is atrial fibrillation.",
+""
+],
+"fig": [
+"figs/crs/ecg-torsades",
+"figs/crs/ecg-longqt-torsades"
+]
+},
+{
+"t": "Lecture 10 · ECG Part 2: Blocks & Arrhythmias",
+"s": "A 50-year-old man has chest pain at rest. His ECG shows ST depression in V5–V6. His first troponin is elevated. Which statement about his infarct is correct?",
+"c": [
+"It involves the full wall thickness",
+"It shows no myocyte necrosis at all",
+"It comes from a complete occlusion",
+"It mainly involves subendocardium",
+"It needs a permanent pacemaker"
+],
+"a": 3,
+"e": "ST depression without elevation plus raised troponin is an NSTEMI, a subendocardial infarct from a partial occlusion.",
+"w": [
+"Transmural infarction gives ST elevation.",
+"Raised troponin means necrosis.",
+"Complete occlusion typically gives a STEMI.",
+"",
+"Pacing is for AV block, not NSTEMI."
+],
+"fig": [
+"figs/crs/ecg-stemi-nstemi"
+]
+},
+{
+"t": "Lecture 10 · ECG Part 2: Blocks & Arrhythmias",
+"s": "A regular rhythm strip has 5 small squares between R waves, with a P wave before each QRS. What is the rate, and what is the rhythm?",
+"c": [
+"60/min, a normal sinus rhythm",
+"300/min, too fast for sinus",
+"100/min, a borderline sinus",
+"150/min, a sinus tachycardia",
+"30/min, a sinus bradycardia"
+],
+"a": 1,
+"e": "HR = 1500 ÷ 5 = 300/min. Sinus rhythms rarely exceed about 200/min, so a P-like wave at 300/min should make you think of flutter waves rather than sinus P waves.",
+"w": [
+"60/min would need 25 small squares.",
+"",
+"100/min would need 15 small squares.",
+"150/min would need 10 small squares.",
+"30/min would need 50 small squares."
+],
+"fig": [
+"figs/crs/ecg-paper"
+]
+},
+{
+"t": "Lecture 10 · ECG Part 2: Blocks & Arrhythmias",
+"s": "A newborn's sibling died suddenly. The newborn fails the hearing screen, and his ECG shows a long QT interval. Both parents have normal hearing and normal ECGs. Which inheritance pattern fits?",
+"c": [
+"Autosomal dominant form",
+"X-linked recessive",
+"Autosomal recessive",
+"Mitochondrial DNA",
+"X-linked dominant"
+],
+"a": 2,
+"e": "Long QT with congenital sensorineural deafness is Jervell and Lange-Nielsen syndrome, which is autosomal recessive, so unaffected carrier parents are expected.",
+"w": [
+"Dominant long QT (Romano-Ward) spares hearing and an affected parent is expected.",
+"Neither classic long QT syndrome is X-linked.",
+"",
+"Mitochondrial inheritance does not fit this syndrome.",
+"Neither classic long QT syndrome is X-linked."
+],
+"fig": [
+"figs/crs/ecg-longqt-torsades"
+]
 }
 ]
 }

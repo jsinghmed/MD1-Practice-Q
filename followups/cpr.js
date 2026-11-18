@@ -11609,5 +11609,2261 @@ Object.assign(window.JJ_FU, {
 ]
 }
 ]
+},
+"cpr386": {
+"k": "Small square 0.04 s, large square 0.20 s",
+"q": [
+{
+"id": "cpr386-f1",
+"lv": "Easy",
+"s": "At 25 mm/s, how long is one large square?",
+"c": [
+"0.04 s",
+"0.10 s",
+"0.20 s",
+"0.40 s",
+"1.00 s"
+],
+"a": 2,
+"e": "A large square is 5 small squares × 0.04 s = 0.20 s.",
+"w": [
+"That is one small square.",
+"That is 2.5 small squares.",
+"",
+"That is two large squares.",
+"That is five large squares."
+]
+},
+{
+"id": "cpr386-f2",
+"lv": "Hard",
+"s": "A QRS spans 3 small squares at 25 mm/s. Is it wide?",
+"c": [
+"Yes, it lasts 0.30 s",
+"No, it lasts 0.12 s",
+"Yes, it lasts 0.60 s",
+"No, it lasts 0.03 s",
+"Yes, it lasts 0.15 s"
+],
+"a": 1,
+"e": "3 × 0.04 s = 0.12 s, the upper limit of a normal-width QRS.",
+"w": [
+"This uses 0.10 s per square.",
+"",
+"This uses 0.20 s per square.",
+"This uses 0.01 s per square.",
+"This uses 0.05 s per square."
+]
+}
+]
+},
+"cpr387": {
+"k": "Calibration: 10 mm = 1 mV",
+"q": [
+{
+"id": "cpr387-f1",
+"lv": "Easy",
+"s": "With standard calibration, how tall is a 1 mV calibration pulse?",
+"c": [
+"1 mm",
+"5 mm",
+"20 mm",
+"10 mm",
+"25 mm"
+],
+"a": 3,
+"e": "Standard calibration sets 1 mV = 10 mm, two large squares tall.",
+"w": [
+"That is 0.1 mV.",
+"That is 0.5 mV.",
+"That is 2 mV.",
+"",
+"25 is the paper speed in mm/s."
+]
+},
+{
+"id": "cpr387-f2",
+"lv": "Hard",
+"s": "A P wave is 2.5 mm tall. Is its amplitude normal?",
+"c": [
+"Yes, 0.25 mV is normal for P",
+"No, 2.5 mV is far too tall here",
+"No, 0.025 mV is too small",
+"Yes, 2.5 mV is normal for P",
+"No, 0.5 mV is too tall"
+],
+"a": 0,
+"e": "2.5 mm ÷ 10 mm per mV = 0.25 mV, within the normal P-wave range of 0.1–0.3 mV.",
+"w": [
+"",
+"This forgets to divide by 10.",
+"This divides by 100.",
+"2.5 mV is QRS-sized, not P-sized.",
+"This doubles the height."
+]
+}
+]
+},
+"cpr388": {
+"k": "Paper speed changes the time per square",
+"q": [
+{
+"id": "cpr388-f1",
+"lv": "Easy",
+"s": "At 50 mm/s, how much time does one small square represent?",
+"c": [
+"0.02 s",
+"0.04 s",
+"0.08 s",
+"0.01 s",
+"0.20 s"
+],
+"a": 0,
+"e": "Twice the paper speed halves the time per millimetre: 1 ÷ 50 = 0.02 s.",
+"w": [
+"",
+"That is the value at 25 mm/s.",
+"That would be paper at 12.5 mm/s.",
+"That would be paper at 100 mm/s.",
+"That is a large square at 25 mm/s."
+]
+},
+{
+"id": "cpr388-f2",
+"lv": "Hard",
+"s": "At 50 mm/s, how do the waves look compared with 25 mm/s?",
+"c": [
+"Twice as tall, same width",
+"Half as wide, same height",
+"Twice as wide and as tall",
+"Half as tall, the same width",
+"Twice as wide, same height"
+],
+"a": 4,
+"e": "Paper speed only changes the horizontal (time) axis, so waves stretch to twice the width while voltage is unchanged.",
+"w": [
+"Height depends on calibration, not speed.",
+"Faster paper stretches waves, not shrinks them.",
+"Height is unchanged by speed.",
+"Height is unchanged by speed.",
+""
+]
+}
+]
+},
+"cpr389": {
+"k": "Toward + up, away from + down",
+"q": [
+{
+"id": "cpr389-f1",
+"lv": "Easy",
+"s": "Depolarization moving toward a positive electrode records as what?",
+"c": [
+"An upward deflection",
+"A downward deflection",
+"A flat line",
+"An inverted T wave",
+"A U wave"
+],
+"a": 0,
+"e": "Depolarization toward the positive electrode gives an upward deflection.",
+"w": [
+"",
+"That is depolarization moving away.",
+"That is a perpendicular wavefront.",
+"T inversion is about repolarization.",
+"U waves are late repolarization."
+]
+},
+{
+"id": "cpr389-f2",
+"lv": "Hard",
+"s": "Repolarization moving toward a positive electrode records as what?",
+"c": [
+"An upward deflection",
+"A flat isoelectric line",
+"A downward deflection",
+"A biphasic QRS",
+"A tall, peaked T wave"
+],
+"a": 2,
+"e": "Repolarization has the opposite sign to depolarization, so toward the positive electrode it records downward.",
+"w": [
+"That is repolarization moving away.",
+"That is a perpendicular wavefront.",
+"",
+"QRS is depolarization.",
+"Peaked T waves are hyperkalemia."
+]
+}
+]
+},
+"cpr390": {
+"k": "Epicardium repolarizes first",
+"q": [
+{
+"id": "cpr390-f1",
+"lv": "Easy",
+"s": "Which layer of the ventricle repolarizes first?",
+"c": [
+"The endocardium",
+"The septum",
+"The Purkinje fibers",
+"The papillary muscles",
+"The epicardium"
+],
+"a": 4,
+"e": "The epicardium has the shortest action potential, so it repolarizes first and repolarization travels inward.",
+"w": [
+"The endocardium repolarizes last.",
+"The septum depolarizes first, not repolarizes.",
+"Purkinje fibers have long action potentials.",
+"Papillary muscles repolarize late, giving the U wave.",
+""
+]
+},
+{
+"id": "cpr390-f2",
+"lv": "Hard",
+"s": "If repolarization runs from endocardium to epicardium, what happens to the T wave?",
+"c": [
+"It becomes inverted",
+"It becomes peaked",
+"It becomes wider only",
+"It disappears",
+"It merges with the U wave"
+],
+"a": 0,
+"e": "Repolarization moving toward the surface electrode records downward, so the T wave inverts, as in ischemia.",
+"w": [
+"",
+"Peaked T waves are hyperkalemia.",
+"Direction, not width, changes.",
+"The wave persists but flips.",
+"U waves are separate."
+]
+}
+]
+},
+"cpr391": {
+"k": "Perpendicular lead is isoelectric",
+"q": [
+{
+"id": "cpr391-f1",
+"lv": "Easy",
+"s": "A wavefront runs at 90° to a lead's axis. What does the lead record?",
+"c": [
+"A large upward deflection",
+"A large downward deflection",
+"A wide QRS",
+"A peaked T wave",
+"Almost no net deflection"
+],
+"a": 4,
+"e": "A wavefront perpendicular to the lead axis has no component along it, so the lead records almost nothing.",
+"w": [
+"That needs a parallel wavefront toward +.",
+"That needs a parallel wavefront away from +.",
+"Width reflects conduction speed.",
+"Peaked T waves are hyperkalemia.",
+""
+]
+},
+{
+"id": "cpr391-f2",
+"lv": "Hard",
+"s": "The QRS is most positive in lead II. Where does the mean vector point?",
+"c": [
+"About 0°",
+"About +60°",
+"About +120°",
+"About −30°",
+"About +180°"
+],
+"a": 1,
+"e": "The lead most parallel to the vector shows the tallest QRS. Lead II sits at +60°.",
+"w": [
+"0° is lead I.",
+"",
+"+120° is lead III.",
+"−30° is aVL.",
+"+180° points to the right."
+]
+}
+]
+},
+"cpr392": {
+"k": "Einthoven's triangle",
+"q": [
+{
+"id": "cpr392-f1",
+"lv": "Easy",
+"s": "Which electrode pair forms lead I?",
+"c": [
+"Right arm −, left arm +",
+"Right arm −, left leg +",
+"Left arm −, left leg +",
+"Left arm −, right arm +",
+"Left leg −, left arm +"
+],
+"a": 0,
+"e": "Lead I runs RA (−) to LA (+), along 0°, and is a lateral lead.",
+"w": [
+"",
+"That is lead II.",
+"That is lead III.",
+"This reverses lead I.",
+"No standard lead is wired this way."
+]
+},
+{
+"id": "cpr392-f2",
+"lv": "Hard",
+"s": "Lead III's positive electrode is on the left leg. What is its axis?",
+"c": [
+"+120°",
+"0°",
+"+60°",
+"+90°",
+"−30° to −40°"
+],
+"a": 0,
+"e": "Lead III runs LA (−) to LL (+), at +120°, and views the inferior wall.",
+"w": [
+"",
+"0° is lead I.",
+"+60° is lead II.",
+"+90° is aVF.",
+"−30° is aVL."
+]
+}
+]
+},
+"cpr393": {
+"k": "aVR is normally negative",
+"q": [
+{
+"id": "cpr393-f1",
+"lv": "Easy",
+"s": "Where is the positive electrode of aVR?",
+"c": [
+"The left arm",
+"The left foot",
+"The 4th intercostal space",
+"The right arm",
+"The midaxillary line"
+],
+"a": 3,
+"e": "aVR = augmented voltage, right arm.",
+"w": [
+"That is aVL.",
+"That is aVF.",
+"That is V1 or V2.",
+"",
+"That is V6."
+]
+},
+{
+"id": "cpr393-f2",
+"lv": "Hard",
+"s": "Why is aVR normally negative?",
+"c": [
+"It is wired with reversed polarity",
+"It views only the atria",
+"It is a bipolar lead",
+"Depolarization moves away from it",
+"It records repolarization only"
+],
+"a": 3,
+"e": "Normal depolarization travels down and to the left, away from the right arm, so aVR records downward deflections.",
+"w": [
+"Its polarity is standard.",
+"It views the whole heart.",
+"aVR is an augmented unipolar lead.",
+"",
+"It records both."
+]
+}
+]
+},
+"cpr394": {
+"k": "V1–V2 septal, V3–V4 anterior, V5–V6 lateral",
+"q": [
+{
+"id": "cpr394-f1",
+"lv": "Easy",
+"s": "Which precordial leads view the lateral wall?",
+"c": [
+"V5 and V6",
+"V1 and V2",
+"V3 and V4",
+"II and III",
+"aVR and aVL"
+],
+"a": 0,
+"e": "V5 and V6 sit over the lateral left ventricle.",
+"w": [
+"",
+"V1–V2 are septal.",
+"V3–V4 are anterior.",
+"II and III are inferior limb leads.",
+"These are augmented limb leads."
+]
+},
+{
+"id": "cpr394-f2",
+"lv": "Hard",
+"s": "ST elevation appears only in V3 and V4. Which wall is affected?",
+"c": [
+"The septum",
+"The anterior wall",
+"The lateral wall",
+"The inferior wall",
+"The right atrium"
+],
+"a": 1,
+"e": "V3 and V4 view the anterior wall of the left ventricle.",
+"w": [
+"The septum is V1–V2.",
+"",
+"The lateral wall is V5–V6.",
+"Inferior is II, III, aVF.",
+"No lead pair targets the atrium."
+]
+}
+]
+},
+"cpr395": {
+"k": "Precordial electrode positions",
+"q": [
+{
+"id": "cpr395-f1",
+"lv": "Easy",
+"s": "Where is V1 placed?",
+"c": [
+"4th space, right sternal border",
+"4th space, left sternal border",
+"5th space, midclavicular line",
+"Anterior axillary line, V4 level",
+"Midaxillary line, V4 level"
+],
+"a": 0,
+"e": "V1 sits at the 4th intercostal space just right of the sternum.",
+"w": [
+"",
+"That is V2.",
+"That is V4.",
+"That is V5.",
+"That is V6."
+]
+},
+{
+"id": "cpr395-f2",
+"lv": "Hard",
+"s": "Where is V3 placed?",
+"c": [
+"Midway between V1 and V2",
+"Midway between V4 and V5",
+"At the 5th space, anterior axillary",
+"At the 4th space, midclavicular",
+"Midway between V2 and V4"
+],
+"a": 4,
+"e": "V3 has no landmark of its own. It sits halfway between V2 and V4.",
+"w": [
+"V1 and V2 are side by side.",
+"V5 follows V4.",
+"That is not a standard position.",
+"V4 is at the 5th space.",
+""
+]
+}
+]
+},
+"cpr396": {
+"k": "II, III, aVF = inferior",
+"q": [
+{
+"id": "cpr396-f1",
+"lv": "Easy",
+"s": "Which lead group views the inferior wall?",
+"c": [
+"I, aVL, V5 and V6",
+"V1 and V2",
+"V3 and V4",
+"II, III and aVF",
+"aVR only"
+],
+"a": 3,
+"e": "Leads II, III and aVF all have the left leg as positive electrode, so they look up at the inferior wall.",
+"w": [
+"These are lateral.",
+"These are septal.",
+"These are anterior.",
+"",
+"aVR views from the right shoulder."
+]
+},
+{
+"id": "cpr396-f2",
+"lv": "Hard",
+"s": "ST elevation is seen in I, aVL, V5 and V6. Which wall is injured?",
+"c": [
+"The lateral wall",
+"The inferior wall",
+"The septum",
+"The anterior wall",
+"The right ventricle"
+],
+"a": 0,
+"e": "I, aVL, V5 and V6 are the lateral leads.",
+"w": [
+"",
+"Inferior is II, III, aVF.",
+"Septal is V1–V2.",
+"Anterior is V3–V4.",
+"No standard 12-lead group is listed for the RV here."
+]
+}
+]
+},
+"cpr397": {
+"k": "Atrial repolarization hidden in QRS",
+"q": [
+{
+"id": "cpr397-f1",
+"lv": "Easy",
+"s": "Which wave represents atrial depolarization?",
+"c": [
+"The QRS complex",
+"The T wave",
+"The U wave",
+"The Q wave",
+"The P wave"
+],
+"a": 4,
+"e": "The P wave is atrial depolarization from the SA node through both atria.",
+"w": [
+"QRS is ventricular depolarization.",
+"T is ventricular repolarization.",
+"U is papillary repolarization.",
+"Q is septal depolarization.",
+""
+]
+},
+{
+"id": "cpr397-f2",
+"lv": "Hard",
+"s": "Why can't atrial repolarization be seen on a normal ECG?",
+"c": [
+"It coincides with the QRS",
+"It happens during the T wave",
+"It produces no current",
+"It is too fast to record",
+"It occurs during the PR segment"
+],
+"a": 0,
+"e": "Atrial repolarization happens at the same time as ventricular depolarization, so the much larger QRS hides it.",
+"w": [
+"",
+"The T wave is later.",
+"Any repolarization produces current.",
+"Speed is not the reason.",
+"The PR segment is before the QRS."
+]
+}
+]
+},
+"cpr398": {
+"k": "Q septum, R LV, S RV",
+"q": [
+{
+"id": "cpr398-f1",
+"lv": "Easy",
+"s": "Which wave reflects depolarization of the left ventricle?",
+"c": [
+"The Q wave",
+"The R wave",
+"The S wave",
+"The P wave",
+"The T wave"
+],
+"a": 1,
+"e": "The R wave is the large left ventricular depolarization.",
+"w": [
+"Q is the septum.",
+"",
+"S is the RV and base.",
+"P is the atria.",
+"T is repolarization."
+]
+},
+{
+"id": "cpr398-f2",
+"lv": "Hard",
+"s": "Which part of the ventricles depolarizes first?",
+"c": [
+"The left ventricular free wall",
+"The right ventricular free wall",
+"The base of the heart",
+"The papillary muscles",
+"The interventricular septum"
+],
+"a": 4,
+"e": "The septum depolarizes first, left to right, giving the Q wave.",
+"w": [
+"The LV free wall follows, giving R.",
+"The RV gives the S wave.",
+"The base depolarizes last.",
+"Papillary muscles are not first.",
+""
+]
+}
+]
+},
+"cpr399": {
+"k": "U wave in hypokalemia",
+"q": [
+{
+"id": "cpr399-f1",
+"lv": "Easy",
+"s": "Which electrolyte disorder makes the U wave prominent?",
+"c": [
+"Hypokalemia",
+"Hyperkalemia",
+"Hypernatremia",
+"Hypercalcemia",
+"Hyponatremia"
+],
+"a": 0,
+"e": "Low K⁺ slows repolarization, flattening T and making U prominent.",
+"w": [
+"",
+"High K⁺ peaks the T wave.",
+"Sodium does not classically change U.",
+"High Ca²⁺ shortens QT.",
+"Sodium does not classically change U."
+]
+},
+{
+"id": "cpr399-f2",
+"lv": "Hard",
+"s": "Which structure's slow repolarization is thought to produce the U wave?",
+"c": [
+"The atrial muscle",
+"The AV node",
+"The interventricular septum",
+"The SA node",
+"The papillary muscles"
+],
+"a": 4,
+"e": "The U wave is attributed to slow repolarization of the papillary muscles.",
+"w": [
+"Atrial repolarization is hidden in QRS.",
+"The AV node produces no visible wave.",
+"The septum gives the Q wave.",
+"The SA node produces no visible wave.",
+""
+]
+}
+]
+},
+"cpr400": {
+"k": "Big P wave = atrial enlargement",
+"q": [
+{
+"id": "cpr400-f1",
+"lv": "Easy",
+"s": "What does a larger P wave usually suggest?",
+"c": [
+"Ventricular hypertrophy",
+"Hyperkalemia",
+"AV block",
+"Myocardial ischemia",
+"Atrial enlargement"
+],
+"a": 4,
+"e": "More atrial muscle gives a bigger depolarization signal, so a larger P wave suggests atrial enlargement.",
+"w": [
+"Ventricular hypertrophy raises QRS voltage.",
+"Hyperkalemia flattens P later.",
+"AV block changes PR.",
+"Ischemia changes ST and T.",
+""
+]
+},
+{
+"id": "cpr400-f2",
+"lv": "Hard",
+"s": "Mitral stenosis enlarges which chamber first?",
+"c": [
+"The left ventricle",
+"The right ventricle",
+"The right atrium",
+"The left atrium",
+"The aortic root"
+],
+"a": 3,
+"e": "The narrowed mitral valve backs up pressure into the left atrium, which enlarges.",
+"w": [
+"The LV is protected from overload in MS.",
+"The RV enlarges later with pulmonary hypertension.",
+"The RA is affected late.",
+"",
+"The aortic root is downstream."
+]
+}
+]
+},
+"cpr401": {
+"k": "Hypertrophy raises QRS voltage",
+"q": [
+{
+"id": "cpr401-f1",
+"lv": "Easy",
+"s": "What is the normal QRS voltage range?",
+"c": [
+"About 0.5–2.0 mV",
+"About 0.1–0.3 mV",
+"About 3–5 mV",
+"About 0.01–0.05 mV",
+"About 10–20 mV"
+],
+"a": 0,
+"e": "Normal QRS voltage is about 0.5–2.0 mV.",
+"w": [
+"",
+"That is the P-wave range.",
+"That is too high.",
+"That is far too low.",
+"That confuses mm with mV."
+]
+},
+{
+"id": "cpr401-f2",
+"lv": "Hard",
+"s": "Why does ventricular hypertrophy raise QRS voltage?",
+"c": [
+"Conduction through the AV node slows",
+"More muscle depolarizes at once",
+"Repolarization becomes faster",
+"Atrial depolarization is unmasked",
+"The ST segment rises"
+],
+"a": 1,
+"e": "Hypertrophy adds muscle mass, so the summed depolarization current and the QRS voltage increase.",
+"w": [
+"AV delay changes PR.",
+"",
+"Repolarization changes T.",
+"Atrial waves do not raise QRS.",
+"ST changes are separate."
+]
+}
+]
+},
+"cpr402": {
+"k": "PR = AV conduction, 0.12–0.20 s",
+"q": [
+{
+"id": "cpr402-f1",
+"lv": "Easy",
+"s": "What is the normal PR interval?",
+"c": [
+"0.12–0.20 s",
+"0.04–0.08 s",
+"0.25–0.43 s",
+"0.06–0.10 s",
+"0.30–0.50 s"
+],
+"a": 0,
+"e": "The PR interval is normally 0.12–0.20 s.",
+"w": [
+"",
+"Too short.",
+"That is the QT range.",
+"That is the QRS range.",
+"Too long."
+]
+},
+{
+"id": "cpr402-f2",
+"lv": "Hard",
+"s": "Which part of the PR interval lengthens most in AV nodal block?",
+"c": [
+"The P wave",
+"The QRS complex",
+"The T wave",
+"The ST segment",
+"The PQ segment"
+],
+"a": 4,
+"e": "The PR interval is the P wave plus the PQ segment. Nodal delay lengthens the flat PQ segment.",
+"w": [
+"P reflects atrial depolarization.",
+"QRS is after the PR interval.",
+"T is after the QRS.",
+"ST is after the QRS.",
+""
+]
+}
+]
+},
+"cpr403": {
+"k": "ST = plateau, fully depolarized",
+"q": [
+{
+"id": "cpr403-f1",
+"lv": "Easy",
+"s": "Which action potential phase matches the ST segment?",
+"c": [
+"Phase 0, the upstroke",
+"Phase 2, the plateau",
+"Phase 3, repolarization",
+"Phase 4, rest",
+"Phase 1, the notch"
+],
+"a": 1,
+"e": "The ST segment is the ventricular plateau, phase 2.",
+"w": [
+"Phase 0 is the QRS.",
+"",
+"Phase 3 is the T wave.",
+"Phase 4 is diastole.",
+"Phase 1 is brief and early."
+]
+},
+{
+"id": "cpr403-f2",
+"lv": "Hard",
+"s": "In acute transmural MI, how does the ST segment change?",
+"c": [
+"It falls below baseline",
+"It stays exactly flat",
+"It rises above baseline",
+"It disappears",
+"It becomes wider only"
+],
+"a": 2,
+"e": "Injury current from a full-thickness infarct elevates the ST segment.",
+"w": [
+"Depression fits ischemia or NSTEMI.",
+"Injury current shifts ST.",
+"",
+"ST does not vanish.",
+"Elevation, not width, is the key change."
+]
+}
+]
+},
+"cpr404": {
+"k": "HR = 60 ÷ R-R",
+"q": [
+{
+"id": "cpr404-f1",
+"lv": "Easy",
+"s": "An R-R interval of 1.0 s gives what heart rate?",
+"c": [
+"100 beats/min",
+"75 beats/min",
+"40 beats/min",
+"60 beats/min",
+"120 beats/min"
+],
+"a": 3,
+"e": "60 ÷ 1.0 = 60 beats/min.",
+"w": [
+"That needs 0.6 s.",
+"That needs 0.8 s.",
+"That needs 1.5 s.",
+"",
+"That needs 0.5 s."
+]
+},
+{
+"id": "cpr404-f2",
+"lv": "Hard",
+"s": "A heart rate of 120/min corresponds to which R-R interval?",
+"c": [
+"1.2 s",
+"0.5 s",
+"0.12 s",
+"2.0 s",
+"0.75 s"
+],
+"a": 1,
+"e": "R-R = 60 ÷ HR = 60 ÷ 120 = 0.5 s.",
+"w": [
+"That is 50/min.",
+"",
+"That is 500/min.",
+"That is 30/min.",
+"That is 80/min."
+]
+}
+]
+},
+"cpr405": {
+"k": "Vagal tone lengthens PR",
+"q": [
+{
+"id": "cpr405-f1",
+"lv": "Easy",
+"s": "How does parasympathetic stimulation affect the PR interval?",
+"c": [
+"It shortens it",
+"It has no effect",
+"It abolishes it",
+"It widens the QRS",
+"It lengthens it"
+],
+"a": 4,
+"e": "ACh slows AV nodal conduction, lengthening the PR interval.",
+"w": [
+"Sympathetic tone shortens PR.",
+"Vagal tone acts on the AV node.",
+"PR remains present.",
+"QRS width reflects ventricular conduction.",
+""
+]
+},
+{
+"id": "cpr405-f2",
+"lv": "Hard",
+"s": "Why does atropine shorten a vagally prolonged PR interval?",
+"c": [
+"It blocks muscarinic receptors",
+"It blocks β1 receptors in the node",
+"It opens K⁺ channels in the node",
+"It slows the SA node firing rate",
+"It blocks L-type Ca²⁺ channels"
+],
+"a": 0,
+"e": "Atropine removes ACh's slowing effect on AV nodal conduction.",
+"w": [
+"",
+"β-blockade would lengthen PR.",
+"Opening K⁺ channels is what ACh does.",
+"Atropine speeds the SA node.",
+"Ca²⁺ block would lengthen PR."
+]
+}
+]
+},
+"cpr406": {
+"k": "Hyperkalemia peaks T",
+"q": [
+{
+"id": "cpr406-f1",
+"lv": "Easy",
+"s": "What is the first ECG sign of hyperkalemia?",
+"c": [
+"Prominent U waves",
+"Diffuse ST depression",
+"A short PR interval",
+"Delta waves",
+"Tall, peaked T waves"
+],
+"a": 4,
+"e": "Peaked T waves appear first as K⁺ rises.",
+"w": [
+"That is hypokalemia.",
+"That is ischemia.",
+"Not the classic sign.",
+"That is WPW.",
+""
+]
+},
+{
+"id": "cpr406-f2",
+"lv": "Hard",
+"s": "As K⁺ rises further, what happens to the QRS?",
+"c": [
+"It narrows",
+"It becomes taller",
+"It widens",
+"It disappears first",
+"It shows a Q wave"
+],
+"a": 2,
+"e": "High K⁺ depolarizes cells, inactivates Na⁺ channels and slows conduction, so the QRS widens.",
+"w": [
+"Conduction slows, not speeds.",
+"Voltage does not rise.",
+"",
+"T and P change before QRS vanishes.",
+"Q waves are infarction."
+]
+}
+]
+},
+"cpr407": {
+"k": "Loop diuretics → hypokalemia",
+"q": [
+{
+"id": "cpr407-f1",
+"lv": "Easy",
+"s": "Which drug class commonly causes hypokalemia?",
+"c": [
+"ACE inhibitors",
+"K⁺-sparing diuretics",
+"Angiotensin receptor blockers",
+"Aldosterone antagonists",
+"Loop diuretics"
+],
+"a": 4,
+"e": "Loop diuretics increase distal Na⁺ delivery and K⁺ secretion.",
+"w": [
+"ACEIs raise K⁺.",
+"These raise K⁺.",
+"ARBs raise K⁺.",
+"These raise K⁺.",
+""
+]
+},
+{
+"id": "cpr407-f2",
+"lv": "Hard",
+"s": "Why is hypokalemia dangerous for heart rhythm?",
+"c": [
+"It shortens the QT interval",
+"It prolongs repolarization",
+"It speeds AV conduction",
+"It blocks Na⁺ channels",
+"It raises the resting potential"
+],
+"a": 1,
+"e": "Low K⁺ slows repolarization, prolonging QT and predisposing to torsades.",
+"w": [
+"QT lengthens.",
+"",
+"AV conduction is not the main issue.",
+"That is a hyperkalemia effect.",
+"Low K⁺ hyperpolarizes."
+]
+}
+]
+},
+"cpr408": {
+"k": "Injury current shifts ST",
+"q": [
+{
+"id": "cpr408-f1",
+"lv": "Easy",
+"s": "In myocardial ischemia without infarction, how does ST change?",
+"c": [
+"ST depression",
+"ST elevation",
+"No ST change",
+"Peaked T waves",
+"Prominent U waves"
+],
+"a": 0,
+"e": "Subendocardial ischemia typically gives ST depression.",
+"w": [
+"",
+"Elevation is acute transmural MI.",
+"Ischemia does shift ST.",
+"Peaked T is hyperkalemia.",
+"U waves are hypokalemia."
+]
+},
+{
+"id": "cpr408-f2",
+"lv": "Hard",
+"s": "What produces the injury current in acute MI?",
+"c": [
+"Faster conduction in injured cells",
+"Loss of atrial depolarization",
+"Higher K⁺ conductance in healthy cells",
+"Block in the AV node",
+"Unequal voltage in injured tissue"
+],
+"a": 4,
+"e": "Partly depolarized injured cells sit at a different voltage from healthy cells, so current flows between them.",
+"w": [
+"Injured cells conduct poorly.",
+"Atrial events are unrelated.",
+"Healthy cells are normal.",
+"AV block changes PR.",
+""
+]
+}
+]
+},
+"cpr409": {
+"k": "High K⁺: faster repolarization, less negative rest",
+"q": [
+{
+"id": "cpr409-f1",
+"lv": "Easy",
+"s": "How does hyperkalemia change the resting membrane potential?",
+"c": [
+"Makes it more negative",
+"Leaves it unchanged",
+"Makes it positive",
+"Makes it oscillate",
+"Makes it less negative"
+],
+"a": 4,
+"e": "Less K⁺ gradient means less K⁺ efflux at rest, so the resting potential depolarizes.",
+"w": [
+"That is hypokalemia.",
+"K⁺ sets resting potential.",
+"It moves toward, not past, zero.",
+"It does not oscillate.",
+""
+]
+},
+{
+"id": "cpr409-f2",
+"lv": "Hard",
+"s": "Why does severe hyperkalemia slow conduction?",
+"c": [
+"K⁺ channels all close",
+"Na⁺ channels inactivate",
+"Ca²⁺ channels stay open",
+"The SA node speeds up",
+"Gap junctions open wider"
+],
+"a": 1,
+"e": "A depolarized resting potential inactivates fast Na⁺ channels, slowing phase 0 and conduction.",
+"w": [
+"K⁺ conductance rises.",
+"",
+"Ca²⁺ is not the main mechanism.",
+"Not the reason for slow conduction.",
+"Gap junctions are not the cause."
+]
+}
+]
+},
+"cpr410": {
+"k": "STEMI = complete occlusion",
+"q": [
+{
+"id": "cpr410-f1",
+"lv": "Easy",
+"s": "What usually causes a STEMI?",
+"c": [
+"Partial coronary occlusion",
+"Coronary vasospasm only",
+"Total coronary occlusion",
+"Severe aortic stenosis",
+"Severe hyperkalemia"
+],
+"a": 2,
+"e": "Complete occlusion causes transmural injury and ST elevation.",
+"w": [
+"Partial occlusion fits NSTEMI.",
+"Spasm can mimic but is not the usual cause.",
+"",
+"Aortic stenosis causes angina but not STEMI.",
+"Hyperkalemia is metabolic."
+]
+},
+{
+"id": "cpr410-f2",
+"lv": "Hard",
+"s": "What ECG sign may develop later as an infarct becomes established?",
+"c": [
+"Pathological Q waves",
+"Tall, peaked T waves",
+"Prominent U waves",
+"A short PR interval",
+"Delta waves"
+],
+"a": 0,
+"e": "Dead myocardium produces pathological Q waves.",
+"w": [
+"",
+"That is hyperkalemia or hyperacute.",
+"That is hypokalemia.",
+"Not an MI sign.",
+"That is WPW."
+]
+}
+]
+},
+"cpr411": {
+"k": "NSTEMI = ST depression + enzymes",
+"q": [
+{
+"id": "cpr411-f1",
+"lv": "Easy",
+"s": "Which layer is infarcted in an NSTEMI?",
+"c": [
+"The full wall thickness",
+"The epicardium only",
+"The pericardium",
+"The valve leaflets",
+"The subendocardium"
+],
+"a": 4,
+"e": "NSTEMI is a subendocardial infarction.",
+"w": [
+"That is STEMI.",
+"The subendocardium is most vulnerable.",
+"The pericardium is not myocardium.",
+"Valves are not infarcted.",
+""
+]
+},
+{
+"id": "cpr411-f2",
+"lv": "Hard",
+"s": "What separates NSTEMI from unstable angina?",
+"c": [
+"Raised cardiac enzymes",
+"ST-segment elevation",
+"T-wave inversion",
+"Chest pain at rest",
+"ST-segment depressions"
+],
+"a": 0,
+"e": "Both share the ECG. Raised troponin means necrosis, which is NSTEMI.",
+"w": [
+"",
+"Elevation is STEMI.",
+"Both can show T inversion.",
+"Both cause rest pain.",
+"Both can show ST depression."
+]
+}
+]
+},
+"cpr412": {
+"k": "Unstable angina = negative enzymes",
+"q": [
+{
+"id": "cpr412-f1",
+"lv": "Easy",
+"s": "In unstable angina, what do cardiac enzymes show?",
+"c": [
+"They rise sharply",
+"They rise then fall",
+"They are always very high",
+"They cannot be measured",
+"They stay normal"
+],
+"a": 4,
+"e": "Unstable angina causes ischemia without necrosis, so enzymes stay normal.",
+"w": [
+"A rise means infarction.",
+"A rise and fall means infarction.",
+"High enzymes mean MI.",
+"They can be measured.",
+""
+]
+},
+{
+"id": "cpr412-f2",
+"lv": "Hard",
+"s": "Which ECG changes can unstable angina show?",
+"c": [
+"ST depression or T inversion",
+"ST elevation in II, III, aVF",
+"Peaked T waves only",
+"Prominent U waves only",
+"Delta waves and short PR"
+],
+"a": 0,
+"e": "Unstable angina shares the NSTEMI ECG pattern.",
+"w": [
+"",
+"Elevation is STEMI.",
+"Peaked T is hyperkalemia.",
+"U waves are hypokalemia.",
+"Delta waves are WPW."
+]
+}
+]
+},
+"cpr413": {
+"k": "First degree: PR > 0.20 s, no drops",
+"q": [
+{
+"id": "cpr413-f1",
+"lv": "Easy",
+"s": "What PR interval defines first-degree AV block?",
+"c": [
+"Shorter than 0.12 s",
+"Exactly 0.16 s",
+"Longer than 0.43 s",
+"Shorter than 0.06 s",
+"Longer than 0.20 s"
+],
+"a": 4,
+"e": "First-degree block is a constant PR above 0.20 s.",
+"w": [
+"Short PR is not AV block.",
+"0.16 s is normal.",
+"0.43 s is a QT limit.",
+"Too short to be a PR.",
+""
+]
+},
+{
+"id": "cpr413-f2",
+"lv": "Hard",
+"s": "How is asymptomatic first-degree AV block managed?",
+"c": [
+"Permanent pacemaker",
+"None is needed",
+"IV magnesium sulfate",
+"Anticoagulation",
+"Catheter ablation"
+],
+"a": 1,
+"e": "It is benign and usually needs no treatment.",
+"w": [
+"Pacing is for Mobitz II or third degree.",
+"",
+"Magnesium is for torsades.",
+"Anticoagulation is for AF/flutter.",
+"Ablation is for flutter."
+]
+}
+]
+},
+"cpr414": {
+"k": "Wenckebach: longer, longer, drop",
+"q": [
+{
+"id": "cpr414-f1",
+"lv": "Easy",
+"s": "Where is the block in Mobitz type I usually located?",
+"c": [
+"Below the AV node",
+"In the SA node",
+"In the atrial muscle",
+"In the AV node",
+"In the papillary muscles"
+],
+"a": 3,
+"e": "Wenckebach is usually an AV nodal block.",
+"w": [
+"Infranodal block is Mobitz II.",
+"SA node block changes P waves.",
+"Atrial muscle is not the site.",
+"",
+"Papillary muscles do not conduct."
+]
+},
+{
+"id": "cpr414-f2",
+"lv": "Hard",
+"s": "How is the RR interval described in Mobitz I?",
+"c": [
+"Irregularly irregular",
+"Perfectly regular",
+"Chaotic with no pattern",
+"Fixed at 300/min",
+"Regularly irregular"
+],
+"a": 4,
+"e": "The grouped beating repeats, so RR is irregular but in a pattern.",
+"w": [
+"That describes AF.",
+"Dropped beats break regularity.",
+"There is a pattern.",
+"300/min is flutter's atrial rate.",
+""
+]
+}
+]
+},
+"cpr415": {
+"k": "Mobitz II = infranodal",
+"q": [
+{
+"id": "cpr415-f1",
+"lv": "Easy",
+"s": "In Mobitz II, how does the PR interval behave before a dropped beat?",
+"c": [
+"It lengthens progressively",
+"It shortens progressively",
+"It varies at random",
+"It stays constant",
+"It disappears"
+],
+"a": 3,
+"e": "A constant PR before a sudden drop is Mobitz II.",
+"w": [
+"That is Mobitz I.",
+"Not a feature of Mobitz II.",
+"Random PR suggests third degree.",
+"",
+"PR is present on conducted beats."
+]
+},
+{
+"id": "cpr415-f2",
+"lv": "Hard",
+"s": "Why is Mobitz II more dangerous than Mobitz I?",
+"c": [
+"It always resolves on its own",
+"It speeds the heart rate up",
+"It can progress to complete block",
+"It causes atrial fibrillation later",
+"It shortens the QT interval"
+],
+"a": 2,
+"e": "Infranodal disease can progress to third-degree block.",
+"w": [
+"It does not reliably resolve.",
+"It slows ventricular rate.",
+"",
+"AF is unrelated.",
+"QT is unrelated."
+]
+}
+]
+},
+"cpr416": {
+"k": "Mobitz II → pacemaker",
+"q": [
+{
+"id": "cpr416-f1",
+"lv": "Easy",
+"s": "What is the usual treatment for Mobitz II AV block?",
+"c": [
+"No treatment",
+"Warfarin",
+"Magnesium sulfate",
+"A pacemaker",
+"Catheter ablation"
+],
+"a": 3,
+"e": "Mobitz II is usually treated with a pacemaker.",
+"w": [
+"It is not benign.",
+"Warfarin is for AF stroke prevention.",
+"Magnesium is for torsades.",
+"",
+"Ablation is for flutter."
+]
+},
+{
+"id": "cpr416-f2",
+"lv": "Hard",
+"s": "Why can atropine fail in Mobitz II?",
+"c": [
+"It blocks the SA node directly",
+"It prolongs the QT interval",
+"It causes severe hyperkalemia",
+"It increases the vagal tone further",
+"The block lies below vagal control"
+],
+"a": 4,
+"e": "Atropine works on the vagally controlled AV node, but Mobitz II is below it.",
+"w": [
+"Atropine speeds the SA node.",
+"Not its main effect.",
+"It does not affect K⁺.",
+"It decreases vagal tone.",
+""
+]
+}
+]
+},
+"cpr417": {
+"k": "Atropine helps type I, worsens type II",
+"q": [
+{
+"id": "cpr417-f1",
+"lv": "Easy",
+"s": "How does atropine affect Mobitz I block?",
+"c": [
+"It usually worsens conduction",
+"It has no effect",
+"It causes complete block",
+"It usually improves it",
+"It prolongs the QT"
+],
+"a": 3,
+"e": "Mobitz I is nodal and vagally influenced, so atropine improves it.",
+"w": [
+"That is Mobitz II.",
+"It acts on the node.",
+"Not expected.",
+"",
+"Not its effect."
+]
+},
+{
+"id": "cpr417-f2",
+"lv": "Hard",
+"s": "Why does a faster atrial rate worsen Mobitz II?",
+"c": [
+"The AV node conducts more slowly",
+"The SA node stops firing altogether",
+"More impulses reach a diseased system",
+"The QT interval shortens too much",
+"Atrial repolarization becomes unmasked"
+],
+"a": 2,
+"e": "The His–Purkinje system cannot keep up with more impulses, so more are blocked.",
+"w": [
+"Faster node sends more impulses down.",
+"The SA node speeds up.",
+"",
+"QT is unrelated.",
+"Not relevant."
+]
+}
+]
+},
+"cpr418": {
+"k": "Third degree: complete dissociation",
+"q": [
+{
+"id": "cpr418-f1",
+"lv": "Easy",
+"s": "In third-degree AV block, how are P waves and QRS complexes related?",
+"c": [
+"Every P conducts with a long PR",
+"PR lengthens then drops",
+"They are completely dissociated",
+"PR is constant with drops",
+"Every QRS has a sawtooth before it"
+],
+"a": 2,
+"e": "Atria and ventricles beat independently.",
+"w": [
+"That is first degree.",
+"That is Mobitz I.",
+"",
+"That is Mobitz II.",
+"That is flutter."
+]
+},
+{
+"id": "cpr418-f2",
+"lv": "Hard",
+"s": "How is third-degree AV block treated?",
+"c": [
+"With reassurance",
+"With a pacemaker",
+"With warfarin",
+"With digoxin",
+"With ondansetron"
+],
+"a": 1,
+"e": "Complete block is life-threatening and needs pacing.",
+"w": [
+"It is dangerous.",
+"",
+"Warfarin is for AF/flutter.",
+"Digoxin slows AV conduction further.",
+"Ondansetron prolongs QT."
+]
+}
+]
+},
+"cpr419": {
+"k": "Purkinje escape 20–40/min",
+"q": [
+{
+"id": "cpr419-f1",
+"lv": "Easy",
+"s": "At what rate do Purkinje fibers fire as an escape pacemaker?",
+"c": [
+"About 60–100/min",
+"About 20–40/min",
+"About 40–60/min",
+"About 150/min",
+"About 300/min"
+],
+"a": 1,
+"e": "Ventricular (Purkinje) escape rhythms are about 20–40/min.",
+"w": [
+"That is the SA node.",
+"",
+"That is a junctional escape.",
+"Too fast.",
+"That is flutter's atrial rate."
+]
+},
+{
+"id": "cpr419-f2",
+"lv": "Hard",
+"s": "Why is the QRS wide in a ventricular escape rhythm?",
+"c": [
+"The AV node is delayed",
+"Slow spread through muscle",
+"The atria are enlarged",
+"Serum K⁺ is very high",
+"Repolarization is too fast"
+],
+"a": 1,
+"e": "Starting in the ventricle bypasses fast bundles, so conduction is slow and the QRS widens.",
+"w": [
+"AV delay changes PR.",
+"",
+"Atrial size changes P.",
+"Not the cause here.",
+"Repolarization affects T."
+]
+}
+]
+},
+"cpr420": {
+"k": "HR = 1500 ÷ small squares",
+"q": [
+{
+"id": "cpr420-f1",
+"lv": "Easy",
+"s": "How many small squares are in one minute at 25 mm/s?",
+"c": [
+"1500",
+"300",
+"60",
+"25",
+"3000"
+],
+"a": 0,
+"e": "25 mm/s × 60 s = 1500 mm = 1500 small squares.",
+"w": [
+"",
+"That is large squares per minute.",
+"That is seconds per minute.",
+"That is mm per second.",
+"That is at 50 mm/s."
+]
+},
+{
+"id": "cpr420-f2",
+"lv": "Hard",
+"s": "R waves are 3 large squares apart. What is the heart rate?",
+"c": [
+"75 beats/min",
+"60 beats/min",
+"150 beats/min",
+"50 beats/min",
+"100 beats/min"
+],
+"a": 4,
+"e": "300 ÷ 3 = 100 beats/min.",
+"w": [
+"That is 4 large squares.",
+"That is 5 large squares.",
+"That is 2 large squares.",
+"That is 6 large squares.",
+""
+]
+}
+]
+},
+"cpr421": {
+"k": "Sinus tachycardia > 100",
+"q": [
+{
+"id": "cpr421-f1",
+"lv": "Easy",
+"s": "Which rate defines sinus tachycardia?",
+"c": [
+"Above 60 beats/min",
+"Above 150 beats/min",
+"Above 100 beats/min",
+"Below 60 beats/min",
+"Above 300 beats/min"
+],
+"a": 2,
+"e": "Sinus tachycardia is a sinus rhythm above 100/min.",
+"w": [
+"60–100 is normal.",
+"Not the cutoff.",
+"",
+"That is bradycardia.",
+"Not the cutoff."
+]
+},
+{
+"id": "cpr421-f2",
+"lv": "Hard",
+"s": "Which is a typical cause of sinus tachycardia?",
+"c": [
+"High vagal tone",
+"Beta-blocker overdose",
+"Athletic training",
+"Hypothermia",
+"Hypovolemia"
+],
+"a": 4,
+"e": "Low volume triggers sympathetic activation, which speeds the SA node.",
+"w": [
+"Vagal tone slows the heart.",
+"Beta-blockers slow it.",
+"Training slows resting rate.",
+"Cold slows the heart.",
+""
+]
+}
+]
+},
+"cpr422": {
+"k": "Sinus bradycardia < 60",
+"q": [
+{
+"id": "cpr422-f1",
+"lv": "Easy",
+"s": "Which rate defines sinus bradycardia?",
+"c": [
+"Below 100 beats/min",
+"Below 40 beats/min",
+"Above 100 beats/min",
+"Below 60 beats/min",
+"Below 20 beats/min"
+],
+"a": 3,
+"e": "Sinus bradycardia is a sinus rhythm below 60/min.",
+"w": [
+"60–100 is normal.",
+"Not the cutoff.",
+"That is tachycardia.",
+"",
+"Not the cutoff."
+]
+},
+{
+"id": "cpr422-f2",
+"lv": "Hard",
+"s": "Which drug class commonly causes sinus bradycardia?",
+"c": [
+"Atropine",
+"Dihydropyridine CCBs",
+"Beta-blockers",
+"Loop diuretics",
+"Macrolides"
+],
+"a": 2,
+"e": "Beta-blockers reduce sympathetic drive to the SA node.",
+"w": [
+"Atropine speeds the heart.",
+"Dihydropyridines can cause reflex tachycardia.",
+"",
+"Diuretics do not slow the SA node.",
+"Macrolides prolong QT."
+]
+}
+]
+},
+"cpr423": {
+"k": "Long QT → torsades",
+"q": [
+{
+"id": "cpr423-f1",
+"lv": "Easy",
+"s": "What does the QT interval represent?",
+"c": [
+"Atrial depolarization only",
+"AV nodal conduction time",
+"Atrial repolarization only",
+"Ventricular systole, electrically",
+"The ventricular plateau phase only"
+],
+"a": 3,
+"e": "QT runs from QRS onset to T end, total ventricular electrical systole.",
+"w": [
+"That is the P wave.",
+"That is the PR interval.",
+"Hidden in QRS.",
+"",
+"That is the ST segment."
+]
+},
+{
+"id": "cpr423-f2",
+"lv": "Hard",
+"s": "What can torsades de pointes degenerate into?",
+"c": [
+"Sinus bradycardia",
+"First-degree AV block",
+"Ventricular fibrillation",
+"Atrial flutter with 2:1 block",
+"Sinus tachycardia"
+],
+"a": 2,
+"e": "Torsades can degenerate into VF and sudden cardiac death.",
+"w": [
+"Not a degeneration.",
+"Not related.",
+"",
+"Atrial rhythm.",
+"Not a degeneration."
+]
+}
+]
+},
+"cpr424": {
+"k": "ABCDE drugs prolong QT",
+"q": [
+{
+"id": "cpr424-f1",
+"lv": "Easy",
+"s": "Which antiemetic is on the torsades \"ABCDE\" list?",
+"c": [
+"Metoclopramide",
+"Promethazine",
+"Meclizine",
+"Aprepitant",
+"Ondansetron"
+],
+"a": 4,
+"e": "Ondansetron is the antiemetic in ABCDE.",
+"w": [
+"Not the listed agent.",
+"Not the listed agent.",
+"Not the listed agent.",
+"Not the listed agent.",
+""
+]
+},
+{
+"id": "cpr424-f2",
+"lv": "Hard",
+"s": "Which antipsychotic is on the torsades list?",
+"c": [
+"Haloperidol",
+"Lithium",
+"Clozapine",
+"Aripiprazole",
+"Buspirone"
+],
+"a": 0,
+"e": "Haloperidol is the Anti-\"C\"ychotic in ABCDE.",
+"w": [
+"",
+"Lithium is a mood stabilizer.",
+"Not the listed agent.",
+"Not the listed agent.",
+"Buspirone is an anxiolytic."
+]
+}
+]
+},
+"cpr425": {
+"k": "Torsades → IV magnesium",
+"q": [
+{
+"id": "cpr425-f1",
+"lv": "Easy",
+"s": "What is first-line drug treatment for torsades de pointes?",
+"c": [
+"IV magnesium",
+"IV atropine",
+"Oral warfarin",
+"IV diltiazem",
+"Oral digoxin"
+],
+"a": 0,
+"e": "Magnesium suppresses early afterdepolarizations.",
+"w": [
+"",
+"Atropine is for bradycardia.",
+"Warfarin is for AF.",
+"Diltiazem is for rate control.",
+"Digoxin is for rate control."
+]
+},
+{
+"id": "cpr425-f2",
+"lv": "Hard",
+"s": "Which electrolytes should be corrected in torsades?",
+"c": [
+"Na⁺ only",
+"Cl⁻ and HCO₃⁻",
+"Phosphate alone",
+"Glucose and Na⁺ levels",
+"K⁺, Mg²⁺ and Ca²⁺"
+],
+"a": 4,
+"e": "Low K⁺, Mg²⁺ and Ca²⁺ all prolong QT.",
+"w": [
+"Na⁺ is not the main target.",
+"Not the key electrolytes.",
+"Not the main target.",
+"Not electrolytes linked here.",
+""
+]
+}
+]
+},
+"cpr426": {
+"k": "JLN = recessive + deafness",
+"q": [
+{
+"id": "cpr426-f1",
+"lv": "Easy",
+"s": "Which feature distinguishes Jervell and Lange-Nielsen from Romano-Ward?",
+"c": [
+"A long QT interval",
+"Risk of torsades",
+"Sudden cardiac death",
+"Sensorineural deafness",
+"Syncope during exertion"
+],
+"a": 3,
+"e": "Both cause long QT. Only JLN adds deafness.",
+"w": [
+"Both have long QT.",
+"Both carry this risk.",
+"Both carry this risk.",
+"",
+"Both can cause this."
+]
+},
+{
+"id": "cpr426-f2",
+"lv": "Hard",
+"s": "How is Jervell and Lange-Nielsen syndrome inherited?",
+"c": [
+"Autosomal dominant",
+"Autosomal recessive",
+"X-linked dominant",
+"Mitochondrial DNA",
+"X-linked recessive form"
+],
+"a": 1,
+"e": "JLN is autosomal recessive.",
+"w": [
+"That is Romano-Ward.",
+"",
+"Not the pattern.",
+"Not the pattern.",
+"Not the pattern."
+]
+}
+]
+},
+"cpr427": {
+"k": "Romano-Ward = dominant, hearing normal",
+"q": [
+{
+"id": "cpr427-f1",
+"lv": "Easy",
+"s": "Does Romano-Ward syndrome cause deafness?",
+"c": [
+"Yes, sensorineural deafness",
+"Yes, conductive deafness",
+"No, hearing is normal",
+"Only in childhood",
+"Only in males"
+],
+"a": 2,
+"e": "Romano-Ward has a pure cardiac phenotype.",
+"w": [
+"That is JLN.",
+"Not a feature.",
+"",
+"Not a feature.",
+"Not sex-limited."
+]
+},
+{
+"id": "cpr427-f2",
+"lv": "Hard",
+"s": "What is the main danger in Romano-Ward syndrome?",
+"c": [
+"Stroke from atrial fibrillation",
+"Sudden death from torsades",
+"Complete AV block",
+"Heart failure from valve disease",
+"Hyperkalemia"
+],
+"a": 1,
+"e": "Long QT predisposes to torsades and sudden cardiac death.",
+"w": [
+"AF is not the main risk.",
+"",
+"Not the typical risk.",
+"Not related.",
+"Not related."
+]
+}
+]
+},
+"cpr428": {
+"k": "AF: no P, irregularly irregular",
+"q": [
+{
+"id": "cpr428-f1",
+"lv": "Easy",
+"s": "How is the rhythm in atrial fibrillation described?",
+"c": [
+"Regularly irregular",
+"Perfectly regular",
+"Regular with 2:1 block",
+"Irregularly irregular",
+"Regular at 300/min"
+],
+"a": 3,
+"e": "Random AV conduction makes the ventricular rhythm irregularly irregular.",
+"w": [
+"That is Mobitz I.",
+"AF is irregular.",
+"Fits flutter.",
+"",
+"That is flutter's atrial rate."
+]
+},
+{
+"id": "cpr428-f2",
+"lv": "Hard",
+"s": "Which is a classic risk factor for atrial fibrillation?",
+"c": [
+"Hypokalemia",
+"Young age",
+"Athletic training",
+"Hypertension",
+"Hyperthermia"
+],
+"a": 3,
+"e": "Hypertension, CAD and binge drinking are listed risk factors.",
+"w": [
+"Not listed.",
+"AF rises with age.",
+"Not listed.",
+"",
+"Not listed."
+]
+}
+]
+},
+"cpr429": {
+"k": "AV node filters AF",
+"q": [
+{
+"id": "cpr429-f1",
+"lv": "Easy",
+"s": "In AF, which structure acts as the filter for atrial impulses?",
+"c": [
+"The AV node",
+"The SA node",
+"The bundle of His",
+"The Purkinje fibers",
+"The papillary muscles"
+],
+"a": 0,
+"e": "The AV node limits how many impulses reach the ventricles.",
+"w": [
+"",
+"The SA node is overridden.",
+"His is below the filter.",
+"Purkinje fibers conduct after the node.",
+"Not conduction tissue."
+]
+},
+{
+"id": "cpr429-f2",
+"lv": "Hard",
+"s": "Which drug class is NOT used for rate control in AF?",
+"c": [
+"Dihydropyridine CCBs",
+"Beta-blockers",
+"Non-dihydropyridine CCBs",
+"Digoxin",
+"Diltiazem and verapamil"
+],
+"a": 0,
+"e": "Dihydropyridines act on vessels, not the AV node.",
+"w": [
+"",
+"Used for rate control.",
+"Used for rate control.",
+"Used for rate control.",
+"Used for rate control."
+]
+}
+]
+},
+"cpr430": {
+"k": "AF → stroke → anticoagulate",
+"q": [
+{
+"id": "cpr430-f1",
+"lv": "Easy",
+"s": "What is the most feared complication of AF?",
+"c": [
+"Complete AV block",
+"Torsades de pointes",
+"Hyperkalemia",
+"Pericarditis",
+"Embolic stroke"
+],
+"a": 4,
+"e": "Atrial stasis forms clots that can embolize to the brain.",
+"w": [
+"Not the main risk.",
+"Linked to long QT.",
+"Metabolic.",
+"Not a complication.",
+""
+]
+},
+{
+"id": "cpr430-f2",
+"lv": "Hard",
+"s": "What is \"holiday heart syndrome\"?",
+"c": [
+"MI after heavy meals",
+"Torsades after macrolides",
+"Flutter after exercise",
+"Block after travel",
+"AF after binge drinking"
+],
+"a": 4,
+"e": "Binge drinking can trigger AF in otherwise healthy people.",
+"w": [
+"Not the definition.",
+"Drug-induced torsades.",
+"Not the definition.",
+"Not the definition.",
+""
+]
+}
+]
+},
+"cpr431": {
+"k": "Flutter ~300/min sawtooth",
+"q": [
+{
+"id": "cpr431-f1",
+"lv": "Easy",
+"s": "What does atrial flutter look like on the ECG?",
+"c": [
+"A chaotic baseline",
+"Peaked T waves",
+"A sawtooth baseline",
+"Twisting QRS peaks",
+"A flat, quiet baseline"
+],
+"a": 2,
+"e": "Flutter shows organized sawtooth F waves.",
+"w": [
+"That is AF.",
+"That is hyperkalemia.",
+"",
+"That is torsades.",
+"Flutter has F waves."
+]
+},
+{
+"id": "cpr431-f2",
+"lv": "Hard",
+"s": "With 2:1 flutter, what is the usual ventricular rate?",
+"c": [
+"About 300/min",
+"About 75/min",
+"About 150/min",
+"About 60/min",
+"About 40/min"
+],
+"a": 2,
+"e": "300 ÷ 2 = 150/min.",
+"w": [
+"That would be 1:1.",
+"That is 4:1.",
+"",
+"Not typical.",
+"Not typical."
+]
+}
+]
+},
+"cpr432": {
+"k": "Flutter cured by isthmus ablation",
+"q": [
+{
+"id": "cpr432-f1",
+"lv": "Easy",
+"s": "Where is the reentry circuit of typical atrial flutter?",
+"c": [
+"The left ventricle",
+"The AV node",
+"The right atrium",
+"The pulmonary veins",
+"The septum"
+],
+"a": 2,
+"e": "Typical flutter is a macro-reentry loop in the right atrium.",
+"w": [
+"Ventricular, not atrial.",
+"Not a nodal reentry.",
+"",
+"That is the AF trigger area.",
+"Not the flutter circuit."
+]
+},
+{
+"id": "cpr432-f2",
+"lv": "Hard",
+"s": "How is atrial flutter treated before definitive ablation?",
+"c": [
+"Like torsades de pointes",
+"Like third-degree block",
+"Like hyperkalemia",
+"Like sinus bradycardia",
+"Like atrial fibrillation"
+],
+"a": 4,
+"e": "Flutter shares AF's stroke risk and needs anticoagulation and rate or rhythm control.",
+"w": [
+"Magnesium is for torsades.",
+"Pacing is for block.",
+"Not related.",
+"Not related.",
+""
+]
+}
+]
+},
+"cpr433": {
+"k": "Rate control: non-DHP CCB",
+"q": [
+{
+"id": "cpr433-f1",
+"lv": "Easy",
+"s": "Which drug is a non-dihydropyridine CCB?",
+"c": [
+"Amlodipine",
+"Nifedipine",
+"Felodipine",
+"Verapamil",
+"Nicardipine"
+],
+"a": 3,
+"e": "Verapamil and diltiazem are non-dihydropyridines.",
+"w": [
+"Dihydropyridine.",
+"Dihydropyridine.",
+"Dihydropyridine.",
+"",
+"Dihydropyridine."
+]
+},
+{
+"id": "cpr433-f2",
+"lv": "Hard",
+"s": "Which rhythm-control option is listed for AF?",
+"c": [
+"Magnesium sulfate",
+"IV atropine",
+"A pacemaker",
+"Ondansetron IV",
+"Catheter ablation"
+],
+"a": 4,
+"e": "Rhythm control uses cardioversion or catheter ablation.",
+"w": [
+"For torsades.",
+"For bradycardia.",
+"For AV block.",
+"Prolongs QT.",
+""
+]
+}
+]
 }
 });

@@ -1,6 +1,27 @@
 {
- "v": "2026-11-17a",
+ "v": "2026-11-18a",
  "notes": [
+  {
+   "v": "2026-11-18a",
+   "date": "Nov 18, 2026",
+   "groups": [
+    {
+     "h": "New lectures",
+     "items": [
+      {
+       "tag": "new",
+       "title": "CRS Physiology · Lecture 9: ECG Essentials Part 1",
+       "text": "24 questions from the new slides. Explanations show the figures from the slides."
+      },
+      {
+       "tag": "new",
+       "title": "CRS Physiology · Lecture 10: ECG Part 2",
+       "text": "24 questions from the new slides. Explanations show the figures from the slides."
+      }
+     ]
+    }
+   ]
+  },
   {
    "v": "2026-11-17a",
    "date": "Nov 17, 2026",

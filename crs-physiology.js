@@ -1,5 +1,5 @@
 // CRS Physiology — Dr. Sampath V. lecture slides. Reworked set: fewer, multi-concept, high-yield questions; lv = Easy/Hard; sampath = Challenge Yourself questions from the slides, word for word
-window.CRS_PH_TOPICS = ["Big Picture & Cardiac Cell Types", "Conduction System Anatomy", "Fast vs Slow Response", "Phase 0 & Na⁺ Channel Gates", "Phase 1 · The Notch", "Phase 2 · Plateau & E–C Coupling", "Phases 3 & 4 · Reset and Rest", "Refractory Periods", "Na⁺ Channel States", "Why the AP & Refractory Period Are Long", "Challenge Yourself · Sampath's Q's", "Pacemaker Cells, Automaticity & Key Terms", "Slow vs Fast Response APs", "Phase 4 · Pacemaker Potential", "Phase 0 · L-type Ca²⁺ Upstroke", "Phase 3 · Nodal Repolarization", "Pacemaker Hierarchy & Overdrive Suppression", "Challenge · Pacemaker Currents", "Autonomic Control: Chrono-, Dromo- & Inotropy", "Sympathetic β1 → Gs → cAMP Cascade", "Sympathetic Effects on SA Node, AV Node & Ventricle", "Parasympathetic M2 → Gi: Two Arms", "Integrated SA Node Effects & Summary", "Drugs That Hit These Channels", "Challenge · Cardiac Nerves", "Cardiac Cycle Timing: Systole vs Diastole", "Key Volumes: EDV, ESV, SV & EF", "Wiggers Diagram: Phases A–G, Valves & Heart Sounds", "Atrial Systole & Ventricular Filling", "Isovolumetric Phases & Ejection", "Jugular Venous Pulse & Aortic Pressure Curve", "Pressure Map: Normal Chamber Pressures", "Cardiac Output & Cardiac Reserve", "Preload, Afterload & Contractility", "Frank–Starling Law", "PV Loop: Phases & Valve Events", "PV Loop Shifts: Preload, Afterload, Contractility", "Cardiac Work", "Measuring CO: Indicator Dilution & Fick", "Sampath's Q's · Very Easy Set", "Sampath's Q's · Medium Set", "Sampath's Q's · Medium-Hard Set", "Sampath's Q's · Hard Set", "Sampath's Q's · Cardiac Cycle MCQs", "Sampath's Q's · Wiggers Diagram MCQs", "Sampath's Q's · Wiggers Diagram Easy", "Sampath's Q's · Cardiac Cycle Clinical Quiz", "Ohm's Law & the Pressure Gradient", "Poiseuille's Law & Vessel Radius", "Series vs Parallel Resistance", "Laminar vs Turbulent Flow", "Flow vs Velocity", "Compliance, Pulse Pressure & MAP", "Venous Return & the Vascular Function Curve", "Shifting the Venous Return Curve: Volume, Venous Tone & TPR", "Cardiac Function Curve: Preload, Afterload & Inotropy", "The Operating Point: CO = VR", "Clinical Scenarios: Blood Volume Changes", "Clinical Scenarios: Inotropy & Afterload", "Baroreceptor Reflex: Arc & Response", "Vasomotor Center & Chemoreceptors", "RAAS: Renin Triggers & Angiotensin II", "ANP: Response to High Blood Pressure", "RAAS Blockers & Renal Artery Stenosis"];
+window.CRS_PH_TOPICS = ["Big Picture & Cardiac Cell Types", "Conduction System Anatomy", "Fast vs Slow Response", "Phase 0 & Na⁺ Channel Gates", "Phase 1 · The Notch", "Phase 2 · Plateau & E–C Coupling", "Phases 3 & 4 · Reset and Rest", "Refractory Periods", "Na⁺ Channel States", "Why the AP & Refractory Period Are Long", "Challenge Yourself · Sampath's Q's", "Pacemaker Cells, Automaticity & Key Terms", "Slow vs Fast Response APs", "Phase 4 · Pacemaker Potential", "Phase 0 · L-type Ca²⁺ Upstroke", "Phase 3 · Nodal Repolarization", "Pacemaker Hierarchy & Overdrive Suppression", "Challenge · Pacemaker Currents", "Autonomic Control: Chrono-, Dromo- & Inotropy", "Sympathetic β1 → Gs → cAMP Cascade", "Sympathetic Effects on SA Node, AV Node & Ventricle", "Parasympathetic M2 → Gi: Two Arms", "Integrated SA Node Effects & Summary", "Drugs That Hit These Channels", "Challenge · Cardiac Nerves", "Cardiac Cycle Timing: Systole vs Diastole", "Key Volumes: EDV, ESV, SV & EF", "Wiggers Diagram: Phases A–G, Valves & Heart Sounds", "Atrial Systole & Ventricular Filling", "Isovolumetric Phases & Ejection", "Jugular Venous Pulse & Aortic Pressure Curve", "Pressure Map: Normal Chamber Pressures", "Cardiac Output & Cardiac Reserve", "Preload, Afterload & Contractility", "Frank–Starling Law", "PV Loop: Phases & Valve Events", "PV Loop Shifts: Preload, Afterload, Contractility", "Cardiac Work", "Measuring CO: Indicator Dilution & Fick", "Sampath's Q's · Very Easy Set", "Sampath's Q's · Medium Set", "Sampath's Q's · Medium-Hard Set", "Sampath's Q's · Hard Set", "Sampath's Q's · Cardiac Cycle MCQs", "Sampath's Q's · Wiggers Diagram MCQs", "Sampath's Q's · Wiggers Diagram Easy", "Sampath's Q's · Cardiac Cycle Clinical Quiz", "Ohm's Law & the Pressure Gradient", "Poiseuille's Law & Vessel Radius", "Series vs Parallel Resistance", "Laminar vs Turbulent Flow", "Flow vs Velocity", "Compliance, Pulse Pressure & MAP", "Venous Return & the Vascular Function Curve", "Shifting the Venous Return Curve: Volume, Venous Tone & TPR", "Cardiac Function Curve: Preload, Afterload & Inotropy", "The Operating Point: CO = VR", "Clinical Scenarios: Blood Volume Changes", "Clinical Scenarios: Inotropy & Afterload", "Baroreceptor Reflex: Arc & Response", "Vasomotor Center & Chemoreceptors", "RAAS: Renin Triggers & Angiotensin II", "ANP: Response to High Blood Pressure", "RAAS Blockers & Renal Artery Stenosis", "ECG Paper & Measurement", "Deflection Rules", "Limb, Augmented & Precordial Leads", "P, QRS, T & U Waves", "Segments, Intervals & Heart Rate", "Electrolytes & Ischemia on the ECG", "Acute Coronary Syndrome on the ECG", "AV Blocks", "Systematic Rhythm Approach & Rate", "Torsades de Pointes & Long QT", "Atrial Fibrillation & Atrial Flutter"];
 window.CRS_PH_QUESTIONS = [
 {
 "t": "Big Picture & Cardiac Cell Types",
@@ -9033,6 +9033,1210 @@ window.CRS_PH_QUESTIONS = [
 "src": "lec",
 "fig": [
 "figs/crs/bp-ras-tx"
+]
+},
+{
+"t": "ECG Paper & Measurement",
+"lv": "Easy",
+"s": "On a standard ECG recorded at 25 mm/s, the PR interval spans 5 small squares. How long is the PR interval?",
+"c": [
+"0.10 s",
+"0.25 s",
+"0.20 s",
+"0.40 s",
+"1.00 s"
+],
+"a": 2,
+"e": "Step 1: At the standard paper speed of 25 mm/s, each small square (1 mm) = 0.04 s and each large square (5 mm) = 0.20 s.\nStep 2: 5 small squares × 0.04 s = 0.20 s, which is exactly one large square.\nStep 3: A PR interval of 0.20 s sits at the upper limit of normal (0.12–0.20 s). Anything longer is first-degree AV block.\n\nTakeaway: Small square = 0.04 s, large square = 0.20 s at 25 mm/s. Count squares, then multiply.",
+"w": [
+"That would be 2.5 small squares; each small square is 0.04 s, not 0.02 s.",
+"That would be about 6 small squares; 5 × 0.04 s is 0.20 s.",
+"",
+"That is 2 large squares, or 10 small squares.",
+"That is 5 large squares; this confuses small squares with large squares."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-paper"
+]
+},
+{
+"t": "ECG Paper & Measurement",
+"lv": "Easy",
+"s": "With standard calibration, an R wave rises 15 mm above the isoelectric line. What is its amplitude?",
+"c": [
+"0.15 mV",
+"3.0 mV",
+"1.5 mV",
+"0.6 mV",
+"15 mV"
+],
+"a": 2,
+"e": "Step 1: Standard calibration is 1 mV = 10 mm, so each small square on the vertical axis is 0.1 mV.\nStep 2: 15 mm ÷ 10 mm per mV = 1.5 mV.\nStep 3: The vertical axis measures voltage and the horizontal axis measures time, so the 0.04 s rule never applies to wave height. Normal QRS voltage is about 0.5–2.0 mV, and it rises in ventricular hypertrophy.\n\nTakeaway: Vertical: 10 mm = 1 mV (one small square = 0.1 mV). Horizontal: one small square = 0.04 s.",
+"w": [
+"This divides by 100 instead of 10; 10 mm = 1 mV.",
+"This doubles the value; 15 mm is 1.5 times the 10 mm calibration pulse.",
+"",
+"This uses the time conversion of 0.04 per small square, which applies to the horizontal axis.",
+"This forgets to convert millimetres to millivolts."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-paper"
+]
+},
+{
+"t": "ECG Paper & Measurement",
+"lv": "Hard",
+"s": "A student reports a \"wide QRS\" because the complex spans 4 small squares and he assumed 0.04 s per square. The machine was actually set to 50 mm/s. What is the true QRS duration?",
+"c": [
+"0.16 s, abnormally wide",
+"0.32 s, abnormally wide",
+"0.04 s, abnormally narrow",
+"0.12 s, borderline wide",
+"0.08 s, normal width"
+],
+"a": 4,
+"e": "Step 1: At 50 mm/s the paper moves twice as fast, so each 1 mm small square represents 1 ÷ 50 = 0.02 s, not 0.04 s.\nStep 2: 4 small squares × 0.02 s = 0.08 s.\nStep 3: A QRS under about 0.10–0.12 s is normal, so the \"wide QRS\" is a measurement error, not a conduction block. At double paper speed every wave looks twice as wide.\n\nTakeaway: Always check paper speed before calling a wave wide. At 50 mm/s one small square = 0.02 s.",
+"w": [
+"This is the student's error: 0.04 s per square only applies at 25 mm/s.",
+"This doubles in the wrong direction; faster paper makes each square shorter in time.",
+"This halves twice; at 50 mm/s each square is 0.02 s, so 4 squares is 0.08 s.",
+"This would need 6 squares at 50 mm/s, or 3 squares at 25 mm/s.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-paper"
+]
+},
+{
+"t": "Deflection Rules",
+"lv": "Easy",
+"s": "A wave of depolarization travels directly away from the positive electrode of a lead. What does that lead record?",
+"c": [
+"An upward deflection",
+"A downward deflection",
+"A flat isoelectric line",
+"An upward then flat wave",
+"A biphasic wave, up first"
+],
+"a": 1,
+"e": "Step 1: An ECG lead records the direction of the electrical wavefront relative to its positive electrode.\nStep 2: Depolarization moving toward the positive electrode makes an upward deflection. Depolarization moving away makes a downward deflection.\nStep 3: A wavefront perpendicular to the lead axis gives no net deflection (isoelectric or small biphasic). For repolarization the signs reverse.\n\nTakeaway: Depolarization toward (+) = up. Away from (+) = down. Perpendicular = flat.",
+"w": [
+"Upward means depolarization moving toward the positive electrode.",
+"",
+"A flat line means the wavefront runs perpendicular to the lead axis.",
+"No rule produces this; the direction of travel sets the sign.",
+"A biphasic wave comes from a wavefront crossing the lead at about 90°."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-deflection"
+]
+},
+{
+"t": "Deflection Rules",
+"lv": "Easy",
+"s": "Ventricular repolarization is a wave of positive charge leaving the cell surface, yet the normal T wave is upright in most leads. Why?",
+"c": [
+"Repolarization runs from endocardium to epicardium",
+"Repolarization runs from epicardium to endocardium",
+"Depolarization is still spreading during the T wave",
+"Atrial repolarization adds to the ventricular signal",
+"Papillary muscles repolarize before the free wall"
+],
+"a": 1,
+"e": "Step 1: Repolarization moving toward a positive electrode makes a downward deflection. Repolarization moving away makes an upward deflection, the opposite of depolarization.\nStep 2: The epicardium has the shortest action potentials, so it repolarizes first. Repolarization therefore travels from epicardium to endocardium, away from the surface electrodes.\nStep 3: Repolarization moving away from the electrode gives an upward T wave, in the same direction as the QRS. If repolarization reverses (endocardium to epicardium, e.g. ischemia), the T wave inverts.\n\nTakeaway: The T wave is upright because repolarization travels epicardium → endocardium, away from the electrode.",
+"w": [
+"That direction produces an inverted T wave, as the slide notes.",
+"",
+"The ventricles are fully depolarized by the ST segment; the T wave is repolarization.",
+"Atrial repolarization is hidden in the QRS, not the T wave.",
+"Papillary muscle repolarization is slow and gives the later U wave."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-deflection",
+"figs/crs/ecg-twave"
+]
+},
+{
+"t": "Deflection Rules",
+"lv": "Hard",
+"s": "A patient's mean QRS vector points straight down, at +90°. In which limb lead will the QRS be closest to isoelectric?",
+"c": [
+"Lead II",
+"Lead III",
+"Lead I",
+"aVF",
+"aVR"
+],
+"a": 2,
+"e": "Step 1: A lead records the largest deflection when the wavefront runs parallel to its axis and almost none when the wavefront is perpendicular.\nStep 2: Lead I runs from RA (−) to LA (+), along 0°. A vector at +90° is exactly 90° away, so it is perpendicular to lead I.\nStep 3: Lead I therefore shows a small biphasic or flat QRS, while aVF (+90°) shows the tallest positive QRS. This is the basis of the isoelectric-lead method for axis.\n\nTakeaway: The lead perpendicular to the mean vector is isoelectric. The lead parallel to it is the most positive.",
+"w": [
+"Lead II sits at +60°, only 30° from the vector, so its QRS is strongly positive.",
+"Lead III sits at +120°, 30° from the vector, so its QRS is clearly positive.",
+"",
+"aVF sits at +90°, parallel to the vector, so its QRS is the most positive.",
+"aVR sits at −150°, pointing away from the vector, so its QRS is clearly negative."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-einthoven",
+"figs/crs/ecg-deflection"
+]
+},
+{
+"t": "Limb, Augmented & Precordial Leads",
+"lv": "Easy",
+"s": "Which electrode pair forms lead II?",
+"c": [
+"Left arm −, left leg +",
+"Right arm −, left arm +",
+"Left leg −, right arm +",
+"Left arm −, right arm +",
+"Right arm −, left leg +"
+],
+"a": 4,
+"e": "Step 1: The bipolar limb leads form Einthoven's triangle.\nStep 2: Lead I = RA (−) to LA (+), \"I is lateral\". Lead II = RA (−) to LL (+), at +60°, \"II is inferior\". Lead III = LA (−) to LL (+), at +120°, \"III is inferior\".\nStep 3: Normal depolarization heads down and to the left, almost parallel to lead II, which is why lead II usually shows the tallest P wave and QRS and is used as the rhythm strip.\n\nTakeaway: Lead II runs RA (−) → LL (+), at +60°, and views the inferior wall.",
+"w": [
+"That is lead III, which also looks at the inferior wall.",
+"That is lead I, the lateral lead.",
+"This reverses the polarity of lead II.",
+"This reverses lead I; no standard lead is wired this way.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-einthoven"
+]
+},
+{
+"t": "Limb, Augmented & Precordial Leads",
+"lv": "Easy",
+"s": "On a normal 12-lead ECG, which lead usually shows a negative P wave, QRS and T wave?",
+"c": [
+"aVR",
+"aVF",
+"Lead II",
+"V6",
+"aVL"
+],
+"a": 0,
+"e": "Step 1: aVR has its positive electrode on the right arm, looking at the heart from the upper right.\nStep 2: Normal atrial and ventricular depolarization travels down and to the left, away from the right arm.\nStep 3: Depolarization moving away from the positive electrode gives downward deflections, so aVR is normally negative throughout: \"aVR = Away from ventricles\".\n\nTakeaway: aVR is the one lead that is normally negative, because normal depolarization moves away from the right arm.",
+"w": [
+"",
+"aVF looks up from the left foot, so normal depolarization heads toward it and it is positive.",
+"Lead II is nearly parallel to normal depolarization, so it is the most positive.",
+"V6 is a lateral lead facing the left ventricle, so its QRS is upright.",
+"aVL points to the left arm and is usually positive or small, not uniformly negative."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-augmented"
+]
+},
+{
+"t": "Limb, Augmented & Precordial Leads",
+"lv": "Easy",
+"s": "Which part of the heart do precordial leads V1 and V2 mainly view?",
+"c": [
+"The lateral wall",
+"The anterior wall",
+"The septum",
+"The inferior wall",
+"The right atrium"
+],
+"a": 2,
+"e": "Step 1: The precordial leads are unipolar chest leads that look at the heart in the horizontal plane.\nStep 2: V1 sits at the 4th intercostal space right of the sternum and V2 at the 4th intercostal space left of the sternum, over the interventricular septum.\nStep 3: V1–V2 = septum, V3–V4 = anterior wall, V5–V6 = lateral wall. ST changes confined to V1–V2 point to septal ischemia.\n\nTakeaway: V1–V2 septal, V3–V4 anterior, V5–V6 lateral.",
+"w": [
+"V5 and V6 view the lateral wall.",
+"V3 and V4 view the anterior wall.",
+"",
+"II, III and aVF view the inferior wall.",
+"No precordial pair is assigned to the right atrium."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-precordial"
+]
+},
+{
+"t": "Limb, Augmented & Precordial Leads",
+"lv": "Easy",
+"s": "Where is lead V4 placed?",
+"c": [
+"4th intercostal space, right of the sternum",
+"5th intercostal space, midclavicular line",
+"4th intercostal space, left of the sternum",
+"Anterior axillary line, at the V4 level",
+"Midaxillary line, at the V4 level"
+],
+"a": 1,
+"e": "Step 1: V1 = 4th intercostal space right of the sternum. V2 = 4th intercostal space left of the sternum.\nStep 2: V4 = 5th intercostal space at the midclavicular line. V3 lies midway between V2 and V4.\nStep 3: V5 = anterior axillary line and V6 = midaxillary line, both at the same horizontal level as V4. Misplacing V4 shifts the anterior and lateral leads and can mimic or hide changes.\n\nTakeaway: V4 sits at the 5th intercostal space, midclavicular line. V3 is halfway between V2 and V4.",
+"w": [
+"This is V1, the right-sided septal lead.",
+"",
+"This is V2, the left-sided septal lead.",
+"This is V5, a lateral lead.",
+"This is V6, the most lateral chest lead."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-precordial"
+]
+},
+{
+"t": "Limb, Augmented & Precordial Leads",
+"lv": "Hard",
+"s": "A 60-year-old man has crushing chest pain. ST elevation appears in the two bipolar limb leads whose positive electrode is the left leg, and in the augmented lead from the left foot. Which region is injured?",
+"c": [
+"Inferior wall",
+"Lateral wall",
+"Septum",
+"Anterior wall",
+"Right atrium"
+],
+"a": 0,
+"e": "Step 1: The bipolar leads with the left leg as positive electrode are lead II (RA − to LL +) and lead III (LA − to LL +). The augmented lead from the left foot is aVF.\nStep 2: II, III and aVF all look up at the heart from below, so together they view the inferior wall: \"II is inferior, III is inferior\".\nStep 3: ST elevation in a contiguous lead group localizes acute injury, so this is an inferior STEMI.\n\nTakeaway: II, III and aVF = inferior. I, aVL, V5–V6 = lateral. V1–V2 = septal. V3–V4 = anterior.",
+"w": [
+"",
+"Lateral injury shows in I, aVL, V5 and V6.",
+"Septal injury shows in V1 and V2.",
+"Anterior injury shows in V3 and V4.",
+"The limb leads described view the inferior left ventricle, not the atrium."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-einthoven",
+"figs/crs/ecg-stemi"
+]
+},
+{
+"t": "P, QRS, T & U Waves",
+"lv": "Easy",
+"s": "Atrial repolarization does not appear as a separate wave on a normal ECG. Why?",
+"c": [
+"The atria never actually repolarize",
+"It occurs during the later T wave",
+"It produces the small U wave",
+"It is masked by the QRS complex",
+"It occurs just before the P wave"
+],
+"a": 3,
+"e": "Step 1: The P wave is atrial depolarization (SA node → atrial muscle).\nStep 2: The atria repolarize about 0.15–0.20 s later, which falls at the same time as ventricular depolarization.\nStep 3: Ventricular depolarization involves far more muscle, so the large QRS hides the small atrial repolarization wave.\n\nTakeaway: Atrial repolarization is real but hidden inside the QRS complex.",
+"w": [
+"Every cell must repolarize to fire again; atrial repolarization does happen.",
+"The T wave is ventricular repolarization, which happens later.",
+"The U wave is slow repolarization of the papillary muscles.",
+"",
+"Repolarization follows depolarization, so it cannot come first."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-qrs"
+]
+},
+{
+"t": "P, QRS, T & U Waves",
+"lv": "Easy",
+"s": "Which electrical event produces the Q wave?",
+"c": [
+"Depolarization of the LV free wall",
+"Depolarization of the RV",
+"Depolarization of the septum",
+"Repolarization of the atria",
+"Depolarization of the AV node"
+],
+"a": 2,
+"e": "Step 1: The QRS complex is ventricular depolarization, and each part reflects a different region.\nStep 2: The septum depolarizes first, from left to right, giving the small initial Q wave.\nStep 3: The large left ventricular mass then depolarizes, giving the R wave, and the last regions (RV and base) give the S wave.\n\nTakeaway: Q = septum, R = left ventricle, S = right ventricle and base.",
+"w": [
+"The LV free wall produces the large R wave.",
+"The RV and late basal depolarization give the S wave.",
+"",
+"Atrial repolarization is hidden within the QRS, not a named wave.",
+"The AV node is too small to produce a visible wave."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-qrs",
+"figs/crs/ecg-waves"
+]
+},
+{
+"t": "P, QRS, T & U Waves",
+"lv": "Easy",
+"s": "A small rounded wave follows the T wave and becomes prominent in hypokalemia. What does it represent?",
+"c": [
+"Repolarization of the atria",
+"Depolarization of the septum",
+"Delayed AV nodal conduction",
+"Depolarization of the Purkinje fibers",
+"Slow papillary muscle repolarization"
+],
+"a": 4,
+"e": "Step 1: The U wave is a small wave after the T wave in the same direction as the T wave.\nStep 2: It is thought to reflect slow, late repolarization of the papillary muscles (and Purkinje fibers).\nStep 3: Low K⁺ slows repolarization, so the T wave flattens and the U wave becomes prominent in hypokalemia.\n\nTakeaway: U wave = slow papillary muscle repolarization, prominent in hypokalemia.",
+"w": [
+"Atrial repolarization is hidden in the QRS complex.",
+"Septal depolarization is the Q wave.",
+"AV delay is the flat PR segment, not a wave.",
+"Purkinje activity is too small to record on the surface.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-twave"
+]
+},
+{
+"t": "P, QRS, T & U Waves",
+"lv": "Hard",
+"s": "A 32-year-old woman has rheumatic mitral stenosis. Over years, her left atrium has to push blood through a narrowed valve. Which ECG change is expected from this?",
+"c": [
+"A wider QRS complex",
+"A peaked T wave",
+"A prominent U wave",
+"A larger P wave",
+"A shorter PR interval"
+],
+"a": 3,
+"e": "Step 1: Mitral stenosis obstructs flow from the left atrium into the left ventricle, so left atrial pressure rises.\nStep 2: Chronic pressure overload makes the left atrium enlarge.\nStep 3: The P wave reflects atrial depolarization, so more atrial muscle (or a longer path) gives a larger, often wider P wave. The lecture notes: \"Larger P wave reflects atrial enlargement\".\n\nTakeaway: Mitral stenosis → left atrial enlargement → larger P wave.",
+"w": [
+"QRS width reflects ventricular conduction, not atrial size.",
+"Peaked T waves point to hyperkalemia.",
+"Prominent U waves point to hypokalemia.",
+"",
+"Atrial enlargement does not speed AV conduction."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-waves"
+]
+},
+{
+"t": "P, QRS, T & U Waves",
+"lv": "Hard",
+"s": "A 58-year-old man has had poorly controlled hypertension for 15 years. His left ventricle has thickened to pump against a high afterload. Which QRS change is expected?",
+"c": [
+"Peaked T waves",
+"A prolonged PR interval",
+"Absent P waves",
+"Increased QRS voltage",
+"Prominent U waves"
+],
+"a": 3,
+"e": "Step 1: Chronic hypertension raises afterload on the left ventricle.\nStep 2: The ventricle adapts with concentric hypertrophy, so there is more muscle to depolarize.\nStep 3: More depolarizing muscle produces a larger electrical signal, so QRS voltage increases (normal is about 0.5–2.0 mV). The complex can also lengthen in hypertrophy.\n\nTakeaway: Ventricular hypertrophy → more muscle → increased QRS voltage.",
+"w": [
+"Peaked T waves point to hyperkalemia.",
+"PR reflects AV conduction, which hypertrophy does not slow.",
+"Absent P waves suggest atrial fibrillation.",
+"",
+"Prominent U waves suggest hypokalemia."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-qrs"
+]
+},
+{
+"t": "Segments, Intervals & Heart Rate",
+"lv": "Easy",
+"s": "What does the PR interval mainly measure?",
+"c": [
+"Time for ventricular repolarization",
+"Time for atrial repolarization",
+"Total ventricular electrical systole",
+"Duration of the ventricular plateau",
+"Conduction time through the AV node"
+],
+"a": 4,
+"e": "Step 1: The PR interval runs from the start of the P wave to the start of the QRS, so it is the P wave plus the PQ segment.\nStep 2: It covers the impulse's passage from the atria through the AV node, His bundle and Purkinje system to ventricular muscle. Most of that time is the AV nodal delay.\nStep 3: Normal is 0.12–0.20 s. It lengthens with AV block, parasympathetic stimulation and drugs that slow conduction.\n\nTakeaway: The PR interval is AV conduction time, mostly AV nodal delay, and is normally 0.12–0.20 s.",
+"w": [
+"Ventricular repolarization is the T wave.",
+"Atrial repolarization is hidden in the QRS.",
+"That is the QT interval, from QRS onset to the end of T.",
+"The ventricular plateau is the ST segment.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-pr-interval",
+"figs/crs/ecg-segments"
+]
+},
+{
+"t": "Segments, Intervals & Heart Rate",
+"lv": "Easy",
+"s": "During the ST segment, what is the electrical state of the ventricles?",
+"c": [
+"Fully repolarized",
+"Partly depolarized",
+"Fully depolarized",
+"Starting to repolarize",
+"Starting to depolarize"
+],
+"a": 2,
+"e": "Step 1: The ST segment runs from the end of the QRS to the start of the T wave.\nStep 2: All ventricular cells are in the plateau (phase 2) of their action potential, held there by L-type Ca²⁺ influx, so every region sits at about the same voltage.\nStep 3: With no voltage difference there is no current flow, so the segment lies on the isoelectric line. Injured cells change this: ST elevation in acute MI, ST depression in ischemia.\n\nTakeaway: ST segment = ventricles fully depolarized (plateau), so it is normally flat.",
+"w": [
+"Full repolarization comes after the T wave.",
+"Depolarization ends with the QRS.",
+"",
+"Repolarization of the ventricles is the T wave.",
+"Ventricular depolarization is the QRS."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-segments"
+]
+},
+{
+"t": "Segments, Intervals & Heart Rate",
+"lv": "Easy",
+"s": "The R-R interval on a regular rhythm strip is 0.75 s. What is the heart rate?",
+"c": [
+"80 beats/min",
+"45 beats/min",
+"60 beats/min",
+"100 beats/min",
+"120 beats/min"
+],
+"a": 0,
+"e": "Step 1: The R-R interval is the time between successive QRS complexes, so it is the duration of one cardiac cycle.\nStep 2: Heart rate = 60 s ÷ R-R in seconds. There are 60 seconds in a minute, so dividing by the length of one beat gives beats per minute.\nStep 3: 60 ÷ 0.75 = 80 beats/min. On paper at 25 mm/s, 0.75 s is about 19 small squares, and 1500 ÷ 19 also gives about 80.\n\nTakeaway: HR = 60 ÷ R-R (s). Shorter R-R = faster rate.",
+"w": [
+"",
+"This would need an R-R of about 1.33 s.",
+"This would need an R-R of 1.0 s.",
+"This would need an R-R of 0.6 s.",
+"This would need an R-R of 0.5 s."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-qt-rr"
+]
+},
+{
+"t": "Segments, Intervals & Heart Rate",
+"lv": "Hard",
+"s": "A 21-year-old endurance runner has a PR interval of 0.24 s at rest. It shortens to 0.16 s after a dose of atropine. Which mechanism explains his resting PR interval?",
+"c": [
+"Fast SA node firing from sympathetic tone",
+"Slow AV nodal conduction from vagal tone",
+"Delayed ventricular repolarization",
+"Slow Purkinje conduction from fibrosis",
+"An enlarged right atrium from training"
+],
+"a": 1,
+"e": "Step 1: Trained athletes have high resting vagal (parasympathetic) tone.\nStep 2: ACh at the AV node slows conduction and lengthens the AV delay, so the PR interval lengthens (lecture: PR lengthens with parasympathetic stimulation).\nStep 3: Atropine blocks muscarinic receptors, removing vagal slowing, so the PR shortens back into the normal 0.12–0.20 s range. This confirms a functional, vagal cause rather than structural disease.\n\nTakeaway: Vagal tone slows AV nodal conduction and lengthens the PR interval. Atropine reverses it.",
+"w": [
+"Faster SA firing changes rate, not AV conduction time.",
+"",
+"Repolarization affects QT and T waves, not the PR interval.",
+"Fibrosis would not reverse with atropine.",
+"Atrial size changes the P wave, and atropine would not fix it."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-pr-interval"
+]
+},
+{
+"t": "Electrolytes & Ischemia on the ECG",
+"lv": "Easy",
+"s": "A patient with kidney failure has a serum K⁺ of 7.0 mEq/L. Which T-wave change is expected?",
+"c": [
+"Flat T waves with U waves",
+"Inverted T waves only",
+"Tall, peaked T waves",
+"Absent T waves",
+"Notched, wide T waves"
+],
+"a": 2,
+"e": "Step 1: High extracellular K⁺ raises membrane K⁺ conductance in ventricular cells.\nStep 2: Faster K⁺ efflux speeds and synchronizes repolarization, so the T wave becomes tall, narrow and peaked (\"Big T wave = hyperkalemia\").\nStep 3: As K⁺ rises further, the resting potential becomes less negative, Na⁺ channels inactivate, and the P wave flattens and the QRS widens, which can progress to arrest.\n\nTakeaway: Hyperkalemia → tall, peaked T waves first.",
+"w": [
+"This is the pattern of hypokalemia.",
+"T inversion points to ischemia or abnormal repolarization direction.",
+"",
+"T waves do not vanish in hyperkalemia; they grow taller.",
+"Notching is not the classic hyperkalemia pattern."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-twave"
+]
+},
+{
+"t": "Electrolytes & Ischemia on the ECG",
+"lv": "Hard",
+"s": "A 70-year-old woman starts furosemide for heart failure. Two weeks later she has muscle weakness and cramps. Which ECG pattern best fits her likely electrolyte problem?",
+"c": [
+"Peaked T waves and a wide QRS",
+"Flat T and prominent U waves",
+"ST elevation in II, III and aVF",
+"A short QT with tall T waves",
+"Absent P waves and a wide QRS"
+],
+"a": 1,
+"e": "Step 1: Loop diuretics such as furosemide increase urinary K⁺ loss, causing hypokalemia. Weakness and cramps fit low K⁺.\nStep 2: Low extracellular K⁺ reduces K⁺ conductance, so ventricular repolarization slows.\nStep 3: Slow repolarization flattens the T wave and makes the U wave (late papillary muscle repolarization) prominent. Low K⁺ also prolongs repolarization, which predisposes to torsades de pointes.\n\nTakeaway: Loop diuretic → hypokalemia → flat T, prominent U wave.",
+"w": [
+"This is hyperkalemia, the opposite of a loop diuretic's effect.",
+"",
+"This is an inferior STEMI, not an electrolyte effect.",
+"This fits hyperkalemia or hypercalcemia, not low K⁺.",
+"This fits severe hyperkalemia."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-twave"
+]
+},
+{
+"t": "Electrolytes & Ischemia on the ECG",
+"lv": "Easy",
+"s": "Why does the ST segment shift away from baseline in acute myocardial injury?",
+"c": [
+"Injured cells repolarize far too quickly",
+"The AV node conducts more slowly",
+"Injured cells stay partly depolarized",
+"Atrial repolarization is unmasked",
+"Purkinje fibers stop conducting"
+],
+"a": 2,
+"e": "Step 1: Ischemic cells cannot keep their normal resting potential and behave as partially depolarized cells.\nStep 2: A voltage difference then exists between injured and healthy myocardium, so an injury current flows between them.\nStep 3: This current shifts the baseline, which shows up as an ST shift: elevation in acute transmural MI and depression in subendocardial ischemia. (Handwritten mnemonic: ischemia, ST goes down. MI, ST goes up.)\n\nTakeaway: Injury current from partly depolarized cells shifts the ST segment: up in MI, down in ischemia.",
+"w": [
+"Fast repolarization changes the T wave, not the ST baseline.",
+"AV delay lengthens the PR interval, not the ST segment.",
+"",
+"Atrial repolarization is hidden in the QRS and does not shift ST.",
+"Purkinje block widens the QRS rather than shifting ST."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-injury-current",
+"figs/crs/ecg-segments"
+]
+},
+{
+"t": "Electrolytes & Ischemia on the ECG",
+"lv": "Hard",
+"s": "A man with chronic kidney disease has a K⁺ of 7.2 mEq/L. His ECG shows tall, narrow, peaked T waves. Which ionic mechanism explains the T-wave change?",
+"c": [
+"Slower repolarization from ↓ K⁺ efflux",
+"A more negative resting membrane potential",
+"Faster depolarization of the SA node cells",
+"Faster repolarization via ↑ K⁺ conductance",
+"Delayed papillary muscle repolarization"
+],
+"a": 3,
+"e": "Step 1: Raising extracellular K⁺ increases the conductance of ventricular K⁺ channels (IK).\nStep 2: More outward K⁺ current makes phase 3 repolarization faster and more synchronous across the ventricle.\nStep 3: Fast, synchronous repolarization gives a tall, narrow, peaked T wave. Separately, high K⁺ makes the resting potential less negative, which inactivates Na⁺ channels and later widens the QRS.\n\nTakeaway: Hyperkalemia speeds repolarization through ↑ K⁺ conductance → peaked T waves.",
+"w": [
+"This is the hypokalemia mechanism, which flattens the T wave.",
+"High K⁺ makes the resting potential less negative.",
+"SA node rate does not shape the T wave.",
+"",
+"This gives a U wave, as in hypokalemia."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-twave"
+]
+},
+{
+"t": "Acute Coronary Syndrome on the ECG",
+"lv": "Easy",
+"s": "Which ECG finding defines a STEMI?",
+"c": [
+"ST elevation from a total occlusion",
+"ST depression from a partial occlusion",
+"T inversion with normal cardiac enzymes",
+"Peaked T waves from a high K⁺",
+"A long PR interval from AV nodal delay"
+],
+"a": 0,
+"e": "Step 1: A STEMI is caused by complete occlusion of a coronary artery, usually by a thrombus on a ruptured plaque.\nStep 2: The full thickness of the wall becomes injured (transmural), and the injury current shows as ST elevation in the leads facing that wall.\nStep 3: Pathological Q waves may follow as tissue dies, and reciprocal ST depression can appear in the opposite leads.\n\nTakeaway: STEMI = complete occlusion → transmural injury → ST elevation.",
+"w": [
+"",
+"This describes NSTEMI or unstable angina.",
+"This fits unstable angina, not STEMI.",
+"This is hyperkalemia, not an infarction pattern.",
+"This is first-degree AV block."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-stemi",
+"figs/crs/ecg-stemi-nstemi"
+]
+},
+{
+"t": "Acute Coronary Syndrome on the ECG",
+"lv": "Hard",
+"s": "A 64-year-old man has 40 minutes of chest pressure at rest. His ECG shows ST depression in V4–V6 without ST elevation. Troponin is elevated. Which diagnosis fits?",
+"c": [
+"NSTEMI, a subendocardial infarct",
+"Unstable angina without necrosis",
+"STEMI, a transmural infarct",
+"Stable angina on exertion",
+"Hyperkalemia with ST changes"
+],
+"a": 0,
+"e": "Step 1: Pain at rest lasting 40 minutes means an acute coronary syndrome.\nStep 2: ST depression without ST elevation points to a partial occlusion with subendocardial ischemia, so this is not a STEMI.\nStep 3: An elevated troponin shows that myocardium has died, which separates NSTEMI from unstable angina (same ECG, negative enzymes).\n\nTakeaway: ST depression + positive enzymes = NSTEMI. Same ECG + negative enzymes = unstable angina.",
+"w": [
+"",
+"Unstable angina has the same ECG but negative enzymes.",
+"A STEMI needs ST elevation from a complete occlusion.",
+"His pain is at rest, prolonged and with troponin rise.",
+"Hyperkalemia gives peaked T waves, not ischemic ST depression."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-stemi-nstemi"
+]
+},
+{
+"t": "Acute Coronary Syndrome on the ECG",
+"lv": "Hard",
+"s": "A 59-year-old woman has new chest pain at rest. Her ECG shows T-wave inversion in V2–V4. Serial troponins stay normal. What is the diagnosis?",
+"c": [
+"NSTEMI",
+"STEMI",
+"Unstable angina",
+"Transmural infarction",
+"First-degree AV block"
+],
+"a": 2,
+"e": "Step 1: New chest pain at rest is an acute coronary syndrome until proven otherwise.\nStep 2: ST depression or T-wave inversion without ST elevation leaves NSTEMI or unstable angina.\nStep 3: Normal serial enzymes mean no myocyte death, so the diagnosis is unstable angina, which shares the NSTEMI ECG pattern.\n\nTakeaway: Unstable angina = NSTEMI-type ECG with negative cardiac enzymes.",
+"w": [
+"An NSTEMI would show a rise in cardiac enzymes.",
+"A STEMI shows ST elevation, not T inversion.",
+"",
+"Transmural infarction gives ST elevation and positive enzymes.",
+"This is a PR interval finding, not an ACS diagnosis."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-stemi-nstemi"
+]
+},
+{
+"t": "AV Blocks",
+"lv": "Easy",
+"s": "A rhythm strip shows a constant PR interval of 0.28 s, and every P wave is followed by a QRS complex. What is the rhythm?",
+"c": [
+"First-degree AV block",
+"Mobitz type I AV block",
+"Mobitz type II AV block",
+"Third-degree AV block",
+"Sinus bradycardia"
+],
+"a": 0,
+"e": "Step 1: A PR interval above 0.20 s means AV conduction is delayed.\nStep 2: The PR is constant and every P wave conducts to a QRS, so no beats are dropped.\nStep 3: Delayed but dependable conduction is first-degree AV block. It is benign, usually asymptomatic and needs no treatment: \"if the R is far from the P, then you have a first degree\".\n\nTakeaway: First degree = PR > 0.20 s, constant, with no dropped beats.",
+"w": [
+"",
+"Mobitz I needs progressive PR lengthening and a dropped beat.",
+"Mobitz II has dropped QRS complexes.",
+"Third degree has no relation between P waves and QRS.",
+"Sinus bradycardia is a slow rate with a normal PR."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-1st-degree"
+]
+},
+{
+"t": "AV Blocks",
+"lv": "Easy",
+"s": "A strip shows the PR interval getting longer with each beat until a P wave is not followed by a QRS. The cycle then repeats. What is the rhythm?",
+"c": [
+"Mobitz type I AV block",
+"Mobitz type II AV block",
+"First-degree AV block",
+"Third-degree AV block",
+"Atrial fibrillation"
+],
+"a": 0,
+"e": "Step 1: Progressive PR lengthening means the AV node is tiring with each beat.\nStep 2: Eventually one impulse fails to conduct, giving a P wave with no QRS. The node recovers and the cycle restarts.\nStep 3: This is Mobitz type I (Wenckebach): \"longer, longer, longer, drop\". The block is usually in the AV node, the RR interval is regularly irregular, and it is usually benign.\n\nTakeaway: Progressive PR lengthening then a dropped beat = Mobitz I (Wenckebach), AV nodal.",
+"w": [
+"",
+"In Mobitz II the PR is constant before the dropped beat.",
+"First degree never drops a beat.",
+"Third degree has complete P–QRS dissociation, not a repeating pattern.",
+"AF has no discrete P waves and an irregularly irregular rhythm."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-mobitz1"
+]
+},
+{
+"t": "AV Blocks",
+"lv": "Easy",
+"s": "In Mobitz type II AV block, where is the block usually located?",
+"c": [
+"Within the AV node itself, like Mobitz I",
+"Within the SA node pacemaker cells",
+"In the atrial muscle around the node",
+"Below the AV node, in His–Purkinje",
+"In the papillary muscles of the LV"
+],
+"a": 3,
+"e": "Step 1: In Mobitz II the PR interval stays constant and then a QRS suddenly drops.\nStep 2: A constant PR means the AV node is working normally, so the failure lies below it, in the His bundle or bundle branches.\nStep 3: Infranodal block is unstable and can progress to third-degree block, so it is usually treated with a pacemaker.\n\nTakeaway: Mobitz II = constant PR with sudden drops = infranodal block, at risk of complete block.",
+"w": [
+"This is the usual site in Mobitz I.",
+"SA node problems change P-wave timing, not AV conduction.",
+"Atrial muscle disease does not drop QRS complexes after normal P waves.",
+"",
+"Papillary muscles do not conduct the cardiac impulse."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-mobitz2"
+]
+},
+{
+"t": "AV Blocks",
+"lv": "Hard",
+"s": "A 74-year-old man has two fainting episodes. His ECG shows a constant PR interval with occasional P waves that are suddenly not followed by a QRS. What is the most appropriate management?",
+"c": [
+"Reassurance and follow-up",
+"Atropine to speed conduction",
+"Anticoagulation with warfarin",
+"Magnesium sulfate infusion",
+"Pacemaker placement"
+],
+"a": 4,
+"e": "Step 1: A constant PR with sudden dropped QRS complexes is Mobitz type II.\nStep 2: The block is below the AV node and can progress to complete heart block. His syncope shows that cardiac output is already failing during dropped beats.\nStep 3: Mobitz II is usually treated with a pacemaker. Atropine helps nodal block but worsens infranodal block.\n\nTakeaway: Symptomatic Mobitz II → pacemaker. Do not rely on atropine.",
+"w": [
+"This is appropriate for first degree or Mobitz I, not symptomatic Mobitz II.",
+"Atropine can worsen Mobitz II by sending more atrial impulses to a diseased infranodal system.",
+"Anticoagulation prevents stroke in AF or flutter, not AV block.",
+"Magnesium is for torsades de pointes.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-mobitz2"
+]
+},
+{
+"t": "AV Blocks",
+"lv": "Hard",
+"s": "A patient with second-degree AV block is given atropine. Her atrial rate rises, but more P waves now fail to conduct, and the ventricular rate falls. Which block does she have?",
+"c": [
+"Mobitz type I, an AV nodal block",
+"Mobitz type II, infranodal block",
+"First-degree block in the AV node",
+"Sinus bradycardia from vagal tone",
+"Atrial flutter with a 4:1 block"
+],
+"a": 1,
+"e": "Step 1: Atropine blocks vagal input, which speeds the SA node and improves conduction through the AV node.\nStep 2: If the block is in the AV node (Mobitz I), conduction improves. If the block is below the node (Mobitz II), the His–Purkinje system is not under vagal control and cannot keep up with the faster atrial rate.\nStep 3: More atrial impulses therefore fail to conduct, the ratio worsens and the ventricular rate falls, as the slide notes: atropine improves type I and worsens type II.\n\nTakeaway: Atropine helps Mobitz I and worsens Mobitz II, because Mobitz II is below the AV node.",
+"w": [
+"Atropine improves AV nodal conduction, so Mobitz I gets better.",
+"",
+"First degree drops no beats, and atropine shortens its PR.",
+"Sinus bradycardia has no non-conducted P waves.",
+"Flutter has sawtooth F waves, not discrete P waves."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-mobitz2",
+"figs/crs/ecg-mobitz1"
+]
+},
+{
+"t": "AV Blocks",
+"lv": "Easy",
+"s": "A strip shows regular P waves at 80/min and regular QRS complexes at 35/min, with no fixed relationship between them. What is the rhythm?",
+"c": [
+"Third-degree AV block",
+"Mobitz type II AV block",
+"Mobitz type I AV block",
+"First-degree AV block",
+"Sinus bradycardia"
+],
+"a": 0,
+"e": "Step 1: P waves and QRS complexes each march out regularly, but at different rates.\nStep 2: The PR interval varies at random and P waves fall on QRS complexes and T waves, showing complete AV dissociation.\nStep 3: No atrial impulse reaches the ventricles, so an escape pacemaker drives them. This is third-degree (complete) AV block: \"if Ps and Qs don't agree, then you have 3rd degree\". It is life-threatening and needs a pacemaker.\n\nTakeaway: Regular P waves, regular QRS, no relationship = third-degree AV block.",
+"w": [
+"",
+"Mobitz II conducts some P waves with a constant PR.",
+"Mobitz I conducts most beats with a lengthening PR.",
+"First degree conducts every P wave.",
+"Sinus bradycardia has a P before every QRS."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-3rd-degree"
+]
+},
+{
+"t": "AV Blocks",
+"lv": "Hard",
+"s": "A 78-year-old woman is dizzy. Her ECG shows P waves at 75/min and wide QRS complexes at 32/min with no relationship between them. What is setting her ventricular rate?",
+"c": [
+"The SA node",
+"Conducted atrial impulses",
+"A junctional escape pacemaker",
+"A ventricular escape focus",
+"An atrial ectopic focus"
+],
+"a": 3,
+"e": "Step 1: P waves and QRS complexes are dissociated, so this is third-degree AV block and the ventricles need their own pacemaker.\nStep 2: The escape rhythm is very slow (32/min) and the QRS is wide, so the impulse starts in ventricular (Purkinje) tissue and spreads slowly through muscle.\nStep 3: Purkinje fibers fire at only about 20–40/min, which explains her dizziness from low cardiac output. A junctional escape would be faster with a narrow QRS.\n\nTakeaway: Complete block with a wide QRS at 20–40/min = ventricular (Purkinje) escape rhythm.",
+"w": [
+"The SA node drives only the atria here, at 75/min.",
+"No atrial impulses are conducted in complete block.",
+"A junctional escape gives a narrow QRS at about 40–60/min.",
+"",
+"Atrial impulses cannot cross a complete AV block."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-3rd-degree"
+]
+},
+{
+"t": "Systematic Rhythm Approach & Rate",
+"lv": "Easy",
+"s": "A regular rhythm strip has 20 small squares between consecutive R waves. What is the heart rate?",
+"c": [
+"30 beats/min",
+"60 beats/min",
+"75 beats/min",
+"100 beats/min",
+"300 beats/min"
+],
+"a": 2,
+"e": "Step 1: At 25 mm/s there are 1500 small squares per minute.\nStep 2: For a regular rhythm, HR = 1500 ÷ number of small squares between R waves. (The slide writes the fraction upside down; your handwritten note corrects it.)\nStep 3: 1500 ÷ 20 = 75 beats/min. The same answer comes from 300 ÷ large squares (300 ÷ 4 = 75).\n\nTakeaway: HR = 1500 ÷ small squares between R waves, or 300 ÷ large squares.",
+"w": [
+"This would need 50 small squares between R waves.",
+"This would need 25 small squares.",
+"",
+"This would need 15 small squares.",
+"This uses 300 ÷ large squares with the wrong count."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-paper"
+]
+},
+{
+"t": "Systematic Rhythm Approach & Rate",
+"lv": "Easy",
+"s": "A febrile 25-year-old has a regular rhythm at 125/min. Each QRS is preceded by a normal P wave. What is the rhythm?",
+"c": [
+"Sinus bradycardia",
+"Sinus tachycardia",
+"Atrial flutter",
+"Atrial fibrillation",
+"Third-degree AV block"
+],
+"a": 1,
+"e": "Step 1: Work through the system: is there a P for every QRS? Yes. Is the rhythm regular? Yes. What is the rate? 125/min.\nStep 2: A normal P before every QRS means the SA node is driving the heart, so the rhythm is sinus.\nStep 3: A sinus rhythm above 100/min is sinus tachycardia. Common causes are exercise, fever, anxiety and hypovolemia.\n\nTakeaway: Sinus rhythm > 100/min = sinus tachycardia, often from fever or hypovolemia.",
+"w": [
+"Bradycardia means a rate below 60/min.",
+"",
+"Flutter shows sawtooth F waves, not normal P waves.",
+"AF has no discrete P waves and is irregularly irregular.",
+"Complete block dissociates P waves from QRS complexes."
+],
+"src": "lec"
+},
+{
+"t": "Systematic Rhythm Approach & Rate",
+"lv": "Hard",
+"s": "A 23-year-old marathon runner has a resting heart rate of 46/min. Each QRS follows a normal P wave with a PR of 0.16 s, and his exercise capacity is excellent. What explains his ECG?",
+"c": [
+"Third-degree block from fibrosis",
+"Sinus bradycardia from vagal tone",
+"Mobitz II block below the AV node",
+"Atrial flutter with a 4:1 block",
+"First-degree block from ischemia"
+],
+"a": 1,
+"e": "Step 1: A P before every QRS with a normal PR means normal sinus conduction.\nStep 2: The rate is below 60/min, so this is sinus bradycardia.\nStep 3: In a trained athlete with excellent exercise tolerance, the cause is high resting vagal tone, which slows SA node firing. Other causes include drugs such as beta-blockers.\n\nTakeaway: Sinus rhythm < 60/min in an athlete = benign sinus bradycardia from vagal tone.",
+"w": [
+"His P waves conduct to every QRS with a normal PR.",
+"",
+"No beats are dropped, and the PR stays constant.",
+"He has normal P waves, not sawtooth F waves.",
+"His PR of 0.16 s is normal."
+],
+"src": "lec"
+},
+{
+"t": "Torsades de Pointes & Long QT",
+"lv": "Easy",
+"s": "Which ECG finding predisposes a patient to torsades de pointes?",
+"c": [
+"A prolonged QT interval",
+"A prolonged PR interval",
+"A wide P wave",
+"ST-segment elevation",
+"A short QT interval"
+],
+"a": 0,
+"e": "Step 1: The QT interval is total ventricular electrical systole (depolarization plus repolarization).\nStep 2: A long QT means prolonged repolarization, which lets early afterdepolarizations trigger extra beats.\nStep 3: These can start polymorphic VT whose QRS axis twists around the baseline: torsades de pointes. It can degenerate into ventricular fibrillation and sudden cardiac death.\n\nTakeaway: Long QT (prolonged repolarization) predisposes to torsades de pointes.",
+"w": [
+"",
+"PR prolongation is AV block and does not cause torsades.",
+"A wide P wave points to atrial enlargement.",
+"ST elevation points to acute transmural injury.",
+"A short QT is not the classic trigger for torsades."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-longqt-torsades",
+"figs/crs/ecg-torsades"
+]
+},
+{
+"t": "Torsades de Pointes & Long QT",
+"lv": "Easy",
+"s": "Which antibiotic class in the \"ABCDE\" list of drugs that cause torsades prolongs the QT interval?",
+"c": [
+"Penicillins such as amoxicillin",
+"Macrolides such as azithromycin",
+"Cephalosporins such as ceftriaxone",
+"Tetracyclines such as doxycycline",
+"Aminoglycosides such as gentamicin"
+],
+"a": 1,
+"e": "Step 1: The torsades drug mnemonic is ABCDE: AntiArrhythmics (class IA and III), AntiBiotics, Anti\"C\"ychotics (haloperidol), AntiDepressants (TCAs) and AntiEmetics (ondansetron).\nStep 2: The antibiotics on the list are the macrolides (azithromycin, clarithromycin, erythromycin).\nStep 3: These drugs block cardiac K⁺ channels, prolong repolarization and lengthen the QT, which predisposes to torsades.\n\nTakeaway: ABCDE: antiarrhythmics IA/III, macrolides, haloperidol, TCAs, ondansetron.",
+"w": [
+"Penicillins do not meaningfully prolong the QT interval.",
+"",
+"Cephalosporins are not on the torsades list.",
+"Tetracyclines are not classic QT-prolonging drugs.",
+"Aminoglycosides cause ototoxicity and nephrotoxicity, not torsades."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-torsades"
+]
+},
+{
+"t": "Torsades de Pointes & Long QT",
+"lv": "Hard",
+"s": "A 62-year-old woman on haloperidol for delirium is also given a loop diuretic. She has palpitations, then collapses. Her monitor shows polymorphic VT with QRS peaks twisting around the baseline. What is the first-line drug treatment?",
+"c": [
+"Intravenous atropine bolus",
+"Oral warfarin anticoagulation",
+"Intravenous verapamil",
+"IV magnesium sulfate",
+"More haloperidol for sedation"
+],
+"a": 3,
+"e": "Step 1: Haloperidol prolongs the QT, and the loop diuretic lowers K⁺ and Mg²⁺, which prolongs it further.\nStep 2: Twisting polymorphic VT on a long QT background is torsades de pointes.\nStep 3: First-line treatment is IV magnesium sulfate, which stabilizes the membrane and suppresses early afterdepolarizations. Also stop the offending drugs, correct K⁺ and Mg²⁺, and use cardioversion or defibrillation if she is unstable.\n\nTakeaway: Torsades → IV magnesium sulfate, stop QT drugs, correct electrolytes.",
+"w": [
+"Atropine treats bradycardia and nodal block, not torsades.",
+"Warfarin prevents stroke in AF. It does not stop VT.",
+"Verapamil is for rate control and can cause collapse in VT.",
+"",
+"Haloperidol is one of the causes of her QT prolongation."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-torsades",
+"figs/crs/ecg-longqt-torsades"
+]
+},
+{
+"t": "Torsades de Pointes & Long QT",
+"lv": "Hard",
+"s": "A 6-year-old boy who has been deaf since birth faints while running. His ECG shows a markedly prolonged QT interval. Both parents are healthy carriers. Which syndrome is most likely?",
+"c": [
+"Romano-Ward syndrome",
+"Brugada syndrome",
+"Wolff-Parkinson-White syndrome",
+"Jervell and Lange-Nielsen",
+"Holiday heart syndrome"
+],
+"a": 3,
+"e": "Step 1: Syncope during exertion with a long QT suggests torsades de pointes from congenital long QT syndrome.\nStep 2: Congenital sensorineural deafness plus long QT is Jervell and Lange-Nielsen syndrome.\nStep 3: Healthy carrier parents fit its autosomal recessive inheritance. Romano-Ward is autosomal dominant with a pure cardiac phenotype and no deafness.\n\nTakeaway: Long QT + deafness + recessive = Jervell and Lange-Nielsen. Long QT only + dominant = Romano-Ward.",
+"w": [
+"Romano-Ward is autosomal dominant with normal hearing.",
+"Brugada shows ST elevation in V1–V3, not deafness with long QT.",
+"WPW shows a short PR and delta wave.",
+"",
+"Holiday heart is AF after binge drinking."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-longqt-torsades"
+]
+},
+{
+"t": "Torsades de Pointes & Long QT",
+"lv": "Easy",
+"s": "How is Romano-Ward syndrome inherited, and does it cause deafness?",
+"c": [
+"Autosomal recessive, with deafness",
+"Autosomal dominant, with no deafness",
+"Autosomal dominant, with deafness",
+"Autosomal recessive, with no deafness",
+"X-linked recessive, with deafness"
+],
+"a": 1,
+"e": "Step 1: Both Romano-Ward and Jervell and Lange-Nielsen are congenital long QT syndromes that raise the risk of torsades and sudden cardiac death.\nStep 2: Romano-Ward is autosomal dominant with a pure cardiac phenotype, so hearing is normal.\nStep 3: Jervell and Lange-Nielsen is autosomal recessive and adds sensorineural deafness.\n\nTakeaway: Romano-Ward = dominant, no deafness. Jervell and Lange-Nielsen = recessive, deaf.",
+"w": [
+"This describes Jervell and Lange-Nielsen syndrome.",
+"",
+"Romano-Ward has a pure cardiac phenotype.",
+"Romano-Ward is dominant, not recessive.",
+"Neither congenital long QT syndrome here is X-linked."
+],
+"src": "lec"
+},
+{
+"t": "Atrial Fibrillation & Atrial Flutter",
+"lv": "Easy",
+"s": "A strip shows an irregularly irregular rhythm, a chaotic baseline and no discrete P waves. What is the rhythm?",
+"c": [
+"Atrial flutter",
+"Mobitz type I AV block",
+"Sinus tachycardia",
+"Atrial fibrillation",
+"Third-degree AV block"
+],
+"a": 3,
+"e": "Step 1: No discrete P waves means the atria are not depolarizing as a single organized wave.\nStep 2: Many chaotic wavelets bombard the AV node at a very fast rate, giving a wavy, chaotic baseline.\nStep 3: The AV node lets impulses through at random, so the ventricular rhythm is irregularly irregular. This is atrial fibrillation.\n\nTakeaway: Irregularly irregular + no P waves = atrial fibrillation.",
+"w": [
+"Flutter shows organized sawtooth F waves at about 300/min.",
+"Mobitz I has P waves and a regularly irregular pattern.",
+"Sinus tachycardia has a normal P before every QRS.",
+"",
+"Complete block has regular P waves and a regular QRS."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-afib",
+"figs/crs/ecg-afib-filter"
+]
+},
+{
+"t": "Atrial Fibrillation & Atrial Flutter",
+"lv": "Easy",
+"s": "In atrial fibrillation, what determines the ventricular rate?",
+"c": [
+"The firing rate of the SA node",
+"The atrial rate of about 300/min",
+"The speed of Purkinje conduction",
+"The duration of the QT interval",
+"The AV node refractory period"
+],
+"a": 4,
+"e": "Step 1: In AF the atria fire chaotically at a very high rate.\nStep 2: The AV node acts as a filter. It can only conduct an impulse once it has recovered from the previous one.\nStep 3: Its refractory period therefore sets how many impulses reach the ventricles, which is why rate-control drugs (beta-blockers, non-dihydropyridine CCBs, digoxin) work on the AV node.\n\nTakeaway: In AF, the AV node refractory period sets the ventricular rate.",
+"w": [
+"The SA node is overridden by the chaotic atrial activity.",
+"The atrial rate in AF is much faster and chaotic, and most impulses are blocked.",
+"Purkinje speed affects QRS width, not how many beats get through.",
+"QT reflects ventricular repolarization, not AV filtering.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-afib-filter"
+]
+},
+{
+"t": "Atrial Fibrillation & Atrial Flutter",
+"lv": "Hard",
+"s": "A 45-year-old man has palpitations the morning after a weekend of heavy drinking. His ECG shows an irregularly irregular rhythm without P waves. What is the most important long-term therapy to prevent this rhythm's most feared complication?",
+"c": [
+"Anticoagulation such as apixaban",
+"Intravenous magnesium sulfate",
+"A permanent ventricular pacemaker",
+"Intravenous atropine",
+"Ablation of the tricuspid isthmus"
+],
+"a": 0,
+"e": "Step 1: Binge drinking followed by an irregularly irregular rhythm without P waves is atrial fibrillation from \"holiday heart syndrome\".\nStep 2: The quivering atria do not contract, so blood stagnates (especially in the left atrial appendage) and clots can form.\nStep 3: An embolized clot can cause a stroke, the most feared complication. Anticoagulation with warfarin or a DOAC (dabigatran, rivaroxaban, apixaban, edoxaban) prevents it. Rate and rhythm control treat symptoms.\n\nTakeaway: AF → stasis → thromboembolism (stroke) → anticoagulate.",
+"w": [
+"",
+"Magnesium treats torsades de pointes.",
+"Pacing treats high-grade AV block, not AF.",
+"Atropine treats bradycardia and would speed the ventricular rate.",
+"This is the definitive treatment for atrial flutter."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-afib"
+]
+},
+{
+"t": "Atrial Fibrillation & Atrial Flutter",
+"lv": "Easy",
+"s": "In atrial flutter, what is the typical atrial rate?",
+"c": [
+"About 75 per minute",
+"About 150 per minute",
+"Over 400 and chaotic",
+"About 40 per minute",
+"About 300 per minute"
+],
+"a": 4,
+"e": "Step 1: Atrial flutter is a macro-reentrant circuit that loops around the right atrium.\nStep 2: Each lap depolarizes the atria, producing rapid, identical F waves at about 300/min in a sawtooth pattern.\nStep 3: The AV node cannot conduct every wave, so it usually conducts 2:1 (ventricles about 150/min) or 4:1 (about 75/min).\n\nTakeaway: Flutter = organized sawtooth F waves at about 300/min, usually with 2:1 or 4:1 block.",
+"w": [
+"This is a typical ventricular rate in 4:1 flutter, not the atrial rate.",
+"This is the typical ventricular rate in 2:1 flutter.",
+"Chaotic, disorganized atrial activity describes AF.",
+"This is closer to a junctional escape rate.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-flutter",
+"figs/crs/ecg-flutter-circuit"
+]
+},
+{
+"t": "Atrial Fibrillation & Atrial Flutter",
+"lv": "Hard",
+"s": "A strip shows a sawtooth baseline with an F wave every 5 small squares and a QRS every 20 small squares, at a regular rhythm. What is the definitive treatment for this rhythm?",
+"c": [
+"Ablation around the pulmonary veins",
+"A permanent ventricular pacemaker",
+"Intravenous magnesium sulfate",
+"Rate control with atropine",
+"Ablating the cavotricuspid isthmus"
+],
+"a": 4,
+"e": "Step 1: F waves every 5 small squares = 1500 ÷ 5 = 300/min, the atrial rate of flutter. QRS every 20 squares = 75/min.\nStep 2: 300 ÷ 75 = 4, so this is atrial flutter with 4:1 block, a regular rhythm.\nStep 3: Flutter is treated like AF (anticoagulation, rate or rhythm control), but the definitive treatment is catheter ablation of the isthmus between the tricuspid annulus and the IVC, which breaks the reentry circuit.\n\nTakeaway: Flutter's circuit runs through the cavotricuspid isthmus. Ablating it is the definitive cure.",
+"w": [
+"Pulmonary vein isolation is the ablation target for AF.",
+"Pacing treats AV block, not a reentrant atrial rhythm.",
+"Magnesium treats torsades de pointes.",
+"Atropine would speed AV conduction and the ventricular rate.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-flutter",
+"figs/crs/ecg-flutter-circuit"
+]
+},
+{
+"t": "Atrial Fibrillation & Atrial Flutter",
+"lv": "Hard",
+"s": "A 70-year-old woman with AF has a ventricular rate of 140/min. Her doctor wants a calcium channel blocker that slows conduction through the AV node. Which drug fits?",
+"c": [
+"Nifedipine, a dihydropyridine",
+"Warfarin, a vitamin K antagonist",
+"Ondansetron, a 5-HT3 antagonist",
+"Atropine, a muscarinic antagonist",
+"Diltiazem, a nondihydropyridine"
+],
+"a": 4,
+"e": "Step 1: In AF the ventricular rate depends on how many impulses the AV node lets through.\nStep 2: Rate control therefore targets the AV node: beta-blockers, non-dihydropyridine CCBs (diltiazem, verapamil) and digoxin.\nStep 3: Non-dihydropyridines block L-type Ca²⁺ channels in nodal tissue, slowing AV conduction and lengthening its refractory period. Dihydropyridines such as nifedipine act mainly on vascular smooth muscle and do not slow the node.\n\nTakeaway: AF rate control = beta-blocker, diltiazem or verapamil, or digoxin, not nifedipine.",
+"w": [
+"Dihydropyridines act mainly on vessels and can cause reflex tachycardia.",
+"Warfarin prevents stroke but does not slow the heart.",
+"Ondansetron is an antiemetic that prolongs the QT.",
+"Atropine speeds AV conduction and would raise the rate.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/ecg-afib-filter"
 ]
 }
 ];
