@@ -282,6 +282,35 @@ i.d{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px
 .vizbtn .go{margin-left:auto;color:var(--teal);font-weight:600;white-space:nowrap}
 .vizm{position:fixed;inset:0;z-index:90;background:rgba(4,8,10,.62);display:flex;align-items:center;justify-content:center;padding:24px}
 .vizm[hidden]{display:none}
+/* Split view: a second panel on the right */
+#splitPane{display:none;position:fixed;top:0;right:0;bottom:0;width:var(--sw,44vw);z-index:40;background:var(--bg);border-left:1px solid var(--line2);flex-direction:column}
+#splitDiv{display:none;position:fixed;top:0;bottom:0;right:var(--sw,44vw);width:9px;margin-right:-4px;z-index:41;cursor:col-resize}
+#splitDiv::after{content:"";position:absolute;left:3px;top:50%;width:3px;height:44px;margin-top:-22px;border-radius:3px;background:var(--line2)}
+#splitDiv:hover::after,#splitDiv.drag::after{background:var(--teal,#4fb8b0)}
+.app.split ~ #splitPane{display:flex}.app.split ~ #splitDiv{display:block}
+.app.split .main{margin-right:var(--sw,44vw)}
+.sph{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--line);background:var(--panel)}
+.sph select{flex:1;min-width:0;background:var(--card);color:var(--text);border:1px solid var(--line2);border-radius:8px;padding:7px 9px;font:inherit;font-size:13.5px}
+.sph .btn{padding:6px 10px}
+#spBody{flex:1;min-height:0;overflow:auto;position:relative}
+#spBody iframe{display:block;width:100%;height:100%;border:0;background:var(--bg)}
+#spBody .gvbody{padding:18px 22px 60px}
+#spBody .spempty{padding:40px 24px;color:var(--muted);text-align:center}
+#spBody.drag iframe{pointer-events:none}
+#lyBtn{position:fixed;right:16px;bottom:16px;z-index:45;width:36px;height:36px;border-radius:10px;background:var(--panel);border:1px solid var(--line2);color:var(--muted,var(--text));display:grid;place-items:center;cursor:pointer;opacity:.8;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+body.lylock #lyBtn{display:none}
+#lyBtn:hover,#lyBtn.on{opacity:1;color:var(--text)}
+.app.split ~ #lyBtn{right:calc(var(--sw,44vw) + 16px)}
+#lyPop{position:fixed;z-index:46;display:none;background:var(--panel);border:1px solid var(--line2);border-radius:12px;padding:10px 10px 8px;box-shadow:0 10px 30px rgba(0,0,0,.35);width:276px}
+#lyPop.on{display:block}
+#lyPop .lyh{font-size:11.5px;font-weight:600;letter-spacing:.04em;color:var(--muted,var(--text));opacity:.8;margin:0 2px 8px}
+#lyPop .lyg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+#lyPop .lyt{background:none;border:1px solid transparent;border-radius:8px;padding:6px 2px 4px;color:var(--text);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;font:inherit;font-size:10.5px;line-height:1.15}
+#lyPop .lyt:hover{background:var(--card);border-color:var(--line2)}
+#lyPop .lyt.cur{border-color:var(--accent,#3b82f6)}
+#lyPop .lyt svg{width:44px;height:30px}
+@media (max-width:900px){ #lyPop .lyw{display:none} #lyPop .lyg{grid-template-columns:repeat(2,1fr)} #lyPop{width:170px} }
+@media (max-width:900px){ #splitPane{width:100%!important;z-index:60} #splitDiv{display:none!important} .app.split .main{margin-right:0} }
 .fsbtn{display:inline-flex;align-items:center;gap:6px}.fsbtn svg{width:15px;height:15px}
 iframe.jjfs{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;max-height:none!important;min-height:0!important;z-index:9998!important;border:0!important;border-radius:0!important;background:var(--bg)!important}
 #jjFsX{position:fixed;top:12px;right:12px;z-index:9999}
@@ -2073,6 +2102,7 @@ const NVI = {
   embryo: NVS('<path d="M15.5 4.5A7.5 7.5 0 1 0 19.5 13"/><circle cx="13" cy="10" r="3"/><path d="M19.5 13c-.5-2-2-3-3.6-2.6"/>'),
   arm: NVS('<path d="M9 21l1-7-3.5-4.5L9 4h3l.5 4.5L17 12"/><path d="M17 12l2 1"/>'),
   leg: NVS('<path d="M10 3v8.5L8.5 21H12l1-6 1 6h3.5L16 11.5V3"/>'),
+  split: NVS('<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 4v16"/>'),
   lipo: NVS('<circle cx="8" cy="9" r="4.5"/><circle cx="16.5" cy="15.5" r="3"/><circle cx="17" cy="6" r="1.6"/><path d="M11.5 12.5l2.6 1.4"/>')
 };
 function navRow(attr, ic, label, n, on, cls){
@@ -2184,7 +2214,8 @@ function renderChaps(){
     + navRow('id="buildBtn"'+hid, NVI.plus, "Create test", "", view==="builder")
     + navRow('id="notesBtn"'+hid, NVI.notes, "My notes", notesN||"", view==="notes")
     + (ETH ? "" : navRow('data-act="guides"', NVI.guide, "NBME Dashboard ("+course().name+")", "", view==="guides"||view==="guide"))
-    + (S.course==="crs" ? navRow('data-osce="1"', NVI.osce, "OSCE Room", "", view==="osce") : "") + `</div>`
+    + (S.course==="crs" ? navRow('data-osce="1"', NVI.osce, "OSCE Room", "", view==="osce") : "")
+    + `</div>`
     ;
   if (allQ.length) {
     h += `<div class="chap-h">REVIEW</div><div class="nvg">` + REVIEW.map(r=>{
@@ -2762,6 +2793,7 @@ function vizFor(q){
   return null;
 }
 function vizOpen(page, hash, title, sub){
+  if (splitOn) { splitShow("u:" + page + "?v=7" + (hash ? "#" + hash : "") + "|" + title); return; }
   let m = $("vizM");
   if (!m) { m = document.createElement("div"); m.id = "vizM"; m.className = "vizm"; m.hidden = true;
     m.innerHTML = `<div class="box" role="dialog" aria-modal="true" aria-labelledby="vizT"><div class="bar"><b id="vizT"></b><small id="vizS"></small><span class="sp"></span><button class="btn fsbtn" id="vizFs" type="button">${FS_ICON}Full screen</button><a class="btn" id="vizFull" target="_blank" rel="noopener">Open full page ↗</a><button class="btn" id="vizX" aria-label="Close">✕ Close</button></div><iframe id="vizF" title="Interactive diagram" allowfullscreen allow="fullscreen"></iframe></div>`;
@@ -2834,6 +2866,94 @@ function showPage(html){
     const b = document.createElement("button"); b.className = "btn fsbtn"; b.type = "button"; b.innerHTML = FS_ICON + "Full screen";
     b.addEventListener("click", ()=>jjFull(pf)); const nt = pt.querySelector("a.btn"); pt.insertBefore(b, nt || null); }
 }
+// ---------- Split view: study guide / 3D model / Mehlman PDF beside whatever is on the left ----------
+const SPLIT_TOOLS = {
+  crs: [["heart3d","3D heart atlas","heart-3d.html?v=5"],["heartinj","3D heart injuries","heart-3d.html?v=5#injuries"],["ribcage","3D thoracic cage","rib-cage-3d.html"],
+        ["lipo","3D lipoprotein pathways","lipoproteins-3d.html?v=3"],["heartemb","3D heart development","heart-embryo-3d.html"],
+        ["cap","Cardiac action potentials","cardiac-ap.html"],["pvl","Cardiac cycle & PV loop","cardiac-cycle.html"],["fcurve","Cardiac & vascular function curves","function-curves.html?v=1"]],
+  msk: [["limb3d","3D upper limb","upper-limb-3d.html"],["leg3d","3D lower limb","lower-limb-3d.html"],["plexus","Brachial plexus","brachial-plexus.html"]]};
+const SPLIT_PDFS = ["HY Cardio","HY Biochem","HY Pulmonary","HY Arrows"];
+let splitOn = false, splitSrc = "";
+try { splitOn = localStorage.getItem("jj-split-on")==="1"; splitSrc = localStorage.getItem("jj-split") || ""; } catch(e){}
+function splitEnsure(){
+  if ($("splitPane")) return;
+  const p = document.createElement("aside"); p.id = "splitPane"; p.setAttribute("aria-label", "Split view");
+  p.innerHTML = `<div class="sph"><select id="spSel" aria-label="Show in split view"></select><button class="btn fsbtn" id="spFs" type="button" title="Full screen">${FS_ICON}</button><button class="btn" id="spX" type="button" title="Close split view">✕</button></div><div id="spBody"></div>`;
+  const d = document.createElement("div"); d.id = "splitDiv"; d.title = "Drag to resize";
+  $("app").after(d); d.after(p);
+  try { const w = localStorage.getItem("jj-split-w"); if (w) document.documentElement.style.setProperty("--sw", w); } catch(e){}
+  $("spSel").addEventListener("change", e=>splitShow(e.target.value));
+  $("spX").addEventListener("click", ()=>splitToggle(false));
+  $("spFs").addEventListener("click", ()=>{ const f = $("spBody").querySelector("iframe"); jjFull(f || $("spBody")); });
+  d.addEventListener("pointerdown", e=>{ e.preventDefault(); d.classList.add("drag"); $("spBody").classList.add("drag"); d.setPointerCapture(e.pointerId);
+    const mv = ev=>{ const w = Math.max(320, Math.min(window.innerWidth*0.72, window.innerWidth - ev.clientX)); document.documentElement.style.setProperty("--sw", w+"px"); };
+    const up = ()=>{ d.classList.remove("drag"); $("spBody").classList.remove("drag"); d.removeEventListener("pointermove", mv); d.removeEventListener("pointerup", up);
+      try { localStorage.setItem("jj-split-w", getComputedStyle(document.documentElement).getPropertyValue("--sw").trim()); } catch(e){} };
+    d.addEventListener("pointermove", mv); d.addEventListener("pointerup", up); });
+}
+function splitOptions(){
+  const o = (v,t)=>`<option value="${esc(v)}"${v===splitSrc?" selected":""}>${esc(t)}</option>`;
+  let h = `<option value="">Choose what to show…</option>`;
+  const gl = (GUIDES[S.course]||[]); if (gl.length) h += `<optgroup label="Study guides">` + gl.map(g=>o("g:"+g[0], g[1].replace(/ NBME guide$/,"")+" study guide")).join("") + `</optgroup>`;
+  const tl = (SPLIT_TOOLS[S.course]||[]); if (tl.length) h += `<optgroup label="3D models & study tools">` + tl.map(t=>o("t:"+t[0], t[1])).join("") + `</optgroup>`;
+  h += `<optgroup label="Mehlman PDFs">` + SPLIT_PDFS.map(n=>o("p:"+n, "Mehlman "+n)).join("") + `</optgroup>`;
+  if (splitSrc.startsWith("u:")) h += `<optgroup label="From this question">${o(splitSrc, splitSrc.split("|")[1]||"Study tool")}</optgroup>`;
+  return h;
+}
+function splitToggle(on){
+  splitOn = on===undefined ? !splitOn : on; try { localStorage.setItem("jj-split-on", splitOn?"1":"0"); } catch(e){}
+  splitEnsure(); splitLockSync();
+  if (splitOn) { $("spSel").innerHTML = splitOptions(); if (!$("spBody").dataset.src || $("spBody").dataset.src!==splitSrc) splitShow(splitSrc); }
+  renderChaps && renderChaps();
+}
+// Split view is off during a timed block (comes back when the block ends).
+function splitLocked(){ return view==="quiz" && timedActive(); }
+function splitLockSync(){ const lk = splitLocked(); $("app").classList.toggle("split", splitOn && !lk); document.body.classList.toggle("lylock", lk); if (lk && $("lyPop")) lyHide(true); }
+function splitShow(src){
+  splitSrc = src || ""; try { localStorage.setItem("jj-split", splitSrc); } catch(e){}
+  const b = $("spBody"); b.dataset.src = splitSrc; $("spSel").innerHTML = splitOptions();
+  const frame = (url, t)=>{ b.innerHTML = `<iframe src="${esc(url)}" title="${esc(t)}" allowfullscreen allow="fullscreen"></iframe>`; };
+  if (!splitSrc) { b.innerHTML = `<div class="spempty"><p><b>Split view</b></p><p>Pick a study guide, 3D model or Mehlman PDF above. It stays here while you work on the left.</p></div>`; return; }
+  const [k, v] = [splitSrc.slice(0,1), splitSrc.slice(2)];
+  if (k==="t") { const t = Object.values(SPLIT_TOOLS).flat().find(x=>x[0]===v); if (t) frame(t[2], t[1]); return; }
+  if (k==="p") { frame("mehlman/" + encodeURIComponent(v) + ".pdf", "Mehlman " + v); return; }
+  if (k==="u") { const [url, t] = v.split("|"); frame(url, t||"Study tool"); return; }
+  if (k==="g") {
+    if (!window.GUIDE_HTML) { b.innerHTML = `<div class="spempty">Loading study guide…</div>`;
+      const sc = document.createElement("script"); sc.src = "guides.js?v=16"; sc.onload = ()=>{ if (splitSrc==="g:"+v) splitShow(splitSrc); }; document.head.appendChild(sc); return; }
+    b.innerHTML = `<article class="gvbody">${window.GUIDE_HTML[v] || "<p>Study guide not found.</p>"}</article>`; fixImgs && fixImgs(b); b.scrollTop = 0; }
+}
+document.addEventListener("click", e=>{ const b = e.target.closest && e.target.closest("[data-split]"); if (!b) return; e.preventDefault(); $("side").classList.remove("open"); splitToggle(); });
+// Layout button (bottom-right): hover for Mac-style split options.
+const LY = [["full","Full page",null,'<rect x="1" y="1" width="42" height="28" rx="3" fill="currentColor" opacity=".55"/>'],
+  ["half","Half and half","50vw",'<rect x="1" y="1" width="20" height="28" rx="3" fill="currentColor" opacity=".55"/><rect x="23" y="1" width="20" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/>'],
+  ["page","Page wider","36vw",'<rect x="1" y="1" width="26" height="28" rx="3" fill="currentColor" opacity=".55"/><rect x="29" y="1" width="14" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/>'],
+  ["panel","Panel wider","62vw",'<rect x="1" y="1" width="14" height="28" rx="3" fill="currentColor" opacity=".55"/><rect x="17" y="1" width="26" height="28" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/>']];
+function lyCur(){ if (!splitOn) return "full"; const w = getComputedStyle(document.documentElement).getPropertyValue("--sw").trim(); const m = LY.find(l=>l[2]===w); return m ? m[0] : ""; }
+function lySet(id){
+  const l = LY.find(x=>x[0]===id); if (!l) return; lyHide(true);
+  if (!l[2]) { splitToggle(false); return; }
+  document.documentElement.style.setProperty("--sw", l[2]); try { localStorage.setItem("jj-split-w", l[2]); } catch(e){}
+  if (!splitOn) splitToggle(true);
+}
+let lyT = 0;
+function lyShow(){ clearTimeout(lyT); const p = $("lyPop"), b = $("lyBtn"); const mob = window.innerWidth <= 900, cur = lyCur();
+  p.innerHTML = `<div class="lyh">Split screen</div><div class="lyg">` + LY.filter(l=>!mob || l[0]==="full" || l[0]==="half").map(l=>`<button class="lyt${l[0]===cur?" cur":""}${l[0]==="page"||l[0]==="panel"?" lyw":""}" type="button" data-ly="${l[0]}" title="${l[1]}"><svg viewBox="0 0 44 30">${l[3]}</svg>${mob&&l[0]==="half"?"Open panel":l[1]}</button>`).join("") + `</div>`;
+  p.classList.add("on"); b.classList.add("on"); const r = b.getBoundingClientRect();
+  p.style.right = Math.max(8, window.innerWidth - r.right) + "px"; p.style.bottom = (window.innerHeight - r.top + 8) + "px"; }
+function lyHide(now){ clearTimeout(lyT); const f = ()=>{ $("lyPop").classList.remove("on"); $("lyBtn").classList.remove("on"); }; if (now) f(); else lyT = setTimeout(f, 220); }
+(function(){ const b = document.createElement("button"); b.id = "lyBtn"; b.type = "button"; b.title = "Split screen"; b.setAttribute("aria-label", "Split screen");
+  b.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 4v16"/></svg>';
+  const p = document.createElement("div"); p.id = "lyPop"; p.setAttribute("role", "menu");
+  document.body.append(b, p);
+  b.addEventListener("mouseenter", lyShow); b.addEventListener("mouseleave", ()=>lyHide());
+  p.addEventListener("mouseenter", ()=>clearTimeout(lyT)); p.addEventListener("mouseleave", ()=>lyHide());
+  b.addEventListener("click", ()=>{ $("lyPop").classList.contains("on") ? lyHide(true) : lyShow(); });
+  p.addEventListener("click", e=>{ const t = e.target.closest("[data-ly]"); if (t) lySet(t.dataset.ly); });
+  document.addEventListener("pointerdown", e=>{ if (!e.target.closest("#lyPop,#lyBtn")) lyHide(true); });
+})();
+if (splitOn) setTimeout(()=>splitToggle(true), 0);
+
 // Full screen for the embedded study tools. Uses the browser's full screen when it can,
 // otherwise (e.g. iPhone) stretches the frame over the whole window with a Close button.
 const FS_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>';
@@ -4037,6 +4157,7 @@ function renderAll(){
   $("app").classList.toggle("usmle", UON); $("app").classList.toggle("unotes", uNotes);
   if (!UON) renderUBar();
   renderChaps();
+  try { splitLockSync(); } catch(e){}
   $("app").classList.toggle("focus", focusOn && view==="quiz");
   $("main").style.zoom = zoomV;
   if (view==="home") renderHome();
@@ -4709,7 +4830,7 @@ window.JJ_STATS = function(st){
 // Welcome screen: shown every time the page loads.
 // ---- Updates: version.json says which version is live. When it's newer than this page, a card offers a refresh
 // (skips the logo intro). After a refresh to a new version, "What's new" lists every change since the last one seen.
-const JJ_VERSION = "2026-11-18a";
+const JJ_VERSION = "2026-11-19a";
 const UPD_ICON = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>';
 let updLater = "";
 async function updFetch(){ const r = await fetch("version.json?t=" + Date.now(), {cache:"no-store"}); if (!r.ok) throw new Error(r.status); return r.json(); }
