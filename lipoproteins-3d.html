@@ -21,7 +21,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 @media (max-width:980px){.grid{grid-template-columns:minmax(0,1fr)}}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;min-width:0}
 .card h3{margin:0 0 8px;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
-#stage{position:relative;height:min(68vh,640px);min-height:380px;border-radius:12px;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#172131,#0b0f15)}
+#stage{position:relative;height:max(380px,min(calc(100vh - 175px),1400px));border-radius:12px;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#172131,#0b0f15)}
 :root[data-theme="light"] #stage{background:radial-gradient(ellipse at 50% 40%,#ffffff,#e7ecf2)}
 #stage canvas{display:block;width:100%;height:100%;touch-action:none}
 .ctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}

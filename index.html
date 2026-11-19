@@ -282,6 +282,9 @@ i.d{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px
 .vizbtn .go{margin-left:auto;color:var(--teal);font-weight:600;white-space:nowrap}
 .vizm{position:fixed;inset:0;z-index:90;background:rgba(4,8,10,.62);display:flex;align-items:center;justify-content:center;padding:24px}
 .vizm[hidden]{display:none}
+.fsbtn{display:inline-flex;align-items:center;gap:6px}.fsbtn svg{width:15px;height:15px}
+iframe.jjfs{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;max-height:none!important;min-height:0!important;z-index:9998!important;border:0!important;border-radius:0!important;background:var(--bg)!important}
+#jjFsX{position:fixed;top:12px;right:12px;z-index:9999}
 .vizm .box{width:min(1400px,100%);height:min(900px,100%);background:var(--bg);border:1px solid var(--line2);border-radius:14px;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.45)}
 .vizm .bar{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--panel)}
 .vizm .bar b{font-size:15px}.vizm .bar small{color:var(--muted);font-size:13px}
@@ -2761,11 +2764,11 @@ function vizFor(q){
 function vizOpen(page, hash, title, sub){
   let m = $("vizM");
   if (!m) { m = document.createElement("div"); m.id = "vizM"; m.className = "vizm"; m.hidden = true;
-    m.innerHTML = `<div class="box" role="dialog" aria-modal="true" aria-labelledby="vizT"><div class="bar"><b id="vizT"></b><small id="vizS"></small><span class="sp"></span><a class="btn" id="vizFull" target="_blank" rel="noopener">Open full page ↗</a><button class="btn" id="vizX" aria-label="Close">✕ Close</button></div><iframe id="vizF" title="Interactive diagram"></iframe></div>`;
+    m.innerHTML = `<div class="box" role="dialog" aria-modal="true" aria-labelledby="vizT"><div class="bar"><b id="vizT"></b><small id="vizS"></small><span class="sp"></span><button class="btn fsbtn" id="vizFs" type="button">${FS_ICON}Full screen</button><a class="btn" id="vizFull" target="_blank" rel="noopener">Open full page ↗</a><button class="btn" id="vizX" aria-label="Close">✕ Close</button></div><iframe id="vizF" title="Interactive diagram" allowfullscreen allow="fullscreen"></iframe></div>`;
     document.body.appendChild(m);
-    m.addEventListener("click", e=>{ if (e.target===m || e.target.closest("#vizX")) vizClose(); });
+    m.addEventListener("click", e=>{ if (e.target===m || e.target.closest("#vizX")) vizClose(); if (e.target.closest("#vizFs")) jjFull($("vizF")); });
     document.addEventListener("keydown", e=>{ if (e.key==="Escape" && !m.hidden) vizClose(); }); }
-  const url = page + "?v=5" + (hash ? "#" + hash : "");
+  const url = page + "?v=6" + (hash ? "#" + hash : "");
   $("vizT").textContent = title; $("vizS").textContent = sub || ""; $("vizFull").href = page + (hash ? "#" + hash : "");
   $("vizF").src = url; m.hidden = false; document.body.style.overflow = "hidden"; $("vizX").focus();
 }
@@ -2826,6 +2829,25 @@ function explanation(q, o, s){
 function showPage(html){
   $("quizView").hidden = true; $("pageView").hidden = false; $("app").classList.add("norail");
   $("pageView").innerHTML = html; fixImgs($("pageView"));
+  const pf = $("pageView").querySelector(".plexframe"), pt = $("pageView").querySelector(".plextop");
+  if (pf && pt) { pf.setAttribute("allowfullscreen", ""); pf.setAttribute("allow", "fullscreen");
+    const b = document.createElement("button"); b.className = "btn fsbtn"; b.type = "button"; b.innerHTML = FS_ICON + "Full screen";
+    b.addEventListener("click", ()=>jjFull(pf)); const nt = pt.querySelector("a.btn"); pt.insertBefore(b, nt || null); }
+}
+// Full screen for the embedded study tools. Uses the browser's full screen when it can,
+// otherwise (e.g. iPhone) stretches the frame over the whole window with a Close button.
+const FS_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>';
+function jjFull(el){
+  const rq = el.requestFullscreen || el.webkitRequestFullscreen;
+  if (rq) { try { const p = rq.call(el); if (p && p.catch) p.catch(()=>jjFsFallback(el)); return; } catch(e){} }
+  jjFsFallback(el);
+}
+function jjFsFallback(el){
+  el.classList.add("jjfs"); document.body.style.overflow = "hidden";
+  const x = document.createElement("button"); x.id = "jjFsX"; x.className = "btn"; x.type = "button"; x.textContent = "Exit full screen";
+  const done = ()=>{ el.classList.remove("jjfs"); x.remove(); if (!$("vizM") || $("vizM").hidden) document.body.style.overflow = ""; document.removeEventListener("keydown", esc); };
+  const esc = e=>{ if (e.key==="Escape") { e.stopPropagation(); done(); } };
+  x.addEventListener("click", done); document.addEventListener("keydown", esc, true); document.body.appendChild(x);
 }
 
 // ---------- Home ----------
@@ -4023,7 +4045,7 @@ function renderAll(){
   else if (view==="heartinj") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Heart injuries</h2><a class="btn" href="heart-3d.html#injuries" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="heart-3d.html?v=5#injuries" title="Heart injury cases on the 3D heart"></iframe></div>`);
   else if (view==="cap") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Cardiac action potentials</h2><a class="btn" href="cardiac-ap.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="cardiac-ap.html?v=1" title="Interactive cardiac action potential explorer"></iframe></div>`);
   else if (view==="fcurve") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Cardiac &amp; vascular function curves</h2><a class="btn" href="function-curves.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="function-curves.html?v=1" title="Interactive cardiac and vascular function curves"></iframe></div>`);
-  else if (view==="lipo") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Lipoprotein pathways</h2><a class="btn" href="lipoproteins-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="lipoproteins-3d.html?v=1" title="3D lipoprotein pathways"></iframe></div>`);
+  else if (view==="lipo") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Lipoprotein pathways</h2><a class="btn" href="lipoproteins-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="lipoproteins-3d.html?v=2" title="3D lipoprotein pathways"></iframe></div>`);
   else if (view==="pvl") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Cardiac cycle & PV loop</h2><a class="btn" href="cardiac-cycle.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="cardiac-cycle.html?v=3" title="Interactive cardiac cycle and pressure-volume loop simulator"></iframe></div>`);
   else if (view==="limb3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>3D upper limb atlas</h2><a class="btn" href="upper-limb-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="upper-limb-3d.html?v=1" title="Interactive 3D upper limb atlas"></iframe></div>`);
   else if (view==="leg3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>3D lower limb atlas</h2><a class="btn" href="lower-limb-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="lower-limb-3d.html?v=1" title="Interactive 3D lower limb atlas"></iframe></div>`);
