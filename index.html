@@ -2768,7 +2768,7 @@ function vizOpen(page, hash, title, sub){
     document.body.appendChild(m);
     m.addEventListener("click", e=>{ if (e.target===m || e.target.closest("#vizX")) vizClose(); if (e.target.closest("#vizFs")) jjFull($("vizF")); });
     document.addEventListener("keydown", e=>{ if (e.key==="Escape" && !m.hidden) vizClose(); }); }
-  const url = page + "?v=6" + (hash ? "#" + hash : "");
+  const url = page + "?v=7" + (hash ? "#" + hash : "");
   $("vizT").textContent = title; $("vizS").textContent = sub || ""; $("vizFull").href = page + (hash ? "#" + hash : "");
   $("vizF").src = url; m.hidden = false; document.body.style.overflow = "hidden"; $("vizX").focus();
 }
@@ -2838,14 +2838,23 @@ function showPage(html){
 // otherwise (e.g. iPhone) stretches the frame over the whole window with a Close button.
 const FS_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>';
 function jjFull(el){
+  // tools that support it show only their 3D view in full screen
+  const tell = m=>{ try { el.contentWindow.postMessage(m, "*"); } catch(e){} };
+  tell("jj-stagefs-on"); jjFsEl = el;
   const rq = el.requestFullscreen || el.webkitRequestFullscreen;
   if (rq) { try { const p = rq.call(el); if (p && p.catch) p.catch(()=>jjFsFallback(el)); return; } catch(e){} }
   jjFsFallback(el);
 }
+let jjFsEl = null;
+["fullscreenchange","webkitfullscreenchange"].forEach(ev=>document.addEventListener(ev, ()=>{
+  if (!(document.fullscreenElement || document.webkitFullscreenElement) && jjFsEl && !jjFsEl.classList.contains("jjfs")) { try { jjFsEl.contentWindow.postMessage("jj-stagefs-off", "*"); } catch(e){} jjFsEl = null; } }));
+window.addEventListener("message", e=>{ if (e.data!=="jj-exitfs" || !jjFsEl) return;
+  if (document.fullscreenElement || document.webkitFullscreenElement) (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+  const x = $("jjFsX"); if (x) x.click(); });
 function jjFsFallback(el){
   el.classList.add("jjfs"); document.body.style.overflow = "hidden";
   const x = document.createElement("button"); x.id = "jjFsX"; x.className = "btn"; x.type = "button"; x.textContent = "Exit full screen";
-  const done = ()=>{ el.classList.remove("jjfs"); x.remove(); if (!$("vizM") || $("vizM").hidden) document.body.style.overflow = ""; document.removeEventListener("keydown", esc); };
+  const done = ()=>{ el.classList.remove("jjfs"); x.remove(); try { el.contentWindow.postMessage("jj-stagefs-off", "*"); } catch(e){} jjFsEl = null; if (!$("vizM") || $("vizM").hidden) document.body.style.overflow = ""; document.removeEventListener("keydown", esc); };
   const esc = e=>{ if (e.key==="Escape") { e.stopPropagation(); done(); } };
   x.addEventListener("click", done); document.addEventListener("keydown", esc, true); document.body.appendChild(x);
 }
@@ -4045,7 +4054,7 @@ function renderAll(){
   else if (view==="heartinj") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Heart injuries</h2><a class="btn" href="heart-3d.html#injuries" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="heart-3d.html?v=5#injuries" title="Heart injury cases on the 3D heart"></iframe></div>`);
   else if (view==="cap") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Cardiac action potentials</h2><a class="btn" href="cardiac-ap.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="cardiac-ap.html?v=1" title="Interactive cardiac action potential explorer"></iframe></div>`);
   else if (view==="fcurve") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Cardiac &amp; vascular function curves</h2><a class="btn" href="function-curves.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="function-curves.html?v=1" title="Interactive cardiac and vascular function curves"></iframe></div>`);
-  else if (view==="lipo") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Lipoprotein pathways</h2><a class="btn" href="lipoproteins-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="lipoproteins-3d.html?v=2" title="3D lipoprotein pathways"></iframe></div>`);
+  else if (view==="lipo") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Lipoprotein pathways</h2><a class="btn" href="lipoproteins-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="lipoproteins-3d.html?v=3" title="3D lipoprotein pathways"></iframe></div>`);
   else if (view==="pvl") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Cardiac cycle & PV loop</h2><a class="btn" href="cardiac-cycle.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="cardiac-cycle.html?v=3" title="Interactive cardiac cycle and pressure-volume loop simulator"></iframe></div>`);
   else if (view==="limb3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>3D upper limb atlas</h2><a class="btn" href="upper-limb-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="upper-limb-3d.html?v=1" title="Interactive 3D upper limb atlas"></iframe></div>`);
   else if (view==="leg3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>3D lower limb atlas</h2><a class="btn" href="lower-limb-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="lower-limb-3d.html?v=1" title="Interactive 3D lower limb atlas"></iframe></div>`);
