@@ -48,6 +48,14 @@ tr.det td{background:#fafbfc;white-space:normal}
 .bar{display:inline-block;width:90px;height:7px;border-radius:4px;background:#e8edf2;vertical-align:middle;margin-right:6px;overflow:hidden}
 .bar i{display:block;height:100%;background:var(--teal)}
 .muted{color:var(--muted)}
+.tabs{display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap}
+.tabs button{border:1px solid var(--line);background:var(--panel);border-radius:8px;padding:8px 14px;font:inherit;font-weight:600;color:var(--muted);cursor:pointer}
+.tabs button.on{background:#1b3550;color:#fff;border-color:#1b3550}
+.wrap table.lst td{white-space:normal}
+.stem{max-width:520px;color:var(--text)}
+.pp{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:8px}
+.pp h5{margin:4px 0 4px;font-size:12px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted)}
+.lowp{color:var(--red);font-weight:700}
 </style>
 </head>
 <body>
@@ -63,7 +71,7 @@ tr.det td{background:#fafbfc;white-space:normal}
   const msg = html => { main.innerHTML = `<div class="msg">${html}</div>`; };
   if (!CFG || !CFG.apiKey) { msg("Sign-in isn't turned on yet. Paste your Firebase config into <b>firebase-config.js</b> first."); return; }
 
-  let db, auth, users = [], open = {}, q = "", sort = "lastSeen";
+  let db, auth, users = [], open = {}, q = "", sort = "lastSeen", tab = "people", secCourse = "", CLS = null;
   const load = src => new Promise((res, rej)=>{ const s = document.createElement("script"); s.src = SDK+src; s.onload = res; s.onerror = rej; document.head.appendChild(s); });
   load("firebase-app-compat.js").then(()=>Promise.all([load("firebase-auth-compat.js"), load("firebase-firestore-compat.js")])).then(()=>{
     firebase.initializeApp(CFG); auth = firebase.auth(); db = firebase.firestore();
@@ -73,6 +81,7 @@ tr.det td{background:#fafbfc;white-space:normal}
       if (!u) { msg(`<p>Sign in with your admin Google account.</p><button id="si">Sign in with Google</button>`); document.getElementById("si").onclick = signIn; return; }
       if (!ADMINS.includes((u.email||"").toLowerCase())) { msg(`<p><b>${esc(u.email)}</b> isn't an admin account.</p><button id="so">Use a different account</button>`); document.getElementById("so").onclick = ()=>auth.signOut(); return; }
       msg("Loading users…");
+      db.collection("classStats").doc("v1").get().then(d=>{ CLS = d.exists ? d.data() : {}; if (users.length) render(); }).catch(()=>{ CLS = {}; });
       db.collection("users").onSnapshot(snap=>{ users = snap.docs.map(d=>Object.assign({id:d.id}, d.data())); render(); },
         e=>msg(`Couldn't read users: ${esc(e.message)}<br><span class="muted">Check that the Firestore rules from firestore-rules.txt are published and your email is in the admin list there.</span>`));
     });
@@ -92,7 +101,7 @@ tr.det td{background:#fafbfc;white-space:normal}
     if (s < 86400) return Math.round(s/3600)+" h ago"; if (s < 86400*14) return Math.round(s/86400)+" d ago";
     return d.toLocaleDateString();
   }
-  const COURSES = [["msk","MSK"],["fbs","FBS"],["crs","CRS"]];
+  const COURSES = [["msk","MSK"],["fbs","FBS"],["crs","CRS"],["eth","Ethics"],["gen","Genetics"]];
   function cstat(u, c){ return ((u.stats||{}).courses||{})[c] || null; }
   function cell(u, c){
     const s = cstat(u, c); if (!s || !s.answered) return `<span class="muted">—</span>`;
@@ -100,14 +109,71 @@ tr.det td{background:#fafbfc;white-space:normal}
   }
   const totalAns = u => COURSES.reduce((n,[c])=>n+((cstat(u,c)||{}).answered||0), 0);
 
+  const FEAT = {mehlman:"Mehlman PDF pages", c100:"100 Concepts PDF", anking:"AnKing chip", uworld:"UWorld chip", related:"Related questions",
+    mock:"Mock exam started", nbme_quiz:"NBME quiz started", nbme_dash:"NBME Dashboard", create_test:"Create test", notes:"My notes",
+    osce:"OSCE Room", google:"Google it", usmle_view:"USMLE view", fullscreen:"Full screen", "split:half":"Split screen: half and half",
+    "split:page":"Split screen: page wider", "split:panel":"Split screen: panel wider", "split:full":"Split screen: closed",
+    "splitsrc:g":"Split panel: study guide", "splitsrc:t":"Split panel: 3D model or tool", "splitsrc:p":"Split panel: Mehlman PDF"};
+  const TOOLN = {limb3d:"3D upper limb", leg3d:"3D lower limb", plexus:"Brachial plexus", limbmov:"Limb movements", heart3d:"3D heart atlas", heartinj:"3D heart injuries",
+    ribcage:"3D thoracic cage", viva:"Spotter & viva", cap:"Cardiac action potentials", pvl:"Cardiac cycle & PV loop", fcurve:"Function curves", lipo:"3D lipoproteins",
+    heartemb:"3D heart development", anki:"Anki export"};
+  function featName(k){
+    if (FEAT[k]) return FEAT[k];
+    if (k.startsWith("tool:")) return "Study tool: " + (TOOLN[k.slice(5)] || k.slice(5));
+    if (k.startsWith("qviz:")) return "3D tool from a question: " + k.slice(5).replace(/\.html.*$/,"").replace(/-/g," ");
+    return k;
+  }
+  const uses = u => ((u.stats||{}).use) || {};
+  const pc = (c,n) => n ? Math.round(100*c/n) + "%" : "—";
+  function tabBar(){ return `<div class="tabs">${[["people","People"],["sections","Class section totals"],["hard","Hardest questions"],["features","Feature usage"]].map(([k,n])=>`<button data-tab="${k}" class="${tab===k?"on":""}">${n}</button>`).join("")}</div>`; }
+  function sectionsView(){
+    const agg = {};
+    users.forEach(u=>((u.stats||{}).sections||[]).forEach(x=>{ if (!x.total) return; const k = (x.course||"")+"|"+x.name;
+      const a = agg[k] || (agg[k] = {course:x.course||"", name:x.name, total:x.total, people:0, answered:0, correct:0, done:0});
+      a.total = Math.max(a.total, x.total); if (x.answered) { a.people++; a.answered += x.answered; a.correct += x.correct; if (x.answered >= x.total) a.done++; } }));
+    let rows = Object.values(agg).filter(a=>!secCourse || a.course===secCourse);
+    rows.sort((a,b)=>b.answered-a.answered);
+    const n = users.filter(u=>!u.blocked).length || 1;
+    return `<div class="tools"><select id="secC"><option value="">All courses</option>${COURSES.map(([c,nm])=>`<option value="${c}"${secCourse===c?" selected":""}>${nm}</option>`).join("")}</select>
+      <span class="muted" style="font-size:12.5px">Sorted by total answers. "Started" counts people with at least 1 answer in that section.</span></div>
+      <div class="wrap"><table class="lst"><thead><tr><th>Course</th><th>Section</th><th>Questions</th><th>Started</th><th>Finished</th><th>Total answers</th><th>Avg per person</th><th>Class correct</th></tr></thead><tbody>
+      ${rows.map(a=>`<tr><td>${esc(a.course.toUpperCase())}</td><td>${esc(a.name)}</td><td>${a.total}</td><td><span class="bar"><i style="width:${Math.round(100*a.people/n)}%"></i></span>${a.people}</td><td>${a.done}</td><td>${a.answered.toLocaleString()}</td><td>${a.people?Math.round(a.answered/a.people):"—"}</td><td>${pc(a.correct,a.answered)}</td></tr>`).join("") || `<tr><td colspan="8" class="muted">No progress synced yet.</td></tr>`}
+      </tbody></table></div>`;
+  }
+  function hardView(){
+    if (!CLS) return `<div class="msg">Loading class stats…</div>`;
+    let hard = []; try { hard = JSON.parse(CLS.hard || "[]"); } catch(e){}
+    const when = CLS.at ? new Date(CLS.at).toLocaleString() : "";
+    if (!hard.length) return `<div class="msg">No list yet. It's built when you open the QBank while signed in as admin (at most every 20 minutes), from questions at least 3 people have answered.</div>`;
+    return `<p class="muted" style="font-size:12.5px;margin:0 0 10px">The ${hard.length} questions with the lowest class percent correct, from questions at least 3 people have answered. Built from ${CLS.users||0} people's answers${when?" · updated "+esc(when):""}. Opening the QBank as admin refreshes it.</p>
+      <div class="wrap"><table class="lst"><thead><tr><th>ID</th><th>Section</th><th>Question</th><th>Answers</th><th>Correct</th><th>Answer</th><th>Most picked wrong</th></tr></thead><tbody>
+      ${hard.map(h=>`<tr><td>${esc(h[0])}</td><td>${esc(h[1])}</td><td class="stem">${h[4]?esc(h[4])+(h[4].length>=160?"…":""):`<span class="muted">Text hidden</span>`}</td><td>${h[2]}</td><td class="lowp">${h[3]}%</td><td>${esc(h[5])}</td><td>${esc(h[6]||"—")}</td></tr>`).join("")}
+      </tbody></table></div>`;
+  }
+  function featuresView(){
+    const agg = {};
+    users.forEach(u=>Object.entries(uses(u)).forEach(([k,r])=>{ const a = agg[k] || (agg[k] = {n:0, people:0, last:0}); a.n += +r[0]||0; a.people++; a.last = Math.max(a.last, +r[1]||0); }));
+    const rows = Object.entries(agg).sort((a,b)=>b[1].n-a[1].n);
+    const lst = t => { if (!t) return "—"; const s = (Date.now()-t)/1000; return s<3600?Math.max(1,Math.round(s/60))+" min ago":s<86400?Math.round(s/3600)+" h ago":Math.round(s/86400)+" d ago"; };
+    return `<p class="muted" style="font-size:12.5px;margin:0 0 10px">How often each feature is opened, counted from ${new Date(2026,10,19).toLocaleDateString()} onward. Counts sync when each person's progress syncs.</p>
+      <div class="wrap"><table class="lst"><thead><tr><th>Feature</th><th>Times opened</th><th>People</th><th>Last used</th></tr></thead><tbody>
+      ${rows.map(([k,a])=>`<tr><td>${esc(featName(k))}</td><td>${a.n.toLocaleString()}</td><td>${a.people}</td><td>${lst(a.last)}</td></tr>`).join("") || `<tr><td colspan="4" class="muted">No feature usage synced yet. It appears as people use the site after this update.</td></tr>`}
+      </tbody></table></div>`;
+  }
   function render(){
+    if (tab !== "people") {
+      main.innerHTML = tabBar() + (tab==="sections" ? sectionsView() : tab==="hard" ? hardView() : featuresView());
+      const sc = document.getElementById("secC"); if (sc) sc.onchange = ()=>{ secCourse = sc.value; render(); };
+      main.querySelectorAll("[data-tab]").forEach(b=>b.onclick = ()=>{ tab = b.dataset.tab; render(); });
+      return;
+    }
     const now = Date.now(), wk = users.filter(u=>ts(u.lastSeen) && now-ts(u.lastSeen) < 7*86400e3).length;
     const day = users.filter(u=>ts(u.lastSeen) && now-ts(u.lastSeen) < 86400e3).length;
     const answered = users.reduce((n,u)=>n+totalAns(u), 0);
     let list = users.filter(u=>!q || (u.name+" "+u.email).toLowerCase().includes(q));
     const key = {lastSeen:u=>-(ts(u.lastSeen)||0), firstSeen:u=>-(ts(u.firstSeen)||0), answered:u=>-totalAns(u), name:u=>(u.name||u.email||"").toLowerCase()}[sort];
     list.sort((a,b)=>{ const x = key(a), y = key(b); return x<y?-1:x>y?1:0; });
-    main.innerHTML = `
+    main.innerHTML = tabBar() + `
       <div class="cards">
         <div class="card"><b>${users.length}</b><span>people have signed in</span></div>
         <div class="card"><b>${day}</b><span>active in the last 24 h</span></div>
@@ -119,11 +185,12 @@ tr.det td{background:#fafbfc;white-space:normal}
         <select id="sort"><option value="lastSeen">Sort: last active</option><option value="firstSeen">Sort: newest</option><option value="answered">Sort: most answered</option><option value="name">Sort: name</option></select></div>
       <div class="wrap"><table>
         <thead><tr><th>User</th><th>First seen</th><th>Last active</th><th>Visits</th>${COURSES.map(([,n])=>`<th>${n} answered</th>`).join("")}<th>Flagged</th><th>Anki</th><th>Access</th></tr></thead>
-        <tbody>${list.map(row).join("") || `<tr><td colspan="11" class="muted">No users yet.</td></tr>`}</tbody>
+        <tbody>${list.map(row).join("") || `<tr><td colspan="13" class="muted">No users yet.</td></tr>`}</tbody>
       </table></div>
       <p class="muted" style="font-size:12.5px;margin-top:10px">Click a row to see that person's progress by section. Blocking signs them out right away and stops them signing back in; unblocking restores access with their progress intact.</p>`;
     const qi = document.getElementById("q"); qi.oninput = ()=>{ q = qi.value.toLowerCase().trim(); const pos = qi.selectionStart; render(); const n = document.getElementById("q"); n.focus(); n.setSelectionRange(pos,pos); };
     const so = document.getElementById("sort"); so.value = sort; so.onchange = ()=>{ sort = so.value; render(); };
+    main.querySelectorAll("[data-tab]").forEach(b=>b.onclick = ()=>{ tab = b.dataset.tab; render(); });
     main.querySelectorAll("tr.u").forEach(tr=>tr.onclick = e=>{ if (e.target.closest("button")) return; open[tr.dataset.id] = !open[tr.dataset.id]; render(); });
     main.querySelectorAll("button[data-blk]").forEach(b=>b.onclick = ()=>toggle(b.dataset.blk));
   }
@@ -139,8 +206,9 @@ tr.det td{background:#fafbfc;white-space:normal}
       <td>${admin?`<span class="tag ad">Admin</span>`:u.blocked?`<span class="tag off">Blocked</span> <button class="bbtn let" data-blk="${esc(u.id)}">Unblock</button>`:`<span class="tag on">Active</span> <button class="bbtn kick" data-blk="${esc(u.id)}">Block</button>`}</td></tr>`;
     if (open[u.id]) {
       const secs = (s.sections||[]).filter(x=>x.total);
-      h += `<tr class="det"><td colspan="11"><div class="det">${secs.length ? `<table><tr><th>Course</th><th>Section</th><th>Answered</th><th>Correct</th></tr>${secs.map(x=>`<tr><td>${esc((x.course||"").toUpperCase())}</td><td>${esc(x.name)}</td><td><span class="bar"><i style="width:${Math.round(100*x.answered/x.total)}%"></i></span>${x.answered} / ${x.total}</td><td>${x.answered?Math.round(100*x.correct/x.answered)+"%":"—"}</td></tr>`).join("")}</table>` : `<span class="muted">No progress synced yet.</span>`}
-        <div class="muted" style="margin-top:6px;font-size:12.5px">Notes: ${s.notes||0} · Highlights: ${s.highlights||0} · Practice tests: ${s.tests||0} · Last synced: ${ago(u.lastSync)}</div></div></td></tr>`;
+      h += `<tr class="det"><td colspan="13"><div class="det">${secs.length ? `<table><tr><th>Course</th><th>Section</th><th>Answered</th><th>Correct</th></tr>${secs.map(x=>`<tr><td>${esc((x.course||"").toUpperCase())}</td><td>${esc(x.name)}</td><td><span class="bar"><i style="width:${Math.round(100*x.answered/x.total)}%"></i></span>${x.answered} / ${x.total}</td><td>${x.answered?Math.round(100*x.correct/x.answered)+"%":"—"}</td></tr>`).join("")}</table>` : `<span class="muted">No progress synced yet.</span>`}
+        <div class="pp"><div><h5>Activity</h5>Last course open: <b>${esc(((COURSES.find(c=>c[0]===s.lastCourse)||[])[1]) || s.lastCourse || "—")}</b><br>Notes: ${s.notes||0} · Highlights: ${s.highlights||0}<br>Practice tests: ${s.tests||0} · Flagged: ${s.flagged||0} · Anki cards: ${s.anki||0}<br>Visits: ${u.sessions||0} · Last synced: ${ago(u.lastSync)}</div>
+        <div><h5>Features used</h5>${Object.keys(uses(u)).length ? Object.entries(uses(u)).sort((a,b)=>b[1][0]-a[1][0]).map(([k,r])=>`${esc(featName(k))}: <b>${r[0]}</b>`).join("<br>") : `<span class="muted">None synced yet.</span>`}</div></div></div></td></tr>`;
     }
     return h;
   }

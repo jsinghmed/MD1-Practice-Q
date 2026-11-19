@@ -2131,7 +2131,7 @@ async function ethLoad(u){
     if (!d.exists) { ethErr = "missing"; return; }
     const D = JSON.parse(d.data().s);
     ethSec = {course:"eth", name:"Medical Ethics", all:"All Ethics", prefix:"eth", topics:D.topics, qs:D.qs};
-    addSection(ethSec); ethErr = "";
+    addSection(ethSec); ethErr = ""; if (window.JJ_RESTAT) JJ_RESTAT();
   } catch(e) { ethErr = String(e && e.message || e); }
   finally { ethBusy = false; if (S.course==="eth") renderAll(); }
 }
@@ -2793,6 +2793,7 @@ function vizFor(q){
   return null;
 }
 function vizOpen(page, hash, title, sub){
+  jjUse("qviz:" + page);
   if (splitOn) { splitShow("u:" + page + "?v=7" + (hash ? "#" + hash : "") + "|" + title); return; }
   let m = $("vizM");
   if (!m) { m = document.createElement("div"); m.id = "vizM"; m.className = "vizm"; m.hidden = true;
@@ -2882,7 +2883,7 @@ function splitEnsure(){
   const d = document.createElement("div"); d.id = "splitDiv"; d.title = "Drag to resize";
   $("app").after(d); d.after(p);
   try { const w = localStorage.getItem("jj-split-w"); if (w) document.documentElement.style.setProperty("--sw", w); } catch(e){}
-  $("spSel").addEventListener("change", e=>splitShow(e.target.value));
+  $("spSel").addEventListener("change", e=>{ if (e.target.value) jjUse("splitsrc:" + e.target.value.slice(0,1)); splitShow(e.target.value); });
   $("spX").addEventListener("click", ()=>splitToggle(false));
   $("spFs").addEventListener("click", ()=>{ const f = $("spBody").querySelector("iframe"); jjFull(f || $("spBody")); });
   d.addEventListener("pointerdown", e=>{ e.preventDefault(); d.classList.add("drag"); $("spBody").classList.add("drag"); d.setPointerCapture(e.pointerId);
@@ -2954,6 +2955,17 @@ function lyHide(now){ clearTimeout(lyT); const f = ()=>{ $("lyPop").classList.re
 })();
 if (splitOn) setTimeout(()=>splitToggle(true), 0);
 
+// Feature usage: per-person counts of which features get opened (synced with progress for the admin page).
+function jjUse(k){ if (!k) return; try { S.use ??= {}; const r = S.use[k] || [0,0]; r[0]++; r[1] = Date.now(); S.use[k] = r; save(); } catch(e){} }
+document.addEventListener("click", e=>{
+  const t = e.target; if (!t || !t.closest) return;
+  const m = [["[data-mehlp]","mehlman"],["[data-c100p]","c100"],["[data-anking]","anking"],["[data-uworld]","uworld"],["[data-fu-open]","related"],
+    ["[data-mock]","mock"],["[data-nbgo]","nbme_quiz"],["[data-act=\"guides\"]","nbme_dash"],["#buildBtn","create_test"],["#notesBtn","notes"],
+    ["[data-osce]","osce"],["#gBtn","google"],["#uSwitch","usmle_view"],[".fsbtn","fullscreen"]];
+  for (const [sel,k] of m) if (t.closest(sel)) { jjUse(k); return; }
+  const ly = t.closest("[data-ly]"); if (ly) { jjUse("split:" + ly.dataset.ly); return; }
+  const tl = t.closest("button.tl[data-act]"); if (tl) jjUse("tool:" + tl.dataset.act);
+}, true);
 // Full screen for the embedded study tools. Uses the browser's full screen when it can,
 // otherwise (e.g. iPhone) stretches the frame over the whole window with a Close button.
 const FS_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>';
@@ -4664,7 +4676,13 @@ async function buildClass(ref){
       for (const [sp,[n,c]] of Object.entries(per)) if (n >= 10) (sec[sp] ||= []).push(Math.round(c*100/n));
     }
     Object.values(sec).forEach(a=>a.sort((x,y)=>x-y));
-    const out = {at:Date.now(), users, q:JSON.stringify(qs), sec:JSON.stringify(sec)};
+    const SECN = {}; SECTIONS.forEach(s=>s.items.forEach(q=>{ SECN[q.id] = s.name; }));
+    const hard = Object.entries(qs).filter(([id,r])=>r[0]>=3 && byId[id]).map(([id,r])=>{ const q = byId[id], c = COURSE_BY_ID[q.course||""];
+      let wi = -1; for (let i=0;i<5;i++) if (i!==q.a && (wi<0 || r[2+i]>r[2+wi])) wi = i;
+      return [id, (c?c.name+" · ":"") + (SECN[id]||""), r[0], Math.round(r[1]*100/r[0]), id.startsWith("eth") ? "" : String(q.s||"").replace(/<[^>]+>/g," ").replace(/&nbsp;/g," ").replace(/\s+/g," ").trim().slice(0,160),
+        LET[q.a]||"", wi>=0 && r[2+wi] ? LET[wi] + " (" + Math.round(r[2+wi]*100/r[0]) + "%)" : ""]; })
+      .sort((a,b)=>a[3]-b[3] || b[2]-a[2]).slice(0,60);
+    const out = {at:Date.now(), users, q:JSON.stringify(qs), sec:JSON.stringify(sec), hard:JSON.stringify(hard)};
     await ref.set(out); CLASS = out; renderAll();
   } catch(e) { console.warn("JJ class stats build", e); }
 }
@@ -4824,7 +4842,7 @@ window.JJ_STATS = function(st){
   });
   const cnt = o => Object.keys(o||{}).length;
   return {courses, sections, flagged:cnt(st.flag), notes:Object.values(st.notes||{}).filter(v=>String(v).trim()).length,
-    anki:(st.anki||[]).length, tests:(st.tests||[]).length, highlights:cnt(st.hl), lastCourse:st.course||null};
+    anki:(st.anki||[]).length, tests:(st.tests||[]).length, highlights:cnt(st.hl), lastCourse:st.course||null, use:st.use||{}};
 };
 
 // Welcome screen: shown every time the page loads.
@@ -4945,7 +4963,7 @@ try { if (/[?&]v=/.test(location.search)) history.replaceState(null, "", locatio
 })();
 </script>
 <script>document.write('<script src="firebase-config.js?t=' + Date.now() + '"><\/script>');</script>
-<script src="auth.js?v=38"></script>
+<script src="auth.js?v=39"></script>
 <script>
 // Fail closed: if sign-in can't load (blocked, missing or failed file), the site stays locked instead of opening.
 setTimeout(function(){

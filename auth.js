@@ -74,7 +74,7 @@
   function merge(a, b, winner){
     const W = winner==="a" ? a : b, L = winner==="a" ? b : a;
     const out = Object.assign({}, L, W);
-    const MAPS = ["ans","sel","strike","flag","notes","nimg","hl","order","qtime","first","chgq","posId","pos","scr","qshuf","snap","curBy","fu","S_unused"];
+    const MAPS = ["use","ans","sel","strike","flag","notes","nimg","hl","order","qtime","first","chgq","posId","pos","scr","qshuf","snap","curBy","fu","S_unused"];
     MAPS.forEach(k=>{ if (L[k] || W[k]) out[k] = Object.assign({}, L[k]||{}, W[k]||{}); });
     if (L.qtime || W.qtime) { out.qtime = Object.assign({}, out.qtime); Object.keys(L.qtime||{}).forEach(id=>{ out.qtime[id] = Math.max(+(L.qtime||{})[id]||0, +(W.qtime||{})[id]||0); }); }
     out.anki = Array.from(new Set([...(W.anki||[]), ...(L.anki||[])]));
@@ -116,6 +116,12 @@
       const el = $("jjSyncTime"); if (el) el.textContent = "Sync paused — will retry";
     } finally { uploading = false; }
   }
+  // Refresh just the admin summary (e.g. once the Ethics questions have loaded), without re-uploading progress.
+  window.JJ_RESTAT = function(tries){
+    tries = tries || 0;
+    if (!user || !uref || kicked) { if (tries < 20) setTimeout(()=>window.JJ_RESTAT(tries+1), 3000); return; }
+    try { const stats = window.JJ_STATS ? window.JJ_STATS(parse(localStorage.getItem(KEY) || "{}")) : null; if (stats) uref.set({stats}, {merge:true}).catch(e=>console.warn("JJ stats refresh", e)); } catch(e){}
+  };
   function checkUpload(why){
     if (!user || kicked || window.JJ_HOLD) return;
     const cur = localStorage.getItem(KEY);
