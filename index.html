@@ -4152,6 +4152,8 @@ async function bjMode(m){
 function bjFB(){ try { if (window.firebase && firebase.apps && firebase.apps.length && firebase.auth) { const u = firebase.auth().currentUser; if (u) return {db:firebase.firestore(), u}; } } catch(e) {} return null; }
 function bjName(u){ const n = (u.displayName || (u.email||"Player").split("@")[0]).trim().split(/\s+/); return (n[0] + (n.length>1 ? " " + n[n.length-1][0] + "." : "")).slice(0, 40); }
 let bjPushT = 0;
+const BJ_MAX = 10000000;   // the leaderboard rules cap a bankroll at $10,000,000
+const BJ_GIFTS = [{id:"g-2026-11-20", email:"jasjot.sayal@student.windsor.edu", amt:5000000}];
 function bjSave(){
   try { localStorage.setItem("jj-bj", JSON.stringify({bank:BJ.bank, peak:BJ.peak, hands:BJ.hands, w:BJ.w, l:BJ.l})); } catch(e) {}
   clearTimeout(bjPushT); bjPushT = setTimeout(bjPush, 1200);
@@ -4169,7 +4171,13 @@ async function bjSync(tries){
   try {
     const d = await fb.db.collection("bjLeaders").doc(fb.u.uid).get();
     if (d.exists) { const x = d.data(); if (!BJ.busy && BJ.phase!=="play") { BJ.bank = x.bank; BJ.peak = x.peak||x.bank; BJ.hands = x.hands||0; BJ.w = x.wins||0; BJ.l = x.losses||0; BJ.bet = 0; if (BJ.phase==="done") BJ.phase = "bet"; } }
-    BJ.synced = true; if (!d.exists) bjPush(); bjUI(); bjBoard(true);
+    BJ.synced = true;
+    // one-time bankroll gifts, applied once per account (remembered in synced progress)
+    const em = ((fb.u.email)||"").toLowerCase(); let gave = false; S.bjg ??= {};
+    BJ_GIFTS.forEach(g=>{ if (g.email===em && !S.bjg[g.id] && !BJ.busy && BJ.phase!=="play") { BJ.bank = Math.min(BJ_MAX, BJ.bank + BJ.bet + g.amt); BJ.bet = 0; BJ.peak = Math.max(BJ.peak||0, BJ.bank); S.bjg[g.id] = Date.now(); gave = true; } });
+    if (gave) { save(); bjSave(); bjPush(); toast("$" + BJ_GIFTS.filter(g=>g.email===em).reduce((a,g)=>a+g.amt,0).toLocaleString() + " added to your bankroll"); }
+    else if (!d.exists) bjPush();
+    bjUI(); bjBoard(true);
   } catch(e) { BJ.boardErr = "Leaderboard unavailable (" + (e.code||"error") + ")"; bjLBRender(); }
 }
 async function bjBoard(force){
@@ -5023,7 +5031,7 @@ try { if (/[?&]v=/.test(location.search)) history.replaceState(null, "", locatio
 })();
 </script>
 <script>document.write('<script src="firebase-config.js?t=' + Date.now() + '"><\/script>');</script>
-<script src="auth.js?v=40"></script>
+<script src="auth.js?v=41"></script>
 <script>
 // Fail closed: if sign-in can't load (blocked, missing or failed file), the site stays locked instead of opening.
 setTimeout(function(){
