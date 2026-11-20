@@ -1290,9 +1290,9 @@ button.dst:hover{background:var(--hover)}
 <script src="crs-embryology.js?v=35"></script>
 <script src="crs-histology.js?v=1"></script>
 <script src="crs-genetics.js?v=1"></script>
-<script src="mocks.js?v=2"></script>
+<script src="mocks.js?v=3"></script>
 <script src="crs-anatomy.js?v=1"></script>
-<script src="crs-biochem.js?v=12"></script>
+<script src="crs-biochem.js?v=13"></script>
 <script src="crs-physiology.js?v=16"></script>
 <script src="nbme.js?v=21"></script>
 <script src="xp-crs.js?v=1"></script>
@@ -1399,7 +1399,7 @@ const SECTIONS = [
   {course:"crs", name:"CRS Biochemistry", all:"All CRS Biochemistry", prefix:"cbr", topics:window.CRS_BC_TOPICS, hideTopics:true, qs:window.CRS_BC_QUESTIONS,
    // Grouped by lecture (Dr. Shetty), then topic. Add each new lecture as one more [name, topics] row.
    extra:(()=>{ const T = window.CRS_BC_TOPICS||[];
-     return lecExtras([["Lecture 1 · Fatty Acid Oxidation", T.slice(0,10)], ["Lecture 2 · Fatty Acid & TAG Synthesis", T.slice(10,21)], ["Lecture 3 · Ketone Body Metabolism", T.slice(21,29)], ["Lecture 4 · Complex Lipid Metabolism", T.slice(29,44)], ["Lecture 5 · Eicosanoid Metabolism", T.slice(44,50)], ["Lecture 6 · Lipoprotein Metabolism", T.slice(50,58)], ["Lecture 7 · Cholesterol Biosynthesis", T.slice(58,62)], ["Lecture 8 · Hemoglobin & Myoglobin", T.slice(62,72)]],
+     return lecExtras([["Lecture 1 · Fatty Acid Oxidation", T.slice(0,10)], ["Lecture 2 · Fatty Acid & TAG Synthesis", T.slice(10,21)], ["Lecture 3 · Ketone Body Metabolism", T.slice(21,29)], ["Lecture 4 · Complex Lipid Metabolism", T.slice(29,44)], ["Lecture 5 · Eicosanoid Metabolism", T.slice(44,50)], ["Lecture 6 · Lipoprotein Metabolism", T.slice(50,58)], ["Lecture 7 · Cholesterol Biosynthesis", T.slice(58,62)], ["Lecture 8 · Hemoglobin & Myoglobin", T.slice(62,72)], ["TCA Cycle & ETC · Shetty Practice Q's", T.slice(72,76)]],
        [["Shetty Practice Q's", "Shetty", "shetty"], ["USMLE Style Q's", "USMLE", "usmle"]]); })()},
   {course:"crs", name:"CRS Physiology", all:"All CRS Physiology", prefix:"cpr", topics:window.CRS_PH_TOPICS, hideTopics:true, qs:window.CRS_PH_QUESTIONS,
    // Grouped by lecture (Dr. Sampath V.), then topic. Add each new lecture as one more [name, topics] row.
@@ -1876,7 +1876,7 @@ function ankingOpen(k){
   document.body.appendChild(d); d.querySelector("[data-ankcopy]").focus();
 }
 // CRS lectures are grouped into Cardiovascular and Respiratory. Every CRS lecture not listed here is cardiovascular.
-const RESP_LECS = new Set(["cbr|Lecture 8 · Hemoglobin & Myoglobin", "ca|Lecture 7 · Pleura, Trachea & Lungs", "ca|Lecture 8 · Diaphragm",
+const RESP_LECS = new Set(["cbr|Lecture 8 · Hemoglobin & Myoglobin", "cbr|TCA Cycle & ETC · Shetty Practice Q's", "ca|Lecture 7 · Pleura, Trachea & Lungs", "ca|Lecture 8 · Diaphragm",
   "ce|Lecture 6 · Development of the Respiratory System", "ce|Lecture 7 · Formation of the Diaphragm"]);
 const BOTH_LECS = new Set(["ce|Lecture 8 · Congenital Anomalies (all lectures)"]);
 const SYS_NAME = {cvs:"Cardiovascular system", resp:"Respiratory system", both:"Cardiovascular + Respiratory"};
@@ -1884,7 +1884,7 @@ function lecSys(pfx, name){ const k = pfx+"|"+name; return RESP_LECS.has(k) ? "r
 let SYS_OF = null;   // question id -> "cvs" | "resp" for CRS questions, from the lecture lists
 function qSys(q){
   if (!SYS_OF) { SYS_OF = {}; const resp = new Set(), cvs = new Set();
-    STATIC.filter(c=>!c.sub && !c.head && /^Lecture \d/.test(c.name) && (SEC_BY_PFX[c.pfx]||{}).course==="crs").forEach(c=>{
+    STATIC.filter(c=>!c.sub && !c.head && (/^Lecture \d/.test(c.name) || RESP_LECS.has(c.pfx+"|"+c.name)) && (SEC_BY_PFX[c.pfx]||{}).course==="crs").forEach(c=>{
       const sy = lecSys(c.pfx, c.name); if (sy==="both") return; c.ids.forEach(id=>(sy==="resp" ? resp : cvs).add(id)); });
     resp.forEach(id=>{ if (!cvs.has(id)) SYS_OF[id] = "resp"; }); }
   return SYS_OF[q.id] || "cvs";
@@ -1902,7 +1902,7 @@ function lecTree(sec){
   });
   let h = head.map(chapBtn).join(""), lastSys = null;
   groups.forEach(g=>{
-    if (sec.course==="crs" && /^Lecture \d/.test(g.lec.name)) { const sy = lecSys(sec.prefix, g.lec.name);
+    if (sec.course==="crs" && (/^Lecture \d/.test(g.lec.name) || RESP_LECS.has(sec.prefix+"|"+g.lec.name))) { const sy = lecSys(sec.prefix, g.lec.name);
       if (sy!==lastSys) { h += `<div class="sys-h">${SYS_NAME[sy]}</div>`; lastSys = sy; } }
     const inside = S.cur==="lrv|"+g.lec.key || [g.lec].concat(g.kids, g.chips).some(c=>c.key===S.cur);
     if (inside && view==="quiz" && S.cur!==g.lec.key) LEC_OPEN[g.lec.key] = true;
@@ -1951,7 +1951,7 @@ function renderGuideView(){
     <div class="gvhead"><h2>${esc(nm)}</h2><p class="sub">${esc(desc)}</p><div class="gvleg"><span><span class="hy">Red</span> = extra high yield (classic NBME)</span><span>Black/white = core content</span><span class="mn">Italic = mnemonic</span></div></div>`;
   if (!window.GUIDE_HTML) {
     showPage(`<div class="page gview">${top}<div class="emptybox"><p>Loading study guide…</p></div></div>`);
-    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=17";
+    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=18";
       sc.onload = ()=>{ guideLoading = false; if (view==="guide") renderGuideView(); };
       sc.onerror = ()=>{ guideLoading = false; toast("Couldn't load the study guide — check your connection"); };
       document.head.appendChild(sc); }
@@ -1972,7 +1972,7 @@ async function guidePdf(f, btn){
   const nm = info.g[1].replace(/ NBME guide$/,""), desc = info.g[2], old = btn.innerHTML;
   btn.dataset.busy = "1"; btn.innerHTML = "Preparing PDF…";
   try {
-    if (!window.GUIDE_HTML) await gpdfScript("guides.js?v=17");
+    if (!window.GUIDE_HTML) await gpdfScript("guides.js?v=18");
     for (const s of GPDF_LIBS) await gpdfScript(s);
     const yr = new Date().getFullYear(), RED = "#c00000", NAVY = "#0b2447";
     let ghtml = window.GUIDE_HTML[f] || "";
@@ -2959,7 +2959,7 @@ function splitShow(src){
   if (k==="u") { const [url, t] = v.split("|"); frame(url, t||"Study tool"); return; }
   if (k==="g") {
     if (!window.GUIDE_HTML) { b.innerHTML = `<div class="spempty">Loading study guide…</div>`;
-      const sc = document.createElement("script"); sc.src = "guides.js?v=17"; sc.onload = ()=>{ if (splitSrc==="g:"+v) splitShow(splitSrc); }; document.head.appendChild(sc); return; }
+      const sc = document.createElement("script"); sc.src = "guides.js?v=18"; sc.onload = ()=>{ if (splitSrc==="g:"+v) splitShow(splitSrc); }; document.head.appendChild(sc); return; }
     b.innerHTML = `<article class="gvbody">${window.GUIDE_HTML[v] || "<p>Study guide not found.</p>"}</article>`; fixImgs && fixImgs(b); b.scrollTop = 0; }
 }
 document.addEventListener("click", e=>{ const b = e.target.closest && e.target.closest("[data-split]"); if (!b) return; e.preventDefault(); $("side").classList.remove("open"); splitToggle(); });

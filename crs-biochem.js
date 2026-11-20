@@ -71,7 +71,11 @@ window.CRS_BC_TOPICS = [
 "Globin Genes & Hemoglobin Types",
 "Sickle Cell Disease, HbC, HbSC & HbE",
 "Thalassemias",
-"Practice Questions · Hemoglobin (from the slides)"
+"Practice Questions · Hemoglobin (from the slides)",
+"PDH Complex",
+"TCA Cycle Reactions & Energetics",
+"TCA Regulation, Inhibitors & Anaplerosis",
+"Electron Transport Chain & Uncouplers"
 ];
 window.CRS_BC_QUESTIONS = [
 {
@@ -6650,6 +6654,1086 @@ window.CRS_BC_QUESTIONS = [
 ],
 "fig": [
 "figs/crs/hb-methb"
+]
+},
+{
+"t": "Regulation of HMG-CoA Reductase",
+"s": "A 55-year-old man with hypercholesterolemia begins treatment with atorvastatin. After several weeks, his hepatocytes increase transcription of HMG-CoA reductase despite continued drug therapy. Which transcription factor is primarily responsible for this compensatory response?",
+"ns": true,
+"shetty": 1,
+"c": [
+"NF-κB",
+"CREB",
+"SREBP-2",
+"PPAR-α",
+"FOXO1"
+],
+"a": 2,
+"e": "Statins decrease intracellular cholesterol concentration. Low intracellular cholesterol activates Sterol Regulatory Element Binding Protein (SREBP-2), which enters the nucleus and increases transcription of HMG-CoA reductase and LDL receptor genes.\n\nTakeaway: low cell sterol → SREBP-2 → more HMG-CoA reductase and more LDL receptors.",
+"w": [
+"NF-κB drives inflammatory genes, not sterol genes.",
+"CREB responds to cAMP. It is not the sterol sensor.",
+"",
+"PPAR-α turns on fatty acid oxidation genes; fibrates act on it.",
+"FOXO1 controls gluconeogenic genes in fasting."
+],
+"fig": [
+"figs/crs/ch-regulation"
+]
+},
+{
+"t": "Regulation of HMG-CoA Reductase",
+"s": "A patient with poorly controlled type 1 diabetes mellitus has markedly reduced insulin levels. Which of the following changes is most likely to occur in hepatic cholesterol synthesis?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Increased HMG-CoA reductase activity due to dephosphorylation",
+"Increased SREBP activation by insulin",
+"Decreased HMG-CoA reductase gene expression",
+"Increased cholesterol synthesis despite glucagon excess",
+"Increased activation of phosphoprotein phosphatase"
+],
+"a": 2,
+"e": "Insulin stimulates cholesterol synthesis by increasing HMG-CoA reductase expression and activity, whereas glucagon inhibits cholesterol synthesis by promoting phosphorylation and decreasing gene expression.\n\nTakeaway: low insulin and high glucagon → less reductase made and more of it phosphorylated (inactive).",
+"w": [
+"Dephosphorylation is insulin's effect; insulin is low here.",
+"Insulin is low, so it cannot activate SREBP.",
+"",
+"Glucagon excess lowers cholesterol synthesis.",
+"Insulin activates the phosphatase; with low insulin it is less active."
+],
+"fig": [
+"figs/crs/ch-regulation"
+]
+},
+{
+"t": "Cholesterol Structure & Functions",
+"s": "A 46-year-old obese woman presents with recurrent right upper quadrant pain after fatty meals. Ultrasonography reveals cholesterol gallstones. Which alteration most likely contributed to their formation?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Increased bile salt concentration",
+"Increased phospholipid secretion",
+"Increased cholesterol secretion relative to bile salts",
+"Increased conversion of cholesterol into bile acids",
+"Increased enterohepatic recycling of bile salts"
+],
+"a": 2,
+"e": "Cholesterol gallstones develop when cholesterol secretion exceeds the solubilizing capacity of bile salts and phospholipids, causing cholesterol precipitation.\n\nTakeaway: too much cholesterol or too little bile salt/phospholipid → cholesterol stones.",
+"w": [
+"More bile salt keeps cholesterol dissolved, so it protects.",
+"Phospholipid (lecithin) also keeps cholesterol in solution.",
+"",
+"Turning cholesterol into bile acids lowers biliary cholesterol.",
+"More recycling keeps the bile salt pool large, which protects."
+]
+},
+{
+"t": "Cholesterol Structure & Functions",
+"s": "A patient undergoes surgical resection of the terminal ileum for Crohn disease. Several months later he develops cholesterol gallstones. Reduced activity of which metabolic pathway most directly contributed to this complication?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Cholesterol esterification",
+"Enterohepatic circulation of bile acids",
+"LDL receptor-mediated endocytosis",
+"Cholesterol biosynthesis",
+"Reverse cholesterol transport"
+],
+"a": 1,
+"e": "The terminal ileum reabsorbs approximately 98–99% of bile acids. Ileal disease or resection reduces bile acid recycling, decreasing bile salt concentration and increasing the risk of cholesterol gallstone formation.\n\nTakeaway: terminal ileum loss → bile salts lost in stool → cholesterol precipitates in bile.",
+"w": [
+"ACAT esterification happens inside cells and is unrelated to the ileum.",
+"",
+"LDL uptake by the liver is not handled by the ileum.",
+"Less cholesterol synthesis would protect, not cause stones.",
+"Reverse transport by HDL is not an ileal process."
+]
+},
+{
+"t": "Cholesterol Synthesis: Pathway & Sites",
+"s": "A newborn has microcephaly, syndactyly, developmental delay, and multiple congenital anomalies. Laboratory studies reveal markedly reduced cholesterol levels with accumulation of 7-dehydrocholesterol. Which enzyme is deficient?",
+"ns": true,
+"shetty": 1,
+"c": [
+"HMG-CoA reductase",
+"Squalene synthase",
+"Lanosterol synthase",
+"7-Dehydrocholesterol reductase",
+"Cholesterol 7α-hydroxylase"
+],
+"a": 3,
+"e": "Smith–Lemli–Opitz syndrome is caused by deficiency of 7-dehydrocholesterol reductase, preventing the final step of cholesterol synthesis.\n\nTakeaway: high 7-DHC + low cholesterol + syndactyly = SLOS.",
+"w": [
+"A block here would not let 7-DHC build up; it is far upstream.",
+"Squalene synthase is upstream; 7-DHC would not accumulate.",
+"Lanosterol synthase (cyclase) is upstream of 7-DHC.",
+"",
+"7α-hydroxylase turns cholesterol into bile acids; cholesterol would rise, not fall."
+],
+"fig": [
+"figs/crs/ch-pathway"
+]
+},
+{
+"t": "Regulation of HMG-CoA Reductase",
+"s": "A 58-year-old man is treated with cholestyramine for hypercholesterolemia. Which of the following best explains how this drug lowers plasma LDL cholesterol?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Direct inhibition of HMG-CoA reductase",
+"Inhibition of intestinal cholesterol absorption",
+"Increased hepatic LDL receptor expression secondary to increased bile acid synthesis",
+"Activation of lipoprotein lipase",
+"Increased HDL synthesis"
+],
+"a": 2,
+"e": "Cholestyramine binds bile acids in the intestine, preventing their reabsorption. The liver uses more cholesterol to synthesize new bile acids, lowering hepatic cholesterol and increasing LDL receptor expression, which removes LDL from the circulation.\n\nTakeaway: bile acid resins → liver uses its cholesterol for bile acids → more LDL receptors.",
+"w": [
+"That is how statins work.",
+"That is ezetimibe (NPC1L1).",
+"",
+"Fibrates raise LPL activity.",
+"Niacin raises HDL; resins do not act this way."
+]
+},
+{
+"t": "Cholesterol Synthesis: Pathway & Sites",
+"s": "A researcher is studying cholesterol biosynthesis in cultured hepatocytes. The cells are incubated with radiolabeled acetate, and the label is subsequently detected in newly synthesized cholesterol. Which of the following best explains why acetate serves as the precursor for cholesterol synthesis?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Acetate is directly converted into lanosterol.",
+"All 27 carbon atoms of cholesterol are derived from acetyl-CoA.",
+"Acetate is first converted into bile acids before cholesterol synthesis.",
+"Acetate enters cholesterol synthesis only after conversion into pyruvate.",
+"Acetate contributes only the steroid ring structure, while the side chain is derived from amino acids."
+],
+"a": 1,
+"e": "Cholesterol is synthesized from acetyl-CoA, with all 27 carbon atoms originating from acetyl-CoA. Cytosolic acetyl-CoA is generated from mitochondrial citrate by ATP-citrate lyase, and NADPH provides the reducing equivalents required for synthesis.\n\nTakeaway: cholesterol = 27 carbons, all from acetyl-CoA, reduced by NADPH.",
+"w": [
+"Acetate passes through HMG-CoA, mevalonate and squalene before lanosterol.",
+"",
+"Bile acids are made from cholesterol, not the other way round.",
+"Acetate becomes acetyl-CoA directly; it does not go through pyruvate.",
+"The side chain also comes from acetyl-CoA."
+],
+"fig": [
+"figs/crs/ch-pathway"
+]
+},
+{
+"t": "Regulation of HMG-CoA Reductase",
+"s": "A molecular biologist experimentally depletes intracellular cholesterol in cultured liver cells. Which of the following events occurs first to increase cholesterol biosynthesis?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Ubiquitination and degradation of HMG-CoA reductase",
+"Binding of SCAP-SREBP complex to INSIG in the endoplasmic reticulum",
+"Migration of the SCAP-SREBP complex from the endoplasmic reticulum to the Golgi apparatus",
+"Phosphorylation of HMG-CoA reductase by AMPK",
+"Increased degradation of SREBP in the Golgi apparatus"
+],
+"a": 2,
+"e": "When intracellular cholesterol levels fall, INSIG dissociates from the SCAP-SREBP complex, allowing the complex to migrate from the endoplasmic reticulum to the Golgi, where SREBP is cleaved. The active SREBP then enters the nucleus and increases transcription of HMG-CoA reductase and LDL receptor genes, enhancing cholesterol synthesis and uptake.\n\nTakeaway: low sterol → SCAP-SREBP leaves INSIG → Golgi cleavage → nucleus.",
+"w": [
+"Degradation happens when sterol is high.",
+"INSIG binding happens when sterol is high and keeps SREBP in the ER.",
+"",
+"AMPK phosphorylation inactivates the enzyme in low-energy states.",
+"SREBP is cleaved (activated) in the Golgi, not degraded."
+],
+"fig": [
+"figs/crs/ch-regulation"
+]
+},
+{
+"t": "VLDL, IDL & LDL Metabolism",
+"s": "A researcher labels newly synthesized cholesterol in the liver with a radioactive tracer and follows its transport to peripheral tissues. Which lipoprotein is primarily responsible for delivering endogenous cholesterol from the liver to extrahepatic tissues?",
+"ns": true,
+"shetty": 1,
+"c": [
+"HDL",
+"Chylomicrons",
+"Chylomicron remnants",
+"LDL",
+"VLDL remnants"
+],
+"a": 3,
+"e": "LDL is the major carrier of cholesterol from the liver to peripheral tissues. HDL participates in reverse cholesterol transport by carrying excess cholesterol from tissues back to the liver.\n\nTakeaway: liver → VLDL → IDL → LDL delivers cholesterol out; HDL brings it back.",
+"w": [
+"HDL carries cholesterol back to the liver.",
+"Chylomicrons carry dietary (exogenous) lipid from the gut.",
+"Remnants carry dietary lipid to the liver.",
+"",
+"VLDL remnants (IDL) are an intermediate; most become LDL, which does the delivering."
+]
+},
+{
+"t": "HDL & Reverse Cholesterol Transport",
+"s": "A 28-year-old man has fasting lipid levels measured during a routine examination. His LDL cholesterol is 160 mg/dL, and HDL is 35 mg/dL. Which enzyme is primarily responsible for the esterification of cholesterol within HDL particles?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Lecithin-cholesterol acyltransferase (LCAT)",
+"Lipoprotein lipase",
+"Acyl-CoA cholesterol acyltransferase (ACAT)",
+"HMG-CoA reductase",
+"Cholesterol ester transfer protein (CETP)"
+],
+"a": 0,
+"e": "LCAT, activated by apoA-I, moves a fatty acid from lecithin onto free cholesterol in plasma HDL. The cholesteryl ester moves into the core, turning discoidal (nascent) HDL into spherical mature HDL.\n\nTakeaway: esterification in plasma/HDL = LCAT (apoA-I); inside cells = ACAT.",
+"w": [
+"",
+"LPL hydrolyzes TAG in chylomicrons and VLDL.",
+"ACAT esterifies cholesterol inside cells, not in HDL.",
+"HMG-CoA reductase makes cholesterol; it does not esterify it.",
+"CETP transfers esters already made by LCAT to VLDL/LDL."
+]
+},
+{
+"t": "LDL Receptor, ACAT & Atherosclerosis",
+"s": "A patient is diagnosed with familial hypercholesterolemia, characterized by elevated LDL cholesterol levels. This condition is most commonly caused by a mutation affecting which receptor?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Insulin receptor",
+"LDL receptor",
+"Scavenger receptor B1",
+"VLDL receptor",
+"ABCA1 transporter"
+],
+"a": 1,
+"e": "Familial hypercholesterolemia (type IIa) is most often a defect in the LDL receptor (less often apoB-100 or PCSK9). LDL cannot be cleared by the liver, so plasma LDL rises, with tendon xanthomas and early MI.\n\nTakeaway: FH = LDL receptor defect → very high LDL.",
+"w": [
+"Insulin receptor defects cause insulin resistance.",
+"",
+"SR-B1 takes up HDL cholesteryl ester in the liver.",
+"VLDL receptor defects do not cause FH.",
+"ABCA1 defect is Tangier disease, with very low HDL."
+]
+},
+{
+"t": "Chylomicron Metabolism & Lipoprotein Lipase",
+"s": "A patient with a lipid disorder has a mutation in the ApoC-II gene. Which of the following processes will be directly affected?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Uptake of LDL by the liver",
+"Activation of LCAT",
+"Hydrolysis of triglycerides in chylomicrons and VLDL",
+"Cholesterol transport to the liver via HDL",
+"Conversion of VLDL to LDL"
+],
+"a": 2,
+"e": "ApoC-II is the activator of lipoprotein lipase. Without it, LPL cannot hydrolyze the TAG in chylomicrons and VLDL, giving type I hyperchylomicronemia with pancreatitis risk.\n\nTakeaway: apoC-II activates LPL; apoA-I activates LCAT.",
+"w": [
+"LDL uptake uses apoB-100 and the LDL receptor.",
+"LCAT is activated by apoA-I.",
+"",
+"HDL transport depends on apoA-I, LCAT and SR-B1.",
+"This conversion follows LPL action, so it is only indirectly affected."
+]
+},
+{
+"t": "Arachidonic Acid Release & PLA2",
+"s": "Eicosanoids are compounds of biochemical, physiological and therapeutic importance. Prostaglandins are the best examples for eicosanoids. Apart from their wide spectrum of actions, these eicosanoids also mediate inflammatory reactions in the human body. Which among the following acts as the predominant precursor of eicosanoids?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Margaric acid",
+"Cholesterol",
+"Linolenic acid",
+"Arachidonic acid",
+"Oleic acid"
+],
+"a": 3,
+"e": "Eicosanoids are 20-carbon compounds made mainly from arachidonic acid (20:4, ω-6), released from membrane phospholipids by phospholipase A2.\n\nTakeaway: PLA2 → arachidonic acid → COX (prostanoids) or LOX (leukotrienes).",
+"w": [
+"Margaric acid is a 17-carbon saturated fatty acid.",
+"Cholesterol is the precursor of steroids and bile acids.",
+"Linolenic acid gives minor ω-3 eicosanoids; arachidonate is the main precursor.",
+"",
+"Oleic acid (18:1) is not an eicosanoid precursor."
+]
+},
+{
+"t": "COX Pathway & Prostanoids",
+"s": "Which of the following statements regarding the synthesis and functions of PGE₂ is true? The compound is",
+"ns": true,
+"shetty": 1,
+"c": [
+"Synthesized by the action of 5’-lipoxygenases",
+"A powerful vasoconstrictor",
+"Useful in inducing labour",
+"Useful in mobilizing calcium",
+"Synthesized mainly in leukocytes"
+],
+"a": 2,
+"e": "PGE₂ is made by the COX pathway. It contracts the uterus and ripens the cervix, so PGE₂ analogs (dinoprostone) are used to induce labour. It is a vasodilator and causes fever and pain.\n\nTakeaway: PGE₂/PGF₂α → uterine contraction, labour induction and abortion.",
+"w": [
+"5-lipoxygenase makes leukotrienes, not prostaglandins.",
+"PGE₂ is a vasodilator; TXA₂ is the vasoconstrictor.",
+"",
+"Calcium mobilization is IP₃'s role.",
+"Leukocytes mainly make leukotrienes."
+]
+},
+{
+"t": "Zellweger, X-ALD & Refsum",
+"s": "Patients with Refsum's disease present with neurologic damage, cerebellar degeneration and peripheral neuropathy. Symptoms also include night blindness, ataxia, scaly skin and eye problems including cataracts. This is caused by a defect in the oxidation of",
+"ns": true,
+"shetty": 1,
+"c": [
+"Phytanic acid",
+"Propionic acid",
+"Palmitic acid",
+"Nervonic acid",
+"Arachidonic acid"
+],
+"a": 0,
+"e": "Refsum disease is a defect in peroxisomal α-oxidation (phytanoyl-CoA hydroxylase), so phytanic acid from dairy and ruminant fat builds up.\n\nTakeaway: Refsum = phytanic acid, α-oxidation, retinitis pigmentosa, neuropathy, ichthyosis.",
+"w": [
+"",
+"Propionic acid is handled by propionyl-CoA carboxylase.",
+"Palmitic acid uses ordinary mitochondrial β-oxidation.",
+"Very long-chain fatty acids like nervonic acid build up in X-ALD/Zellweger.",
+"Arachidonic acid feeds eicosanoid synthesis."
+]
+},
+{
+"t": "Carnitine & CPT Deficiencies",
+"s": "A 5-year-old boy is brought to the emergency department with vomiting and lethargy after a prolonged fast. Laboratory tests reveal hypoglycemia and low ketone bodies. Further workup suggests an issue with mitochondrial fatty acid oxidation. Which enzyme is most likely deficient?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Acetyl-CoA carboxylase",
+"Carnitine acyltransferase I",
+"Hormone-sensitive lipase",
+"ATP citrate lyase",
+"Fatty acyl-CoA synthetase"
+],
+"a": 1,
+"e": "Fasting hypoketotic hypoglycemia means long-chain fatty acids cannot enter the mitochondria for β-oxidation. CPT-I (carnitine acyltransferase I) on the outer membrane is the gate, so its deficiency stops ketone production and gluconeogenesis support.\n\nTakeaway: fasting + low glucose + low ketones = fatty acid oxidation defect (CPT-I, carnitine, MCAD).",
+"w": [
+"ACC makes malonyl-CoA for fatty acid synthesis.",
+"",
+"HSL releases fatty acids from adipose; it is not mitochondrial.",
+"ATP citrate lyase serves fatty acid synthesis in the cytosol.",
+"Acyl-CoA synthetase activates fatty acids in the cytosol; it is not the mitochondrial step asked."
+]
+},
+{
+"t": "β-Oxidation Reactions",
+"s": "A 40-year-old man begins a ketogenic diet. During fat metabolism, what are the main products of one cycle of mitochondrial β-oxidation?",
+"ns": true,
+"shetty": 1,
+"c": [
+"NADH, FADH2, and glucose",
+"Acetyl-CoA, NADPH, and CO2",
+"Acetyl-CoA, NADH, and FADH2",
+"GTP, CO2, and ATP",
+"Pyruvate, NADH, and acetyl-CoA"
+],
+"a": 2,
+"e": "Each turn of β-oxidation (oxidation, hydration, oxidation, thiolysis) gives 1 FADH₂, 1 NADH and 1 acetyl-CoA, and shortens the acyl-CoA by 2 carbons.\n\nTakeaway: one β-oxidation cycle = FADH₂ + NADH + acetyl-CoA.",
+"w": [
+"Glucose is never made from even-chain fatty acids.",
+"NADPH is used in synthesis, not made in β-oxidation.",
+"",
+"GTP and CO₂ come from the TCA cycle.",
+"Pyruvate is not a β-oxidation product."
+]
+},
+{
+"t": "Energetics & Regulation",
+"s": "A 28-year-old man begins fasting for religious reasons. After 24 hours, his metabolism shifts. Which of the following hormonal changes is responsible for the increase in β-oxidation?",
+"ns": true,
+"shetty": 1,
+"c": [
+"High insulin levels",
+"Malonyl-CoA accumulation",
+"High NADH levels",
+"Increased glucagon",
+"Increased citrate levels"
+],
+"a": 3,
+"e": "In fasting, glucagon rises and insulin falls. Glucagon activates hormone-sensitive lipase and inactivates acetyl-CoA carboxylase, so malonyl-CoA falls and CPT-I is released from inhibition.\n\nTakeaway: glucagon ↑ → malonyl-CoA ↓ → CPT-I open → β-oxidation ↑.",
+"w": [
+"Insulin promotes fat storage and suppresses β-oxidation.",
+"Malonyl-CoA inhibits CPT-I and blocks β-oxidation.",
+"High NADH slows β-oxidation dehydrogenases.",
+"",
+"Citrate activates ACC, favoring synthesis."
+]
+},
+{
+"t": "Fuel Fate & Why the Liver Makes Ketones",
+"s": "A biochemistry student skips supper, studies through the night and comes to the examination without breakfast. Under these conditions, the acetyl CoA from fatty acid oxidation will be channeled into the production of",
+"ns": true,
+"shetty": 1,
+"c": [
+"3-Hydroxybutyrate",
+"citrate",
+"glucose",
+"malonyl CoA",
+"pyruvate"
+],
+"a": 0,
+"e": "After an overnight fast, the liver oxidizes fatty acids while its oxaloacetate is used for gluconeogenesis. Acetyl-CoA cannot enter the TCA cycle fast enough, so it is turned into ketone bodies, mainly 3-hydroxybutyrate.\n\nTakeaway: fasting liver acetyl-CoA → ketone bodies (3-hydroxybutyrate, acetoacetate).",
+"w": [
+"",
+"Citrate needs oxaloacetate, which is diverted to gluconeogenesis.",
+"Acetyl-CoA cannot be converted to glucose.",
+"Malonyl-CoA is made in the fed state.",
+"Pyruvate dehydrogenase is irreversible; acetyl-CoA cannot form pyruvate."
+]
+},
+{
+"t": "Ketolysis: Thiophorase & Extrahepatic Use",
+"s": "A 22-year-old medical student is fasting for 48 hours. Which of the following tissues is unable to utilize ketone bodies as an energy source during this state?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Brain",
+"Skeletal muscle",
+"Cardiac muscle",
+"Liver",
+"Renal cortex"
+],
+"a": 3,
+"e": "The liver makes ketone bodies but lacks thiophorase (succinyl-CoA:acetoacetate CoA transferase), so it cannot use them. Brain (after a few days), muscle, heart and renal cortex can.\n\nTakeaway: liver makes ketones but cannot use them (no thiophorase); RBCs cannot use them either (no mitochondria).",
+"w": [
+"The brain switches to ketones in prolonged fasting.",
+"Skeletal muscle uses ketones.",
+"Heart muscle readily uses ketones.",
+"",
+"Renal cortex uses ketones."
+]
+},
+{
+"t": "Fuel Fate & Why the Liver Makes Ketones",
+"s": "A 36-year-old man is undergoing a prolonged fast. His liver is breaking down fatty acids to meet energy needs. What is the primary fate of acetyl-CoA produced during β-oxidation in the liver under these conditions?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Enter the TCA cycle",
+"Converted to glucose",
+"Used in fatty acid synthesis",
+"Used to produce ketone bodies",
+"Excreted in the urine"
+],
+"a": 3,
+"e": "In prolonged fasting, hepatic oxaloacetate is pulled into gluconeogenesis, so acetyl-CoA from β-oxidation goes to ketogenesis (HMG-CoA synthase) and the ketones are exported to other tissues.\n\nTakeaway: fasting liver = ketone factory.",
+"w": [
+"TCA entry is limited because oxaloacetate is low.",
+"Acetyl-CoA cannot be converted to glucose.",
+"Fatty acid synthesis is off in fasting.",
+"",
+"Acetyl-CoA is not excreted."
+]
+},
+{
+"t": "Ketosis: Hormones, Levels & Causes",
+"s": "A 20-year-old man in starvation state is generating high levels of ketone bodies. Which metabolic process is inhibited under these conditions?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Glycolysis",
+"Fatty acid synthesis",
+"Gluconeogenesis",
+"Protein degradation",
+"Glycogenolysis"
+],
+"a": 1,
+"e": "Starvation means low insulin and high glucagon. Glucagon phosphorylates and inactivates acetyl-CoA carboxylase, so fatty acid synthesis stops while lipolysis, β-oxidation and ketogenesis run.\n\nTakeaway: ketosis state = fatty acid synthesis off, β-oxidation and gluconeogenesis on.",
+"w": [
+"Glycolysis is reduced but the clearest blocked anabolic pathway is fatty acid synthesis.",
+"",
+"Gluconeogenesis is increased in starvation.",
+"Protein breakdown supplies gluconeogenic amino acids.",
+"Glycogenolysis is stimulated early in fasting."
+]
+},
+{
+"t": "Phospholipid Structure & Synthesis",
+"s": "Phospholipids are the components of plasma membranes. Which one of the combinations is true for phospholipids?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Fatty acids + glucose + phosphoric acid",
+"Fatty acids + Amino acids + phosphoric acid",
+"Fatty acids + Glycerol + Phosphoric acid",
+"Fatty acids + proteins + Phosphate group",
+"Fatty acids + phosphoric acid"
+],
+"a": 2,
+"e": "A glycerophospholipid is glycerol with two fatty acids on C1 and C2 and phosphoric acid on C3, usually linked to a head group such as choline or ethanolamine.\n\nTakeaway: phospholipid = glycerol + 2 fatty acids + phosphate (+ head group).",
+"w": [
+"Fatty acid + sugar describes a glycolipid.",
+"Amino acids are not part of the backbone.",
+"",
+"Proteins are not part of phospholipids.",
+"It lacks the backbone alcohol (glycerol or sphingosine)."
+]
+},
+{
+"t": "2,3-BPG & Fetal Hemoglobin",
+"s": "The fetus gets oxygen from the maternal circulation across the placenta. The HbF, the major Hb present in the fetus, cannot function like HbA due to which one of the following reasons?",
+"ns": true,
+"shetty": 1,
+"c": [
+"HbF has 2 α and 2 β globin chains",
+"HbF contains less heme than HbA",
+"Hb F has high Fe3+ iron",
+"HbF has 2α and 2ϒ globin chains",
+"HbF contains 2α globinchains"
+],
+"a": 3,
+"e": "HbF is α₂γ₂. The γ chains bind 2,3-BPG poorly, so HbF has a higher O₂ affinity than HbA and pulls oxygen across the placenta.\n\nTakeaway: HbF = α₂γ₂ → weak 2,3-BPG binding → left-shifted curve.",
+"w": [
+"α₂β₂ is HbA.",
+"Each globin chain carries one heme in both.",
+"Fe³⁺ is methemoglobin, which cannot carry O₂.",
+"",
+"Both HbA and HbF have 2 α chains; the γ chains are the difference."
+],
+"fig": [
+"figs/crs/hb-bpg-curve"
+]
+},
+{
+"t": "2,3-BPG & Fetal Hemoglobin",
+"s": "A 5 year old boy who is nutritionally deprived, suffering from hemolytic anemia. Which one of the following allostearic effector which can be produced from glycolytic pathway helps in the unloading of oxygen from hemoglobin in this patient?",
+"ns": true,
+"shetty": 1,
+"c": [
+"3-phosphoglycerate",
+"2,3 bisphosphoglycerate",
+"1,3 bisphosphoglycerate",
+"Phosphoenolpyruvate",
+"2-phosphoglycerate"
+],
+"a": 1,
+"e": "In red cells, 1,3-BPG from glycolysis is turned into 2,3-BPG (Rapoport-Luebering shunt). 2,3-BPG binds deoxy (T-state) Hb in the central cavity, lowers O₂ affinity and shifts the curve right, helping unloading in anemia and hypoxia.\n\nTakeaway: anemia/hypoxia/altitude → 2,3-BPG ↑ → right shift.",
+"w": [
+"3-PG is a glycolytic intermediate without this effect.",
+"",
+"1,3-BPG is the precursor, not the effector.",
+"PEP does not bind hemoglobin.",
+"2-PG does not regulate Hb."
+],
+"fig": [
+"figs/crs/hb-bpg-curve"
+]
+},
+{
+"t": "O₂ Binding Curves & Cooperativity",
+"s": "A research team is studying the properties of oxygen-binding proteins. They isolate a monomeric protein from skeletal muscle that demonstrates a hyperbolic oxygen-dissociation curve. Which of the following best explains why this protein's oxygen-binding curve is hyperbolic rather than sigmoidal?",
+"ns": true,
+"shetty": 1,
+"c": [
+"it lacks a heme prosthetic group",
+"it is composed of a single polypeptide chain",
+"it binds 2,3-BPG with very high affinity",
+"it contains ferric (Fe³⁺) iron instead of ferrous (Fe²⁺) iron",
+"its oxygen affinity is primarily regulated by pH"
+],
+"a": 1,
+"e": "Myoglobin is one chain with one heme, so there is no subunit interaction and no cooperativity: its curve is hyperbolic. Hemoglobin's four subunits bind O₂ cooperatively, giving a sigmoidal curve.\n\nTakeaway: one chain = no cooperativity = hyperbolic (myoglobin).",
+"w": [
+"Myoglobin has a heme; without it, it could not bind O₂.",
+"",
+"Myoglobin does not bind 2,3-BPG.",
+"Fe³⁺ (metmyoglobin) cannot bind O₂ at all.",
+"Myoglobin shows little Bohr effect; pH is not why it is hyperbolic."
+],
+"fig": [
+"figs/crs/hb-mb-hb-curves"
+]
+},
+{
+"t": "PDH Complex",
+"s": "A 6-month-old infant is brought to the emergency department with poor feeding, lethargy, and rapid breathing. Laboratory studies reveal severe metabolic acidosis with a markedly elevated plasma lactate level. A muscle biopsy shows deficient activity of a mitochondrial enzyme complex. This deficiency leads to an inability to convert pyruvate into acetyl-CoA. Which of the following cofactors is essential for the specific subunit of the deficient enzyme complex that is most commonly mutated in this condition?",
+"ns": true,
+"shetty": 1,
+"c": [
+"lipoic acid",
+"coenzyme A",
+"flavin adenine dinucleotide (FAD)",
+"thiamine pyrophosphate (TPP)",
+"nicotinamide adenine dinucleotide (NAD+)"
+],
+"a": 3,
+"e": "The patient presents with classic signs of Pyruvate Dehydrogenase Complex (PDHc) deficiency, leading to lactic acidosis. The question asks for the cofactor for the most commonly mutated subunit. Slide 46 states that the most common mutation is in the E1 subunit (X-linked dominant). Slide 41 lists the coenzymes for each subunit, showing that E1 (Pyruvate Decarboxylase) requires Thiamine pyrophosphate (TPP), also known as Vitamin B1. Lipoic acid and Coenzyme A are associated with E2, while FAD and NAD+ are associated with E3.\n\nTakeaway: PDH deficiency is usually E1 (X-linked), and E1 needs TPP (B1).",
+"w": [
+"Lipoic acid is the E2 cofactor.",
+"CoA is used by E2.",
+"FAD is the E3 cofactor.",
+"",
+"NAD⁺ is used by E3."
+]
+},
+{
+"t": "PDH Complex",
+"s": "A research team is studying the conversion of pyruvate to acetyl-CoA. They isolate the multienzyme complex responsible for this reaction. This complex is composed of multiple copies of three separate enzymes. Which of the following is the E2 component of this complex?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Pyruvate carboxylase",
+"Dihydrolipoyl transacetylase",
+"Isocitrate dehydrogenase",
+"Dihydrolipoyl dehydrogenase",
+"Pyruvate decarboxylase"
+],
+"a": 1,
+"e": "The pyruvate dehydrogenase (PDH) complex catalyzes the conversion of pyruvate to acetyl-CoA. According to slide 5, it is a multienzyme complex comprised of three enzymes: Pyruvate decarboxylase (E1), Dihydrolipoyl transacetylase (E2), and Dihydrolipoyl dehydrogenase (E3).\n\nTakeaway: E1 decarboxylase (TPP), E2 transacetylase (lipoate, CoA), E3 dehydrogenase (FAD, NAD⁺).",
+"w": [
+"Pyruvate carboxylase makes oxaloacetate; it is not part of PDH.",
+"",
+"Isocitrate dehydrogenase is a TCA enzyme.",
+"Dihydrolipoyl dehydrogenase is E3.",
+"Pyruvate decarboxylase is E1."
+]
+},
+{
+"t": "PDH Complex",
+"s": "The pyruvate dehydrogenase (PDH) complex requires five different coenzymes to function. Some of these are tightly bound to the complex, while others act as carriers for the reaction's products. Which of the following pairs of coenzymes act as carriers of the products of PDH complex activity?",
+"ns": true,
+"shetty": 1,
+"c": [
+"TPP and Lipoic acid",
+"FAD+ and NAD+",
+"Lipoic acid and Coenzyme A",
+"Coenzyme A and NAD+",
+"TPP and FAD+"
+],
+"a": 3,
+"e": "As stated on slide 5, the PDH complex requires five coenzymes. TPP, lipoic acid, and FAD+ are tightly bound to the enzymes of the complex. Coenzyme A (which carries the acetyl group as acetyl-CoA) and NAD+ (which carries the high-energy electrons as NADH) are employed as carriers of the products.\n\nTakeaway: bound = TPP, lipoate, FAD; carriers = CoA and NAD⁺.",
+"w": [
+"Both are tightly bound.",
+"FAD is bound.",
+"Lipoic acid is bound.",
+"",
+"Both are bound."
+]
+},
+{
+"t": "PDH Complex",
+"s": "In a well-fed state, a cell has high energy levels and an abundance of biosynthetic intermediates. The activity of the pyruvate dehydrogenase (PDH) complex is downregulated to prevent the excessive production of acetyl-CoA. Which of the following products directly inhibits the dihydrolipoyl dehydrogenase (E3) component of the complex?",
+"ns": true,
+"shetty": 1,
+"c": [
+"ATP",
+"Acetyl CoA",
+"Pyruvate",
+"NADH",
+"Citrate"
+],
+"a": 3,
+"e": "Slide 7 outlines the regulation of the PDH complex. High concentrations of reaction products inhibit the complex. Specifically, acetyl-CoA inhibits the transacetylase component (E2), and NADH inhibits the dihydrolipoyl dehydrogenase component (E3).\n\nTakeaway: acetyl-CoA inhibits E2; NADH inhibits E3.",
+"w": [
+"ATP acts through activating PDH kinase.",
+"Acetyl-CoA inhibits E2.",
+"Pyruvate activates PDH by inhibiting the kinase.",
+"",
+"Citrate does not directly inhibit E3."
+]
+},
+{
+"t": "PDH Complex",
+"s": "A 6-month-old infant presents with developmental delay, poor muscle tone, and intermittent ataxia. Lab studies reveal elevated lactate levels. A deficiency in pyruvate dehydrogenase (PDH) is suspected. The activity of the PDH complex is tightly regulated by covalent modification. Which of the following events leads to the activation of the PDH complex?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Phosphorylation by PDH kinase",
+"Dephosphorylation by PDH phosphatase",
+"Inhibition of PDH phosphatase by Ca2+",
+"Activation of PDH kinase by ADP",
+"Binding of acetyl-CoA to the kinase"
+],
+"a": 1,
+"e": "According to slide 7, the PDH complex is inactivated by phosphorylation via PDH kinase and activated by dephosphorylation via PDH phosphatase. An active phosphatase leads to an active PDH complex. Insulin and elevated mitochondrial Ca2+ levels stimulate the phosphatase, thereby activating the complex (Slide 8).\n\nTakeaway: PDH is on when dephosphorylated (phosphatase, insulin, Ca²⁺).",
+"w": [
+"Phosphorylation inactivates PDH.",
+"",
+"Ca²⁺ stimulates, not inhibits, the phosphatase.",
+"ADP inhibits the kinase.",
+"Acetyl-CoA activates the kinase, which turns PDH off."
+]
+},
+{
+"t": "PDH Complex",
+"s": "A 50-year-old farm worker presents with vomiting, abdominal pain, and garlic-like odor on his breath after accidental exposure to a pesticide. He is diagnosed with arsenic poisoning. The trivalent form of arsenic (arsenite) is known to inhibit enzymes by binding to thiol groups. Which coenzyme of the pyruvate dehydrogenase and α-ketoglutarate dehydrogenase complexes is the primary target of arsenite?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Thiamine pyrophosphate (TPP)",
+"FAD",
+"NAD+",
+"Lipoic acid",
+"Coenzyme A"
+],
+"a": 3,
+"e": "Arsenite binds the two –SH groups of reduced lipoic acid (on E2 of PDH and α-KGDH), blocking both complexes. Pyruvate and lactate build up.\n\nTakeaway: arsenite → lipoic acid → PDH and α-KGDH blocked; garlic breath, rice-water stools.",
+"w": [
+"TPP has no dithiol for arsenite.",
+"FAD is not the thiol target.",
+"NAD⁺ is not the thiol target.",
+"",
+"CoA has one –SH; arsenite needs the lipoate dithiol."
+]
+},
+{
+"t": "PDH Complex",
+"s": "A medical student is reviewing the regulation of the pyruvate dehydrogenase (PDH) complex. She notes that in addition to regulation by reaction products and covalent modification, the complex is also activated by signals of low energy charge. Which of the following sets of molecules activates the PDH complex by inhibiting the PDH kinase?",
+"ns": true,
+"shetty": 1,
+"c": [
+"ATP, NADH, Acetyl CoA",
+"Pyruvate, NAD+, ADP",
+"Citrate, Succinyl CoA, GTP",
+"Ca2+, Insulin, Glucose",
+"NADH, FADH2, ATP"
+],
+"a": 1,
+"e": "PDH kinase phosphorylates and turns off PDH. Pyruvate, NAD⁺ and ADP signal low energy and substrate available, so they inhibit the kinase and keep PDH on.\n\nTakeaway: kinase activated by ATP, NADH, acetyl-CoA; kinase inhibited by pyruvate, NAD⁺, ADP.",
+"w": [
+"These activate the kinase and turn PDH off.",
+"",
+"These are high-energy signals, not kinase inhibitors.",
+"Ca²⁺ and insulin act on the phosphatase; glucose is not a direct effector.",
+"These are high-energy signals."
+]
+},
+{
+"t": "PDH Complex",
+"s": "An infant is diagnosed with congenital lactic acidosis due to a severe deficiency of the pyruvate dehydrogenase (PDH) complex. This deficiency limits the cell's ability to produce citrate from pyruvate. This impairment directly deprives the cell of energy because the subsequent steps of the TCA cycle cannot proceed. Which clinical feature is a direct consequence of this underlying biochemical defect?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Hypoglycemia",
+"Abnormal ↑ lactate levels",
+"Decreased porphyrin synthesis",
+"Ketoacidosis",
+"Hyperammonemia"
+],
+"a": 1,
+"e": "When PDH is deficient, pyruvate cannot be converted to acetyl-CoA. The excess pyruvate is shunted to an alternative pathway, its reduction to lactate by lactate dehydrogenase, causing a buildup of lactate in the blood.\n\nTakeaway: PDH deficiency → pyruvate → lactate (and alanine); treat with a ketogenic diet.",
+"w": [
+"Glucose can still be made; hypoglycemia is not the direct result.",
+"",
+"Porphyrin synthesis uses succinyl-CoA, not directly affected.",
+"The acidosis is lactic, not ketotic.",
+"Ammonia is unaffected."
+]
+},
+{
+"t": "TCA Cycle Reactions & Energetics",
+"s": "A biochemist calculates the total energy yield from one turn of the citric acid cycle. Assuming that each NADH molecule yields 3 ATP and each FADH2 molecule yields 2 ATP, what is the total number of ATP molecules generated from the complete oxidation of one molecule of acetyl-CoA in the TCA cycle?",
+"ns": true,
+"shetty": 1,
+"c": [
+"10",
+"12",
+"15",
+"24",
+"32"
+],
+"a": 1,
+"e": "Slide 12 provides a table summarizing the energy produced by the TCA cycle per acetyl-CoA. The cycle generates 3 NADH (3 x 3 ATP = 9 ATP), 1 FADH2 (1 x 2 ATP = 2 ATP), and 1 GTP (equivalent to 1 ATP). The total is 9 + 2 + 1 = 12 ATP per acetyl-CoA.\n\nTakeaway: 3 NADH + 1 FADH₂ + 1 GTP = 12 ATP (old values) or 10 ATP (new values 2.5/1.5).",
+"w": [
+"10 uses the newer 2.5/1.5 values, not the ones given.",
+"",
+"15 is per pyruvate (PDH NADH + one turn).",
+"24 is two turns of the cycle.",
+"32 is roughly per glucose."
+]
+},
+{
+"t": "TCA Cycle Reactions & Energetics",
+"s": "The citric acid cycle involves a series of oxidation-reduction reactions that harvest high-energy electrons. These electrons are captured by the coenzymes NAD+ and FAD. Which specific enzymatic reaction in the TCA cycle directly results in the formation of FADH2?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Isocitrate dehydrogenase",
+"Malate dehydrogenase",
+"Succinate dehydrogenase",
+"α-ketoglutarate dehydrogenase",
+"Succinate thiokinase"
+],
+"a": 2,
+"e": "The diagram on slide 11 clearly shows the reaction steps of the TCA cycle. The conversion of succinate to fumarate, catalyzed by succinate dehydrogenase, is the only step where FAD is reduced to FADH2. The table on slide 12 confirms that the succinate dehydrogenase reaction produces FADH2, yielding 2 ATP.\n\nTakeaway: succinate dehydrogenase = FADH₂ and is also Complex II of the ETC.",
+"w": [
+"Isocitrate dehydrogenase makes NADH and CO₂.",
+"Malate dehydrogenase makes NADH.",
+"",
+"α-KGDH makes NADH and CO₂.",
+"Succinate thiokinase makes GTP."
+]
+},
+{
+"t": "TCA Cycle Reactions & Energetics",
+"s": "A research student is reviewing the stoichiometry of the TCA cycle as presented in a lecture. According to the overall balanced equation for one turn of the cycle, the entry of one molecule of acetyl-CoA results in the production of which combination of molecules?",
+"ns": true,
+"shetty": 1,
+"c": [
+"2 CO2, 3 NADH, 1 FADH2, 1 GTP",
+"1 CO2, 2 NADH, 2 FADH2, 1 ATP",
+"2 CO2, 2 NADH, 1 FADH2, 2 GTP",
+"3 CO2, 3 NADH, 1 FADH2, 1 GTP",
+"2 CO2, 3 NAD+, 1 FAD, 1 GDP"
+],
+"a": 0,
+"e": "One turn: isocitrate DH (NADH, CO₂), α-KGDH (NADH, CO₂), succinate thiokinase (GTP), succinate DH (FADH₂), malate DH (NADH). Total 2 CO₂, 3 NADH, 1 FADH₂, 1 GTP.\n\nTakeaway: 2 CO₂ released at isocitrate DH and α-KGDH.",
+"w": [
+"",
+"Only 1 FADH₂ and 2 CO₂ are made.",
+"There are 3 NADH and 1 GTP.",
+"3 CO₂ is per pyruvate, counting PDH.",
+"These are the oxidized inputs, not products."
+]
+},
+{
+"t": "TCA Cycle Reactions & Energetics",
+"s": "The citric acid cycle is described as amphibolic because it participates in both catabolism (breaking down molecules for energy) and anabolism (building up complex molecules). Which intermediate of the TCA cycle can be transported out of the mitochondria to serve as the primary precursor for fatty acid and cholesterol synthesis in the cytosol?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Succinyl CoA",
+"α-Ketoglutarate",
+"Oxaloacetate",
+"Citrate",
+"Fumarate"
+],
+"a": 3,
+"e": "Acetyl-CoA cannot cross the inner membrane, so it leaves as citrate. In the cytosol ATP-citrate lyase splits citrate back into acetyl-CoA (for fatty acids and cholesterol) and oxaloacetate.\n\nTakeaway: citrate shuttle carries acetyl-CoA to the cytosol.",
+"w": [
+"Succinyl-CoA is used for heme synthesis.",
+"α-KG feeds amino acids like glutamate.",
+"Oxaloacetate cannot cross the membrane directly.",
+"",
+"Fumarate is not the carbon carrier for lipid synthesis."
+]
+},
+{
+"t": "TCA Cycle Reactions & Energetics",
+"s": "A patient is diagnosed with a congenital erythropoietic porphyria, a genetic disorder affecting heme synthesis. This condition is caused by a deficiency in an enzyme involved in the pathway that synthesizes porphyrins. The synthesis of porphyrins, the core structure of heme, begins with a specific intermediate from the TCA cycle. Which TCA cycle intermediate is the direct precursor for porphyrin synthesis?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Citrate",
+"Acetyl-CoA",
+"Succinyl-CoA",
+"α-Ketoglutarate",
+"Oxaloacetate"
+],
+"a": 2,
+"e": "Heme synthesis starts with succinyl-CoA + glycine → δ-aminolevulinate (ALA synthase, needs B6) in the mitochondria.\n\nTakeaway: heme = succinyl-CoA + glycine.",
+"w": [
+"Citrate feeds lipid synthesis.",
+"Acetyl-CoA feeds lipids and ketones.",
+"",
+"α-KG feeds glutamate.",
+"Oxaloacetate feeds gluconeogenesis and aspartate."
+]
+},
+{
+"t": "TCA Regulation, Inhibitors & Anaplerosis",
+"s": "The rate of the citric acid cycle is precisely adjusted to meet the cell's demand for ATP. Several enzymes serve as primary control points. Which of the following enzymes is considered the rate-limiting step and is allosterically stimulated by ADP and Ca2+?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Aconitase",
+"Citrate synthase",
+"Succinate dehydrogenase",
+"Malate dehydrogenase",
+"Isocitrate dehydrogenase"
+],
+"a": 4,
+"e": "Isocitrate dehydrogenase is the \"rate-limiting step\" and is \"Stimulated by ADP, Ca2+\". High levels of ADP signal a low energy state, thus activating the cycle to produce more ATP.\n\nTakeaway: isocitrate DH = rate-limiting; + ADP, Ca²⁺; − ATP, NADH.",
+"w": [
+"Aconitase is not a control point.",
+"Citrate synthase is regulated but not the rate-limiting step.",
+"Succinate DH is not the main control point.",
+"Malate DH is not rate-limiting.",
+""
+]
+},
+{
+"t": "TCA Regulation, Inhibitors & Anaplerosis",
+"s": "The activity of α-ketoglutarate dehydrogenase, a key regulatory enzyme in the TCA cycle, is tightly controlled by the energy status of the cell. Which of the following conditions would lead to the inhibition of this enzyme complex?",
+"ns": true,
+"shetty": 1,
+"c": [
+"High levels of ADP",
+"High levels of succinyl CoA and NADH",
+"High levels of Ca2+",
+"Low ATP/ADP ratio",
+"High levels of α-ketoglutarate"
+],
+"a": 1,
+"e": "α-ketoglutarate dehydrogenase complex is inhibited by its products, succinyl CoA and NADH. It is also inhibited by a high energy charge, indicated by high levels of ATP and GTP. High levels of succinyl CoA and NADH signal that the cycle is producing intermediates and reducing equivalents at a sufficient rate.\n\nTakeaway: α-KGDH is product-inhibited (succinyl-CoA, NADH) and uses the same cofactors as PDH.",
+"w": [
+"ADP signals low energy and does not inhibit.",
+"",
+"Ca²⁺ activates α-KGDH.",
+"A low ATP/ADP ratio activates the cycle.",
+"Substrate does not inhibit."
+]
+},
+{
+"t": "TCA Regulation, Inhibitors & Anaplerosis",
+"s": "A laboratory is investigating a potent poison known as fluoroacetate. This compound itself is not toxic, but it is metabolically converted into a \"lethal\" inhibitor of the TCA cycle. Fluoroacetate is first converted to fluoroacetyl CoA, which then condenses with oxaloacetate to form fluorocitrate. Which enzyme of the TCA cycle is potently inhibited by fluorocitrate?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Citrate synthase",
+"Aconitase",
+"Isocitrate dehydrogenase",
+"Succinate dehydrogenase",
+"Fumarase"
+],
+"a": 1,
+"e": "Fluorocitrate is a suicide inhibitor of aconitase, so citrate builds up and the cycle stops (\"lethal synthesis\").\n\nTakeaway: fluoroacetate → fluorocitrate → aconitase blocked.",
+"w": [
+"Citrate synthase actually makes fluorocitrate.",
+"",
+"Isocitrate DH is downstream of the block.",
+"Malonate inhibits succinate DH.",
+"Fumarase is not affected."
+]
+},
+{
+"t": "TCA Regulation, Inhibitors & Anaplerosis",
+"s": "To study the cyclic nature of the TCA cycle, a researcher adds a substance that is a structural analog of succinate to a mitochondrial preparation. This substance competitively inhibits the enzyme that acts on succinate. Which of the following compounds was likely used by the researcher?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Fluoroacetate",
+"Arsenite",
+"Malate",
+"Malonate",
+"Fumarate"
+],
+"a": 3,
+"e": "Malonate looks like succinate and competitively inhibits succinate dehydrogenase (Complex II).\n\nTakeaway: malonate = competitive inhibitor of succinate dehydrogenase.",
+"w": [
+"Fluoroacetate blocks aconitase via fluorocitrate.",
+"Arsenite blocks lipoate in PDH and α-KGDH.",
+"Malate is a normal intermediate.",
+"",
+"Fumarate is the product, not an inhibitor."
+]
+},
+{
+"t": "TCA Regulation, Inhibitors & Anaplerosis",
+"s": "During prolonged exercise or fasting, intermediates of the TCA cycle may be depleted for gluconeogenesis. To maintain the cycle's function, these intermediates must be replenished through anaplerotic reactions. Which of the following is described as the most important anaplerotic reaction, directly forming oxaloacetate?",
+"ns": true,
+"shetty": 1,
+"c": [
+"The conversion of glutamate to α-ketoglutarate",
+"The conversion of pyruvate to acetyl-CoA",
+"The carboxylation of pyruvate to oxaloacetate",
+"The oxidation of odd-chain fatty acids to succinyl-CoA",
+"The conversion of aspartate to fumarate"
+],
+"a": 2,
+"e": "Pyruvate carboxylase (biotin, activated by acetyl-CoA) makes oxaloacetate directly from pyruvate. It is the main anaplerotic reaction.\n\nTakeaway: pyruvate carboxylase = biotin, acetyl-CoA activated, refills oxaloacetate.",
+"w": [
+"This refills α-KG, not oxaloacetate directly.",
+"PDH makes acetyl-CoA, which does not add net intermediates.",
+"",
+"Odd-chain oxidation refills succinyl-CoA.",
+"This refills fumarate, not oxaloacetate directly."
+]
+},
+{
+"t": "Electron Transport Chain & Uncouplers",
+"s": "50 year old woman with a history of psychiatric problems has been brought to the emergency room with high fever, sweating and tremours after ingesting approximately 100 aspirin tablets in a suicide attempt. High fever associated with salicylate overdose is explained by",
+"ns": true,
+"shetty": 1,
+"c": [
+"Excessive ADP phosphorylation",
+"Excessive increase in proton concentration gradient",
+"Rupture of mitochondrial membranes",
+"Stimulation of thermogenin",
+"Uncoupling of electron transport from ATP synthesis"
+],
+"a": 4,
+"e": "High-dose salicylate is a weak acid that carries protons across the inner mitochondrial membrane, uncoupling oxidation from phosphorylation. The energy of the gradient is lost as heat, causing hyperthermia.\n\nTakeaway: aspirin overdose, DNP and thermogenin → uncoupling → heat, ↓ ATP, ↑ O₂ use.",
+"w": [
+"Uncoupling lowers ATP synthesis.",
+"The gradient collapses rather than rises.",
+"The membranes stay intact.",
+"Thermogenin (UCP-1) is a natural uncoupler in brown fat, not activated by aspirin.",
+""
+]
+},
+{
+"t": "Electron Transport Chain & Uncouplers",
+"s": "The electron transport chain (ETC) of the inner mitochondrial membrane comprises four complexes and two mobile carriers. Identify the two mobile carriers from the following:",
+"ns": true,
+"shetty": 1,
+"c": [
+"Cytochrome c and coenzyme Q (Ubiquinone)",
+"Coenzyme Q (Ubiquinone) and cytochrome b",
+"Cytochrome c and Fe S (Iron sulfur) complex",
+"Cytochrome a and Fe S (Iron sulfur) complex",
+"Coenzyme Q (Ubiquinone) and cytochrome a"
+],
+"a": 0,
+"e": "Coenzyme Q is lipid-soluble and moves within the membrane from Complex I/II to III; cytochrome c is a small protein on the outer face of the inner membrane carrying electrons from III to IV.\n\nTakeaway: mobile carriers = CoQ and cytochrome c.",
+"w": [
+"",
+"Cytochrome b is fixed in Complex III.",
+"Fe-S centers are fixed in the complexes.",
+"Cytochrome a is fixed in Complex IV.",
+"Cytochrome a is fixed in Complex IV."
+]
+},
+{
+"t": "Electron Transport Chain & Uncouplers",
+"s": "A 28-year-old woman presents to her physician with a one-month history of significant weight loss despite a normal appetite, excessive sweating, and a persistently elevated body temperature. She admits to taking an unregulated \"diet pill\" she purchased online, which is later found to contain 2,4-dinitrophenol (DNP). What is the primary mechanism by which DNP causes these symptoms?",
+"ns": true,
+"shetty": 1,
+"c": [
+"It inhibits the ATP-ADP translocase, trapping ATP within the mitochondrial matrix.",
+"It directly inhibits Complex IV, preventing the final reduction of oxygen.",
+"It allows protons to leak across the inner mitochondrial membrane, dissipating the proton-motive force.",
+"It blocks the F0 subunit of ATP synthase, preventing both proton flow and ATP synthesis.",
+"It stimulates the synthesis of uncoupling protein-1 (UCP-1) in white adipose tissue."
+],
+"a": 2,
+"e": "DNP is a lipid-soluble proton carrier. Protons return to the matrix without passing through ATP synthase, so electron transport speeds up, fuel is burned, and energy is released as heat.\n\nTakeaway: uncouplers → ↑ O₂ consumption, ↓ ATP, ↑ heat.",
+"w": [
+"That is atractyloside.",
+"That is cyanide, CO or azide.",
+"",
+"That is oligomycin.",
+"DNP does not act through UCP-1."
+]
+},
+{
+"t": "Electron Transport Chain & Uncouplers",
+"s": "A researcher is studying the electron transport chain in isolated mitochondria. She adds succinate as a substrate, which provides electrons to Complex II. She observes that electrons are successfully transferred to Complex III. This transfer is mediated by a mobile, lipid-soluble carrier derived from isoprenoid units. Which of the following is this carrier?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Cytochrome c",
+"NADH",
+"Coenzyme Q (Ubiquinone)",
+"Flavin mononucleotide (FMN)",
+"Iron-sulfur protein"
+],
+"a": 2,
+"e": "Coenzyme Q (ubiquinone) has an isoprenoid tail that keeps it in the membrane. It collects electrons from Complexes I and II and passes them to Complex III.\n\nTakeaway: CoQ = isoprenoid (shares the mevalonate pathway with cholesterol; statins lower CoQ).",
+"w": [
+"Cytochrome c carries electrons from III to IV and is a protein.",
+"NADH donates to Complex I.",
+"",
+"FMN is fixed in Complex I.",
+"Fe-S proteins are fixed within complexes."
 ]
 }
 ];
