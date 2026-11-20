@@ -1,5 +1,78 @@
 // CRS Biochemistry — Dr. S. Shetty lecture slides. Reworked set: fewer, multi-concept, high-yield questions; lv = Easy/Hard; shetty = practice questions from the slides, word for word
-window.CRS_BC_TOPICS = ["Overview & Activation", "Carnitine Shuttle", "Carnitine & CPT Deficiencies", "β-Oxidation Reactions", "Energetics & Regulation", "Unsaturated & Odd-Chain Fatty Acids", "Methylmalonic Aciduria", "Peroxisomal, α- & ω-Oxidation", "MCAD Deficiency & Jamaican Vomiting Sickness", "Zellweger, X-ALD & Refsum", "Synthesis vs β-Oxidation & Sites", "Citrate Shuttle: Acetyl-CoA to Cytosol", "Sources of NADPH", "Acetyl-CoA Carboxylase Reaction", "Regulation of Acetyl-CoA Carboxylase", "Fatty Acid Synthase Complex", "FAS Cycle & Palmitate Stoichiometry", "Elongation & Desaturation", "Triacylglycerol Synthesis", "TAG Fate & Lipolysis", "Practice Questions (from the slides)", "Fuel Fate & Why the Liver Makes Ketones", "Ketogenesis: Pathway & HMG-CoA Synthase", "The Three Ketone Bodies", "Ketolysis: Thiophorase & Extrahepatic Use", "Brain Fuel During Fasting & Starvation", "Ketosis: Hormones, Levels & Causes", "Diabetic Ketoacidosis", "Practice Question · Ketone Bodies (from the slides)", "Phospholipid Structure & Synthesis", "DPPC, Surfactant & L/S Ratio", "Phosphatidylinositol & PIP2 Signaling", "GPI Anchors & PNH", "Cardiolipin & Phosphatidylglycerol", "Phospholipases & Degradation", "Plasmalogens & PAF", "Sphingolipids, Ceramide & Sphingomyelin", "Glycolipid Classes", "Lysosomal Storage Disorders Overview", "Niemann-Pick Disease", "Gaucher Disease", "Tay-Sachs & GM2 Gangliosidoses", "Fabry, Krabbe, MLD & Other Sphingolipidoses", "Practice Questions · Complex Lipids (from the slides)", "Eicosanoid Classes & Effects", "Arachidonic Acid Release & PLA2", "COX Pathway & Prostanoids", "NSAIDs, Aspirin & COX-2 Inhibitors", "Lipoxygenase Pathway & Leukotrienes", "Practice Questions · Eicosanoids (from the slides)", "Lipoprotein Structure & Classification", "Chylomicron Metabolism & Lipoprotein Lipase", "VLDL, IDL & LDL Metabolism", "LDL Receptor, ACAT & Atherosclerosis", "HDL & Reverse Cholesterol Transport", "Hyperlipoproteinemias: Types I, IIa, III & IV", "LCAT Deficiency, Fish-Eye, Tangier & Abetalipoproteinemia", "Practice Questions · Lipoproteins (from the slides)"];
+window.CRS_BC_TOPICS = [
+"Overview & Activation",
+"Carnitine Shuttle",
+"Carnitine & CPT Deficiencies",
+"β-Oxidation Reactions",
+"Energetics & Regulation",
+"Unsaturated & Odd-Chain Fatty Acids",
+"Methylmalonic Aciduria",
+"Peroxisomal, α- & ω-Oxidation",
+"MCAD Deficiency & Jamaican Vomiting Sickness",
+"Zellweger, X-ALD & Refsum",
+"Synthesis vs β-Oxidation & Sites",
+"Citrate Shuttle: Acetyl-CoA to Cytosol",
+"Sources of NADPH",
+"Acetyl-CoA Carboxylase Reaction",
+"Regulation of Acetyl-CoA Carboxylase",
+"Fatty Acid Synthase Complex",
+"FAS Cycle & Palmitate Stoichiometry",
+"Elongation & Desaturation",
+"Triacylglycerol Synthesis",
+"TAG Fate & Lipolysis",
+"Practice Questions (from the slides)",
+"Fuel Fate & Why the Liver Makes Ketones",
+"Ketogenesis: Pathway & HMG-CoA Synthase",
+"The Three Ketone Bodies",
+"Ketolysis: Thiophorase & Extrahepatic Use",
+"Brain Fuel During Fasting & Starvation",
+"Ketosis: Hormones, Levels & Causes",
+"Diabetic Ketoacidosis",
+"Practice Question · Ketone Bodies (from the slides)",
+"Phospholipid Structure & Synthesis",
+"DPPC, Surfactant & L/S Ratio",
+"Phosphatidylinositol & PIP2 Signaling",
+"GPI Anchors & PNH",
+"Cardiolipin & Phosphatidylglycerol",
+"Phospholipases & Degradation",
+"Plasmalogens & PAF",
+"Sphingolipids, Ceramide & Sphingomyelin",
+"Glycolipid Classes",
+"Lysosomal Storage Disorders Overview",
+"Niemann-Pick Disease",
+"Gaucher Disease",
+"Tay-Sachs & GM2 Gangliosidoses",
+"Fabry, Krabbe, MLD & Other Sphingolipidoses",
+"Practice Questions · Complex Lipids (from the slides)",
+"Eicosanoid Classes & Effects",
+"Arachidonic Acid Release & PLA2",
+"COX Pathway & Prostanoids",
+"NSAIDs, Aspirin & COX-2 Inhibitors",
+"Lipoxygenase Pathway & Leukotrienes",
+"Practice Questions · Eicosanoids (from the slides)",
+"Lipoprotein Structure & Classification",
+"Chylomicron Metabolism & Lipoprotein Lipase",
+"VLDL, IDL & LDL Metabolism",
+"LDL Receptor, ACAT & Atherosclerosis",
+"HDL & Reverse Cholesterol Transport",
+"Hyperlipoproteinemias: Types I, IIa, III & IV",
+"LCAT Deficiency, Fish-Eye, Tangier & Abetalipoproteinemia",
+"Practice Questions · Lipoproteins (from the slides)",
+"Cholesterol Structure & Functions",
+"Cholesterol Synthesis: Pathway & Sites",
+"Regulation of HMG-CoA Reductase",
+"Practice Questions · Cholesterol (from the slides)",
+"Heme & Myoglobin Structure",
+"Hemoglobin Structure: T & R States",
+"O₂ Binding Curves & Cooperativity",
+"Bohr Effect, CO₂ & Curve Shifts",
+"2,3-BPG & Fetal Hemoglobin",
+"CO, Cyanide & Methemoglobin",
+"Globin Genes & Hemoglobin Types",
+"Sickle Cell Disease, HbC, HbSC & HbE",
+"Thalassemias",
+"Practice Questions · Hemoglobin (from the slides)"
+];
 window.CRS_BC_QUESTIONS = [
 {
 "t": "Overview & Activation",
@@ -5589,6 +5662,994 @@ window.CRS_BC_QUESTIONS = [
 "Impaired hepatic glycogen breakdown describes a glycogenolysis defect, such as glucose-6-phosphatase deficiency in von Gierke disease. It can cause fasting hypoglycemia and hepatomegaly, but it does not explain the distinctive combination of elevated free fatty acids, profoundly reduced ketones, and elevated C8 acylcarnitine. Von Gierke disease typically causes lactic acidosis, hyperuricemia, and hypertriglyceridemia, often with marked hepatomegaly. It would be favored by recurrent fasting hypoglycemia with those associated metabolic findings.",
 "Impaired conversion of pyruvate to acetyl-CoA describes pyruvate dehydrogenase complex deficiency. This primarily impairs carbohydrate oxidation and commonly causes lactic acidosis, neurologic abnormalities, or developmental problems. The infantʼs fasting-triggered hypoketotic hypoglycemia and elevated C8 acylcarnitine instead indicate impaired fatty-acid oxidation. Pyruvate dehydrogenase deficiency would be more likely with persistent lactic acidosis and neurologic findings.",
 "Impaired synthesis of ketone bodies from acetyl-CoA describes a primary ketogenesis defect. It can produce hypoketotic hypoglycemia, but the marked elevation in C8 acylcarnitine supports impaired medium-chain fatty-acid oxidation in this case. A primary ketogenesis defect would be considered when hypoketosis occurs without a biochemical pattern indicating a fatty-acid oxidation disorder."
+]
+},
+{
+"t": "Cholesterol Structure & Functions",
+"lv": "Easy",
+"s": "A student draws cholesterol and labels its key features. Which feature is correct?",
+"c": [
+"A hydroxyl group at C-17",
+"A side chain of 27 carbons on ring A",
+"Three fused rings in the steroid nucleus",
+"A carboxyl group at C-3",
+"A double bond between C-5 and C-6"
+],
+"a": 4,
+"e": "Cholesterol is a 27-carbon sterol built on the cyclopentanoperhydrophenanthrene (steroid) nucleus:\n1. Four fused rings, A to D.\n2. A single hydroxyl group at C-3. This is the group that gets esterified to a fatty acid to make cholesteryl ester, which is more hydrophobic.\n3. A double bond between C-5 and C-6.\n4. An 8-carbon hydrocarbon side chain on ring D at C-17, plus two methyl groups.\n\nTakeaway: 4 rings, 3-OH, Δ5 double bond, 8-carbon side chain at C-17.",
+"w": [
+"The hydroxyl group is at C-3. C-17 carries the side chain.",
+"The side chain has 8 carbons and sits on ring D at C-17. The whole molecule has 27 carbons.",
+"The steroid nucleus has four fused rings, A to D.",
+"C-3 carries a hydroxyl group, not a carboxyl. Cholesterol is a sterol, an alcohol.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/ch-structure"
+]
+},
+{
+"t": "Cholesterol Structure & Functions",
+"lv": "Easy",
+"s": "A man on a diet rich in plant sterols such as β-sitosterol has a fall in his serum cholesterol. What happens to plant sterols in the gut that explains this?",
+"c": [
+"They are pumped back into the lumen with cholesterol",
+"They are converted into bile acids by the liver",
+"They inhibit HMG-CoA reductase in the hepatocytes",
+"They are esterified by ACAT and stored inside enterocytes",
+"They are packed into chylomicrons in place of cholesterol"
+],
+"a": 0,
+"e": "Plant sterols such as β-sitosterol are poorly absorbed. The small amount that enters enterocytes is actively transported back into the gut lumen, and cholesterol is pumped out with it. Less cholesterol therefore reaches the blood, which is why plant sterols are part of the dietary treatment of hypercholesterolemia.\n\nTakeaway: β-sitosterol is not absorbed and drags cholesterol back into the lumen, lowering serum cholesterol.",
+"w": [
+"",
+"Plant sterols are not absorbed enough to be turned into bile acids.",
+"Statins inhibit HMG-CoA reductase. Plant sterols act in the gut lumen.",
+"Plant sterols are not esterified and stored. They are sent back out of the enterocyte.",
+"Plant sterols are not packed into chylomicrons. Little of them is absorbed."
+],
+"src": "lec"
+},
+{
+"t": "Cholesterol Synthesis: Pathway & Sites",
+"lv": "Easy",
+"s": "Where in the hepatocyte does cholesterol synthesis take place?",
+"c": [
+"In the mitochondrial matrix only",
+"In the nucleus and Golgi",
+"In the peroxisomes only",
+"In the lysosomes and endosomes",
+"In the cytoplasm and the ER"
+],
+"a": 4,
+"e": "Cholesterol is made in nearly every tissue, with the liver, intestine, adrenal cortex and reproductive tissues contributing most. The enzymes sit in the cytoplasm and in the ER membrane:\n1. Acetyl-CoA is made in the mitochondria, leaves as citrate, and citrate lyase releases it in the cytosol.\n2. HMG-CoA reductase, the rate-limiting enzyme, is an integral ER membrane protein.\n3. NADPH supplies the reducing power.\n\nTakeaway: cholesterol synthesis = cytoplasm + ER, from acetyl-CoA, using NADPH.",
+"w": [
+"Acetyl-CoA starts in the mitochondria, but it must leave as citrate before cholesterol synthesis begins.",
+"The nucleus controls the HMG-CoA reductase gene, and the Golgi cleaves SREBP. Neither makes cholesterol.",
+"Peroxisomes help with some steps, but synthesis is not confined to them.",
+"Lysosomes break down LDL to release cholesterol. They do not make it.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/ch-pathway"
+]
+},
+{
+"t": "Cholesterol Synthesis: Pathway & Sites",
+"lv": "Easy",
+"s": "All 27 carbon atoms of cholesterol come from one precursor. Which molecule supplies the carbons, and which molecule supplies the reducing power?",
+"c": [
+"Malonyl-CoA and NADH",
+"Acetyl-CoA and NADPH",
+"Acetoacetate and FADH₂",
+"Glycerol 3-phosphate and NADPH",
+"Succinyl-CoA and NADH"
+],
+"a": 1,
+"e": "All carbons of cholesterol come from acetyl-CoA. The mitochondrial acetyl-CoA is carried to the cytosol as citrate and released by citrate lyase. The reductions in the pathway, such as HMG-CoA to mevalonate, use NADPH, mainly from the pentose phosphate pathway.\n\nTakeaway: cholesterol = acetyl-CoA carbons + NADPH reducing power.",
+"w": [
+"Malonyl-CoA is the 2-carbon donor for fatty acid synthesis. Anabolic reductions use NADPH, not NADH.",
+"",
+"Acetoacetate is a ketone body, and FADH₂ is not used in this pathway.",
+"Glycerol 3-phosphate is the backbone of TAG and phospholipids.",
+"Succinyl-CoA is used to make heme, not cholesterol."
+],
+"src": "lec"
+},
+{
+"t": "Cholesterol Synthesis: Pathway & Sites",
+"lv": "Hard",
+"s": "A newborn has microcephaly, cleft palate, polydactyly and syndactyly of the second and third toes. Serum cholesterol is low, and 7-dehydrocholesterol is very high. Synthesis of which other group of products would continue normally because it branches off before the block?",
+"c": [
+"Dolichol and ubiquinone",
+"Primary bile acids",
+"Lanosterol-derived sterols",
+"Steroid hormones made from cholesterol",
+"Vitamin D₃ made in the skin"
+],
+"a": 0,
+"e": "The findings point to Smith-Lemli-Opitz syndrome, a deficiency of 7-dehydrocholesterol 7-reductase, the last enzyme before cholesterol:\n1. Cholesterol cannot be made, so 7-dehydrocholesterol builds up.\n2. Look at the slide pathway: dolichol, ubiquinone, heme a and prenylated proteins branch off much earlier, at farnesyl pyrophosphate.\n3. Products upstream of the block keep forming. Products made from cholesterol, such as bile acids and steroid hormones, fall.\n\nTakeaway: SLOS blocks the last step (7-DHC → cholesterol). Farnesyl-PP branches (dolichol, ubiquinone, prenylation) are spared.",
+"w": [
+"",
+"Bile acids are made from cholesterol in the liver, so they fall too.",
+"Lanosterol is upstream, but its sterol products lead to 7-DHC and cannot finish as cholesterol.",
+"Steroid hormones are made from cholesterol, which is downstream of the block.",
+"Vitamin D₃ forms from 7-DHC, but the question asks about products of the cholesterol pathway itself. The farnesyl-PP branch is the clear upstream group."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ch-pathway"
+]
+},
+{
+"t": "Regulation of HMG-CoA Reductase",
+"lv": "Easy",
+"s": "A patient's hepatocytes have a high cholesterol content. What keeps SREBP from turning on transcription of the HMG-CoA reductase gene?",
+"c": [
+"SREBP is phosphorylated by AMPK",
+"SCAP cleaves SREBP in the Golgi",
+"SREBP binds the LDL receptor on the cell surface",
+"Insig holds the SREBP–SCAP complex in the ER",
+"Insulin degrades SREBP in the nucleus"
+],
+"a": 3,
+"e": "SREBP (sterol regulatory element–binding protein) is an ER membrane protein bound to SCAP:\n1. High sterol: SCAP senses cholesterol and binds Insig, which keeps SREBP–SCAP in the ER, so there is no activation.\n2. Low sterol: SREBP–SCAP moves to the Golgi. Proteases release the soluble part of SREBP.\n3. That piece enters the nucleus, binds the SRE and turns on the HMG-CoA reductase gene, and the LDL receptor gene too.\n\nTakeaway: high sterol → Insig traps SREBP–SCAP in the ER. Low sterol → Golgi cleavage → nucleus → more reductase.",
+"w": [
+"AMPK phosphorylates HMG-CoA reductase itself, not SREBP.",
+"SCAP escorts SREBP. Golgi proteases do the cleaving, and only when sterol is low.",
+"SREBP is a transcription factor. It does not bind the LDL receptor.",
+"",
+"Insulin increases expression of the reductase gene. It does not degrade SREBP."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ch-regulation"
+]
+},
+{
+"t": "Regulation of HMG-CoA Reductase",
+"lv": "Hard",
+"s": "During a long fast, a man's liver has high AMP and high glucagon. His serum cholesterol is high, so his hepatocytes also contain plenty of sterol. Which change in HMG-CoA reductase best describes all three signals together?",
+"c": [
+"Dephosphorylated and more enzyme made",
+"Phosphorylated, less made, more degraded",
+"Phosphorylated, with more SREBP cleavage",
+"Dephosphorylation with Insig-mediated breakdown",
+"No change, since only statins affect the enzyme"
+],
+"a": 1,
+"e": "Put the three slide mechanisms together:\n1. High AMP activates AMPK, which phosphorylates HMG-CoA reductase. The phosphorylated enzyme is inactive.\n2. Glucagon favors phosphorylation and lowers expression of the reductase gene. Insulin does the opposite.\n3. High sterol makes the enzyme bind Insig, which leads to ubiquitination and breakdown (sterol-accelerated degradation). High sterol also keeps SREBP in the ER, so less new enzyme is made.\n\nTakeaway: fasting and high sterol all switch the reductase off: phosphorylated, less made, more destroyed.",
+"w": [
+"Dephosphorylation is what insulin causes in the fed state.",
+"",
+"High sterol blocks SREBP cleavage. It does not increase it.",
+"Fasting phosphorylates the enzyme. It does not dephosphorylate it.",
+"Statins are only one control. AMPK, hormones and sterol levels all regulate the enzyme."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ch-regulation"
+]
+},
+{
+"t": "Regulation of HMG-CoA Reductase",
+"lv": "Hard",
+"s": "A 50-year-old woman starts atorvastatin. Four weeks later her LDL has fallen by 40%. Which change in her hepatocytes explains most of the fall in plasma LDL?",
+"c": [
+"Less SREBP release, so fewer LDL receptors",
+"More SREBP cleavage, so more LDL receptors",
+"More Insig binding to SREBP–SCAP",
+"More AMPK phosphorylation of the enzyme",
+"Less bile acid made from cholesterol"
+],
+"a": 1,
+"e": "Walk through the feedback loop:\n1. Statins competitively inhibit HMG-CoA reductase, so the cell makes less cholesterol and its sterol level falls.\n2. Low sterol frees SREBP–SCAP from Insig. They travel to the Golgi, where SREBP is cleaved.\n3. Soluble SREBP enters the nucleus and switches on the genes with an SRE, including the LDL receptor gene.\n4. More LDL receptors on hepatocytes pull LDL out of the blood, and that is the main reason plasma LDL falls.\n\nTakeaway: statin → low cell sterol → SREBP activated → more LDL receptors → lower plasma LDL.",
+"w": [
+"Low sterol increases SREBP release. Fewer receptors would raise plasma LDL.",
+"",
+"Insig binding increases when sterol is high, the opposite of a statin's effect.",
+"AMPK responds to AMP, not statins. Statins inhibit the enzyme competitively.",
+"Statins do not mainly act through bile acids, and less bile acid would not lower LDL."
+],
+"src": "lec",
+"fig": [
+"figs/crs/ch-regulation"
+]
+},
+{
+"t": "Practice Questions · Cholesterol (from the slides)",
+"s": "A 45-year-old man with hypercholesterolemia is started on atorvastatin. This medication lowers cholesterol levels by inhibiting which of the following steps in cholesterol biosynthesis?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Conversion of mevalonate to isopentenyl pyrophosphate",
+"Conversion of lanosterol to cholesterol",
+"Esterification of cholesterol to cholesteryl esters",
+"Conversion of HMG-CoA to mevalonate",
+"Cleavage of squalene into lanosterol"
+],
+"a": 3,
+"e": "Atorvastatin is a statin, a competitive inhibitor of HMG-CoA reductase. This enzyme reduces HMG-CoA to mevalonate using 2 NADPH, and it is the rate-limiting step of cholesterol synthesis.",
+"w": [
+"Mevalonate → isopentenyl pyrophosphate uses ATP and releases CO₂. It comes after the statin-blocked step.",
+"Lanosterol → cholesterol is the last stretch of the pathway, not the statin target.",
+"Esterification is done by ACAT (in cells) and LCAT (in plasma), not HMG-CoA reductase.",
+"",
+"Squalene is cyclized to lanosterol. Statins do not act there."
+],
+"fig": [
+"figs/crs/ch-pathway"
+]
+},
+{
+"t": "Practice Questions · Cholesterol (from the slides)",
+"s": "A 62-year-old man has prolonged fasting due to severe gastroenteritis. His hepatocytes have increased AMP levels, leading to activation of AMP-activated protein kinase (AMPK). Which of the following is the immediate effect of AMPK activation on cholesterol synthesis?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Activation of HMG-CoA reductase by dephosphorylation",
+"Increased SREBP-mediated transcription of HMG-CoA reductase",
+"Phosphorylation and inactivation of HMG-CoA reductase",
+"Increased conversion of lanosterol to cholesterol",
+"Increased activity of cholesterol 7α-hydroxylase"
+],
+"a": 2,
+"e": "AMPK senses a low energy state (high AMP). It phosphorylates HMG-CoA reductase, and the phosphorylated enzyme is inactive, so the cell stops spending ATP and NADPH on cholesterol. Phosphoprotein phosphatase reverses this when energy is plentiful.",
+"w": [
+"Dephosphorylation activates the enzyme. That is the fed, insulin state, the opposite of AMPK.",
+"SREBP transcription is a slower, sterol-driven control. It is not the immediate effect of AMPK.",
+"",
+"With HMG-CoA reductase inhibited, less flow reaches lanosterol.",
+"7α-hydroxylase makes bile acids. AMPK does not act on it here."
+],
+"fig": [
+"figs/crs/ch-regulation"
+]
+},
+{
+"t": "Heme & Myoglobin Structure",
+"lv": "Easy",
+"s": "In myoglobin, which residue binds directly to the iron of heme?",
+"c": [
+"Distal histidine E7, His-64",
+"Valine in the heme crevice",
+"Proline at the end of helix F",
+"Proximal histidine F8, His-93",
+"Glutamate at position 6"
+],
+"a": 3,
+"e": "Myoglobin is a single 153-amino-acid chain, about 80% α-helix in 8 helices (A to H). The heme sits in a crevice lined with nonpolar residues, except for two histidines:\n1. Proximal histidine, F8 (His-93), binds the heme iron directly.\n2. Distal histidine, E7 (His-64), does not touch the iron. It sits on the oxygen side and stabilizes O₂ binding to Fe²⁺.\n\nTakeaway: proximal His F8 binds Fe. Distal His E7 stabilizes bound O₂.",
+"w": [
+"The distal histidine does not bind the iron. It stabilizes O₂ on the other side of the heme.",
+"Valine is one of the nonpolar residues lining the crevice. It does not coordinate iron.",
+"Proline ends α-helices. It does not bind the iron.",
+"",
+"Glutamate 6 is the β-globin residue changed in HbS. It has nothing to do with myoglobin's heme."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-mb-structure"
+]
+},
+{
+"t": "Heme & Myoglobin Structure",
+"lv": "Easy",
+"s": "Heme is a complex of protoporphyrin IX with iron. In which state must the iron be for heme to bind oxygen?",
+"c": [
+"Ferric, Fe³⁺",
+"Free iron outside the porphyrin ring",
+"Either state, equally",
+"Zinc replaces iron to bind O₂",
+"Ferrous, Fe²⁺"
+],
+"a": 4,
+"e": "Heme is protoporphyrin IX (4 pyrrole rings joined by methenyl bridges) with ferrous iron (Fe²⁺) held by 4 bonds to the ring nitrogens. Only Fe²⁺ binds O₂. If it is oxidized to Fe³⁺, the result is methemoglobin, which cannot carry O₂. Zn²⁺ in the ring is nonfunctional.\n\nTakeaway: functional heme iron = Fe²⁺. Fe³⁺ = methemoglobin.",
+"w": [
+"Fe³⁺ (ferric) heme is methemoglobin and does not bind O₂.",
+"The iron must sit in the center of the porphyrin ring, held by the 4 nitrogens.",
+"Only the ferrous state binds O₂.",
+"Zinc protoporphyrin is nonfunctional.",
+""
+],
+"src": "lec"
+},
+{
+"t": "Hemoglobin Structure: T & R States",
+"lv": "Easy",
+"s": "When hemoglobin releases oxygen in the tissues, how do its two αβ dimers change?",
+"c": [
+"They separate into free monomers",
+"They bind more loosely together, the R form",
+"They bind more tightly together, the T form",
+"They form a new covalent disulfide bond",
+"They lose their heme groups"
+],
+"a": 2,
+"e": "HbA is a tetramer of two αβ dimers held by noncovalent bonds:\n1. T (tense, taut) form: the dimers are held tightly by ionic and hydrogen bonds. This is deoxyhemoglobin, and it has low O₂ affinity, so it releases O₂ to the tissues.\n2. R (relaxed) form: some of those bonds break, the dimers move more freely, and affinity is high. This is oxyhemoglobin, which binds O₂ in the lungs.\n\nTakeaway: T = tight dimers, low affinity, unloads O₂. R = relaxed, high affinity, loads O₂.",
+"w": [
+"The tetramer stays intact. It changes shape between T and R.",
+"The R form is the high-affinity oxyhemoglobin that loads O₂ in the lungs.",
+"",
+"The chains are held by noncovalent bonds, not disulfides.",
+"The hemes stay bound in both forms."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-t-r"
+]
+},
+{
+"t": "O₂ Binding Curves & Cooperativity",
+"lv": "Easy",
+"s": "On a plot of saturation against pO₂, myoglobin gives a hyperbolic curve and hemoglobin gives a sigmoid curve. What explains the sigmoid shape?",
+"c": [
+"Hemoglobin has a higher P₅₀ because it has more iron",
+"Hemoglobin binds one O₂ while myoglobin binds four",
+"Each heme in hemoglobin binds O₂ fully independently",
+"O₂ binding at one heme raises the others' affinity",
+"2,3-BPG binds myoglobin but not deoxyhemoglobin"
+],
+"a": 3,
+"e": "Myoglobin has one heme and binds one O₂, so its curve is hyperbolic with P₅₀ ≈ 1 mm Hg. Hemoglobin has four subunits that cooperate:\n1. O₂ binding at one heme raises the affinity of the remaining hemes (heme-heme interaction, positive cooperativity).\n2. The affinity for the last O₂ is about 300 times the affinity for the first.\n3. The curve is steepest at tissue pO₂, so a small fall in pO₂ releases a lot of O₂. P₅₀ ≈ 26 mm Hg.\n\nTakeaway: sigmoid curve = cooperativity (heme-heme interaction). Mb hyperbolic, P₅₀ 1. Hb sigmoid, P₅₀ 26.",
+"w": [
+"P₅₀ reflects affinity, not iron content. The question is about the curve's shape.",
+"It is the other way round: Hb binds four O₂ and Mb binds one.",
+"Independent binding would give a hyperbolic curve, like myoglobin.",
+"",
+"2,3-BPG binds deoxyhemoglobin, not myoglobin."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-mb-hb-curves",
+"figs/crs/hb-coop"
+]
+},
+{
+"t": "O₂ Binding Curves & Cooperativity",
+"lv": "Hard",
+"s": "During intense exercise, the pO₂ in a runner's leg muscle capillaries falls from 40 to 20 mm Hg. His muscle myoglobin stays almost fully saturated, while his hemoglobin releases much more O₂. Which property of the two proteins best explains this?",
+"c": [
+"Low Mb P₅₀ and a steep Hb curve at tissue pO₂",
+"Myoglobin's higher P₅₀ than hemoglobin",
+"Myoglobin binding 2,3-BPG more strongly than Hb",
+"Hemoglobin's hyperbolic curve at low pO₂",
+"Myoglobin's cooperativity between its four subunits"
+],
+"a": 0,
+"e": "Compare the two curves on the slide:\n1. Myoglobin's P₅₀ is about 1 mm Hg. At 20 mm Hg it is still nearly saturated, so it acts as an O₂ reservoir in muscle and gives up O₂ only when pO₂ falls very low.\n2. Hemoglobin's P₅₀ is about 26 mm Hg, and its sigmoid curve is steepest between roughly 20 and 40 mm Hg. A fall from 40 to 20 therefore unloads a large amount of O₂.\n3. The O₂ released from hemoglobin moves down its gradient onto myoglobin and into the mitochondria.\n\nTakeaway: Mb = high affinity reservoir (P₅₀ 1). Hb = delivery protein whose steep curve unloads O₂ at tissue pO₂.",
+"w": [
+"",
+"Myoglobin's P₅₀ is much lower (about 1 mm Hg), meaning higher affinity.",
+"2,3-BPG binds deoxyhemoglobin. It does not bind myoglobin.",
+"Hemoglobin's curve is sigmoid. Myoglobin's is hyperbolic.",
+"Myoglobin is a single chain with no subunits, so it shows no cooperativity."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-mb-hb-curves"
+]
+},
+{
+"t": "Bohr Effect, CO₂ & Curve Shifts",
+"lv": "Easy",
+"s": "Which change shifts the hemoglobin–oxygen curve to the left?",
+"c": [
+"Fever",
+"Rise in pCO₂",
+"Fall in blood pH",
+"Fall in 2,3-BPG",
+"Rise in 2,3-BPG"
+],
+"a": 3,
+"e": "Right shift means lower affinity, higher P₅₀ and more O₂ released: rising CO₂, H⁺ (lower pH), 2,3-BPG and temperature. Left shift means higher affinity and less O₂ released: the opposite of each, so falling 2,3-BPG, CO₂, H⁺ or temperature.\n\nTakeaway: CADET, face right (CO₂, Acid, 2,3-DPG/BPG, Exercise, Temperature). Lowering any of them shifts the curve left.",
+"w": [
+"A higher temperature shifts the curve right.",
+"A rise in CO₂ shifts the curve right (Bohr effect).",
+"Acid (low pH) shifts the curve right.",
+"",
+"More 2,3-BPG shifts the curve right."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-shifts"
+]
+},
+{
+"t": "Bohr Effect, CO₂ & Curve Shifts",
+"lv": "Hard",
+"s": "In a working muscle, CO₂ enters the red cell and is converted to carbonic acid, which dissociates. Which event most directly causes the red cell's hemoglobin to release more O₂?",
+"c": [
+"H⁺ binds His and N-termini, stabilizing the T form",
+"HCO₃⁻ binds the heme iron in place of bound O₂",
+"CO₂ oxidizes the heme iron to the Fe³⁺ state",
+"H⁺ binds the 2,3-BPG pocket and expels it",
+"CO₂ binds the proximal histidine and breaks the Fe bond"
+],
+"a": 0,
+"e": "This is the Bohr effect:\n1. CO₂ + H₂O → H₂CO₃ → HCO₃⁻ + H⁺.\n2. The H⁺ protonates ionizable groups on hemoglobin: the N-terminal α-amino groups and specific histidine side chains, such as His-146 of the β chain.\n3. These protonated groups form ionic bonds between the dimers. The bonds stabilize the T (deoxy) form, so HbO₂ + H⁺ ⇌ HbH⁺ + O₂ moves to the right and O₂ is unloaded in the tissues.\n4. CO₂ itself also binds the amino-terminal ends of the globins, as carbamino-Hb.\n\nTakeaway: more CO₂ and H⁺ → protonated His and N-termini → ionic bonds stabilize T → O₂ released (right shift).",
+"w": [
+"",
+"Bicarbonate does not bind the heme iron. It leaves the cell in exchange for Cl⁻.",
+"CO₂ does not oxidize iron. Oxidizing agents such as nitrates make methemoglobin.",
+"H⁺ does not displace 2,3-BPG. Both stabilize the T form.",
+"CO₂ binds the amino-terminal ends of the globin chains, not the proximal histidine."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-bohr"
+]
+},
+{
+"t": "2,3-BPG & Fetal Hemoglobin",
+"lv": "Easy",
+"s": "Where on hemoglobin does 2,3-BPG bind?",
+"c": [
+"To the heme iron of each β subunit",
+"In a positive pocket between the β chains",
+"To the N-terminal amino groups of α chains",
+"To His-146 on each of the α chains",
+"In the central cavity between the two α chains"
+],
+"a": 1,
+"e": "2,3-BPG binds in the central crevice of the T form of hemoglobin, between the two β-globin chains. The pocket is lined with positively charged amino acids that bind the negative phosphate and carboxyl groups of 2,3-BPG. One 2,3-BPG binds per tetramer, and it stabilizes the T form, lowering O₂ affinity.\n\nOther binding sites on the slide: O₂ and CO bind Fe²⁺. CO₂ binds the amino-terminal ends. H⁺ binds His-146 of the β subunit.\n\nTakeaway: 2,3-BPG binds the positive pocket between the β chains of deoxy (T) Hb.",
+"w": [
+"The heme iron binds O₂ and CO, not 2,3-BPG.",
+"",
+"Amino-terminal groups bind CO₂ (carbamino-Hb).",
+"The H⁺ site His-146 is on the β chain, and it binds protons, not 2,3-BPG.",
+"The pocket is between the β chains, not the α chains."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-t-r"
+]
+},
+{
+"t": "2,3-BPG & Fetal Hemoglobin",
+"lv": "Easy",
+"s": "Why does fetal hemoglobin (HbF) take O₂ from the mother's blood across the placenta?",
+"c": [
+"HbF binds 2,3-BPG more strongly than HbA",
+"HbF has a sigmoid curve while HbA's is hyperbolic",
+"HbF has four α chains",
+"HbF lacks heme in its γ chains",
+"HbF binds 2,3-BPG more weakly than HbA"
+],
+"a": 4,
+"e": "HbF is α₂γ₂. The γ chain has fewer positively charged residues in the 2,3-BPG pocket than the β chain, so HbF binds 2,3-BPG weakly:\n1. Less 2,3-BPG bound means less T-form stabilization.\n2. HbF therefore has a higher O₂ affinity (left-shifted curve) than maternal HbA at the same pO₂.\n3. O₂ moves from maternal HbA to fetal HbF across the placenta.\n\nTakeaway: γ chains bind 2,3-BPG weakly → HbF has higher O₂ affinity → O₂ moves from mother to fetus.",
+"w": [
+"Binding 2,3-BPG more strongly would lower HbF's affinity, the opposite of what happens.",
+"Both HbF and HbA give sigmoid curves. HbF's is shifted left.",
+"HbF has two α and two γ chains. Four-chain tetramers like γ₄ (Hb Bart's) are abnormal.",
+"Every globin chain carries a heme.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-bpg-curve",
+"figs/crs/hb-types"
+]
+},
+{
+"t": "2,3-BPG & Fetal Hemoglobin",
+"lv": "Hard",
+"s": "A 70-year-old man with severe emphysema lives at sea level with an arterial pO₂ of 55 mm Hg. Over months his red cells adapt so that his tissues still get enough O₂. Which change in his red cells best explains this?",
+"c": [
+"Lower 2,3-BPG, raising hemoglobin's O₂ affinity",
+"Conversion of most HbA back into HbF",
+"Higher 2,3-BPG, shifting the curve right",
+"More methemoglobin to carry extra oxygen",
+"A higher pH inside the red blood cell"
+],
+"a": 2,
+"e": "The slide marks this as high yield. In chronic hypoxia (COPD, high altitude) or chronic anemia, red cells make more 2,3-BPG:\n1. 2,3-BPG binds the β-chain pocket of deoxy Hb and stabilizes the T form.\n2. The curve shifts right (P₅₀ rises from about 26 toward 30 mm Hg), so hemoglobin gives up more O₂ in the tissues.\n3. In the slide graph, blood from someone adapted to high altitude (2,3-BPG 8 mmol/L) lies to the right of normal blood (5 mmol/L).\n\nTakeaway: chronic hypoxia or anemia → more 2,3-BPG → right shift → better O₂ unloading.",
+"w": [
+"Lower 2,3-BPG would make hemoglobin hold on to O₂, worsening tissue hypoxia.",
+"Adults do not switch back to HbF in response to hypoxia.",
+"",
+"Methemoglobin (Fe³⁺) cannot carry O₂ at all.",
+"A higher pH would shift the curve left and reduce O₂ release."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-bpg-curve"
+]
+},
+{
+"t": "2,3-BPG & Fetal Hemoglobin",
+"lv": "Hard",
+"s": "A critically ill patient receives several units of red cells that were stored for weeks in acid-citrate-dextrose. Right after the transfusion his Hb has risen, yet his tissue oxygenation barely improves. Which additive in the storage medium would have prevented this?",
+"c": [
+"Methylene blue",
+"Inosine",
+"Sodium thiosulfate",
+"Hydroxyurea",
+"Amyl nitrite"
+],
+"a": 1,
+"e": "Work through it step by step:\n1. Red cells stored in acid-citrate-dextrose lose 2,3-BPG.\n2. Without 2,3-BPG, hemoglobin has an abnormally high O₂ affinity. It loads O₂ in the lungs but does not release it in the tissues, acting as an O₂ trap rather than an O₂ carrier.\n3. Transfused cells take 4 to 24 hours to rebuild 2,3-BPG, which is long enough to harm a severely ill patient.\n4. Adding inosine (hypoxanthine-ribose) to the storage medium helps. Its ribose enters the cell, is phosphorylated, and passes through the HMP pathway to glycolysis, regenerating 2,3-BPG.\n\nTakeaway: stored blood loses 2,3-BPG → Hb traps O₂. Inosine in the storage medium maintains 2,3-BPG.",
+"w": [
+"Methylene blue treats methemoglobinemia by reducing Fe³⁺ back to Fe²⁺.",
+"",
+"Sodium thiosulfate is part of cyanide treatment.",
+"Hydroxyurea raises HbF in sickle cell disease.",
+"Amyl nitrite makes methemoglobin to trap cyanide."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-bpg-curve"
+]
+},
+{
+"t": "CO, Cyanide & Methemoglobin",
+"lv": "Easy",
+"s": "A family is found unconscious in a closed garage with a running car. Which statement about carbon monoxide's effect on hemoglobin is correct?",
+"c": [
+"CO binds Hb's iron weakly and irreversibly",
+"CO binds the 2,3-BPG pocket and shifts the curve right",
+"CO oxidizes the heme iron to Fe³⁺",
+"CO stabilizes the R form and stops O₂ release",
+"CO binds the amino-terminal groups like CO₂"
+],
+"a": 3,
+"e": "CO binds the heme Fe²⁺ tightly but reversibly, with an affinity 200 to 250 times that of O₂, forming carboxyhemoglobin:\n1. It takes up O₂ binding sites, lowering O₂ content.\n2. It stabilizes the R (relaxed) form, so the remaining O₂ is held more tightly. The curve shifts left and becomes more hyperbolic, as the slide's 50% CO-Hb curve shows.\n3. It also inhibits complex IV of the electron transport chain directly.\n\nTakeaway: CO → binds Fe²⁺ about 200 times more tightly than O₂ + stabilizes R (left shift) + blocks complex IV.",
+"w": [
+"CO binds very tightly, but the binding is reversible.",
+"CO binds the heme iron, and it shifts the curve left, not right.",
+"CO does not change iron's oxidation state. Oxidants make methemoglobin.",
+"",
+"CO₂, not CO, binds the amino-terminal groups."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-co"
+]
+},
+{
+"t": "CO, Cyanide & Methemoglobin",
+"lv": "Hard",
+"s": "A worker from an electroplating plant is brought in semiconscious with severe metabolic acidosis, a bitter-almond odor and cherry-red skin. Doctors give amyl nitrite and sodium nitrite first. Why do they help?",
+"c": [
+"They reduce Fe³⁺ to Fe²⁺ so hemoglobin carries more O₂",
+"They displace CO from carboxyhemoglobin fast",
+"They make MetHb, which pulls cyanide off complex IV",
+"They raise 2,3-BPG to shift the curve right",
+"They convert cyanide directly into thiocyanate"
+],
+"a": 2,
+"e": "The picture is cyanide poisoning (HCN from electroplating, plastics or fires):\n1. Cyanide inhibits cytochrome c oxidase (complex IV), so ATP production fails and lactic acidosis follows.\n2. Nitrites oxidize some hemoglobin Fe²⁺ to Fe³⁺, making methemoglobin.\n3. Cyanide has a higher affinity for methemoglobin than for complex IV, so it forms cyanmethemoglobin and releases the enzyme.\n4. Sodium thiosulfate then turns the cyanide into sodium thiocyanate, which is water soluble and excreted in urine.\n5. Methylene blue finally reduces the methemoglobin back to hemoglobin.\n\nTakeaway: cyanide → nitrites (make MetHb to trap CN⁻) → thiosulfate (thiocyanate) → methylene blue (reverse MetHb).",
+"w": [
+"Nitrites do the opposite: they oxidize Fe²⁺ to Fe³⁺. Methylene blue reduces it.",
+"CO poisoning is treated with oxygen. Nitrites do not remove CO.",
+"",
+"Nitrites do not act through 2,3-BPG.",
+"Thiosulfate, not nitrite, makes thiocyanate."
+],
+"src": "lec"
+},
+{
+"t": "CO, Cyanide & Methemoglobin",
+"lv": "Easy",
+"s": "Blood drawn from a cyanotic infant is chocolate brown, and her arterial pO₂ is normal. Which enzyme normally prevents this by reducing Fe³⁺ heme back to Fe²⁺?",
+"c": [
+"Glucose-6-phosphate dehydrogenase",
+"Cytochrome c oxidase",
+"NADH-cytochrome b₅ reductase",
+"Superoxide dismutase",
+"Carbonic anhydrase"
+],
+"a": 2,
+"e": "Methemoglobin has Fe³⁺ (ferric) heme. It cannot bind O₂, so it causes cyanosis with chocolate-brown blood even though pO₂ is normal. About 1 to 2% of Hb is normally methemoglobin. NADH-cytochrome b₅ reductase (called NADPH-methemoglobin reductase on the slide) reduces it back to Fe²⁺. A congenital deficiency of this reductase, globin mutations (HbM), or oxidant drugs such as nitrates cause methemoglobinemia. Treatment is methylene blue.\n\nTakeaway: MetHb (Fe³⁺) → chocolate cyanosis with normal pO₂ → cytochrome b₅ reductase deficiency or oxidants → methylene blue.",
+"w": [
+"G6PD supplies NADPH, which methylene blue needs, but it is not the enzyme that reduces methemoglobin.",
+"Cytochrome c oxidase is complex IV, the cyanide target.",
+"",
+"Superoxide dismutase removes superoxide radicals.",
+"Carbonic anhydrase makes carbonic acid from CO₂ and water."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-methb"
+]
+},
+{
+"t": "Globin Genes & Hemoglobin Types",
+"lv": "Easy",
+"s": "On which chromosome is the β-globin gene cluster, which includes the γ and δ genes, found?",
+"c": [
+"Chromosome 16",
+"Chromosome 15",
+"Chromosome 6",
+"Chromosome 7",
+"Chromosome 11"
+],
+"a": 4,
+"e": "The two globin gene families sit on different chromosomes:\n1. α-family on chromosome 16: two α genes (α1 and α2, so 4 α genes per cell) and one ζ gene.\n2. β-family on chromosome 11: one ε gene, two γ genes (Gγ and Aγ), one δ gene and one β gene.\nHemoglobins form by pairing one chain from each family: HbF α₂γ₂, HbA α₂β₂, HbA₂ α₂δ₂.\n\nTakeaway: α (and ζ) on 16. β, γ, δ, ε on 11.",
+"w": [
+"Chromosome 16 carries the α and ζ genes.",
+"Chromosome 15 carries the fibrillin gene.",
+"Chromosome 6 carries the HLA genes.",
+"Chromosome 7 carries CFTR.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-genes-map"
+]
+},
+{
+"t": "Globin Genes & Hemoglobin Types",
+"lv": "Hard",
+"s": "A healthy adult's hemoglobin electrophoresis shows a minor hemoglobin made of α₂δ₂ chains. What fraction of normal adult hemoglobin is this, and when does it appear?",
+"c": [
+"About 90%, from the 8th month of gestation",
+"Under 2%, from 10 to 12 weeks of gestation",
+"About 2 to 5%, from about 12 weeks after birth",
+"About 60%, in the first weeks after conception",
+"3 to 9%, made by glycation of HbA"
+],
+"a": 2,
+"e": "Use the slide table and timeline:\n• Embryonic Hb (first weeks after conception): Gower 1 (ζ₂ε₂), Gower 2 (α₂ε₂), Portland (ζ₂γ₂).\n• HbF (α₂γ₂): from 10 to 12 weeks of gestation, about 60% of Hb in late fetal life, under 2% in adults.\n• HbA (α₂β₂): from the 8th month of gestation, about 90% of adult Hb.\n• HbA₂ (α₂δ₂): from about 12 weeks after birth, 2 to 5% of adult Hb.\n• HbA₁c (α₂β₂-glucose): 3 to 9%, made by glycation.\n\nTakeaway: α₂δ₂ = HbA₂, a minor 2 to 5% adult Hb. It rises in β-thalassemia.",
+"w": [
+"About 90%, from the 8th month, describes HbA (α₂β₂).",
+"Under 2% in adults, starting at 10 to 12 weeks of gestation, describes HbF (α₂γ₂).",
+"",
+"About 60% describes HbF late in fetal life. The first weeks after conception are the embryonic hemoglobins.",
+"3 to 9% by glycation describes HbA₁c."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-types",
+"figs/crs/hb-genes-switch"
+]
+},
+{
+"t": "Sickle Cell Disease, HbC, HbSC & HbE",
+"lv": "Easy",
+"s": "What is the molecular change in sickle cell hemoglobin?",
+"c": [
+"Lysine replaces glutamate at position 6 of β",
+"Deletion of both α genes on one chromosome",
+"Glutamate replaces valine at position 6 of α",
+"Lysine replaces glutamate at position 26 of β",
+"Valine replaces glutamate at position 6 of β"
+],
+"a": 4,
+"e": "HbS comes from a missense point mutation in the β-globin gene: valine replaces glutamate at position 6. Valine is hydrophobic, so deoxy-HbS sticks to a hydrophobic patch (Ala 70, Phe 85, Leu 88) on a neighboring β chain. The molecules polymerize into rigid strands that distort the red cell into a sickle.\n\nTakeaway: HbS = β6 Glu → Val (hydrophobic). HbC = β6 Glu → Lys. HbE = β26 Glu → Lys.",
+"w": [
+"Lysine for glutamate at β6 is HbC.",
+"Deleting α genes causes α-thalassemia.",
+"The mutation is in the β chain, and glutamate is the normal residue.",
+"Lysine for glutamate at β26 is HbE.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-sickle-cycle"
+]
+},
+{
+"t": "Sickle Cell Disease, HbC, HbSC & HbE",
+"lv": "Hard",
+"s": "A 19-year-old with sickle cell anemia takes an unpressurized flight and develops severe bone pain. Which combination of conditions would most strongly promote sickling during the flight?",
+"c": [
+"High pO₂, low pCO₂, alkalosis",
+"Low 2,3-BPG and a low body temperature",
+"High HbF levels from hydroxyurea",
+"Low pO₂, dehydration and fever",
+"Increased O₂ affinity of HbS"
+],
+"a": 3,
+"e": "HbS polymerizes only in the deoxygenated (T) form. Anything that favors the T form or concentrates HbS precipitates a crisis:\n1. Low pO₂ (high altitude, unpressurized plane).\n2. High pCO₂ and low pH.\n3. More 2,3-BPG.\n4. Fever (higher temperature).\n5. Dehydration, which raises HbS concentration. Sickled cells also lose K⁺ and water through the Gardos channel, which makes them more dehydrated.\nHbF, by contrast, does not join HbS polymers. That is why hydroxyurea, which raises HbF, is protective.\n\nTakeaway: whatever favors deoxy (T) Hb or dehydrates the cell → sickling. HbF protects.",
+"w": [
+"Each of these favors the oxygenated R form and would reduce sickling.",
+"Less 2,3-BPG and cold both favor the R form and reduce sickling.",
+"HbF protects against polymerization. That is the purpose of hydroxyurea.",
+"",
+"Higher O₂ affinity would favor oxy-Hb, which does not polymerize."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-sickle-path"
+]
+},
+{
+"t": "Sickle Cell Disease, HbC, HbSC & HbE",
+"lv": "Hard",
+"s": "A 4-month-old with sickle cell anemia (HbSS) has had no symptoms so far. At about 6 months he develops painful swelling of the hands and feet. Why did symptoms wait until now?",
+"c": [
+"HbS is not made until 6 months of age",
+"The spleen did not filter red cells before 6 months",
+"Maternal antibodies protected the red cells",
+"HbF declined while HbS took its place",
+"2,3-BPG is absent in infants"
+],
+"a": 3,
+"e": "Before birth and for the first months after, most hemoglobin is HbF (α₂γ₂). HbF does not take part in HbS polymers and dilutes the HbS. As γ-chain production falls and β-chain (here βS) production rises, HbS replaces HbF. Around 5 to 6 months there is enough HbS to sickle, and dactylitis (painful swelling of the hands and feet) is often the first sign. The same logic explains why hydroxyurea, which raises HbF, helps.\n\nTakeaway: symptoms of sickle cell disease begin at about 5 to 6 months, when HbF falls and HbS takes over.",
+"w": [
+"βS chains are made from late fetal life onward. The issue is how much HbF remains.",
+"The spleen filters red cells from birth.",
+"Maternal antibodies do not prevent HbS polymerization.",
+"",
+"Infants have 2,3-BPG. HbF simply binds it weakly."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-genes-switch"
+]
+},
+{
+"t": "Sickle Cell Disease, HbC, HbSC & HbE",
+"lv": "Easy",
+"s": "Why do people with sickle cell trait (HbAS) have a survival advantage where Plasmodium falciparum malaria is common?",
+"c": [
+"Their red cells contain no hemoglobin for the parasite",
+"Infected cells sickle and are removed by macrophages",
+"HbS kills the parasite directly",
+"They make antibodies against the parasite at birth",
+"Their red cells lack the Duffy antigen"
+],
+"a": 1,
+"e": "Red cells in sickle cell trait contain about 40% HbS and 60% HbA, and the trait is usually silent. When P. falciparum infects one of these cells, the cell sickles preferentially and splenic macrophages remove it, so fewer parasitized cells circulate. That explains why the HbS gene is common in malaria regions. People with sickle cell anemia (HbSS), by contrast, fare badly with malaria because extra sickling and hemolysis worsen their anemia.\n\nTakeaway: HbAS → infected cells sickle → cleared by macrophages → protection from falciparum malaria.",
+"w": [
+"The cells contain normal amounts of hemoglobin, about 60% HbA.",
+"",
+"HbS does not kill the parasite. The host clears the sickled infected cells.",
+"There is no inborn antibody against the parasite.",
+"Lacking the Duffy antigen protects against P. vivax, not P. falciparum."
+],
+"src": "lec"
+},
+{
+"t": "Sickle Cell Disease, HbC, HbSC & HbE",
+"lv": "Hard",
+"s": "A 28-year-old woman of African descent, with Hb near the low end of normal and no previous crises, has a severe infarctive crisis the day after a cesarean delivery. Her electrophoresis shows HbS and HbC but no HbA. Which statement best fits her condition?",
+"c": [
+"She has one βS and one βC gene, HbSC disease",
+"She has sickle cell trait, which rarely causes crises",
+"She has HbE disease, a benign hemoglobin variant",
+"She has α-thalassemia trait plus sickle trait",
+"She has HbSS, with crises usually from childhood"
+],
+"a": 0,
+"e": "HbS and HbC with no HbA means both β genes are abnormal, but different (βS/βC). That is HbSC disease, a compound heterozygous state:\n1. Hb is higher than in HbSS and may be at the low end of normal.\n2. Patients can stay well and undiagnosed until an infarctive crisis, often after childbirth or surgery, which can be fatal.\n3. In HbSS, painful crises usually begin in childhood.\nOn electrophoresis, HbC moves more slowly toward the anode than HbS or HbA because lysine adds positive charge.\n\nTakeaway: HbS + HbC, no HbA = HbSC compound heterozygote: milder anemia, but infarctive crises after childbirth or surgery.",
+"w": [
+"",
+"Sickle cell trait would show HbA alongside HbS.",
+"HbE is β26 Glu → Lys, seen in Southeast Asians, and it would not show HbS and HbC.",
+"α-thalassemia does not produce HbC.",
+"HbSS shows only HbS, and crises usually begin in childhood."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-electro"
+]
+},
+{
+"t": "Sickle Cell Disease, HbC, HbSC & HbE",
+"lv": "Easy",
+"s": "A blood smear shows many target cells and a few rectangular, deep-red crystals inside red cells. The patient has mild chronic anemia and has never had a painful crisis. Which substitution is most likely?",
+"c": [
+"Glu → Val at β6",
+"Glu → Lys at β26",
+"Glu → Lys at β6",
+"Loss of 3 α-globin genes",
+"Point mutation reducing β-chain synthesis"
+],
+"a": 2,
+"e": "Target cells with rod-shaped HbC crystals point to HbC disease, in which lysine replaces glutamate at position 6 of β-globin. Homozygotes have mild to moderate chronic hemolytic anemia, no infarctive crises, and need no specific therapy. Because lysine is positive, HbC moves more slowly toward the anode on electrophoresis than HbA or HbS.\n\nTakeaway: target cells + HbC crystals = HbC disease (β6 Glu → Lys): mild anemia, no crises.",
+"w": [
+"Glu → Val at β6 is HbS, which gives sickled cells and painful crises.",
+"Glu → Lys at β26 is HbE: small cells, common in Southeast Asia.",
+"",
+"Loss of 3 α genes is HbH disease.",
+"Reduced β-chain synthesis is β⁺-thalassemia."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-smear"
+]
+},
+{
+"t": "Thalassemias",
+"lv": "Easy",
+"s": "A fetus has deletions of all four α-globin genes. Which tetramer accumulates, and why is it useless for delivering O₂?",
+"c": [
+"HbH, β₄, which polymerizes when deoxygenated",
+"Hb Bart's, γ₄, with no heme-heme interaction",
+"HbF, α₂γ₂, which binds 2,3-BPG too strongly",
+"HbA₂, α₂δ₂, which is unstable and precipitates",
+"Hb Gower 1, ζ₂ε₂, which lacks heme"
+],
+"a": 1,
+"e": "Without any α chains, the fetus cannot make HbF (α₂γ₂). The extra γ chains pair up as γ₄, Hb Bart's:\n1. These tetramers show no heme-heme interaction, so their O₂ curve is nearly hyperbolic.\n2. Their O₂ affinity is very high, so they do not release O₂ to tissues.\n3. The result is hydrops fetalis: severe fetal hypoxia, edema of the subcutaneous tissue, heart failure and death in utero.\n\nTakeaway: 4 α genes deleted → γ₄ (Hb Bart's), no cooperativity → hydrops fetalis.",
+"w": [
+"HbH (β₄) forms with 3 deleted genes, after birth when β chains are made. It does not polymerize like HbS.",
+"",
+"HbF needs α chains, which this fetus cannot make.",
+"HbA₂ also needs α chains.",
+"Gower 1 is a normal early embryonic hemoglobin and contains heme."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-alpha-thal"
+]
+},
+{
+"t": "Thalassemias",
+"lv": "Hard",
+"s": "A 32-year-old Greek man has mild microcytic hypochromic anemia with normal iron studies. Electrophoresis shows HbA₂ of 6% and slightly raised HbF. Why is HbA₂ raised?",
+"c": [
+"Fewer β chains, so spare α chains pair with δ",
+"δ-globin is made in place of the missing α chains",
+"His δ-globin gene has been duplicated",
+"Excess γ chains form γ₄ tetramers instead",
+"Iron deficiency raises δ-globin synthesis"
+],
+"a": 0,
+"e": "The picture is β-thalassemia minor (trait):\n1. A point mutation lowers β-chain synthesis, so less HbA (α₂β₂) is made and the cells are small and pale. Iron studies are normal, which rules out iron deficiency.\n2. The δ gene is intact, so the spare α chains pair with δ (HbA₂, α₂δ₂) and with γ (HbF, α₂γ₂).\n3. Raised HbA₂ (and HbF) is diagnostic of β-thalassemia. HbH and Hb Bart's are found only in α-thalassemia.\n\nTakeaway: β-thal → excess α pairs with δ and γ → raised HbA₂ (above 3.5%) and HbF.",
+"w": [
+"",
+"δ chains belong to the β family and cannot replace α chains. Here the α chains are normal.",
+"The δ gene is not duplicated. Its normal output simply has more α chains to pair with.",
+"γ₄ (Hb Bart's) is seen in α-thalassemia, not β.",
+"Iron studies are normal. Iron deficiency actually tends to lower HbA₂."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-beta-thal"
+]
+},
+{
+"t": "Thalassemias",
+"lv": "Hard",
+"s": "A 2-year-old from Cyprus needs transfusions every month. He has frontal bossing, a 'hair-on-end' skull X-ray and hepatosplenomegaly. What is the main cause of his ineffective erythropoiesis?",
+"c": [
+"Free β chains forming HbH inclusion bodies",
+"A failure of renal erythropoietin production",
+"Iron deficiency from chronic blood loss",
+"Antibodies against red-cell precursors in marrow",
+"Unpaired α chains killing erythroblasts"
+],
+"a": 4,
+"e": "This is β-thalassemia major (Cooley's anemia, β⁰/β⁰):\n1. Little or no β chain is made, so excess α chains have no partner.\n2. Unpaired α chains precipitate as inclusion bodies and kill proerythroblasts in the marrow, causing ineffective erythropoiesis.\n3. The red cells that survive are recognized as abnormal in the spleen and hemolyzed, so the anemia is severe and EPO rises.\n4. The marrow expands: chipmunk face, frontal bossing and a hair-on-end skull. Extramedullary erythropoiesis enlarges the liver and spleen.\nThis is also why β-thalassemia is usually more severe than α-thalassemia: unpaired α chains are toxic.\n\nTakeaway: β-thal major → toxic unpaired α chains → precursor death + hemolysis → marrow expansion (hair-on-end) and hepatosplenomegaly.",
+"w": [
+"Free β chains form HbH (β₄) in α-thalassemia, not β.",
+"EPO is high, not low, because the anemia is severe.",
+"Thalassemia is microcytic but is not caused by iron deficiency. Transfusions actually cause iron overload.",
+"This is not an immune process.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/hb-beta-thal"
+]
+},
+{
+"t": "Practice Questions · Hemoglobin (from the slides)",
+"s": "A 28 year old pregnant woman undergoes an ultrasound at 28 weeks, revealing fetal ascites, skin edema, and cardiomegaly. Genetic testing of the fetus shows deletion of all four alpha-globin genes. Which of the following types of hemoglobin is most likely present in high amounts in the fetus?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Hemoglobin A",
+"Hemoglobin F",
+"Hemoglobin S",
+"Hemoglobin H",
+"Hemoglobin Bart's"
+],
+"a": 4,
+"e": "With all four α genes deleted, no α chains are made, so the fetus cannot make HbF (α₂γ₂) or HbA (α₂β₂). The γ chains form γ₄ tetramers, Hb Bart's. These have no heme-heme interaction and very high O₂ affinity, so tissues get no O₂, and the result is hydrops fetalis (ascites, skin edema, heart failure).",
+"w": [
+"HbA (α₂β₂) needs α chains.",
+"HbF (α₂γ₂) needs α chains.",
+"HbS is a β-chain variant, unrelated to α deletions.",
+"HbH (β₄) forms with 3 deleted α genes, mostly after birth when β chains are made.",
+""
+],
+"fig": [
+"figs/crs/hb-alpha-thal"
+]
+},
+{
+"t": "Practice Questions · Hemoglobin (from the slides)",
+"s": "A 8-month-old infant is brought to the clinic with failure to thrive, hepatosplenomegaly, and severe anemia (Hb = 6 g/dL, MCV = 65 fL). Peripheral smear shows target cells and nucleated RBCs. Hemoglobin electrophoresis reveals 98% HbF and no HbA. Which of the following is the most likely diagnosis?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Sickle cell anemia",
+"Iron deficiency anemia",
+"Beta thalassemia major",
+"Hereditary spherocytosis",
+"G6PD deficiency"
+],
+"a": 2,
+"e": "No HbA with almost all HbF means no β chains are made (β⁰/β⁰), which is β-thalassemia major. It appears after about 6 months as HbF declines, with severe microcytic anemia, target cells, nucleated RBCs, failure to thrive and hepatosplenomegaly from extramedullary erythropoiesis.",
+"w": [
+"Sickle cell anemia would show HbS on electrophoresis.",
+"Iron deficiency does not remove HbA or raise HbF to 98%.",
+"",
+"Hereditary spherocytosis is a membrane defect with normal hemoglobin types.",
+"G6PD deficiency causes episodic hemolysis with Heinz bodies and bite cells, and normal hemoglobin types."
+],
+"fig": [
+"figs/crs/hb-beta-thal"
+]
+},
+{
+"t": "Practice Questions · Hemoglobin (from the slides)",
+"s": "A 5-year-old African-American boy is brought to the emergency department with severe bone pain and fever. He has a history of recurrent infections and anemia. A blood smear shows sickled RBCs and Howell-Jolly bodies. Which of the following best explains the underlying pathophysiology?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Hemoglobin polymerization under low oxygen conditions",
+"Defective spectrin in the RBC membrane",
+"Decreased production of beta-globin chains",
+"Decreased synthesis of alpha-globin chains",
+"Iron overload due to chronic transfusions"
+],
+"a": 0,
+"e": "Sickled cells, bone pain from vaso-occlusion, recurrent infections and Howell-Jolly bodies (from autosplenectomy) point to sickle cell anemia. The β6 Glu → Val mutation makes deoxy-HbS polymerize into rigid strands at low O₂, distorting the cell into a sickle.",
+"w": [
+"",
+"Defective spectrin causes hereditary spherocytosis, not sickled cells.",
+"Reduced β-chain production is β-thalassemia, a quantity defect rather than a structural one.",
+"Reduced α-chain synthesis is α-thalassemia.",
+"Iron overload is a complication of transfusion, not the cause of sickling."
+],
+"fig": [
+"figs/crs/hb-sickle-path"
+]
+},
+{
+"t": "Practice Questions · Hemoglobin (from the slides)",
+"s": "A pregnant woman is advised that her fetus has a different type of hemoglobin than she does. Which of the following best explains why fetal hemoglobin (HbF) has a higher oxygen affinity than adult hemoglobin (HbA)?",
+"ns": true,
+"shetty": 1,
+"c": [
+"HbF has a higher binding affinity for 2,3-BPG",
+"HbF has a lower binding affinity for 2,3-BPG",
+"HbF has a higher affinity for carbon dioxide",
+"HbF has fewer globin chains than HbA.",
+"HbF has lower oxygen saturation than HbA at any given partial pressure"
+],
+"a": 1,
+"e": "HbF (α₂γ₂) binds 2,3-BPG weakly because the γ chains have fewer positively charged residues in the binding pocket. Less 2,3-BPG means the T form is less stabilized, so O₂ affinity is higher and O₂ moves from maternal HbA to fetal HbF across the placenta.",
+"w": [
+"Stronger 2,3-BPG binding would lower HbF's O₂ affinity.",
+"",
+"CO₂ affinity does not explain HbF's higher O₂ affinity.",
+"HbF and HbA are both tetramers with 4 chains.",
+"HbF has higher saturation than HbA at a given pO₂, because its curve is shifted left."
+],
+"fig": [
+"figs/crs/hb-bpg-curve"
+]
+},
+{
+"t": "Practice Questions · Hemoglobin (from the slides)",
+"s": "A 3-month-old infant presents with cyanosis but has a normal PaO2 on arterial blood gas. The blood sample appears chocolate-brown. Administration of methylene blue resolves the symptoms. Which of the following is the most likely cause of this condition?",
+"ns": true,
+"shetty": 1,
+"c": [
+"Carbon monoxide poisoning",
+"Oxygen toxicity",
+"Hemoglobin polymerization",
+"Iron oxidation to Fe3+ state",
+"Decreased production of alpha-globin chains"
+],
+"a": 3,
+"e": "Cyanosis with a normal PaO₂, chocolate-brown blood and a response to methylene blue mean methemoglobinemia: the heme iron is oxidized to Fe³⁺, which cannot bind O₂. Methylene blue, using NADPH, reduces Fe³⁺ back to Fe²⁺.",
+"w": [
+"CO poisoning gives cherry-red skin, not chocolate-brown blood, and is treated with O₂.",
+"Oxygen toxicity does not cause cyanosis or brown blood.",
+"Hemoglobin polymerization is sickle cell disease.",
+"",
+"α-thalassemia causes microcytic anemia and is not reversed by methylene blue."
+],
+"fig": [
+"figs/crs/hb-methb"
 ]
 }
 ];

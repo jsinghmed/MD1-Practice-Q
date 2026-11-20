@@ -1,6 +1,37 @@
 {
- "v": "2026-11-19a",
+ "v": "2026-11-19b",
  "notes": [
+  {
+   "v": "2026-11-19b",
+   "date": "Nov 19, 2026",
+   "groups": [
+    {
+     "h": "New questions",
+     "items": [
+      {
+       "tag": "new",
+       "title": "CRS Biochemistry · Lecture 7 · Cholesterol Biosynthesis",
+       "text": "New slide questions added."
+      },
+      {
+       "tag": "new",
+       "title": "CRS Biochemistry · Lecture 8 · Hemoglobin & Myoglobin",
+       "text": "New slide questions added."
+      }
+     ]
+    },
+    {
+     "h": "New feature",
+     "items": [
+      {
+       "tag": "new",
+       "title": "Cardiovascular and Respiratory groups",
+       "text": "CRS lecture lists are now grouped under Cardiovascular system and Respiratory system headings. In Create test you can pick Cardiovascular only, Respiratory only, or both."
+      }
+     ]
+    }
+   ]
+  },
   {
    "v": "2026-11-19a",
    "date": "Nov 19, 2026",
