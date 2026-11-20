@@ -1885,7 +1885,7 @@ function lecTree(sec){
   let head = [];
   all.forEach(c=>{
     if (c.head) head.push(c);
-    else if (!c.sub && DIFF_RE.test(c.name)) bottom.push(c);
+    else if (!c.sub && (DIFF_RE.test(c.name) || c.name==="USMLE Style Q's")) bottom.push(c);
     else if (!c.sub) groups.push({lec:c, kids:[], chips:[]});
     else if (groups.length) { if (/^(Sampath's Q's|Shetty Practice Q's) · /.test(c.name)) return; // professor sets fold into the lecture's one Sampath/Shetty tile
       (DIFF_RE.test(c.name) ? groups[groups.length-1].chips : groups[groups.length-1].kids).push(c); }
