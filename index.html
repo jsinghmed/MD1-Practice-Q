@@ -1290,7 +1290,7 @@ button.dst:hover{background:var(--hover)}
 <script src="crs-embryology.js?v=35"></script>
 <script src="crs-histology.js?v=1"></script>
 <script src="crs-genetics.js?v=1"></script>
-<script src="mocks.js?v=1"></script>
+<script src="mocks.js?v=2"></script>
 <script src="crs-anatomy.js?v=1"></script>
 <script src="crs-biochem.js?v=12"></script>
 <script src="crs-physiology.js?v=16"></script>
@@ -2497,9 +2497,11 @@ function renderCard(){
   const done = answered(q, s) || (tDone && !isReveal);
   const stemHTML = S.hl[q.id] || (q.html ? q.s : esc(q.s));
   const U = usmleOn();
-  const fub = window.JJFU ? JJFU.badge(q.id) : "";
-  let h = U ? (srcBadge(q)||fub ? `<div class="umeta">${srcBadge(q)}${fub}</div>` : "") : `<div class="qhead">
-      <div class="qmeta">Question <b>${p+1}</b> of ${n} &nbsp;·&nbsp; ${esc(secLabel(q, chap()))} &nbsp;·&nbsp; ${esc(q.t)}${srcBadge(q)}${fub}</div>
+  // Mock exams show no source, lecture, topic or difficulty labels, like the real exam
+  const mockT = !!(c.test && c.test.mock), sb = mockT ? "" : srcBadge(q);
+  const fub = window.JJFU && !mockT ? JJFU.badge(q.id) : "";
+  let h = U ? (sb||fub ? `<div class="umeta">${sb}${fub}</div>` : "") : `<div class="qhead">
+      <div class="qmeta">Question <b>${p+1}</b> of ${n}${mockT ? "" : ` &nbsp;·&nbsp; ${esc(secLabel(q, chap()))} &nbsp;·&nbsp; ${esc(q.t)}`}${sb}${fub}</div>
       <div class="qtools">
         <span class="menu hlmenu" id="hlMenu"><span class="split"><button class="btn ${mode==="hl"?"on":""}" id="hlBtn" title="Select text to highlight it. Highlight an already-highlighted part to erase it. Click a highlight to remove it."><span class="sw hl-${hlColor}"></span>Highlight</button><button class="btn caret ${mode==="hl"?"on":""}" id="hlCaret" title="Highlighter color" aria-label="Choose highlighter color">▾</button></span>
           <div class="pop hlpop"><div class="mi-h">HIGHLIGHTER COLOR</div>${HL_COLORS.map(c=>`<button class="mi" data-hlc="${c.k}"><span class="sw hl-${c.k}"></span>${c.name}<span class="ck" style="margin-left:auto">${hlColor===c.k?"✓":""}</span></button>`).join("")}
