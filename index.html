@@ -4961,8 +4961,8 @@ themeLabel();
 
 // ---- Remote / game controller support (8BitDo and other Bluetooth remotes) ----
 // Works with remotes in controller mode (browser Gamepad API) and in keyboard mode (key presses). Bindings are per person (S.remote).
-const RM_ACTS = [["go","Submit answer, then next question"],["down","Next answer choice"],["up","Previous answer choice"],["next","Next question"],["prev","Previous question"],["mark","Mark question"],["sdown","Scroll down"],["sup","Scroll up"]];
-const RM_DEF = {go:["pad:0"], down:["pad:13"], up:["pad:12"], next:["pad:15","pad:5"], prev:["pad:14","pad:4"], mark:["pad:2"], sdown:["pad:7"], sup:["pad:6"]};
+const RM_ACTS = [["go","Submit answer, then next question"],["down","Next answer choice"],["up","Previous answer choice"],["next","Next question"],["prev","Previous question"],["mark","Mark question"],["strike","Strike out the highlighted choice"],["sdown","Scroll down"],["sup","Scroll up"]];
+const RM_DEF = {go:["pad:0"], down:["pad:13"], up:["pad:12"], next:["pad:15","pad:5"], prev:["pad:14","pad:4"], mark:["pad:2"], strike:["pad:1"], sdown:["pad:7"], sup:["pad:6"]};
 const RM_PADN = {0:"Bottom button (A/B)",1:"Right button",2:"Left button",3:"Top button",4:"L",5:"R",6:"L2 / ZL",7:"R2 / ZR",8:"Select / −",9:"Start / +",12:"D-pad up",13:"D-pad down",14:"D-pad left",15:"D-pad right",16:"Home"};
 let rmCap = null, rmPads = "", rmPrev = {};
 function rmMap(){ return S.remote || RM_DEF; }
@@ -4975,10 +4975,19 @@ function rmDo(act){
   if (act==="next") return go(pos()+1);
   if (act==="mark") { const b = $("flagBtn"); if (b) b.click(); return; }
   const q = curQ(), s = store(); if (!q) return;
+  if (act==="strike") {
+    if (q.type==="reveal" || timedDone() || s.sel[q.id]===undefined) return;
+    const oi = s.sel[q.id]; (s.strike[q.id] ??= {}); s.strike[q.id][oi] = !s.strike[q.id][oi]; save(); renderCard(); return;
+  }
   if (act==="up" || act==="down") {
     if (q.type==="reveal" || (!timedActive() && answered(q,s)) || timedDone()) return;
-    const o = order(q), i = o.indexOf(s.sel[q.id]), dn = act==="down";
-    return pick(o[i<0 ? (dn ? 0 : o.length-1) : (i + (dn?1:-1) + o.length) % o.length]);
+    const o = order(q), dn = act==="down", st = s.strike[q.id] || {};
+    let i = o.indexOf(s.sel[q.id]);
+    for (let n = 0; n < o.length; n++) {                            // skip choices that are struck out
+      i = i<0 ? (dn ? 0 : o.length-1) : (i + (dn?1:-1) + o.length) % o.length;
+      if (!st[o[i]]) return pick(o[i]);
+    }
+    return;
   }
   if (act==="go") {
     if (timedActive()) return go(pos()+1);
