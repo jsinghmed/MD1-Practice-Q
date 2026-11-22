@@ -131,6 +131,9 @@ button{font:inherit;color:inherit;cursor:pointer}
 .akc-how{margin-top:8px;font-size:13px}.akc-how summary{cursor:pointer;color:var(--muted,#8b949e)}.akc-how ol{margin:8px 0 0;padding-left:18px;line-height:1.55}
 .lchip.akmiss{border-color:#b08800;background:rgba(214,170,0,.12)}.lchip.akmiss b,.lchip.akmiss span{color:#9a7400}
 .rm-row{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line,#262d36);font-size:14px}.rm-b{color:var(--muted,#8b949e)}.rm-st{margin:8px 0}
+.introv{position:fixed;inset:0;z-index:100000;background:#000;display:flex;align-items:center;justify-content:center;transition:opacity .45s}.introv.out{opacity:0}
+.introv video{width:100%;height:100%;object-fit:contain;background:#000}
+.introskip{position:absolute;top:18px;right:20px;background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 16px;font:600 14px/1 Inter,system-ui,sans-serif;cursor:pointer}.introskip:hover{background:rgba(255,255,255,.22)}
 .ank-box{width:min(520px,100%);max-height:calc(100vh - 32px);overflow:auto;background:var(--panel,#161b22);color:var(--text,#e6edf3);border:1px solid var(--line,#262d36);border-radius:14px;padding:20px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
 .ank-box h3{margin:0 0 4px;font-size:18px}.ank-sub{margin:0 0 12px;color:var(--muted,#9aa4b2);font-size:14px}
 .ank-steps{margin:0 0 12px;padding-left:20px;line-height:1.55;font-size:14.5px}.ank-steps li{margin:3px 0}
@@ -5149,6 +5152,27 @@ try { if (/[?&]v=/.test(location.search)) history.replaceState(null, "", locatio
     show();
   }).catch(()=>{});
 })();
+// First-time intro video: plays once for a new person right after they press Enter on the welcome screen.
+// Add ?intro=1 to the address to watch it again.
+function introDue(){
+  try { if (/[?&]intro=1/.test(location.search)) return true;
+        return JJ_FRESH && !localStorage.getItem("jj-intro-seen") && !S.introSeen; } catch(e) { return false; }
+}
+window.JJ_INTRO = ()=>playIntro();
+function playIntro(){
+  const o = document.createElement("div"); o.className = "introv"; o.setAttribute("role","dialog"); o.setAttribute("aria-label","Welcome to JJ QBank");
+  o.innerHTML = `<video src="intro/jj-intro.mp4" playsinline preload="auto"></video><button class="introskip" type="button">Skip intro</button>`;
+  const v = o.querySelector("video");
+  const done = ()=>{ if (!o.isConnected) return;
+    try { localStorage.setItem("jj-intro-seen","1"); S.introSeen = 1; save(); history.replaceState(null, "", location.pathname + location.hash); } catch(e) {}
+    document.removeEventListener("keydown", key, true); o.classList.add("out"); setTimeout(()=>o.remove(), 450); };
+  const key = e=>{ if (e.key==="Escape" || e.key==="Enter" || e.key===" ") { e.preventDefault(); e.stopPropagation(); done(); } };
+  v.addEventListener("ended", done); v.addEventListener("error", done);
+  o.querySelector(".introskip").onclick = done;
+  document.addEventListener("keydown", key, true);
+  document.body.appendChild(o);
+  const pr = v.play(); if (pr && pr.catch) pr.catch(()=>{ v.muted = true; v.play().catch(done); });   // sound blocked → play muted
+}
 // Fresh visit / new tab → Enter goes to the home screen. Refresh in the same tab → Enter returns you to where you were.
 (function(){
   const sp = $("splash"); let seen = false;
@@ -5164,6 +5188,7 @@ try { if (/[?&]v=/.test(location.search)) history.replaceState(null, "", locatio
     sp.classList.add("out"); document.documentElement.style.overflow = "";
     document.removeEventListener("keydown", onKey, true);
     setTimeout(()=>sp.remove(), 500);
+    if (introDue()) playIntro();                                      // the Enter click lets the intro play with sound
   };
   const onKey = e=>{ if (e.key==="Enter" || e.key===" " || e.key==="ArrowRight") { e.preventDefault(); e.stopPropagation(); enter(); } };
   document.addEventListener("keydown", onKey, true);
