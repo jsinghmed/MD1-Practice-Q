@@ -1,6 +1,22 @@
 {
- "v": "2026-11-19b",
+ "v": "2026-11-22a",
  "notes": [
+  {
+   "v": "2026-11-22a",
+   "date": "Nov 22, 2026",
+   "groups": [
+    {
+     "h": "New feature",
+     "items": [
+      {
+       "tag": "new",
+       "title": "Connect your Anki",
+       "text": "Open any lecture's AnKing chip and click Connect Anki. You can then add that lecture's cards to your Anki in one click, see how many you've learned, and get told when a lecture gets new cards. Needs the free AnkiConnect add-on and Anki open on your computer."
+      }
+     ]
+    }
+   ]
+  },
   {
    "v": "2026-11-19b",
    "date": "Nov 19, 2026",
