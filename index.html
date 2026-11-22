@@ -126,6 +126,10 @@ button{font:inherit;color:inherit;cursor:pointer}
 .lchip.copied{border-color:#2b8a3e;background:rgba(43,138,62,.08)}.lchip.copied span{color:#2b8a3e}
 .ank-done{margin:10px 0 0;font-size:13px;color:#2b8a3e}.linkbtn{background:none;border:0;padding:0;color:var(--muted,#9aa4b2);text-decoration:underline;cursor:pointer;font:inherit}
 .ank-ov{position:fixed;inset:0;z-index:9000;background:rgba(6,10,16,.6);display:grid;place-items:center;padding:16px}
+.akc{border:1px solid var(--line,#262d36);border-radius:10px;padding:12px 14px;margin:12px 0}.akc-h{font-weight:600;font-size:14.5px}.akc-ok{color:#2b8a3e}
+.akc-bar{height:6px;border-radius:3px;background:var(--line,#262d36);overflow:hidden;margin:8px 0 2px}.akc-bar span{display:block;height:100%;background:#2b8a3e}
+.akc-how{margin-top:8px;font-size:13px}.akc-how summary{cursor:pointer;color:var(--muted,#8b949e)}.akc-how ol{margin:8px 0 0;padding-left:18px;line-height:1.55}
+.lchip.akmiss{border-color:#b08800;background:rgba(214,170,0,.12)}.lchip.akmiss b,.lchip.akmiss span{color:#9a7400}
 .ank-box{width:min(520px,100%);max-height:calc(100vh - 32px);overflow:auto;background:var(--panel,#161b22);color:var(--text,#e6edf3);border:1px solid var(--line,#262d36);border-radius:14px;padding:20px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
 .ank-box h3{margin:0 0 4px;font-size:18px}.ank-sub{margin:0 0 12px;color:var(--muted,#9aa4b2);font-size:14px}
 .ank-steps{margin:0 0 12px;padding-left:20px;line-height:1.55;font-size:14.5px}.ank-steps li{margin:3px 0}
@@ -1848,6 +1852,66 @@ function uwOpen(k){
   document.addEventListener("keydown", key, true);
   document.body.appendChild(d); d.querySelector("[data-ankcopy]").focus();
 }
+// AnkiConnect link: with the free AnkiConnect add-on and Anki open on this computer, the site can add a
+// lecture's AnKing cards to the person's own Anki in one click and show how many are in their deck.
+const AKC = { on:false, st:{}, scanned:false };
+async function akc(action, params){
+  const r = await fetch("http://127.0.0.1:8765", { method:"POST", body: JSON.stringify({ action, version:6, params: params||{} }) });
+  const j = await r.json(); if (j.error) throw new Error(j.error); return j.result;
+}
+async function akcConnect(ask){
+  try { const p = await akc("requestPermission");
+    if (!p || p.permission!=="granted") { if (ask) toast("Anki didn't allow the connection"); return false; }
+    AKC.on = true; if (!S.akc) { S.akc = 1; save(); } return true;
+  } catch(e){ AKC.on = false; if (ask) toast("Couldn't reach Anki. Open Anki with AnkiConnect installed, then try again."); return false; }
+}
+async function akcState(k){
+  const cards = await akc("findCards", { query: ANKING[k] });
+  if (!cards.length) return (AKC.st[k] = { total:0, sus:[], inDeck:0, learned:0 });
+  const info = await akc("cardsInfo", { cards });
+  const sus = info.filter(c=>c.queue===-1).map(c=>c.cardId).sort((a,b)=>a-b);
+  return (AKC.st[k] = { total: cards.length, sus, inDeck: cards.length - sus.length, learned: info.filter(c=>c.type!==0).length });
+}
+async function akcAdd(k){
+  const st = await akcState(k), ids = st.sus; if (!ids.length) return 0;
+  // put them after every lecture added before, so older lectures come first in new cards
+  let max = 1000000; const top = await akc("findCards", { query: "is:new -is:suspended prop:pos>1000000" });
+  if (top.length) (await akc("cardsInfo", { cards: top })).forEach(c=>{ if (c.due > max) max = c.due; });
+  await akc("multi", { actions: ids.map((id,i)=>({ action:"setSpecificValueOfCard", params:{ card:id, keys:["due"], newValues:[max+1+i], warning_check:true } })) });
+  await akc("unsuspend", { cards: ids });
+  await akcState(k); return ids.length;
+}
+async function akcScan(){
+  if (AKC.scanned || !S.akc) return; AKC.scanned = true;
+  if (!(await akcConnect(false))) return;
+  for (const k of Object.keys(ANKING)) { try { await akcState(k); } catch(e){ break; } }
+  try { renderChaps(); } catch(e){}
+}
+function akChip(ak, akN){
+  const st = AKC.on && AKC.st[ak], cp = copiedOn("anking", ak);
+  if (st && st.total && !st.sus.length) return `<button class="lchip ank copied" data-anking="${esc(ak)}" title="All of this lecture's AnKing cards are in your Anki"><b>${akN}</b><span>✓ AnKing</span></button>`;
+  if (st && st.inDeck && st.sus.length) return `<button class="lchip ank akmiss" data-anking="${esc(ak)}" title="${st.sus.length} of this lecture's cards aren't in your Anki yet"><b>${st.sus.length} new</b><span>+ AnKing</span></button>`;
+  return `<button class="lchip ank ${cp?"copied":""}" data-anking="${esc(ak)}" title="${cp?"You copied this lecture's AnKing search":"Find this lecture's AnKing Step deck cards in Anki"}"><b>${akN}</b><span>${cp?"✓":"🃏"} AnKing</span></button>`;
+}
+function akcBox(k){
+  if (!AKC.on) return `<div class="akc"><div class="akc-h">Add them to Anki in one click</div>
+    <p class="ank-sub">Connect your Anki once and the site can unsuspend this lecture's cards for you and show how many you've learned.</p>
+    <div class="ank-row"><button class="btn" data-akcconn>Connect Anki</button></div>
+    <details class="akc-how"><summary>How to set it up</summary><ol>
+      <li>Use Anki on a computer (Mac or Windows). Phones can't connect, but your changes reach them through your normal AnkiWeb sync.</li>
+      <li>In Anki, go to <b>Tools → Add-ons → Get Add-ons</b>, paste code <b>2055492159</b> (AnkiConnect) and restart Anki.</li>
+      <li>Keep Anki open, then click <b>Connect Anki</b> here. Anki asks whether to allow jjqbank.com: click <b>Yes</b>.</li>
+      <li>Works in Chrome, Arc, Edge and Firefox. Safari may block it.</li></ol></details></div>`;
+  const st = AKC.st[k];
+  if (!st) return `<div class="akc"><div class="akc-h">Checking your Anki…</div></div>`;
+  if (!st.total) return `<div class="akc"><div class="akc-h">These cards aren't in your Anki</div><p class="ank-sub">Install the AnKing Step deck first.</p></div>`;
+  if (!st.sus.length) return `<div class="akc"><div class="akc-h akc-ok">All ${st.total} cards are in your deck</div>
+    <div class="akc-bar"><span style="width:${Math.round(100*st.learned/st.total)}%"></span></div>
+    <p class="ank-sub">${st.learned} learned · ${st.total - st.learned} still new</p></div>`;
+  return `<div class="akc"><div class="akc-h">${st.inDeck ? `${st.sus.length} new cards for this lecture` : `${st.total} cards · none in your deck yet`}</div>
+    <p class="ank-sub">They'll go to the back of your new cards, after the lectures you added before.</p>
+    <div class="ank-row"><button class="btn primary" data-akcadd>Add ${st.sus.length} card${st.sus.length===1?"":"s"} to Anki</button></div></div>`;
+}
 function ankingOpen(k){
   const q = ANKING[k]; if (!q) return;
   const n = q.replace(/^nid:/,"").split(",").length, lec = k.split("|")[1];
@@ -1855,6 +1919,7 @@ function ankingOpen(k){
   d.innerHTML = `<div class="ank-box" role="dialog" aria-modal="true" aria-labelledby="ankT">
     <h3 id="ankT">AnKing cards · ${esc(lec)}</h3>
     <p class="ank-sub">${n} notes from the AnKing Step deck that match this lecture.</p>
+    <div id="akcSlot">${akcBox(k)}</div>
     <ol class="ank-steps">
       <li>Open <b>Anki</b> with the <b>AnKing Step deck</b> installed.</li>
       <li>Click <b>Browse</b> at the top of the main Anki window.</li>
@@ -1866,7 +1931,15 @@ function ankingOpen(k){
     <p class="ank-tip">Tip: AnKing cards often start suspended (yellow rows). Select them and press Cmd + J (Mac) or Ctrl + J (Windows) to unsuspend so they show up in your reviews.</p></div>`;
   const close = ()=>{ d.remove(); document.removeEventListener("keydown", key, true); };
   const key = e=>{ if (e.key==="Escape") { e.stopPropagation(); close(); } };
+  const slot = ()=>{ const el = d.querySelector("#akcSlot"); if (el) el.innerHTML = akcBox(k); };
+  const refresh = ()=>{ if (AKC.on) akcState(k).then(()=>{ slot(); try { renderChaps(); } catch(e){} }, ()=>{ AKC.on = false; slot(); }); };
+  if (AKC.on) refresh(); else if (S.akc) akcConnect(false).then(ok=>{ if (ok) { slot(); refresh(); } });
   d.addEventListener("click", e=>{
+    if (e.target.closest("[data-akcconn]")) { const b = e.target.closest("[data-akcconn]"); b.textContent = "Waiting for Anki…"; b.disabled = true;
+      akcConnect(true).then(ok=>{ slot(); if (ok) { refresh(); AKC.scanned = false; akcScan(); } }); return; }
+    if (e.target.closest("[data-akcadd]")) { const b = e.target.closest("[data-akcadd]"); b.textContent = "Adding…"; b.disabled = true;
+      akcAdd(k).then(n=>{ toast(n + " card" + (n===1?"":"s") + " added to your Anki. Sync Anki to get them on your phone."); slot(); try { renderChaps(); } catch(e){} },
+        ()=>{ toast("Couldn't add the cards. Check that Anki is still open."); slot(); }); return; }
     if (e.target===d || e.target.closest("[data-ankclose]")) return close();
     if (e.target.closest("[data-ankundo]")) { markCopied("anking", k, false); const n = d.querySelector(".ank-done"); if (n) n.remove(); return; }
     const c = e.target.closest("[data-ankcopy]"); if (!c) return;
@@ -1920,7 +1993,7 @@ function lecTree(sec){
       h += `<div class="lec-chips">` + diff.map(tile).join("")
         + `<button class="lchip inc ${incN?"":"zero"} ${S.cur===lk&&view==="quiz"?"on":""}" data-lrv="${esc(g.lec.key)}" title="Questions you got wrong in this lecture"><b>${incN}</b><span>✗ Incorrect</span></button>`
         + prof.map(tile).join("")
-        + (akN ? `<button class="lchip ank ${copiedOn("anking",ak)?"copied":""}" data-anking="${esc(ak)}" title="${copiedOn("anking",ak)?"You copied this lecture's AnKing search":"Find this lecture's AnKing Step deck cards in Anki"}"><b>${akN}</b><span>${copiedOn("anking",ak)?"✓":"🃏"} AnKing</span></button>` : "")
+        + (akN ? akChip(ak, akN) : "")
         + (uwN ? `<button class="lchip uw ${copiedOn("uworld",ak)?"copied":""}" data-uworld="${esc(ak)}" title="${copiedOn("uworld",ak)?"You copied this lecture's UWorld IDs":"UWorld Step 1 question IDs for this lecture"}"><b>${uwN}</b><span>${copiedOn("uworld",ak)?"✓":"🌍"} UWorld</span></button>` : "") + `</div>`;
     }
   });
@@ -4874,6 +4947,7 @@ themeLabel();
 if (S.openSec === undefined) S.openSec = secOf(S.cur) || (courseSecs()[0] ? courseSecs()[0].prefix : null);
 save();
 renderAll();
+setTimeout(()=>{ akcScan().catch(()=>{}); }, 4000);   // refresh Anki chip states for people who connected Anki
 
 // ---- First visit: choose your year, then your module (instead of landing on MSK) ----
 function showPicker(yr){
