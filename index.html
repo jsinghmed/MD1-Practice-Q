@@ -4985,7 +4985,10 @@ function rmDo(act){
     let i = o.indexOf(s.sel[q.id]);
     for (let n = 0; n < o.length; n++) {                            // skip choices that are struck out
       i = i<0 ? (dn ? 0 : o.length-1) : (i + (dn?1:-1) + o.length) % o.length;
-      if (!st[o[i]]) return pick(o[i]);
+      if (!st[o[i]]) {                                          // moving with the remote isn't "choosing": don't log it as a first answer
+        const had = s.first && s.first[q.id]!==undefined; pick(o[i]);
+        if (!had && s.first) { delete s.first[q.id]; save(); } return;
+      }
     }
     return;
   }
