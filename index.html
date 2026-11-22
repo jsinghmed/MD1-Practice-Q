@@ -4968,42 +4968,48 @@ let rmCap = null, rmPads = "", rmPrev = {};
 function rmMap(){ return S.remote || RM_DEF; }
 function rmName(b){ const [t,a,v] = b.split(":"); if (t==="pad") return RM_PADN[a] || ("Button " + a);
   if (t==="key") return "Key " + a.replace(/^Key|^Digit/,""); if (t==="ax") return "Stick/D-pad " + a + " " + v; return b; }
-function rmDo(act){
-  if (act==="sdown" || act==="sup") { const d = act==="sdown" ? 320 : -320; const m = $("main"); if (m) m.scrollBy({top:d, behavior:"smooth"}); window.scrollBy({top:d, behavior:"smooth"}); return; }
-  if (view!=="quiz" || !chap() || (timedActive() && paused)) return;
-  if (act==="prev") return go(pos()-1);
-  if (act==="next") return go(pos()+1);
-  if (act==="mark") { const b = $("flagBtn"); if (b) b.click(); return; }
-  const q = curQ(), s = store(); if (!q) return;
+function rmDo(act){                                                // returns true if the action did something
+  if (act==="sdown" || act==="sup") { const d = act==="sdown" ? 320 : -320; const m = $("main"); if (m) m.scrollBy({top:d, behavior:"smooth"}); window.scrollBy({top:d, behavior:"smooth"}); return true; }
+  if (view!=="quiz" || !chap() || (timedActive() && paused)) return false;
+  const n = chap().ids.length;
+  if (act==="prev") { if (pos() <= 0) return false; go(pos()-1); return true; }
+  if (act==="next") { if (pos() >= n-1) return false; go(pos()+1); return true; }
+  if (act==="mark") { const b = $("flagBtn"); if (!b) return false; b.click(); return true; }
+  const q = curQ(), s = store(); if (!q) return false;
   if (act==="strike") {
-    if (q.type==="reveal" || timedDone() || s.sel[q.id]===undefined) return;
-    const oi = s.sel[q.id]; (s.strike[q.id] ??= {}); s.strike[q.id][oi] = !s.strike[q.id][oi]; save(); renderCard(); return;
+    if (q.type==="reveal" || timedDone() || s.sel[q.id]===undefined) return false;
+    const oi = s.sel[q.id]; (s.strike[q.id] ??= {}); s.strike[q.id][oi] = !s.strike[q.id][oi]; save(); renderCard(); return true;
   }
   if (act==="up" || act==="down") {
-    if (q.type==="reveal" || (!timedActive() && answered(q,s)) || timedDone()) return;
+    if (q.type==="reveal" || (!timedActive() && answered(q,s)) || timedDone()) return false;
     const o = order(q), dn = act==="down", st = s.strike[q.id] || {};
     let i = o.indexOf(s.sel[q.id]);
-    for (let n = 0; n < o.length; n++) {                            // skip choices that are struck out
+    for (let k = 0; k < o.length; k++) {                            // skip choices that are struck out
       i = i<0 ? (dn ? 0 : o.length-1) : (i + (dn?1:-1) + o.length) % o.length;
       if (!st[o[i]]) {                                          // moving with the remote isn't "choosing": don't log it as a first answer
         const had = s.first && s.first[q.id]!==undefined; pick(o[i]);
-        if (!had && s.first) { delete s.first[q.id]; save(); } return;
+        if (!had && s.first) { delete s.first[q.id]; save(); } return true;
       }
     }
-    return;
+    return false;
   }
-  if (act==="go") {
-    if (timedActive()) return go(pos()+1);
-    if (q.type==="reveal") { if (s.ans[q.id]===undefined) { s.ans[q.id]="shown"; save(); renderCard(); } else go(pos()+1); return; }
-    if (answered(q,s) || timedDone()) return go(pos()+1);
-    if (s.sel[q.id]!==undefined) return submit();
+  if (act==="go") {                                                   // submit if a choice is picked; nothing to submit → let the next action on this button run
+    const nx = ()=>{ if (pos() >= n-1) return false; go(pos()+1); return true; };
+    if (timedActive() || timedDone()) return nx();
+    if (q.type==="reveal") { if (s.ans[q.id]===undefined) { s.ans[q.id]="shown"; save(); renderCard(); return true; } return nx(); }
+    if (answered(q,s)) return nx();
+    if (s.sel[q.id]!==undefined) { submit(); return true; }
+    return false;                                                     // nothing picked yet: let another action on this button run
   }
+  return false;
 }
 function rmInput(b){
-  if (rmCap) { const m = Object.assign({}, rmMap()); Object.keys(m).forEach(k=>{ m[k] = (m[k]||[]).filter(x=>x!==b); });
-    m[rmCap] = [b]; S.remote = m; save(); rmCap = null; rmRender(); return true; }
-  const m = rmMap(), act = Object.keys(m).find(k=>(m[k]||[]).includes(b)); if (!act) return false;
-  rmDo(act); return true;
+  if (rmCap) { const m = Object.assign({}, rmMap()); m[rmCap] = [b]; S.remote = m; save(); rmCap = null; rmRender(); return true; }
+  // one button can do several things: try them in list order and stop at the first that applies
+  // (e.g. Submit + Next question on one button: submits when a choice is picked, otherwise goes to the next question)
+  const m = rmMap(), acts = RM_ACTS.map(a=>a[0]).filter(k=>(m[k]||[]).includes(b)); if (!acts.length) return false;
+  for (const a of acts) if (rmDo(a)) break;
+  return true;
 }
 function rmLoop(){
   const pads = navigator.getGamepads ? [...navigator.getGamepads()].filter(Boolean) : [];
@@ -5036,7 +5042,7 @@ function rmRender(){
 function rmOpen(){
   const d = document.createElement("div"); d.className = "ank-ov rm-ov";
   d.innerHTML = `<div class="ank-box" role="dialog" aria-modal="true" aria-labelledby="rmT"><h3 id="rmT">Remote controls</h3>
-    <p class="ank-sub">Use an 8BitDo or any Bluetooth remote or game controller to answer questions. Click Change, then press the button you want for that action.</p>
+    <p class="ank-sub">Use an 8BitDo or any Bluetooth remote or game controller to answer questions. Click Change, then press the button you want for that action. One button can do more than one thing: give Submit and Next question the same button and it submits when a choice is picked, otherwise it skips to the next question.</p>
     <p class="rm-st ank-sub"></p><div class="rm-list"></div>
     <p class="ank-tip">Works in controller mode and in keyboard mode. In controller mode, keep this tab in front. Use Chrome, Arc or Edge for the best support.</p>
     <div class="ank-row"><button class="btn" data-rmreset>Reset to defaults</button><button class="btn primary" data-rmclose>Done</button></div></div>`;
