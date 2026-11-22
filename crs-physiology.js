@@ -1,5 +1,82 @@
 // CRS Physiology — Dr. Sampath V. lecture slides. Reworked set: fewer, multi-concept, high-yield questions; lv = Easy/Hard; sampath = Challenge Yourself questions from the slides, word for word
-window.CRS_PH_TOPICS = ["Big Picture & Cardiac Cell Types", "Conduction System Anatomy", "Fast vs Slow Response", "Phase 0 & Na⁺ Channel Gates", "Phase 1 · The Notch", "Phase 2 · Plateau & E–C Coupling", "Phases 3 & 4 · Reset and Rest", "Refractory Periods", "Na⁺ Channel States", "Why the AP & Refractory Period Are Long", "Challenge Yourself · Sampath's Q's", "Pacemaker Cells, Automaticity & Key Terms", "Slow vs Fast Response APs", "Phase 4 · Pacemaker Potential", "Phase 0 · L-type Ca²⁺ Upstroke", "Phase 3 · Nodal Repolarization", "Pacemaker Hierarchy & Overdrive Suppression", "Challenge · Pacemaker Currents", "Autonomic Control: Chrono-, Dromo- & Inotropy", "Sympathetic β1 → Gs → cAMP Cascade", "Sympathetic Effects on SA Node, AV Node & Ventricle", "Parasympathetic M2 → Gi: Two Arms", "Integrated SA Node Effects & Summary", "Drugs That Hit These Channels", "Challenge · Cardiac Nerves", "Cardiac Cycle Timing: Systole vs Diastole", "Key Volumes: EDV, ESV, SV & EF", "Wiggers Diagram: Phases A–G, Valves & Heart Sounds", "Atrial Systole & Ventricular Filling", "Isovolumetric Phases & Ejection", "Jugular Venous Pulse & Aortic Pressure Curve", "Pressure Map: Normal Chamber Pressures", "Cardiac Output & Cardiac Reserve", "Preload, Afterload & Contractility", "Frank–Starling Law", "PV Loop: Phases & Valve Events", "PV Loop Shifts: Preload, Afterload, Contractility", "Cardiac Work", "Measuring CO: Indicator Dilution & Fick", "Sampath's Q's · Very Easy Set", "Sampath's Q's · Medium Set", "Sampath's Q's · Medium-Hard Set", "Sampath's Q's · Hard Set", "Sampath's Q's · Cardiac Cycle MCQs", "Sampath's Q's · Wiggers Diagram MCQs", "Sampath's Q's · Wiggers Diagram Easy", "Sampath's Q's · Cardiac Cycle Clinical Quiz", "Ohm's Law & the Pressure Gradient", "Poiseuille's Law & Vessel Radius", "Series vs Parallel Resistance", "Laminar vs Turbulent Flow", "Flow vs Velocity", "Compliance, Pulse Pressure & MAP", "Venous Return & the Vascular Function Curve", "Shifting the Venous Return Curve: Volume, Venous Tone & TPR", "Cardiac Function Curve: Preload, Afterload & Inotropy", "The Operating Point: CO = VR", "Clinical Scenarios: Blood Volume Changes", "Clinical Scenarios: Inotropy & Afterload", "Baroreceptor Reflex: Arc & Response", "Vasomotor Center & Chemoreceptors", "RAAS: Renin Triggers & Angiotensin II", "ANP: Response to High Blood Pressure", "RAAS Blockers & Renal Artery Stenosis", "ECG Paper & Measurement", "Deflection Rules", "Limb, Augmented & Precordial Leads", "P, QRS, T & U Waves", "Segments, Intervals & Heart Rate", "Electrolytes & Ischemia on the ECG", "Acute Coronary Syndrome on the ECG", "AV Blocks", "Systematic Rhythm Approach & Rate", "Torsades de Pointes & Long QT", "Atrial Fibrillation & Atrial Flutter"];
+window.CRS_PH_TOPICS = [
+"Big Picture & Cardiac Cell Types",
+"Conduction System Anatomy",
+"Fast vs Slow Response",
+"Phase 0 & Na⁺ Channel Gates",
+"Phase 1 · The Notch",
+"Phase 2 · Plateau & E–C Coupling",
+"Phases 3 & 4 · Reset and Rest",
+"Refractory Periods",
+"Na⁺ Channel States",
+"Why the AP & Refractory Period Are Long",
+"Challenge Yourself · Sampath's Q's",
+"Pacemaker Cells, Automaticity & Key Terms",
+"Slow vs Fast Response APs",
+"Phase 4 · Pacemaker Potential",
+"Phase 0 · L-type Ca²⁺ Upstroke",
+"Phase 3 · Nodal Repolarization",
+"Pacemaker Hierarchy & Overdrive Suppression",
+"Challenge · Pacemaker Currents",
+"Autonomic Control: Chrono-, Dromo- & Inotropy",
+"Sympathetic β1 → Gs → cAMP Cascade",
+"Sympathetic Effects on SA Node, AV Node & Ventricle",
+"Parasympathetic M2 → Gi: Two Arms",
+"Integrated SA Node Effects & Summary",
+"Drugs That Hit These Channels",
+"Challenge · Cardiac Nerves",
+"Cardiac Cycle Timing: Systole vs Diastole",
+"Key Volumes: EDV, ESV, SV & EF",
+"Wiggers Diagram: Phases A–G, Valves & Heart Sounds",
+"Atrial Systole & Ventricular Filling",
+"Isovolumetric Phases & Ejection",
+"Jugular Venous Pulse & Aortic Pressure Curve",
+"Pressure Map: Normal Chamber Pressures",
+"Cardiac Output & Cardiac Reserve",
+"Preload, Afterload & Contractility",
+"Frank–Starling Law",
+"PV Loop: Phases & Valve Events",
+"PV Loop Shifts: Preload, Afterload, Contractility",
+"Cardiac Work",
+"Measuring CO: Indicator Dilution & Fick",
+"Sampath's Q's · Very Easy Set",
+"Sampath's Q's · Medium Set",
+"Sampath's Q's · Medium-Hard Set",
+"Sampath's Q's · Hard Set",
+"Sampath's Q's · Cardiac Cycle MCQs",
+"Sampath's Q's · Wiggers Diagram MCQs",
+"Sampath's Q's · Wiggers Diagram Easy",
+"Sampath's Q's · Cardiac Cycle Clinical Quiz",
+"Ohm's Law & the Pressure Gradient",
+"Poiseuille's Law & Vessel Radius",
+"Series vs Parallel Resistance",
+"Laminar vs Turbulent Flow",
+"Flow vs Velocity",
+"Compliance, Pulse Pressure & MAP",
+"Venous Return & the Vascular Function Curve",
+"Shifting the Venous Return Curve: Volume, Venous Tone & TPR",
+"Cardiac Function Curve: Preload, Afterload & Inotropy",
+"The Operating Point: CO = VR",
+"Clinical Scenarios: Blood Volume Changes",
+"Clinical Scenarios: Inotropy & Afterload",
+"Baroreceptor Reflex: Arc & Response",
+"Vasomotor Center & Chemoreceptors",
+"RAAS: Renin Triggers & Angiotensin II",
+"ANP: Response to High Blood Pressure",
+"RAAS Blockers & Renal Artery Stenosis",
+"ECG Paper & Measurement",
+"Deflection Rules",
+"Limb, Augmented & Precordial Leads",
+"P, QRS, T & U Waves",
+"Segments, Intervals & Heart Rate",
+"Electrolytes & Ischemia on the ECG",
+"Acute Coronary Syndrome on the ECG",
+"AV Blocks",
+"Systematic Rhythm Approach & Rate",
+"Torsades de Pointes & Long QT",
+"Atrial Fibrillation & Atrial Flutter",
+"CVS Final Practice Quiz"
+];
 window.CRS_PH_QUESTIONS = [
 {
 "t": "Big Picture & Cardiac Cell Types",
@@ -10238,5 +10315,2021 @@ window.CRS_PH_QUESTIONS = [
 "fig": [
 "figs/crs/ecg-afib-filter"
 ]
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Stimulation of the parasympathetic nervous system slows the heart rate primarily by acting on which ionic conductance in the sinoatrial node?",
+"c": [
+"Increasing Sodium influx via I_f channels",
+"Increasing Calcium influx via L-type channels",
+"Increasing Potassium efflux via K_ACh channels",
+"Decreasing Chloride influx",
+"Increasing Calcium release from the sarcoplasmic reticulum"
+],
+"a": 2,
+"e": "Parasympathetic (ACh) opens K_ACh channels: K+ efflux hyperpolarizes the SA node and slows phase 4.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Which of the following creates the \"funny current\" (I_f) responsible for the unstable resting membrane potential in pacemaker cells?",
+"c": [
+"Mixed influx of Na⁺ and K⁺",
+"Rapid influx of Ca²⁺",
+"Delayed efflux of K⁺",
+"Active transport via Na⁺/K⁺ ATPase",
+"Influx of Cl⁻"
+],
+"a": 0,
+"e": "I_f is a mixed Na+/K+ inward current (HCN channels), mostly Na+, activated by hyperpolarization.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "The slope of phase 4 depolarization in the SA node determines heart rate. Sympathetic stimulation increases this slope by increasing intracellular levels of:",
+"c": [
+"cGMP",
+"Adenosine",
+"cAMP",
+"IP₃",
+"Magnesium"
+],
+"a": 2,
+"e": "Sympathetic beta-1 raises cAMP, which increases I_f and Ca2+ current and steepens phase 4.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "On a pressure-volume loop, an increase in left ventricular contractility (with constant preload and afterload) would be represented by:",
+"c": [
+"A shift of the end-systolic pressure-volume relationship (ESPVR) up and to the left",
+"A narrowing of the loop",
+"A shift of the end-diastolic volume point to the right",
+"A decrease in the area of the loop",
+"A downward shift of the entire loop"
+],
+"a": 0,
+"e": "Higher contractility steepens/shifts the ESPVR up and left, so ESV falls and SV rises.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "A patient receives a pure alpha-adrenergic agonist (vasoconstrictor). Which change is expected on the LV pressure-volume loop?",
+"c": [
+"The loop becomes wider (increased stroke volume)",
+"The loop becomes taller and narrower (increased pressure, decreased stroke volume)",
+"The end-diastolic volume decreases significantly",
+"The mitral valve opens at a lower pressure",
+"The area of the loop (stroke work) decreases to near zero"
+],
+"a": 1,
+"e": "Pure alpha agonist raises afterload: taller, narrower loop with lower SV.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Which intervention would shift the bottom-right corner of the PV loop (End Diastolic Volume) further to the right?",
+"c": [
+"Diuretic administration",
+"Hemorrhage",
+"Intravenous fluid bolus",
+"Standing up rapidly",
+"Valsalva maneuver"
+],
+"a": 2,
+"e": "An IV fluid bolus raises preload and EDV; the other options lower or do not raise venous return.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Unlike systemic arterioles, pulmonary arterioles constrict in response to hypoxia. The physiological benefit of this mechanism is to:",
+"c": [
+"Increase pulmonary capillary pressure",
+"Divert blood flow away from poorly ventilated alveoli to optimize V/Q matching",
+"Increase the filtration of fluid into the lung interstitium",
+"Lower the workload of the right ventricle",
+"Increase the surface area for gas exchange in the hypoxic regions"
+],
+"a": 1,
+"e": "HPV diverts blood from poorly ventilated alveoli to well-ventilated ones, optimizing V/Q matching.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "The primary cellular mechanism triggering hypoxic pulmonary vasoconstriction involves:",
+"c": [
+"Opening of ATP-sensitive Potassium channels leading to hyperpolarization",
+"Inhibition of voltage-gated Potassium channels in smooth muscle leading to depolarization",
+"Massive release of Histamine from mast cells",
+"Direct stimulation of Beta-2 adrenergic receptors",
+"Increased production of Nitric Oxide"
+],
+"a": 1,
+"e": "Hypoxia inhibits voltage-gated K+ channels in smooth muscle, causing depolarization, Ca2+ entry and constriction.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Chronic exposure to high altitude leads to pulmonary hypertension. This structural remodeling is driven by sustained:",
+"c": [
+"Pulmonary vasodilation",
+"Hypoxic pulmonary vasoconstriction",
+"Systemic hypotension",
+"Decreased hematocrit",
+"Left ventricular failure"
+],
+"a": 1,
+"e": "Sustained hypoxic vasoconstriction drives smooth muscle hypertrophy and pulmonary vascular remodeling.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "A patient presents with muscle weakness and an ECG showing prominent \"U waves\" and flattened T waves. This is most consistent with:",
+"c": [
+"Hyperkalemia",
+"Hypokalemia",
+"Hypercalcemia",
+"Hypocalcemia",
+"Hyponatremia"
+],
+"a": 1,
+"e": "Hypokalemia: U waves, flattened T waves, ST depression, muscle weakness.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "A shortening of the QT interval is most classically associated with which electrolyte imbalance?",
+"c": [
+"Hypocalcemia",
+"Hypercalcemia",
+"Hypokalemia",
+"Hyperkalemia",
+"Hypomagnesemia"
+],
+"a": 1,
+"e": "Hypercalcemia shortens the QT interval; hypocalcemia prolongs it.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Severe hyperkalemia (Serum K+ > 7.0 mEq/L) may lead to cardiac arrest. Before arrest, the ECG typically progresses from peaked T waves to:",
+"c": [
+"ST-segment elevation",
+"Widening of the QRS complex",
+"Shortening of the PR interval",
+"Development of pathologic Q waves",
+"Tachycardia with narrow complexes"
+],
+"a": 1,
+"e": "Hyperkalemia progression: peaked T, loss of P, PR prolongation, QRS widening, sine wave, VF/asystole.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "According to the continuity equation, the velocity of blood flow is slowest in the capillaries because:",
+"c": [
+"They have the highest individual resistance",
+"They have the largest total cross-sectional area",
+"They are shorter than arterioles",
+"Viscosity is lowest in the capillaries",
+"Pressure is highest in the capillaries"
+],
+"a": 1,
+"e": "Capillaries have the largest total cross-sectional area. Velocity = flow / area.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "If four identical vessels are arranged in parallel, the total resistance of the circuit is:",
+"c": [
+"Four times the resistance of a single vessel",
+"Equal to the resistance of a single vessel",
+"One-fourth the resistance of a single vessel",
+"The sum of the individual resistances",
+"Unaffected by the number of vessels"
+],
+"a": 2,
+"e": "Parallel: 1/R_total = 4/R, so R_total = R/4.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Atrial Natriuretic Peptide (ANP) increases Glomerular Filtration Rate (GFR) by:",
+"c": [
+"Constricting the afferent arteriole and dilating the efferent arteriole",
+"Dilating the afferent arteriole and constricting the efferent arteriole",
+"Constricting both afferent and efferent arterioles",
+"Dilating both afferent and efferent arterioles",
+"Decreasing renal blood flow"
+],
+"a": 1,
+"e": "ANP dilates the afferent and constricts the efferent arteriole, raising glomerular pressure and GFR.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "In addition to promoting sodium excretion, ANP acts to lower blood pressure by inhibiting the secretion of:",
+"c": [
+"Insulin",
+"Renin and Aldosterone",
+"Nitric Oxide",
+"Thyroid hormone",
+"Cortisol"
+],
+"a": 1,
+"e": "ANP inhibits renin and aldosterone release (and ADH effects), promoting natriuresis and lowering BP.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "During strenuous exercise, coronary blood flow increases up to 5-fold. The most potent local vasodilator responsible for this \"active hyperemia\" is:",
+"c": [
+"Norepinephrine",
+"Acetylcholine",
+"Adenosine",
+"Angiotensin II",
+"Endothelin"
+],
+"a": 2,
+"e": "Adenosine, from ATP breakdown, is the key metabolic coronary vasodilator.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Under resting conditions, the extraction of oxygen by the myocardium is:",
+"c": [
+"Very low (10-20%), leaving a large reserve",
+"Moderate (40-50%)",
+"Near maximal (70-80%), making flow dependency critical",
+"Dependent entirely on anaerobic glycolysis",
+"Lower than that of skeletal muscle"
+],
+"a": 2,
+"e": "Myocardial O2 extraction is already about 70-80% at rest, so increased demand must be met by more flow.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Coronary blood flow to the left ventricle is significantly restricted during:",
+"c": [
+"Isovolumetric relaxation",
+"Ventricular diastole",
+"Ventricular systole",
+"The P-R interval",
+"Late filling phase"
+],
+"a": 2,
+"e": "Systolic compression of intramural vessels restricts LV flow; most LV perfusion happens in diastole.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Sympathetic stimulation accelerates cardiac relaxation (lusitropy) by phosphorylation of phospholamban. This results in:",
+"c": [
+"Inhibition of the Na+/K+ ATPase",
+"Increased activity of the SERCA pump (Ca2+ re-uptake)",
+"Closure of L-type Calcium channels",
+"Decreased affinity of Troponin C for Calcium",
+"Opening of Potassium channels"
+],
+"a": 1,
+"e": "Phospholamban phosphorylation relieves its inhibition of SERCA, so Ca2+ reuptake and relaxation are faster.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "The second messenger responsible for the positive inotropic effect of Beta- 1 receptor activation is:",
+"c": [
+"cGMP",
+"cAMP",
+"IP₃",
+"DAG",
+"Arachidonic acid"
+],
+"a": 1,
+"e": "Beta-1 activates Gs, adenylyl cyclase and cAMP, then PKA phosphorylates L-type Ca2+ channels.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "During moderate aerobic exercise, Stroke Volume increases. This is achieved by:",
+"c": [
+"Increased End-Diastolic Volume and Decreased End-Systolic Volume",
+"Decreased End-Diastolic Volume only",
+"Increased End-Systolic Volume only",
+"Decreased Preload and Decreased Contractility",
+"An isolated increase in Afterload"
+],
+"a": 0,
+"e": "Exercise SV rises through higher EDV (Frank-Starling, venous return) and lower ESV (contractility).",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "The Frank-Starling mechanism contributes to the increased cardiac output during exercise primarily by:",
+"c": [
+"Increasing heart rate",
+"Increasing the force of contraction in response to increased ventricular filling",
+"Increasing the firing rate of the SA node",
+"Decreasing peripheral resistance",
+"Constricting the coronary arteries"
+],
+"a": 1,
+"e": "Frank-Starling: greater filling (preload) gives greater force of contraction and SV.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Despite the massive increase in Cardiac Output during intense exercise, Mean Arterial Pressure (MAP) rises only moderately. This is due to:",
+"c": [
+"A significant decrease in Total Peripheral Resistance (TPR)",
+"A decrease in Stroke Volume",
+"A decrease in Heart Rate",
+"Increased viscosity of the blood",
+"Venous pooling"
+],
+"a": 0,
+"e": "TPR falls sharply from vasodilation in exercising muscle, so MAP rises only moderately.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "The physiological delay at the AV node (represented by the PR interval) is crucial because it allows time for:",
+"c": [
+"The ventricles to repolarize",
+"The atria to empty blood into the ventricles (Atrial Kick)",
+"The aortic valve to close",
+"The coronary arteries to fill",
+"The papillary muscles to relax"
+],
+"a": 1,
+"e": "The AV delay gives the atria time to complete contraction and fill the ventricles.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Conduction velocity is slowest in which part of the cardiac conduction system?",
+"c": [
+"Atrial myocytes",
+"Bundle of His",
+"Purkinje fibers",
+"AV Node",
+"Ventricular myocytes"
+],
+"a": 3,
+"e": "AV node conduction is slowest (about 0.05 m/s); Purkinje fibers are the fastest.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "A drug that increases the PR interval likely acts by:",
+"c": [
+"Blocking Sodium channels in the ventricle",
+"Blocking Calcium channels in the AV node",
+"Opening Potassium channels in the SA node",
+"Stimulating Beta-adrenergic receptors",
+"Increasing conduction velocity in the Purkinje system"
+],
+"a": 1,
+"e": "AV node depolarization depends on L-type Ca2+ channels; blocking them slows conduction and prolongs PR.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Unlike ventricular muscle cells, SA nodal cells lack:",
+"c": [
+"A threshold potential",
+"Phase 0 depolarization",
+"Phase 1 and 2 (Plateau)",
+"Repolarization",
+"Responsiveness to sympathetic tone"
+],
+"a": 2,
+"e": "SA nodal cells have no phase 1 or 2 (no plateau); they go phase 4, 0, 3.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "The \"Overdrive Suppression\" phenomenon prevents ectopic pacemakers from firing because:",
+"c": [
+"The SA node has the fastest intrinsic firing rate, hyperpolarizing other pacemakers",
+"The AV node blocks all other signals",
+"Ventricular cells have no pacemaker ability",
+"The vagus nerve inhibits all cells except the SA node",
+"ATP is depleted in non-SA node cells"
+],
+"a": 0,
+"e": "The SA node's fastest intrinsic rate suppresses latent pacemakers (overdrive suppression, via Na+/K+ pump hyperpolarization).",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "The Phase 0 upstroke of the SA node action potential is primarily mediated by the influx of:",
+"c": [
+"Sodium (Na⁺)",
+"Calcium (Ca²⁺)",
+"Potassium (K⁺)",
+"Chloride (Cl⁻)",
+"Magnesium ( Mg²⁺)"
+],
+"a": 1,
+"e": "SA node phase 0 is mediated by L-type (and T-type) Ca2+ influx, not Na+.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "The systemic circulation consists of multiple organ vascular beds arranged in parallel. This arrangement ensures that:",
+"c": [
+"Blood flow to each organ is identical",
+"The pressure drop across each organ is identical",
+"Resistance is additive (R_total = R1 + R2 + ...)",
+"Total resistance is greater than the resistance of any single organ",
+"Blood must pass through the liver before reaching the kidney"
+],
+"a": 1,
+"e": "Parallel beds share the same pressure drop (MAP minus venous pressure) and flow divides according to resistance.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "If a surgical procedure places a graft that adds a new parallel pathway to the systemic circulation (e.g., an A-V fistula), what happens to Total Peripheral Resistance (TPR)?",
+"c": [
+"TPR increases",
+"TPR decreases",
+"TPR remains unchanged",
+"Cardiac output decreases",
+"Mean arterial pressure instantly doubles"
+],
+"a": 1,
+"e": "Adding a parallel pathway lowers TPR; an A-V fistula is an example.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Which equation correctly calculates the total resistance (R_total) of three vascular beds (R₁,R₂,R₃) arranged in parallel?",
+"c": [
+"R_total=R₁+R₂+R₃",
+"R_total=(R₁+R₂+R₃)/3",
+"1/R_total=1/R₁+1/R₂+1/R₃",
+"R_total=R₁×R₂×R₃",
+"R_total=R₁-R₂-R₃"
+],
+"a": 2,
+"e": "Parallel resistances add as reciprocals: 1/R_total = 1/R1 + 1/R2 + 1/R3.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "The QRS complex represents ventricular depolarization. This electrical event immediately precedes which mechanical event?",
+"c": [
+"Opening of the mitral valve",
+"Isovolumetric ventricular contraction",
+"Rapid ventricular filling",
+"Atrial systole",
+"The second heart sound (S2)"
+],
+"a": 1,
+"e": "The QRS triggers ventricular contraction, beginning with isovolumetric contraction (mitral valve closes, S1).",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "The T wave on the ECG corresponds to ventricular repolarization. This event coincides with the beginning of:",
+"c": [
+"Isovolumetric relaxation",
+"Ventricular ejection",
+"Atrial contraction",
+"Isovolumetric contraction",
+"Rapid inflow"
+],
+"a": 0,
+"e": "The T wave (repolarization) marks the end of systole and start of ventricular relaxation (isovolumetric relaxation).",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "An S4 heart sound, if present, occurs during atrial systole. On the ECG, this would correlate with the timing of the:",
+"c": [
+"P wave",
+"QRS complex",
+"T wave",
+"ST segment",
+"U wave"
+],
+"a": 0,
+"e": "S4 comes from atrial contraction against a stiff ventricle, following the P wave.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "According to the Nernst equation, an increase in extracellular potassium concentration ( [K⁺ ]_o) will:",
+"c": [
+"Hyperpolarize the cell (make RMP more negative)",
+"Depolarize the cell (make RMP less negative/more positive)",
+"Have no effect on RMP",
+"Increase the driving force for Potassium exit",
+"Increase the Sodium equilibrium potential"
+],
+"a": 1,
+"e": "Raising [K+]o makes the K+ equilibrium potential less negative, so the RMP depolarizes.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Why does sustained depolarization caused by severe hyperkalemia lead to muscle paralysis and cardiac arrest?",
+"c": [
+"Voltage-gated Sodium channels remain in an inactivated state",
+"Calcium channels open uncontrollably",
+"The cell runs out of ATP",
+"Neurotransmitters can no longer be released",
+"The Sodium-Potassium pump works in reverse"
+],
+"a": 0,
+"e": "Persistent depolarization keeps voltage-gated Na+ channels inactivated, so no new action potentials fire.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Which ion conductance is primarily responsible for establishing the resting membrane potential in cardiac myocytes?",
+"c": [
+"gNa (Sodium conductance)",
+"gCa (Calcium conductance)",
+"gK (Potassium conductance)",
+"gCl (Chloride conductance)",
+"gMg (Magnesium conductance)"
+],
+"a": 2,
+"e": "Resting membrane potential is set mainly by K+ conductance (K+ equilibrium potential, about -90 mV).",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "While the right and left ventricles have the same cardiac output, the Right Ventricle generates much lower pressure. This implies that:",
+"c": [
+"Pulmonary Vascular Resistance is much lower than Systemic Vascular Resistance",
+"Pulmonary Vascular Resistance is higher than Systemic Vascular Resistance",
+"The Right Ventricle is failing",
+"Pulmonary blood flow is slower than systemic blood flow",
+"Pulmonary vessels are rigid tubes"
+],
+"a": 0,
+"e": "Same CO at much lower pressure means pulmonary vascular resistance is much lower than systemic (R = deltaP/Q).",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "In a healthy adult, if the Left Ventricular Output is 5.0 L/min, the Right Ventricular Output must be:",
+"c": [
+"2.5 L/min",
+"4.0 L/min (due to bronchial shunt)",
+"5.0 L/min",
+"7.0 L/min",
+"Variable depending on respiration"
+],
+"a": 2,
+"e": "The two ventricles are in series, so their outputs are equal at steady state.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Because the pulmonary circulation is a low-pressure system, pulmonary capillaries are more susceptible to:",
+"c": [
+"Atherosclerosis",
+"Collapse if alveolar pressure rises (Zone 1 condition)",
+"High shear stress injury",
+"Spontaneous rupture",
+"Turbulent flow"
+],
+"a": 1,
+"e": "With low pressure, capillaries can collapse if alveolar pressure exceeds capillary pressure (West Zone 1).",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "According to the Starling Law of the Capillary, which change would most likely result in tissue edema?",
+"c": [
+"Increased capillary oncotic pressure",
+"Increased plasma protein concentration",
+"Decreased capillary hydrostatic pressure",
+"Increased interstitial hydrostatic pressure",
+"Increased venous pressure leading to increased capillary hydrostatic pressure"
+],
+"a": 4,
+"e": "Higher venous pressure raises capillary hydrostatic pressure, favoring filtration and edema.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Given: Capillary Hydrostatic Pressure (P_c) = 30 mmHg, Interstitial Hydrostatic Pressure (P_i) = 0 mmHg, Capillary Oncotic Pressure (π_c) = 25 mmHg, Interstitial Oncotic Pressure (π_i) = 5 mmHg. What is the net pressure?",
+"c": [
+"5 mmHg favoring absorption",
+"10 mmHg favoring filtration",
+"10 mmHg favoring absorption",
+"20 mmHg favoring filtration",
+"0 mmHg (Equilibrium)"
+],
+"a": 1,
+"e": "Net = (Pc - Pi) - (pi_c - pi_i) = 30 - 20 = +10 mmHg, favoring filtration.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "A patient with severe protein malnutrition (Kwashiorkor) develops edema. The primary Starling force responsible is:",
+"c": [
+"High P_c",
+"Low P_c",
+"Low π_c (reduced plasma oncotic pressure)",
+"High π_c",
+"Blocked lymphatic drainage"
+],
+"a": 2,
+"e": "Kwashiorkor causes hypoalbuminemia, low plasma oncotic pressure and edema.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Turbulent flow, which can be heard as a murmur, is predicted by a high Reynolds number. Which factor increases the Reynolds number?",
+"c": [
+"Increased blood viscosity",
+"Decreased blood density",
+"Decreased blood velocity",
+"Increased vessel diameter",
+"Smooth vessel walls"
+],
+"a": 3,
+"e": "Re = rho x d x v / eta. Re rises with density, diameter and velocity, and falls with viscosity.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "In a patient with severe anemia, functional flow murmurs may be heard. This is because anemia leads to:",
+"c": [
+"Increased viscosity and laminar flow",
+"Decreased viscosity and increased velocity, promoting turbulence",
+"Decreased vessel diameter",
+"Increased hematocrit",
+"Decreased cardiac output"
+],
+"a": 1,
+"e": "Anemia lowers viscosity and raises velocity (higher CO), so Re rises and flow becomes turbulent.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "The Reynolds number equation is Re=(ρ⋅d⋅v)/η η represents:",
+"c": [
+"Density",
+"Diameter",
+"Velocity",
+"Viscosity",
+"Pressure"
+],
+"a": 3,
+"e": "eta (the Greek letter) is viscosity.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Using the Fick Principle, calculate Cardiac Output given: Oxygen Consumption = 250 mL/min, Arterial O₂ content = 200 mL/L, Mixed Venous O₂ content = 150 mL/L.",
+"c": [
+"2.5 L/min",
+"4.0 L/min",
+"5.0 L/min",
+"6.0 L/min",
+"10.0 L/min"
+],
+"a": 2,
+"e": "CO = VO2 / (CaO2 - CvO2) = 250 / (200 - 150) = 5 L/min.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "To accurately measure Mixed Venous Oxygen content for the Fick calculation, blood should be sampled from the:",
+"c": [
+"Superior Vena Cava",
+"Right Atrium",
+"Pulmonary Artery",
+"Pulmonary Vein",
+"Left Ventricle"
+],
+"a": 2,
+"e": "True mixed venous blood is sampled from the pulmonary artery, where the venous streams have mixed.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "If oxygen consumption remains constant, a decrease in Cardiac Output will result in:",
+"c": [
+"Increased Mixed Venous Oxygen content",
+"Decreased Mixed Venous Oxygen content (increased extraction)",
+"Increased Arterial Oxygen content",
+"No change in arteriovenous oxygen difference",
+"Decreased Arterial Oxygen content"
+],
+"a": 1,
+"e": "With VO2 constant, lower CO means more O2 extraction per liter, so mixed venous O2 content falls.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Carotid sinus massage stretches the baroreceptors, mimicking high blood pressure. The physiological response is:",
+"c": [
+"Increased sympathetic outflow",
+"Tachycardia",
+"Vasoconstriction",
+"Increased parasympathetic outflow and bradycardia",
+"Increased renin secretion"
+],
+"a": 3,
+"e": "Baroreceptor stretch raises parasympathetic outflow and lowers sympathetic outflow, causing bradycardia.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Baroreceptors located in the carotid sinus transmit afferent signals to the brainstem via which cranial nerve?",
+"c": [
+"Trigeminal (CN V)",
+"Facial (CN VII)",
+"Glossopharyngeal (CN IX)",
+"Vagus (CN X)",
+"Accessory (CN XI)"
+],
+"a": 2,
+"e": "Carotid sinus afferents travel via the glossopharyngeal nerve (CN IX); aortic arch afferents use the vagus (CN X).",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Upon standing, blood pools in the legs, causing a transient drop in arterial pressure. The baroreceptor reflex compensates by:",
+"c": [
+"Increasing firing rate of baroreceptors",
+"Decreasing Heart Rate",
+"Decreasing Contractility",
+"Increasing Sympathetic tone to vessels (Vasoconstriction)",
+"Dilating the arterioles"
+],
+"a": 3,
+"e": "Baroreceptor firing falls with the pressure drop, so sympathetic tone rises: vasoconstriction, tachycardia, more contractility.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "According to Poiseuille’s Law, vascular resistance is inversely proportional to the radius raised to the power of:",
+"c": [
+"1",
+"2",
+"3",
+"4",
+"5"
+],
+"a": 3,
+"e": "R = 8*eta*L / (pi*r^4): resistance is inversely proportional to r to the fourth power.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "If the radius of a blood vessel is doubled, and pressure remains constant, the blood flow through that vessel will increase by a factor of:",
+"c": [
+"2",
+"4",
+"8",
+"16",
+"32"
+],
+"a": 3,
+"e": "Flow is proportional to r^4, so doubling the radius gives 2^4 = 16 times the flow.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Which component of Poiseuille's equation is most rapidly adjustable by the body to regulate blood flow?",
+"c": [
+"Vessel Length",
+"Blood Viscosity",
+"Vessel Radius",
+"Pressure Gradient",
+"Blood Temperature"
+],
+"a": 2,
+"e": "Radius is the only quickly adjustable determinant (arteriolar tone); length and viscosity are essentially fixed.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "The resting bradycardia observed in endurance athletes is primarily due to:",
+"c": [
+"Decreased intrinsic SA node rate",
+"Increased Vagal (parasympathetic) tone",
+"Hypokalemia",
+"Decreased sensitivity of Beta-adrenergic receptors",
+"AV block"
+],
+"a": 1,
+"e": "Athletes' resting bradycardia is chiefly from higher vagal tone (intrinsic SA rate is relatively unchanged).",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Endurance training leads to eccentric hypertrophy. This is characterized by:",
+"c": [
+"Thickened ventricular walls with smaller chamber volume",
+"Increased ventricular chamber size (dilation) with proportional wall thickening",
+"Decreased Stroke Volume",
+"Impaired diastolic function",
+"Asymmetric septal hypertrophy"
+],
+"a": 1,
+"e": "Endurance training causes eccentric hypertrophy: chamber dilation with proportional wall thickening (volume load).",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Despite the structural changes in an athlete's heart, which parameter remains similar to that of a sedentary person at rest?",
+"c": [
+"Stroke Volume",
+"Heart Rate",
+"Cardiac Output",
+"End-Diastolic Volume",
+"Ejection Fraction"
+],
+"a": 2,
+"e": "At rest, athletes have higher SV and lower HR, so CO is about the same as in sedentary people. (EF is also near-normal in both, so this item is slightly ambiguous; CO is the classic answer.)",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "The 'a' wave of the Jugular Venous Pulse corresponds to:",
+"c": [
+"Right atrial contraction",
+"Tricuspid valve closure",
+"Right ventricular filling",
+"Bulging of the tricuspid valve",
+"Opening of the pulmonary valve"
+],
+"a": 0,
+"e": "The 'a' wave is right atrial contraction.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Cannon 'a' waves (giant 'a' waves) are observed when the right atrium contracts against a closed tricuspid valve. This is seen in:",
+"c": [
+"Atrial Fibrillation",
+"Complete Heart Block (3rd degree AV block)",
+"Tricuspid Regurgitation",
+"Cardiac Tamponade",
+"Mitral Stenosis"
+],
+"a": 1,
+"e": "Cannon a waves occur when the atria contract against a closed tricuspid valve, as in complete heart block (AV dissociation).",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "The 'y' descent of the JVP represents:",
+"c": [
+"Atrial relaxation",
+"Ventricular contraction",
+"Rapid emptying of the right atrium into the right ventricle",
+"Closure of the pulmonary valve",
+"Isovolumetric contraction"
+],
+"a": 2,
+"e": "The 'y' descent is the rapid emptying of the RA into the RV after the tricuspid valve opens.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "During right heart catheterization, the catheter is wedged into a distal pulmonary artery. The \"Wedge Pressure\" (PCWP) is an indirect measurement of:",
+"c": [
+"Right Atrial Pressure",
+"Right Ventricular Systolic Pressure",
+"Left Atrial Pressure",
+"Aortic Pressure",
+"Systemic Venous Pressure"
+],
+"a": 2,
+"e": "With the catheter wedged, PCWP reflects left atrial pressure (and LVEDP, if there is no mitral disease).",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Which pressure gradient drives blood flow through the pulmonary circulation?",
+"c": [
+"Aortic Pressure minus RA Pressure",
+"PA Systolic minus PA Diastolic",
+"Mean Pulmonary Artery Pressure minus Left Atrial Pressure",
+"RV Systolic minus RV Diastolic",
+"SVC pressure minus IVC pressure"
+],
+"a": 2,
+"e": "The driving pressure is mean PA pressure minus left atrial pressure (PCWP).",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "A significant pressure difference between Right Ventricular Systolic Pressure and Pulmonary Artery Systolic Pressure indicates:",
+"c": [
+"Pulmonary Hypertension",
+"Pulmonic Valve Stenosis",
+"Tricuspid Regurgitation",
+"Mitral Stenosis",
+"Normal physiology"
+],
+"a": 1,
+"e": "A systolic RV-to-PA gradient means obstruction at the pulmonic valve (pulmonic stenosis).",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "On a Guyton graph, an upward rotation of the Cardiac Output curve (without a change in the Venous Return curve) indicates:",
+"c": [
+"Increased Blood Volume",
+"Administration of a positive inotrope (e.g., Digoxin)",
+"Increased Peripheral Resistance",
+"Heart Failure",
+"Hemorrhage"
+],
+"a": 1,
+"e": "An upward rotation of the CO curve means a positive inotrope: higher CO at the same RA pressure.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "A parallel shift of the Venous Return curve to the left (decreasing the x- intercept/Mean Systemic Filling Pressure) is caused by:",
+"c": [
+"Blood transfusion",
+"Venoconstriction",
+"Acute Hemorrhage",
+"Increased Contractility",
+"Exercise"
+],
+"a": 2,
+"e": "Acute hemorrhage lowers blood volume and MSFP, shifting the venous return curve to the left in parallel.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "The intersection of the Cardiac Output curve and the Venous Return curve represents the:",
+"c": [
+"Mean Systemic Filling Pressure",
+"Steady-state operating point (Right Atrial Pressure and Cardiac Output)",
+"Maximum Heart Rate",
+"Total Peripheral Resistance",
+"Stroke Volume"
+],
+"a": 1,
+"e": "The intersection of the CO and VR curves is the steady-state operating point (CO and RAP).",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Sympathetic stimulation of the veins (venoconstriction) increases Cardiac Output primarily by:",
+"c": [
+"Increasing Total Peripheral Resistance",
+"Decreasing Mean Systemic Filling Pressure",
+"Increasing Mean Systemic Filling Pressure and mobilizing unstressed volume to stressed volume",
+"Decreasing Heart Rate",
+"Increasing Afterload"
+],
+"a": 2,
+"e": "Venoconstriction shifts unstressed volume to stressed volume, raising MSFP and the VR curve, so CO rises.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Mean Systemic Filling Pressure (the pressure in the system when the heart stops) is determined by:",
+"c": [
+"Heart rate and contractility",
+"Blood volume and venous compliance",
+"Arteriolar resistance",
+"Aortic stiffness",
+"Pulmonary vascular resistance"
+],
+"a": 1,
+"e": "MSFP depends on blood volume and venous compliance.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "An increase in arteriolar resistance (vasoconstriction) without a change in blood volume will have what effect on the Venous Return curve?",
+"c": [
+"Increases the Mean Systemic Filling Pressure (x-intercept)",
+"Decreases the Mean Systemic Filling Pressure",
+"Rotates the curve downward (decreases slope), making it harder for blood to return",
+"Rotates the curve upward",
+"No change"
+],
+"a": 2,
+"e": "Higher arteriolar resistance rotates the VR curve downward (lower slope) with no change in the x-intercept (MSFP).",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "In Aortic Stenosis, the Left Ventricular pressure is significantly higher than Aortic pressure during systole. This pressure gradient is caused by:",
+"c": [
+"Increased compliance of the aorta",
+"High resistance across the narrowed valve",
+"Mitral regurgitation",
+"Decreased contractility",
+"Low systemic vascular resistance"
+],
+"a": 1,
+"e": "The gradient between LV and aorta during systole is due to the high resistance across the stenotic valve.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "On a Wiggers diagram, the closure of the Aortic Valve is marked by the:",
+"c": [
+"End of the QRS complex",
+"Dicrotic Notch (Incisura)",
+"Peak of the 'v' wave",
+"Opening of the Mitral Valve",
+"Beginning of the P wave"
+],
+"a": 1,
+"e": "The dicrotic notch (incisura) marks aortic valve closure.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "The period between Mitral Valve closing and Aortic Valve opening is known as:",
+"c": [
+"Isovolumetric Relaxation",
+"Rapid Filling",
+"Isovolumetric Contraction",
+"Reduced Ejection",
+"Atrial Systole"
+],
+"a": 2,
+"e": "Between mitral closure and aortic opening, all valves are closed: isovolumetric contraction.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "The first heart sound (S1) is produced by the closure of which valves?",
+"c": [
+"Aortic and Pulmonic",
+"Mitral and Tricuspid",
+"Mitral and Aortic",
+"Tricuspid and Pulmonic",
+"Eustachian and Thebesian"
+],
+"a": 1,
+"e": "S1 is the closure of the mitral and tricuspid (AV) valves.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "A pathological S3 heart sound occurs during the rapid filling phase. On a PV loop, this would correspond to the:",
+"c": [
+"Beginning of isovolumetric contraction",
+"Bottom right corner (End Diastolic Volume)",
+"Top left corner (End Systolic Volume)",
+"Early phase of the bottom segment (Filling)",
+"Middle of ejection"
+],
+"a": 3,
+"e": "S3 comes from rapid ventricular filling, in the early filling segment of the PV loop.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Physiological splitting of S2 occurs during inspiration because:",
+"c": [
+"Aortic valve closure is delayed",
+"Increased venous return to the right heart delays Pulmonic valve closure",
+"Mitral valve closes early",
+"Heart rate increases",
+"Intrathoracic pressure rises"
+],
+"a": 1,
+"e": "During inspiration, more venous return to the right heart delays pulmonic closure (P2), splitting S2.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Lead II of the standard ECG records the potential difference between:",
+"c": [
+"Right Arm (-) and Left Arm (+)",
+"Right Arm (-) and Left Leg (+)",
+"Left Arm (-) and Left Leg (+)",
+"Right Leg (-) and Left Leg (+)",
+"Left Arm (-) and Right Arm (+)"
+],
+"a": 1,
+"e": "Lead II runs from the right arm (-) to the left leg (+).",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "If the mean electrical axis of the heart is normal (approx +60 degrees), the QRS complex will be most positive (tallest R wave) in which lead?",
+"c": [
+"Lead I",
+"Lead II",
+"Lead III",
+"aVR",
+"aVL"
+],
+"a": 1,
+"e": "A +60 degree axis lines up with Lead II (axis +60), so the R wave there is tallest.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Lead aVR typically shows a negative P wave and QRS complex because:",
+"c": [
+"It is placed on the leg",
+"It views the heart from the right shoulder, looking away from the depolarization vector",
+"It is a bipolar lead",
+"The electrodes are reversed",
+"The atria do not depolarize towards the right"
+],
+"a": 1,
+"e": "aVR views from the right shoulder, looking away from the main depolarization vector (so P and QRS are negative).",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "First-degree AV block is characterized by:",
+"c": [
+"Progressive lengthening of PR followed by a dropped beat",
+"A fixed, prolonged PR interval (>200 ms)",
+"Complete dissociation of P waves and QRS complexes",
+"Widened QRS complex",
+"ST segment depression"
+],
+"a": 1,
+"e": "First-degree AV block is a fixed, prolonged PR interval (> 200 ms) with every P conducted.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "In \"Mobitz Type I\" (Wenckebach) second-degree AV block, you would expect to see:",
+"c": [
+"Randomly dropped QRS complexes",
+"Progressive prolongation of the PR interval until a beat is dropped",
+"A fixed ratio of P waves to QRS complexes (e.g., 2:1)",
+"A PR interval < 120 ms",
+"Delta waves"
+],
+"a": 1,
+"e": "Mobitz I (Wenckebach) shows a progressively longer PR until a QRS is dropped.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Third-degree (Complete) Heart Block requires a pacemaker because:",
+"c": [
+"Atria are fibrillating",
+"No atrial impulses reach the ventricles; ventricles rely on slow escape rhythms",
+"The PR interval is too short",
+"The heart rate is too fast",
+"The valves cannot open"
+],
+"a": 1,
+"e": "In complete heart block the atria and ventricles are dissociated and ventricles rely on slow escape rhythms, so a pacemaker is needed.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Calcium channel blockers (like Verapamil) slow the heart rate by targeting which phase of the SA node action potential?",
+"c": [
+"Phase 4 spontaneous depolarization only",
+"Phase 0 upstroke and Phase 4",
+"Phase 3 repolarization",
+"Phase 1",
+"Phase 2 plateau"
+],
+"a": 1,
+"e": "Verapamil blocks L-type Ca2+ channels, slowing the phase 0 upstroke and phase 4 slope in the SA node.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Unlike the SA node, the rapid Phase 0 upstroke in ventricular myocytes is caused by:",
+"c": [
+"L-type Calcium channels",
+"Voltage-gated Sodium channels",
+"T-type Calcium channels",
+"Inward Rectifier Potassium channels",
+"Chloride channels"
+],
+"a": 1,
+"e": "Ventricular phase 0 is due to fast voltage-gated Na+ channels.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Phase 3 (Repolarization) in both nodal and ventricular cells is due to:",
+"c": [
+"Sodium influx",
+"Calcium influx",
+"Potassium efflux",
+"Chloride influx",
+"Sodium-Calcium exchange"
+],
+"a": 2,
+"e": "Phase 3 is repolarization due to K+ efflux in both nodal and ventricular cells.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Rapid conduction through the Purkinje system (2-4 m/s) is essential for:",
+"c": [
+"Delaying ventricular contraction",
+"Ensuring synchronous contraction of the ventricles from the apex upwards",
+"Preventing arrhythmias",
+"Allowing atrial filling",
+"Conserving energy"
+],
+"a": 1,
+"e": "Rapid Purkinje conduction ensures synchronous ventricular contraction from the apex up.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "The slow conduction velocity in the AV node (0.05 m/s) serves to:",
+"c": [
+"Protect the ventricles from rapid atrial rhythms (e.g., A-fib)",
+"Increase ventricular contractility",
+"Generate the T wave",
+"Close the tricuspid valve",
+"Increase stroke volume"
+],
+"a": 0,
+"e": "The AV delay protects the ventricles from very rapid atrial rates (e.g., A-fib or flutter).",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Which structural feature is most responsible for the high conduction velocity in Purkinje fibers?",
+"c": [
+"High density of Gap Junctions",
+"Small cell diameter",
+"Lack of mitochondria",
+"High resistance cytoplasm",
+"Dependence on Calcium currents"
+],
+"a": 0,
+"e": "Large cells with many gap junctions give Purkinje fibers the fastest conduction velocity.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "The plateau phase (Phase 2) of the ventricular action potential is maintained by a balance between:",
+"c": [
+"Sodium influx and Potassium efflux",
+"Calcium influx and Potassium efflux",
+"Sodium influx and Chloride influx",
+"Calcium efflux and Sodium efflux",
+"Magnesium influx and Calcium influx"
+],
+"a": 1,
+"e": "The plateau is a balance of Ca2+ influx (L-type) and K+ efflux.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Class I antiarrhythmics (e.g., Lidocaine) act primarily by blocking:",
+"c": [
+"Phase 0 (Sodium channels)",
+"Phase 2 (Calcium channels)",
+"Phase 3 (Potassium channels)",
+"Phase 4 (Na⁺/K⁺ATPase)",
+"Beta receptors"
+],
+"a": 0,
+"e": "Class I antiarrhythmics block fast Na+ channels (phase 0).",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "The Absolute Refractory Period corresponds to phases 0, 1, and 2. This period prevents:",
+"c": [
+"Atrial kick",
+"Tetanic contraction (sustained spasm) of cardiac muscle",
+"Relaxation",
+"Valve closure",
+"Repolarization"
+],
+"a": 1,
+"e": "The long refractory period (about the whole contraction) prevents tetany so the heart can relax and refill.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "On a Pressure-Volume loop, Stroke Volume is calculated as:",
+"c": [
+"End Systolic Volume minus End Diastolic Volume",
+"End Diastolic Volume minus End Systolic Volume",
+"The area under the curve",
+"The height of the loop",
+"The slope of the ESPVR"
+],
+"a": 1,
+"e": "SV = EDV - ESV (the width of the PV loop).",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Ejection Fraction (EF) can be derived from the PV loop values using which formula?",
+"c": [
+"(EDV-ESV)/EDV",
+"ESV/EDV",
+"EDV-ESV",
+"Pressure×Volume",
+"(EDV-ESV)×HR"
+],
+"a": 0,
+"e": "EF = SV / EDV = (EDV - ESV) / EDV.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
+},
+{
+"t": "CVS Final Practice Quiz",
+"s": "Which change to the PV loop indicates a purely increased Preload?",
+"c": [
+"The loop gets taller",
+"The loop gets wider because the right-hand vertical line shifts right",
+"The loop gets wider because the left-hand vertical line shifts left",
+"The loop shifts upward",
+"The loop becomes triangular"
+],
+"a": 1,
+"e": "Increased preload shifts the right-hand (filling) limb to the right, widening the loop with higher EDV.",
+"w": [
+"",
+"",
+"",
+"",
+""
+],
+"src": "cvsfinal"
 }
 ];

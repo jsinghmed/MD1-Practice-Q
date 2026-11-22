@@ -1293,7 +1293,7 @@ button.dst:hover{background:var(--hover)}
 <script src="mocks.js?v=3"></script>
 <script src="crs-anatomy.js?v=1"></script>
 <script src="crs-biochem.js?v=13"></script>
-<script src="crs-physiology.js?v=16"></script>
+<script src="crs-physiology.js?v=17"></script>
 <script src="nbme.js?v=21"></script>
 <script src="xp-crs.js?v=1"></script>
 <script src="viz-links.js?v=3"></script>
@@ -1404,7 +1404,7 @@ const SECTIONS = [
   {course:"crs", name:"CRS Physiology", all:"All CRS Physiology", prefix:"cpr", topics:window.CRS_PH_TOPICS, hideTopics:true, qs:window.CRS_PH_QUESTIONS,
    // Grouped by lecture (Dr. Sampath V.), then topic. Add each new lecture as one more [name, topics] row.
    extra:(()=>{ const T = window.CRS_PH_TOPICS||[];
-     return lecExtras([["Lecture 1 · Cardiac Action Potential", T.slice(0,11)], ["Lecture 2 · Pacemaker Potential: SA & AV Nodes", T.slice(11,18)], ["Lecture 3 · Effects of Cardiac Nerves", T.slice(18,25)], ["Lecture 4 · The Cardiac Cycle", T.slice(25,32).concat(T.slice(39,47))], ["Lecture 5 · Cardiac Output & Pressure-Volume Loops", T.slice(32,39)], ["Lecture 6 · Hemodynamics: Flow, Pressure & Resistance", T.slice(47,53)], ["Lecture 7 · Cardiac & Vascular Function Curves", T.slice(53,59)], ["Lecture 8 · Regulation of Blood Pressure", T.slice(59,64)], ["Lecture 9 · ECG Essentials Part 1", T.slice(64,70)], ["Lecture 10 · ECG Part 2: Blocks & Arrhythmias", T.slice(70,75)]],
+     return lecExtras([["Lecture 1 · Cardiac Action Potential", T.slice(0,11)], ["Lecture 2 · Pacemaker Potential: SA & AV Nodes", T.slice(11,18)], ["Lecture 3 · Effects of Cardiac Nerves", T.slice(18,25)], ["Lecture 4 · The Cardiac Cycle", T.slice(25,32).concat(T.slice(39,47))], ["Lecture 5 · Cardiac Output & Pressure-Volume Loops", T.slice(32,39)], ["Lecture 6 · Hemodynamics: Flow, Pressure & Resistance", T.slice(47,53)], ["Lecture 7 · Cardiac & Vascular Function Curves", T.slice(53,59)], ["Lecture 8 · Regulation of Blood Pressure", T.slice(59,64)], ["Lecture 9 · ECG Essentials Part 1", T.slice(64,70)], ["Lecture 10 · ECG Part 2: Blocks & Arrhythmias", T.slice(70,75)], ["CVS Final Practice Quiz", T.slice(75,76)]],
        [["Sampath's Q's", "Sampath", "sampath"], ["USMLE Style Q's", "USMLE", "usmle"]]); })()}
 ].concat((window.NBME_QUIZZES||[]).map(z=>({course:z.course, name:z.name, all:z.name, prefix:z.prefix, topics:[], qs:z.qs, nbme:true, subject:z.subject, note:z.note})))
  .filter(s=>s.qs && s.qs.length);
