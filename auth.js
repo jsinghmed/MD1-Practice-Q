@@ -92,6 +92,11 @@
   }
 
   function reloadWith(stateStr){
+    // a merged copy of the same person's progress is applied in place (no second page load), unless a timed block is running
+    if (stateStr !== "{}" && typeof window.JJ_APPLY === "function" && !(window.JJ_TIMED && window.JJ_TIMED())) {
+      try { localStorage.setItem(KEY, stateStr); } catch(e){}
+      if (window.JJ_APPLY(stateStr)) return ready();
+    }
     window.JJ_HOLD = true;                                      // stop the app from writing its old copy back
     try { localStorage.setItem(KEY, stateStr); sessionStorage.setItem("jj-skip-splash","1"); sessionStorage.setItem("jj-entered","1"); } catch(e){}
     location.reload();

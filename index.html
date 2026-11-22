@@ -1467,9 +1467,12 @@ let JJ_RETURNING = false; try { JJ_RETURNING = !!localStorage.getItem(KEY); } ca
 let S = {};
 try { S = JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e) { S = {}; }
 let JJ_FRESH = false; try { JJ_FRESH = !localStorage.getItem(KEY); } catch(e) {}   // first visit on this browser: ask which year and module
+function sDefaults(){
 S.ans ??= {}; S.sel ??= {}; S.strike ??= {}; S.flag ??= {}; S.notes ??= {}; S.nimg ??= {}; S.hl ??= {}; S.order ??= {};
 S.scr ??= {}; S.qshuf ??= {}; S.posId ??= {}; S.pos ??= {}; S.snap ??= {}; S.tests ??= []; S.testSeq ??= 0;
 S.first ??= {}; S.chgq ??= {}; S.ac ??= []; S.qtime ??= {}; S.anki ??= []; S.fc ??= []; S.fcPref ??= {};
+}
+sDefaults();
 if (!(S.v >= 2)) {
   // chapter positions/scramble used to be stored by list number; move them to chapter keys
   const pos = {}, scr = {};
@@ -1490,6 +1493,16 @@ if (S.v === 2) {
   S.v = 3;
 }
 S.course = COURSE_BY_ID[S.course] ? S.course : "msk"; S.curBy ??= {};
+// Sign-in sync can hand over a merged copy of this person's progress. Apply it in place instead of reloading the page
+// (a second reload right after refreshing for an update looked like the site refreshing on its own).
+window.JJ_TIMED = () => { try { return timedActive(); } catch(e) { return false; } };
+window.JJ_APPLY = str => {
+  try { const n = JSON.parse(str); if (!n || !(n.v >= 3)) return false;
+    Object.keys(S).forEach(k=>delete S[k]); Object.assign(S, n); sDefaults();
+    S.course = COURSE_BY_ID[S.course] ? S.course : "msk"; S.curBy ??= {};
+    renderAll(); return true;
+  } catch(e) { return false; }
+};
 if (JJ_FRESH) S.needPick = true;
 function save(){ if (window.JJ_HOLD) return; try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){ toast("Couldn't save — browser storage is full or blocked"); } }
 // Related questions module (followups.js) works through this small window into the app
@@ -5108,7 +5121,7 @@ try { if (/[?&]v=/.test(location.search)) history.replaceState(null, "", locatio
 })();
 </script>
 <script>document.write('<script src="firebase-config.js?t=' + Date.now() + '"><\/script>');</script>
-<script src="auth.js?v=41"></script>
+<script src="auth.js?v=42"></script>
 <script>
 // Fail closed: if sign-in can't load (blocked, missing or failed file), the site stays locked instead of opening.
 setTimeout(function(){
