@@ -130,6 +130,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .akc-bar{height:6px;border-radius:3px;background:var(--line,#262d36);overflow:hidden;margin:8px 0 2px}.akc-bar span{display:block;height:100%;background:#2b8a3e}
 .akc-how{margin-top:8px;font-size:13px}.akc-how summary{cursor:pointer;color:var(--muted,#8b949e)}.akc-how ol{margin:8px 0 0;padding-left:18px;line-height:1.55}
 .lchip.akmiss{border-color:#b08800;background:rgba(214,170,0,.12)}.lchip.akmiss b,.lchip.akmiss span{color:#9a7400}
+.rm-row{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:center;padding:8px 0;border-top:1px solid var(--line,#262d36);font-size:14px}.rm-b{color:var(--muted,#8b949e)}.rm-st{margin:8px 0}
 .ank-box{width:min(520px,100%);max-height:calc(100vh - 32px);overflow:auto;background:var(--panel,#161b22);color:var(--text,#e6edf3);border:1px solid var(--line,#262d36);border-radius:14px;padding:20px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
 .ank-box h3{margin:0 0 4px;font-size:18px}.ank-sub{margin:0 0 12px;color:var(--muted,#9aa4b2);font-size:14px}
 .ank-steps{margin:0 0 12px;padding-left:20px;line-height:1.55;font-size:14.5px}.ank-steps li{margin:3px 0}
@@ -1252,7 +1253,7 @@ button.dst:hover{background:var(--hover)}
       </div>
     </div>
     <div class="chaps" id="chaps"></div>
-    <div class="sfoot"><span class="sfl">Theme</span><button class="sbtn th" id="themeBtn" title="Switch light / dark theme">Light</button></div>
+    <div class="sfoot"><span class="sfl">Theme</span><button class="sbtn th" id="themeBtn" title="Switch light / dark theme">Light</button><button class="sbtn th" id="rmBtn" title="Set up a remote or game controller (like an 8BitDo) for questions">Remote</button></div>
   </aside>
   <nav class="rail" id="rail"></nav>
   <main class="main" id="main">
@@ -4957,6 +4958,84 @@ else if (S.lastView==="builder" || S.lastView==="notes") view = S.lastView;
 window.addEventListener("pagehide", ()=>{ rememberPlace(); save(); });
 document.addEventListener("visibilitychange", ()=>{ if (document.hidden) { rememberPlace(); save(); } });
 themeLabel();
+
+// ---- Remote / game controller support (8BitDo and other Bluetooth remotes) ----
+// Works with remotes in controller mode (browser Gamepad API) and in keyboard mode (key presses). Bindings are per person (S.remote).
+const RM_ACTS = [["go","Submit answer, then next question"],["down","Next answer choice"],["up","Previous answer choice"],["next","Next question"],["prev","Previous question"],["mark","Mark question"],["sdown","Scroll down"],["sup","Scroll up"]];
+const RM_DEF = {go:["pad:0"], down:["pad:13"], up:["pad:12"], next:["pad:15","pad:5"], prev:["pad:14","pad:4"], mark:["pad:2"], sdown:["pad:7"], sup:["pad:6"]};
+const RM_PADN = {0:"Bottom button (A/B)",1:"Right button",2:"Left button",3:"Top button",4:"L",5:"R",6:"L2 / ZL",7:"R2 / ZR",8:"Select / −",9:"Start / +",12:"D-pad up",13:"D-pad down",14:"D-pad left",15:"D-pad right",16:"Home"};
+let rmCap = null, rmPads = "", rmPrev = {};
+function rmMap(){ return S.remote || RM_DEF; }
+function rmName(b){ const [t,a,v] = b.split(":"); if (t==="pad") return RM_PADN[a] || ("Button " + a);
+  if (t==="key") return "Key " + a.replace(/^Key|^Digit/,""); if (t==="ax") return "Stick/D-pad " + a + " " + v; return b; }
+function rmDo(act){
+  if (act==="sdown" || act==="sup") { const d = act==="sdown" ? 320 : -320; const m = $("main"); if (m) m.scrollBy({top:d, behavior:"smooth"}); window.scrollBy({top:d, behavior:"smooth"}); return; }
+  if (view!=="quiz" || !chap() || (timedActive() && paused)) return;
+  if (act==="prev") return go(pos()-1);
+  if (act==="next") return go(pos()+1);
+  if (act==="mark") { const b = $("flagBtn"); if (b) b.click(); return; }
+  const q = curQ(), s = store(); if (!q) return;
+  if (act==="up" || act==="down") {
+    if (q.type==="reveal" || (!timedActive() && answered(q,s)) || timedDone()) return;
+    const o = order(q), i = o.indexOf(s.sel[q.id]), dn = act==="down";
+    return pick(o[i<0 ? (dn ? 0 : o.length-1) : (i + (dn?1:-1) + o.length) % o.length]);
+  }
+  if (act==="go") {
+    if (timedActive()) return go(pos()+1);
+    if (q.type==="reveal") { if (s.ans[q.id]===undefined) { s.ans[q.id]="shown"; save(); renderCard(); } else go(pos()+1); return; }
+    if (answered(q,s) || timedDone()) return go(pos()+1);
+    if (s.sel[q.id]!==undefined) return submit();
+  }
+}
+function rmInput(b){
+  if (rmCap) { const m = Object.assign({}, rmMap()); Object.keys(m).forEach(k=>{ m[k] = (m[k]||[]).filter(x=>x!==b); });
+    m[rmCap] = [b]; S.remote = m; save(); rmCap = null; rmRender(); return true; }
+  const m = rmMap(), act = Object.keys(m).find(k=>(m[k]||[]).includes(b)); if (!act) return false;
+  rmDo(act); return true;
+}
+function rmLoop(){
+  const pads = navigator.getGamepads ? [...navigator.getGamepads()].filter(Boolean) : [];
+  pads.forEach(gp=>{
+    gp.buttons.forEach((bt,i)=>{ const k = gp.index+":b"+i, on = bt.pressed || bt.value > .5; if (on && !rmPrev[k]) rmInput("pad:"+i); rmPrev[k] = on; });
+    gp.axes.forEach((v,i)=>{ const k = gp.index+":a"+i; let st = "";
+      if (i < 4) st = v > .6 ? "+" : v < -.6 ? "-" : "";            // sticks: direction
+      else if (Math.abs(v) <= 1.05) st = (Math.round(v*10)/10).toFixed(1);   // hat-style D-pads report one value per direction
+      if (st && st!==rmPrev[k]) rmInput("ax:"+i+":"+st); rmPrev[k] = st; });
+  });
+  const ids = pads.map(p=>p.id).join(", "); if (ids!==rmPads) { rmPads = ids; rmRender(); }
+  if (pads.length) requestAnimationFrame(rmLoop); else rmPrev = {};
+}
+window.addEventListener("gamepadconnected", ()=>{ requestAnimationFrame(rmLoop); });
+document.addEventListener("keydown", e=>{
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const a = document.activeElement; if (a && (a.tagName==="INPUT" || a.tagName==="TEXTAREA" || a.isContentEditable)) return;
+  if (rmCap && e.key==="Escape") { rmCap = null; rmRender(); e.preventDefault(); e.stopPropagation(); return; }
+  if (!rmCap && !S.remote) return;                                 // keyboard bindings only once someone sets them up
+  if (rmInput("key:" + e.code)) { e.preventDefault(); e.stopPropagation(); }
+}, true);
+function rmRender(){
+  const d = document.querySelector(".rm-ov"); if (!d) return;
+  const m = rmMap();
+  d.querySelector(".rm-st").innerHTML = rmPads ? `Connected: <b>${esc(rmPads)}</b>` : "Turn on your remote and press any button on it. If nothing shows up, pair it with your computer over Bluetooth first.";
+  d.querySelector(".rm-list").innerHTML = RM_ACTS.map(([k,l])=>`<div class="rm-row"><span class="rm-l">${l}</span>
+    <span class="rm-b">${rmCap===k ? "<i>Press a button on your remote…</i>" : ((m[k]||[]).map(rmName).join(" or ") || "<i>Not set</i>")}</span>
+    <button class="btn" data-rmset="${k}">${rmCap===k?"Cancel":"Change"}</button></div>`).join("");
+}
+function rmOpen(){
+  const d = document.createElement("div"); d.className = "ank-ov rm-ov";
+  d.innerHTML = `<div class="ank-box" role="dialog" aria-modal="true" aria-labelledby="rmT"><h3 id="rmT">Remote controls</h3>
+    <p class="ank-sub">Use an 8BitDo or any Bluetooth remote or game controller to answer questions. Click Change, then press the button you want for that action.</p>
+    <p class="rm-st ank-sub"></p><div class="rm-list"></div>
+    <p class="ank-tip">Works in controller mode and in keyboard mode. In controller mode, keep this tab in front. Use Chrome, Arc or Edge for the best support.</p>
+    <div class="ank-row"><button class="btn" data-rmreset>Reset to defaults</button><button class="btn primary" data-rmclose>Done</button></div></div>`;
+  d.addEventListener("click", e=>{
+    if (e.target===d || e.target.closest("[data-rmclose]")) { rmCap = null; d.remove(); return; }
+    if (e.target.closest("[data-rmreset]")) { delete S.remote; save(); rmCap = null; rmRender(); return; }
+    const b = e.target.closest("[data-rmset]"); if (b) { rmCap = rmCap===b.dataset.rmset ? null : b.dataset.rmset; rmRender(); }
+  });
+  document.body.appendChild(d); rmRender(); requestAnimationFrame(rmLoop);
+}
+$("rmBtn").onclick = rmOpen;
 if (S.openSec === undefined) S.openSec = secOf(S.cur) || (courseSecs()[0] ? courseSecs()[0].prefix : null);
 save();
 renderAll();
