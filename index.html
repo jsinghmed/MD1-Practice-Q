@@ -24,7 +24,7 @@
 <meta name="twitter:title" content="JJ QBank">
 <meta name="twitter:description" content="Practice questions, NBME study guides and 3D anatomy atlases for MD1–MD5.">
 <meta name="twitter:image" content="https://jjqbank.com/og-image.png">
-<script>try{var th=localStorage.getItem("msk-theme");if(th)document.documentElement.setAttribute("data-theme",th);}catch(e){}</script>
+<script>try{var th=localStorage.getItem("msk-theme")||"light";document.documentElement.setAttribute("data-theme",th);}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -955,7 +955,8 @@ html.jjlock .cpick{visibility:hidden}
 .app.usmle .ch .tag{display:none}
 .app.usmle .ch .x{opacity:0}
 .app.usmle .ch:hover .x,.app.usmle .ch.struck .x{opacity:1}
-.app.usmle .card #prevBtn,.app.usmle .card #nextBtn{display:none}
+.app.usmle .card #prevBtn{display:none}
+.app.usmle .unav{margin:14px 0 0}
 .app.usmle .nav{margin-top:18px}
 .app.usmle .exp>.verdict,.app.usmle .exp .ttime{display:none}
 .ustrip{display:flex;max-width:720px;border:1px solid var(--line2);border-radius:6px;overflow:hidden;margin:22px 0 4px;background:var(--card)}
@@ -1293,7 +1294,7 @@ button.dst:hover{background:var(--hover)}
 <script src="mocks.js?v=3"></script>
 <script src="crs-anatomy.js?v=1"></script>
 <script src="crs-biochem.js?v=13"></script>
-<script src="crs-physiology.js?v=17"></script>
+<script src="crs-physiology.js?v=18"></script>
 <script src="nbme.js?v=21"></script>
 <script src="xp-crs.js?v=1"></script>
 <script src="viz-links.js?v=3"></script>
@@ -2546,7 +2547,7 @@ function renderCard(){
         <button class="nbtn" id="prevBtn" ${p===0?"disabled":""}>← Previous</button>
         <button class="nbtn primary" id="submitBtn" ${done||sel===undefined?"disabled":""}>Submit</button>
         <button class="nbtn" id="nextBtn" ${p===n-1?"disabled":""}>Next →</button></div>`;
-      if (done && U) h += uStrip(q, o, s);
+      if (done && U) h += `<div class="nav unav"><button class="nbtn primary" id="nextBtn" ${p===n-1?"disabled":""}>Next →</button></div>` + uStrip(q, o, s);
       if (done) h += explanation(q, o, s);
     }
   } else {
