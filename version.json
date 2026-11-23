@@ -1,6 +1,32 @@
 {
- "v": "2026-11-22a",
+ "v": "2026-11-23a",
  "notes": [
+  {
+   "v": "2026-11-23a",
+   "date": "Nov 23, 2026",
+   "groups": [
+    {
+     "h": "New questions",
+     "items": [
+      {
+       "tag": "new",
+       "title": "CRS Physiology · Lecture 11 · Microcirculation, Lymphatics & Edema",
+       "text": "New slide questions added."
+      },
+      {
+       "tag": "new",
+       "title": "CRS Physiology · Lecture 12 · Special Circulation",
+       "text": "New slide questions added."
+      },
+      {
+       "tag": "new",
+       "title": "CRS Physiology · Lecture 13 · Heart Sounds & Murmurs",
+       "text": "New slide questions added."
+      }
+     ]
+    }
+   ]
+  },
   {
    "v": "2026-11-22a",
    "date": "Nov 22, 2026",

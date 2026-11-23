@@ -1302,11 +1302,11 @@ button.dst:hover{background:var(--hover)}
 <script src="mocks.js?v=3"></script>
 <script src="crs-anatomy.js?v=1"></script>
 <script src="crs-biochem.js?v=13"></script>
-<script src="crs-physiology.js?v=18"></script>
-<script src="nbme.js?v=21"></script>
+<script src="crs-physiology.js?v=19"></script>
+<script src="nbme.js?v=22"></script>
 <script src="xp-crs.js?v=1"></script>
 <script src="viz-links.js?v=3"></script>
-<script src="followups/manifest.js?v=6"></script>
+<script src="followups/manifest.js?v=7"></script>
 <script src="followups.js?v=1"></script>
 <script>
 (function(){
@@ -1413,7 +1413,7 @@ const SECTIONS = [
   {course:"crs", name:"CRS Physiology", all:"All CRS Physiology", prefix:"cpr", topics:window.CRS_PH_TOPICS, hideTopics:true, qs:window.CRS_PH_QUESTIONS,
    // Grouped by lecture (Dr. Sampath V.), then topic. Add each new lecture as one more [name, topics] row.
    extra:(()=>{ const T = window.CRS_PH_TOPICS||[];
-     return lecExtras([["Lecture 1 · Cardiac Action Potential", T.slice(0,11)], ["Lecture 2 · Pacemaker Potential: SA & AV Nodes", T.slice(11,18)], ["Lecture 3 · Effects of Cardiac Nerves", T.slice(18,25)], ["Lecture 4 · The Cardiac Cycle", T.slice(25,32).concat(T.slice(39,47))], ["Lecture 5 · Cardiac Output & Pressure-Volume Loops", T.slice(32,39)], ["Lecture 6 · Hemodynamics: Flow, Pressure & Resistance", T.slice(47,53)], ["Lecture 7 · Cardiac & Vascular Function Curves", T.slice(53,59)], ["Lecture 8 · Regulation of Blood Pressure", T.slice(59,64)], ["Lecture 9 · ECG Essentials Part 1", T.slice(64,70)], ["Lecture 10 · ECG Part 2: Blocks & Arrhythmias", T.slice(70,75)], ["CVS Final Practice Quiz", T.slice(75,76)]],
+     return lecExtras([["Lecture 1 · Cardiac Action Potential", T.slice(0,11)], ["Lecture 2 · Pacemaker Potential: SA & AV Nodes", T.slice(11,18)], ["Lecture 3 · Effects of Cardiac Nerves", T.slice(18,25)], ["Lecture 4 · The Cardiac Cycle", T.slice(25,32).concat(T.slice(39,47))], ["Lecture 5 · Cardiac Output & Pressure-Volume Loops", T.slice(32,39)], ["Lecture 6 · Hemodynamics: Flow, Pressure & Resistance", T.slice(47,53)], ["Lecture 7 · Cardiac & Vascular Function Curves", T.slice(53,59)], ["Lecture 8 · Regulation of Blood Pressure", T.slice(59,64)], ["Lecture 9 · ECG Essentials Part 1", T.slice(64,70)], ["Lecture 10 · ECG Part 2: Blocks & Arrhythmias", T.slice(70,75)], ["Lecture 11 · Microcirculation, Lymphatics & Edema", T.slice(76,81)], ["Lecture 12 · Special Circulation", T.slice(81,86)], ["Lecture 13 · Heart Sounds & Murmurs", T.slice(86,91)], ["CVS Final Practice Quiz", T.slice(75,76)]],
        [["Sampath's Q's", "Sampath", "sampath"], ["USMLE Style Q's", "USMLE", "usmle"]]); })()}
 ].concat((window.NBME_QUIZZES||[]).map(z=>({course:z.course, name:z.name, all:z.name, prefix:z.prefix, topics:[], qs:z.qs, nbme:true, subject:z.subject, note:z.note})))
  .filter(s=>s.qs && s.qs.length);
@@ -1749,6 +1749,9 @@ const ANKING = {
   "cpr|Lecture 8 · Regulation of Blood Pressure": "nid:1471378699716,1471378703973,1471378707376,1471378710022,1471378712791,1471378716219,1471378723785,1471378730249,1471378736900,1471378769962,1471378777627,1471378785447,1471378793470,1471378810567,1471378820049,1471459788180,1471460910486,1473462316560,1473462323490,1480640516420,1480640467724,1471545924111,1473462260997,1473462263825,1473462296454,1473462329921,1473462342206,1480875939846,1462049673226,1462054771296,1462054808914,1462054825483,1462054842563,1462061483238,1462061496172,1462381603797,1471456202579,1471457755859,1471457759434,1471457762153,1471457764858,1471457770358,1471457773070,1471457814120,1473957534401,1475704272711,1475704275956,1475704278837,1475704282043,1475704284898,1475704353903,1475704392767,1475704409635,1475704416680,1475704434755,1477011522197,1522528763868,1556651849504,1474686227756,1474686197574,1474763572604,1475704456046,1471461030608,1471461045449,1471461048669,1475704424077,1474686309779,1474686269926,1475704406483,1475803122988,1471809005658,1475723610576",
   "cpr|Lecture 9 · ECG Essentials Part 1": "nid:1470944202275,1470945292566,1470945298200,1470945305914,1470945329001,1470945336792,1470945344201,1470945364274,1470945367685,1470945381155,1470945656630,1471294048001,1475704559983,1475704576856,1555494970633,1550777458326,1550776962066,1550773188625,1550770289642,1550770886915,1550770912213,1471911022900,1471910984242",
   "cpr|Lecture 10 · ECG Part 2: Blocks & Arrhythmias": "nid:1472147549163,1472147564017,1472147572504,1472147594834,1472147826598,1521073354169,1521917877679,1472147631824,1472147658939,1472147672143,1472147840361,1521073580598,1472147692713,1472147713025,1472147724188,1472147731220,1472147778461,1472147788517,1472147800542,1472147819483,1472147853249,1472147859678,1472147916281,1472147925256,1699902707931,1585167353894,1461598652927,1471551647075,1471552218965,1471552222169,1471552244931,1471552248534,1471552267287,1471552282801,1471552274294,1471552290578,1471552293942,1472265226228,1504142331841,1504142331842,1505674672427,1557526989243,1471999998145,1472091227884,1485042663916,1485197420808,1475704598208,1555275632830,1555275701093,1461767111073,1471880441143,1471880428703,1471880433632,1471898867686,1471899040750,1471899048022,1550522074056,1550522074335,1550522075512,1576535052674,1550770289610,1472160976855,1497716092544,1472087110025,1472087115813,1472261861671,1472261919635,1472261925853,1472265213940,1472265219508,1488768082952,1497748713929,1555275443445,1555275580254,1546265174089",
+  "cpr|Lecture 11 · Microcirculation, Lymphatics & Edema": "nid:1471466713144,1471466721361,1471466729732,1471466733838,1471466751292,1471466759963,1471466769282,1471466778315,1471466782113,1471466790491,1471466801870,1471466831564,1471466870844,1471466878440,1471466881536,1471466884199,1471466893190,1471466900946,1471466908876,1471466916768,1521170206006,1471914938644,1471914942128,1471914954685,1471914969111,1471915101703,1522350837813,1550690800466,1532735591750,1471914999950,1471915047213,1576690231792,1577916403894,1471914925586,1482115575316,1509920166742,1475363769043,1486522767302,1553446019301",
+  "cpr|Lecture 12 · Special Circulation": "nid:1463526145718,1463526153463,1463526209818,1463945003632,1471466918687,1471468263016,1471468280928,1471468280929,1471541620768,1471541638699,1471541651238,1471541654309,1471541666800,1471541670022,1471541683958,1471541699437,1471541716832,1471541719710,1471541722579,1471541725222,1471541734275,1471541737371,1471541747910,1471541808992,1472147398832,1472319909035,1472319911691,1472319917363,1472319923606,1472319929389,1472319935401,1472319948100,1472319954680,1472319957308,1474763351178,1474763357561,1474763361773,1474763369869,1484101535518,1484101540703,1484101545128,1484101551865,1484101557622,1484101563627,1521429313989,1586209943369,1471990276789,1471990295755,1471990316141,1471990336202,1472321235661,1473628217375,1521248804381,1521681348591,1532615863459,1471558899790",
+  "cpr|Lecture 13 · Heart Sounds & Murmurs": "nid:1471289939766,1471294035134,1471294040253,1471294044110,1471294064499,1471294075331,1471294080868,1471294084533,1471294113945,1471294272870,1471294336923,1471294355563,1471294363464,1471294366999,1471552372903,1471552388799,1471552394185,1472147180171,1472147244957,1471554803766,1471558760048,1471558768276,1471558771660,1471558916902,1472058775498,1472058782489,1472058786068,1472058817318,1472058826585,1472058834697,1520817260632,1471558774734,1471558780451,1471558786536,1471558789622,1471558794566,1472058957758,1472058981260,1471558855981,1471558860873,1471558930347,1472058871043,1472058878308,1472058882618,1472058888270,1472058891600,1472058895186,1567787169638,1578627436807,1578627140675,1471558869916,1471558880219,1471558889414,1471558932772,1472058984977,1472058992255,1472058995902,1472059003077,1471899395392,1472078835137,1497045893565,1555272249866,1556148321838,1556206626632,1558031290425,1558031293280",
   "ca|Lecture 1 · Introduction to Thorax & Intercostal Spaces": "nid:1474511972236,1496608604412,1496608680946,1496608819674,1496608419803,1522427952831,1522428732333,1474511953060,1474511955568,1522986512395,1524251536027,1484016863153,1473303030795,1473303017758,1521261423613,1521261423614,1484016858132,1484016867460,1506291111598,1495489589270,1506291152635,1506291250234"
 };
 // UWorld Step 1 question IDs that AnKing tags on this lecture's cards. Key matches ANKING.
@@ -1771,13 +1774,16 @@ const UWORLD = {
   "cpr|Lecture 8 · Regulation of Blood Pressure": "152,157,454,547,686,690,691,692,697,832,1017,1354,1532,1533,1583,1609,1948,6576,6710,6740,7568,7569,11849,15246,15273,15528,17247,18535,21524,108081",
   "cpr|Lecture 9 · ECG Essentials Part 1": "179,1508,6794",
   "cpr|Lecture 10 · ECG Part 2: Blocks & Arrhythmias": "37,84,86,91,574,1976,1977,2055,11842,14743,14744,14745,15390,15555,15693,15765,18630,18889,21457,21472,21478,22787",
+  "cpr|Lecture 11 · Microcirculation, Lymphatics & Edema": "186,198,825,1577,1578,1881,6534,11833,14980,15193,17905,18160,20172,114735",
+  "cpr|Lecture 12 · Special Circulation": "183,315,694,695,951,1493,1494,1516,1587,1751,1833,6519,11956,15197,18618,19523,19525,19526,19534,19535,19541,19636,19674,20476,21124,21356",
+  "cpr|Lecture 13 · Heart Sounds & Murmurs": "33,181,232,235,236,237,238,242,243,246,315,686,939,944,1517,1557,1661,1983,2105,2106,2107,2108,6596,7238,7618,8294,14964,14966,14976,14978,14992,15196,15199,15221,16532,16596,22698,22787",
   "ca|Lecture 1 · Introduction to Thorax & Intercostal Spaces": "647,648,1552,1829,11778,15158,19274"
 };
 // Mehlman HY Cardio page pointers, matched on the question stem and correct answer
 const MEHL_BOOKS = {
   cardio: {name:"HY Cardio", url:"mehlman/HY%20Cardio.pdf", pfx:["cpr","ncp1"]},
   biochem: {name:"HY Biochem", url:"mehlman/HY%20Biochem.pdf", pfx:["cbr","ncb1"]},
-  pulm: {name:"HY Pulmonary", url:"mehlman/HY%20Pulmonary.pdf", pfx:["cbr","ncb1"]},
+  pulm: {name:"HY Pulmonary", url:"mehlman/HY%20Pulmonary.pdf", pfx:["cbr","ncb1","cpr","ncp1"]},
   arrows: {name:"HY Arrows", url:"mehlman/HY%20Arrows.pdf", pfx:["cpr","ncp1","cbr","ncb1"]}
 };
 const MEHL = [
@@ -1830,7 +1836,16 @@ const MEHL = [
   ["biochem", /2,3-BPG|bisphosphoglycerate/i, 12, "2,3-BPG is made from 1,3-BPG in red cells"],
   ["biochem", /carbon monoxide|carboxyhemoglobin|cyanide|complex IV|cytochrome c oxidase/i, 14, "ETC poisons: CO & cyanide at complex IV"],
   ["biochem", /sickle|HbS\b|β6|Glu → Val|valine/i, 5, "Missense mutation: sickle cell Glu → Val"],
-  ["biochem", /thalassemia/i, 6, "β-thalassemia & splice-site mutations"]
+  ["biochem", /thalassemia/i, 6, "β-thalassemia & splice-site mutations"],
+  ["cardio", /mitral (valve )?stenosis|opening snap|rheumatic/i, 7, "Mitral stenosis & the opening snap"],
+  ["cardio", /mitral (valve )?regurg|holosystolic|papillary muscle|v wave/i, 7, "Mitral regurgitation & post-MI papillary rupture"],
+  ["cardio", /aortic (valve )?stenosis|crescendo-decrescendo|bicuspid/i, 8, "Aortic stenosis"],
+  ["cardio", /aortic root|Marfan/i, 8, "Aortic regurgitation & aortic root dilation"],
+  ["cardio", /tricuspid regurg/i, 9, "Tricuspid regurgitation: louder on inspiration"],
+  ["cardio", /patent ductus|ductus arteriosus|indomethacin|machine-like/i, 10, "PDA: continuous machinery murmur & indomethacin"],
+  ["cardio", /left[- ]sided heart failure|right[- ]sided heart failure|left ventricular failure|orthopnea|pulmonary edema|cor pulmonale/i, 3, "Left vs right heart failure & cor pulmonale"],
+  ["cardio", /edema|nephrotic|lymphat|filaria|oncotic/i, 4, "Causes of edema: cardiac, hepatic, renal, lymphatic"],
+  ["pulm", /hypoxic (pulmonary )?vasoconstriction|hypoxia causes vasoconstriction|alveolar (oxygen|PO₂)|not ventilated|cor pulmonale|pulmonary hypertension/i, 17, "COPD: hypoxic vasoconstriction & cor pulmonale"]
 ];
 function mehlFor(q){
   const t = q.s + " " + (q.c && q.c[q.a] || ""), out = [], seen = {};
@@ -2027,7 +2042,7 @@ const GUIDES = {
         ["msk-biochem","MSK Biochemistry","Glycolysis, glycogen & storage diseases, GAGs, collagen & elastin",4],
         ["msk-anatomy","MSK Anatomy","Upper & lower limb: plexus, nerve injuries, compartments, joints, vessels",6],
         ["msk-embryology","MSK Embryology","Bone formation, growth plate, vertebrae, skull & sutures, limbs, skin",3]],
-  crs: [["crs-biochem","CRS Biochemistry NBME guide","High-yield, commonly tested NBME content · Lecture 1–8 · grows with each lecture",0],["crs-physiology","CRS Physiology NBME guide","High-yield, commonly tested NBME content · Lecture 1–10 · grows with each lecture",0],["crs-histology","CRS Histology NBME guide","Every slide from Lectures 1–4: smooth & cardiac muscle, arteries, capillaries & veins, blood",0],["crs-anatomy","CRS Anatomy NBME guide","Thorax, Lectures 1–11: chest wall, mediastinum, heart, pericardium, lungs, airways, diaphragm, esophagus, radiology, clinicals",0]]
+  crs: [["crs-biochem","CRS Biochemistry NBME guide","High-yield, commonly tested NBME content · Lecture 1–8 · grows with each lecture",0],["crs-physiology","CRS Physiology NBME guide","High-yield, commonly tested NBME content · Lecture 1–13 · grows with each lecture",0],["crs-histology","CRS Histology NBME guide","Every slide from Lectures 1–4: smooth & cardiac muscle, arteries, capillaries & veins, blood",0],["crs-anatomy","CRS Anatomy NBME guide","Thorax, Lectures 1–11: chest wall, mediastinum, heart, pericardium, lungs, airways, diaphragm, esophagus, radiology, clinicals",0]]
 };
 function guideCards(list){
   return `<div class="gdgrid">` + list.map(([f,nm,desc,pg])=>`<div class="gdcard"><div class="gdi">${NVI.guide}</div><div class="gdt"><b>${esc(nm)}</b><small>${esc(desc)}</small><span class="gdm">${pg?"PDF":"Read on site or download as PDF · updated each lecture"}</span></div>
@@ -2042,7 +2057,7 @@ function renderGuideView(){
     <div class="gvhead"><h2>${esc(nm)}</h2><p class="sub">${esc(desc)}</p><div class="gvleg"><span><span class="hy">Red</span> = extra high yield (classic NBME)</span><span>Black/white = core content</span><span class="mn">Italic = mnemonic</span></div></div>`;
   if (!window.GUIDE_HTML) {
     showPage(`<div class="page gview">${top}<div class="emptybox"><p>Loading study guide…</p></div></div>`);
-    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=18";
+    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=19";
       sc.onload = ()=>{ guideLoading = false; if (view==="guide") renderGuideView(); };
       sc.onerror = ()=>{ guideLoading = false; toast("Couldn't load the study guide — check your connection"); };
       document.head.appendChild(sc); }
@@ -2063,7 +2078,7 @@ async function guidePdf(f, btn){
   const nm = info.g[1].replace(/ NBME guide$/,""), desc = info.g[2], old = btn.innerHTML;
   btn.dataset.busy = "1"; btn.innerHTML = "Preparing PDF…";
   try {
-    if (!window.GUIDE_HTML) await gpdfScript("guides.js?v=18");
+    if (!window.GUIDE_HTML) await gpdfScript("guides.js?v=19");
     for (const s of GPDF_LIBS) await gpdfScript(s);
     const yr = new Date().getFullYear(), RED = "#c00000", NAVY = "#0b2447";
     let ghtml = window.GUIDE_HTML[f] || "";
@@ -3050,7 +3065,7 @@ function splitShow(src){
   if (k==="u") { const [url, t] = v.split("|"); frame(url, t||"Study tool"); return; }
   if (k==="g") {
     if (!window.GUIDE_HTML) { b.innerHTML = `<div class="spempty">Loading study guide…</div>`;
-      const sc = document.createElement("script"); sc.src = "guides.js?v=18"; sc.onload = ()=>{ if (splitSrc==="g:"+v) splitShow(splitSrc); }; document.head.appendChild(sc); return; }
+      const sc = document.createElement("script"); sc.src = "guides.js?v=19"; sc.onload = ()=>{ if (splitSrc==="g:"+v) splitShow(splitSrc); }; document.head.appendChild(sc); return; }
     b.innerHTML = `<article class="gvbody">${window.GUIDE_HTML[v] || "<p>Study guide not found.</p>"}</article>`; fixImgs && fixImgs(b); b.scrollTop = 0; }
 }
 document.addEventListener("click", e=>{ const b = e.target.closest && e.target.closest("[data-split]"); if (!b) return; e.preventDefault(); $("side").classList.remove("open"); splitToggle(); });
@@ -5104,7 +5119,7 @@ window.JJ_STATS = function(st){
 // Welcome screen: shown every time the page loads.
 // ---- Updates: version.json says which version is live. When it's newer than this page, a card offers a refresh
 // (skips the logo intro). After a refresh to a new version, "What's new" lists every change since the last one seen.
-const JJ_VERSION = "2026-11-22a";
+const JJ_VERSION = "2026-11-23a";
 const UPD_ICON = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>';
 let updLater = "";
 async function updFetch(){ const r = await fetch("version.json?t=" + Date.now(), {cache:"no-store"}); if (!r.ok) throw new Error(r.status); return r.json(); }

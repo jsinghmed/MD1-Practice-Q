@@ -13865,5 +13865,2355 @@ Object.assign(window.JJ_FU, {
 ]
 }
 ]
+},
+"cpr530": {
+"k": "Velocity and cross-sectional area",
+"q": [
+{
+"id": "cpr530-f1",
+"lv": "Easy",
+"s": "Which vessel segment has the largest total cross-sectional area in the circulation?",
+"c": [
+"The large arteries",
+"The arterioles",
+"The capillaries",
+"The aorta",
+"The venae cavae"
+],
+"a": 2,
+"e": "Velocity = flow ÷ total cross-sectional area. Billions of capillaries in parallel give the largest total area, so velocity is lowest there and exchange has time to occur.\n\nTakeaway: Largest total area = capillaries = slowest flow.",
+"w": [
+"Large arteries have a small total area and fast flow.",
+"Arterioles are numerous but their total area is less than capillaries.",
+"",
+"The aorta has the smallest total area and the fastest velocity.",
+"The venae cavae have a small total area compared with capillaries."
+]
+},
+{
+"id": "cpr530-f2",
+"lv": "Hard",
+"s": "In a model of the circulation, total flow is 5 L/min at every level. The aorta has an area of 4 cm² and the capillary bed 4,000 cm². How does capillary velocity compare with aortic velocity?",
+"c": [
+"It is the same at every level",
+"It is 1,000 times faster",
+"It is 1,000 times slower",
+"It is 10 times faster",
+"It is 100 times slower"
+],
+"a": 2,
+"e": "Velocity = Q ÷ A. Flow is the same, but the area is 1,000 times larger in the capillaries, so velocity is 1,000 times lower. Slow transit through a thin wall close to cells is ideal for exchange.\n\nTakeaway: Velocity is inversely proportional to total cross-sectional area.",
+"w": [
+"Velocity changes with area even though flow is constant.",
+"Larger area means slower, not faster, velocity.",
+"",
+"Capillary flow is slower, not faster.",
+"The ratio of areas is 1,000, not 100."
+]
+}
+]
+},
+"cpr531": {
+"k": "Routes across the capillary wall",
+"q": [
+{
+"id": "cpr531-f1",
+"lv": "Easy",
+"s": "Glucose and Na⁺ are water soluble. How do they mainly cross a continuous capillary wall?",
+"c": [
+"By active transport into the interstitium",
+"Directly through the lipid bilayer",
+"Only by vesicular transcytosis",
+"By binding to plasma albumin",
+"Through water-filled clefts between cells"
+],
+"a": 4,
+"e": "Water-soluble substances cannot dissolve in the lipid membrane, so they diffuse through the water-filled pores (clefts) between endothelial cells. Lipid-soluble gases cross the cells directly.\n\nTakeaway: Water-soluble = pores; lipid-soluble = through the cell membrane.",
+"w": [
+"Capillary exchange of these solutes is passive diffusion.",
+"Charged and polar solutes do not cross the lipid bilayer easily.",
+"Transcytosis is mainly for some larger proteins.",
+"Binding to albumin would keep them in plasma.",
+""
+]
+},
+{
+"id": "cpr531-f2",
+"lv": "Hard",
+"s": "During exercise, O₂ delivery to muscle rises far more than the number of open water-filled clefts would allow. What property of O₂ explains why its exchange is not limited by the clefts?",
+"c": [
+"It is carried through clefts by plasma proteins",
+"It needs fenestrations to leave the capillary",
+"It dissolves in and crosses the cell membranes",
+"It moves by transcytosis in vesicles",
+"It is actively pumped across endothelial cells"
+],
+"a": 2,
+"e": "O₂ is lipid soluble, so it diffuses across the entire endothelial membrane surface, not just the small area of clefts. This makes its exchange very fast and limited mainly by flow.\n\nTakeaway: Lipid-soluble O₂ and CO₂ use the whole capillary surface for diffusion.",
+"w": [
+"Plasma proteins do not carry O₂ through clefts.",
+"Continuous capillaries let O₂ out without fenestrations.",
+"",
+"Vesicles carry proteins, not dissolved gases.",
+"O₂ crosses by passive diffusion, not a pump."
+]
+}
+]
+},
+"cpr532": {
+"k": "Filtration coefficient Kf",
+"q": [
+{
+"id": "cpr532-f1",
+"lv": "Easy",
+"s": "What two properties of a capillary bed does the filtration coefficient Kf combine?",
+"c": [
+"Plasma protein level and lymph flow rate",
+"Water permeability and surface area",
+"Hydrostatic and oncotic pressures together",
+"Heart rate and ventricular stroke volume",
+"Flow velocity and the vessel radius"
+],
+"a": 1,
+"e": "Kf = hydraulic permeability × surface area of the capillary bed. It multiplies the net Starling pressure to give fluid flux (Jv = Kf × NFP).\n\nTakeaway: Kf reflects how leaky and how large the capillary bed is.",
+"w": [
+"Lymph flow removes filtrate; it is not part of Kf.",
+"",
+"These are the Starling forces Kf multiplies.",
+"Heart rate and stroke volume set cardiac output.",
+"Radius and velocity are hemodynamic terms, not Kf."
+]
+},
+{
+"id": "cpr532-f2",
+"lv": "Hard",
+"s": "Two capillary beds have the same net filtration pressure of 10 mmHg, but bed X filters ten times more fluid than bed Y. Which statement best explains this?",
+"c": [
+"Bed X has a much higher Kf",
+"Bed Y has more lymphatic vessels",
+"Bed X has a lower blood flow",
+"Bed Y has a higher hydrostatic pressure",
+"Bed X has a higher plasma oncotic pressure"
+],
+"a": 0,
+"e": "Fluid flux = Kf × NFP. With the same NFP, a tenfold difference in flux must come from a tenfold difference in Kf. Glomerular capillaries are the example of a very high Kf, and brain capillaries of a very low one.\n\nTakeaway: Same NFP but different flux means different Kf.",
+"w": [
+"",
+"Lymphatics remove filtrate; they do not set filtration rate.",
+"Flow does not appear in the flux equation.",
+"NFP is the same, so hydrostatic pressures are already accounted for.",
+"Higher plasma oncotic pressure would lower NFP, which is equal here."
+]
+}
+]
+},
+"cpr533": {
+"k": "Net filtration pressure calculation",
+"q": [
+{
+"id": "cpr533-f1",
+"lv": "Easy",
+"s": "Using NFP = (Pc + πif) − (πp + Pif), what is the NFP when Pc = 25, πif = 5, πp = 25 and Pif = 0 mmHg?",
+"c": [
+"+55 mmHg, favoring filtration",
+"0 mmHg, no net movement",
+"+5 mmHg, favoring filtration",
+"+25 mmHg, favoring filtration",
+"−5 mmHg, favoring absorption"
+],
+"a": 2,
+"e": "Outward = 25 + 5 = 30. Inward = 25 + 0 = 25. NFP = 30 − 25 = +5 mmHg, so fluid is filtered.\n\nTakeaway: Positive NFP means filtration; negative means absorption.",
+"w": [
+"This adds every force instead of subtracting inward forces.",
+"Interstitial oncotic pressure tips the balance outward.",
+"",
+"This uses only Pc and ignores the others.",
+"Outward forces exceed inward ones, so the sign is positive."
+]
+},
+{
+"id": "cpr533-f2",
+"lv": "Hard",
+"s": "At the venous end of a capillary: Pc 10, πif 8, Pif −3 and πp 28 mmHg. What is the net filtration pressure?",
+"c": [
+"7 mmHg favoring filtration",
+"21 mmHg favoring filtration",
+"7 mmHg favoring absorption",
+"13 mmHg favoring absorption",
+"3 mmHg favoring absorption"
+],
+"a": 2,
+"e": "NFP = (10 + 8) − (28 + (−3)) = 18 − 25 = −7 mmHg. The negative value means reabsorption: Pc has fallen from 30 to 10 while πp stays about 28.\n\nTakeaway: Venous end NFP ≈ −7 mmHg, so fluid is reabsorbed.",
+"w": [
+"The sign is reversed; inward forces win here.",
+"This ignores plasma oncotic pressure.",
+"",
+"13 mmHg comes from entering Pif as +3.",
+"3 mmHg leaves out the interstitial oncotic pressure."
+]
+}
+]
+},
+"cpr534": {
+"k": "Direction of each Starling force",
+"q": [
+{
+"id": "cpr534-f1",
+"lv": "Easy",
+"s": "Which Starling force pushes fluid OUT of the capillary?",
+"c": [
+"Venous end oncotic pull",
+"Positive interstitial pressure",
+"Albumin in the plasma",
+"Plasma oncotic pressure",
+"Capillary hydrostatic pressure"
+],
+"a": 4,
+"e": "Hydrostatic pressure in the capillary is always outward, pushing water into the interstitium. Plasma oncotic pressure from albumin pulls fluid back in.\n\nTakeaway: Pc pushes out; πp pulls in.",
+"w": [
+"Oncotic pull at the venous end draws fluid in.",
+"A positive interstitial pressure pushes fluid back in.",
+"Albumin creates the inward oncotic pull.",
+"Plasma oncotic pressure pulls fluid into the capillary.",
+""
+]
+},
+{
+"id": "cpr534-f2",
+"lv": "Hard",
+"s": "A patient's plasma albumin rises after a large albumin infusion, while all other Starling forces stay the same. What happens to net filtration across his capillaries?",
+"c": [
+"It falls because inward oncotic pull rises",
+"It is unchanged because Kf is unchanged",
+"It falls because interstitial pressure rises",
+"It rises because interstitial oncotic pressure rises",
+"It rises because hydrostatic pressure rises"
+],
+"a": 0,
+"e": "Albumin is the main source of plasma oncotic pressure. More albumin raises πp, increasing the inward pull, so net filtration falls and more fluid is reabsorbed.\n\nTakeaway: ↑ albumin → ↑ πp → ↓ filtration.",
+"w": [
+"",
+"Flux depends on NFP as well as Kf.",
+"Interstitial pressure was held constant.",
+"Interstitial protein was not changed.",
+"Hydrostatic pressure was held constant."
+]
+}
+]
+},
+"cpr535": {
+"k": "Pc along the capillary",
+"q": [
+{
+"id": "cpr535-f1",
+"lv": "Easy",
+"s": "Approximately what is capillary hydrostatic pressure at the arterial end and at the venous end?",
+"c": [
+"About 28 at both ends",
+"About 0 and about −3 mmHg",
+"About 30 and about 10 mmHg",
+"About 100 and about 30 mmHg",
+"About 10 and about 30 mmHg"
+],
+"a": 2,
+"e": "Pressure falls along the capillary as energy is used to overcome resistance, from about 30 mmHg at the arterial end to about 10 mmHg at the venous end.\n\nTakeaway: Pc ≈ 30 → 10 mmHg along the capillary.",
+"w": [
+"28 mmHg is plasma oncotic pressure, which stays constant.",
+"These resemble interstitial pressures.",
+"",
+"100 mmHg is aortic mean pressure, not capillary.",
+"The pressure falls, not rises, toward the venule."
+]
+},
+{
+"id": "cpr535-f2",
+"lv": "Hard",
+"s": "Arteriolar dilation during exercise raises capillary hydrostatic pressure along the whole capillary. What happens to the point where filtration changes to absorption?",
+"c": [
+"It stays exactly where it was",
+"Filtration stops completely",
+"It shifts toward the arterial end",
+"Absorption then occurs throughout",
+"It shifts toward the venous end"
+],
+"a": 4,
+"e": "Raising Pc everywhere means outward forces exceed inward ones over a longer distance, so filtration continues further along and the switch to absorption moves toward the venule. Net filtration and lymph flow rise.\n\nTakeaway: ↑ Pc extends the filtering segment and raises net filtration.",
+"w": [
+"The balance point depends on Pc, which has changed.",
+"Higher Pc increases, not stops, filtration.",
+"Higher Pc moves the switch point the other way.",
+"Higher Pc favors filtration, not absorption.",
+""
+]
+}
+]
+},
+"cpr536": {
+"k": "Nephrotic syndrome and Starling forces",
+"q": [
+{
+"id": "cpr536-f1",
+"lv": "Easy",
+"s": "Which Starling force falls first in nephrotic syndrome?",
+"c": [
+"Capillary permeability",
+"Capillary hydrostatic pressure",
+"Interstitial hydrostatic pressure",
+"Lymphatic flow",
+"Plasma oncotic pressure"
+],
+"a": 4,
+"e": "Nephrotic syndrome causes heavy loss of albumin in the urine, so plasma albumin falls and plasma oncotic pressure drops. Less fluid is pulled back, causing edema.\n\nTakeaway: Nephrotic syndrome → ↓ albumin → ↓ πp → edema.",
+"w": [
+"Systemic capillary permeability is not the primary change.",
+"Pc is not the primary change in nephrotic syndrome.",
+"Interstitial pressure rises later as fluid accumulates.",
+"Lymph flow actually rises to try to clear the fluid.",
+""
+]
+},
+{
+"id": "cpr536-f2",
+"lv": "Hard",
+"s": "A child with nephrotic syndrome has venous-end values of Pc 10, πif 4, Pif 0 and πp 12 mmHg. What is the net filtration pressure there?",
+"c": [
+"2 mmHg favoring filtration",
+"22 mmHg favoring absorption",
+"14 mmHg favoring filtration",
+"2 mmHg favoring absorption",
+"6 mmHg favoring filtration"
+],
+"a": 0,
+"e": "NFP = (10 + 4) − (12 + 0) = 14 − 12 = +2 mmHg. With low albumin, even the venous end filters instead of reabsorbing.\n\nTakeaway: Low πp turns venous-end absorption into filtration.",
+"w": [
+"",
+"This adds πp to the outward side.",
+"This ignores plasma oncotic pressure.",
+"Outward forces of 14 exceed inward forces of 12.",
+"6 mmHg leaves out the interstitial oncotic pressure."
+]
+}
+]
+},
+"cpr537": {
+"k": "Daily fluid balance",
+"q": [
+{
+"id": "cpr537-f1",
+"lv": "Easy",
+"s": "About how much fluid is filtered from systemic capillaries each day?",
+"c": [
+"About 180 L",
+"About 5 L",
+"About 20 L",
+"About 3 L",
+"About 1 L"
+],
+"a": 2,
+"e": "About 20 L/day is filtered at systemic capillaries. About 16–18 L is reabsorbed and 2–4 L returns through the lymphatics.\n\nTakeaway: 20 L filtered, about 17 reabsorbed, about 3 by lymph.",
+"w": [
+"180 L is the glomerular filtration rate.",
+"5 L is roughly cardiac output per minute.",
+"",
+"3 L is the amount carried by lymph.",
+"1 L is far too low."
+]
+},
+{
+"id": "cpr537-f2",
+"lv": "Hard",
+"s": "In a patient, capillaries filter 20 L/day and reabsorb 17 L/day, but lymphatic return falls to 1 L/day. How much fluid accumulates in the interstitium per day?",
+"c": [
+"About 2 L",
+"About 3 L",
+"About 1 L",
+"About 17 L",
+"None at all"
+],
+"a": 0,
+"e": "Net fluid left in the interstitium = filtered − reabsorbed = 3 L. Lymph removes only 1 L, so about 2 L/day accumulates, producing edema.\n\nTakeaway: Edema develops when filtration exceeds reabsorption plus lymph flow.",
+"w": [
+"",
+"3 L is the excess before lymph removes any.",
+"1 L is what lymph removes, not what stays.",
+"17 L is reabsorbed by capillaries.",
+"Lymph cannot clear all 3 L, so fluid builds up."
+]
+}
+]
+},
+"cpr538": {
+"k": "Lacteals and chylomicrons",
+"q": [
+{
+"id": "cpr538-f1",
+"lv": "Easy",
+"s": "What are lacteals?",
+"c": [
+"Bile ducts within the liver lobule",
+"Veins draining the small bowel wall",
+"Blood capillaries in the intestinal villi",
+"Glands that secrete digestive enzymes",
+"Lymphatic capillaries in intestinal villi"
+],
+"a": 4,
+"e": "Lacteals are the lymphatic capillaries in the intestinal villi. They absorb chylomicrons, carrying dietary fat into the lymph and then the thoracic duct.\n\nTakeaway: Lacteals = intestinal lymphatics for fat absorption.",
+"w": [
+"Bile ducts drain bile, not fat.",
+"Intestinal veins drain to the portal vein.",
+"Villus blood capillaries absorb sugars and amino acids.",
+"Exocrine glands secrete enzymes.",
+""
+]
+},
+{
+"id": "cpr538-f2",
+"lv": "Hard",
+"s": "After a fatty meal, a sample of thoracic duct lymph looks milky white. What gives it this appearance?",
+"c": [
+"Albumin leaked from capillaries",
+"Chylomicrons absorbed by lacteals",
+"Bile salts from the liver",
+"White blood cells from lymph nodes",
+"Glucose absorbed from the gut"
+],
+"a": 1,
+"e": "Dietary fat is packaged into chylomicrons in enterocytes and enters lacteals. The fat-rich lymph (chyle) flows to the thoracic duct and looks milky.\n\nTakeaway: Milky chyle = chylomicrons carried by intestinal lymph.",
+"w": [
+"Albumin is clear in solution.",
+"",
+"Bile salts are not in lymph.",
+"Lymphocytes do not make lymph milky.",
+"Glucose goes to the portal blood."
+]
+}
+]
+},
+"cpr539": {
+"k": "Lymphedema",
+"q": [
+{
+"id": "cpr539-f1",
+"lv": "Easy",
+"s": "Which parasite causes lymphatic obstruction and massive lymphedema (elephantiasis)?",
+"c": [
+"Schistosoma mansoni",
+"Giardia lamblia",
+"Wuchereria bancrofti",
+"Trypanosoma cruzi",
+"Plasmodium falciparum"
+],
+"a": 2,
+"e": "Filarial worms such as Wuchereria bancrofti live in lymphatics and block lymph flow. Fluid and protein accumulate, causing lymphedema and, over years, elephantiasis.\n\nTakeaway: Filariasis and lymph node removal cause edema by lymphatic obstruction.",
+"w": [
+"Schistosoma causes portal hypertension and fibrosis.",
+"Giardia causes diarrhea.",
+"",
+"T. cruzi causes Chagas disease.",
+"Plasmodium causes malaria."
+]
+},
+{
+"id": "cpr539-f2",
+"lv": "Hard",
+"s": "In lymphedema, why does the interstitial fluid become rich in protein?",
+"c": [
+"Interstitial cells secrete protein",
+"Lymph nodes release antibodies",
+"The liver produces more albumin",
+"Leaked protein can only leave via lymph",
+"Capillaries suddenly become very leaky to it"
+],
+"a": 3,
+"e": "A small amount of protein leaks out of capillaries all the time and normally returns via lymph. When lymph is blocked, this protein accumulates, raising interstitial oncotic pressure and pulling out more fluid.\n\nTakeaway: Lymphatic obstruction traps protein, worsening the edema.",
+"w": [
+"Interstitial cells are not the main source.",
+"Antibodies are not the main protein.",
+"Liver production does not reach the trapped fluid.",
+"",
+"Capillary permeability is unchanged."
+]
+}
+]
+},
+"cpr540": {
+"k": "Cirrhosis and edema",
+"q": [
+{
+"id": "cpr540-f1",
+"lv": "Easy",
+"s": "Why does liver failure lower plasma oncotic pressure?",
+"c": [
+"The kidney loses more albumin",
+"Capillaries become more permeable",
+"Portal pressure falls",
+"The liver makes less albumin",
+"Lymphatics are obstructed"
+],
+"a": 3,
+"e": "The liver synthesizes albumin, the main source of plasma oncotic pressure. In cirrhosis, synthesis falls, πp drops and fluid leaks out (ascites, edema).\n\nTakeaway: Liver failure → ↓ albumin synthesis → ↓ πp.",
+"w": [
+"Albumin loss in urine is nephrotic syndrome.",
+"Permeability is not the main mechanism.",
+"Portal pressure rises, not falls, in cirrhosis.",
+"",
+"Lymphatics are not obstructed."
+]
+},
+{
+"id": "cpr540-f2",
+"lv": "Hard",
+"s": "Two patients have edema: one with cirrhosis and one with nephrotic syndrome. Which finding do they share?",
+"c": [
+"High serum bilirubin",
+"Blocked lymphatics",
+"Raised jugular venous pressure",
+"Heavy proteinuria",
+"Low serum albumin"
+],
+"a": 4,
+"e": "Both lower plasma albumin: cirrhosis by reduced synthesis and nephrotic syndrome by urinary loss. Low albumin lowers πp, causing edema by the same Starling mechanism.\n\nTakeaway: Cirrhosis and nephrotic syndrome share low albumin and low πp.",
+"w": [
+"Bilirubin rises in liver disease, not nephrotic syndrome.",
+"Lymphatic obstruction is a different cause.",
+"JVP is raised in right heart failure.",
+"Heavy proteinuria is only in nephrotic syndrome.",
+""
+]
+}
+]
+},
+"cpr541": {
+"k": "Increased permeability",
+"q": [
+{
+"id": "cpr541-f1",
+"lv": "Easy",
+"s": "Which cause of edema works by increasing capillary permeability?",
+"c": [
+"Filariasis",
+"Inflammation",
+"Heart failure",
+"Liver cirrhosis",
+"Nephrotic syndrome"
+],
+"a": 1,
+"e": "Inflammation and burns release mediators that make capillaries leaky, so fluid and protein escape. Heart failure raises Pc, nephrotic syndrome and cirrhosis lower πp, and filariasis blocks lymph.\n\nTakeaway: Burns and inflammation = ↑ permeability.",
+"w": [
+"Filariasis obstructs lymphatics.",
+"",
+"Heart failure raises capillary hydrostatic pressure.",
+"Cirrhosis lowers plasma oncotic pressure.",
+"Nephrotic syndrome lowers plasma oncotic pressure."
+]
+},
+{
+"id": "cpr541-f2",
+"lv": "Hard",
+"s": "After a severe burn, why does edema fluid contain much more protein than edema fluid from heart failure?",
+"c": [
+"Leaky capillaries let protein escape",
+"Lymphatics add protein after burns",
+"Heart failure lowers capillary pressure",
+"Heart failure fluid is filtered twice",
+"Burns raise plasma albumin levels"
+],
+"a": 0,
+"e": "In burns, damaged endothelium lets protein escape with water (exudate). In heart failure, the wall is intact and high hydrostatic pressure pushes out mainly water (transudate).\n\nTakeaway: ↑ permeability gives protein-rich edema; ↑ Pc gives protein-poor edema.",
+"w": [
+"",
+"Lymphatics remove, not add, protein.",
+"Heart failure raises capillary pressure.",
+"Fluid is not filtered twice.",
+"Burns tend to lower plasma protein."
+]
+}
+]
+},
+"cpr542": {
+"k": "Nephrotic vs other edema",
+"q": [
+{
+"id": "cpr542-f1",
+"lv": "Easy",
+"s": "Which is the classic triad of nephrotic syndrome?",
+"c": [
+"Heavy proteinuria, hypoalbuminemia, edema",
+"Hematuria, hypertension, oliguria and casts",
+"Fever, rash, joint pain and fatigue",
+"Polyuria, polydipsia and weight loss",
+"Jaundice, ascites and encephalopathy"
+],
+"a": 0,
+"e": "Nephrotic syndrome causes proteinuria over 3.5 g/day, low serum albumin and edema (plus hyperlipidemia). Low albumin lowers πp.\n\nTakeaway: Nephrotic = protein out, albumin down, edema.",
+"w": [
+"",
+"This describes nephritic syndrome.",
+"These are features of inflammatory disease.",
+"These describe diabetes mellitus.",
+"These describe liver failure."
+]
+},
+{
+"id": "cpr542-f2",
+"lv": "Hard",
+"s": "Which pair of conditions cause edema through different Starling mechanisms?",
+"c": [
+"Burns and inflammation",
+"Venous obstruction and left heart failure",
+"Filariasis and lymph node removal",
+"Right heart failure and liver failure",
+"Liver failure and nephrotic syndrome"
+],
+"a": 3,
+"e": "RHF raises capillary hydrostatic pressure; liver failure lowers plasma oncotic pressure. The other pairs share mechanisms: liver failure and nephrotic (↓ πp), filariasis and node removal (lymph), burns and inflammation (permeability), venous obstruction and HF (↑ Pc).\n\nTakeaway: Group edema causes by the Starling force they change.",
+"w": [
+"Both increase permeability.",
+"Both raise capillary hydrostatic pressure.",
+"Both obstruct lymphatics.",
+"",
+"Both lower plasma oncotic pressure."
+]
+}
+]
+},
+"cpr543": {
+"k": "Right vs left heart failure signs",
+"q": [
+{
+"id": "cpr543-f1",
+"lv": "Easy",
+"s": "Which sign points to left-sided rather than right-sided heart failure?",
+"c": [
+"Ascites in the abdomen",
+"Pitting edema of both ankles",
+"Tender enlarged liver",
+"Raised jugular venous pressure",
+"Orthopnea with lung crackles"
+],
+"a": 4,
+"e": "LHF backs up into the pulmonary circulation, causing pulmonary edema with crackles, orthopnea and PND. RHF causes systemic venous congestion: raised JVP, dependent edema, hepatomegaly and ascites.\n\nTakeaway: LHF = lungs; RHF = systemic veins.",
+"w": [
+"Ascites is right-sided congestion.",
+"Dependent edema is right-sided congestion.",
+"Hepatomegaly is right-sided congestion.",
+"Raised JVP is right-sided congestion.",
+""
+]
+},
+{
+"id": "cpr543-f2",
+"lv": "Hard",
+"s": "A man with long-standing left heart failure develops ankle edema, a raised JVP and hepatomegaly. What is the most likely reason?",
+"c": [
+"Lymphatic obstruction in both legs",
+"Right heart failure secondary to the left",
+"New-onset nephrotic syndrome with proteinuria",
+"A rise in the plasma albumin level",
+"Development of alcoholic liver cirrhosis"
+],
+"a": 1,
+"e": "The most common cause of right heart failure is left heart failure. Raised pulmonary pressure increases RV afterload until the RV fails, adding systemic venous congestion.\n\nTakeaway: LHF is the most common cause of RHF.",
+"w": [
+"Lymphatic obstruction does not raise the JVP.",
+"",
+"Nothing suggests proteinuria.",
+"More albumin would reduce edema.",
+"Raised JVP points to the heart, not the liver."
+]
+}
+]
+},
+"cpr544": {
+"k": "Left heart failure chain",
+"q": [
+{
+"id": "cpr544-f1",
+"lv": "Easy",
+"s": "In left heart failure, which pressure first rises behind the failing ventricle?",
+"c": [
+"Right atrial pressure",
+"Aortic diastolic pressure",
+"Left atrial pressure",
+"Systemic venous pressure",
+"Portal venous pressure"
+],
+"a": 2,
+"e": "A failing LV ejects less, so LVEDP rises and pressure backs up into the left atrium, then the pulmonary veins and pulmonary capillaries.\n\nTakeaway: LHF backs up LA → pulmonary veins → pulmonary capillaries.",
+"w": [
+"Right atrial pressure rises in RHF.",
+"Aortic pressure is downstream of the LV.",
+"",
+"Systemic venous pressure rises in RHF.",
+"Portal pressure rises with RHF or cirrhosis."
+]
+},
+{
+"id": "cpr544-f2",
+"lv": "Hard",
+"s": "Pulmonary capillary wedge pressure approximates left atrial pressure. In acute LV failure with pulmonary edema, what would the wedge pressure most likely show?",
+"c": [
+"It equals zero",
+"It is markedly reduced",
+"It is normal with a high RA pressure",
+"It is below interstitial pressure",
+"It is markedly raised"
+],
+"a": 4,
+"e": "LV failure raises LVEDP and LA pressure, so wedge pressure is high. The raised pulmonary capillary hydrostatic pressure drives fluid into the lungs.\n\nTakeaway: Cardiogenic pulmonary edema = high wedge pressure.",
+"w": [
+"Wedge pressure is never zero in LV failure.",
+"A low wedge pressure suggests noncardiogenic edema.",
+"Isolated high RA pressure suggests RHF.",
+"Capillary pressure exceeds interstitial pressure here.",
+""
+]
+}
+]
+},
+"cpr545": {
+"k": "Raised JVP",
+"q": [
+{
+"id": "cpr545-f1",
+"lv": "Easy",
+"s": "Which vessel's pressure does the jugular venous pressure reflect?",
+"c": [
+"The portal vein",
+"The aorta",
+"The pulmonary artery",
+"The right atrium",
+"The left atrium"
+],
+"a": 3,
+"e": "The internal jugular vein connects to the SVC and right atrium without valves, so its pressure reflects right atrial pressure.\n\nTakeaway: JVP ≈ right atrial pressure.",
+"w": [
+"The portal vein drains the gut.",
+"The aorta is an artery.",
+"Pulmonary artery pressure is measured by catheter.",
+"",
+"LA pressure is estimated by wedge pressure."
+]
+},
+{
+"id": "cpr545-f2",
+"lv": "Hard",
+"s": "A patient with right heart failure has a raised JVP and swollen ankles. Why is the edema worst in the ankles?",
+"c": [
+"Gravity adds to the raised venous pressure",
+"The ankle veins have no valves at all",
+"The ankle capillaries have the highest Kf",
+"Lymphatics are absent around the ankles",
+"Ankle capillaries lose all of their albumin"
+],
+"a": 0,
+"e": "RHF raises systemic venous pressure. Standing adds hydrostatic pressure from gravity in the lowest parts, so capillary pressure is highest in the ankles and edema is dependent.\n\nTakeaway: RHF edema is dependent because gravity adds to venous pressure.",
+"w": [
+"",
+"Leg veins do have valves.",
+"Kf is not uniquely high at the ankles.",
+"The legs do have lymphatics.",
+"Albumin is not lost locally."
+]
+}
+]
+},
+"cpr551": {
+"k": "Coronary flow timing",
+"q": [
+{
+"id": "cpr551-f1",
+"lv": "Easy",
+"s": "Which layer of the LV wall is most vulnerable to reduced coronary flow?",
+"c": [
+"The subepicardium",
+"The valve leaflets",
+"The pericardium",
+"The subendocardium",
+"The epicardial fat"
+],
+"a": 3,
+"e": "During systole the inner subendocardial layer is compressed most, and its vessels are farthest from the epicardial arteries, so it depends heavily on diastolic flow and becomes ischemic first.\n\nTakeaway: The subendocardium is most vulnerable because systole compresses it most.",
+"w": [
+"The subepicardium is compressed least.",
+"Leaflets are not perfused this way.",
+"The pericardium is not myocardium.",
+"",
+"Fat is not the vulnerable tissue."
+]
+},
+{
+"id": "cpr551-f2",
+"lv": "Hard",
+"s": "On a recording of left coronary artery flow across one cardiac cycle, when is flow lowest?",
+"c": [
+"During early rapid diastolic filling",
+"During isovolumetric contraction",
+"During late diastolic atrial systole",
+"During isovolumetric relaxation",
+"During diastasis in mid diastole"
+],
+"a": 1,
+"e": "As the ventricle begins to contract with the valves closed, wall tension rises sharply and compresses intramyocardial vessels, so LV coronary flow falls to its lowest (can briefly reverse). It peaks in early diastole.\n\nTakeaway: LV coronary flow is lowest in early systole and peaks in early diastole.",
+"w": [
+"Flow peaks in early diastole.",
+"",
+"Atrial systole is late diastole with flow continuing.",
+"Relaxation begins to release compression.",
+"Diastasis is still diastole with good flow."
+]
+}
+]
+},
+"cpr552": {
+"k": "Coronary vasodilators",
+"q": [
+{
+"id": "cpr552-f1",
+"lv": "Easy",
+"s": "Which local metabolites are the most important coronary vasodilators?",
+"c": [
+"Endothelin and norepinephrine",
+"Thromboxane and serotonin",
+"Angiotensin II and vasopressin",
+"Renin and aldosterone",
+"Adenosine and nitric oxide"
+],
+"a": 4,
+"e": "Coronary flow is controlled mainly by local metabolites. When demand rises, adenosine and NO (with hypoxia) dilate coronary arterioles.\n\nTakeaway: Adenosine, NO and hypoxia dilate coronary vessels.",
+"w": [
+"These constrict vessels.",
+"These constrict vessels.",
+"These are vasoconstrictor hormones.",
+"These act on blood volume, not coronary tone.",
+""
+]
+},
+{
+"id": "cpr552-f2",
+"lv": "Hard",
+"s": "A pharmacologic stress test uses an IV drug that mimics the coronary response to exercise by directly dilating coronary arterioles. Which drug fits best?",
+"c": [
+"Adenosine",
+"Vasopressin",
+"Norepinephrine",
+"Angiotensin II",
+"Phenylephrine"
+],
+"a": 0,
+"e": "Adenosine is the local metabolite that dilates coronary arterioles when demand rises. Given IV, it dilates normal coronaries; vessels beyond a stenosis cannot dilate further, revealing ischemia.\n\nTakeaway: Adenosine reproduces metabolic coronary vasodilation.",
+"w": [
+"",
+"Vasopressin constricts vessels.",
+"Norepinephrine is a vasopressor.",
+"Angiotensin II constricts vessels.",
+"Phenylephrine is an α1 agonist constrictor."
+]
+}
+]
+},
+"cpr553": {
+"k": "Tachycardia and diastole",
+"q": [
+{
+"id": "cpr553-f1",
+"lv": "Easy",
+"s": "As heart rate rises, which phase shortens most?",
+"c": [
+"Diastole",
+"Isovolumetric contraction",
+"Both shorten equally",
+"Systole",
+"Ejection"
+],
+"a": 0,
+"e": "Systole stays fairly constant while diastole shortens greatly at high heart rates. Because LV coronary flow happens mainly in diastole, tachycardia reduces coronary perfusion time.\n\nTakeaway: Tachycardia mostly shortens diastole.",
+"w": [
+"",
+"This brief phase changes little.",
+"Diastole shortens far more than systole.",
+"Systole shortens only slightly.",
+"Ejection time shortens only modestly."
+]
+},
+{
+"id": "cpr553-f2",
+"lv": "Hard",
+"s": "Why are beta-blockers useful in a patient with angina?",
+"c": [
+"They raise heart rate and output",
+"Slower rate lengthens diastolic perfusion",
+"They shorten diastolic filling time",
+"They increase myocardial contractility",
+"They directly dilate the coronary arteries"
+],
+"a": 1,
+"e": "Beta-blockers slow the heart, lengthening diastole so the coronaries have more time to fill, and lower O₂ demand by reducing rate and contractility.\n\nTakeaway: Slowing the heart lengthens diastole and improves coronary supply.",
+"w": [
+"They lower heart rate.",
+"",
+"They lengthen diastole.",
+"They reduce contractility.",
+"Their main benefit is not direct coronary dilation."
+]
+}
+]
+},
+"cpr554": {
+"k": "PaCO₂ and cerebral flow",
+"q": [
+{
+"id": "cpr554-f1",
+"lv": "Easy",
+"s": "A patient retains CO₂ during respiratory failure. What happens to his cerebral blood flow?",
+"c": [
+"It stays the same",
+"It increases",
+"It stops",
+"It decreases",
+"It reverses"
+],
+"a": 1,
+"e": "↑ PaCO₂ lowers perivascular pH and dilates cerebral arterioles, so CBF rises, which can raise ICP and cause headache.\n\nTakeaway: ↑ PaCO₂ → cerebral vasodilation → ↑ CBF.",
+"w": [
+"CBF varies roughly linearly with PaCO₂.",
+"",
+"Flow does not stop.",
+"Low CO₂ lowers flow.",
+"Flow does not reverse."
+]
+},
+{
+"id": "cpr554-f2",
+"lv": "Hard",
+"s": "Below what arterial PO₂ does cerebral blood flow start to rise sharply?",
+"c": [
+"About 5 mmHg",
+"About 50 mmHg",
+"About 80 mmHg",
+"About 150 mmHg",
+"About 100 mmHg"
+],
+"a": 1,
+"e": "PaO₂ has little effect on CBF in the normal range. Only when it falls below about 50 mmHg does CBF rise rapidly to protect O₂ delivery to the brain.\n\nTakeaway: Hypoxia raises CBF only when PaO₂ < 50 mmHg.",
+"w": [
+"5 mmHg is incompatible with life.",
+"",
+"80 mmHg is within the flat range.",
+"150 mmHg is above normal.",
+"100 mmHg is normal arterial PO₂."
+]
+}
+]
+},
+"cpr555": {
+"k": "Hyperventilation and ICP",
+"q": [
+{
+"id": "cpr555-f1",
+"lv": "Easy",
+"s": "What happens to PaCO₂ when a patient hyperventilates?",
+"c": [
+"It stays the same",
+"It doubles",
+"It falls",
+"It becomes zero",
+"It rises"
+],
+"a": 2,
+"e": "Increased ventilation removes more CO₂ from the alveoli, so arterial PCO₂ falls, causing respiratory alkalosis and cerebral vasoconstriction.\n\nTakeaway: Hyperventilation lowers PaCO₂.",
+"w": [
+"Ventilation directly affects PaCO₂.",
+"PaCO₂ falls with more ventilation.",
+"",
+"Some CO₂ always remains.",
+"Hypoventilation raises PaCO₂."
+]
+},
+{
+"id": "cpr555-f2",
+"lv": "Hard",
+"s": "Why is hyperventilation used only briefly to lower intracranial pressure?",
+"c": [
+"It greatly increases the production of CSF",
+"It causes immediate bleeding into the brain",
+"It dilates the cerebral arteries over time",
+"Long vasoconstriction risks brain ischemia",
+"It raises the PaCO₂ after only a few minutes"
+],
+"a": 3,
+"e": "Low PaCO₂ constricts cerebral arterioles. This lowers ICP, but too much or too long a reduction in CBF can make the brain ischemic, and the effect wanes as pH re-equilibrates.\n\nTakeaway: Hyperventilation lowers ICP short term at the cost of reduced CBF.",
+"w": [
+"It does not increase CSF production.",
+"It does not directly cause hemorrhage.",
+"The cerebral effect is constriction.",
+"",
+"PaCO₂ stays low while hyperventilating."
+]
+}
+]
+},
+"cpr556": {
+"k": "Cerebral autoregulation",
+"q": [
+{
+"id": "cpr556-f1",
+"lv": "Easy",
+"s": "Over what range of mean arterial pressure is cerebral blood flow kept nearly constant?",
+"c": [
+"About 60 to 140 mmHg",
+"About 140 to 200 mmHg",
+"About 0 to 60 mmHg",
+"About 20 to 40 mmHg",
+"About 80 to 180 mmHg only"
+],
+"a": 0,
+"e": "Cerebral arterioles adjust their resistance so CBF stays constant between about 60 and 140 mmHg MAP. Outside this range, flow follows pressure.\n\nTakeaway: Brain autoregulation: MAP 60–140 mmHg.",
+"w": [
+"",
+"Flow rises with pressure above 140 mmHg.",
+"Flow falls with pressure below 60 mmHg.",
+"This is far below the range.",
+"80–180 mmHg is the renal range on the slide."
+]
+},
+{
+"id": "cpr556-f2",
+"lv": "Hard",
+"s": "A patient with long-standing severe hypertension is treated aggressively and his MAP falls from 160 to 90 mmHg in an hour. He becomes confused. What is the best explanation?",
+"c": [
+"Cerebral vessels cannot dilate in any adult",
+"His cerebral blood flow rose above normal",
+"His arterial PaCO₂ rose sharply overnight",
+"His autoregulatory range has shifted upward",
+"His intracranial pressure fell to zero"
+],
+"a": 3,
+"e": "In chronic hypertension, the autoregulatory curve shifts to higher pressures. A MAP that is normal for others can fall below his lower limit, so CBF drops and he becomes confused.\n\nTakeaway: Chronic hypertension shifts the autoregulation range upward.",
+"w": [
+"Cerebral vessels normally can dilate.",
+"CBF falls, not rises, here.",
+"Nothing suggests CO₂ retention.",
+"",
+"ICP does not fall to zero."
+]
+}
+]
+},
+"cpr557": {
+"k": "Cushing reflex",
+"q": [
+{
+"id": "cpr557-f1",
+"lv": "Easy",
+"s": "What is the Cushing triad?",
+"c": [
+"Hypotension, tachycardia and high fever",
+"Fever, rash and pain in the large joints",
+"Hypotension, bradycardia and heavy polyuria",
+"High BP, slow pulse and irregular breathing",
+"Hypertension, tachycardia and a high fever"
+],
+"a": 3,
+"e": "Raised ICP lowers cerebral perfusion, triggering a sympathetic surge (hypertension). Baroreceptors respond with bradycardia, and brainstem compression causes irregular respirations.\n\nTakeaway: Cushing triad = hypertension, bradycardia, irregular respiration.",
+"w": [
+"This pattern suggests shock or sepsis.",
+"This is not the Cushing reflex.",
+"Blood pressure rises in the Cushing reflex.",
+"",
+"Bradycardia, not tachycardia, is part of the triad."
+]
+},
+{
+"id": "cpr557-f2",
+"lv": "Hard",
+"s": "In the Cushing reflex, what is the purpose of the sympathetic surge that raises blood pressure?",
+"c": [
+"To lower intracranial pressure directly",
+"To increase the absorption of CSF",
+"To restore cerebral perfusion pressure",
+"To slow the heart rate directly via the SA node",
+"To dilate the large cerebral veins"
+],
+"a": 2,
+"e": "CPP = MAP − ICP. When ICP rises, CPP falls. Raising MAP through α-adrenergic vasoconstriction tries to restore CPP and brainstem blood flow.\n\nTakeaway: The Cushing reflex raises MAP to keep CPP up.",
+"w": [
+"Raising MAP does not lower ICP.",
+"It does not target CSF absorption.",
+"",
+"Sympathetic activity speeds, not slows, the heart.",
+"It constricts systemic arterioles."
+]
+}
+]
+},
+"cpr558": {
+"k": "Hypoxic pulmonary vasoconstriction",
+"q": [
+{
+"id": "cpr558-f1",
+"lv": "Easy",
+"s": "What is the purpose of hypoxic pulmonary vasoconstriction?",
+"c": [
+"To increase cardiac output",
+"To increase alveolar ventilation",
+"To lower pulmonary pressure",
+"To match perfusion to ventilation",
+"To raise the systemic blood pressure"
+],
+"a": 3,
+"e": "Constricting vessels next to poorly ventilated alveoli diverts blood to well-ventilated alveoli, improving V/Q matching and arterial O₂.\n\nTakeaway: HPV redirects blood to ventilated alveoli.",
+"w": [
+"It does not aim to raise cardiac output.",
+"It changes perfusion, not ventilation.",
+"It raises, not lowers, local pulmonary resistance.",
+"",
+"It acts locally in the lung, not on systemic pressure."
+]
+},
+{
+"id": "cpr558-f2",
+"lv": "Hard",
+"s": "At high altitude, alveolar PO₂ falls in all parts of both lungs at once. What is the expected effect on pulmonary artery pressure?",
+"c": [
+"It falls from widespread vasodilation",
+"It falls because cardiac output drops",
+"It rises from widespread vasoconstriction",
+"It rises only in a single lobe",
+"It stays normal because of autoregulation"
+],
+"a": 2,
+"e": "When hypoxia is global, HPV happens everywhere, raising total pulmonary vascular resistance and pulmonary artery pressure. Chronic exposure can cause pulmonary hypertension and RV strain.\n\nTakeaway: Global hypoxia → generalized HPV → pulmonary hypertension.",
+"w": [
+"Hypoxia constricts pulmonary vessels.",
+"Cardiac output usually rises at altitude.",
+"",
+"Global hypoxia affects the whole lung.",
+"The lung does not autoregulate against hypoxia this way."
+]
+}
+]
+},
+"cpr559": {
+"k": "HPV and V/Q",
+"q": [
+{
+"id": "cpr559-f1",
+"lv": "Easy",
+"s": "A lobe of lung is blocked by a mucus plug and is not ventilated. What happens to its arterioles?",
+"c": [
+"They constrict",
+"They are bypassed by shunts",
+"They rupture",
+"They dilate",
+"They stay unchanged"
+],
+"a": 0,
+"e": "Low alveolar PO₂ in the unventilated lobe causes hypoxic vasoconstriction of its arterioles, diverting blood to ventilated alveoli.\n\nTakeaway: Unventilated alveoli → local vasoconstriction.",
+"w": [
+"",
+"Blood is redirected by constriction.",
+"Vessels do not rupture.",
+"Pulmonary vessels constrict to hypoxia.",
+"Hypoxia triggers a response."
+]
+},
+{
+"id": "cpr559-f2",
+"lv": "Hard",
+"s": "Why does a patient with a large pneumonia remain hypoxemic despite hypoxic pulmonary vasoconstriction?",
+"c": [
+"HPV raises the oxygen level in the alveoli",
+"Ventilated alveoli receive no blood at all",
+"Hypoxia dilates all of the pulmonary vessels",
+"HPV stops all flow to the affected lobe",
+"Some blood still flows past airless alveoli"
+],
+"a": 4,
+"e": "HPV reduces but does not abolish flow to consolidated lung. Blood that still passes unventilated alveoli is a shunt and lowers arterial PO₂.\n\nTakeaway: HPV limits but cannot eliminate the shunt.",
+"w": [
+"HPV changes perfusion, not alveolar O₂.",
+"Ventilated alveoli receive more blood.",
+"Hypoxia constricts pulmonary vessels.",
+"Flow is reduced, not stopped.",
+""
+]
+}
+]
+},
+"cpr560": {
+"k": "Chronic hypoxia and cor pulmonale",
+"q": [
+{
+"id": "cpr560-f1",
+"lv": "Easy",
+"s": "Chronic hypoxemia from COPD most directly leads to which cardiac complication?",
+"c": [
+"Cor pulmonale, a right heart failure",
+"Left ventricular hypertrophy and failure",
+"Mitral valve regurgitation",
+"Calcific aortic valve stenosis",
+"A new atrial septal defect"
+],
+"a": 0,
+"e": "Chronic hypoxia causes widespread pulmonary vasoconstriction and pulmonary hypertension. The RV hypertrophies against the high afterload and eventually fails.\n\nTakeaway: COPD → pulmonary hypertension → cor pulmonale.",
+"w": [
+"",
+"LVH follows systemic hypertension or AS.",
+"MR follows valve or LV disease.",
+"AS is a valve disease of aging.",
+"ASD is congenital."
+]
+},
+{
+"id": "cpr560-f2",
+"lv": "Hard",
+"s": "Why does supplemental long-term oxygen improve survival in chronically hypoxemic COPD patients?",
+"c": [
+"It lowers the plasma oncotic pressure",
+"It eases hypoxic pulmonary vasoconstriction",
+"It dilates the systemic arterioles widely",
+"It shortens the diastolic filling time",
+"It increases left ventricular contractility"
+],
+"a": 1,
+"e": "Raising alveolar PO₂ reduces generalized HPV, lowering pulmonary vascular resistance and RV afterload, which slows progression of cor pulmonale.\n\nTakeaway: Oxygen relieves HPV and reduces pulmonary hypertension.",
+"w": [
+"Oxygen does not change oncotic pressure.",
+"",
+"Its key effect is in the pulmonary bed.",
+"It does not shorten diastole.",
+"It does not mainly act on LV contractility."
+]
+}
+]
+},
+"cpr561": {
+"k": "Umbilical vessels",
+"q": [
+{
+"id": "cpr561-f1",
+"lv": "Easy",
+"s": "How many umbilical arteries and veins are normally present?",
+"c": [
+"One artery and one vein",
+"Three arteries and one vein",
+"One artery and two veins",
+"Two arteries and two veins",
+"Two arteries and one vein"
+],
+"a": 4,
+"e": "The umbilical cord normally has two arteries (from the internal iliac arteries, carrying deoxygenated blood) and one vein (carrying oxygenated blood from the placenta).\n\nTakeaway: Two umbilical arteries, one umbilical vein.",
+"w": [
+"There are normally two arteries.",
+"There are only two arteries.",
+"The numbers are reversed.",
+"There is only one vein normally.",
+""
+]
+},
+{
+"id": "cpr561-f2",
+"lv": "Hard",
+"s": "Umbilical arteries carry low-O₂ blood even though they are arteries. Why?",
+"c": [
+"They carry blood from the fetal lungs",
+"They bypass the fetal heart entirely",
+"They carry fetal blood back to the placenta",
+"They receive oxygenated blood from the placenta",
+"They drain the fetal liver"
+],
+"a": 2,
+"e": "Vessels are named by direction relative to the heart, not by O₂ content. Umbilical arteries leave the fetus (from the internal iliacs) and carry deoxygenated blood to the placenta.\n\nTakeaway: Umbilical arteries = deoxygenated blood to placenta.",
+"w": [
+"Fetal lungs are mostly bypassed.",
+"Their blood has passed through the fetal heart.",
+"",
+"Blood from the placenta travels in the umbilical vein.",
+"The liver drains to the IVC."
+]
+}
+]
+},
+"cpr562": {
+"k": "Ductus venosus",
+"q": [
+{
+"id": "cpr562-f1",
+"lv": "Easy",
+"s": "The ductus venosus connects the umbilical vein to which vessel?",
+"c": [
+"The inferior vena cava",
+"The pulmonary artery",
+"The portal vein only",
+"The aorta",
+"The superior vena cava"
+],
+"a": 0,
+"e": "The ductus venosus carries oxygenated umbilical vein blood into the IVC, bypassing the liver sinusoids. After birth it becomes the ligamentum venosum.\n\nTakeaway: Ductus venosus: umbilical vein → IVC, bypassing the liver.",
+"w": [
+"",
+"The ductus arteriosus leaves the pulmonary artery.",
+"It bypasses the liver rather than ending in the portal vein.",
+"The ductus arteriosus joins the aorta.",
+"The SVC drains the head and arms."
+]
+},
+{
+"id": "cpr562-f2",
+"lv": "Hard",
+"s": "What adult structure is the remnant of the ductus venosus?",
+"c": [
+"Fossa ovalis",
+"Ligamentum venosum",
+"Ligamentum teres hepatis",
+"Medial umbilical ligament",
+"Ligamentum arteriosum"
+],
+"a": 1,
+"e": "The ductus venosus closes after birth and becomes the ligamentum venosum. The umbilical vein becomes the ligamentum teres, and the ductus arteriosus becomes the ligamentum arteriosum.\n\nTakeaway: Ductus venosus → ligamentum venosum.",
+"w": [
+"This is the remnant of the foramen ovale.",
+"",
+"This is the remnant of the umbilical vein.",
+"This is the remnant of the umbilical arteries.",
+"This is the remnant of the ductus arteriosus."
+]
+}
+]
+},
+"cpr563": {
+"k": "Closure of the foramen ovale",
+"q": [
+{
+"id": "cpr563-f1",
+"lv": "Easy",
+"s": "What adult structure marks the closed foramen ovale?",
+"c": [
+"Crista terminalis",
+"Coronary sinus",
+"Ligamentum arteriosum",
+"Ligamentum venosum",
+"Fossa ovalis"
+],
+"a": 4,
+"e": "After birth, LA pressure exceeds RA pressure and pushes the flap shut. The sealed opening becomes the fossa ovalis.\n\nTakeaway: Foramen ovale → fossa ovalis.",
+"w": [
+"This is a ridge in the right atrium.",
+"This drains cardiac veins.",
+"This is the ductus arteriosus remnant.",
+"This is the ductus venosus remnant.",
+""
+]
+},
+{
+"id": "cpr563-f2",
+"lv": "Hard",
+"s": "Why does the foramen ovale stay open before birth?",
+"c": [
+"High fetal PaO₂ keeps it open",
+"Prostaglandins hold it open",
+"LA pressure exceeds RA pressure",
+"RA pressure exceeds LA pressure",
+"Pulmonary resistance is very low"
+],
+"a": 3,
+"e": "In the fetus, high pulmonary vascular resistance limits return to the LA, while placental return fills the RA. RA > LA pressure keeps the flap open so oxygenated IVC blood crosses to the left heart.\n\nTakeaway: Fetal RA > LA pressure keeps the foramen ovale open.",
+"w": [
+"Fetal PaO₂ is low.",
+"Prostaglandins keep the ductus arteriosus open.",
+"This relationship closes it after birth.",
+"",
+"Fetal pulmonary resistance is high."
+]
+}
+]
+},
+"cpr564": {
+"k": "Ductus arteriosus closure",
+"q": [
+{
+"id": "cpr564-f1",
+"lv": "Easy",
+"s": "What keeps the ductus arteriosus open in the fetus?",
+"c": [
+"Bradykinin and acidosis",
+"High pulmonary blood flow",
+"Vagal stimulation",
+"Indomethacin and high O₂ levels",
+"Prostaglandin E and low O₂"
+],
+"a": 4,
+"e": "Prostaglandin E (largely from the placenta) and low fetal O₂ tension keep the ductus open. After birth, rising O₂ and falling PGE close it.\n\nTakeaway: PGE + low O₂ keep the ductus open.",
+"w": [
+"These are not the key factors.",
+"Fetal pulmonary flow is low.",
+"Vagal tone does not control the ductus.",
+"Indomethacin and high O₂ close it.",
+""
+]
+},
+{
+"id": "cpr564-f2",
+"lv": "Hard",
+"s": "A newborn has a ductus-dependent congenital heart defect. Which drug keeps the ductus open until surgery?",
+"c": [
+"Indomethacin given intravenously",
+"Alprostadil, a PGE₁ analog",
+"Low-dose aspirin daily",
+"Ibuprofen given IV",
+"High-flow oxygen by mask"
+],
+"a": 1,
+"e": "Alprostadil is a PGE₁ analog that keeps the ductus arteriosus open. NSAIDs such as indomethacin block prostaglandin synthesis and close it.\n\nTakeaway: PGE₁ keeps the PDA open; indomethacin closes it.",
+"w": [
+"Indomethacin closes the ductus.",
+"",
+"Aspirin inhibits prostaglandins.",
+"Ibuprofen is an NSAID that closes it.",
+"High O₂ promotes closure."
+]
+}
+]
+},
+"cpr565": {
+"k": "Exercise hyperemia",
+"q": [
+{
+"id": "cpr565-f1",
+"lv": "Easy",
+"s": "The mnemonic CHALK lists vasodilator metabolites. Which substance on this list is a vasoconstrictor instead?",
+"c": [
+"Potassium",
+"Angiotensin II",
+"Adenosine",
+"Lactate",
+"Carbon dioxide"
+],
+"a": 1,
+"e": "CHALK = CO₂, H⁺, Adenosine, Lactate, K⁺. These metabolites dilate arterioles in active tissue. Angiotensin II is a vasoconstrictor hormone.\n\nTakeaway: CHALK metabolites cause functional hyperemia.",
+"w": [
+"K⁺ is the K in CHALK.",
+"",
+"Adenosine is the A in CHALK.",
+"Lactate is the L in CHALK.",
+"CO₂ is the C in CHALK."
+]
+},
+{
+"id": "cpr565-f2",
+"lv": "Hard",
+"s": "During a sprint, why does skeletal muscle blood flow rise even though sympathetic outflow to the muscle increases?",
+"c": [
+"Muscle arterioles lack α receptors",
+"Local metabolites override α constriction",
+"Sympathetic nerves release vasodilators only",
+"Venous pressure falls to zero",
+"Systemic pressure falls sharply"
+],
+"a": 1,
+"e": "In exercise, CO₂, H⁺, adenosine, lactate and K⁺ accumulate locally and dilate arterioles strongly enough to override sympathetic vasoconstriction (functional sympatholysis), causing active hyperemia.\n\nTakeaway: In exercise, local metabolites beat sympathetic tone.",
+"w": [
+"Muscle arterioles do have α receptors.",
+"",
+"Sympathetic nerves mainly constrict via α1.",
+"Venous pressure does not fall to zero.",
+"MAP usually rises in exercise."
+]
+}
+]
+},
+"cpr566": {
+"k": "Renal autoregulation",
+"q": [
+{
+"id": "cpr566-f1",
+"lv": "Easy",
+"s": "Which two mechanisms autoregulate renal blood flow and GFR?",
+"c": [
+"Adenosine and nitric oxide only",
+"Myogenic tone and tubular feedback",
+"Hypoxic vasoconstriction and CO₂",
+"Sympathetic and parasympathetic nerves",
+"ADH and aldosterone"
+],
+"a": 1,
+"e": "The afferent arteriole constricts when stretched (myogenic) and when the macula densa senses high NaCl (TGF), keeping GFR steady over MAP 80–180 mmHg.\n\nTakeaway: Renal autoregulation = myogenic + TGF.",
+"w": [
+"These are the coronary metabolites.",
+"",
+"These control lung and brain vessels.",
+"Nerves are not the autoregulatory mechanism.",
+"These hormones regulate water and salt."
+]
+},
+{
+"id": "cpr566-f2",
+"lv": "Hard",
+"s": "Renal perfusion pressure falls from 120 to 90 mmHg. How does the myogenic mechanism respond?",
+"c": [
+"Efferent arteriole dilates strongly",
+"Glomerular Kf falls sharply",
+"Macula densa senses high NaCl",
+"Afferent arteriole dilates to keep GFR",
+"Afferent arteriole constricts even further"
+],
+"a": 3,
+"e": "Less pressure means less stretch on the afferent arteriole, so its smooth muscle relaxes. Lower resistance keeps glomerular pressure and GFR near normal.\n\nTakeaway: ↓ pressure → afferent dilation → GFR maintained.",
+"w": [
+"Efferent dilation would lower GFR.",
+"Kf is not the autoregulatory variable.",
+"Lower GFR means less NaCl delivered.",
+"",
+"Constriction would lower GFR further."
+]
+}
+]
+},
+"cpr567": {
+"k": "ACE inhibitors and efferent tone",
+"q": [
+{
+"id": "cpr567-f1",
+"lv": "Easy",
+"s": "Angiotensin II preferentially constricts which arteriole in the kidney?",
+"c": [
+"The interlobar artery",
+"The efferent arteriole",
+"The afferent arteriole",
+"The vasa recta",
+"The arcuate artery"
+],
+"a": 1,
+"e": "Angiotensin II constricts the efferent arteriole more than the afferent, which raises glomerular pressure and helps maintain GFR when renal perfusion is low.\n\nTakeaway: AngII constricts the efferent arteriole to protect GFR.",
+"w": [
+"This is a larger upstream vessel.",
+"",
+"The afferent is affected less at low doses.",
+"The vasa recta are capillaries.",
+"This is a larger upstream vessel."
+]
+},
+{
+"id": "cpr567-f2",
+"lv": "Hard",
+"s": "Which patient is at highest risk of acute kidney injury when started on an ACE inhibitor?",
+"c": [
+"One with diabetic microalbuminuria",
+"One with mild essential hypertension",
+"One with a single kidney cyst",
+"One with bilateral renal artery stenosis",
+"One with heart failure and normal kidneys"
+],
+"a": 3,
+"e": "With bilateral stenosis, GFR depends on angiotensin II constricting efferent arterioles. Removing it lowers glomerular pressure and GFR, causing AKI.\n\nTakeaway: ACE inhibitors can cause AKI in bilateral renal artery stenosis.",
+"w": [
+"ACE inhibitors protect these kidneys.",
+"Mild hypertension is a usual indication.",
+"A simple cyst does not affect perfusion.",
+"",
+"They are standard therapy in heart failure."
+]
+}
+]
+},
+"cpr568": {
+"k": "Skin blood flow",
+"q": [
+{
+"id": "cpr568-f1",
+"lv": "Easy",
+"s": "What mainly controls skin blood flow?",
+"c": [
+"Sympathetic nerves for temperature control",
+"Tubuloglomerular feedback from the kidney",
+"Hypoxic vasoconstriction of skin arterioles",
+"Plasma oncotic pressure in skin capillaries",
+"Local adenosine release from skin cells"
+],
+"a": 0,
+"e": "Skin blood flow is controlled mainly by sympathetic nerves acting for thermoregulation: α constriction conserves heat, and reduced sympathetic tone releases heat.\n\nTakeaway: Skin flow = sympathetic, thermoregulatory.",
+"w": [
+"",
+"TGF controls renal arterioles.",
+"Hypoxic constriction is unique to the lung.",
+"Oncotic pressure governs fluid exchange.",
+"Adenosine controls coronary flow."
+]
+},
+{
+"id": "cpr568-f2",
+"lv": "Hard",
+"s": "At the start of a fever, a patient shivers and his skin is pale and cold. Why?",
+"c": [
+"A raised set point triggers heat conservation",
+"Local metabolites constrict skin vessels",
+"Sympathetic activity to the skin falls",
+"The set point has fallen below body temperature",
+"Skin vessels dilate to lose heat"
+],
+"a": 0,
+"e": "Pyrogens raise the hypothalamic set point. Body temperature is now below it, so the body conserves heat: sympathetic α vasoconstriction in the skin and shivering until the new set point is reached.\n\nTakeaway: Fever raises the set point, so the skin constricts at first.",
+"w": [
+"",
+"Metabolites dilate vessels.",
+"Sympathetic activity rises.",
+"The set point rises, not falls.",
+"Pale, cold skin means constriction."
+]
+}
+]
+},
+"cpr569": {
+"k": "S1 and S2",
+"q": [
+{
+"id": "cpr569-f1",
+"lv": "Easy",
+"s": "Which heart sound marks the start of diastole?",
+"c": [
+"S2",
+"S3",
+"S4",
+"S1",
+"An opening snap"
+],
+"a": 0,
+"e": "S2 is closure of the aortic and pulmonic valves, marking the end of ejection and the start of diastole (isovolumetric relaxation). S1 marks the start of systole.\n\nTakeaway: S1 starts systole; S2 starts diastole.",
+"w": [
+"",
+"S3 occurs in early diastole after S2.",
+"S4 occurs in late diastole before S1.",
+"S1 marks the start of systole.",
+"An opening snap follows S2 in mitral stenosis."
+]
+},
+{
+"id": "cpr569-f2",
+"lv": "Hard",
+"s": "On a Wiggers diagram, S2 coincides with which pressure event?",
+"c": [
+"Atrial pressure rising above LV pressure",
+"Aortic pressure reaching its peak",
+"LV pressure falling below aortic pressure",
+"LV pressure rising above the aortic pressure",
+"LV pressure rising above atrial pressure"
+],
+"a": 2,
+"e": "When the LV relaxes and its pressure drops below aortic pressure, the aortic valve closes: A2 of S2. The rise of LV above atrial pressure closes the mitral valve (S1).\n\nTakeaway: S2 = LV pressure falls below aortic pressure.",
+"w": [
+"This opens the mitral valve in diastole.",
+"Peak aortic pressure occurs during ejection.",
+"",
+"This opens the aortic valve.",
+"This closes the mitral valve, producing S1."
+]
+}
+]
+},
+"cpr570": {
+"k": "Normal splitting",
+"q": [
+{
+"id": "cpr570-f1",
+"lv": "Easy",
+"s": "During inspiration, what happens to venous return to the right heart?",
+"c": [
+"It stays fixed",
+"It stops",
+"It decreases",
+"It reverses",
+"It increases"
+],
+"a": 4,
+"e": "Inspiration lowers intrathoracic pressure, drawing more blood into the thoracic veins and right heart, which delays P2 and louder right-sided murmurs.\n\nTakeaway: Inspiration ↑ venous return to the right heart.",
+"w": [
+"It changes with each breath.",
+"Return continues and increases.",
+"Venous return to the right heart rises.",
+"Flow does not reverse.",
+""
+]
+},
+{
+"id": "cpr570-f2",
+"lv": "Hard",
+"s": "Which murmur becomes louder during inspiration?",
+"c": [
+"Mitral stenosis",
+"Mitral valve regurgitation",
+"Aortic regurgitation",
+"Tricuspid regurgitation",
+"Aortic stenosis"
+],
+"a": 3,
+"e": "Inspiration increases right-sided venous return, so right-sided murmurs such as tricuspid regurgitation get louder (I-R mnemonic). Left-sided murmurs do not.\n\nTakeaway: Inspiration increases right-sided murmurs.",
+"w": [
+"MS is left-sided.",
+"MR is left-sided.",
+"AR is left-sided.",
+"",
+"AS is left-sided."
+]
+}
+]
+},
+"cpr571": {
+"k": "Systolic vs diastolic murmurs",
+"q": [
+{
+"id": "cpr571-f1",
+"lv": "Easy",
+"s": "A valve that does not open properly is described as what?",
+"c": [
+"Regurgitant",
+"Prolapsed",
+"Incompetent",
+"Stenotic",
+"Hypertrophied"
+],
+"a": 3,
+"e": "Stenosis means the valve fails to open fully and obstructs forward flow. Regurgitation (incompetence) means it fails to close fully and leaks backward.\n\nTakeaway: Doesn't open = stenosis; doesn't close = regurgitation.",
+"w": [
+"Regurgitation is failure to close.",
+"Prolapse is ballooning back into the atrium.",
+"Incompetent means it leaks.",
+"",
+"Hypertrophy describes muscle, not valves."
+]
+},
+{
+"id": "cpr571-f2",
+"lv": "Hard",
+"s": "Which murmur occurs during systole?",
+"c": [
+"Aortic regurgitation",
+"Mitral stenosis",
+"Pulmonic stenosis",
+"Tricuspid stenosis",
+"Pulmonic regurgitation"
+],
+"a": 2,
+"e": "In systole the semilunar valves should be open and the AV valves closed. Systolic murmurs: AS, PS (narrow open valves) and MR, TR (leaky closed valves). Diastolic: AR, MS (and PR, TS).\n\nTakeaway: MR. AS S — mitral regurg, aortic stenosis = systolic.",
+"w": [
+"AR leaks during diastole.",
+"MS obstructs diastolic filling.",
+"",
+"TS obstructs diastolic filling.",
+"PR leaks during diastole."
+]
+}
+]
+},
+"cpr572": {
+"k": "Tricuspid regurgitation",
+"q": [
+{
+"id": "cpr572-f1",
+"lv": "Easy",
+"s": "Where is a tricuspid regurgitation murmur best heard?",
+"c": [
+"Left lower sternal border",
+"Cardiac apex",
+"Right upper sternal border",
+"Left infraclavicular area",
+"Left upper sternal border"
+],
+"a": 0,
+"e": "The tricuspid area is the left lower sternal border (4th left ICS). TR is holosystolic there and louder with inspiration.\n\nTakeaway: TR = holosystolic at the LLSB, louder on inspiration.",
+"w": [
+"",
+"The apex is for mitral lesions.",
+"This is the aortic area.",
+"This is where a PDA is heard.",
+"This is the pulmonic area."
+]
+},
+{
+"id": "cpr572-f2",
+"lv": "Hard",
+"s": "A patient who injects drugs has tricuspid endocarditis. Which venous pulse finding is expected with severe TR?",
+"c": [
+"Large systolic v waves in the neck",
+"A deep x descent and nothing else",
+"Cannon a waves with every single beat",
+"A Kussmaul sign on inspiration",
+"Absent jugular venous pulsation"
+],
+"a": 0,
+"e": "In TR, blood is ejected back into the RA during systole, producing large c-v waves in the JVP (and a pulsatile liver).\n\nTakeaway: TR → giant systolic v waves.",
+"w": [
+"",
+"TR blunts the x descent.",
+"Cannon a waves occur with AV dissociation.",
+"Kussmaul sign suggests constriction.",
+"TR raises venous pulsation."
+]
+}
+]
+},
+"cpr573": {
+"k": "S3",
+"q": [
+{
+"id": "cpr573-f1",
+"lv": "Easy",
+"s": "When is an S3 normal?",
+"c": [
+"After a large anterior MI",
+"In severe aortic stenosis",
+"In elderly hypertensive adults",
+"In dilated cardiomyopathy",
+"In children and young adults"
+],
+"a": 4,
+"e": "An S3 can be normal in children, young adults, athletes and pregnancy. In older adults it signals volume overload or heart failure.\n\nTakeaway: S3 is normal when young, pathologic in older adults.",
+"w": [
+"Post-MI S3 suggests heart failure.",
+"AS more often gives an S4.",
+"In older adults an S3 is pathologic.",
+"DCM gives a pathologic S3.",
+""
+]
+},
+{
+"id": "cpr573-f2",
+"lv": "Hard",
+"s": "A 70-year-old has a new S3. What does it most likely indicate?",
+"c": [
+"A stiff, hypertrophied ventricle",
+"A normal finding for his age",
+"Fixed splitting of S2",
+"Aortic valve calcification",
+"Volume overload of the ventricle"
+],
+"a": 4,
+"e": "In older adults, S3 means rapid filling into a dilated, volume-overloaded ventricle, as in heart failure, DCM or MR.\n\nTakeaway: S3 in an adult = volume overload.",
+"w": [
+"A stiff ventricle gives S4.",
+"An adult S3 is abnormal.",
+"Fixed splitting is an S2 finding in ASD.",
+"Calcification causes AS murmur.",
+""
+]
+}
+]
+},
+"cpr574": {
+"k": "S4",
+"q": [
+{
+"id": "cpr574-f1",
+"lv": "Easy",
+"s": "During which part of the cardiac cycle is S4 heard?",
+"c": [
+"Early systole, with AV valve closure",
+"Late diastole, with atrial contraction",
+"Isovolumetric relaxation",
+"Early diastole, with rapid passive filling",
+"Late systole, after ejection"
+],
+"a": 1,
+"e": "S4 is produced when the atrium contracts against a stiff ventricle, in late diastole just before S1.\n\nTakeaway: S4 = atrial kick, late diastole.",
+"w": [
+"AV valve closure produces S1.",
+"",
+"Isovolumetric relaxation is silent apart from S2.",
+"Rapid filling produces S3.",
+"Late systole is before S2."
+]
+},
+{
+"id": "cpr574-f2",
+"lv": "Hard",
+"s": "A patient has atrial fibrillation and severe LV hypertrophy. Why will no S4 be heard?",
+"c": [
+"Diastole is abolished by the fast rate",
+"The ventricle has become too compliant",
+"The aortic valve is closed in diastole",
+"No organized atrial contraction occurs",
+"The mitral valve has become stenotic"
+],
+"a": 3,
+"e": "S4 requires an effective atrial contraction against a stiff ventricle. In atrial fibrillation there is no organized atrial kick, so an S4 cannot occur.\n\nTakeaway: No atrial contraction, no S4.",
+"w": [
+"Diastole still occurs.",
+"LVH makes the ventricle stiff, not compliant.",
+"The aortic valve is normally closed in diastole.",
+"",
+"Nothing suggests mitral stenosis."
+]
+}
+]
+},
+"cpr575": {
+"k": "S3 mechanism",
+"q": [
+{
+"id": "cpr575-f1",
+"lv": "Easy",
+"s": "Which condition most typically produces an S3 in an adult?",
+"c": [
+"Hypertrophic cardiomyopathy",
+"Mild aortic valve sclerosis in age",
+"Acute viral pericarditis with a rub",
+"Long-standing hypertension with LVH",
+"Heart failure with volume overload"
+],
+"a": 4,
+"e": "S3 comes from rapid filling into a dilated, overfilled ventricle: heart failure, DCM, MR or high-output states.\n\nTakeaway: S3 = dilated, overfilled ventricle.",
+"w": [
+"HCM gives an S4.",
+"Sclerosis gives a soft murmur.",
+"Pericarditis gives a friction rub.",
+"LVH gives an S4.",
+""
+]
+},
+{
+"id": "cpr575-f2",
+"lv": "Hard",
+"s": "Why does mitral regurgitation often produce an S3?",
+"c": [
+"Systole is prolonged by the mitral leak",
+"Extra volume refills the LV in early diastole",
+"The stiff mitral valve snaps open loudly",
+"The aortic valve closes late in the cycle",
+"The atrium contracts against a stiff ventricle"
+],
+"a": 1,
+"e": "In MR, blood leaked into the LA during systole returns to the LV in early diastole, so rapid filling volume is large and an S3 results.\n\nTakeaway: MR → large early filling → S3.",
+"w": [
+"Systolic length does not create S3.",
+"",
+"An opening snap is mitral stenosis.",
+"A late A2 relates to splitting.",
+"This describes S4."
+]
+}
+]
+},
+"cpr576": {
+"k": "Aortic stenosis murmur",
+"q": [
+{
+"id": "cpr576-f1",
+"lv": "Easy",
+"s": "Where does the murmur of aortic stenosis radiate?",
+"c": [
+"To the carotid arteries",
+"To the left axilla",
+"It does not radiate",
+"To the back",
+"To the left infraclavicular area"
+],
+"a": 0,
+"e": "AS is a crescendo-decrescendo systolic murmur at the right upper sternal border radiating to the carotids (AS Diamond Radiating Car).\n\nTakeaway: AS radiates to the carotids.",
+"w": [
+"",
+"Radiation to the axilla is MR.",
+"AS typically radiates to the neck.",
+"Radiation to the back suggests coarctation.",
+"This is where a PDA is heard."
+]
+},
+{
+"id": "cpr576-f2",
+"lv": "Hard",
+"s": "Which pulse is typical of severe aortic stenosis?",
+"c": [
+"Paradoxical drop on inspiration",
+"Bisferiens with two peaks only",
+"Bounding with a wide pulse pressure",
+"Weak and delayed, parvus et tardus",
+"Alternating strong and weak beats"
+],
+"a": 3,
+"e": "The narrowed valve limits and slows ejection, so the arterial pulse is weak (parvus) and late-peaking (tardus).\n\nTakeaway: AS → pulsus parvus et tardus.",
+"w": [
+"Pulsus paradoxus suggests tamponade.",
+"Bisferiens suggests AR plus AS or HCM.",
+"Bounding pulses suggest AR.",
+"",
+"Pulsus alternans suggests LV failure."
+]
+}
+]
+},
+"cpr577": {
+"k": "Causes of aortic stenosis",
+"q": [
+{
+"id": "cpr577-f1",
+"lv": "Easy",
+"s": "What symptoms make up the SAD triad of aortic stenosis?",
+"c": [
+"Stroke, anemia and diarrhea",
+"Swelling, ascites and dyspnea",
+"Syncope, arrhythmia and death",
+"Sweating, anxiety and dizziness",
+"Syncope, angina and dyspnea"
+],
+"a": 4,
+"e": "Symptomatic AS presents with syncope, angina and dyspnea on exertion, often with exertion when output cannot rise.\n\nTakeaway: AS = syncope, angina, dyspnea (SAD).",
+"w": [
+"These are not the AS triad.",
+"These suggest right heart failure.",
+"Arrhythmia and death are not the triad.",
+"These are nonspecific.",
+""
+]
+},
+{
+"id": "cpr577-f2",
+"lv": "Hard",
+"s": "A 48-year-old man has symptomatic aortic stenosis with a heavily calcified valve. What underlying cause is most likely at his age?",
+"c": [
+"Mitral valve prolapse",
+"Marfan syndrome with root dilation",
+"Simple age-related wear and tear only",
+"Acute infective endocarditis",
+"A congenital bicuspid aortic valve"
+],
+"a": 4,
+"e": "A bicuspid valve undergoes premature calcification and causes AS around 40–60. Age-related calcification of a trileaflet valve usually presents after 70.\n\nTakeaway: Early AS (40s–50s) suggests a bicuspid valve.",
+"w": [
+"MVP affects the mitral valve.",
+"Marfan causes AR.",
+"Wear and tear presents later.",
+"Endocarditis causes regurgitation.",
+""
+]
+}
+]
+},
+"cpr578": {
+"k": "AS: hypertrophy then failure",
+"q": [
+{
+"id": "cpr578-f1",
+"lv": "Easy",
+"s": "What type of LV hypertrophy develops in aortic stenosis?",
+"c": [
+"Right ventricular hypertrophy only",
+"Septal thinning",
+"No hypertrophy",
+"Concentric hypertrophy",
+"Eccentric hypertrophy"
+],
+"a": 3,
+"e": "Pressure overload from AS adds sarcomeres in parallel, thickening the wall (concentric). Volume overload (AR, MR) causes eccentric hypertrophy.\n\nTakeaway: Pressure overload = concentric hypertrophy.",
+"w": [
+"The LV, not the RV, faces the obstruction.",
+"The septum thickens.",
+"The LV hypertrophies against the high afterload.",
+"",
+"Eccentric hypertrophy follows volume overload."
+]
+},
+{
+"id": "cpr578-f2",
+"lv": "Hard",
+"s": "A patient with severe AS suddenly develops atrial fibrillation and becomes very breathless. Why?",
+"c": [
+"An increased diastolic filling time",
+"Loss of the atrial kick to fill the LV",
+"A lower afterload on the left ventricle",
+"Sudden opening of the stenotic aortic valve",
+"Improved coronary perfusion of the LV"
+],
+"a": 1,
+"e": "In AS the hypertrophied LV is stiff and depends on atrial contraction to fill. AF removes the atrial kick, so filling, stroke volume and output fall and pulmonary pressure rises.\n\nTakeaway: Stiff ventricles depend on the atrial kick.",
+"w": [
+"Fast AF shortens diastole.",
+"",
+"Afterload is unchanged.",
+"The valve does not suddenly open.",
+"Coronary perfusion worsens."
+]
+}
+]
+},
+"cpr579": {
+"k": "MR features",
+"q": [
+{
+"id": "cpr579-f1",
+"lv": "Easy",
+"s": "Where does the murmur of mitral regurgitation radiate?",
+"c": [
+"To the left axilla",
+"To the epigastrium",
+"To the back",
+"To the right sternal border",
+"To the carotids"
+],
+"a": 0,
+"e": "MR is a holosystolic, high-pitched blowing murmur at the apex radiating to the axilla (MR FLAP).\n\nTakeaway: MR radiates to the axilla.",
+"w": [
+"",
+"This is not typical of MR.",
+"This suggests coarctation.",
+"This is not typical of MR.",
+"Carotid radiation is AS."
+]
+},
+{
+"id": "cpr579-f2",
+"lv": "Hard",
+"s": "What type of LV remodeling does chronic mitral regurgitation cause?",
+"c": [
+"Atrophy of the LV wall",
+"No change in the ventricle",
+"Concentric hypertrophy with a small cavity",
+"Eccentric hypertrophy with dilation",
+"Isolated septal hypertrophy"
+],
+"a": 3,
+"e": "MR is volume overload: the LV receives the regurgitant volume back each beat, so it dilates with eccentric hypertrophy and eventually fails (left-sided HF).\n\nTakeaway: Volume overload (MR, AR) = eccentric hypertrophy.",
+"w": [
+"The wall does not atrophy.",
+"The LV must adapt to the extra volume.",
+"Concentric change follows pressure overload.",
+"",
+"Septal hypertrophy suggests HCM."
+]
+}
+]
+},
+"cpr580": {
+"k": "MR after MI",
+"q": [
+{
+"id": "cpr580-f1",
+"lv": "Easy",
+"s": "Which post-MI complication causes acute mitral regurgitation?",
+"c": [
+"Free wall rupture",
+"Dressler syndrome",
+"Pericardial effusion",
+"Papillary muscle rupture",
+"Ventricular aneurysm only"
+],
+"a": 3,
+"e": "Papillary muscle rupture, usually 2–7 days after MI, causes acute severe MR with a new holosystolic murmur and pulmonary edema.\n\nTakeaway: Post-MI new holosystolic apical murmur = papillary muscle rupture.",
+"w": [
+"Free wall rupture causes tamponade.",
+"Dressler is autoimmune pericarditis.",
+"Effusion does not cause MR.",
+"",
+"An aneurysm is a later complication."
+]
+},
+{
+"id": "cpr580-f2",
+"lv": "Hard",
+"s": "Why is acute MR from papillary muscle rupture so poorly tolerated compared with chronic MR?",
+"c": [
+"Left ventricular preload falls to zero",
+"The aortic valve also starts to leak",
+"The small LA cannot absorb the volume",
+"The LV becomes hypertrophied within hours",
+"Afterload on the LV rises very sharply"
+],
+"a": 2,
+"e": "In acute MR the LA has not had time to dilate, so the sudden regurgitant volume causes a huge rise in LA pressure, large v waves and pulmonary edema.\n\nTakeaway: Acute MR → small LA → huge v wave → pulmonary edema.",
+"w": [
+"Preload rises.",
+"Nothing suggests AR.",
+"",
+"Hypertrophy takes months.",
+"Afterload falls because blood leaks into the LA."
+]
+}
+]
+},
+"cpr581": {
+"k": "Aortic regurgitation signs",
+"q": [
+{
+"id": "cpr581-f1",
+"lv": "Easy",
+"s": "What does the 'C' for Corrigan pulse in AR DANCE describe?",
+"c": [
+"A slow-rising weak pulse",
+"A pulse that disappears on inspiration",
+"A rapid rise and fall of the pulse",
+"An absent radial pulse",
+"A pulse alternating strong and weak"
+],
+"a": 2,
+"e": "Corrigan (water hammer) pulse rises and falls abruptly because of a large stroke volume and rapid diastolic runoff back into the LV.\n\nTakeaway: AR → water hammer pulse.",
+"w": [
+"This is AS.",
+"This is pulsus paradoxus.",
+"",
+"This is not part of AR.",
+"This is pulsus alternans."
+]
+},
+{
+"id": "cpr581-f2",
+"lv": "Hard",
+"s": "In aortic regurgitation, why is diastolic blood pressure low?",
+"c": [
+"The mitral valve fails to close fully",
+"Peripheral vascular resistance rises",
+"The heart ejects less blood with each beat",
+"Blood leaks back into the LV in diastole",
+"Venous return to the heart falls"
+],
+"a": 3,
+"e": "In diastole the incompetent aortic valve lets blood flow back into the LV, so aortic pressure falls quickly and diastolic pressure is low. The large stroke volume raises systolic pressure, widening pulse pressure.\n\nTakeaway: AR → low diastolic, high systolic, wide pulse pressure.",
+"w": [
+"The mitral valve is not the problem.",
+"Peripheral resistance often falls.",
+"Stroke volume is increased.",
+"",
+"Venous return is not reduced."
+]
+}
+]
+},
+"cpr582": {
+"k": "Causes of AR",
+"q": [
+{
+"id": "cpr582-f1",
+"lv": "Easy",
+"s": "Which is a cause of aortic regurgitation?",
+"c": [
+"Papillary muscle rupture after an MI",
+"Myxomatous mitral valve prolapse",
+"Endocarditis of the aortic valve",
+"Rheumatic stenosis of the mitral valve",
+"A secundum atrial septal defect"
+],
+"a": 2,
+"e": "AR results from valve damage (endocarditis, bicuspid valve) or aortic root dilation (Marfan, syphilis, dissection).\n\nTakeaway: AR causes = valve damage or root dilation.",
+"w": [
+"This causes MR.",
+"This causes MR.",
+"",
+"This affects the mitral valve.",
+"This is a septal shunt."
+]
+},
+{
+"id": "cpr582-f2",
+"lv": "Hard",
+"s": "Which cardiac complication is the most common cause of death in Marfan syndrome?",
+"c": [
+"Pericardial tamponade from viral pericarditis",
+"Pulmonary embolism",
+"Aortic dissection",
+"Mitral stenosis",
+"Complete heart block"
+],
+"a": 2,
+"e": "Marfan (fibrillin-1) weakens the aortic media, causing root dilation, AR and dissection; dissection is the most common cause of death.\n\nTakeaway: Marfan → aortic root dilation → AR and dissection.",
+"w": [
+"Viral pericarditis is unrelated.",
+"PE is not a Marfan feature.",
+"",
+"Marfan is associated with MVP, not MS.",
+"Heart block is not typical."
+]
+}
+]
+},
+"cpr583": {
+"k": "Mitral stenosis",
+"q": [
+{
+"id": "cpr583-f1",
+"lv": "Easy",
+"s": "What is the most common cause of mitral stenosis?",
+"c": [
+"Acute infective endocarditis",
+"Chronic rheumatic heart disease",
+"Marfan syndrome",
+"Age-related annular calcification",
+"Papillary muscle rupture"
+],
+"a": 1,
+"e": "Mitral stenosis is most often a late consequence of rheumatic fever, with commissural fusion and thickened leaflets.\n\nTakeaway: MS = rheumatic heart disease.",
+"w": [
+"Endocarditis usually causes regurgitation.",
+"",
+"Marfan causes MVP and AR.",
+"Calcification is a less common cause in the elderly.",
+"Papillary rupture causes MR."
+]
+},
+{
+"id": "cpr583-f2",
+"lv": "Hard",
+"s": "In mitral stenosis, a shorter interval between S2 and the opening snap indicates what?",
+"c": [
+"Coexisting aortic regurgitation",
+"Normal valve function",
+"More severe stenosis",
+"Milder stenosis",
+"Right heart failure"
+],
+"a": 2,
+"e": "The higher the LA pressure, the earlier the mitral valve opens after S2. A short S2–OS interval means high LA pressure and more severe stenosis.\n\nTakeaway: Shorter S2–OS interval = worse MS.",
+"w": [
+"It reflects mitral, not aortic, disease.",
+"A snap is not normal.",
+"",
+"A longer interval means milder disease.",
+"It reflects LA pressure, not RV failure."
+]
+}
+]
+},
+"cpr584": {
+"k": "Complications of MS",
+"q": [
+{
+"id": "cpr584-f1",
+"lv": "Easy",
+"s": "Which arrhythmia commonly complicates mitral stenosis?",
+"c": [
+"Torsades de pointes",
+"Ventricular tachycardia",
+"Third-degree heart block",
+"Sinus bradycardia",
+"Atrial fibrillation"
+],
+"a": 4,
+"e": "MS raises LA pressure and dilates the LA, predisposing to atrial fibrillation and mural thrombi.\n\nTakeaway: MS → LA dilation → AF.",
+"w": [
+"Torsades relates to long QT.",
+"VT is a ventricular arrhythmia.",
+"Heart block is not typical.",
+"Bradycardia is not typical.",
+""
+]
+},
+{
+"id": "cpr584-f2",
+"lv": "Hard",
+"s": "A patient with long-standing mitral stenosis develops a loud P2 and right ventricular heave. What has happened?",
+"c": [
+"Aortic valve stenosis has developed",
+"Pulmonary hypertension from LA pressure",
+"The mitral valve has become regurgitant",
+"Pulmonary artery pressure has fallen",
+"Left ventricular hypertrophy has developed"
+],
+"a": 1,
+"e": "Raised LA pressure backs up into the pulmonary circulation, causing pulmonary hypertension (loud P2), RV hypertrophy and eventually right heart failure.\n\nTakeaway: MS → ↑ LA pressure → pulmonary hypertension → RV failure.",
+"w": [
+"Nothing suggests AS.",
+"",
+"MR would cause a systolic murmur.",
+"A loud P2 means higher pressure.",
+"In MS the LV is underfilled, not hypertrophied."
+]
+}
+]
 }
 });

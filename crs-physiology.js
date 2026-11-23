@@ -75,7 +75,22 @@ window.CRS_PH_TOPICS = [
 "Systematic Rhythm Approach & Rate",
 "Torsades de Pointes & Long QT",
 "Atrial Fibrillation & Atrial Flutter",
-"CVS Final Practice Quiz"
+"CVS Final Practice Quiz",
+"Microcirculation & Transcapillary Exchange",
+"Starling Forces & Net Filtration",
+"Lymphatics & Fluid Balance",
+"Edema: Causes & Heart Failure",
+"Sampath's Q's · Pulmonary Edema Case & Starling Calculation",
+"Coronary Circulation",
+"Cerebral Circulation & Cushing Reflex",
+"Pulmonary Circulation: Hypoxic Vasoconstriction",
+"Fetal Circulation",
+"Skeletal Muscle, Renal & Cutaneous Circulation",
+"S1, S2 & Splitting of S2",
+"S3 & S4 Heart Sounds",
+"Systolic Murmurs: Aortic Stenosis & Mitral Regurgitation",
+"Diastolic Murmurs: Aortic Regurgitation & Mitral Stenosis",
+"Sampath's Q's · Challenge Yourself: Murmurs"
 ];
 window.CRS_PH_QUESTIONS = [
 {
@@ -12331,5 +12346,1522 @@ window.CRS_PH_QUESTIONS = [
 ""
 ],
 "src": "cvsfinal"
+},
+{
+"t": "Microcirculation & Transcapillary Exchange",
+"lv": "Easy",
+"s": "Each capillary is extremely narrow, yet blood moves more slowly through the capillary beds than through the aorta. Which feature of the microcirculation best explains this slow velocity?",
+"c": [
+"Their dense sympathetic nerve supply",
+"Their high individual flow resistance",
+"Their thick smooth muscle walls",
+"Their high hydrostatic pressure",
+"Their huge total cross-sectional area"
+],
+"a": 4,
+"e": "Step 1: Flow (Q) is the same through every level of the circulation in series, and velocity = Q ÷ total cross-sectional area.\nStep 2: Although one capillary is tiny, there are billions of them in parallel, so their combined cross-sectional area is far larger than that of the aorta.\nStep 3: A huge total area means a very low velocity. Together with the thin wall (one endothelial cell) and closeness to every cell, the slow transit gives time for exchange.\n\nTakeaway: Capillaries have the largest total cross-sectional area, so blood moves slowest there, which is ideal for exchange.",
+"w": [
+"Capillaries are not innervated; arterioles carry the sympathetic control.",
+"Resistance sets pressure drop, not velocity; velocity depends on total area.",
+"Capillaries have no smooth muscle; the wall is a single endothelial layer.",
+"Capillary pressure is low (about 30 falling to 10 mmHg) and does not slow flow.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/mc-filtration"
+],
+"viz": false
+},
+{
+"t": "Microcirculation & Transcapillary Exchange",
+"lv": "Easy",
+"s": "A drug is small and highly lipid soluble. By which route does it mainly cross the capillary wall into the interstitium?",
+"c": [
+"Carrier-mediated active transport",
+"Bulk flow through lymphatic capillaries",
+"Directly through endothelial membranes",
+"Through water-filled intercellular pores",
+"Vesicular transcytosis across the cell"
+],
+"a": 2,
+"e": "Step 1: Transcapillary transport depends on size and lipid solubility.\nStep 2: Lipid-soluble substances such as O₂, CO₂, fatty acids and steroid hormones dissolve in the lipid bilayer and diffuse straight through the endothelial cell membranes, using the whole capillary surface.\nStep 3: Water-soluble substances such as Na⁺, K⁺ and glucose must use the water-filled pores between cells, and large plasma proteins are mostly held back.\n\nTakeaway: Lipid-soluble molecules cross the endothelial cells themselves; water-soluble ones use the intercellular pores.",
+"w": [
+"Capillary exchange is passive diffusion, not active carrier transport.",
+"Lymphatics drain interstitial fluid; they are not a route into the interstitium.",
+"",
+"Pores are the route for water-soluble solutes such as glucose and ions.",
+"Transcytosis moves a small amount of exchangeable protein, not small lipids."
+],
+"src": "lec",
+"fig": [
+"figs/crs/mc-transport"
+],
+"viz": false
+},
+{
+"t": "Microcirculation & Transcapillary Exchange",
+"lv": "Easy",
+"s": "The filtration coefficient (Kf) reflects how permeable and how large a capillary bed is. In which capillary bed is Kf highest?",
+"c": [
+"Coronary capillaries",
+"Glomerular capillaries",
+"Pulmonary capillaries",
+"Brain capillaries",
+"Skeletal muscle capillaries"
+],
+"a": 1,
+"e": "Step 1: Kf = hydraulic permeability × surface area. It multiplies the net Starling pressure to give the fluid flux: Jv = Kf × NFP.\nStep 2: Glomerular capillaries are fenestrated, very permeable to water and small solutes, and have a large surface area, so their Kf is the highest in the body.\nStep 3: That is why the kidney can filter about 180 L/day while systemic capillaries filter only about 20 L/day.\n\nTakeaway: Kf is highest in the glomerular capillaries and lowest in the brain, where tight junctions form the blood–brain barrier.",
+"w": [
+"Coronary capillaries are continuous with an ordinary Kf.",
+"",
+"Pulmonary capillaries are kept relatively dry; their Kf is not the highest.",
+"Brain capillaries have tight junctions, so their Kf is the lowest.",
+"Continuous skeletal muscle capillaries have a moderate Kf."
+],
+"src": "lec",
+"fig": [
+"figs/crs/mc-transport"
+],
+"viz": false
+},
+{
+"t": "Starling Forces & Net Filtration",
+"lv": "Easy",
+"s": "At the arterial end of a capillary: capillary hydrostatic pressure 30 mmHg, interstitial oncotic pressure 8 mmHg, interstitial hydrostatic pressure −3 mmHg and plasma oncotic pressure 28 mmHg. What is the net filtration pressure?",
+"c": [
+"13 mmHg favoring absorption",
+"3 mmHg favoring absorption",
+"7 mmHg favoring filtration",
+"13 mmHg favoring filtration",
+"41 mmHg favoring filtration"
+],
+"a": 3,
+"e": "Step 1: NFP = (Pc + πif) − (πp + Pif).\nStep 2: Outward side = 30 + 8 = 38 mmHg. Inward side = 28 + (−3) = 25 mmHg.\nStep 3: NFP = 38 − 25 = +13 mmHg, so fluid is filtered out. The slide gets the same answer another way: total outward force 30 + 8 + 3 = 41 (a negative Pif pulls fluid out) minus 28 inward = 13 mmHg.\n\nTakeaway: Arterial end NFP ≈ +13 mmHg; a negative interstitial pressure adds to filtration.",
+"w": [
+"The sign is wrong: outward forces exceed inward ones at the arterial end.",
+"Absorption occurs at the venous end, where Pc has fallen to about 10 mmHg.",
+"7 mmHg comes from treating the −3 mmHg as an inward force.",
+"",
+"41 mmHg is the total outward force before subtracting the 28 mmHg plasma oncotic pull."
+],
+"src": "lec",
+"fig": [
+"figs/crs/mc-starling"
+],
+"viz": false
+},
+{
+"t": "Starling Forces & Net Filtration",
+"lv": "Easy",
+"s": "Capillary hydrostatic pressure always pushes fluid outward. Which Starling force is mainly responsible for pulling fluid back into the capillary at the venous end?",
+"c": [
+"Lymphatic pumping pressure",
+"Interstitial colloid oncotic pressure",
+"Negative interstitial fluid pressure",
+"Capillary hydrostatic pressure",
+"Plasma colloid oncotic pressure"
+],
+"a": 4,
+"e": "Step 1: Water creates hydrostatic pressure and proteins create oncotic pressure.\nStep 2: Plasma proteins, mainly albumin, cannot cross the capillary wall, so they hold water in the capillary with an oncotic pressure of about 28 mmHg.\nStep 3: Along the capillary, Pc falls from about 30 to about 10 mmHg while πp stays about 28 mmHg, so at the venous end the inward oncotic pull exceeds the outward forces and fluid is reabsorbed.\n\nTakeaway: Hydrostatic pressure pushes out; plasma oncotic pressure pulls in.",
+"w": [
+"Lymphatics remove interstitial fluid; they do not drive capillary reabsorption.",
+"Interstitial protein draws fluid out of the capillary, not into it.",
+"A negative interstitial pressure sucks fluid out of the capillary.",
+"Capillary hydrostatic pressure pushes fluid out, never in.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/mc-starling"
+],
+"viz": false
+},
+{
+"t": "Starling Forces & Net Filtration",
+"lv": "Easy",
+"s": "Along the length of a systemic capillary, net fluid movement changes from filtration near the arteriole to reabsorption near the venule. Which change along the capillary explains this reversal?",
+"c": [
+"The filtration coefficient rises distally",
+"Hydrostatic pressure falls along it",
+"Interstitial pressure turns strongly positive",
+"Plasma proteins leak out near the venule",
+"Plasma oncotic pressure falls along it"
+],
+"a": 1,
+"e": "Step 1: Pc is about 30 mmHg at the arterial end and about 10 mmHg at the venous end because pressure is lost overcoming resistance along the vessel.\nStep 2: Plasma oncotic pressure stays roughly constant at about 28 mmHg because very little protein leaves the capillary.\nStep 3: Early on, outward forces win (filtration). Near the venule, the inward oncotic pull exceeds the lowered hydrostatic push, so reabsorption exceeds filtration.\n\nTakeaway: The falling capillary hydrostatic pressure flips filtration to reabsorption.",
+"w": [
+"Kf is a property of the wall and does not drive the reversal.",
+"",
+"Interstitial pressure stays slightly negative in normal tissue.",
+"Protein leakage would oppose reabsorption, not cause it.",
+"Plasma oncotic pressure stays about the same along the capillary."
+],
+"src": "lec",
+"fig": [
+"figs/crs/mc-gradient"
+],
+"viz": false
+},
+{
+"t": "Starling Forces & Net Filtration",
+"lv": "Hard",
+"s": "A 7-year-old boy has puffy eyelids and frothy urine. His urine protein is 4+ and serum albumin is very low. At the venous end of a peripheral capillary: capillary hydrostatic pressure 12 mmHg, interstitial oncotic pressure 6 mmHg, interstitial hydrostatic pressure −2 mmHg and plasma oncotic pressure 16 mmHg. What is the net filtration pressure at this point?",
+"c": [
+"4 mmHg favoring absorption",
+"2 mmHg favoring absorption",
+"0 mmHg, no net movement",
+"20 mmHg favoring filtration",
+"4 mmHg favoring filtration"
+],
+"a": 4,
+"e": "Step 1: Frothy urine, heavy proteinuria and low albumin indicate nephrotic syndrome, so plasma oncotic pressure has fallen (16 mmHg instead of about 28).\nStep 2: NFP = (Pc + πif) − (πp + Pif) = (12 + 6) − (16 + (−2)) = 18 − 14 = +4 mmHg.\nStep 3: Normally the venous end reabsorbs fluid. With low πp, even the venous end now filters, so fluid accumulates in the interstitium faster than lymphatics can clear it: edema.\n\nTakeaway: Low albumin lowers πp, so filtration continues even at the venous end, causing edema.",
+"w": [
+"The sign is wrong: outward forces of 18 exceed inward forces of 14.",
+"Leaving out the interstitial oncotic pressure gives 12 − 14 = −2.",
+"Zero comes from entering the −2 mmHg interstitial pressure as +2.",
+"20 mmHg leaves out plasma oncotic pressure entirely.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/mc-starling"
+],
+"viz": false
+},
+{
+"t": "Lymphatics & Fluid Balance",
+"lv": "Easy",
+"s": "About 20 L of fluid is filtered out of the systemic capillaries each day. Roughly how much of it returns to the blood through the lymphatics?",
+"c": [
+"About 17 L per day",
+"About 10 L per day",
+"About 0.3 L per day",
+"About 3 L per day",
+"About 20 L per day"
+],
+"a": 3,
+"e": "Step 1: About 20 L/day is filtered at the arterial ends of capillaries.\nStep 2: About 16–18 L/day (around 17 L) is reabsorbed at the venous ends.\nStep 3: The remaining 2–4 L/day (around 3 L), together with leaked protein, is returned to the circulation by the lymphatics via the thoracic duct. If this route fails, fluid builds up as edema.\n\nTakeaway: 20 L filtered, about 17 L reabsorbed, about 3 L returned by lymph.",
+"w": [
+"About 17 L/day is reabsorbed directly by the venous ends of capillaries.",
+"10 L/day overstates lymph flow, which is about 2–4 L/day.",
+"0.3 L/day is far too little; lymph returns liters each day.",
+"",
+"Most filtered fluid is reabsorbed by capillaries, not carried by lymph."
+],
+"src": "lec",
+"fig": [
+"figs/crs/mc-fluid-balance"
+],
+"viz": false
+},
+{
+"t": "Lymphatics & Fluid Balance",
+"lv": "Easy",
+"s": "After a fatty meal, long-chain fatty acids are packaged into chylomicrons inside enterocytes. By which route do the chylomicrons first leave the intestine?",
+"c": [
+"Hepatic artery to the liver",
+"Portal vein to the liver",
+"Bile canaliculi to the duodenum",
+"Intestinal lacteals into lymph",
+"Intestinal blood capillaries directly"
+],
+"a": 3,
+"e": "Step 1: One function of the lymphatic system is fat absorption.\nStep 2: Chylomicrons are too large to enter the intestinal blood capillaries, so they enter the lacteals, the lymphatic capillaries in each villus.\nStep 3: Lymph carries them through the thoracic duct into the left subclavian vein, bypassing the liver at first. Other lymphatic functions: fluid balance and edema prevention, keeping interstitial pressure negative, immunity, waste removal and the spread of cancer.\n\nTakeaway: Lacteals absorb dietary fat as chylomicrons.",
+"w": [
+"The hepatic artery carries oxygenated blood to the liver, not absorbed fat.",
+"Water-soluble nutrients use the portal vein; chylomicrons are too large.",
+"Bile flows from liver to gut; it is not an absorption route.",
+"",
+"Chylomicrons are too large to cross into intestinal blood capillaries."
+],
+"src": "lec",
+"fig": [
+"figs/crs/mc-lymph"
+],
+"viz": false
+},
+{
+"t": "Lymphatics & Fluid Balance",
+"lv": "Hard",
+"s": "A 54-year-old woman had a left mastectomy with axillary lymph node dissection 8 months ago. Her left arm is now swollen with firm, thickened skin. Her heart, liver and kidney function are normal, and there is no venous thrombosis. Which mechanism best explains the swelling?",
+"c": [
+"Interstitial pressure has become negative",
+"Capillary permeability has increased a lot",
+"Capillary hydrostatic pressure has risen",
+"Plasma oncotic pressure has fallen",
+"Filtered fluid and protein are not cleared"
+],
+"a": 4,
+"e": "Step 1: Axillary node dissection removes the lymph nodes and vessels that drain the arm.\nStep 2: Normally lymph returns the 2–4 L/day of filtered fluid and the protein that leaks out of capillaries.\nStep 3: With the lymphatics obstructed, fluid and protein accumulate in the interstitium. The trapped protein raises interstitial oncotic pressure, pulling still more fluid out and causing firm, often non-pitting lymphedema. Filariasis causes the same mechanism.\n\nTakeaway: Lymph node removal or filariasis → lymphatic obstruction → lymphedema.",
+"w": [
+"A negative interstitial pressure is normal and keeps tissue dry.",
+"Increased permeability follows burns or inflammation, not node dissection.",
+"Normal heart function and no thrombosis argue against a high venous pressure.",
+"Normal liver and kidney function keep albumin and πp normal.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/mc-lymph"
+],
+"viz": false
+},
+{
+"t": "Edema: Causes & Heart Failure",
+"lv": "Easy",
+"s": "A 58-year-old man with alcoholic liver cirrhosis has a tense, distended abdomen with shifting dullness and swollen ankles. Which Starling change mainly explains his fluid accumulation, as taught on the slide?",
+"c": [
+"Obstruction of lymphatic vessels",
+"Increased capillary permeability",
+"Decreased capillary hydrostatic pressure",
+"Decreased plasma oncotic pressure",
+"Decreased interstitial oncotic pressure"
+],
+"a": 3,
+"e": "Step 1: The cirrhotic liver synthesizes less protein, especially albumin.\nStep 2: Low albumin lowers plasma oncotic pressure (πp), so less fluid is pulled back into capillaries and the venous end filters instead of reabsorbing.\nStep 3: Fluid collects in the peritoneal cavity (ascites, the huge abdomen) and in dependent tissues. Portal hypertension adds to ascites by raising hydrostatic pressure in the splanchnic bed.\n\nTakeaway: Liver failure and nephrotic syndrome cause edema through decreased plasma oncotic pressure.",
+"w": [
+"Lymphatic obstruction follows node removal or filariasis.",
+"Increased permeability is the mechanism in burns and inflammation.",
+"A lower Pc would reduce filtration and protect against edema.",
+"",
+"Less interstitial protein would pull less fluid out and oppose edema."
+],
+"src": "lec",
+"fig": [
+"figs/crs/mc-starling"
+],
+"viz": false
+},
+{
+"t": "Edema: Causes & Heart Failure",
+"lv": "Easy",
+"s": "Within hours of a large burn on her forearm, a woman develops marked swelling of the surrounding tissue. Her blood pressure and serum albumin are normal. Which mechanism causes this edema?",
+"c": [
+"Decreased capillary filtration coefficient",
+"Decreased plasma oncotic pressure",
+"Obstruction of lymphatic vessels",
+"Increased capillary permeability",
+"Raised venous pressure from heart failure"
+],
+"a": 3,
+"e": "Step 1: Burns and inflammation damage the endothelium and release mediators such as histamine and bradykinin.\nStep 2: The capillary wall becomes leaky (↑ Kf and ↓ reflection coefficient), so fluid and plasma protein pour into the interstitium.\nStep 3: Leaked protein raises interstitial oncotic pressure and narrows the oncotic gradient, so even more fluid stays out.\n\nTakeaway: Edema from burns and inflammation = increased capillary permeability.",
+"w": [
+"A lower Kf would reduce filtration; burns raise it.",
+"Her albumin is normal, so πp has not fallen.",
+"Lymphatic obstruction follows node removal or filariasis, not burns.",
+"",
+"Heart failure raises Pc, but her problem is local and acute."
+],
+"src": "lec",
+"fig": [
+"figs/crs/mc-transport"
+],
+"viz": false
+},
+{
+"t": "Edema: Causes & Heart Failure",
+"lv": "Hard",
+"s": "A 6-year-old boy has swelling around his eyes and ankles for 2 weeks. Urinalysis shows 4+ protein without blood, and serum cholesterol is high. His edema develops by the same Starling mechanism as the edema in which of the following?",
+"c": [
+"Severe burns",
+"Liver failure",
+"Filariasis",
+"Right heart failure",
+"Deep vein thrombosis"
+],
+"a": 1,
+"e": "Step 1: Periorbital edema, heavy proteinuria and hyperlipidemia in a child indicate nephrotic syndrome.\nStep 2: Albumin is lost in the urine, so plasma oncotic pressure falls and capillaries keep filtering even at the venous end.\nStep 3: Liver failure causes edema by the same mechanism, because the liver makes too little albumin.\n\nTakeaway: Nephrotic syndrome and liver failure both cause edema through decreased plasma oncotic pressure.",
+"w": [
+"Burns cause edema by increasing capillary permeability.",
+"",
+"Filariasis blocks lymphatics, a different mechanism.",
+"Right heart failure raises capillary hydrostatic pressure.",
+"Venous obstruction raises capillary hydrostatic pressure."
+],
+"src": "lec",
+"fig": [
+"figs/crs/mc-starling"
+],
+"viz": false
+},
+{
+"t": "Edema: Causes & Heart Failure",
+"lv": "Easy",
+"s": "A 66-year-old woman has pitting ankle edema, a raised jugular venous pressure and tender hepatomegaly. Her lungs are clear. Which condition best explains this pattern?",
+"c": [
+"Lymphatic obstruction",
+"Right-sided heart failure",
+"Isolated left-sided heart failure",
+"Nephrotic syndrome",
+"Severe burns"
+],
+"a": 1,
+"e": "Step 1: The right ventricle fails, so its output falls and blood backs up from the right atrium into the venae cavae and all systemic veins.\nStep 2: Systemic venous pressure rises, shown by a raised JVP, and the higher capillary hydrostatic pressure causes edema in dependent regions (ankles), hepatomegaly and ascites.\nStep 3: Clear lungs show that pulmonary capillary pressure is not raised, so this is not left-sided failure.\n\nTakeaway: RHF → systemic venous congestion → peripheral edema, ↑ JVP, hepatomegaly; LHF → pulmonary edema.",
+"w": [
+"Lymphatic obstruction is local and does not raise the JVP.",
+"",
+"Left-sided failure causes pulmonary edema with crackles, not clear lungs.",
+"Nephrotic syndrome does not raise the JVP or enlarge the liver.",
+"Burns cause local edema from leaky capillaries."
+],
+"src": "lec",
+"fig": [
+"figs/crs/mc-rhf"
+],
+"viz": false
+},
+{
+"t": "Edema: Causes & Heart Failure",
+"lv": "Hard",
+"s": "A 70-year-old man has a large anterior myocardial infarction. His end-systolic volume rises and his left ventricular end-diastolic pressure climbs. Hours later he is breathless and coughs up pink, frothy sputum, and crackles are heard at both lung bases. Which pressure is most directly responsible for fluid entering his alveoli?",
+"c": [
+"Right atrial hydrostatic pressure",
+"Pulmonary capillary hydrostatic pressure",
+"Pulmonary capillary oncotic pressure",
+"Pulmonary interstitial oncotic pressure",
+"Systemic venous hydrostatic pressure in legs"
+],
+"a": 1,
+"e": "Step 1: The infarct weakens the left ventricle, so less blood is ejected (↑ ESV, ↓ CO) and LVEDP rises.\nStep 2: Pressure backs up into the left atrium, the pulmonary veins and then the pulmonary capillaries.\nStep 3: Raised pulmonary capillary hydrostatic pressure drives fluid into the interstitium and alveoli faster than lymph can remove it, causing pulmonary edema, crackles, impaired gas exchange and pink frothy sputum.\n\nTakeaway: LHF → ↑ LVEDP → ↑ pulmonary capillary hydrostatic pressure → pulmonary edema.",
+"w": [
+"Right atrial pressure rises in RHF, causing a raised JVP.",
+"",
+"Pulmonary capillary oncotic pressure is unchanged and opposes filtration.",
+"Interstitial oncotic pressure is not the primary change after an MI.",
+"Systemic venous pressure rises in right heart failure and causes peripheral edema."
+],
+"src": "lec",
+"fig": [
+"figs/crs/mc-lhf"
+],
+"viz": false
+},
+{
+"t": "Edema: Causes & Heart Failure",
+"lv": "Easy",
+"s": "In right-sided heart failure, the neck veins are distended and the jugular venous pressure is raised. What is the most direct reason?",
+"c": [
+"Blood backs up from the right atrium into the veins",
+"Plasma oncotic pressure falls in systemic veins",
+"Sympathetic tone constricts the jugular veins alone",
+"Left atrial pressure spreads up into the neck veins",
+"Pulmonary capillaries leak fluid into the neck"
+],
+"a": 0,
+"e": "Step 1: A failing right ventricle cannot pump forward all the blood it receives.\nStep 2: Blood backs up from the right ventricle into the right atrium, then into the superior and inferior venae cavae. All systemic veins drain to the vena cava, so systemic venous pressure rises.\nStep 3: The internal jugular vein connects directly to the SVC and right atrium without valves, so the raised pressure is seen as a high JVP. The same congestion produces dependent edema, hepatomegaly and ascites.\n\nTakeaway: RHF → blood backs up from the RA into the venae cavae → ↑ JVP and systemic congestion.",
+"w": [
+"",
+"Oncotic pressure does not determine venous pressure.",
+"Venoconstriction alone does not explain the raised JVP of RHF.",
+"Left atrial pressure backs up into the lungs, not the neck veins.",
+"Pulmonary capillary leak causes lung edema, not neck vein distension."
+],
+"src": "lec",
+"fig": [
+"figs/crs/mc-rhf"
+],
+"viz": false
+},
+{
+"t": "Sampath's Q's · Pulmonary Edema Case & Starling Calculation",
+"s": "A 68-year-old hypertensive man presents with sudden onset of extreme shortness of breath that wakes him up at night. He finds relief by sitting up in bed. He reports a history of heart failure. Exam reveals crackles in the lungs and pitting edema in his ankles.<br><br>What is the cause of the shortness of breath?",
+"html": true,
+"ns": true,
+"sampath": 1,
+"c": [
+"Peripheral edema due to right ventricular failure",
+"Pulmonary edema due to left ventricular failure",
+"Pulmonary embolism from a deep vein thrombosis",
+"Bronchospasm due to airway inflammation",
+"Pulmonary edema due to low plasma oncotic pressure"
+],
+"a": 1,
+"e": "Answer from the slide: Pulmonary edema due to left ventricular failure. The failing left ventricle raises pressure in the left atrium and pulmonary capillaries, fluid enters the lungs (crackles) and gas exchange is impaired.",
+"w": [
+"RHF explains his ankle edema but not his breathlessness.",
+"",
+"Nothing in the case suggests an embolus.",
+"Crackles and orthopnea point to fluid, not bronchospasm.",
+"His history is heart failure, not liver or kidney disease."
+],
+"src": "lec",
+"fig": [
+"figs/crs/mc-lhf"
+],
+"viz": false
+},
+{
+"t": "Sampath's Q's · Pulmonary Edema Case & Starling Calculation",
+"s": "A 68-year-old hypertensive man presents with sudden onset of extreme shortness of breath that wakes him up at night. He finds relief by sitting up in bed. He reports a history of heart failure. Exam reveals crackles in the lungs and pitting edema in his ankles.<br><br>Why does sitting up bring relief?",
+"html": true,
+"ns": true,
+"sampath": 1,
+"c": [
+"Increases lymph flow, and raises pulmonary interstitial pressure",
+"Increases venous return, and raises the plasma oncotic pressure in the lungs",
+"Reduces afterload, and increases left ventricular contractility",
+"Reduces venous return, and decreases pressure in the pulmonary capillaries",
+"Reduces heart rate, and lengthens the time for diastolic filling"
+],
+"a": 3,
+"e": "Answer from the slide: Reduces venous return, and decreases pressure in the pulmonary capillaries. Lying flat returns blood from the legs to the heart; the failing LV cannot handle it, so pulmonary capillary pressure rises. Sitting up pools blood in the legs and relieves this.",
+"w": [
+"This is not the mechanism of relief.",
+"Sitting up lowers venous return.",
+"Posture does not change contractility in this way.",
+"",
+"Posture is not acting through heart rate here."
+],
+"src": "lec",
+"fig": [
+"figs/crs/mc-lhf"
+],
+"viz": false
+},
+{
+"t": "Sampath's Q's · Pulmonary Edema Case & Starling Calculation",
+"s": "A 68-year-old hypertensive man presents with sudden onset of extreme shortness of breath that wakes him up at night. He finds relief by sitting up in bed. He reports a history of heart failure. Exam reveals crackles in the lungs and pitting edema in his ankles.<br><br>What type of edema is present?",
+"html": true,
+"ns": true,
+"sampath": 1,
+"c": [
+"Non-pitting edema due to lymphatic obstruction from lymph node removal",
+"Pitting edema due to increased hydrostatic pressure caused by the heart failure",
+"Pitting edema due to decreased plasma oncotic pressure from liver failure",
+"Pitting edema due to increased interstitial oncotic pressure from a chest infection",
+"Non-pitting edema due to increased capillary permeability from severe burns"
+],
+"a": 1,
+"e": "Answer from the slide: Pitting edema due to increased hydrostatic pressure (caused by the heart failure).",
+"w": [
+"Lymphedema is typically non-pitting and he has no node surgery.",
+"",
+"He has heart failure, not liver failure.",
+"Infection is not the cause here.",
+"There is no burn or inflammation."
+],
+"src": "lec",
+"fig": [
+"figs/crs/mc-rhf"
+],
+"viz": false
+},
+{
+"t": "Sampath's Q's · Pulmonary Edema Case & Starling Calculation",
+"s": "A 68-year-old hypertensive man presents with sudden onset of extreme shortness of breath that wakes him up at night. He finds relief by sitting up in bed. He reports a history of heart failure. Exam reveals crackles in the lungs and pitting edema in his ankles.<br><br>What is the cause of pulmonary edema?",
+"html": true,
+"ns": true,
+"sampath": 1,
+"c": [
+"Increased capillary hydrostatic pressure",
+"Lymphatic obstruction",
+"Decreased plasma oncotic pressure",
+"Increased capillary permeability",
+"Decreased interstitial hydrostatic pressure"
+],
+"a": 0,
+"e": "Answer from the slide: Increased capillary hydrostatic pressure. LV failure backs pressure up into the pulmonary capillaries, pushing fluid into the lungs.",
+"w": [
+"",
+"No lymphatic blockage is described.",
+"His albumin is not described as low.",
+"No burn or inflammation is present.",
+"This is not the slide's answer."
+],
+"src": "lec",
+"fig": [
+"figs/crs/mc-lhf-vs-rhf"
+],
+"viz": false
+},
+{
+"t": "Sampath's Q's · Pulmonary Edema Case & Starling Calculation",
+"s": "In a tissue capillary, the interstitial hydrostatic pressure is 2 mmHg, the capillary hydrostatic pressure is 25 mmHg, and the interstitial oncotic pressure is 7 mmHg. If the net driving force across the capillary wall is 3 mmHg favoring filtration, what is the capillary oncotic pressure?",
+"html": true,
+"ns": true,
+"sampath": 1,
+"c": [
+"34 mmHg",
+"27 mmHg",
+"29 mmHg",
+"23 mmHg",
+"31 mmHg"
+],
+"a": 1,
+"e": "Answer: 27 mmHg<br>Explanation: NFP = (Pc + πif) − (πp + Pif); 3 = (25 + 7) – (πp + 2); 3 = 32 − πp − 2; = 30 − 3. Therefore, πp = 27 mmHg.",
+"w": [
+"Does not subtract the 3 mmHg net filtration.",
+"",
+"Forgets to subtract the interstitial hydrostatic pressure.",
+"Subtracts the 2 mmHg twice.",
+"Adds the interstitial hydrostatic pressure instead of subtracting it."
+],
+"src": "lec",
+"fig": [
+"figs/crs/mc-starling"
+],
+"viz": false
+},
+{
+"t": "Coronary Circulation",
+"lv": "Easy",
+"s": "During which part of the cardiac cycle does most blood flow through the left ventricular coronary vessels, and why?",
+"c": [
+"Systole, when contracting muscle squeezes blood onward",
+"Equally in both phases, because autoregulation is fixed",
+"Diastole, when relaxed muscle stops compressing them",
+"Systole, when aortic pressure is at its highest",
+"Isovolumetric contraction, when the valves are shut"
+],
+"a": 2,
+"e": "Step 1: The intramyocardial coronary vessels run through the ventricular wall.\nStep 2: In systole the contracting LV muscle compresses these vessels, raising coronary vascular resistance and sharply reducing flow, especially to the subendocardium.\nStep 3: In diastole the muscle relaxes, resistance falls and coronary blood flow rises markedly. So LV coronary perfusion happens mainly in diastole, which is a high-yield concept.\n\nTakeaway: Coronary blood flow to the LV occurs mainly in diastole because systole compresses the vessels.",
+"w": [
+"Systolic compression impedes flow rather than helping it.",
+"Flow differs greatly between systole and diastole.",
+"",
+"High systolic aortic pressure cannot overcome compression of the intramural vessels.",
+"During isovolumetric contraction the wall is already squeezing the vessels."
+],
+"src": "lec",
+"fig": [
+"figs/crs/sc-coronary"
+],
+"viz": false
+},
+{
+"t": "Coronary Circulation",
+"lv": "Easy",
+"s": "During exercise, cardiac work rises and coronary blood flow increases several-fold. Which mechanism is the dominant control of coronary blood flow?",
+"c": [
+"Local metabolic control by adenosine",
+"Circulating vasopressin",
+"Parasympathetic vagal dilation",
+"Sympathetic α1 vasoconstriction",
+"Myogenic response to wall stretch alone"
+],
+"a": 0,
+"e": "Step 1: Each coronary bed has its own dominant control, and the coronary circulation is governed by local metabolic control.\nStep 2: When myocardial O₂ demand rises, ATP is broken down to adenosine, and local hypoxia develops.\nStep 3: Adenosine and hypoxia are potent coronary vasodilators, so arterioles dilate and flow rises to match demand. Sympathetic and hormonal effects are minor by comparison.\n\nTakeaway: Coronary flow is controlled mainly by local metabolites, especially adenosine and hypoxia.",
+"w": [
+"",
+"Vasopressin is a hormonal influence, not the dominant coronary control.",
+"Vagal effects on coronary vessels are minor.",
+"α1 constriction is weak in coronaries and overridden by metabolites.",
+"The myogenic response plays only a small role in the coronary bed."
+],
+"src": "lec",
+"fig": [
+"figs/crs/sc-coronary"
+],
+"viz": false
+},
+{
+"t": "Coronary Circulation",
+"lv": "Hard",
+"s": "A 64-year-old man with known stable coronary artery disease develops supraventricular tachycardia at 185/min. Within minutes he has crushing chest pain and ST depression, although his blood pressure is maintained. Which change most directly reduced the oxygen supply to his myocardium?",
+"c": [
+"Sympathetic coronary vasodilation",
+"Loss of adenosine production",
+"A longer isovolumetric relaxation",
+"A much shorter diastolic time",
+"A lower aortic systolic pressure"
+],
+"a": 3,
+"e": "Step 1: Coronary flow to the LV occurs mainly in diastole, because systole compresses the vessels.\nStep 2: As heart rate rises, diastole shortens much more than systole. At 185/min there is very little diastolic time for perfusion.\nStep 3: At the same time, a fast heart uses more O₂. With fixed stenoses limiting how much the arterioles can compensate, supply falls below demand and the subendocardium becomes ischemic.\n\nTakeaway: Tachycardia shortens diastole and so reduces coronary perfusion, which can cause ischemia.",
+"w": [
+"Sympathetic dilation would increase supply, not reduce it.",
+"Ischemia increases adenosine; it does not stop its production.",
+"Faster rates shorten every diastolic phase, not lengthen them.",
+"",
+"His blood pressure is maintained, and systolic pressure is not the main driver."
+],
+"src": "lec",
+"fig": [
+"figs/crs/sc-coronary"
+],
+"viz": false
+},
+{
+"t": "Cerebral Circulation & Cushing Reflex",
+"lv": "Easy",
+"s": "Which variable is the most powerful regulator of cerebral blood flow?",
+"c": [
+"Blood glucose concentration",
+"Arterial PO₂ above 60 mmHg",
+"Sympathetic nerve activity",
+"Arterial PCO₂",
+"Plasma adenosine level"
+],
+"a": 3,
+"e": "Step 1: The main controller of cerebral blood flow is carbon dioxide.\nStep 2: Rising PaCO₂ crosses into the brain, lowers the pH around the arterioles and causes vasodilation, so CBF rises roughly linearly with PaCO₂.\nStep 3: PaO₂ has much less effect until it falls below about 50 mmHg, when CBF rises rapidly. The brain wants a constant, highly regulated blood flow.\n\nTakeaway: PaCO₂ is the main regulator of CBF: ↑ PaCO₂ → vasodilation → ↑ CBF.",
+"w": [
+"Glucose does not set cerebral vessel tone.",
+"PaO₂ only matters once it falls below about 50 mmHg.",
+"Sympathetic control of cerebral vessels is weak.",
+"",
+"Adenosine is the key metabolite for the coronary bed."
+],
+"src": "lec",
+"fig": [
+"figs/crs/sc-cbf"
+],
+"viz": false
+},
+{
+"t": "Cerebral Circulation & Cushing Reflex",
+"lv": "Easy",
+"s": "After a severe head injury, a ventilated patient's intracranial pressure rises. The team briefly increases his ventilation rate. Through which chain does this lower intracranial pressure?",
+"c": [
+"Lower PaCO₂ constricts cerebral arterioles",
+"Higher PaO₂ dilates cerebral arterioles",
+"Lower pH constricts the large cerebral veins",
+"Lower PaCO₂ dilates the cerebral arterioles",
+"Higher PaCO₂ reduces CSF production"
+],
+"a": 0,
+"e": "Step 1: Hyperventilation blows off CO₂, so PaCO₂ falls.\nStep 2: Low PaCO₂ raises the pH around cerebral arterioles, causing vasoconstriction.\nStep 3: Cerebral blood flow and cerebral blood volume fall. In the rigid skull, less blood volume means lower intracranial pressure. The effect is short-lived and excessive hypocapnia risks ischemia.\n\nTakeaway: Hyperventilation → ↓ PaCO₂ → cerebral vasoconstriction → ↓ CBF → ↓ ICP.",
+"w": [
+"",
+"PaO₂ has little effect on CBF in the normal range, and dilation would raise ICP.",
+"Hyperventilation raises pH; it does not lower it.",
+"Low PaCO₂ constricts cerebral arterioles; it does not dilate them.",
+"Hyperventilation lowers PaCO₂, it does not raise it."
+],
+"src": "lec",
+"fig": [
+"figs/crs/sc-cbf"
+],
+"viz": false
+},
+{
+"t": "Cerebral Circulation & Cushing Reflex",
+"lv": "Easy",
+"s": "A healthy 30-year-old's mean arterial pressure falls from 100 to 75 mmHg during anesthesia induction. What happens to her cerebral blood flow?",
+"c": [
+"It rises because of reflex vasodilation",
+"It doubles because PaCO₂ rises",
+"It falls to zero",
+"It stays about the same",
+"It falls by about one quarter"
+],
+"a": 3,
+"e": "Step 1: Cerebral autoregulation keeps CBF nearly constant between a MAP of about 60 and 140 mmHg.\nStep 2: When MAP falls within this range, cerebral arterioles dilate (myogenic and metabolic mechanisms), lowering resistance so flow stays the same.\nStep 3: Only below about 60 mmHg does CBF start to fall with pressure. The brain wants constant blood flow, and it is highly regulated.\n\nTakeaway: CBF is autoregulated at a constant level between MAP 60 and 140 mmHg.",
+"w": [
+"Arterioles dilate to keep flow constant, not to raise it.",
+"Nothing in the stem suggests a large rise in PaCO₂.",
+"75 mmHg is well within the autoregulatory range.",
+"",
+"Flow falls with pressure only outside the autoregulatory range."
+],
+"src": "lec",
+"fig": [
+"figs/crs/sc-cbf"
+],
+"viz": false
+},
+{
+"t": "Cerebral Circulation & Cushing Reflex",
+"lv": "Hard",
+"s": "A 35-year-old man is brought in unconscious after a fall from a ladder. CT shows a large epidural hematoma. His blood pressure has risen from 125/80 to 205/110 mmHg, his pulse is 42/min and his breathing is irregular. What directly causes his slow heart rate?",
+"c": [
+"Hypoxic depression of the SA node",
+"Sympathetic β1 stimulation of the SA node",
+"Brainstem damage that blocks the sympathetics",
+"Direct injury to the cardiac pacemaker",
+"A baroreceptor reflex to the high pressure"
+],
+"a": 4,
+"e": "Step 1: The hematoma raises intracranial pressure, which lowers cerebral perfusion pressure (CPP = MAP − ICP) and makes the brainstem ischemic.\nStep 2: Brainstem ischemia triggers a sympathetic surge (α-adrenergic vasoconstriction) that raises MAP to restore CPP. This is the Cushing reflex.\nStep 3: The resulting hypertension stretches carotid and aortic baroreceptors, which reflexly increase vagal tone and slow the heart. The bradycardia is a baroreceptor response, not direct brain injury. Irregular breathing follows brainstem compression.\n\nTakeaway: Cushing triad = hypertension, bradycardia (baroreflex) and irregular respirations, a sign of rising ICP.",
+"w": [
+"Nothing suggests hypoxia of the SA node.",
+"β1 stimulation speeds the heart; it explains early tachycardia, not bradycardia.",
+"The sympathetic system is surging, not blocked.",
+"The heart itself is not injured in this head trauma.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/sc-cushing"
+],
+"viz": false
+},
+{
+"t": "Pulmonary Circulation: Hypoxic Vasoconstriction",
+"lv": "Easy",
+"s": "Low alveolar oxygen causes vessels to constrict in only one vascular bed, while hypoxia dilates vessels everywhere else. Which bed is it?",
+"c": [
+"Cerebral circulation",
+"Coronary circulation",
+"Pulmonary circulation",
+"Skeletal muscle circulation",
+"Renal circulation"
+],
+"a": 2,
+"e": "Step 1: In systemic beds such as the heart, brain and muscle, hypoxia is a vasodilator that raises flow to match O₂ need.\nStep 2: The lungs are the only place where hypoxia causes vasoconstriction (hypoxic pulmonary vasoconstriction).\nStep 3: The same stimulus has the opposite effect because the lungs' job is different: constricting vessels next to poorly ventilated alveoli diverts blood to well-ventilated ones, improving V/Q matching.\n\nTakeaway: The lungs are the only place where hypoxia causes vasoconstriction.",
+"w": [
+"Low PaO₂ below 50 mmHg raises cerebral blood flow.",
+"Hypoxia is a potent coronary vasodilator.",
+"",
+"Hypoxia contributes to vasodilation in exercising muscle.",
+"Renal flow is governed mainly by autoregulation, not hypoxic constriction."
+],
+"src": "lec",
+"fig": [
+"figs/crs/sc-hpv"
+],
+"viz": false
+},
+{
+"t": "Pulmonary Circulation: Hypoxic Vasoconstriction",
+"lv": "Hard",
+"s": "A 45-year-old woman has lobar pneumonia, and her right lower lobe is consolidated so its alveoli are not ventilated. What happens to blood flow to that lobe, and why does it help her?",
+"c": [
+"It rises, removing CO₂ from the lobe faster",
+"It rises, delivering more white blood cells",
+"It stays the same because of autoregulation",
+"It falls, lowering the right ventricular afterload",
+"It falls, diverting blood to ventilated lung"
+],
+"a": 4,
+"e": "Step 1: Consolidated alveoli are not ventilated, so the alveolar PO₂ in that lobe falls.\nStep 2: Low alveolar PO₂ causes hypoxic pulmonary vasoconstriction of the arterioles supplying those alveoli.\nStep 3: Blood is redirected away from poorly ventilated alveoli toward well-ventilated ones, improving V/Q matching and limiting the shunt, so arterial PO₂ stays higher.\n\nTakeaway: Hypoxic pulmonary vasoconstriction redirects blood to well-ventilated alveoli to preserve V/Q matching.",
+"w": [
+"Unventilated alveoli cannot unload CO₂ even with more flow.",
+"Pulmonary vessels constrict, not dilate, to local hypoxia.",
+"The pulmonary bed responds to hypoxia rather than autoregulating flow.",
+"Local constriction slightly raises, not lowers, pulmonary resistance.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/sc-hpv"
+],
+"viz": false
+},
+{
+"t": "Pulmonary Circulation: Hypoxic Vasoconstriction",
+"lv": "Hard",
+"s": "A 68-year-old man with long-standing severe COPD has chronic hypoxemia. He now has a loud P2, a raised JVP, ankle edema and right ventricular hypertrophy on echocardiography. What is the main cause of his raised pulmonary artery pressure?",
+"c": [
+"Widespread chronic hypoxic vasoconstriction",
+"Hypoxic vasodilation of pulmonary arterioles",
+"Left ventricular failure raising venous pressure",
+"Mitral stenosis raising left atrial pressure",
+"Sympathetic constriction of the systemic veins"
+],
+"a": 0,
+"e": "Step 1: Chronic hypoxemia lowers alveolar PO₂ throughout both lungs.\nStep 2: Hypoxic pulmonary vasoconstriction, normally a local V/Q-matching response, now happens everywhere at once and persists, and the vessels remodel.\nStep 3: Pulmonary vascular resistance rises, causing pulmonary hypertension (loud P2). The right ventricle hypertrophies and eventually fails, giving a raised JVP and ankle edema (cor pulmonale).\n\nTakeaway: Chronic hypoxia (COPD) → generalized hypoxic pulmonary vasoconstriction → pulmonary hypertension → RV failure.",
+"w": [
+"",
+"Hypoxia constricts pulmonary arterioles; it does not dilate them.",
+"There is no left heart failure described.",
+"There is no mitral valve disease in the case.",
+"Systemic venous tone does not raise pulmonary artery pressure."
+],
+"src": "lec",
+"fig": [
+"figs/crs/sc-hpv"
+],
+"viz": false
+},
+{
+"t": "Fetal Circulation",
+"lv": "Easy",
+"s": "In the fetus, which vessel carries blood with the highest oxygen saturation?",
+"c": [
+"Pulmonary artery",
+"Descending aorta",
+"Superior vena cava",
+"Umbilical arteries",
+"Umbilical vein"
+],
+"a": 4,
+"e": "Step 1: The placenta is the fetal organ of gas exchange.\nStep 2: Oxygenated blood returns from the placenta in the umbilical vein, which has the highest O₂ of any fetal vessel.\nStep 3: Deoxygenated blood returns to the placenta through the two umbilical arteries, which arise from the internal iliac arteries.\n\nTakeaway: Umbilical vein = highest O₂ in the fetus; umbilical arteries = low O₂.",
+"w": [
+"Pulmonary artery blood is mostly SVC return with low O₂.",
+"Descending aortic blood is mixed after the ductus joins it.",
+"SVC blood returns from the head with low O₂.",
+"Umbilical arteries carry deoxygenated blood back to the placenta.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/sc-fetal"
+]
+},
+{
+"t": "Fetal Circulation",
+"lv": "Easy",
+"s": "Oxygenated blood from the placenta bypasses most of the fetal liver on its way to the heart. Which fetal shunt allows this?",
+"c": [
+"Ligamentum teres",
+"Foramen ovale",
+"Ductus venosus",
+"Umbilical arteries",
+"Ductus arteriosus"
+],
+"a": 2,
+"e": "Step 1: The fetus has three shunts: the ductus venosus, the foramen ovale and the ductus arteriosus.\nStep 2: The ductus venosus carries umbilical vein blood directly into the IVC, bypassing the liver.\nStep 3: That blood then reaches the right atrium, and much of it crosses the foramen ovale to the left side. The ductus arteriosus later shunts pulmonary artery blood into the aorta, bypassing the lungs.\n\nTakeaway: Ductus venosus bypasses the liver; foramen ovale and ductus arteriosus bypass the lungs.",
+"w": [
+"The ligamentum teres is the remnant of the umbilical vein after birth.",
+"The foramen ovale is a right-to-left atrial shunt.",
+"",
+"Umbilical arteries return blood to the placenta.",
+"The ductus arteriosus bypasses the lungs, not the liver."
+],
+"src": "lec",
+"fig": [
+"figs/crs/sc-fetal"
+]
+},
+{
+"t": "Fetal Circulation",
+"lv": "Hard",
+"s": "A term baby cries and takes her first breaths. Within minutes, the flap of tissue over the opening between her atria is pressed shut. What change most directly causes this closure?",
+"c": [
+"Rising prostaglandin E₂ levels",
+"Higher PaO₂ constricting the ductus venosus",
+"Left atrial pressure rising above right",
+"Right atrial pressure rising above left",
+"A rise in pulmonary vascular resistance"
+],
+"a": 2,
+"e": "Step 1: Lung expansion and the rise in alveolar O₂ with the first breath cause pulmonary vascular resistance to fall sharply.\nStep 2: Pulmonary blood flow increases, so more blood returns to the left atrium and left atrial pressure rises. Clamping the cord removes the low-resistance placenta and also lowers IVC return to the right atrium.\nStep 3: Left atrial pressure now exceeds right atrial pressure, pressing the septum primum flap against the septum secundum and closing the foramen ovale, which becomes the fossa ovalis.\n\nTakeaway: First breath → ↓ PVR → LA pressure > RA pressure → foramen ovale closes.",
+"w": [
+"Falling, not rising, PGE₂ helps close the ductus arteriosus.",
+"The ductus venosus does not close the atrial opening.",
+"",
+"Right greater than left is the fetal pattern that keeps it open.",
+"PVR falls with the first breath; it does not rise."
+],
+"src": "lec",
+"fig": [
+"figs/crs/sc-fetal"
+]
+},
+{
+"t": "Fetal Circulation",
+"lv": "Easy",
+"s": "A premature infant has a continuous machine-like murmur, and echocardiography shows blood flowing from the aorta into the pulmonary artery. Which drug is given to close the vessel?",
+"c": [
+"Prostaglandin E₁",
+"Digoxin",
+"Indomethacin",
+"Furosemide",
+"Adenosine"
+],
+"a": 2,
+"e": "Step 1: The ductus arteriosus connects the pulmonary artery to the aorta in the fetus. After birth, flow through a patent ductus reverses (aorta → pulmonary artery) as pulmonary resistance falls.\nStep 2: Prostaglandins keep the ductus open. In premature infants it often stays patent.\nStep 3: Indomethacin, an NSAID, blocks prostaglandin synthesis and closes the PDA.\n\nTakeaway: Indomethacin closes a PDA; prostaglandin E keeps it open.",
+"w": [
+"PGE₁ keeps the ductus open, used in ductus-dependent defects.",
+"Digoxin increases contractility; it does not close the ductus.",
+"",
+"Furosemide treats fluid overload but does not close the ductus.",
+"Adenosine treats supraventricular tachycardia."
+],
+"src": "lec",
+"fig": [
+"figs/crs/sc-fetal"
+]
+},
+{
+"t": "Skeletal Muscle, Renal & Cutaneous Circulation",
+"lv": "Easy",
+"s": "At rest, skeletal muscle blood flow is held down by sympathetic tone. During a sprint, flow to the leg muscles rises up to 20-fold. Which mechanism overrides the sympathetic constriction?",
+"c": [
+"Hypoxic vasoconstriction in the muscle",
+"Local metabolites such as K⁺ and adenosine",
+"Rising circulating angiotensin II",
+"Withdrawal of all sympathetic nerve activity",
+"Increased α1 receptor sensitivity"
+],
+"a": 1,
+"e": "Step 1: At rest, sympathetic tone (α vasoconstriction) is the dominant control of skeletal muscle flow.\nStep 2: During exercise, working muscle produces local metabolites, remembered as ↑ CHALK: CO₂, H⁺, adenosine, lactate and K⁺.\nStep 3: These metabolites dilate the arterioles and override sympathetic vasoconstriction, causing functional (active) hyperemia.\n\nTakeaway: Skeletal muscle: sympathetic control at rest, local metabolites (↑ CHALK) during exercise.",
+"w": [
+"Hypoxia dilates systemic vessels; it constricts only in the lung.",
+"",
+"Angiotensin II is a vasoconstrictor and would lower flow.",
+"Sympathetic activity rises during exercise; it is overridden locally, not withdrawn.",
+"Greater α1 sensitivity would cause more constriction."
+],
+"src": "lec",
+"fig": [
+"figs/crs/sc-muscle"
+],
+"viz": false
+},
+{
+"t": "Skeletal Muscle, Renal & Cutaneous Circulation",
+"lv": "Easy",
+"s": "A high NaCl load reaches the macula densa of a nephron. How does tubuloglomerular feedback respond?",
+"c": [
+"Afferent arteriole constricts, GFR drops",
+"Glomerular Kf rises, raising the GFR",
+"Efferent arteriole dilates, raising GFR",
+"Afferent arteriole dilates, raising the GFR",
+"Renin release rises, keeping GFR high"
+],
+"a": 0,
+"e": "Step 1: The macula densa cells in the distal tubule sense the NaCl delivered to them.\nStep 2: High NaCl means GFR is too high, so the macula densa signals the afferent arteriole to constrict.\nStep 3: Glomerular pressure and GFR fall back toward normal. Together with the myogenic response, this keeps renal blood flow and GFR steady between a MAP of about 80 and 180 mmHg, protecting the glomerulus from pressure changes.\n\nTakeaway: TGF: ↑ NaCl at the macula densa → afferent constriction → ↓ GFR.",
+"w": [
+"",
+"TGF works on arteriolar tone, not on Kf.",
+"TGF adjusts afferent arteriole tone, not the efferent one.",
+"Dilation would raise GFR further, the opposite of feedback.",
+"High NaCl at the macula densa suppresses renin release."
+],
+"src": "lec",
+"fig": [
+"figs/crs/sc-renal"
+],
+"viz": false
+},
+{
+"t": "Skeletal Muscle, Renal & Cutaneous Circulation",
+"lv": "Hard",
+"s": "A 72-year-old man with resistant hypertension and an abdominal bruit is started on lisinopril. Two weeks later his creatinine has risen from 1.1 to 2.4 mg/dL. Imaging shows tight stenosis of both renal arteries. Why did his GFR fall?",
+"c": [
+"Direct toxicity of the drug to tubules",
+"Increased aldosterone reducing filtration",
+"Loss of angiotensin II efferent tone",
+"Increased bradykinin constricting arterioles",
+"Loss of angiotensin II afferent tone"
+],
+"a": 2,
+"e": "Step 1: Bilateral renal artery stenosis lowers the pressure reaching each glomerulus.\nStep 2: To keep GFR up, the kidney relies on angiotensin II constricting the efferent arteriole, which holds glomerular capillary pressure up.\nStep 3: An ACE inhibitor removes angiotensin II, so the efferent arteriole relaxes, glomerular pressure falls and GFR drops, raising creatinine.\n\nTakeaway: ACE inhibitors lower GFR in renal artery stenosis by removing angiotensin II constriction of the efferent arteriole.",
+"w": [
+"The rise reflects hemodynamics, not tubular toxicity.",
+"ACE inhibitors lower aldosterone, and it does not reduce filtration.",
+"",
+"Bradykinin is a vasodilator and would not cut GFR this way.",
+"Angiotensin II acts mainly on the efferent arteriole in this setting."
+],
+"src": "lec",
+"fig": [
+"figs/crs/sc-renal"
+],
+"viz": false
+},
+{
+"t": "Skeletal Muscle, Renal & Cutaneous Circulation",
+"lv": "Easy",
+"s": "A hiker becomes cold on a mountain and her fingers turn pale. Which mechanism reduces her skin blood flow to conserve heat?",
+"c": [
+"Hypoxic constriction of skin vessels",
+"Myogenic dilation of the skin arterioles",
+"Parasympathetic cholinergic vasoconstriction",
+"Sympathetic α-adrenergic vasoconstriction",
+"Local adenosine-mediated vasodilation"
+],
+"a": 3,
+"e": "Step 1: Cutaneous blood flow is controlled mainly by sympathetic nerves for thermoregulation.\nStep 2: In the cold, the hypothalamus increases sympathetic output, and α-adrenergic vasoconstriction reduces skin flow, so less heat is lost from the surface.\nStep 3: When the body is hot, sympathetic tone falls and skin vessels dilate to release heat. In fever, the hypothalamic set point is raised, so the body constricts skin vessels (chills) until temperature reaches the new set point.\n\nTakeaway: Skin blood flow is controlled by the sympathetic system for thermoregulation; α constriction conserves heat.",
+"w": [
+"Hypoxic constriction happens only in the lung.",
+"Myogenic responses do not drive thermoregulation.",
+"Skin vessels have no parasympathetic constrictor supply.",
+"",
+"Adenosine dilation is the coronary mechanism."
+],
+"src": "lec",
+"viz": false
+},
+{
+"t": "S1, S2 & Splitting of S2",
+"lv": "Easy",
+"s": "The first heart sound marks the start of ventricular systole. What produces it?",
+"c": [
+"Closure of the mitral and tricuspid valves",
+"Opening of the aortic and pulmonic valves",
+"Atrial contraction against a stiff ventricle",
+"Closure of the aortic and pulmonic valves",
+"Rapid passive filling of the ventricles"
+],
+"a": 0,
+"e": "Step 1: As the ventricles begin to contract, ventricular pressure rises above atrial pressure.\nStep 2: The AV valves (mitral and tricuspid) snap shut, producing S1 (lub). This marks the onset of systole and isovolumetric contraction.\nStep 3: S2 (dub) is closure of the aortic and pulmonic valves at the onset of diastole and isovolumetric relaxation. Normally A2 comes before P2.\n\nTakeaway: S1 = AV valves close (start of systole); S2 = semilunar valves close (start of diastole).",
+"w": [
+"",
+"Normal valve opening is silent and happens later in systole.",
+"Atrial contraction against a stiff ventricle produces S4.",
+"Aortic and pulmonic valve closure produces S2, not S1.",
+"Rapid filling produces S3 when the ventricle is abnormal."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hs-wiggers"
+]
+},
+{
+"t": "S1, S2 & Splitting of S2",
+"lv": "Easy",
+"s": "In a healthy 20-year-old, the two parts of S2 move farther apart during inspiration. Why?",
+"c": [
+"Pulmonic valve closure is delayed",
+"Aortic valve closure is delayed",
+"Left ventricular ejection is prolonged",
+"Pulmonic valve closure comes earlier",
+"Mitral valve closure is delayed"
+],
+"a": 0,
+"e": "Step 1: Inspiration lowers intrathoracic pressure, which increases venous return to the right heart.\nStep 2: More RV filling raises RV stroke volume, so RV ejection takes longer. The pulmonary circulation also expands its capacity (lower impedance) during inspiration.\nStep 3: Both effects delay closure of the pulmonic valve, so P2 falls further behind A2 and the split widens. Mnemonic: Inspiration increases Right-sided murmurs and the separation between A2 and P2 (I-R).\n\nTakeaway: Normal splitting: inspiration → ↑ venous return → ↑ RV ejection time → delayed P2.",
+"w": [
+"",
+"A2 timing barely changes; it is P2 that moves later.",
+"Left-sided return falls slightly in inspiration.",
+"P2 is delayed, not earlier, in inspiration.",
+"Mitral closure is part of S1, so it cannot split S2."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hs-splitting"
+]
+},
+{
+"t": "S1, S2 & Splitting of S2",
+"lv": "Easy",
+"s": "Which of the following murmurs is heard between S2 and the next S1?",
+"c": [
+"Mitral regurgitation",
+"Aortic regurgitation",
+"Tricuspid regurgitation",
+"Pulmonic stenosis",
+"Aortic stenosis"
+],
+"a": 1,
+"e": "Step 1: The timing is key. Systole runs from S1 to S2, when the AV valves are closed and the semilunar valves are open. Diastole runs from S2 to S1, when the AV valves are open and the semilunar valves are closed.\nStep 2: A valve that does not open properly is stenotic, and one that does not close properly regurgitates. Systolic murmurs: MR, AS, TR and PS (mnemonic MR. AS S, S = systolic).\nStep 3: Diastolic murmurs: aortic regurgitation and mitral stenosis (mnemonic ARMS-D). The aortic valve should be shut in diastole, so a leaky one produces a diastolic murmur.\n\nTakeaway: Systolic = MR, AS, TR, PS; diastolic = AR, MS.",
+"w": [
+"MR leaks during systole, when the mitral valve should be closed.",
+"",
+"TR leaks back into the right atrium during systole.",
+"PS obstructs RV ejection during systole.",
+"AS obstructs LV ejection during systole, between S1 and S2."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hs-phono"
+]
+},
+{
+"t": "S1, S2 & Splitting of S2",
+"lv": "Hard",
+"s": "A 30-year-old man who injects drugs has fever and a new holosystolic murmur best heard at the left lower sternal border. The murmur becomes louder when he breathes in. Which lesion is most likely?",
+"c": [
+"Tricuspid regurgitation",
+"Mitral valve stenosis",
+"Aortic valve stenosis",
+"Aortic regurgitation",
+"Mitral valve regurgitation"
+],
+"a": 0,
+"e": "Step 1: Holosystolic timing points to a regurgitant AV valve (MR or TR), since these leak throughout systole.\nStep 2: Getting louder on inspiration means a right-sided lesion: inspiration increases venous return to the right heart (mnemonic I-R, inspiration increases right-sided murmurs).\nStep 3: A right-sided holosystolic murmur at the left lower sternal border is tricuspid regurgitation, classically from endocarditis in people who inject drugs.\n\nTakeaway: Holosystolic + louder with inspiration = tricuspid regurgitation.",
+"w": [
+"",
+"MS is a low-pitched diastolic rumble, not holosystolic.",
+"AS is crescendo-decrescendo at the right upper sternal border.",
+"AR is an early diastolic decrescendo murmur.",
+"MR is left-sided, heard at the apex and does not increase with inspiration."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hs-phono"
+]
+},
+{
+"t": "S3 & S4 Heart Sounds",
+"lv": "Easy",
+"s": "A healthy 16-year-old athlete has a soft extra heart sound in early diastole, just after S2. What does this sound correspond to?",
+"c": [
+"Opening of the aortic valve",
+"Isovolumetric relaxation",
+"Atrial contraction",
+"Isovolumetric contraction",
+"Rapid ventricular filling"
+],
+"a": 4,
+"e": "Step 1: S3 occurs in early diastole, just after S2.\nStep 2: It corresponds to the rapid ventricular filling phase: blood rushing in decelerates suddenly against the ventricular wall, which vibrates.\nStep 3: S3 is normal in children and young adults. In older adults it is pathologic: heart failure with increased preload, dilated cardiomyopathy, mitral regurgitation and high-output states.\n\nTakeaway: S3 = early diastole, rapid filling; normal when young, pathologic in adults.",
+"w": [
+"Aortic valve opening is silent and occurs in systole.",
+"Isovolumetric relaxation is silent; filling has not begun.",
+"Atrial contraction produces S4 in late diastole.",
+"Isovolumetric contraction follows S1, not S2.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/hs-wiggers"
+]
+},
+{
+"t": "S3 & S4 Heart Sounds",
+"lv": "Hard",
+"s": "A 69-year-old man with 25 years of poorly controlled hypertension has a sound heard just before S1. ECG shows left ventricular hypertrophy. His ejection fraction is 60%. What produces this sound?",
+"c": [
+"Delayed closure of the pulmonic valve cusps",
+"Rapid filling into a dilated ventricle",
+"Atrial contraction into a stiff ventricle",
+"Closure of a heavily calcified aortic valve",
+"Regurgitant flow across the mitral valve"
+],
+"a": 2,
+"e": "Step 1: Long-standing hypertension causes concentric LV hypertrophy, which makes the ventricle stiff (less compliant) with diastolic dysfunction (HFpEF; EF preserved).\nStep 2: In late diastole, the atrium contracts to push its final volume into the stiff ventricle, causing turbulence and wall vibration: S4, heard just before S1.\nStep 3: S4 is associated with LVH, diastolic dysfunction, aortic stenosis, HCM and acute MI. It is not heard in normal people.\n\nTakeaway: S4 = late diastole, atrial kick into a stiff ventricle (LVH, HFpEF, AS, HCM).",
+"w": [
+"P2 timing changes S2 splitting; it adds no presystolic sound.",
+"Filling into a dilated ventricle gives S3, in early diastole.",
+"",
+"Aortic valve closure is part of S2, not a sound before S1.",
+"MR produces a holosystolic murmur, not a sound before S1."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hs-wiggers"
+]
+},
+{
+"t": "S3 & S4 Heart Sounds",
+"lv": "Hard",
+"s": "A 58-year-old woman with dilated cardiomyopathy has an ejection fraction of 25%, bibasilar crackles and an enlarged heart. An extra low-pitched sound is heard just after S2. What mechanism produces it?",
+"c": [
+"Atrial contraction against a stiff ventricle",
+"Opening snap of a narrowed mitral valve",
+"Early closure of the aortic valve cusps",
+"Blood decelerating in a distended ventricle",
+"Blood leaking back across the aortic valve"
+],
+"a": 3,
+"e": "Step 1: Dilated cardiomyopathy with a low EF leaves a large end-systolic volume, so the ventricle is already distended and preload is high.\nStep 2: In early diastole, blood rushes in during rapid filling and decelerates suddenly against the distended ventricular wall, which vibrates.\nStep 3: This is S3, heard just after S2. In an adult it signals heart failure with increased preload, dilated cardiomyopathy, MR or a high-output state.\n\nTakeaway: Pathologic S3 = sudden deceleration of rapid filling in a dilated, volume-overloaded ventricle.",
+"w": [
+"Atrial kick against a stiff ventricle is S4, just before S1.",
+"An opening snap is a mitral stenosis sound, not seen here.",
+"Early aortic closure would affect S2 splitting, not add a sound.",
+"",
+"AR produces a decrescendo murmur, not a single low sound."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hs-wiggers"
+]
+},
+{
+"t": "Systolic Murmurs: Aortic Stenosis & Mitral Regurgitation",
+"lv": "Easy",
+"s": "Which auscultation finding is typical of aortic stenosis?",
+"c": [
+"Early diastolic decrescendo murmur heard at the left sternal border",
+"Continuous machine-like murmur below the left clavicle",
+"Mid-diastolic rumble at the apex after an opening snap",
+"Holosystolic blowing apical murmur radiating to the axilla",
+"Crescendo-decrescendo systolic murmur that radiates to the carotids"
+],
+"a": 4,
+"e": "Step 1: In aortic stenosis the narrowed valve obstructs flow during systole.\nStep 2: Flow across the valve rises then falls as ejection peaks and slows, giving a diamond-shaped, crescendo-decrescendo systolic murmur.\nStep 3: It is best heard at the right upper sternal border and radiates to the carotids, often with a soft S2. Mnemonic: AS Diamond Radiating Car.\n\nTakeaway: AS = crescendo-decrescendo systolic murmur, right upper sternal border, radiating to the carotids.",
+"w": [
+"An early diastolic decrescendo murmur is aortic regurgitation.",
+"This describes a patent ductus arteriosus.",
+"An opening snap with a diastolic rumble is mitral stenosis.",
+"A holosystolic apical murmur to the axilla is mitral regurgitation.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/hs-phono"
+]
+},
+{
+"t": "Systolic Murmurs: Aortic Stenosis & Mitral Regurgitation",
+"lv": "Hard",
+"s": "An 80-year-old man has fainted twice while climbing stairs and gets chest tightness and breathlessness on exertion. He has a harsh systolic murmur at the right upper sternal border radiating to the neck and a soft S2. What is the most likely cause of his valve lesion?",
+"c": [
+"Endocarditis destroying the valve cusps",
+"Dilation of the aortic root from Marfan",
+"Age-related calcification of the valve",
+"A congenital bicuspid valve in childhood",
+"Rheumatic fever affecting the mitral valve"
+],
+"a": 2,
+"e": "Step 1: Syncope, angina and dyspnea on exertion (SAD) with a systolic murmur radiating to the carotids and a soft S2 indicate aortic stenosis.\nStep 2: The causes taught are age-related calcification and a bicuspid aortic valve.\nStep 3: A bicuspid valve calcifies earlier and usually presents at 40–60. At 80, age-related calcification of a normal three-cusp valve is the most likely cause.\n\nTakeaway: AS presents with SAD; in the elderly it is usually age-related calcification, in younger patients a bicuspid valve.",
+"w": [
+"Endocarditis destroys cusps and causes regurgitation.",
+"Aortic root dilation causes regurgitation, a diastolic murmur.",
+"",
+"A bicuspid valve usually becomes symptomatic years earlier.",
+"Rheumatic disease classically causes mitral stenosis."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hs-phono"
+]
+},
+{
+"t": "Systolic Murmurs: Aortic Stenosis & Mitral Regurgitation",
+"lv": "Hard",
+"s": "A 62-year-old woman has had moderate aortic stenosis for 6 years. Echocardiography shows concentric left ventricular hypertrophy with a normal ejection fraction. Which functional problem develops first in her ventricle?",
+"c": [
+"Regurgitant flow back into the left atrium",
+"Impaired relaxation and filling of the stiff ventricle",
+"Dilation of the ventricle from chronic volume overload",
+"Reduced afterload on the left ventricle wall",
+"Weak contraction with a steadily falling ejection fraction"
+],
+"a": 1,
+"e": "Step 1: The stenotic valve raises the pressure the LV must generate, so afterload is high.\nStep 2: The LV adapts with concentric hypertrophy. Thick walls are stiff, so the ventricle relaxes and fills poorly: diastolic dysfunction comes early, while EF stays normal.\nStep 3: Late in the disease the LV can no longer keep up, contractility fails and systolic dysfunction with LV failure follows.\n\nTakeaway: Aortic stenosis: diastolic dysfunction and hypertrophy early, systolic dysfunction and LVF late.",
+"w": [
+"Regurgitation into the atrium is mitral regurgitation.",
+"",
+"AS causes pressure overload with concentric, not dilated, change.",
+"AS raises afterload; it does not reduce it.",
+"Systolic failure is a late event; her EF is still normal."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hs-phono"
+]
+},
+{
+"t": "Systolic Murmurs: Aortic Stenosis & Mitral Regurgitation",
+"lv": "Easy",
+"s": "A 55-year-old woman has a loud, high-pitched blowing murmur heard throughout systole at the cardiac apex, radiating to the left axilla. Which lesion is most likely?",
+"c": [
+"Pulmonic stenosis",
+"Aortic regurgitation",
+"Aortic stenosis",
+"Mitral stenosis",
+"Mitral regurgitation"
+],
+"a": 4,
+"e": "Step 1: A murmur throughout systole (holosystolic, or pansystolic) means blood leaks from a high-pressure ventricle into a low-pressure atrium the whole time the valve should be closed.\nStep 2: Heard at the apex and radiating to the axilla, this is the mitral valve. Mnemonic MR FLAP: Flat, Loud, Apex, radiates to Axilla.\nStep 3: Causes: ischemic heart disease (post-MI), mitral valve prolapse and rheumatic heart disease.\n\nTakeaway: MR = holosystolic, high-pitched blowing murmur at the apex radiating to the axilla.",
+"w": [
+"PS is a crescendo-decrescendo murmur at the left upper sternal border.",
+"AR is a diastolic murmur at the left sternal border.",
+"AS is crescendo-decrescendo and radiates to the carotids.",
+"MS is a low-pitched diastolic rumble, not a systolic murmur.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/hs-mr"
+]
+},
+{
+"t": "Systolic Murmurs: Aortic Stenosis & Mitral Regurgitation",
+"lv": "Hard",
+"s": "Three weeks after an inferior wall myocardial infarction, a 66-year-old man has a new high-pitched holosystolic murmur at the apex radiating to the axilla. A catheter is placed to record left atrial pressure. Which feature is most expected on the tracing?",
+"c": [
+"A large v wave during ventricular systole",
+"A sharp drop in left atrial pressure in systole",
+"A tall a wave during atrial contraction",
+"Left atrial pressure far above LV pressure in diastole",
+"A steep pressure gradient across the aortic valve"
+],
+"a": 0,
+"e": "Step 1: A new apical holosystolic murmur radiating to the axilla after an MI is ischemic mitral regurgitation (papillary muscle dysfunction).\nStep 2: During ventricular systole, blood is ejected backward through the incompetent mitral valve into the left atrium.\nStep 3: The extra volume entering the atrium in systole produces a large v wave on the left atrial pressure tracing.\n\nTakeaway: MR → systolic backflow into the LA → large v wave.",
+"w": [
+"",
+"Regurgitant flow raises LA pressure in systole; it does not drop.",
+"A tall a wave reflects a stiff ventricle or AV obstruction.",
+"A large diastolic LA–LV gradient is the finding in mitral stenosis.",
+"An aortic valve gradient is the finding in aortic stenosis."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hs-mr-vwave"
+]
+},
+{
+"t": "Diastolic Murmurs: Aortic Regurgitation & Mitral Stenosis",
+"lv": "Easy",
+"s": "A 40-year-old man has an early diastolic decrescendo murmur at the left sternal border. Which other finding is most expected?",
+"c": [
+"A loud S1 with a mid-diastolic rumble",
+"A narrow pulse pressure with a very soft S1",
+"A wide pulse pressure with bounding pulses",
+"A slow-rising and weak carotid upstroke",
+"An opening snap shortly after S2"
+],
+"a": 2,
+"e": "Step 1: An early diastolic, high-pitched blowing decrescendo murmur at the left sternal border is aortic regurgitation.\nStep 2: Blood leaks back from the aorta into the LV in diastole, so diastolic pressure falls, and the LV ejects a large stroke volume in systole, raising systolic pressure.\nStep 3: The result is an exaggerated pulse pressure and bounding, collapsing pulses. Mnemonic AR DANCE: Austin Flint murmur, Nailbed pulsation (Quincke), Corrigan pulse, Collapsing pulse, Exaggerated pulse pressure.\n\nTakeaway: AR → wide pulse pressure with bounding, collapsing pulses.",
+"w": [
+"A loud S1 with rumble is mitral stenosis.",
+"AR widens, not narrows, the pulse pressure.",
+"",
+"A slow-rising weak pulse is typical of aortic stenosis.",
+"An opening snap belongs to mitral stenosis."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hs-ar"
+]
+},
+{
+"t": "Diastolic Murmurs: Aortic Regurgitation & Mitral Stenosis",
+"lv": "Hard",
+"s": "A tall 24-year-old man with long fingers, a high-arched palate and lens dislocation has a high-pitched, blowing early diastolic murmur along the left sternal border. What is the most likely cause of his murmur?",
+"c": [
+"Dilation of the aortic root",
+"A thickened ventricular septum",
+"Rheumatic narrowing of the mitral valve",
+"Rupture of a papillary muscle",
+"Calcification of the aortic valve"
+],
+"a": 0,
+"e": "Step 1: Tall stature, arachnodactyly, a high-arched palate and lens dislocation indicate Marfan syndrome (fibrillin-1 defect).\nStep 2: Weak connective tissue lets the aortic root dilate, pulling the aortic cusps apart so they cannot close in diastole.\nStep 3: Blood leaks back into the LV, producing the early diastolic decrescendo murmur of aortic regurgitation. Other causes: bicuspid valve and endocarditis.\n\nTakeaway: Marfan → aortic root dilation → aortic regurgitation.",
+"w": [
+"",
+"Septal hypertrophy is HCM, with a systolic murmur.",
+"Rheumatic MS gives a low-pitched mid-diastolic rumble.",
+"Papillary rupture causes acute MR after an MI.",
+"Calcification causes aortic stenosis in older patients."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hs-ar"
+]
+},
+{
+"t": "Diastolic Murmurs: Aortic Regurgitation & Mitral Stenosis",
+"lv": "Easy",
+"s": "A 38-year-old woman who had rheumatic fever as a child has a low-pitched rumbling diastolic murmur at the apex, heard best with the bell and preceded by a sharp sound after S2. Which lesion is most likely?",
+"c": [
+"Aortic regurgitation",
+"Aortic stenosis",
+"Tricuspid regurgitation",
+"Mitral regurgitation",
+"Mitral stenosis"
+],
+"a": 4,
+"e": "Step 1: Rheumatic fever is the classic cause of mitral stenosis, often appearing decades later.\nStep 2: The narrowed mitral valve obstructs flow from the LA to the LV in diastole, so LA pressure is much higher than LV pressure.\nStep 3: The stiff valve snaps open after S2 (opening snap), then a low-pitched mid-diastolic rumble follows at the apex, intensifying before S1. Mnemonic MS OS MID: Mitral Stenosis, Opening Snap, Mid-diastolic, Intensifies before S1, Diastolic rumble.\n\nTakeaway: MS = opening snap then low-pitched diastolic rumble at the apex; rheumatic fever.",
+"w": [
+"AR is a high-pitched early diastolic murmur at the left sternal border.",
+"AS is a crescendo-decrescendo systolic ejection murmur.",
+"TR is holosystolic at the left lower sternal border.",
+"MR is a holosystolic murmur, not a diastolic rumble.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/hs-ms"
+]
+},
+{
+"t": "Diastolic Murmurs: Aortic Regurgitation & Mitral Stenosis",
+"lv": "Hard",
+"s": "A 42-year-old woman who emigrated from a country where rheumatic fever is common has worsening breathlessness and new atrial fibrillation. Cardiac catheterization is performed. Which pressure finding in diastole best fits her most likely valve lesion?",
+"c": [
+"LV pressure far above aortic pressure",
+"Left atrial pressure equal to LV pressure",
+"Left atrial pressure far above LV pressure",
+"Right atrial pressure above left atrial pressure",
+"LV pressure far above left atrial pressure"
+],
+"a": 2,
+"e": "Step 1: Rheumatic heart disease in a young woman with dyspnea and atrial fibrillation suggests mitral stenosis.\nStep 2: The narrowed valve obstructs LA emptying in diastole, so LA pressure stays far above LV pressure (a large diastolic gradient). The dilated, high-pressure LA predisposes to atrial fibrillation.\nStep 3: Raised LA pressure backs up into the pulmonary capillaries, causing breathlessness and pulmonary congestion.\n\nTakeaway: Mitral stenosis: LA pressure ≫ LV pressure during diastole.",
+"w": [
+"LV above aortic pressure in systole is aortic stenosis.",
+"Equal pressures mean an unobstructed mitral valve.",
+"",
+"RA above LA is not the defining finding.",
+"LV above LA in diastole would hold the mitral valve shut, not fill it."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hs-ms-pressure"
+]
+},
+{
+"t": "Sampath's Q's · Challenge Yourself: Murmurs",
+"s": "Physical examination reveals holosystolic murmur, chest pain & palpitations. Which of the following is the most likely diagnosis?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Aortic regurgitation",
+"Aortic stenosis",
+"Mitral regurgitation",
+"Mitral stenosis"
+],
+"a": 2,
+"e": "Answer: c. Mitral regurgitation. A holosystolic murmur means blood leaks from the LV into the LA throughout systole.",
+"w": [
+"AR is diastolic.",
+"AS is crescendo-decrescendo.",
+"",
+"MS is diastolic."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hs-phono"
+]
+},
+{
+"t": "Sampath's Q's · Challenge Yourself: Murmurs",
+"s": "A 52-year-old man is admitted to the hospital because of syncopal attacks & difficulty breathing. She had undergone mitral valve replacement 8 years ago. X-ray shows pulmonary congestion & an enlarged heart. A phonocardiogram showed a diastolic murmur. Aortic, LV & LA pressures were measured during cardiac catheterization are shown in the diagram. Which of the following diagnoses best accounts for these findings?",
+"img": "figs/crs/hs-q2-pressure.jpg",
+"html": true,
+"ns": true,
+"sampath": 1,
+"c": [
+"Aortic regurgitation",
+"Aortic stenosis",
+"Mitral regurgitation",
+"Mitral stenosis"
+],
+"a": 3,
+"e": "Answer: d. Mitral stenosis. The diagram shows LA pressure above LV pressure in diastole, so the prosthetic mitral valve is obstructing filling, which gives a diastolic murmur and pulmonary congestion.",
+"w": [
+"Aortic and LV peaks match and the diastolic gap is LA over LV.",
+"There is no systolic gradient between the LV and aorta.",
+"MR is systolic.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/hs-ms-pressure"
+]
+},
+{
+"t": "Sampath's Q's · Challenge Yourself: Murmurs",
+"s": "Physical examination reveals crescendo-descendo systolic murmur, chest pain & palpitations. Which of the following is the most likely diagnosis?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Aortic regurgitation",
+"Aortic stenosis",
+"Mitral regurgitation",
+"Mitral stenosis"
+],
+"a": 1,
+"e": "Answer: b. Aortic stenosis. A crescendo-decrescendo (diamond-shaped) systolic murmur is aortic stenosis.",
+"w": [
+"AR is diastolic.",
+"",
+"MR is holosystolic.",
+"MS is diastolic."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hs-phono"
+]
+},
+{
+"t": "Sampath's Q's · Challenge Yourself: Murmurs",
+"s": "A 67-year-old man presents to his doctor's office for an insurance physical. During blood pressure measurement, the nurse notes that systolic sounds are heard with the cuff completely deflated. The blood pressure is 180/60 mm Hg. Physical examination reveals bounding pulses & a high-pitched, blowing diastolic murmur, heard best along the left sternal border. Which of the following is the most likely diagnosis?",
+"ns": true,
+"sampath": 1,
+"c": [
+"Aortic regurgitation",
+"Aortic valve obstruction",
+"Cardiac tamponade",
+"Heart failure",
+"Hypovolemia"
+],
+"a": 0,
+"e": "Answer: a. Aortic regurgitation. Wide pulse pressure (180/60), bounding pulses, sounds heard to zero and a high-pitched blowing diastolic murmur at the left sternal border are aortic regurgitation.",
+"w": [
+"",
+"Obstruction causes a systolic murmur and narrow pulse pressure.",
+"Tamponade narrows pulse pressure.",
+"Heart failure does not cause this murmur.",
+"Hypovolemia narrows pulse pressure."
+],
+"src": "lec",
+"fig": [
+"figs/crs/hs-ar"
+]
 }
 ];
