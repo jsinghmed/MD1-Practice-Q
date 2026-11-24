@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Starling Forces · 3D</title>
+<script>function jjTheme(){try{var th=localStorage.getItem("msk-theme");document.documentElement.setAttribute("data-theme",th==="dark"?"dark":"light");}catch(e){}}jjTheme();window.addEventListener("storage",function(e){if(e.key==="msk-theme"){jjTheme();if(window.stTheme)window.stTheme();}});window.addEventListener("message",function(e){if(e.data==="jj-theme"){jjTheme();if(window.stTheme)window.stTheme();}});</script>
+<style>
+:root{--bg:#0d1117;--panel:#161b22;--card:#1c2129;--line:#2a313c;--line2:#353d4a;--text:#e6edf3;--muted:#8b949e;--acc:#4fb8b0;--accbg:rgba(79,184,176,.14);--out:#ff8a3d;--in:#4aa8ff;--warn:#f85149;--ok:#3fb950}
+:root[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#f6f8fa;--line:#d0d7de;--line2:#c3cad2;--text:#1f2328;--muted:#59636e;--acc:#1a8c84;--accbg:rgba(26,140,132,.1);--out:#e0661f;--in:#1f6feb;--warn:#cf222e;--ok:#1a7f37}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{padding:14px 16px 20px;max-width:1500px;margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.top h1{font-size:18px;margin:0}.top .sub{color:var(--muted);font-size:13px}
+.btn{background:var(--card);border:1px solid var(--line2);border-radius:9px;padding:7px 12px;font-weight:600;font-size:13px}
+.btn.on{background:var(--accbg);border-color:var(--acc)}
+.seg{display:inline-flex;background:var(--card);border:1px solid var(--line2);border-radius:9px;padding:2px;flex-wrap:wrap}
+.seg button{background:none;border:none;border-radius:7px;padding:5px 11px;font-size:12.5px;font-weight:600;color:var(--muted)}
+.seg button.on{background:var(--accbg);color:var(--text);box-shadow:inset 0 0 0 1px var(--acc)}
+.grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(300px,1fr);gap:14px;align-items:start}
+@media (max-width:980px){.grid{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;min-width:0}
+.card h3{margin:0 0 8px;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+#stage{position:relative;height:max(420px,min(calc(100vh - 175px),900px));border-radius:12px;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#1d1820,#0b0f15)}
+:root[data-theme="light"] #stage{background:radial-gradient(ellipse at 50% 40%,#fffaf8,#f1e6e4)}
+#stage canvas{display:block;width:100%;height:100%;touch-action:none}
+#cap{position:absolute;left:12px;top:10px;font-size:12.5px;font-weight:700;color:#fff;background:rgba(0,0,0,.5);padding:5px 10px;border-radius:8px;pointer-events:none}
+#note{position:absolute;left:12px;top:42px;max-width:min(560px,calc(100% - 24px));font-size:13px;line-height:1.45;color:#fff;background:rgba(0,0,0,.58);padding:8px 12px;border-radius:9px;pointer-events:none}
+#note b{color:#ffd27a}
+.hint{position:absolute;right:12px;top:10px;font-size:11.5px;color:var(--muted);pointer-events:none}
+.meters{position:absolute;left:10px;right:10px;bottom:10px;display:grid;grid-template-columns:1fr 1fr;gap:10px;pointer-events:none}
+.meter{background:rgba(255,255,255,.9);color:#1f2328;border-radius:12px;padding:8px 11px;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+:root[data-theme="dark"] .meter{background:rgba(22,27,34,.9);color:#e6edf3}
+.meter .h{font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;display:flex;justify-content:space-between}
+.bar{display:grid;grid-template-columns:62px 1fr 34px;gap:6px;align-items:center;font-size:12px;margin-top:5px}
+.bar .tr{height:12px;border-radius:6px;background:rgba(127,127,127,.18);overflow:hidden}
+.bar .f{height:100%;border-radius:6px}
+.res{margin-top:6px;font-weight:800;font-size:13.5px}
+.meters.hide{display:none}
+.ctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.ctrl .sp{color:var(--muted);font-size:12.5px;margin-left:auto}
+.steps{display:flex;flex-direction:column;gap:6px}
+.step{display:flex;gap:10px;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 10px;width:100%}
+.step .n{flex:0 0 22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;background:var(--line);color:var(--muted)}
+.step div>b{display:block;font-size:13px}.step span{font-size:12.5px;color:var(--muted)}
+.step.on{border-color:var(--acc);background:var(--accbg)}.step.on .n{background:var(--acc);color:#fff}.step.on span{color:var(--text)}
+.key{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;font-size:12.5px;color:var(--muted)}
+.key i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.key i.ar{border-radius:2px;width:16px;height:6px;vertical-align:2px}
+.pres{display:flex;flex-wrap:wrap;gap:6px}
+.sl{display:grid;grid-template-columns:132px 1fr 46px;gap:8px;align-items:center;margin:6px 0;font-size:12.5px}
+.sl label{font-weight:600}.sl label span{display:block;font-weight:400;font-size:11px;color:var(--muted)}
+.sl output{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--acc)}
+.why{font-size:13px;margin-top:8px;color:var(--text)}
+.tp{margin-top:10px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}.tp b{color:var(--text)}
+</style></head><body>
+<div class="wrap">
+  <div class="top">
+    <div><h1>Starling forces: how fluid moves in a capillary</h1><div class="sub">Follow the water. Blood pressure pushes it out, albumin pulls it back in, and the winner changes from the arterial end to the venous end.</div></div>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div id="stage"><div id="cap"></div><div id="note"></div><div class="hint">Drag to rotate · scroll to zoom</div>
+        <div class="meters hide" id="meters"><div class="meter" id="mA"></div><div class="meter" id="mV"></div></div></div>
+      <div class="ctrl">
+        <button class="btn" id="prev">← Back</button>
+        <button class="btn on" id="play">Pause</button>
+        <button class="btn" id="next">Next →</button>
+        <button class="btn" id="restart">Restart</button>
+        <div class="seg" id="spd"><button data-s="0.5">Slow</button><button data-s="1" class="on">Normal</button><button data-s="1.8">Fast</button></div>
+        <span class="sp" id="pos"></span>
+      </div>
+    </div>
+    <div>
+      <div class="card"><h3>Steps</h3><div class="steps" id="steps"></div></div>
+      <div class="card" style="margin-top:14px"><h3>Key</h3>
+        <div class="key">
+          <div><i style="background:#3aa0ff"></i>Water</div><div><i style="background:#f2c230"></i>Albumin (plasma protein)</div>
+          <div><i style="background:#d6333a"></i>Red blood cell</div><div><i style="background:#c98fd0"></i>Endothelial cell wall</div>
+          <div><i class="ar" style="background:var(--out)"></i>Hydrostatic push (out)</div><div><i class="ar" style="background:var(--in)"></i>Oncotic pull (in)</div>
+          <div><i style="background:#4cc779"></i>Lymphatic vessel</div><div><i style="background:#f0c9c6;border:1px solid #c99"></i>Tissue cells</div>
+        </div>
+        <div class="tp"><b>Hydrostatic pressure</b> = water pressure, the push of the blood against the wall. <b>Oncotic pressure</b> = the pull of proteins on water. Water always moves toward the side that wins.</div>
+      </div>
+      <div class="card" style="margin-top:14px" id="explore"><h3>Try it: causes of edema</h3>
+        <div class="pres" id="pres"></div>
+        <div id="sls"></div>
+        <div class="why" id="why"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function(){
+const $=id=>document.getElementById(id), V=(x,y,z)=>new THREE.Vector3(x,y,z);
+const isLight=()=>document.documentElement.getAttribute("data-theme")!=="dark";
+// ---------- model ----------
+const NORMAL={pa:30,pv:10,pp:28,pif:-3,pi:8,kf:1,lc:10,alb:1};
+let P={...NORMAL};
+const L0=-11,L1=11,R=2.1,TH=0.42;                 // capillary from x=L0 (arterial) to x=L1 (venous)
+const tOf=x=>Math.max(0,Math.min(1,(x-L0)/(L1-L0)));
+const Pc=t=>P.pa+(P.pv-P.pa)*t;
+const outF=t=>Pc(t)+P.pi+(P.pif<0?-P.pif:0), inF=()=>P.pp*P.alb+(P.pif>0?P.pif:0);
+const nfp=t=>outF(t)-inF();
+// ---------- scene ----------
+const stage=$("stage");
+const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});renderer.setPixelRatio(Math.min(2,window.devicePixelRatio||1));stage.insertBefore(renderer.domElement,stage.firstChild);
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(40,1,0.1,200);camera.position.set(0,1,30);
+const controls=new THREE.OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.minDistance=5;controls.maxDistance=50;
+let userMoved=0;controls.addEventListener("start",()=>{userMoved=performance.now();});
+scene.add(new THREE.HemisphereLight(0xffffff,0x554455,0.85));
+const dl=new THREE.DirectionalLight(0xffffff,0.7);dl.position.set(4,10,12);scene.add(dl);
+const mat=(c,o={})=>new THREE.MeshStandardMaterial(Object.assign({color:c,roughness:.5,metalness:.03},o));
+
+// tissue background slab with tissue cells
+const tis=new THREE.Mesh(new THREE.PlaneGeometry(34,17),mat(0xf3d6d2,{transparent:true,opacity:.55,roughness:.9}));tis.position.set(0,-0.6,-3.2);scene.add(tis);
+const edemaTint=new THREE.Mesh(new THREE.PlaneGeometry(34,17),new THREE.MeshBasicMaterial({color:0x58a6ff,transparent:true,opacity:0}));edemaTint.position.set(0,-0.6,-3.1);scene.add(edemaTint);
+const cells=[];
+[[-13,5.4],[-8,6],[-3,5.2],[2,6.1],[7,5.3],[12,5.9],[-11,-4.6],[-5.5,-4.4],[0.5,-4.8],[6,-4.4],[11.5,-4.7]].forEach(([x,y],i)=>{
+  const g=new THREE.Group();const b=new THREE.Mesh(new THREE.SphereGeometry(1,24,16),mat(0xf0c3c0,{transparent:true,opacity:.9}));b.scale.set(1.6,0.8,0.6);g.add(b);
+  const n=new THREE.Mesh(new THREE.SphereGeometry(0.38,16,12),mat(0x9b6aa8));n.position.set(-0.2,0,0.25);g.add(n);g.position.set(x,y,-2.2);g.userData.y0=y;scene.add(g);cells.push(g);});
+
+// capillary: translucent back half + front cut edges made of endothelial cells with clefts between them
+const back=new THREE.Mesh(new THREE.CylinderGeometry(R+TH,R+TH,L1-L0+2,48,1,true,Math.PI,Math.PI),mat(0xe7a9b8,{transparent:true,opacity:.32,side:THREE.DoubleSide}));
+back.rotation.z=Math.PI/2;back.position.x=(L0+L1)/2;scene.add(back);
+const plasma=new THREE.Mesh(new THREE.CylinderGeometry(R,R,L1-L0+2,48,1,true,Math.PI,Math.PI),new THREE.MeshBasicMaterial({color:0xffe9d6,transparent:true,opacity:.25,side:THREE.DoubleSide}));
+plasma.rotation.z=Math.PI/2;plasma.position.x=(L0+L1)/2;scene.add(plasma);
+const CLEFT=[];for(let x=L0+1.4;x<L1-0.6;x+=2.75)CLEFT.push(x);
+const segX=[L0-1].concat(CLEFT,[L1+1]);
+const art=new THREE.Color(0xd9535b),ven=new THREE.Color(0x6a6fd6);
+for(let i=0;i<segX.length-1;i++){const a=segX[i]+0.13,b=segX[i+1]-0.13,cx=(a+b)/2,col=art.clone().lerp(ven,tOf(cx));
+  [1,-1].forEach(s=>{const m=new THREE.Mesh(new THREE.BoxGeometry(b-a,TH,1.1),mat(col));m.position.set(cx,s*(R+TH/2),0);scene.add(m);
+    const nu=new THREE.Mesh(new THREE.SphereGeometry(0.32,16,12),mat(0x5d3f7a));nu.scale.set(2.2,0.55,1);nu.position.set(cx,s*(R+TH/2),0.5);scene.add(nu);});}
+// lymphatic capillary (blind-ended, below)
+const LY=-7.6,LR=0.75;
+const lym=new THREE.Mesh(new THREE.CylinderGeometry(LR,LR,24,32,1,true),mat(0x7fe0a6,{transparent:true,opacity:.45,side:THREE.DoubleSide}));lym.rotation.z=Math.PI/2;lym.position.set(1,LY,0);scene.add(lym);
+const lcap=new THREE.Mesh(new THREE.SphereGeometry(LR,24,16,0,Math.PI*2,0,Math.PI/2),mat(0x7fe0a6,{transparent:true,opacity:.45,side:THREE.DoubleSide}));lcap.rotation.z=Math.PI/2;lcap.position.set(-11,LY,0);scene.add(lcap);
+const flaps=[];for(let x=-10;x<12;x+=1.6){const f=new THREE.Mesh(new THREE.BoxGeometry(1.3,0.09,0.7),mat(0x3fae6a));f.position.set(x,LY+LR,0);f.rotation.z=-0.35;scene.add(f);flaps.push(f);}
+const block=new THREE.Group();[1,-1].forEach(s=>{const b=new THREE.Mesh(new THREE.BoxGeometry(2.6,0.32,0.32),mat(0xe5484d));b.rotation.z=s*0.785;block.add(b);});block.position.set(0,LY,0.9);block.visible=false;scene.add(block);
+
+const halo=new THREE.Mesh(new THREE.TorusGeometry(0.62,0.07,10,40),new THREE.MeshBasicMaterial({color:0x22c55e}));halo.position.set(CLEFT[2],R+TH/2,0.6);halo.visible=false;scene.add(halo);
+// text sprites
+const sprites=[];
+function label(text,pos,o={}){const c=document.createElement("canvas");const s=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),depthTest:false,transparent:true}));
+  s.userData={c,text,fs:o.fs||40,col:o.col,k:(o.scale||1)*0.00042};s.material.sizeAttenuation=false;s.position.copy(pos);s.renderOrder=20;scene.add(s);sprites.push(s);drawLabel(s);return s;}
+function drawLabel(s){const u=s.userData,c=u.c,x=c.getContext("2d");x.font=`700 ${u.fs}px Inter,system-ui,sans-serif`;const w=Math.ceil(x.measureText(u.text).width)+30,h=u.fs+22;c.width=w;c.height=h;
+  x.font=`700 ${u.fs}px Inter,system-ui,sans-serif`;x.fillStyle=isLight()?"rgba(255,255,255,.92)":"rgba(13,17,23,.82)";const r=14;x.beginPath();x.moveTo(r,0);x.arcTo(w,0,w,h,r);x.arcTo(w,h,0,h,r);x.arcTo(0,h,0,0,r);x.arcTo(0,0,w,0,r);x.fill();
+  x.fillStyle=u.col||(isLight()?"#1f2328":"#e6edf3");x.textBaseline="middle";x.fillText(u.text,15,h/2+1);s.material.map.dispose();s.material.map=new THREE.CanvasTexture(c);s.scale.set(w*u.k,h*u.k,1);}
+function setText(s,t,col){s.userData.text=t;if(col)s.userData.col=col;drawLabel(s);}
+window.stTheme=()=>{sprites.forEach(drawLabel);meters();};
+const lab={
+ art:label("ARTERIAL END (from the arteriole)",V(-8,8.4,1),{scale:.85,col:"#c2333b"}),
+ ven:label("VENOUS END (to the venule)",V(8,8.4,1),{scale:.85,col:"#4b50b8"}),
+ water:label("Water",V(-6.6,1.0,1.2),{scale:.8,col:"#1f74d6"}),
+ alb:label("Albumin: too big to fit through the gaps",V(-2.2,-1.2,1.3),{scale:.75,col:"#9a7200"}),
+ rbc:label("Red blood cell",V(6,-1.2,1.2),{scale:.75,col:"#b1262d"}),
+ cleft:label("Gap: water fits through",V(CLEFT[2],R+1.35,1.2),{scale:.72}),
+ tis:label("Tissue (interstitial fluid)",V(9,3.5,1),{scale:.8}),
+ lym:label("Lymphatic vessel: takes the leftover water back to the blood",V(0,LY-1.5,1),{scale:.72,col:"#238a4d"}),
+};
+// arrows: orange push (inside → out) and blue pull (outside → in) at every cleft
+const pushA=[],pullA=[];
+CLEFT.forEach(x=>{[1,-1].forEach(s=>{
+  const a=new THREE.ArrowHelper(V(0,s,0),V(x-0.45,s*0.7,0.6),1,0xff7a2e,0.5,0.38);a.line.material.linewidth=3;scene.add(a);pushA.push({a,x,s});
+  const b=new THREE.ArrowHelper(V(0,-s,0),V(x+0.45,s*(R+TH+2.4),0.6),1,0x2f86ff,0.5,0.38);scene.add(b);pullA.push({a:b,x,s});});});
+// fat arrow shafts (ArrowHelper lines are 1px), so add cylinders
+function fatArrow(col){const g=new THREE.Group();const sh=new THREE.Mesh(new THREE.CylinderGeometry(0.11,0.11,1,10),mat(col,{emissive:col,emissiveIntensity:.25}));sh.position.y=0.5;g.add(sh);
+  const hd=new THREE.Mesh(new THREE.ConeGeometry(0.3,0.55,14),mat(col,{emissive:col,emissiveIntensity:.25}));g.add(hd);g.userData={sh,hd};scene.add(g);return g;}
+pushA.forEach(p=>{p.f=fatArrow(0xff7a2e);p.a.visible=false;});pullA.forEach(p=>{p.f=fatArrow(0x2f86ff);p.a.visible=false;});
+function placeArrow(f,base,dir,len){const {sh,hd}=f.userData;len=Math.max(0.05,len);f.position.copy(base);f.quaternion.setFromUnitVectors(V(0,1,0),dir);sh.scale.y=len;sh.position.y=len/2;hd.position.y=len+0.22;}
+// ---------- particles ----------
+const NW=1300,NA=40,NR=12;
+const wGeo=new THREE.SphereGeometry(0.11,10,8),aGeo=new THREE.SphereGeometry(0.3,18,12),rGeo=new THREE.CylinderGeometry(0.55,0.55,0.22,20);
+const wMesh=new THREE.InstancedMesh(wGeo,mat(0x3aa0ff,{emissive:0x1a5fb0,emissiveIntensity:.25}),NW),aMesh=new THREE.InstancedMesh(aGeo,mat(0xf2c230,{emissive:0x6b5200,emissiveIntensity:.15}),NA),rMesh=new THREE.InstancedMesh(rGeo,mat(0xd6333a),NR);
+[wMesh,aMesh,rMesh].forEach(m=>{m.instanceMatrix.setUsage(THREE.DynamicDrawUsage);scene.add(m);});
+const rnd=(a,b)=>a+Math.random()*(b-a);
+// water states: 0 blood, 1 leaving through gap, 2 tissue, 3 entering through gap, 4 lymph
+const W=[];for(let i=0;i<NW;i++)W.push({st:i<420?0:9,x:rnd(L0,L1),y:rnd(-R+0.3,R-0.3),z:rnd(-1.4,0.9),vx:0,vy:0});
+const A=[];for(let i=0;i<NA;i++)A.push({x:rnd(L0,L1),y:rnd(-R+0.5,R-0.5),z:rnd(-1.2,0.6),out:false});
+const RB=[];for(let i=0;i<NR;i++)RB.push({x:rnd(L0,L1),y:rnd(-1.2,1.2),z:rnd(-1,0.4),r:rnd(0,6)});
+let flow=1,lymBudget=0,leakOn=false;
+const dummy=new THREE.Object3D();
+function freeW(){for(const w of W)if(w.st===9)return w;return null;}
+function nearCleft(x){let b=CLEFT[0];for(const c of CLEFT)if(Math.abs(c-x)<Math.abs(b-x))b=c;return b;}
+function tissueCap(){return 120+520*edema;}
+let edema=0;
+function sim(dt){const k=dt*60*flow;
+  // blood flow
+  RB.forEach(r=>{r.x+=0.045*k;r.r+=0.01*k;if(r.x>L1+1)r.x=L0-1;});
+  const nA=Math.round(NA*Math.min(1,P.alb));
+  A.forEach((a,i)=>{if(i>=nA){a.hide=true;return;}a.hide=false;
+    if(!a.out){a.x+=0.038*k;a.y+=rnd(-.01,.01)*k;a.y=Math.max(-R+0.45,Math.min(R-0.45,a.y));if(a.x>L1+1)a.x=L0-1;
+      if(leakOn&&Math.random()<0.0012*k){const c=nearCleft(a.x);if(Math.abs(c-a.x)<0.3){a.out=true;a.s=Math.random()<.5?1:-1;a.y=a.s*(R+TH);a.life=0;}}}
+    else{a.life+=k;a.y+=a.s*0.02*k*(Math.abs(a.y)<R+TH+2.5?1:0.1);a.x+=rnd(-.01,.01)*k;if(a.life>900){a.out=false;a.x=L0-1;a.y=0;}}});
+  // water emission / absorption at gaps
+  CLEFT.forEach(cx=>{const v=nfp(tOf(cx))*P.kf,rate=Math.abs(v)*0.0045*k;let n=Math.floor(rate)+(Math.random()<rate%1?1:0);
+    while(n-->0){if(v>0){let w=null;for(const q of W)if(q.st===0&&Math.abs(q.x-cx)<0.9){w=q;break;}if(!w)w=freeW();if(!w)break;const s=Math.random()<.5?1:-1;Object.assign(w,{st:1,x:cx,y:s*(R-0.2),z:rnd(-0.6,0.6),s,vx:rnd(-.02,.02)});}
+      else{let best=null,bd=1e9;for(const q of W){if(q.st!==2)continue;const d=Math.abs(q.x-cx)+Math.abs(Math.abs(q.y)-R)*0.6;if(d<bd&&d<9){bd=d;best=q;}}
+        if(!best){best=freeW();if(!best)break;const s=Math.random()<.5?1:-1;Object.assign(best,{x:cx+rnd(-2,2),y:s*rnd(R+1.5,R+4),z:rnd(-0.8,0.6)});}
+        best.st=3;best.tx=cx;best.s=Math.sign(best.y)||1;}}});
+  lymBudget=Math.min(lymBudget+P.lc*0.0011*k,4);
+  let nt=0;
+  W.forEach(w=>{
+    if(w.st===0){w.x+=0.05*k;w.y+=rnd(-.02,.02)*k;w.y=Math.max(-R+0.15,Math.min(R-0.15,w.y));if(w.x>L1+1){w.x=L0-1;}}
+    else if(w.st===1){w.y+=w.s*0.06*k;w.x+=w.vx*k;if(Math.abs(w.y)>R+TH+0.35){w.st=2;w.vx=rnd(-.02,.02);w.vy=w.s*rnd(.01,.03);}}
+    else if(w.st===2){nt++;w.x+=(w.vx+rnd(-.02,.02))*k;w.y+=(w.vy+rnd(-.02,.02))*k;w.vy*=0.99;w.vx*=0.99;
+      if(Math.abs(w.y)<R+TH+0.3)w.y=Math.sign(w.y)*(R+TH+0.3);
+      if(w.y<-(R+TH+0.6))w.vy-=0.0009*k;                       // lower tissue drains toward the lymphatic
+      if(w.y>R+TH+0.6&&w.y>7.6){w.y=7.6;}
+      if(w.y<LY+LR+0.2){if(lymBudget>=1&&w.x>-11&&w.x<12){lymBudget-=1;w.st=4;w.y=LY+rnd(-0.3,0.3);w.z=rnd(-0.3,0.3);}else{w.y=LY+LR+0.25;w.vy=Math.abs(w.vy)*0.2;}}
+      if(w.y>R+TH+0.6&&Math.random()<0.0012*k*(P.lc/10)&&edema<0.05){w.st=9;}  // upper tissue drains to lymph out of view
+      w.x=Math.max(-15,Math.min(15,w.x));}
+    else if(w.st===3){const ty=w.s*(R-0.3);w.x+=(w.tx-w.x)*0.06*k;w.y+=(ty-w.y)*0.06*k;if(Math.abs(w.y-ty)<0.15){w.st=0;}}
+    else if(w.st===4){w.x+=0.05*k;if(w.x>13){w.st=9;}}
+  });
+  // keep tissue water from growing forever when lymph keeps up
+  let cap=tissueCap();if(nt>cap){for(const w of W){if(w.st===2&&nt>cap){w.st=9;nt--;}}}
+}
+function draw(){
+  W.forEach((w,i)=>{if(w.st===9){dummy.position.set(0,-99,0);}else dummy.position.set(w.x,w.y,w.z);dummy.scale.setScalar(1);dummy.rotation.set(0,0,0);dummy.updateMatrix();wMesh.setMatrixAt(i,dummy.matrix);});wMesh.instanceMatrix.needsUpdate=true;
+  A.forEach((a,i)=>{if(a.hide){dummy.position.set(0,-99,0);}else dummy.position.set(a.x,a.y,a.z);dummy.updateMatrix();aMesh.setMatrixAt(i,dummy.matrix);});aMesh.instanceMatrix.needsUpdate=true;
+  RB.forEach((r,i)=>{dummy.position.set(r.x,r.y,r.z);dummy.rotation.set(Math.PI/2+0.3*Math.sin(r.r),r.r,0);dummy.updateMatrix();rMesh.setMatrixAt(i,dummy.matrix);});rMesh.instanceMatrix.needsUpdate=true;
+}
+// ---------- arrows + edema visuals ----------
+let showPush=false,showPull=false;
+function updArrows(){
+  pushA.forEach(p=>{p.f.visible=!!showPush;if(!showPush)return;const v=showPush===2?outF(tOf(p.x)):Pc(tOf(p.x));placeArrow(p.f,V(p.x-0.42,p.s*0.55,0.7),V(0,p.s,0),Math.max(0.15,v*0.075));});
+  pullA.forEach(p=>{p.f.visible=!!showPull;if(!showPull)return;const v=showPull===2?inF():P.pp*P.alb;const len=Math.max(0.15,v*0.075);placeArrow(p.f,V(p.x+0.42,p.s*(R+TH+0.2+len+0.55),0.7),V(0,-p.s,0),len);});
+  const a=nfp(0),b=nfp(1);
+  block.visible=P.lc<1.5;
+  // edema: steady state if fluid left > lymph capacity
+  const net=netFluid();edema=net>P.lc+0.05?Math.min(1,(net-P.lc)/20+0.35):0;
+  edemaTint.material.opacity=edema*0.28;
+  cells.forEach(c=>{const s=Math.sign(c.userData.y0);c.position.y=c.userData.y0+s*edema*1.3;});
+  meters();
+}
+// daily fluid (scaled so normal = 20 filtered, 17 reabsorbed, 3 to lymph)
+function areas(){let f=0,r=0,N=200;for(let i=0;i<N;i++){const v=nfp((i+.5)/N)/N;if(v>0)f+=v;else r-=v;}return [f,r];}
+const KF=(()=>{const s=P;P={...NORMAL};const [f,r]=areas();P=s;return [20/f,17/r];})();
+function flows(){const [f,r]=areas();return [f*KF[0]*P.kf,r*KF[1]*P.kf];}
+function netFluid(){const [F,Rr]=flows();return F-Rr;}
+function meterHTML(t,title){const o=outF(t),i=inF(),n=o-i,mx=Math.max(50,o,i);
+  const O=getComputedStyle(document.documentElement).getPropertyValue("--out"),I=getComputedStyle(document.documentElement).getPropertyValue("--in");
+  return `<div class="h"><span>${title}</span><span>mmHg</span></div>
+  <div class="bar"><span style="color:${O};font-weight:700">Push out</span><div class="tr"><div class="f" style="width:${o/mx*100}%;background:${O}"></div></div><b>${Math.round(o)}</b></div>
+  <div class="bar"><span style="color:${I};font-weight:700">Pull in</span><div class="tr"><div class="f" style="width:${i/mx*100}%;background:${I}"></div></div><b>${Math.round(i)}</b></div>
+  <div class="res" style="color:${n>0.5?O:n<-0.5?I:"inherit"}">${n>0.5?`Push wins by ${Math.round(n)} → water moves OUT`:n<-0.5?`Pull wins by ${Math.round(-n)} → water moves IN`:"Balanced → no net movement"}</div>`;}
+function meters(){$("mA").innerHTML=meterHTML(0,"Arterial end");$("mV").innerHTML=meterHTML(1,"Venous end");}
+// ---------- guided steps ----------
+const STEPS=[
+ {k:"Meet the players",cam:[0,1.5,27,30],tg:[0,0,0],push:0,pull:0,met:0,lab:["art","ven","water","alb","rbc","cleft","tis","lym"],
+  t:"A capillary carries blood from the <b>arterial end</b> (left) to the <b>venous end</b> (right). Its wall is one layer of <b>endothelial cells</b> with small <b>gaps</b> between them. Blue dots are <b>water</b>, yellow balls are <b>albumin</b>, and red discs are <b>red blood cells</b>."},
+ {k:"Water fits through the gaps. Albumin does not.",cam:[CLEFT[2],R+0.6,7.5,9],tg:[CLEFT[2],R,0],push:0,pull:0,met:0,lab:["water","alb","cleft"],
+  t:"Up close: the gap between two endothelial cells is big enough for <b>water</b> but far too small for <b>albumin</b>. So albumin stays inside the blood. This is the key to everything that follows."},
+ {k:"Hydrostatic pressure pushes water OUT",cam:[0,1,24,27],tg:[0,0,0],push:1,pull:0,met:0,lab:["art","ven"],
+  t:"The heart pumps blood into the capillary, so the blood <b>presses on the wall</b>. This is <b>hydrostatic pressure</b> (orange arrows), and it pushes water <b>out</b> through the gaps. It is strongest at the arterial end (<b>30 mmHg</b>) and fades to <b>10 mmHg</b> at the venous end, as the blood loses pressure along the way."},
+ {k:"Oncotic pressure pulls water IN",cam:[0,1,24,27],tg:[0,0,0],push:0,pull:1,met:0,lab:["alb"],
+  t:"Albumin attracts water. Because albumin is trapped inside the capillary, it <b>pulls water back in</b>. This is <b>oncotic pressure</b> (blue arrows). Since the amount of albumin doesn't change along the capillary, the pull is the <b>same all the way: 28 mmHg</b>."},
+ {k:"Arterial end: push beats pull, water leaves",cam:[-6,0.5,11,15],tg:[-6,0.6,0],push:2,pull:2,met:1,lab:["art"],
+  t:"At the arterial end, the outward push (blood pressure 30 + the small pull of tissue proteins 8 + suction from the slightly negative tissue pressure 3 = <b>41</b>) beats albumin's pull (<b>28</b>). The arrows now show the <b>totals</b>: orange longer than blue. Net <b>+13 mmHg</b> → water streams <b>out</b> into the tissue. This is <b>filtration</b>."},
+ {k:"Venous end: pull beats push, water returns",cam:[6,0.5,11,15],tg:[6,0.6,0],push:2,pull:2,met:1,lab:["ven"],
+  t:"By the venous end the blood pressure has fallen to 10, so the push is only <b>21</b>. Albumin still pulls with <b>28</b>, so now the blue arrows are longer. Net <b>−7 mmHg</b> → water is drawn back <b>in</b>. This is <b>reabsorption</b>."},
+ {k:"Lymph collects what is left over",cam:[0,-4,17,26],tg:[0,-4.2,0],push:0,pull:0,met:0,lab:["lym","tis"],
+  t:"Each day about <b>20 L</b> of water leaves the capillaries and about <b>17 L</b> comes back. The extra <b>3 L</b> drains into the <b>lymphatic vessel</b> through its flap-like openings and returns to the blood. So the tissue stays dry."},
+ {k:"Your turn: what causes edema?",cam:[0,-0.5,28,30],tg:[0,-0.5,0],push:2,pull:2,met:1,lab:["art","ven","lym"],explore:1,
+  t:"Pick a cause on the right and watch: <b>edema</b> happens when more water leaves than comes back <b>and</b> lymph can't carry the rest. The tissue turns watery and swells."},
+];
+let si=0,playing=true,stepT=0,spd=1;
+const STEP_SEC=13;
+function camTo(c,t,fast){const tg=V(...t),dir=V(...c).sub(tg).normalize(),w=c[3]||26,h=w*0.62,a=camera.aspect||1.5,d=Math.max(w/(0.728*a),h/0.728);camGoal={p:tg.clone().add(dir.multiplyScalar(d)),t:tg,fast};}
+let camGoal=null;
+function show(i){si=(i+STEPS.length)%STEPS.length;const s=STEPS[si];stepT=0;
+  if(!s.explore)setPreset("normal",true);
+  showPush=s.push||0;showPull=s.pull||0;$("meters").classList.toggle("hide",!s.met);
+  Object.entries(lab).forEach(([k,o])=>{o.visible=s.lab.includes(k);});
+  $("cap").textContent=`Step ${si+1} of ${STEPS.length} · ${s.k}`;$("note").innerHTML=s.t;$("pos").textContent=`Step ${si+1} / ${STEPS.length}`;
+  $("steps").innerHTML=STEPS.map((x,k)=>`<button class="step ${k===si?"on":""}" data-i="${k}"><span class="n">${k+1}</span><div><b>${x.k}</b>${k===si?`<span>${x.t.replace(/<[^>]+>/g,"")}</span>`:""}</div></button>`).join("");
+  halo.visible=si===1;camTo(s.cam,s.tg);userMoved=0;updArrows();}
+$("steps").addEventListener("click",e=>{const b=e.target.closest(".step");if(b)show(+b.dataset.i);});
+$("prev").onclick=()=>show(si-1);$("next").onclick=()=>show(si+1);$("restart").onclick=()=>{show(0);setPlay(true);};
+function setPlay(v){playing=v;$("play").textContent=v?"Pause":"Play";$("play").classList.toggle("on",v);}
+$("play").onclick=()=>setPlay(!playing);
+$("spd").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;spd=+b.dataset.s;[...$("spd").children].forEach(x=>x.classList.toggle("on",x===b));});
+// ---------- explore ----------
+const PRE=[
+ {id:"normal",n:"Normal",p:{},w:"Normal: push wins at the arterial end, pull wins at the venous end, and lymph carries the small leftover. No edema."},
+ {id:"hf",n:"Heart failure",p:{pa:40,pv:24},w:"Blood backs up in the veins, so <b>blood pressure in the capillary rises</b>. The orange push grows along the whole capillary, water keeps leaving even at the venous end, and lymph can't keep up → <b>edema</b>."},
+ {id:"liver",n:"Liver failure",p:{alb:0.62},w:"The liver makes <b>less albumin</b>. Fewer yellow balls means a <b>weaker blue pull</b>, so water isn't drawn back in → <b>edema and ascites</b>."},
+ {id:"nephrotic",n:"Nephrotic syndrome",p:{alb:0.5},w:"Albumin is <b>lost in the urine</b>. Even fewer yellow balls, an even weaker pull, and water leaks out along the whole capillary → <b>edema</b>."},
+ {id:"burn",n:"Burns / inflammation",p:{kf:2.6,pi:14},w:"Damaged walls have <b>wider gaps</b>. Water pours out faster and even albumin leaks into the tissue, where it pulls water <b>out</b> → protein-rich <b>edema</b>."},
+ {id:"lymph",n:"Blocked lymph",p:{lc:1,pi:11},w:"The forces at the capillary are normal, but the <b>lymphatic is blocked</b> (lymph node removal, filariasis). The leftover water and protein can't drain → <b>lymphedema</b>."},
+];
+let curPre="normal";
+$("pres").innerHTML=PRE.map(p=>`<button class="btn" data-p="${p.id}">${p.n}</button>`).join("");
+$("pres").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;if(!STEPS[si].explore)show(STEPS.length-1);setPreset(b.dataset.p);setPlay(false);});
+const SL=[["pa","Blood pressure, arterial end","pushes out",10,60,1,"mmHg"],["pv","Blood pressure, venous end","pushes out",0,45,1,"mmHg"],["alb","Albumin in the blood","pulls in",0.3,1.4,0.05,"×"],["kf","Size of the gaps","how leaky",0.5,4,0.1,"×"],["lc","Lymph drainage","L/day",0,20,0.5,"L"]];
+$("sls").innerHTML=SL.map(([k,n,sub,mn,mx,st])=>`<div class="sl"><label>${n}<span>${sub}</span></label><input type="range" id="s_${k}" min="${mn}" max="${mx}" step="${st}"><output id="o_${k}"></output></div>`).join("");
+SL.forEach(([k])=>$("s_"+k).addEventListener("input",e=>{P[k]=+e.target.value;curPre="";if(!STEPS[si].explore)show(STEPS.length-1);setPlay(false);syncUI();}));
+function setPreset(id,quiet){const p=PRE.find(x=>x.id===id)||PRE[0];curPre=p.id;P={...NORMAL,...p.p};leakOn=P.kf>1.5;syncUI();}
+function syncUI(){SL.forEach(([k,,,,,,u])=>{$("s_"+k).value=P[k];$("o_"+k).textContent=(u==="×"?"×"+(+P[k]).toFixed(2).replace(/0$/,""):P[k]+(u==="L"?" L":""));});
+  [...$("pres").children].forEach(b=>b.classList.toggle("on",b.dataset.p===curPre));leakOn=P.kf>1.5;
+  const p=PRE.find(x=>x.id===curPre);const [F,Rr]=flows(),net=F-Rr;
+  $("why").innerHTML=(p?p.w:"Your own settings.")+`<div class="tp" style="margin-top:8px">Water out <b>${F.toFixed(1)} L/day</b> · back in <b>${Rr.toFixed(1)} L/day</b> · lymph can carry <b>${P.lc} L/day</b> → ${net>P.lc+0.05?'<b style="color:var(--warn)">edema</b>':'<b style="color:var(--ok)">no edema</b>'}</div>`;
+  updArrows();}
+// ---------- loop ----------
+function resize(){const w=stage.clientWidth,h=stage.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();if(typeof STEPS!=="undefined"&&camGoal){const st=STEPS[si];camTo(st.cam,st.tg,false);}}
+window.addEventListener("resize",resize);resize();
+let last=performance.now();
+function loop(now){const dt=Math.min(0.05,(now-last)/1000);last=now;
+  if(!document.hidden){
+    flow=spd;sim(dt);draw();
+    if(camGoal&&(!userMoved||now-userMoved>6000)){const f=camGoal.fast?1:0.04;camera.position.lerp(camGoal.p,f);controls.target.lerp(camGoal.t,f);}
+    if(playing&&!STEPS[si].explore){stepT+=dt*spd;if(stepT>STEP_SEC)show(si+1);}
+    controls.update();renderer.render(scene,camera);}
+  requestAnimationFrame(loop);}
+// warm-up so water is already in the tissue
+setPreset("normal",true);for(let i=0;i<900;i++)sim(1/60);
+const m=location.hash.match(/s=(\w+)/);
+if(m&&m[1]!=="normal"&&PRE.find(x=>x.id===m[1])){show(STEPS.length-1);setPreset(m[1]);setPlay(false);}else show(0);
+camera.position.copy(camGoal.p);controls.target.copy(camGoal.t);
+requestAnimationFrame(loop);
+})();
+</script>
+</body></html>

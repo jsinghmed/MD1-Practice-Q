@@ -1301,12 +1301,12 @@ button.dst:hover{background:var(--hover)}
 <script src="crs-genetics.js?v=1"></script>
 <script src="mocks.js?v=3"></script>
 <script src="crs-anatomy.js?v=1"></script>
-<script src="crs-biochem.js?v=14"></script>
+<script src="crs-biochem.js?v=15"></script>
 <script src="crs-physiology.js?v=19"></script>
-<script src="nbme.js?v=23"></script>
+<script src="nbme.js?v=24"></script>
 <script src="xp-crs.js?v=1"></script>
 <script src="viz-links.js?v=3"></script>
-<script src="followups/manifest.js?v=8"></script>
+<script src="followups/manifest.js?v=9"></script>
 <script src="followups.js?v=1"></script>
 <script>
 (function(){
@@ -1408,7 +1408,7 @@ const SECTIONS = [
   {course:"crs", name:"CRS Biochemistry", all:"All CRS Biochemistry", prefix:"cbr", topics:window.CRS_BC_TOPICS, hideTopics:true, qs:window.CRS_BC_QUESTIONS,
    // Grouped by lecture (Dr. Shetty), then topic. Add each new lecture as one more [name, topics] row.
    extra:(()=>{ const T = window.CRS_BC_TOPICS||[];
-     return lecExtras([["Lecture 1 · Fatty Acid Oxidation", T.slice(0,10)], ["Lecture 2 · Fatty Acid & TAG Synthesis", T.slice(10,21)], ["Lecture 3 · Ketone Body Metabolism", T.slice(21,29)], ["Lecture 4 · Complex Lipid Metabolism", T.slice(29,44)], ["Lecture 5 · Eicosanoid Metabolism", T.slice(44,50)], ["Lecture 6 · Lipoprotein Metabolism", T.slice(50,58)], ["Lecture 7 · Cholesterol Biosynthesis", T.slice(58,62)], ["Lecture 8 · Hemoglobin & Myoglobin", T.slice(62,72)], ["Lecture 9 · Citric Acid Cycle", T.slice(76,83).concat(T.slice(72,75))], ["ETC · Shetty Practice Q's", T.slice(75,76)]],
+     return lecExtras([["Lecture 1 · Fatty Acid Oxidation", T.slice(0,10)], ["Lecture 2 · Fatty Acid & TAG Synthesis", T.slice(10,21)], ["Lecture 3 · Ketone Body Metabolism", T.slice(21,29)], ["Lecture 4 · Complex Lipid Metabolism", T.slice(29,44)], ["Lecture 5 · Eicosanoid Metabolism", T.slice(44,50)], ["Lecture 6 · Lipoprotein Metabolism", T.slice(50,58)], ["Lecture 7 · Cholesterol Biosynthesis", T.slice(58,62)], ["Lecture 8 · Hemoglobin & Myoglobin", T.slice(62,72)], ["Lecture 9 · Citric Acid Cycle", T.slice(76,83).concat(T.slice(72,75))], ["Lecture 10 · Electron Transport Chain", T.slice(83,89).concat(T.slice(75,76))]],
        [["Shetty Practice Q's", "Shetty", "shetty"], ["USMLE Style Q's", "USMLE", "usmle"]]); })()},
   {course:"crs", name:"CRS Physiology", all:"All CRS Physiology", prefix:"cpr", topics:window.CRS_PH_TOPICS, hideTopics:true, qs:window.CRS_PH_QUESTIONS,
    // Grouped by lecture (Dr. Sampath V.), then topic. Add each new lecture as one more [name, topics] row.
@@ -1747,6 +1747,7 @@ const ANKING = {
   "cbr|Lecture 7 · Cholesterol Biosynthesis": "nid:1472668252970,1472668415239,1472668423640,1475966839844,1475966849447,1475977178654,1475982652797,1475982656325,1475982661050,1475982665563,1475982669744,1475982673637,1475982678107,1475982685941,1475982717457,1475982725907,1475982728516,1475890910326,1551651951877",
   "cbr|Lecture 8 · Hemoglobin & Myoglobin": "nid:1462327641370,1467927163875,1472426633744,1473369344215,1473375478702,1473375500147,1473375503319,1473375506777,1473375535170,1473375550384,1473375560175,1473375565346,1473375572544,1473375576711,1473375599442,1473375621493,1473375631091,1473375653665,1473375657305,1473375660370,1473375666330,1473375670335,1473375678641,1473375704144,1473375731135,1473375755860,1473382505498,1473384972708,1473384976677,1473384984006,1473384994044,1473385001562,1473385008578,1473385014843,1473385100104,1473385107205,1473385120151,1473385124486,1473385132024,1473385135804,1473385207458,1473385216220,1473385231162,1473385249608,1473385253436,1473385257949,1473385267297,1473385273967,1473385280374,1473385283630,1473385287565,1473385295319,1473385383326,1473388343171,1473388363119,1473388366794,1473388374224,1473388394383,1473466860013,1474164900485,1474253531615,1474253537182,1474253541066,1474253549040,1474253553494,1475178204508,1475891012479,1476583843502,1478834028289,1478834033818,1478834421209,1478834424398,1478834427233,1478834430466,1478834436305,1478834441949,1478834448668,1478834452358,1478834460299,1478834463281,1478834488264,1478834494805,1478834501430,1478834507747,1478834510101,1478834514989,1478834517905,1478834520794,1478834523722,1478834532680,1478834536127,1478834538737,1478834556593,1478834564479,1478834576589,1478834579253,1478834583723,1478834590222,1478834598370,1478834610740,1478834621204,1478834623414,1478834637807,1478915921340,1478915927092,1478915932139,1478915943077,1478915952795,1478915960096,1478915969327,1478915979069,1478916006666,1478916009661,1478916019067,1478916037393,1478916067605,1478916072876,1478916080784,1478916098762,1478916104500,1478916107230,1478916111443,1478916113275,1478916115423,1478916117459,1478916119373,1478916121591,1478916123626,1478916125481,1478916130335,1478916135180,1479265720028,1484950591778,1487292580228,1489973382717,1495823891256,1502306590401,1509143188810,1509143236246,1516822273369,1516822441771,1524146563713,1524146658690,1524146884689,1530807898524,1538828257663,1550016022137,1550832525418,1553978413165,1553980141206,1553986757268,1555543404189,1575135587264,1581372840104,1581534273055,1581534494796,1581534807156,1582557264439",
   "cbr|Lecture 9 · Citric Acid Cycle": "nid:1474224602587,1474224605745,1474224610331,1474224612778,1474224612779,1474224620340,1474224635462,1474224644660,1474224651360,1474224656601,1474224658849,1474224661689,1474224670328,1474224673344,1474224678678,1474224687127,1474224692780,1474224711167,1474224719993,1474224722812,1474224729987,1474224737365,1474224740295,1474224747825,1474224751406,1474224754273,1474224757203,1474252425783,1476660917270,1476660925885,1476660930924,1476661018719,1474253450442,1474253918609,1476583284038,1476583297365,1474253454718",
+  "cbr|Lecture 10 · Electron Transport Chain": "nid:1476660888646,1476660981762,1487462195051,1474253454718,1474253461870,1474253468146,1474253474599,1474253482925,1474253488573,1474253493451,1474253500214,1474253506711,1474253515312,1474253522718,1474253526372,1474253531615,1474253537182,1474253562258,1474253567960,1474253573607,1474253578663,1474253588459,1474253592646,1474253601690,1474253610434,1474253617396,1474253628743,1474253636125,1474253639592,1516325899890,1524146658690,1472668526554,1556649769705,1473466860013,1472426481431,1476502692147,1496161956265,1475982678107",
   "cpr|Lecture 8 · Regulation of Blood Pressure": "nid:1471378699716,1471378703973,1471378707376,1471378710022,1471378712791,1471378716219,1471378723785,1471378730249,1471378736900,1471378769962,1471378777627,1471378785447,1471378793470,1471378810567,1471378820049,1471459788180,1471460910486,1473462316560,1473462323490,1480640516420,1480640467724,1471545924111,1473462260997,1473462263825,1473462296454,1473462329921,1473462342206,1480875939846,1462049673226,1462054771296,1462054808914,1462054825483,1462054842563,1462061483238,1462061496172,1462381603797,1471456202579,1471457755859,1471457759434,1471457762153,1471457764858,1471457770358,1471457773070,1471457814120,1473957534401,1475704272711,1475704275956,1475704278837,1475704282043,1475704284898,1475704353903,1475704392767,1475704409635,1475704416680,1475704434755,1477011522197,1522528763868,1556651849504,1474686227756,1474686197574,1474763572604,1475704456046,1471461030608,1471461045449,1471461048669,1475704424077,1474686309779,1474686269926,1475704406483,1475803122988,1471809005658,1475723610576",
   "cpr|Lecture 9 · ECG Essentials Part 1": "nid:1470944202275,1470945292566,1470945298200,1470945305914,1470945329001,1470945336792,1470945344201,1470945364274,1470945367685,1470945381155,1470945656630,1471294048001,1475704559983,1475704576856,1555494970633,1550777458326,1550776962066,1550773188625,1550770289642,1550770886915,1550770912213,1471911022900,1471910984242",
   "cpr|Lecture 10 · ECG Part 2: Blocks & Arrhythmias": "nid:1472147549163,1472147564017,1472147572504,1472147594834,1472147826598,1521073354169,1521917877679,1472147631824,1472147658939,1472147672143,1472147840361,1521073580598,1472147692713,1472147713025,1472147724188,1472147731220,1472147778461,1472147788517,1472147800542,1472147819483,1472147853249,1472147859678,1472147916281,1472147925256,1699902707931,1585167353894,1461598652927,1471551647075,1471552218965,1471552222169,1471552244931,1471552248534,1471552267287,1471552282801,1471552274294,1471552290578,1471552293942,1472265226228,1504142331841,1504142331842,1505674672427,1557526989243,1471999998145,1472091227884,1485042663916,1485197420808,1475704598208,1555275632830,1555275701093,1461767111073,1471880441143,1471880428703,1471880433632,1471898867686,1471899040750,1471899048022,1550522074056,1550522074335,1550522075512,1576535052674,1550770289610,1472160976855,1497716092544,1472087110025,1472087115813,1472261861671,1472261919635,1472261925853,1472265213940,1472265219508,1488768082952,1497748713929,1555275443445,1555275580254,1546265174089",
@@ -1773,6 +1774,7 @@ const UWORLD = {
   "cbr|Lecture 7 · Cholesterol Biosynthesis": "165,711,712,1066,7234",
   "cbr|Lecture 8 · Hemoglobin & Myoglobin": "868,892,895,896,1029,1240,1241,1242,1243,1254,1384,1385,1386,1387,1413,1415,1416,1470,1545,1842,1855,1859,1905,1940,1996,2040,2087,6535,6551,6648,12019,12024,18830,21415,105684",
   "cbr|Lecture 9 · Citric Acid Cycle": "996,997,998,1021,1022,1034,1807,107111",
+  "cbr|Lecture 10 · Electron Transport Chain": "297,712,778,821,881,1019,1240,1254,1756,19566,21128",
   "cpr|Lecture 8 · Regulation of Blood Pressure": "152,157,454,547,686,690,691,692,697,832,1017,1354,1532,1533,1583,1609,1948,6576,6710,6740,7568,7569,11849,15246,15273,15528,17247,18535,21524,108081",
   "cpr|Lecture 9 · ECG Essentials Part 1": "179,1508,6794",
   "cpr|Lecture 10 · ECG Part 2: Blocks & Arrhythmias": "37,84,86,91,574,1976,1977,2055,11842,14743,14744,14745,15390,15555,15693,15765,18630,18889,21457,21472,21478,22787",
@@ -1836,7 +1838,7 @@ const MEHL = [
   ["pulm", /slow-reacting|peptidoleukotriene|LTC₄|LTD₄|LTE₄|LTC4|LTD4|LTE4/i, 15, "Leukotrienes (LTC₄, LTD₄, LTE₄) in asthma"],
   ["pulm", /dissociation curve|2,3-BPG|curve to the (right|left)|right shift|left shift|Bohr|P₅₀|\bP50\b|unload/i, 63, "Hb–O₂ curve: what shifts it right"],
   ["biochem", /2,3-BPG|bisphosphoglycerate/i, 12, "2,3-BPG is made from 1,3-BPG in red cells"],
-  ["biochem", /carbon monoxide|carboxyhemoglobin|cyanide|complex IV|cytochrome c oxidase/i, 14, "ETC poisons: CO & cyanide at complex IV"],
+  ["biochem", /carbon monoxide|carboxyhemoglobin|cyanide|complex IV|cytochrome c oxidase|uncoupl|dinitrophenol|\bDNP\b|thermogenin|UCP-1|brown fat|brown adipose|rotenone|antimycin|oligomycin|electron transport/i, 14, "Electron transport chain: poisons & uncouplers"],
   ["biochem", /sickle|HbS\b|β6|Glu → Val/i, 5, "Missense mutation: sickle cell Glu → Val"],
   ["biochem", /thalassemia/i, 6, "β-thalassemia & splice-site mutations"],
   ["biochem", /pyruvate dehydrogenase|\bPDH\b|thiamine|lipoic|arsen|α-ketoglutarate dehydrogenase|α-KG dehydrogenase|\bα-KGDH\b/i, 30, "Vitamin B1 (thiamine): PDH & α-KGDH cofactors"],
@@ -1985,7 +1987,7 @@ function ankingOpen(k){
   document.body.appendChild(d); d.querySelector("[data-ankcopy]").focus();
 }
 // CRS lectures are grouped into Cardiovascular and Respiratory. Every CRS lecture not listed here is cardiovascular.
-const RESP_LECS = new Set(["cbr|Lecture 8 · Hemoglobin & Myoglobin", "cbr|Lecture 9 · Citric Acid Cycle", "cbr|ETC · Shetty Practice Q's", "ca|Lecture 7 · Pleura, Trachea & Lungs", "ca|Lecture 8 · Diaphragm",
+const RESP_LECS = new Set(["cbr|Lecture 8 · Hemoglobin & Myoglobin", "cbr|Lecture 9 · Citric Acid Cycle", "cbr|Lecture 10 · Electron Transport Chain", "ca|Lecture 7 · Pleura, Trachea & Lungs", "ca|Lecture 8 · Diaphragm",
   "ce|Lecture 6 · Development of the Respiratory System", "ce|Lecture 7 · Formation of the Diaphragm"]);
 const BOTH_LECS = new Set(["ce|Lecture 8 · Congenital Anomalies (all lectures)"]);
 const SYS_NAME = {cvs:"Cardiovascular system", resp:"Respiratory system", both:"Cardiovascular + Respiratory"};
@@ -2045,7 +2047,7 @@ const GUIDES = {
         ["msk-biochem","MSK Biochemistry","Glycolysis, glycogen & storage diseases, GAGs, collagen & elastin",4],
         ["msk-anatomy","MSK Anatomy","Upper & lower limb: plexus, nerve injuries, compartments, joints, vessels",6],
         ["msk-embryology","MSK Embryology","Bone formation, growth plate, vertebrae, skull & sutures, limbs, skin",3]],
-  crs: [["crs-biochem","CRS Biochemistry NBME guide","High-yield, commonly tested NBME content · Lecture 1–9 · grows with each lecture",0],["crs-physiology","CRS Physiology NBME guide","High-yield, commonly tested NBME content · Lecture 1–13 · grows with each lecture",0],["crs-histology","CRS Histology NBME guide","Every slide from Lectures 1–4: smooth & cardiac muscle, arteries, capillaries & veins, blood",0],["crs-anatomy","CRS Anatomy NBME guide","Thorax, Lectures 1–11: chest wall, mediastinum, heart, pericardium, lungs, airways, diaphragm, esophagus, radiology, clinicals",0]]
+  crs: [["crs-biochem","CRS Biochemistry NBME guide","High-yield, commonly tested NBME content · Lecture 1–10 · grows with each lecture",0],["crs-physiology","CRS Physiology NBME guide","High-yield, commonly tested NBME content · Lecture 1–13 · grows with each lecture",0],["crs-histology","CRS Histology NBME guide","Every slide from Lectures 1–4: smooth & cardiac muscle, arteries, capillaries & veins, blood",0],["crs-anatomy","CRS Anatomy NBME guide","Thorax, Lectures 1–11: chest wall, mediastinum, heart, pericardium, lungs, airways, diaphragm, esophagus, radiology, clinicals",0]]
 };
 function guideCards(list){
   return `<div class="gdgrid">` + list.map(([f,nm,desc,pg])=>`<div class="gdcard"><div class="gdi">${NVI.guide}</div><div class="gdt"><b>${esc(nm)}</b><small>${esc(desc)}</small><span class="gdm">${pg?"PDF":"Read on site or download as PDF · updated each lecture"}</span></div>
@@ -2060,7 +2062,7 @@ function renderGuideView(){
     <div class="gvhead"><h2>${esc(nm)}</h2><p class="sub">${esc(desc)}</p><div class="gvleg"><span><span class="hy">Red</span> = extra high yield (classic NBME)</span><span>Black/white = core content</span><span class="mn">Italic = mnemonic</span></div></div>`;
   if (!window.GUIDE_HTML) {
     showPage(`<div class="page gview">${top}<div class="emptybox"><p>Loading study guide…</p></div></div>`);
-    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=20";
+    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=21";
       sc.onload = ()=>{ guideLoading = false; if (view==="guide") renderGuideView(); };
       sc.onerror = ()=>{ guideLoading = false; toast("Couldn't load the study guide — check your connection"); };
       document.head.appendChild(sc); }
@@ -2081,7 +2083,7 @@ async function guidePdf(f, btn){
   const nm = info.g[1].replace(/ NBME guide$/,""), desc = info.g[2], old = btn.innerHTML;
   btn.dataset.busy = "1"; btn.innerHTML = "Preparing PDF…";
   try {
-    if (!window.GUIDE_HTML) await gpdfScript("guides.js?v=20");
+    if (!window.GUIDE_HTML) await gpdfScript("guides.js?v=21");
     for (const s of GPDF_LIBS) await gpdfScript(s);
     const yr = new Date().getFullYear(), RED = "#c00000", NAVY = "#0b2447";
     let ghtml = window.GUIDE_HTML[f] || "";
@@ -2248,6 +2250,7 @@ const NVI = {
   arm: NVS('<path d="M9 21l1-7-3.5-4.5L9 4h3l.5 4.5L17 12"/><path d="M17 12l2 1"/>'),
   leg: NVS('<path d="M10 3v8.5L8.5 21H12l1-6 1 6h3.5L16 11.5V3"/>'),
   split: NVS('<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 4v16"/>'),
+  drop: NVS('<path d="M12 3s-6 6.8-6 11a6 6 0 0 0 12 0c0-4.2-6-11-6-11z"/>'),
   lipo: NVS('<circle cx="8" cy="9" r="4.5"/><circle cx="16.5" cy="15.5" r="3"/><circle cx="17" cy="6" r="1.6"/><path d="M11.5 12.5l2.6 1.4"/>')
 };
 function navRow(attr, ic, label, n, on, cls){
@@ -2374,7 +2377,7 @@ function renderChaps(){
   const TOOL_GROUPS = {
     msk: [["Anatomy", "anat", [["limb3d", "arm", "Upper limb", "3D", "3D upper limb"], ["leg3d", "leg", "Lower limb", "3D", "3D lower limb"], ["plexus", "plexus", "Brachial plexus", "Map", "Brachial plexus"],["limbmov", "move", "Limb movements", "Ref", "Limb movements: muscles, nerves & roots"]]]],
     crs: [["Anatomy", "anat", [["heart3d", "heart", "Heart atlas", "3D", "3D heart atlas"], ["heartinj", "injury", "Heart injuries", "3D", "3D heart injuries"], ["ribcage", "ribs", "Thoracic cage", "3D", "3D thoracic cage"], ["viva", "lab", "Spotter & viva", "Lab", "Anatomy Lab: spotter & viva"]]],
-          ["Physiology", "phys", [["cap", "ap", "Action potentials", "Sim", "Cardiac action potentials"], ["pvl", "pv", "Wiggers & PV loop", "Sim", "Cardiac cycle & PV loop"], ["fcurve", "fc", "Function curves", "Sim", "Cardiac & vascular function curves"]]],
+          ["Physiology", "phys", [["cap", "ap", "Action potentials", "Sim", "Cardiac action potentials"], ["pvl", "pv", "Wiggers & PV loop", "Sim", "Cardiac cycle & PV loop"], ["fcurve", "fc", "Function curves", "Sim", "Cardiac & vascular function curves"], ["starling", "drop", "Starling forces", "3D", "3D Starling forces"]]],
           ["Biochemistry", "bio", [["lipo", "lipo", "Lipoproteins", "3D", "3D lipoprotein pathways"]]],
           ["Embryology", "emb", [["heartemb", "embryo", "Heart development", "3D", "3D heart development model"]]]]
   };
@@ -2853,7 +2856,7 @@ function downloadAnki(){
 // ---- "See it in 3D": link a question to the interactive tool that shows it ----
 // A question can carry q.viz = {tool, hash, label, why}; otherwise these keyword rules pick one.
 const VIZ_TOOLS = {heart3d:{page:"heart-3d.html", name:"3D heart", icon:"🫀"}, heartemb:{page:"heart-embryo-3d.html", name:"3D heart development model", icon:"🧬"}, cap:{page:"cardiac-ap.html", name:"cardiac action potentials", icon:"⚡"},
-  pvl:{page:"cardiac-cycle.html", name:"cardiac cycle & PV loop", icon:"📈"}, fcurve:{page:"function-curves.html", name:"function curves tool", icon:"📉"}, lipo:{page:"lipoproteins-3d.html", name:"3D lipoprotein pathways", icon:"🧈"}, limb3d:{page:"upper-limb-3d.html", name:"3D upper limb", icon:"💪"},
+  pvl:{page:"cardiac-cycle.html", name:"cardiac cycle & PV loop", icon:"📈"}, fcurve:{page:"function-curves.html", name:"function curves tool", icon:"📉"}, lipo:{page:"lipoproteins-3d.html", name:"3D lipoprotein pathways", icon:"🧈"}, starling:{page:"starling.html", name:"3D Starling forces", icon:"💧"}, limb3d:{page:"upper-limb-3d.html", name:"3D upper limb", icon:"💪"},
   leg3d:{page:"lower-limb-3d.html", name:"3D lower limb", icon:"🦵"}, plexus:{page:"brachial-plexus.html", name:"brachial plexus", icon:"🧠"}, ribcage:{page:"rib-cage-3d.html", name:"3D thoracic cage", icon:"🦴"}};
 // CRS Embryology heart questions open the heart-development model at the matching stage (checked before VIZ_RULES)
 const EMB_RULES = [
@@ -2887,6 +2890,14 @@ const LIPO_RULES = [
   [/chylomicron/i, "p=chylo", "Chylomicron pathway, step by step"],
   [/\bHDL\b|LCAT|CETP|ABCA1|SR-?B1|reverse cholesterol/i, "p=hdl", "HDL and reverse cholesterol transport"],
   [/VLDL|\bIDL\b|\bLDL\b|apoB-100|hepatic lipase|lipoprotein lipase|lipoprotein/i, "p=vldl", "VLDL → IDL → LDL, step by step"]
+];
+const STARLING_TOPICS = ["Microcirculation & Transcapillary Exchange", "Starling Forces & Net Filtration", "Edema: Causes & Heart Failure", "Sampath's Q's · Pulmonary Edema Case & Starling Calculation", "Lecture 11 · Microcirculation, Lymphatics & Edema"];
+const STARLING_RULES = [
+  [/burn|inflamm|histamine|bee sting|capillary permeability/i, "burn", "Edema from leaky capillary walls"],
+  [/lymph node|lymphedema|lymphatic obstruction|filaria|dissection/i, "lymph", "Edema from blocked lymph drainage"],
+  [/heart failure|JVP|jugular|venous (pressure|obstruction|thrombo)|amlodipine|arteriolar dilation|cor pulmonale|pulmonary edema|pulmonary capillary|left atrial/i, "hf", "Edema from high capillary blood pressure"],
+  [/nephrotic|4\+ protein|frothy urine|protein in the urine/i, "nephrotic", "Edema from albumin lost in the urine"],
+  [/cirrho|liver failure|kwashiorkor|malnutrition|hypoalbumin|low albumin/i, "liver", "Edema from too little albumin"]
 ];
 const VIZ_RULES = [
   [/mean systemic|function curve|vascular function|venous return curve/i, "fcurve", "", "Cardiac & vascular function curves"],
@@ -2930,6 +2941,11 @@ function vizFor(q){
   if (q.pfx==="ce" && (window.CRS_EMB_TOPICS||[]).slice(0,4).includes(q.t)) { const qt = [q.s, q.q].filter(Boolean).join(" ");
     const hit = EMB_RULES.find(r=>r[0].test(qt)) || EMB_RULES.find(r=>r[0].test(text));
     if (hit) { const t = VIZ_TOOLS.heartemb; return {tool:"heartemb", hash:"stage="+hit[1], label:"Stage "+hit[1]+" · "+hit[2], icon:t.icon, name:t.name, page:t.page}; } }
+  if (/^(cpr|ncp)/.test(q.pfx||q.id||"")) {   // capillary Starling-force questions open the 3D Starling forces tool, at the matching edema cause
+    const qt = [q.s, q.c && q.c[q.a]].filter(Boolean).join(" ");
+    if ((STARLING_TOPICS.includes(q.t) && /filtrat|reabsor|oncotic|hydrostatic|edema|albumin|lymph|starling|swell|effusion|ascites/i.test(qt)) || (/CVS Final/.test(q.t||"") && /starling law of the capillary|oncotic|capillary hydrostatic|kwashiorkor/i.test(qt))) {
+      const hit = STARLING_RULES.find(r=>r[0].test(qt)), t = VIZ_TOOLS.starling;
+      return {tool:"starling", hash:hit?"s="+hit[1]:"", label:hit?hit[2]:"Starling forces: push vs pull along the capillary", icon:t.icon, name:t.name, page:t.page}; } }
   if ((q.pfx==="cpr" && (window.CRS_PH_TOPICS||[]).slice(53,59).includes(q.t)) || q.t==="Lecture 7 · Cardiac & Vascular Function Curves") {
     const hit = FC_RULES.find(r=>r[0].test(q.s||"")); const t = VIZ_TOOLS.fcurve;
     return {tool:"fcurve", hash:hit?"s="+hit[1]:"", label:hit?hit[2]:"Cardiac & vascular function curves", icon:t.icon, name:t.name, page:t.page}; }
@@ -3017,7 +3033,7 @@ function showPage(html){
 // ---------- Split view: study guide / 3D model / Mehlman PDF beside whatever is on the left ----------
 const SPLIT_TOOLS = {
   crs: [["heart3d","3D heart atlas","heart-3d.html?v=5"],["heartinj","3D heart injuries","heart-3d.html?v=5#injuries"],["ribcage","3D thoracic cage","rib-cage-3d.html"],
-        ["lipo","3D lipoprotein pathways","lipoproteins-3d.html?v=3"],["heartemb","3D heart development","heart-embryo-3d.html"],
+        ["lipo","3D lipoprotein pathways","lipoproteins-3d.html?v=3"],["starling","3D Starling forces","starling.html?v=1"],["heartemb","3D heart development","heart-embryo-3d.html"],
         ["cap","Cardiac action potentials","cardiac-ap.html"],["pvl","Cardiac cycle & PV loop","cardiac-cycle.html"],["fcurve","Cardiac & vascular function curves","function-curves.html?v=1"]],
   msk: [["limb3d","3D upper limb","upper-limb-3d.html"],["leg3d","3D lower limb","lower-limb-3d.html"],["plexus","Brachial plexus","brachial-plexus.html"]]};
 const SPLIT_PDFS = ["HY Cardio","HY Biochem","HY Pulmonary","HY Arrows"];
@@ -3068,7 +3084,7 @@ function splitShow(src){
   if (k==="u") { const [url, t] = v.split("|"); frame(url, t||"Study tool"); return; }
   if (k==="g") {
     if (!window.GUIDE_HTML) { b.innerHTML = `<div class="spempty">Loading study guide…</div>`;
-      const sc = document.createElement("script"); sc.src = "guides.js?v=20"; sc.onload = ()=>{ if (splitSrc==="g:"+v) splitShow(splitSrc); }; document.head.appendChild(sc); return; }
+      const sc = document.createElement("script"); sc.src = "guides.js?v=21"; sc.onload = ()=>{ if (splitSrc==="g:"+v) splitShow(splitSrc); }; document.head.appendChild(sc); return; }
     b.innerHTML = `<article class="gvbody">${window.GUIDE_HTML[v] || "<p>Study guide not found.</p>"}</article>`; fixImgs && fixImgs(b); b.scrollTop = 0; }
 }
 document.addEventListener("click", e=>{ const b = e.target.closest && e.target.closest("[data-split]"); if (!b) return; e.preventDefault(); $("side").classList.remove("open"); splitToggle(); });
@@ -4363,6 +4379,7 @@ function renderAll(){
   else if (view==="heartinj") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Heart injuries</h2><a class="btn" href="heart-3d.html#injuries" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="heart-3d.html?v=5#injuries" title="Heart injury cases on the 3D heart"></iframe></div>`);
   else if (view==="cap") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Cardiac action potentials</h2><a class="btn" href="cardiac-ap.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="cardiac-ap.html?v=1" title="Interactive cardiac action potential explorer"></iframe></div>`);
   else if (view==="fcurve") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Cardiac &amp; vascular function curves</h2><a class="btn" href="function-curves.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="function-curves.html?v=1" title="Interactive cardiac and vascular function curves"></iframe></div>`);
+  else if (view==="starling") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Starling forces</h2><a class="btn" href="starling.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="starling.html?v=1" title="3D Starling forces in a capillary"></iframe></div>`);
   else if (view==="lipo") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Lipoprotein pathways</h2><a class="btn" href="lipoproteins-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="lipoproteins-3d.html?v=3" title="3D lipoprotein pathways"></iframe></div>`);
   else if (view==="pvl") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Cardiac cycle & PV loop</h2><a class="btn" href="cardiac-cycle.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="cardiac-cycle.html?v=3" title="Interactive cardiac cycle and pressure-volume loop simulator"></iframe></div>`);
   else if (view==="limb3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>3D upper limb atlas</h2><a class="btn" href="upper-limb-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="upper-limb-3d.html?v=1" title="Interactive 3D upper limb atlas"></iframe></div>`);
@@ -4589,7 +4606,7 @@ document.addEventListener("click", e=>{
   if (t.closest("[data-g3d]")) { const b = t.closest("[data-g3d]"), op = b.getAttribute("aria-expanded")!=="true"; try { localStorage.setItem("jj-3d-open", op?"1":"0"); } catch(e) {} b.setAttribute("aria-expanded", op); b.classList.toggle("on", !op && !!(b.nextElementSibling && b.nextElementSibling.querySelector(".on"))); if (b.nextElementSibling) b.nextElementSibling.hidden = !op; return; }
   if (t.closest("[data-toolstoggle]")) { const b = t.closest("[data-toolstoggle]"), op = b.getAttribute("aria-expanded")!=="true"; try { localStorage.setItem("jj-tools-open", op?"1":"0"); } catch(e) {} renderAll(); return; }
   const act = t.closest("[data-act]");
-  if (act) { view = ({build:"builder", plexus:"plexus", limbmov:"limbmov", limb3d:"limb3d", leg3d:"leg3d", cap:"cap", pvl:"pvl", fcurve:"fcurve", lipo:"lipo", heart3d:"heart3d", heartemb:"heartemb", heartinj:"heartinj", ribcage:"ribcage", viva:"viva", ethics:"ethics", guides:"guides", anki:"anki", notes:"notes"})[act.dataset.act] || "notes"; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); return; }
+  if (act) { view = ({build:"builder", plexus:"plexus", limbmov:"limbmov", limb3d:"limb3d", leg3d:"leg3d", cap:"cap", pvl:"pvl", fcurve:"fcurve", lipo:"lipo", starling:"starling", heart3d:"heart3d", heartemb:"heartemb", heartinj:"heartinj", ribcage:"ribcage", viva:"viva", ethics:"ethics", guides:"guides", anki:"anki", notes:"notes"})[act.dataset.act] || "notes"; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); return; }
   if (t.closest("[data-plexback]")) { view = "home"; renderAll(); $("main").scrollTo({top:0}); return; }
   // sidebar
   const rv = t.closest("[data-rv]");
@@ -5122,7 +5139,7 @@ window.JJ_STATS = function(st){
 // Welcome screen: shown every time the page loads.
 // ---- Updates: version.json says which version is live. When it's newer than this page, a card offers a refresh
 // (skips the logo intro). After a refresh to a new version, "What's new" lists every change since the last one seen.
-const JJ_VERSION = "2026-11-24a";
+const JJ_VERSION = "2026-11-24b";
 const UPD_ICON = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>';
 let updLater = "";
 async function updFetch(){ const r = await fetch("version.json?t=" + Date.now(), {cache:"no-store"}); if (!r.ok) throw new Error(r.status); return r.json(); }

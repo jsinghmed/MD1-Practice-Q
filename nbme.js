@@ -5351,6 +5351,193 @@ window.NBME_QUIZZES = [
 "fig": [
 "figs/crs/tca-gp-shuttle"
 ]
+},
+{
+"t": "Lecture 10 · Electron Transport Chain",
+"s": "A 3-year-old boy is found unresponsive in a garage next to a running gas generator. His skin is pink, arterial PO₂ is normal and serum lactate is markedly elevated. The toxin responsible also binds directly to which mitochondrial enzyme, worsening tissue energy failure?",
+"c": [
+"Cytochrome c oxidase",
+"Cytochrome bc₁ complex",
+"NADH dehydrogenase",
+"The F₀ domain of ATP synthase",
+"Succinate dehydrogenase"
+],
+"a": 0,
+"e": "Step 1: A running generator in a closed space produces carbon monoxide.\nStep 2: CO binds hemoglobin, lowering O₂ delivery while arterial PO₂ stays normal because PO₂ measures dissolved O₂.\nStep 3: CO also inhibits Complex IV, cytochrome c oxidase. All upstream carriers stay reduced, no protons are pumped and ATP synthesis stops. NADH builds up and is reoxidized by LDH, causing lactic acidosis.\n\nTakeaway: CO and cyanide inhibit Complex IV, cytochrome c oxidase, the terminal complex that cannot be bypassed.",
+"w": [
+"",
+"The bc₁ complex is Complex III, blocked by antimycin A.",
+"NADH dehydrogenase is Complex I, blocked by rotenone and amytal.",
+"The F₀ domain is blocked by oligomycin, not CO.",
+"Succinate dehydrogenase is Complex II, blocked by carboxin and TTFA."
+],
+"fig": [
+"figs/crs/etc-inhibitors",
+"figs/crs/etc-chain"
+]
+},
+{
+"t": "Lecture 10 · Electron Transport Chain",
+"s": "A 30-year-old bodybuilder buys a 'fat burner' online. Two days later he has a temperature of 41 °C, profuse sweating and tachycardia. Measurements in his muscle would most likely show which combination?",
+"c": [
+"Low O₂ use, high ATP synthesis, high heat",
+"Low O₂ use, low ATP synthesis, low heat",
+"Normal O₂ use, low ATP synthesis, low heat",
+"High O₂ use, high ATP synthesis, low heat",
+"High O₂ use, low ATP synthesis, high heat"
+],
+"a": 4,
+"e": "Step 1: Unregulated fat burners often contain 2,4-dinitrophenol, a lipophilic proton carrier.\nStep 2: DNP lets protons re-enter the matrix without passing through ATP synthase, uncoupling electron transport from ATP synthesis.\nStep 3: The ETC runs at full speed trying to restore the gradient, so O₂ use rises, but little ATP is made and the energy is released as heat, causing hyperthermia.\n\nTakeaway: Uncoupler pattern = ↑ O₂ consumption, ↓ ATP, ↑ heat.",
+"w": [
+"O₂ use rises rather than falls with an uncoupler.",
+"Low O₂ use with low ATP is the pattern of an ETC inhibitor such as cyanide.",
+"O₂ use rises sharply, and heat production is high.",
+"ATP synthesis falls, not rises, with an uncoupler.",
+""
+],
+"fig": [
+"figs/crs/etc-mitchell"
+]
+},
+{
+"t": "Lecture 10 · Electron Transport Chain",
+"s": "Isolated mitochondria are given malate, ADP and phosphate. A compound is added that stops both ATP synthesis and O₂ consumption. When 2,4-dinitrophenol is then added, O₂ consumption returns but ATP synthesis does not. Which compound was added first?",
+"c": [
+"Antimycin A",
+"Oligomycin",
+"Cyanide",
+"Rotenone",
+"Carboxin"
+],
+"a": 1,
+"e": "Step 1: Both ATP synthesis and O₂ use stopped, so either an ETC inhibitor or an ATP synthase inhibitor was added.\nStep 2: An uncoupler restores O₂ use only if the electron transport chain itself is still intact. Here DNP restored O₂ use, so the electron carriers are not blocked.\nStep 3: The block was therefore at ATP synthase. Oligomycin closes the F₀ proton channel; once DNP gives protons another way back, electron transport resumes but ATP still cannot be made.\n\nTakeaway: Oligomycin stops ATP synthesis and O₂ use, and an uncoupler restores O₂ use but not ATP.",
+"w": [
+"Antimycin A blocks Complex III, so DNP could not restore O₂ use.",
+"",
+"Cyanide blocks Complex IV, so no uncoupler could restore O₂ use.",
+"Rotenone blocks Complex I, so DNP could not restore O₂ use with malate.",
+"Carboxin blocks Complex II, which malate-derived NADH does not use."
+],
+"fig": [
+"figs/crs/etc-inhibitors",
+"figs/crs/etc-mitchell"
+]
+},
+{
+"t": "Lecture 10 · Electron Transport Chain",
+"s": "A cardiology patient is started on high-dose atorvastatin. Six weeks later she has proximal muscle pain and fatigue on exertion. Her symptoms are partly explained by decreased synthesis of an electron carrier that shares its biosynthetic precursors with cholesterol. Which step of electron transport is most directly affected?",
+"c": [
+"Transfer from succinate to FAD within Complex II",
+"Transfer from NADH to FMN within Complex I",
+"Transfer from Complexes I and II to Complex III",
+"Transfer from Complex III to Complex IV",
+"Transfer from Complex IV to molecular oxygen"
+],
+"a": 2,
+"e": "Step 1: Statins inhibit HMG-CoA reductase, the rate-limiting step of the mevalonate pathway.\nStep 2: Coenzyme Q is built from isoprenoid units made by this pathway, so statins lower CoQ levels.\nStep 3: CoQ is the lipid-soluble mobile carrier that takes electrons from Complexes I and II to Complex III. Less CoQ means less ATP in muscle, causing myopathy and sometimes lactic acidosis.\n\nTakeaway: Statins ↓ CoQ, the carrier from Complexes I and II to III → myopathy.",
+"w": [
+"Succinate to FAD happens inside Complex II and does not use CoQ.",
+"NADH to FMN happens inside Complex I and does not use CoQ.",
+"",
+"Cytochrome c carries electrons from III to IV and is a heme protein, not an isoprenoid.",
+"Transfer to O₂ happens inside Complex IV."
+],
+"fig": [
+"figs/crs/etc-chain"
+]
+},
+{
+"t": "Lecture 10 · Electron Transport Chain",
+"s": "A 9-month-old boy has developmental regression, hypotonia, ptosis and irregular breathing. CSF lactate is elevated, and MRI shows bilateral symmetric lesions of the basal ganglia and brainstem. Genetic testing shows a mutation in a mitochondrial DNA gene encoding a subunit of ATP synthase. What is the most likely diagnosis?",
+"c": [
+"Von Gierke disease",
+"Leigh syndrome",
+"Ornithine transcarbamylase deficiency",
+"Phenylketonuria",
+"Tay-Sachs disease"
+],
+"a": 1,
+"e": "Step 1: Infant onset, neurological regression and elevated lactate suggest a disorder of mitochondrial energy production.\nStep 2: Symmetric lesions in the basal ganglia, brainstem, thalamus and cerebellum are typical of Leigh syndrome, subacute necrotizing encephalomyelopathy.\nStep 3: It is caused by mutations, in nuclear or mitochondrial DNA, affecting the PDH complex, ETC or ATP synthase.\n\nTakeaway: Leigh syndrome = defective mitochondrial ATP production in infancy → lactic acidosis and symmetric basal ganglia and brainstem lesions.",
+"w": [
+"Von Gierke disease causes fasting hypoglycemia and hepatomegaly.",
+"",
+"OTC deficiency causes hyperammonemia rather than lactic acidosis.",
+"PKU causes intellectual disability from high phenylalanine, without these lesions.",
+"Tay-Sachs is a lysosomal storage disease with a cherry-red spot, not lactic acidosis."
+],
+"fig": [
+"figs/crs/etc-overview"
+]
+},
+{
+"t": "Lecture 10 · Electron Transport Chain",
+"s": "A researcher measures the redox potential of four pairs used in the respiratory chain: NAD⁺/NADH −0.32 V, FMN/FMNH₂ −0.22 V, cytochrome c Fe³⁺/Fe²⁺ +0.22 V and ½O₂/H₂O +0.82 V. What best explains why electrons flow spontaneously from NADH to O₂?",
+"c": [
+"Oxygen donates electrons back to NAD⁺",
+"Protons are pumped first, which pulls electrons forward",
+"ATP hydrolysis at Complex V pushes the electrons",
+"Each step moves to a more positive E₀, releasing free energy",
+"Each step moves to a more negative E₀, absorbing free energy"
+],
+"a": 3,
+"e": "Step 1: A pair with a negative E₀ tends to lose electrons; a pair with a positive E₀ tends to accept them.\nStep 2: The respiratory chain complexes are arranged in order of increasingly positive redox potential, from NADH at −0.32 V to O₂ at +0.82 V.\nStep 3: Electron transfer down this gradient is highly exergonic, and the free energy released is used to pump protons.\n\nTakeaway: Electrons flow from negative to positive E₀; the ETC is arranged by increasingly positive redox potential.",
+"w": [
+"O₂ is the final acceptor and does not donate electrons.",
+"Proton pumping is driven by electron flow, not the other way round.",
+"Complex V makes ATP; it does not hydrolyze it to drive electrons.",
+"",
+"Moving to a more negative E₀ would require energy input."
+],
+"fig": [
+"figs/crs/etc-redox",
+"figs/crs/etc-chain"
+]
+},
+{
+"t": "Lecture 10 · Electron Transport Chain",
+"s": "A full-term newborn in a cool delivery room maintains her core temperature without shivering. Mitochondria isolated from her interscapular fat would show which feature compared with mitochondria from her liver?",
+"c": [
+"More O₂ used per ATP made, due to UCP-1",
+"Higher P:O ratio from extra ATP synthase",
+"Fewer O₂ used per ATP made, due to UCP-1",
+"Inhibited Complex IV from thermogenin binding",
+"No proton gradient because the ETC is absent"
+],
+"a": 0,
+"e": "Step 1: Interscapular brown adipose tissue in newborns contains uncoupling protein 1, thermogenin, in the inner mitochondrial membrane.\nStep 2: UCP-1 lets protons flow back into the matrix without passing through ATP synthase.\nStep 3: Electron transport and O₂ use continue, but much less ATP is made for each O₂ used, so the P:O ratio is low and the energy is released as heat. This is non-shivering thermogenesis.\n\nTakeaway: Brown fat UCP-1 uncouples → more O₂ per ATP → heat.",
+"w": [
+"",
+"Uncoupling lowers the P:O ratio.",
+"Uncoupling makes ATP synthesis less efficient, not more.",
+"Thermogenin is a proton channel and does not inhibit Complex IV.",
+"Brown fat mitochondria have an active ETC and gradient."
+],
+"fig": [
+"figs/crs/etc-mitchell"
+]
+},
+{
+"t": "Lecture 10 · Electron Transport Chain",
+"s": "A drug is added to isolated mitochondria that blocks the transport of ADP into the matrix and of ATP out of the matrix. Which compound has this effect?",
+"c": [
+"Antimycin A",
+"2,4-dinitrophenol",
+"Atractyloside",
+"Oligomycin",
+"Valinomycin"
+],
+"a": 2,
+"e": "Step 1: The ATP–ADP translocase in the inner mitochondrial membrane exchanges matrix ATP for cytosolic ADP.\nStep 2: Atractyloside inhibits the translocase. ADP cannot enter, so ATP synthase runs out of substrate.\nStep 3: Through respiratory control, electron transport and O₂ use then slow down too.\n\nTakeaway: Atractyloside inhibits the ATP–ADP translocase.",
+"w": [
+"Antimycin A blocks Complex III.",
+"DNP is an uncoupler; it does not block ATP and ADP exchange.",
+"",
+"Oligomycin blocks the F₀ proton channel of ATP synthase.",
+"Valinomycin is an ionophore that uncouples oxidative phosphorylation."
+],
+"fig": [
+"figs/crs/etc-mitchell"
+]
 }
 ]
 },

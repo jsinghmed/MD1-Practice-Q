@@ -1,6 +1,32 @@
 {
- "v": "2026-11-24a",
+ "v": "2026-11-24b",
  "notes": [
+  {
+   "v": "2026-11-24b",
+   "date": "Nov 24, 2026",
+   "groups": [
+    {
+     "h": "New questions",
+     "items": [
+      {
+       "tag": "new",
+       "title": "CRS Biochemistry · Lecture 10 · Electron Transport Chain",
+       "text": "New slide questions added."
+      }
+     ]
+    },
+    {
+     "h": "Study tools",
+     "items": [
+      {
+       "tag": "new",
+       "title": "3D Starling forces",
+       "text": "A guided 3D capillary showing how blood pressure pushes water out, albumin pulls it back in, and what causes edema. Find it under CRS Physiology tools, or open it from the microcirculation and edema questions."
+      }
+     ]
+    }
+   ]
+  },
   {
    "v": "2026-11-24a",
    "date": "Nov 24, 2026",

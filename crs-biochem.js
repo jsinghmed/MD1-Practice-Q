@@ -82,7 +82,13 @@ window.CRS_BC_TOPICS = [
 "TCA Regulation & Inhibitors",
 "Anaplerosis & Amphibolic Role",
 "NADH Shuttles",
-"Practice Questions · Citric Acid Cycle (from the slides)"
+"Practice Questions · Citric Acid Cycle (from the slides)",
+"Thermodynamics & High-Energy Compounds",
+"ETC Complexes, Carriers & Redox Potential",
+"Chemiosmosis, ATP Synthase & P:O Ratio",
+"ETC Inhibitors & Uncouplers",
+"ETC Clinical Correlations",
+"Practice Questions · ETC & Thermodynamics (from the slides)"
 ];
 window.CRS_BC_QUESTIONS = [
 {
@@ -8318,6 +8324,563 @@ window.CRS_BC_QUESTIONS = [
 "shetty": 1,
 "fig": [
 "figs/crs/tca-cycle"
+]
+},
+{
+"t": "Thermodynamics & High-Energy Compounds",
+"lv": "Easy",
+"s": "For the reaction A → B, the free energy of the product B is higher than the free energy of the substrate A. Which statement describes this reaction?",
+"c": [
+"ΔG is positive and energy is released as heat",
+"ΔG is zero and the reaction is at equilibrium",
+"ΔG is negative and the reaction is spontaneous",
+"ΔG is positive and energy must be added",
+"ΔG is negative and energy must be added"
+],
+"a": 3,
+"e": "Step 1: ΔG = G of the product − G of the substrate. If the product has more free energy than the substrate, ΔG is positive.\nStep 2: A positive ΔG means there is a net gain of energy, so the reaction does not go spontaneously as written. Energy must be put into the system. This is an endergonic reaction.\nStep 3: A negative ΔG is exergonic and spontaneous, and ΔG = 0 means the reactants are at equilibrium.\n\nTakeaway: ΔG > 0 = endergonic, not spontaneous, needs energy input; ΔG < 0 = exergonic, spontaneous.",
+"w": [
+"A positive ΔG means energy is absorbed, not released.",
+"ΔG is zero only when reactants and products are at equilibrium.",
+"A negative ΔG needs the product to have less free energy than the substrate.",
+"",
+"A reaction with a negative ΔG releases energy, it does not need it."
+],
+"src": "lec",
+"fig": [
+"figs/crs/etc-endergonic",
+"figs/crs/etc-dg-compare"
+]
+},
+{
+"t": "Thermodynamics & High-Energy Compounds",
+"lv": "Easy",
+"s": "Which of the following compounds has a standard free energy of hydrolysis large enough to make ATP directly from ADP in a single enzyme step?",
+"c": [
+"Fructose 6-phosphate",
+"Phosphoenolpyruvate",
+"Glycerol 3-phosphate",
+"Glucose 6-phosphate",
+"Adenosine monophosphate"
+],
+"a": 1,
+"e": "Step 1: ATP has a ΔG°′ of hydrolysis of about −7.3 kcal/mol for each of its two terminal phosphates, which is why it is called a high-energy compound.\nStep 2: A compound can phosphorylate ADP only if its own phosphate releases more energy than that. Very high-energy compounds are 1,3-bisphosphoglycerate (−11.8), phosphoenolpyruvate (−14.8) and creatine phosphate (−10.3 kcal/mol).\nStep 3: Low-energy compounds such as AMP, glucose 6-phosphate and fructose 6-phosphate release less than 7.3 kcal/mol, so they cannot make ATP.\n\nTakeaway: PEP, 1,3-BPG and creatine phosphate are very high-energy compounds; G6P, F6P and AMP are low-energy.",
+"w": [
+"F6P is a low-energy phosphate and cannot phosphorylate ADP.",
+"",
+"Glycerol 3-phosphate is a low-energy phosphate ester.",
+"G6P is a low-energy phosphate, below the −7.3 kcal/mol of ATP.",
+"AMP is listed on the slides as a low-energy compound."
+],
+"src": "lec",
+"fig": [
+"figs/crs/etc-overview"
+]
+},
+{
+"t": "Thermodynamics & High-Energy Compounds",
+"lv": "Hard",
+"s": "A muscle cell must run a reaction that has a ΔG°′ of +4.2 kcal/mol. The cell couples it in the same enzyme step to the hydrolysis of one terminal phosphate of ATP. What is the result?",
+"c": [
+"Overall ΔG°′ is +3.1 kcal/mol, so it is blocked",
+"Overall ΔG°′ is +11.5 kcal/mol, so it is blocked",
+"Overall ΔG°′ is zero, so it stays at equilibrium",
+"Overall ΔG°′ is −3.1 kcal/mol, so it proceeds",
+"Overall ΔG°′ is −11.5 kcal/mol, so it proceeds"
+],
+"a": 3,
+"e": "Step 1: The ΔG°′ of hydrolysis of one terminal phosphate of ATP is about −7.3 kcal/mol.\nStep 2: For coupled reactions the ΔG values add: +4.2 + (−7.3) = −3.1 kcal/mol.\nStep 3: The overall ΔG is negative, so the coupled reaction is exergonic and proceeds. This is how endergonic steps, such as the phosphorylation of glucose, are driven in metabolism.\n\nTakeaway: Coupled ΔG values add; pairing an endergonic step with ATP hydrolysis makes the total negative.",
+"w": [
+"The sign is wrong; +4.2 minus 7.3 is a negative number.",
+"This adds +7.3 instead of −7.3; ATP hydrolysis releases energy.",
+"The two values do not cancel each other out.",
+"",
+"−11.5 would need the reaction itself to be −4.2 kcal/mol."
+],
+"src": "lec",
+"fig": [
+"figs/crs/etc-exergonic",
+"figs/crs/etc-endergonic"
+]
+},
+{
+"t": "Thermodynamics & High-Energy Compounds",
+"lv": "Easy",
+"s": "Which statement correctly compares substrate-level and oxidative phosphorylation?",
+"c": [
+"Substrate-level makes about 90% of ATP in the IMM",
+"Oxidative makes about 90% of ATP in the IMM",
+"Oxidative makes about 10% of ATP in the cytoplasm",
+"Both make ATP only in the mitochondrial matrix",
+"Substrate-level needs oxygen and the proton gradient"
+],
+"a": 1,
+"e": "Step 1: Substrate-level phosphorylation moves a phosphate from a high-energy intermediate, such as 1,3-BPG or PEP, directly onto ADP. It happens in the cytoplasm in glycolysis and accounts for about 10% of total ATP.\nStep 2: Oxidative phosphorylation uses the redox reactions of the electron transport chain in the inner mitochondrial membrane (IMM) to drive ATP synthase.\nStep 3: It produces about 90% of the body's ATP and depends on oxygen as the final electron acceptor.\n\nTakeaway: Substrate-level = cytoplasm, ~10%; oxidative = inner mitochondrial membrane, ~90%.",
+"w": [
+"The percentages are reversed; substrate-level gives only about 10%.",
+"",
+"Oxidative phosphorylation happens at the inner mitochondrial membrane.",
+"Glycolytic substrate-level phosphorylation occurs in the cytoplasm.",
+"Substrate-level phosphorylation needs no oxygen or proton gradient."
+],
+"src": "lec",
+"fig": [
+"figs/crs/etc-overview"
+]
+},
+{
+"t": "ETC Complexes, Carriers & Redox Potential",
+"lv": "Easy",
+"s": "The respiratory chain complexes are arranged so that electrons flow from NADH to O₂. What determines this order?",
+"c": [
+"Increasingly negative redox potential",
+"Increasing number of protons each pumps",
+"Decreasing distance from ATP synthase",
+"Increasingly positive redox potential",
+"Increasing size of each protein complex"
+],
+"a": 3,
+"e": "Step 1: Each redox pair has a standard reduction potential, E₀. A negative E₀ means the reduced form tends to give up electrons; a positive E₀ means the oxidized form tends to accept them.\nStep 2: NAD⁺/NADH is −0.32 V, FMN/FMNH₂ −0.22 V, cytochrome c Fe³⁺/Fe²⁺ +0.22 V and ½O₂/H₂O +0.82 V.\nStep 3: Electrons flow downhill from the strong reducing agent NADH to the strong oxidizing agent O₂, so the complexes are lined up in order of increasingly positive redox potential.\n\nTakeaway: ETC order = increasingly positive E₀, from NADH at −0.32 V to O₂ at +0.82 V.",
+"w": [
+"That would send electrons from O₂ back toward NADH.",
+"Complex II pumps no protons yet sits early in the chain.",
+"Physical distance to complex V does not set the order.",
+"",
+"Complex size does not set the direction of electron flow."
+],
+"src": "lec",
+"fig": [
+"figs/crs/etc-redox",
+"figs/crs/etc-chain"
+]
+},
+{
+"t": "ETC Complexes, Carriers & Redox Potential",
+"lv": "Easy",
+"s": "Electrons from succinate enter the electron transport chain at Complex II. Which carrier takes them from Complex II to Complex III?",
+"c": [
+"Cytochrome a₃ bound to copper CuB",
+"Cytochrome c, a small water-soluble heme protein",
+"NADH from the mitochondrial matrix",
+"The Fe-S center inside Complex I",
+"Coenzyme Q, a lipid-soluble isoprenoid"
+],
+"a": 4,
+"e": "Step 1: Complex II is succinate dehydrogenase, which uses FAD and Fe-S centers. It passes electrons to coenzyme Q.\nStep 2: Coenzyme Q (ubiquinone) is a small lipid-soluble molecule built from isoprenoid units and moves within the inner membrane. It collects electrons from both Complex I and Complex II and carries them to Complex III.\nStep 3: Cytochrome c is the second mobile carrier, carrying electrons from Complex III to Complex IV.\n\nTakeaway: Mobile carriers are CoQ (I and II → III) and cytochrome c (III → IV).",
+"w": [
+"Cytochrome a₃–CuB is fixed in Complex IV and hands electrons to O₂.",
+"Cytochrome c carries electrons from Complex III to Complex IV.",
+"NADH donates its electrons to Complex I, not Complex II.",
+"Complex I Fe-S centers are fixed and not part of the succinate route.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/etc-chain"
+]
+},
+{
+"t": "ETC Complexes, Carriers & Redox Potential",
+"lv": "Hard",
+"s": "A biochemist isolates the complex that accepts electrons directly from cytochrome c. Analysis shows two heme groups and two different copper centers. Which reaction does this complex carry out?",
+"c": [
+"It reduces oxygen to water",
+"It makes ATP from ADP and phosphate",
+"It oxidizes succinate to fumarate",
+"It oxidizes NADH and reduces FMN",
+"It reduces ubiquinone to ubiquinol"
+],
+"a": 0,
+"e": "Step 1: Cytochrome c carries electrons from Complex III to Complex IV.\nStep 2: Complex IV, cytochrome c oxidase or cytochrome aa₃, contains CuA, cytochrome a and the CuB–cytochrome a₃ center: two hemes and two copper sites.\nStep 3: It is the terminal complex and transfers the electrons to ½O₂, forming H₂O, while pumping protons.\n\nTakeaway: Complex IV = cytochrome a + a₃ with CuA and CuB; it reduces O₂ to H₂O.",
+"w": [
+"",
+"ATP is made by Complex V, ATP synthase, which has no hemes.",
+"Succinate oxidation with FAD and Fe-S is Complex II.",
+"NADH oxidation with FMN and Fe-S is Complex I.",
+"Ubiquinone is reduced by Complexes I and II, before cytochrome c."
+],
+"src": "lec",
+"fig": [
+"figs/crs/etc-chain"
+]
+},
+{
+"t": "ETC Complexes, Carriers & Redox Potential",
+"lv": "Easy",
+"s": "Unlike the heme iron of hemoglobin, the heme iron of the cytochromes in the electron transport chain behaves differently. How?",
+"c": [
+"It stays as Fe³⁺ and never accepts electrons",
+"It is replaced by copper in every cytochrome",
+"It cycles between Fe³⁺ and Fe²⁺",
+"It carries two electrons with a hydrogen atom",
+"It stays as Fe²⁺ and binds O₂ reversibly"
+],
+"a": 2,
+"e": "Step 1: Cytochromes are heme proteins derived from iron-protoporphyrin.\nStep 2: In hemoglobin and myoglobin the iron must stay ferrous (Fe²⁺) to bind O₂.\nStep 3: In the cytochromes the iron alternates between the oxidized Fe³⁺ and reduced Fe²⁺ forms, so each heme carries one electron at a time along the chain.\n\nTakeaway: Cytochrome heme iron shuttles between Fe³⁺ and Fe²⁺, carrying one electron at a time.",
+"w": [
+"Iron that never accepts electrons could not carry them along the chain.",
+"Copper is added in Complex IV, but the hemes still contain iron.",
+"",
+"Carrying hydrogen atoms with electrons describes CoQ and FMN.",
+"Stable Fe²⁺ that binds O₂ describes hemoglobin, not cytochromes."
+],
+"src": "lec",
+"fig": [
+"figs/crs/etc-chain"
+]
+},
+{
+"t": "Chemiosmosis, ATP Synthase & P:O Ratio",
+"lv": "Easy",
+"s": "According to the chemiosmotic (Mitchell) hypothesis, how is the energy of electron transport used to make ATP?",
+"c": [
+"Electrons pass directly from Complex IV to ADP",
+"A high-energy intermediate moves phosphate to ADP",
+"Oxygen binds ADP and phosphate directly in F₁",
+"Protons are pumped out and flow back through F₀",
+"Protons are pumped into the matrix by Complex V"
+],
+"a": 3,
+"e": "Step 1: As electrons pass through Complexes I, III and IV, these complexes pump protons from the matrix into the intermembrane space.\nStep 2: This builds a proton-motive force: the outside becomes more positive and more acidic, with a lower pH, than the matrix.\nStep 3: Protons flow back into the matrix through the F₀ channel of Complex V. This turns F₀ and changes the shape of F₁, which binds ADP and Pi, makes ATP and releases it.\n\nTakeaway: Chemiosmosis = proton gradient from I, III and IV, which drives ATP synthase as protons re-enter through F₀.",
+"w": [
+"Electrons end up on O₂ at Complex IV, they never reach ADP.",
+"A phosphate transfer from an intermediate is substrate-level phosphorylation.",
+"Oxygen is the final electron acceptor and does not bind ADP.",
+"",
+"The pumps move protons out of the matrix; complex V lets them back in."
+],
+"src": "lec",
+"fig": [
+"figs/crs/etc-mitchell"
+]
+},
+{
+"t": "Chemiosmosis, ATP Synthase & P:O Ratio",
+"lv": "Hard",
+"s": "Isolated mitochondria are given excess NADH and O₂ but no ADP. Oxygen consumption is very low. When ADP and phosphate are added, O₂ use rises sharply. Which statement best explains this?",
+"c": [
+"ADP is the electron acceptor of Complex IV",
+"Without ADP the inner membrane leaks protons",
+"ADP activates Complex I by allosteric binding",
+"ADP is needed to make NADH in the matrix",
+"ATP synthase needs ADP to let protons back in"
+],
+"a": 4,
+"e": "Step 1: Electron transport and ATP synthesis are tightly coupled. Electron flow pumps protons, and protons can only return through ATP synthase.\nStep 2: Without ADP and Pi, ATP synthase cannot run, so protons stay outside. The gradient becomes so large that pumping, and therefore electron flow and O₂ use, stop.\nStep 3: Adding ADP lets protons flow back through F₀, the gradient falls and electron transport speeds up again. This is respiratory control: oxidative phosphorylation is regulated by the availability of its substrates ADP, Pi and O₂.\n\nTakeaway: ADP availability controls the rate of oxidative phosphorylation and O₂ uptake.",
+"w": [
+"Oxygen, not ADP, is the electron acceptor at Complex IV.",
+"A leaky membrane would raise O₂ use without ADP, as uncouplers do.",
+"Complex I is not switched on by ADP binding.",
+"NADH is already supplied in excess here.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/etc-mitchell"
+]
+},
+{
+"t": "Chemiosmosis, ATP Synthase & P:O Ratio",
+"lv": "Easy",
+"s": "Using the P:O ratios taught in this lecture, how many ATP are made when 2 NADH and 1 FADH₂ are oxidized by the electron transport chain?",
+"c": [
+"7 ATP",
+"8 ATP",
+"6 ATP",
+"5 ATP",
+"9 ATP"
+],
+"a": 1,
+"e": "Step 1: The P:O ratio is the number of phosphates built into ATP for each oxygen atom consumed.\nStep 2: NADH enters at Complex I and has a P:O ratio of 3. FADH₂ enters at Complex II, skipping the Complex I pump, and has a P:O ratio of 2.\nStep 3: 2 NADH × 3 = 6, plus 1 FADH₂ × 2 = 2, for a total of 8 ATP.\n\nTakeaway: P:O ratio of NADH = 3 and of FADH₂ = 2, using this lecture's whole numbers.",
+"w": [
+"7 wrongly counts the FADH₂ as giving 1 ATP instead of 2.",
+"",
+"6 counts the NADH but leaves out the FADH₂.",
+"5 wrongly counts each NADH as 2 and the FADH₂ as 1.",
+"9 counts the FADH₂ as if it gave 3 like NADH."
+],
+"src": "lec",
+"fig": [
+"figs/crs/etc-chain"
+]
+},
+{
+"t": "Chemiosmosis, ATP Synthase & P:O Ratio",
+"lv": "Hard",
+"s": "Mitochondria are treated with a plant toxin. ATP made inside the matrix can no longer reach the cytoplasm, and ADP can no longer enter the matrix. Electron transport soon slows down. Which toxin was used?",
+"c": [
+"Atractyloside",
+"Rotenone",
+"2,4-dinitrophenol",
+"Oligomycin",
+"Antimycin A"
+],
+"a": 0,
+"e": "Step 1: The ATP–ADP translocase in the inner membrane swaps ATP made in the matrix for ADP from the cytoplasm.\nStep 2: Atractyloside inhibits this translocase, so ADP cannot enter the matrix.\nStep 3: With no ADP inside, ATP synthase stops, the proton gradient builds up, and electron transport slows down through respiratory control.\n\nTakeaway: Atractyloside blocks the ATP–ADP translocase; oligomycin blocks the F₀ proton channel of ATP synthase.",
+"w": [
+"",
+"Rotenone blocks Complex I and does not affect nucleotide exchange.",
+"DNP is an uncoupler and speeds up electron transport.",
+"Oligomycin blocks the F₀ channel of ATP synthase, not nucleotide exchange.",
+"Antimycin A blocks Complex III directly."
+],
+"src": "lec",
+"fig": [
+"figs/crs/etc-mitchell"
+]
+},
+{
+"t": "ETC Inhibitors & Uncouplers",
+"lv": "Hard",
+"s": "Isolated mitochondria oxidizing malate are treated with a drug. Afterward, NADH and the Fe-S centers of Complex I are fully reduced, while CoQ and all cytochromes are fully oxidized. Adding succinate restores O₂ use. Which drug was added?",
+"c": [
+"Antimycin A",
+"Carboxin",
+"Rotenone",
+"Oligomycin",
+"Cyanide"
+],
+"a": 2,
+"e": "Step 1: An ETC inhibitor makes every carrier before the block reduced and every carrier after it oxidized.\nStep 2: Complex I carriers are reduced but CoQ onward is oxidized, so the block is in Complex I.\nStep 3: Succinate feeds electrons into Complex II, which passes them to CoQ after the block, so O₂ use returns. Complex I inhibitors are rotenone, amytal and piericidin A.\n\nTakeaway: Reduced before the block, oxidized after it. Complex I = rotenone, amytal, piericidin A.",
+"w": [
+"Antimycin A blocks Complex III, so CoQ would be reduced.",
+"Carboxin blocks Complex II, so succinate could not restore O₂ use.",
+"",
+"Oligomycin blocks ATP synthase, not an electron carrier.",
+"Cyanide blocks Complex IV, so all carriers before it would be reduced."
+],
+"src": "lec",
+"fig": [
+"figs/crs/etc-chain",
+"figs/crs/etc-inhibitors"
+]
+},
+{
+"t": "ETC Inhibitors & Uncouplers",
+"lv": "Easy",
+"s": "Which pairing of an electron transport chain inhibitor with its site of action is correct?",
+"c": [
+"Atovaquone and cytochrome c",
+"Rotenone and Complex IV",
+"Antimycin A and Complex III",
+"Sodium azide and Complex II",
+"Carboxin and Complex I"
+],
+"a": 2,
+"e": "Step 1: Complex I is blocked by rotenone, amytal and piericidin A.\nStep 2: Complex II is blocked by carboxin and TTFA. Complex III is blocked by antimycin A.\nStep 3: Complex IV is blocked by CO, cyanide, H₂S and sodium azide. Atovaquone, an antimalarial, inhibits coenzyme Q.\n\nTakeaway: I = rotenone, amytal; II = carboxin, TTFA; III = antimycin A; IV = CO, CN⁻, H₂S, azide; CoQ = atovaquone.",
+"w": [
+"Atovaquone acts on coenzyme Q, not cytochrome c.",
+"Rotenone blocks Complex I, not Complex IV.",
+"",
+"Sodium azide blocks Complex IV, not Complex II.",
+"Carboxin blocks Complex II, not Complex I."
+],
+"src": "lec",
+"fig": [
+"figs/crs/etc-chain"
+]
+},
+{
+"t": "ETC Inhibitors & Uncouplers",
+"lv": "Hard",
+"s": "A 26-year-old man takes a weight-loss powder bought online. He develops a temperature of 40.5 °C, sweating and rapid breathing. His oxygen consumption is markedly increased, yet ATP levels in his muscle are low. Which substance is most likely in the powder?",
+"c": [
+"Antimycin A",
+"Sodium cyanide",
+"Dinitrophenol",
+"Oligomycin",
+"Atractyloside"
+],
+"a": 2,
+"e": "Step 1: Uncouplers let protons re-enter the matrix without passing through ATP synthase.\nStep 2: The gradient keeps collapsing, so the ETC runs as fast as it can and O₂ consumption rises, but little ATP is made. The energy is released as heat, causing hyperthermia.\nStep 3: 2,4-dinitrophenol (DNP) is a lipophilic proton carrier that does this. Aspirin overdose and ionophores such as valinomycin uncouple in a similar way.\n\nTakeaway: Uncouplers → ↑ O₂ use, ↓ ATP, ↑ heat. Examples: DNP, aspirin, ionophores, UCP-1.",
+"w": [
+"Antimycin A blocks Complex III and lowers O₂ use.",
+"Cyanide blocks Complex IV and stops O₂ consumption.",
+"",
+"Oligomycin blocks ATP synthase, so O₂ use would fall, not rise.",
+"Atractyloside blocks ADP entry and slows respiration."
+],
+"src": "lec",
+"fig": [
+"figs/crs/etc-mitchell",
+"figs/crs/etc-inhibitors"
+]
+},
+{
+"t": "ETC Inhibitors & Uncouplers",
+"lv": "Easy",
+"s": "A newborn left in a cool room keeps a normal body temperature without shivering. Which protein in brown adipose tissue is mainly responsible?",
+"c": [
+"Cytochrome c oxidase, which binds O₂ more tightly",
+"ATP synthase, which runs faster to release heat",
+"ATP–ADP translocase, which moves ATP outward",
+"Myoglobin, which stores O₂ in brown fat cells",
+"Thermogenin, letting protons bypass ATP synthase"
+],
+"a": 4,
+"e": "Step 1: Brown adipose tissue in newborns contains uncoupling protein 1 (UCP-1), also called thermogenin, in its inner mitochondrial membrane.\nStep 2: UCP-1 forms a channel that lets protons flow back into the matrix without passing through ATP synthase.\nStep 3: The energy of the gradient is released as heat instead of being captured as ATP. This is non-shivering thermogenesis. Thyroxine also acts as a physiological uncoupler by increasing synthesis of uncoupling proteins.\n\nTakeaway: UCP-1, thermogenin, in brown fat uncouples oxidative phosphorylation to make heat.",
+"w": [
+"Complex IV does not create heat by binding O₂ more tightly.",
+"ATP synthase captures the energy as ATP, so it does not make extra heat.",
+"The translocase moves nucleotides but does not dissipate the gradient.",
+"Myoglobin stores O₂ but does not uncouple the gradient.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/etc-mitchell"
+]
+},
+{
+"t": "ETC Clinical Correlations",
+"lv": "Hard",
+"s": "A firefighter is pulled from a burning building that had smoldering plastic furniture. He is confused, his venous blood looks bright red, and serum lactate is markedly elevated. Which process explains the lactic acidosis?",
+"c": [
+"Hemoglobin is oxidized, so pyruvate is carboxylated",
+"ATP synthase is uncoupled, so glycolysis is inhibited",
+"Complex I is blocked, so pyruvate becomes alanine",
+"Cytochrome c leaks out, so lactate cannot be cleared",
+"Complex IV is blocked, so NADH is reoxidized by LDH"
+],
+"a": 4,
+"e": "Step 1: Burning plastics release cyanide and CO. Both inhibit Complex IV, cytochrome c oxidase, which is the terminal complex and cannot be bypassed. They also bind hemoglobin.\nStep 2: With Complex IV blocked, all earlier carriers stay reduced, O₂ cannot be used and venous blood stays oxygen-rich and bright red. No complex can pump protons, so no ATP is made.\nStep 3: NADH builds up. The cell regenerates NAD⁺ in the cytosol by reducing pyruvate to lactate with lactate dehydrogenase, which keeps anaerobic glycolysis going, so lactic acidosis develops.\n\nTakeaway: Cyanide and CO block Complex IV → no O₂ use, no ATP → NADH builds up → lactate via LDH.",
+"w": [
+"Pyruvate carboxylation does not cause lactic acidosis.",
+"Uncoupling would raise O₂ use, and glycolysis actually speeds up here.",
+"Cyanide and CO act on Complex IV, and alanine is not the outlet.",
+"Cytochrome c release triggers apoptosis, not lactate retention.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/etc-chain",
+"figs/crs/etc-hypoxia"
+]
+},
+{
+"t": "ETC Clinical Correlations",
+"lv": "Hard",
+"s": "A 62-year-old woman started a statin for high LDL cholesterol 3 months ago. She now has muscle aching and weakness, and her CK is mildly raised. A reduced level of which ETC component is thought to contribute?",
+"c": [
+"Complex II, made with FAD from riboflavin",
+"Coenzyme Q, built from isoprenoid units",
+"Cytochrome c, made from iron protoporphyrin",
+"Thermogenin, made in response to thyroxine",
+"Cytochrome a₃, made with copper from the diet"
+],
+"a": 1,
+"e": "Step 1: Statins inhibit HMG-CoA reductase, the rate-limiting step of the mevalonate pathway that makes cholesterol.\nStep 2: Coenzyme Q (ubiquinone) is built from isoprenoid units derived from the same pathway, so statins also lower CoQ synthesis.\nStep 3: Less CoQ means less electron transfer from Complexes I and II to III, less ATP in muscle, and a myopathy, sometimes with lactic acidosis.\n\nTakeaway: Statins ↓ coenzyme Q synthesis → ↓ ATP → myopathy.",
+"w": [
+"FAD comes from riboflavin, which statins do not affect.",
+"",
+"Heme synthesis is not reduced by statins.",
+"Thermogenin is a brown fat uncoupler, not a statin target.",
+"Copper supply is not reduced by statins."
+],
+"src": "lec",
+"fig": [
+"figs/crs/etc-chain"
+]
+},
+{
+"t": "ETC Clinical Correlations",
+"lv": "Easy",
+"s": "During DNA damage and oxidative stress, an ETC protein leaks from the mitochondria into the cytosol and triggers apoptosis. Which protein is it?",
+"c": [
+"Cytochrome c",
+"Cytochrome b",
+"ATP synthase",
+"Thermogenin",
+"Coenzyme Q"
+],
+"a": 0,
+"e": "Step 1: Cytochrome c is a small, water-soluble mobile carrier that carries electrons from Complex III to Complex IV on the outer face of the inner membrane.\nStep 2: Stress, DNA damage, reactive oxygen species and pro-apoptotic signals make it leak out of the mitochondria into the cytosol.\nStep 3: In the cytosol, cytochrome c triggers the intrinsic pathway of apoptosis, programmed cell death.\n\nTakeaway: Cytochrome c release from mitochondria triggers apoptosis.",
+"w": [
+"",
+"Cytochrome b is fixed within Complex III.",
+"ATP synthase is a large fixed complex in the inner membrane.",
+"Thermogenin is a fixed membrane uncoupler in brown fat.",
+"CoQ is a source of superoxide radicals but does not start apoptosis."
+],
+"src": "lec",
+"fig": [
+"figs/crs/etc-chain"
+]
+},
+{
+"t": "ETC Clinical Correlations",
+"lv": "Hard",
+"s": "A 14-month-old girl has lost motor milestones, has hypotonia, nystagmus and breathing irregularities. Blood and CSF lactate are high, and MRI shows symmetric lesions in the basal ganglia and brainstem. Which defect best explains this?",
+"c": [
+"Impaired mitochondrial ATP production",
+"Impaired cytosolic purine salvage",
+"Impaired lysosomal sphingolipid breakdown",
+"Impaired hepatic glycogen breakdown",
+"Impaired urea cycle nitrogen disposal"
+],
+"a": 0,
+"e": "Step 1: Leigh syndrome, subacute necrotizing encephalomyelopathy, presents in infancy or early childhood with progressive neurological loss and lactic acidosis.\nStep 2: It is caused by mutations, in nuclear or mitochondrial DNA, that affect the PDH complex, the electron transport chain or ATP synthase, so cells cannot make enough ATP.\nStep 3: The brain areas with the highest energy needs are damaged: the basal ganglia, brainstem, thalamus and cerebellum, with neuronal degeneration and oxidative stress.\n\nTakeaway: Leigh syndrome = defective mitochondrial ATP production → lactic acidosis and symmetric basal ganglia and brainstem lesions.",
+"w": [
+"",
+"Purine salvage defects cause hyperuricemia and self-injury.",
+"Sphingolipidoses do not cause lactic acidosis with this pattern.",
+"Glycogen storage disease of the liver causes hypoglycemia, not these lesions.",
+"Urea cycle defects cause hyperammonemia rather than lactic acidosis."
+],
+"src": "lec",
+"fig": [
+"figs/crs/etc-overview"
+]
+},
+{
+"t": "Practice Questions · ETC & Thermodynamics (from the slides)",
+"s": "Endergonic and exergonic reactions play key roles in metabolic pathways like glycolysis and the tricarboxylic acid (TCA) cycle, and they are related to changes in Gibbs free energy (ΔG).<br><br>Question: In the process of glycolysis, the enzyme phosphofructokinase (PFK catalyzes the conversion of fructose-6-phosphate to fructose-1,6-bisphosphate. This reaction is considered one of the rate-limiting steps of glycolysis. Which of the following statements best describes the thermodynamics of this reaction?",
+"html": true,
+"c": [
+"The reaction is endergonic and requires ATP hydrolysis.",
+"The reaction is exergonic and produces ATP.",
+"The reaction is endergonic and does not require ATP.",
+"The reaction is exergonic and requires NADH."
+],
+"a": 0,
+"e": "Answer: A",
+"w": [
+"",
+"PFK uses ATP; it does not produce it.",
+"The phosphorylation needs ATP hydrolysis to proceed.",
+"PFK uses ATP, not NADH."
+],
+"ns": true,
+"shetty": 1,
+"fig": [
+"figs/crs/etc-dg-compare"
+]
+},
+{
+"t": "Practice Questions · ETC & Thermodynamics (from the slides)",
+"s": "Q: A 24-year-old medical student is studying glycolysis. She learns that the phosphorylation of glucose to glucose-6-phosphate is an endergonic process and must be coupled with the hydrolysis of ATP to proceed spontaneously.<br>The standard free energy change (ΔG°) for glucose phosphorylation is +13.8 kJ/mol, and for ATP hydrolysis is –30.5 kJ/mol.<br>What is the overall ΔG° for this coupled reaction under standard conditions?",
+"html": true,
+"c": [
+"–44.3 kJ/mol",
+"–16.7 kJ/mol",
+"+16.7 kJ/mol",
+"+44.3 kJ/mol",
+"0 kJ/mol"
+],
+"a": 1,
+"e": "Correct Answer: B) –16.7 kJ/mol\nExplanation:\nThe overall free energy change for a coupled reaction is the sum of the individual ΔG° values:\nΔG° overall = (+13.8) + (–30.5) = –16.7 kJ/mol\nSince the overall ΔG° is negative, the coupled reaction is exergonic and proceeds spontaneously.",
+"w": [
+"This subtracts instead of adding the two values.",
+"",
+"The sign is wrong; the sum is negative.",
+"This adds the magnitudes with the wrong sign.",
+"The two values do not cancel."
+],
+"ns": true,
+"shetty": 1,
+"fig": [
+"figs/crs/etc-exergonic",
+"figs/crs/etc-endergonic"
 ]
 }
 ];
