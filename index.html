@@ -1024,6 +1024,15 @@ html.jjlock .cpick{visibility:hidden}
 .gview .hy{color:var(--red);font-weight:600}
 .gview .mn{color:var(--blue);font-style:italic}
 .gvbody sub,.gvbody sup{font-size:.72em}
+.gvbody mark.ghl{background:var(--mark);color:#1a1300;border-radius:2px;padding:0 1px;cursor:pointer}
+.gvbody mark.ghl.hl-g{background:#9fe0a0}.gvbody mark.ghl.hl-b{background:#a9d4ff}.gvbody mark.ghl.hl-p{background:#ffb8dc}.gvbody mark.ghl.hl-o{background:#ffc98f}
+.gvbody mark.ghl .hy{color:#b00000}
+#ghlBar{position:fixed;z-index:9000;display:none;align-items:center;gap:6px;padding:6px 8px;background:var(--panel);border:1px solid var(--line2);border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.22);transform:translateX(-50%)}
+#ghlBar.on{display:flex}
+#ghlBar .sw{width:22px;height:22px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0}
+#ghlBar .sw.cur{border-color:var(--text)}
+#ghlBar .gx{background:none;border:1px solid var(--line2);border-radius:7px;padding:3px 9px;font-size:12.5px;font-weight:600;color:var(--text);cursor:pointer;margin-left:2px}
+.gvleg .ghlnote{color:var(--muted)}
 @media (max-width:640px){.gvbody{font-size:14.5px}.gvbody table{font-size:13px}}
 @media print{.gvtop,.gvtoc,.gvfoot{display:none!important}}
 /* ===== Dashboard + sidebar redesign (A+C hybrid) ===== */
@@ -1472,7 +1481,7 @@ let S = {};
 try { S = JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e) { S = {}; }
 let JJ_FRESH = false; try { JJ_FRESH = !localStorage.getItem(KEY); } catch(e) {}   // first visit on this browser: ask which year and module
 function sDefaults(){
-S.ans ??= {}; S.sel ??= {}; S.strike ??= {}; S.flag ??= {}; S.notes ??= {}; S.nimg ??= {}; S.hl ??= {}; S.order ??= {};
+S.ans ??= {}; S.sel ??= {}; S.strike ??= {}; S.flag ??= {}; S.notes ??= {}; S.nimg ??= {}; S.hl ??= {}; S.ghl ??= {}; S.order ??= {};
 S.scr ??= {}; S.qshuf ??= {}; S.posId ??= {}; S.pos ??= {}; S.snap ??= {}; S.tests ??= []; S.testSeq ??= 0;
 S.first ??= {}; S.chgq ??= {}; S.ac ??= []; S.qtime ??= {}; S.anki ??= []; S.fc ??= []; S.fcPref ??= {};
 }
@@ -2058,8 +2067,8 @@ function guideInfo(k){ for (const c in GUIDES) { const g = GUIDES[c].find(x=>x[0
 function renderGuideView(){
   const info = guideInfo(curGuide); if (!info) { view = "guides"; renderGuides(); return; }
   const [f, nm, desc, pg] = info.g;
-  const top = `<div class="gvtop"><button class="btn" data-act="guides">← NBME Dashboard (${esc(COURSE_BY_ID[info.course].name)})</button><button class="btn primary" data-gpdf="${f}">⬇ Download PDF</button></div>
-    <div class="gvhead"><h2>${esc(nm)}</h2><p class="sub">${esc(desc)}</p><div class="gvleg"><span><span class="hy">Red</span> = extra high yield (classic NBME)</span><span>Black/white = core content</span><span class="mn">Italic = mnemonic</span></div></div>`;
+  const top = `<div class="gvtop"><button class="btn" data-act="guides">← NBME Dashboard (${esc(COURSE_BY_ID[info.course].name)})</button><button class="btn" data-ghlclear="${f}"${(S.ghl&&S.ghl[f]&&S.ghl[f].length)?"":" hidden"}>Clear highlights</button><button class="btn primary" data-gpdf="${f}">⬇ Download PDF</button></div>
+    <div class="gvhead"><h2>${esc(nm)}</h2><p class="sub">${esc(desc)}</p><div class="gvleg"><span><span class="hy">Red</span> = extra high yield (classic NBME)</span><span>Black/white = core content</span><span class="mn">Italic = mnemonic</span><span class="ghlnote">Select any text to highlight it</span></div></div>`;
   if (!window.GUIDE_HTML) {
     showPage(`<div class="page gview">${top}<div class="emptybox"><p>Loading study guide…</p></div></div>`);
     if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=21";
@@ -2070,8 +2079,9 @@ function renderGuideView(){
   }
   const body = window.GUIDE_HTML[f] || "";
   const toc = [...body.matchAll(/<h2 id="(g\d+)">([\s\S]*?)<\/h2>/g)].map(m=>`<a href="#${m[1]}" data-gjump="${m[1]}">${m[2].replace(/^\d+\.\s*/,"")}</a>`).join("");
-  showPage(`<div class="page gview">${top}<nav class="gvtoc" aria-label="Sections">${toc}</nav><article class="gvbody">${body}</article>
+  showPage(`<div class="page gview">${top}<nav class="gvtoc" aria-label="Sections">${toc}</nav><article class="gvbody" data-gk="${f}">${body}</article>
     <div class="gvfoot"><button class="btn" data-act="guides">← NBME Dashboard (${esc(COURSE_BY_ID[info.course].name)})</button><button class="btn" data-gpdf="${f}">⬇ Download PDF</button></div></div>`);
+  document.querySelectorAll('.gvbody[data-gk]').forEach(ghlApply);
 }
 
 // ---------- Guide PDF download: built in the browser from the live guide, JJ QBank copyright on every page ----------
@@ -3085,7 +3095,7 @@ function splitShow(src){
   if (k==="g") {
     if (!window.GUIDE_HTML) { b.innerHTML = `<div class="spempty">Loading study guide…</div>`;
       const sc = document.createElement("script"); sc.src = "guides.js?v=21"; sc.onload = ()=>{ if (splitSrc==="g:"+v) splitShow(splitSrc); }; document.head.appendChild(sc); return; }
-    b.innerHTML = `<article class="gvbody">${window.GUIDE_HTML[v] || "<p>Study guide not found.</p>"}</article>`; fixImgs && fixImgs(b); b.scrollTop = 0; }
+    b.innerHTML = `<article class="gvbody" data-gk="${esc(v)}">${window.GUIDE_HTML[v] || "<p>Study guide not found.</p>"}</article>`; fixImgs && fixImgs(b); ghlApply(b.querySelector(".gvbody")); b.scrollTop = 0; }
 }
 document.addEventListener("click", e=>{ const b = e.target.closest && e.target.closest("[data-split]"); if (!b) return; e.preventDefault(); $("side").classList.remove("open"); splitToggle(); });
 // Layout button (bottom-right): hover for Mac-style split options.
@@ -4529,6 +4539,87 @@ function highlightSelection(){
   el.querySelectorAll("mark").forEach(x=>{ if (!x.textContent) x.remove(); });
   sel.removeAllRanges(); el.normalize(); saveStem(); return true;
 }
+// ---------- Study guide highlights (Read view and split view) ----------
+// Saved as the highlighted text plus a little text on each side, so they stay in place when a guide grows.
+function ghlText(art){ const r = document.createRange(); r.selectNodeContents(art); return r.toString(); }
+function ghlOffset(art, node, off){ const r = document.createRange(); r.setStart(art, 0); r.setEnd(node, off); return r.toString().length; }
+function ghlFind(T, h){
+  let i = T.indexOf(h.p + h.t + h.s); if (i >= 0) return i + h.p.length;
+  i = T.indexOf(h.p + h.t); if (i >= 0) return i + h.p.length;
+  i = T.indexOf(h.t + h.s); if (i >= 0) return i;
+  return h.t.length >= 4 ? T.indexOf(h.t) : -1;
+}
+function ghlWrap(art, a, b, h){
+  const tw = document.createTreeWalker(art, NodeFilter.SHOW_TEXT), segs = [];
+  let pos = 0;
+  for (let n = tw.nextNode(); n; n = tw.nextNode()) { const L = n.data.length, s0 = Math.max(a, pos), e0 = Math.min(b, pos + L);
+    if (e0 > s0 && n.data.slice(s0-pos, e0-pos).trim()) segs.push([n, s0-pos, e0-pos]); pos += L; if (pos >= b) break; }
+  segs.forEach(([n, x, y])=>{ let t = n; if (y < t.data.length) t.splitText(y); if (x > 0) t = t.splitText(x);
+    const m = document.createElement("mark"); m.className = "ghl hl-" + h.c; m.dataset.hid = h.id; t.parentNode.insertBefore(m, t); m.appendChild(t); });
+}
+function ghlApply(art){
+  if (!art) return; const gk = art.dataset.gk;
+  art.querySelectorAll("mark.ghl").forEach(m=>m.replaceWith(...m.childNodes)); art.normalize();
+  const list = (S.ghl && S.ghl[gk]) || [];
+  list.forEach(h=>{ const T = ghlText(art), i = ghlFind(T, h); if (i >= 0) ghlWrap(art, i, i + h.t.length, h); });
+  document.querySelectorAll(`[data-ghlclear="${gk}"]`).forEach(b=>b.hidden = !list.length);
+}
+function ghlRefresh(gk){ document.querySelectorAll(".gvbody[data-gk]").forEach(a=>{ if (a.dataset.gk===gk) ghlApply(a); }); }
+function ghlSpan(art, h){ const T = ghlText(art), i = ghlFind(T, h); return i < 0 ? null : [i, i + h.t.length]; }
+function ghlAdd(art, a, b, c){
+  const gk = art.dataset.gk, list = (S.ghl[gk] ||= []), T = ghlText(art);
+  const spans = list.map(h=>ghlSpan(art, h));
+  let allIn = true;
+  for (let k = a; k < b; k++) { if (!T[k].trim()) continue; if (!spans.some(sp=>sp && sp[0] <= k && k < sp[1])) { allIn = false; break; } }
+  const keep = [];
+  list.forEach((h, j)=>{ const sp = spans[j];
+    if (sp && sp[0] < b && sp[1] > a) {            // overlaps the selection
+      if (allIn) { if (sp[0] < a) keep.push(ghlMake(T, sp[0], a, h.c)); if (sp[1] > b) keep.push(ghlMake(T, b, sp[1], h.c)); }
+      else { a = Math.min(a, sp[0]); b = Math.max(b, sp[1]); }
+    } else keep.push(h); });
+  if (!allIn) keep.push(ghlMake(T, a, b, c));
+  S.ghl[gk] = keep.filter(h=>h.t.trim()); if (!S.ghl[gk].length) delete S.ghl[gk];
+  save(); ghlRefresh(gk);
+}
+function ghlMake(T, a, b, c){ return {id: Date.now().toString(36) + Math.random().toString(36).slice(2,6), t:T.slice(a,b), p:T.slice(Math.max(0,a-32),a), s:T.slice(b,b+32), c}; }
+let ghlCtx = null;
+function ghlBar(){ let b = $("ghlBar"); if (b) return b;
+  b = document.createElement("div"); b.id = "ghlBar";
+  b.innerHTML = HL_COLORS.map(x=>`<button class="sw hl-${x.k}" data-ghc="${x.k}" title="${x.name}" aria-label="Highlight ${x.name}"></button>`).join("") + `<button class="gx" data-ghx hidden>Remove</button>`;
+  b.addEventListener("mousedown", e=>e.preventDefault());
+  b.addEventListener("click", e=>{ const t = e.target.closest("button"); if (!t || !ghlCtx) return; const {art} = ghlCtx;
+    if (t.dataset.ghc) { hlColor = t.dataset.ghc; try { localStorage.setItem("msk-hlcolor", hlColor); } catch(e2) {}
+      if (ghlCtx.hid) { const h = (S.ghl[art.dataset.gk]||[]).find(x=>x.id===ghlCtx.hid); if (h) { h.c = hlColor; save(); ghlRefresh(art.dataset.gk); } }
+      else ghlAdd(art, ghlCtx.a, ghlCtx.b, hlColor); }
+    else if (t.hasAttribute("data-ghx") && ghlCtx.hid) { const gk = art.dataset.gk; S.ghl[gk] = (S.ghl[gk]||[]).filter(x=>x.id!==ghlCtx.hid); if (!S.ghl[gk].length) delete S.ghl[gk]; save(); ghlRefresh(gk); }
+    window.getSelection().removeAllRanges(); ghlHide(); });
+  document.body.appendChild(b); return b; }
+function ghlHide(){ const b = $("ghlBar"); if (b) b.classList.remove("on"); ghlCtx = null; }
+function ghlShow(rect, ctx){ const b = ghlBar(); ghlCtx = ctx;
+  b.querySelectorAll(".sw").forEach(x=>x.classList.toggle("cur", x.dataset.ghc===(ctx.c||hlColor)));
+  b.querySelector("[data-ghx]").hidden = !ctx.hid; b.classList.add("on");
+  const top = rect.bottom + 8 + 44 > window.innerHeight ? rect.top - 50 : rect.bottom + 8;
+  b.style.left = Math.max(110, Math.min(window.innerWidth - 110, rect.left + rect.width/2)) + "px"; b.style.top = Math.max(8, top) + "px"; }
+function ghlCheckSel(){
+  const sel = window.getSelection();
+  if (!sel || sel.isCollapsed || !sel.rangeCount) { if (ghlCtx && !ghlCtx.hid) ghlHide(); return; }
+  const r = sel.getRangeAt(0), n = r.commonAncestorContainer, art = (n.nodeType===1 ? n : n.parentElement).closest(".gvbody[data-gk]");
+  if (!art || !sel.toString().trim()) { if (ghlCtx && !ghlCtx.hid) ghlHide(); return; }
+  const a = ghlOffset(art, r.startContainer, r.startOffset), b = ghlOffset(art, r.endContainer, r.endOffset);
+  if (b <= a) return; const rects = r.getClientRects(), rc = rects.length ? rects[rects.length-1] : r.getBoundingClientRect();
+  ghlShow(rc, {art, a, b}); }
+let ghlSelT = 0;
+document.addEventListener("selectionchange", ()=>{ clearTimeout(ghlSelT); ghlSelT = setTimeout(ghlCheckSel, 250); });
+document.addEventListener("click", e=>{
+  const cb = e.target.closest && e.target.closest("[data-ghlclear]");
+  if (cb) { const gk = cb.dataset.ghlclear; if (confirm("Clear all your highlights in this study guide?")) { delete S.ghl[gk]; save(); ghlRefresh(gk); toast("Highlights cleared"); } return; }
+  const m = e.target.closest && e.target.closest(".gvbody mark.ghl");
+  if (m) { const sel = window.getSelection(); if (sel && !sel.isCollapsed) return;
+    const art = m.closest(".gvbody[data-gk]"), h = (S.ghl[art.dataset.gk]||[]).find(x=>x.id===m.dataset.hid);
+    ghlShow(m.getBoundingClientRect(), {art, hid: m.dataset.hid, c: h && h.c}); return; }
+  if (!(e.target.closest && e.target.closest("#ghlBar"))) { const sel = window.getSelection(); if (!sel || sel.isCollapsed) ghlHide(); }
+});
+window.addEventListener("scroll", ()=>{ if (ghlCtx) ghlHide(); }, true);
 function endBlock(){
   const t = chap().test; if (!t || t.finished) return;
   const left = t.ids.filter(id=>t.sel[id]===undefined).length;
@@ -5302,7 +5393,7 @@ function playIntro(){
 })();
 </script>
 <script>document.write('<script src="firebase-config.js?t=' + Date.now() + '"><\/script>');</script>
-<script src="auth.js?v=42"></script>
+<script src="auth.js?v=43"></script>
 <script>
 // Fail closed: if sign-in can't load (blocked, missing or failed file), the site stays locked instead of opening.
 setTimeout(function(){
