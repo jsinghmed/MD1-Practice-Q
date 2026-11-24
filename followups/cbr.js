@@ -8928,5 +8928,898 @@ Object.assign(window.JJ_FU, {
 ]
 }
 ]
+},
+"cbr331": {
+"k": "Insulin and PDH",
+"q": [
+{
+"id": "cbr331-f1",
+"lv": "Easy",
+"s": "Which enzyme removes the phosphate from the PDH complex and activates it?",
+"c": [
+"Protein kinase A",
+"PDH phosphatase",
+"Pyruvate carboxylase",
+"Citrate synthase",
+"PDH kinase"
+],
+"a": 1,
+"e": "PDH kinase phosphorylates and inactivates the complex; PDH phosphatase dephosphorylates and activates it. Insulin and Ca²⁺ stimulate the phosphatase.\n\nTakeaway: Phosphatase = PDH on; kinase = PDH off.",
+"w": [
+"PKA is not the PDH regulatory enzyme on the slide.",
+"",
+"Pyruvate carboxylase is an anaplerotic enzyme, not a regulator.",
+"Citrate synthase is a TCA enzyme, not a PDH regulator.",
+"PDH kinase adds phosphate and inactivates the complex."
+]
+},
+{
+"id": "cbr331-f2",
+"lv": "Hard",
+"s": "In the fasting state, acetyl CoA and NADH from fatty acid oxidation are high in liver mitochondria. What is the state of the PDH complex?",
+"c": [
+"Dephosphorylated and active",
+"Phosphorylated and active",
+"Fully activated by acetyl CoA",
+"Phosphorylated and inactive",
+"Unchanged from the fed state"
+],
+"a": 3,
+"e": "High acetyl CoA and NADH (high energy charge) stimulate PDH kinase, which phosphorylates and inactivates PDH. This spares pyruvate for gluconeogenesis during fasting.\n\nTakeaway: High acetyl CoA, NADH or ATP → PDH phosphorylated → off.",
+"w": [
+"Dephosphorylation follows insulin or Ca²⁺, not fasting.",
+"Phosphorylation inactivates PDH; it never activates it.",
+"Acetyl CoA inhibits E2 and stimulates the kinase.",
+"",
+"Fasting signals switch PDH off compared with the fed state."
+]
+}
+]
+},
+"cbr332": {
+"k": "Irreversible PDH step",
+"q": [
+{
+"id": "cbr332-f1",
+"lv": "Easy",
+"s": "What are the products of the PDH reaction?",
+"c": [
+"Acetyl CoA, FADH₂ and GTP",
+"Citrate and CoA",
+"Oxaloacetate, ADP and Pi",
+"Lactate and NAD⁺",
+"Acetyl CoA, CO₂ and NADH"
+],
+"a": 4,
+"e": "Pyruvate + CoA + NAD⁺ → acetyl CoA + CO₂ + NADH. The steps are decarboxylation, oxidation and transfer of the acetyl group to CoA.\n\nTakeaway: PDH makes acetyl CoA, CO₂ and NADH.",
+"w": [
+"FADH₂ and GTP are made in the TCA cycle, not by PDH.",
+"These are products of citrate synthase.",
+"These are products of pyruvate carboxylase.",
+"These are products of lactate dehydrogenase.",
+""
+]
+},
+{
+"id": "cbr332-f2",
+"lv": "Hard",
+"s": "Why can even-chain fatty acids not be used for net synthesis of glucose?",
+"c": [
+"Their carbons all leave as lactate in the blood",
+"Acetyl CoA directly inhibits pyruvate carboxylase",
+"Acetyl CoA can never become pyruvate again",
+"They cannot be broken down to acetyl CoA at all",
+"Fatty acids cannot enter liver mitochondria"
+],
+"a": 2,
+"e": "Even-chain fatty acids yield only acetyl CoA. The PDH reaction is irreversible, so acetyl CoA cannot become pyruvate, and its two carbons are lost as 2 CO₂ in the TCA cycle, giving no net oxaloacetate.\n\nTakeaway: Irreversible PDH means acetyl CoA cannot be used for net gluconeogenesis.",
+"w": [
+"Fatty acid carbons are not turned into lactate.",
+"Acetyl CoA actually activates pyruvate carboxylase.",
+"",
+"β-oxidation converts them to acetyl CoA.",
+"The carnitine shuttle carries them into mitochondria."
+]
+}
+]
+},
+"cbr333": {
+"k": "Ca²⁺, ADP and PDH",
+"q": [
+{
+"id": "cbr333-f1",
+"lv": "Easy",
+"s": "Which molecule stimulates PDH phosphatase?",
+"c": [
+"High NADH",
+"ATP molecules",
+"Acetyl CoA",
+"Calcium ions",
+"Citrate ions"
+],
+"a": 3,
+"e": "A rise in mitochondrial Ca²⁺ stimulates PDH phosphatase, activating PDH. ATP, acetyl CoA and NADH favor the kinase and inactivation.\n\nTakeaway: Ca²⁺ → phosphatase → PDH active.",
+"w": [
+"NADH favors phosphorylation and inactivation.",
+"ATP signals high energy charge and favors inactivation.",
+"Acetyl CoA favors phosphorylation and inactivation.",
+"",
+"Citrate does not regulate PDH on the slide."
+]
+},
+{
+"id": "cbr333-f2",
+"lv": "Hard",
+"s": "Which set of signals would most strongly inhibit PDH kinase?",
+"c": [
+"Glucagon, NADH and GTP",
+"Pyruvate, NAD⁺ and ADP",
+"Insulin, ATP and acetyl CoA",
+"Citrate, NADH and succinyl CoA",
+"Acetyl CoA, NADH and ATP"
+],
+"a": 1,
+"e": "Pyruvate, NAD⁺ and ADP (signals of low energy charge and abundant substrate) inhibit PDH kinase, keeping PDH dephosphorylated and active.\n\nTakeaway: Pyruvate, NAD⁺ and ADP inhibit the kinase.",
+"w": [
+"NADH and GTP signal high energy charge.",
+"",
+"ATP and acetyl CoA favor the kinase.",
+"These inhibit citrate synthase.",
+"These activate the kinase and switch PDH off."
+]
+}
+]
+},
+"cbr334": {
+"k": "Product inhibition of PDH",
+"q": [
+{
+"id": "cbr334-f1",
+"lv": "Easy",
+"s": "Which product of the PDH reaction directly inhibits the transacetylase component, E2?",
+"c": [
+"Acetyl CoA",
+"High NADH",
+"Lactate",
+"CO₂ gas",
+"Free pyruvate"
+],
+"a": 0,
+"e": "High concentrations of products inhibit the complex: acetyl CoA inhibits E2 (transacetylase) and NADH inhibits E3 (dihydrolipoyl dehydrogenase).\n\nTakeaway: Acetyl CoA → E2; NADH → E3.",
+"w": [
+"",
+"NADH inhibits E3, not E2.",
+"Lactate is not a PDH regulator.",
+"CO₂ is not a regulator of the complex.",
+"Pyruvate is the substrate and activates PDH."
+]
+},
+{
+"id": "cbr334-f2",
+"lv": "Hard",
+"s": "Which cofactor is regenerated by E3, dihydrolipoyl dehydrogenase, explaining why high NADH inhibits it?",
+"c": [
+"Biotin",
+"Coenzyme A",
+"Thiamine pyrophosphate",
+"Oxidized lipoamide",
+"Pyridoxal phosphate"
+],
+"a": 3,
+"e": "E3 reoxidizes reduced lipoamide, passing electrons through FAD to NAD⁺ to form NADH. A high NADH/NAD⁺ ratio slows this step by product inhibition.\n\nTakeaway: E3 regenerates oxidized lipoamide using FAD and NAD⁺.",
+"w": [
+"Biotin is not a PDH cofactor.",
+"CoA accepts the acetyl group at E2.",
+"TPP is the E1 cofactor.",
+"",
+"Pyridoxal phosphate is not a PDH cofactor."
+]
+}
+]
+},
+"cbr335": {
+"k": "Treating PDH deficiency",
+"q": [
+{
+"id": "cbr335-f1",
+"lv": "Easy",
+"s": "What is the most common biochemical cause of congenital lactic acidosis?",
+"c": [
+"Pyruvate kinase deficiency",
+"Citrate synthase deficiency",
+"Glucose-6-phosphatase deficiency",
+"Lactate dehydrogenase deficiency",
+"PDH complex deficiency"
+],
+"a": 4,
+"e": "PDH deficiency is the most common biochemical cause of congenital lactic acidosis. Pyruvate cannot become acetyl CoA, so it is converted to lactate.\n\nTakeaway: PDH deficiency = most common congenital lactic acidosis.",
+"w": [
+"Pyruvate kinase deficiency causes hemolytic anemia.",
+"Citrate synthase deficiency is not the classic cause.",
+"G6Pase deficiency causes von Gierke disease, not the classic answer here.",
+"LDH deficiency would lower, not raise, lactate.",
+""
+]
+},
+{
+"id": "cbr335-f2",
+"lv": "Hard",
+"s": "Why does a ketogenic diet help a child with PDH deficiency?",
+"c": [
+"Ketones increase glycolysis in the brain",
+"Ketones convert lactate back to pyruvate",
+"Ketones reactivate the PDH enzyme",
+"Ketones replace thiamine as a cofactor",
+"Ketones supply acetyl CoA without PDH"
+],
+"a": 4,
+"e": "Ketone bodies are converted to acetyl CoA in tissues, bypassing the blocked PDH step, so the TCA cycle can still run. Restricting carbohydrate also reduces pyruvate and lactate.\n\nTakeaway: Ketogenic diet bypasses PDH by supplying acetyl CoA directly.",
+"w": [
+"Increasing glycolysis would worsen lactic acidosis.",
+"Ketones do not reverse lactate formation.",
+"Ketones do not reactivate the defective enzyme.",
+"Ketones are not a cofactor substitute.",
+""
+]
+}
+]
+},
+"cbr336": {
+"k": "Thiamine and PDH",
+"q": [
+{
+"id": "cbr336-f1",
+"lv": "Easy",
+"s": "Which group is at highest risk of thiamine deficiency that impairs PDH, according to the slide?",
+"c": [
+"Strict vegans",
+"Breastfed infants",
+"Pregnant women taking folate",
+"Patients with ileal resection",
+"Malnourished alcoholics"
+],
+"a": 4,
+"e": "Thiamine (TPP) deficiency inhibits PDH, causing pyruvate accumulation and lactic acidosis. It arises from dietary deficiency, classically in nutritionally deprived alcoholics.\n\nTakeaway: Alcoholics are at highest risk of thiamine deficiency.",
+"w": [
+"Vegans are at risk of B12, not classically thiamine, deficiency.",
+"Breastfed infants are not the classic group on the slide.",
+"Folate supplementation is unrelated to thiamine.",
+"Ileal resection causes B12 malabsorption.",
+""
+]
+},
+{
+"id": "cbr336-f2",
+"lv": "Hard",
+"s": "Besides PDH, which TCA cycle enzyme also needs thiamine pyrophosphate and would slow in thiamine deficiency?",
+"c": [
+"α-KG dehydrogenase",
+"Succinate dehydrogenase",
+"Malate dehydrogenase",
+"Citrate synthase",
+"Isocitrate dehydrogenase"
+],
+"a": 0,
+"e": "α-KGDH is built like PDH and uses the same cofactors: TPP, lipoic acid, CoA, FAD and NAD⁺. Thiamine deficiency slows both, reducing ATP production.\n\nTakeaway: PDH and α-KGDH both need TPP.",
+"w": [
+"",
+"SDH uses FAD.",
+"MDH uses NAD⁺.",
+"Citrate synthase needs no vitamin cofactor.",
+"IDH uses NAD⁺ only."
+]
+}
+]
+},
+"cbr337": {
+"k": "Dichloroacetate",
+"q": [
+{
+"id": "cbr337-f1",
+"lv": "Easy",
+"s": "Phosphorylation of the PDH complex has what effect on its activity?",
+"c": [
+"It makes it reversible",
+"It has no effect",
+"It activates the complex",
+"It inactivates the complex",
+"It converts it to a kinase"
+],
+"a": 3,
+"e": "PDH kinase phosphorylates and inactivates the complex. Dichloroacetate inhibits the kinase, reducing this inhibitory phosphorylation.\n\nTakeaway: Phosphorylated PDH is inactive.",
+"w": [
+"Phosphorylation does not make the reaction reversible.",
+"Phosphorylation is a major regulatory switch.",
+"Dephosphorylation, not phosphorylation, activates PDH.",
+"",
+"The complex does not become a kinase."
+]
+},
+{
+"id": "cbr337-f2",
+"lv": "Hard",
+"s": "A child with partial PDH deficiency is given dichloroacetate, thiamine and lipoic acid. What is the shared goal of all three?",
+"c": [
+"Increase activity of PDH kinase",
+"Raise blood glucose through gluconeogenesis",
+"Maximize activity of the remaining PDH",
+"Block entry of acetyl CoA into the cycle",
+"Increase conversion of pyruvate to lactate"
+],
+"a": 2,
+"e": "Thiamine and lipoic acid are PDH cofactors, and dichloroacetate reduces inhibitory phosphorylation. Together they push the residual enzyme to its maximum activity and lower lactate.\n\nTakeaway: PDH deficiency treatment aims to maximize residual PDH activity.",
+"w": [
+"Dichloroacetate inhibits the kinase.",
+"Gluconeogenesis is not the goal.",
+"",
+"They help acetyl CoA formation, not block it.",
+"They aim to reduce lactate, not raise it."
+]
+}
+]
+},
+"cbr338": {
+"k": "Diagnosing PDH deficiency",
+"q": [
+{
+"id": "cbr338-f1",
+"lv": "Easy",
+"s": "Which pair of blood values is typically raised in PDH deficiency?",
+"c": [
+"Ammonia and urea",
+"Lactate and pyruvate",
+"Uric acid and creatinine",
+"Bilirubin and AST",
+"Ketones and glucose"
+],
+"a": 1,
+"e": "When PDH is blocked, pyruvate accumulates and is converted to lactate, so both lactate and pyruvate are high in blood.\n\nTakeaway: PDH deficiency raises lactate and pyruvate.",
+"w": [
+"These suggest urea cycle or liver problems.",
+"",
+"These suggest renal or purine problems.",
+"These suggest liver disease.",
+"Ketones and glucose are not the typical findings."
+]
+},
+{
+"id": "cbr338-f2",
+"lv": "Hard",
+"s": "Why is a blood lactate level alone not enough to diagnose PDH deficiency?",
+"c": [
+"Lactate is a marker of liver failure only",
+"Lactate is never raised in PDH deficiency",
+"Lactate cannot be measured in infants",
+"Lactate is only raised after thiamine treatment",
+"Many other conditions also raise lactate"
+],
+"a": 4,
+"e": "Lactate rises in shock, sepsis, seizures and many metabolic disorders. A definitive diagnosis requires showing abnormal enzyme function in leukocytes, fibroblasts or tissue.\n\nTakeaway: Raised lactate is nonspecific; enzyme assays confirm PDH deficiency.",
+"w": [
+"Lactate rises in many disorders besides liver failure.",
+"Lactate is raised in PDH deficiency.",
+"Lactate is routinely measured in infants.",
+"Lactate is high before treatment.",
+""
+]
+}
+]
+},
+"cbr339": {
+"k": "Succinate dehydrogenase",
+"q": [
+{
+"id": "cbr339-f1",
+"lv": "Easy",
+"s": "Which reduced coenzyme does succinate dehydrogenase produce?",
+"c": [
+"FADH₂",
+"NADH",
+"Coenzyme Q only",
+"NADPH",
+"GTP"
+],
+"a": 0,
+"e": "Succinate dehydrogenase oxidizes succinate to fumarate and reduces FAD to FADH₂. Each FADH₂ yields 2 ATP on the slide.\n\nTakeaway: Succinate dehydrogenase makes FADH₂.",
+"w": [
+"",
+"NADH comes from IDH, α-KGDH and MDH.",
+"CoQ accepts electrons but is not the coenzyme made.",
+"NADPH is not made in the TCA cycle.",
+"GTP comes from succinate thiokinase."
+]
+},
+{
+"id": "cbr339-f2",
+"lv": "Hard",
+"s": "Why does each FADH₂ from succinate dehydrogenase give fewer ATP than each NADH?",
+"c": [
+"It enters at Complex IV directly",
+"It is oxidized in the cytosol",
+"Its electrons skip Complex I",
+"It cannot reach coenzyme Q",
+"It needs a shuttle to enter"
+],
+"a": 2,
+"e": "FADH₂ in Complex II passes electrons straight to coenzyme Q, bypassing Complex I, so fewer protons are pumped and fewer ATP are made (2 versus 3 on the slide).\n\nTakeaway: FADH₂ bypasses Complex I, so it yields less ATP.",
+"w": [
+"Electrons enter at CoQ, not Complex IV.",
+"SDH is in the inner mitochondrial membrane.",
+"",
+"They do reach CoQ directly.",
+"SDH is already in the mitochondrion."
+]
+}
+]
+},
+"cbr340": {
+"k": "Substrate-level phosphorylation",
+"q": [
+{
+"id": "cbr340-f1",
+"lv": "Easy",
+"s": "What does succinate thiokinase convert succinyl CoA into?",
+"c": [
+"α-Ketoglutarate",
+"Fumarate",
+"Malate",
+"Succinate",
+"Oxaloacetate"
+],
+"a": 3,
+"e": "Succinate thiokinase converts succinyl CoA to succinate and uses the thioester energy to make GTP from GDP + Pi.\n\nTakeaway: Succinyl CoA → succinate + GTP.",
+"w": [
+"α-KG is upstream of succinyl CoA.",
+"Fumarate is made by succinate dehydrogenase.",
+"Malate is made by fumarase.",
+"",
+"Oxaloacetate is made by malate dehydrogenase."
+]
+},
+{
+"id": "cbr340-f2",
+"lv": "Hard",
+"s": "How many high-energy phosphate bonds are made directly by substrate-level phosphorylation in one turn of the TCA cycle?",
+"c": [
+"None",
+"Three",
+"One",
+"Two",
+"Twelve"
+],
+"a": 2,
+"e": "Only succinate thiokinase makes a high-energy phosphate directly (1 GTP). The other 11 ATP per turn come from oxidative phosphorylation of 3 NADH and 1 FADH₂.\n\nTakeaway: One GTP per turn by substrate-level phosphorylation.",
+"w": [
+"GTP is made at the succinate thiokinase step.",
+"Three is the number of NADH, not direct phosphorylations.",
+"",
+"Only one step makes GTP directly.",
+"Twelve is the total ATP per acetyl CoA."
+]
+}
+]
+},
+"cbr341": {
+"k": "TCA energetics",
+"q": [
+{
+"id": "cbr341-f1",
+"lv": "Easy",
+"s": "How many ATP does one acetyl CoA yield through the TCA cycle, using the slide's values?",
+"c": [
+"15",
+"10",
+"12",
+"38",
+"36"
+],
+"a": 2,
+"e": "3 NADH × 3 = 9, 1 FADH₂ × 2 = 2, 1 GTP = 1, so 12 ATP per acetyl CoA. (Newer values of 2.5 and 1.5 give 10.)\n\nTakeaway: 12 ATP per acetyl CoA on the slide.",
+"w": [
+"15 includes the PDH NADH for one pyruvate.",
+"10 uses the newer 2.5 and 1.5 values, not the slide's.",
+"",
+"38 is a whole glucose.",
+"36 is a whole glucose using the glycerophosphate shuttle."
+]
+},
+{
+"id": "cbr341-f2",
+"lv": "Hard",
+"s": "Malonate blocks succinate dehydrogenase. How many ATP per acetyl CoA would be lost from that step alone, using slide values?",
+"c": [
+"12",
+"2",
+"3",
+"1",
+"9"
+],
+"a": 1,
+"e": "Succinate dehydrogenase produces 1 FADH₂ = 2 ATP. Blocking it removes those 2 ATP directly (and the cycle then stops, so further steps are lost too).\n\nTakeaway: The SDH step is worth 2 ATP via FADH₂.",
+"w": [
+"12 is the whole cycle.",
+"",
+"3 is the value of an NADH step.",
+"1 is the GTP step.",
+"9 is the three NADH steps together."
+]
+}
+]
+},
+"cbr342": {
+"k": "Decarboxylation steps",
+"q": [
+{
+"id": "cbr342-f1",
+"lv": "Easy",
+"s": "Which enzyme converts isocitrate to α-ketoglutarate?",
+"c": [
+"The citrate synthase enzyme",
+"Isocitrate dehydrogenase",
+"Aconitase enzyme",
+"α-KG dehydrogenase",
+"The fumarase enzyme"
+],
+"a": 1,
+"e": "Isocitrate dehydrogenase oxidatively decarboxylates isocitrate to α-ketoglutarate, making NADH and CO₂. It is the rate-limiting step.\n\nTakeaway: IDH: isocitrate → α-KG + CO₂ + NADH.",
+"w": [
+"Citrate synthase makes citrate.",
+"",
+"Aconitase converts citrate to isocitrate.",
+"α-KGDH acts on α-ketoglutarate.",
+"Fumarase hydrates fumarate."
+]
+},
+{
+"id": "cbr342-f2",
+"lv": "Hard",
+"s": "How many NADH, FADH₂ and GTP are made per turn of the TCA cycle?",
+"c": [
+"1 NADH, 1 FADH₂, 3 GTP",
+"3 NADH, 2 FADH₂, 0 GTP",
+"3 NADH, 1 FADH₂, 1 GTP",
+"4 NADH, 1 FADH₂, 1 GTP",
+"2 NADH, 2 FADH₂, 1 GTP"
+],
+"a": 2,
+"e": "Stoichiometry: acetyl CoA + 3 NAD⁺ + FAD + GDP + Pi + 2 H₂O → 2 CO₂ + 3 NADH + FADH₂ + GTP + CoA. NADH comes from IDH, α-KGDH and MDH.\n\nTakeaway: 3 NADH, 1 FADH₂, 1 GTP, 2 CO₂ per turn.",
+"w": [
+"Only one GTP is made.",
+"There is one FADH₂ and one GTP.",
+"",
+"Four NADH would include the PDH step.",
+"There are three NADH and only one FADH₂."
+]
+}
+]
+},
+"cbr343": {
+"k": "Rate-limiting step",
+"q": [
+{
+"id": "cbr343-f1",
+"lv": "Easy",
+"s": "Which molecules inhibit isocitrate dehydrogenase?",
+"c": [
+"ATP and NADH",
+"Insulin and glucagon",
+"Fluorocitrate and malonate",
+"ADP and Ca²⁺",
+"Citrate and succinyl CoA"
+],
+"a": 0,
+"e": "IDH is stimulated by ADP and Ca²⁺ and inhibited by ATP and NADH, matching cycle speed to energy need.\n\nTakeaway: IDH: ↑ ADP, Ca²⁺; ↓ ATP, NADH.",
+"w": [
+"",
+"Hormones act on PDH, not directly on IDH.",
+"These are poisons of aconitase and SDH.",
+"ADP and Ca²⁺ stimulate IDH.",
+"These inhibit citrate synthase."
+]
+},
+{
+"id": "cbr343-f2",
+"lv": "Hard",
+"s": "Which TCA enzyme is NOT regulated by phosphorylation and is inhibited by succinyl CoA, NADH, ATP and GTP?",
+"c": [
+"α-KG dehydrogenase",
+"Pyruvate dehydrogenase",
+"Isocitrate dehydrogenase",
+"Malate dehydrogenase",
+"Citrate synthase"
+],
+"a": 0,
+"e": "Although α-KGDH resembles PDH, it is not regulated by phosphorylation. It is inhibited by its products succinyl CoA and NADH and by a high energy charge (ATP, GTP).\n\nTakeaway: α-KGDH is product-inhibited, not phosphorylated.",
+"w": [
+"",
+"PDH is regulated by phosphorylation.",
+"IDH is inhibited by ATP and NADH but stimulated by ADP and Ca²⁺.",
+"MDH is not a primary control point.",
+"Citrate synthase is inhibited by citrate, NADH and succinyl CoA."
+]
+}
+]
+},
+"cbr344": {
+"k": "Fluoroacetate",
+"q": [
+{
+"id": "cbr344-f1",
+"lv": "Easy",
+"s": "Fluorocitrate inhibits which enzyme?",
+"c": [
+"Aconitase",
+"Isocitrate dehydrogenase",
+"Fumarase",
+"Citrate synthase",
+"Succinate dehydrogenase"
+],
+"a": 0,
+"e": "Fluoroacetate forms fluoroacetyl CoA, which condenses with oxaloacetate to form fluorocitrate, a potent inhibitor of aconitase.\n\nTakeaway: Fluorocitrate inhibits aconitase.",
+"w": [
+"",
+"IDH is downstream of the block.",
+"Fumarase is not the target.",
+"Citrate synthase makes fluorocitrate rather than being blocked.",
+"SDH is blocked by malonate."
+]
+},
+{
+"id": "cbr344-f2",
+"lv": "Hard",
+"s": "Why is fluoroacetate called a 'lethal synthesis' poison?",
+"c": [
+"Cells turn it into the real inhibitor",
+"It inhibits the kinase of PDH",
+"It is directly toxic before metabolism",
+"It is made by gut bacteria from glucose",
+"It is formed from malonate in the liver"
+],
+"a": 0,
+"e": "Fluoroacetate itself is not the inhibitor. Cells convert it to fluoroacetyl CoA and then fluorocitrate, which blocks aconitase. The body synthesizes its own poison.\n\nTakeaway: Fluoroacetate becomes fluorocitrate inside cells.",
+"w": [
+"",
+"It does not act on PDH kinase.",
+"Fluoroacetate itself is relatively inactive.",
+"It is ingested, not made by gut bacteria.",
+"It is unrelated to malonate."
+]
+}
+]
+},
+"cbr345": {
+"k": "Malonate",
+"q": [
+{
+"id": "cbr345-f1",
+"lv": "Easy",
+"s": "What type of inhibitor is malonate for succinate dehydrogenase?",
+"c": [
+"Uncompetitive",
+"Competitive",
+"Allosteric activator",
+"Noncompetitive",
+"Irreversible covalent"
+],
+"a": 1,
+"e": "Malonate closely resembles succinate and competes for the active site of succinate dehydrogenase. Raising succinate overcomes the inhibition.\n\nTakeaway: Malonate is a competitive inhibitor of SDH.",
+"w": [
+"Uncompetitive inhibitors bind only the enzyme–substrate complex.",
+"",
+"It inhibits, not activates.",
+"Noncompetitive inhibitors are not overcome by substrate.",
+"Malonate binds reversibly."
+]
+},
+{
+"id": "cbr345-f2",
+"lv": "Hard",
+"s": "How did Krebs use malonate to show the pathway is a cycle?",
+"c": [
+"Malonate raised oxygen use sharply",
+"Added intermediates still built up succinate",
+"Malonate made citrate from pyruvate on its own",
+"Malonate blocked the PDH complex",
+"Malonate converted fumarate to citrate"
+],
+"a": 1,
+"e": "With SDH blocked, adding later intermediates such as fumarate or oxaloacetate still caused succinate to accumulate, showing that carbon flows around a closed loop back to succinate.\n\nTakeaway: Malonate inhibition was Krebs's evidence for a cycle.",
+"w": [
+"Malonate lowers oxygen use.",
+"",
+"Malonate does not make citrate.",
+"Malonate does not act on PDH.",
+"Malonate does not convert fumarate to citrate."
+]
+}
+]
+},
+"cbr346": {
+"k": "Anaplerosis by amino acids",
+"q": [
+{
+"id": "cbr346-f1",
+"lv": "Easy",
+"s": "Glutamate replenishes which TCA cycle intermediate?",
+"c": [
+"Fumarate ions",
+"Oxaloacetate",
+"Succinyl coenzyme A",
+"α-Ketoglutarate",
+"Citrate ions"
+],
+"a": 3,
+"e": "Glutamate is deaminated or transaminated to α-ketoglutarate. Aspartate gives oxaloacetate, and isoleucine, methionine and valine give succinyl CoA.\n\nTakeaway: Glutamate → α-ketoglutarate.",
+"w": [
+"Phenylalanine and tyrosine supply fumarate.",
+"Aspartate supplies oxaloacetate.",
+"Isoleucine, methionine and valine supply succinyl CoA.",
+"",
+"Citrate is formed from acetyl CoA and oxaloacetate."
+]
+},
+{
+"id": "cbr346-f2",
+"lv": "Hard",
+"s": "A diet rich in odd-chain fatty acids gives propionyl CoA. At which point does this carbon enter the TCA cycle?",
+"c": [
+"Citrate",
+"Acetyl CoA only",
+"Malate",
+"Succinyl CoA",
+"α-Ketoglutarate"
+],
+"a": 3,
+"e": "Odd-chain fatty acids end in propionyl CoA, which is converted via methylmalonyl CoA to succinyl CoA, an anaplerotic entry point.\n\nTakeaway: Odd-chain fatty acids → propionyl CoA → succinyl CoA.",
+"w": [
+"Citrate is made inside the cycle.",
+"The final 3-carbon unit is not acetyl CoA.",
+"Malate is not this entry point.",
+"",
+"Glutamate enters at α-KG."
+]
+}
+]
+},
+"cbr347": {
+"k": "Pyruvate carboxylase",
+"q": [
+{
+"id": "cbr347-f1",
+"lv": "Easy",
+"s": "What does pyruvate carboxylase produce?",
+"c": [
+"Citrate ions",
+"Malate ions",
+"Lactate ions",
+"Acetyl CoA",
+"Oxaloacetate"
+],
+"a": 4,
+"e": "Pyruvate + CO₂ + ATP + H₂O → oxaloacetate + ADP + Pi. It is the most important anaplerotic reaction.\n\nTakeaway: Pyruvate carboxylase makes oxaloacetate.",
+"w": [
+"Citrate synthase makes citrate.",
+"MDH makes malate from oxaloacetate in reverse.",
+"LDH makes lactate.",
+"PDH makes acetyl CoA.",
+""
+]
+},
+{
+"id": "cbr347-f2",
+"lv": "Hard",
+"s": "Why must anaplerotic reactions exist at all?",
+"c": [
+"Without them, NADH cannot be made",
+"They are needed to break down glucose",
+"Intermediates get used for biosynthesis",
+"The cycle produces too much oxaloacetate",
+"Acetyl CoA cannot enter the cycle"
+],
+"a": 2,
+"e": "The TCA cycle is amphibolic: intermediates are withdrawn for glucose, amino acids, fatty acids and heme. Since the cycle cannot be interrupted, these must be replenished.\n\nTakeaway: Anaplerosis refills intermediates removed for biosynthesis.",
+"w": [
+"NADH is made in normal cycle steps.",
+"Glucose breakdown is glycolysis, not anaplerosis.",
+"",
+"The cycle does not overproduce oxaloacetate.",
+"Acetyl CoA enters normally via citrate synthase."
+]
+}
+]
+},
+"cbr348": {
+"k": "Glycerophosphate shuttle",
+"q": [
+{
+"id": "cbr348-f1",
+"lv": "Easy",
+"s": "Which carrier accepts the electrons in the mitochondrial step of the glycerophosphate shuttle?",
+"c": [
+"Aspartate",
+"FAD",
+"Malate",
+"Coenzyme A",
+"NAD⁺"
+],
+"a": 1,
+"e": "Mitochondrial glycerol-3-phosphate dehydrogenase oxidizes glycerol-3-phosphate and passes the electrons to FAD → FADH₂, which is why the yield is 2 ATP.\n\nTakeaway: Glycerophosphate shuttle delivers electrons as FADH₂.",
+"w": [
+"Aspartate is part of the other shuttle.",
+"",
+"Malate is part of the other shuttle.",
+"CoA is not an electron carrier here.",
+"NAD⁺ is used by the malate-aspartate shuttle."
+]
+},
+{
+"id": "cbr348-f2",
+"lv": "Hard",
+"s": "A cell oxidizes 2 cytosolic NADH by the glycerophosphate shuttle instead of the malate-aspartate shuttle. How many ATP are lost, using slide values?",
+"c": [
+"2",
+"0",
+"6",
+"4",
+"1"
+],
+"a": 0,
+"e": "Glycerophosphate shuttle = 2 ATP per NADH; malate-aspartate = 3. For 2 NADH: 4 versus 6, so 2 ATP are lost.\n\nTakeaway: 1 ATP lost per cytosolic NADH with the glycerophosphate shuttle.",
+"w": [
+"",
+"The two shuttles differ in yield.",
+"6 is the malate-aspartate total.",
+"4 is the total yield, not the loss.",
+"1 ATP is the loss for a single NADH."
+]
+}
+]
+},
+"cbr349": {
+"k": "Malate-aspartate shuttle",
+"q": [
+{
+"id": "cbr349-f1",
+"lv": "Easy",
+"s": "How many ATP does each cytosolic NADH yield via the malate-aspartate shuttle on the slide?",
+"c": [
+"12",
+"4",
+"3",
+"2",
+"1"
+],
+"a": 2,
+"e": "In the malate-aspartate shuttle the electrons are regenerated as mitochondrial NADH, which yields 3 ATP (slide value).\n\nTakeaway: Malate-aspartate shuttle = 3 ATP per cytosolic NADH.",
+"w": [
+"12 is per acetyl CoA in the TCA cycle.",
+"4 is more than one NADH yields.",
+"",
+"2 is the glycerophosphate shuttle.",
+"1 is too low."
+]
+},
+{
+"id": "cbr349-f2",
+"lv": "Hard",
+"s": "In the malate-aspartate shuttle, what is reduced in the cytosol by NADH?",
+"c": [
+"Pyruvate to lactate",
+"DHAP to glycerol-3-phosphate",
+"Malate to oxaloacetate",
+"Aspartate to glutamate",
+"Oxaloacetate to malate"
+],
+"a": 4,
+"e": "Cytosolic NADH reduces oxaloacetate to malate. Malate crosses the inner membrane and is reoxidized to oxaloacetate in the matrix, regenerating NADH.\n\nTakeaway: Cytosol: OAA → malate; matrix: malate → OAA + NADH.",
+"w": [
+"This is lactate dehydrogenase, not the shuttle.",
+"This is the glycerophosphate shuttle.",
+"This oxidation happens in the matrix.",
+"This is a transamination, not the NADH step.",
+""
+]
+}
+]
 }
 });

@@ -1,6 +1,22 @@
 {
- "v": "2026-11-23a",
+ "v": "2026-11-24a",
  "notes": [
+  {
+   "v": "2026-11-24a",
+   "date": "Nov 24, 2026",
+   "groups": [
+    {
+     "h": "New questions",
+     "items": [
+      {
+       "tag": "new",
+       "title": "CRS Biochemistry · Lecture 9 · Citric Acid Cycle",
+       "text": "New slide questions added."
+      }
+     ]
+    }
+   ]
+  },
   {
    "v": "2026-11-23a",
    "date": "Nov 23, 2026",

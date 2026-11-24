@@ -75,7 +75,14 @@ window.CRS_BC_TOPICS = [
 "PDH Complex",
 "TCA Cycle Reactions & Energetics",
 "TCA Regulation, Inhibitors & Anaplerosis",
-"Electron Transport Chain & Uncouplers"
+"Electron Transport Chain & Uncouplers",
+"PDH Complex: Reaction & Regulation",
+"PDH Deficiency, Arsenic & Thiamine",
+"TCA Reactions, Site & Energetics",
+"TCA Regulation & Inhibitors",
+"Anaplerosis & Amphibolic Role",
+"NADH Shuttles",
+"Practice Questions · Citric Acid Cycle (from the slides)"
 ];
 window.CRS_BC_QUESTIONS = [
 {
@@ -7734,6 +7741,583 @@ window.CRS_BC_QUESTIONS = [
 "",
 "FMN is fixed in Complex I.",
 "Fe-S proteins are fixed within complexes."
+]
+},
+{
+"t": "PDH Complex: Reaction & Regulation",
+"lv": "Easy",
+"s": "Two hours after a large carbohydrate meal, insulin is high. What happens to the pyruvate dehydrogenase (PDH) complex in the liver?",
+"c": [
+"It is phosphorylated and becomes active",
+"It is converted into pyruvate carboxylase",
+"It is phosphorylated and becomes inactive",
+"It is allosterically inhibited by insulin",
+"It is dephosphorylated and becomes active"
+],
+"a": 4,
+"e": "Step 1: PDH is controlled by covalent modification. PDH kinase phosphorylates the complex, which inactivates it; PDH phosphatase removes the phosphate, which activates it.\nStep 2: Insulin stimulates dephosphorylation of the complex, so after a meal PDH is switched on.\nStep 3: Active PDH turns the abundant pyruvate into acetyl CoA, which can enter the TCA cycle or be used for fatty acid synthesis.\n\nTakeaway: Phosphorylated PDH = inactive; dephosphorylated PDH = active. Insulin activates PDH.",
+"w": [
+"Phosphorylation by PDH kinase inactivates PDH, it does not activate it.",
+"PDH and pyruvate carboxylase are separate enzymes.",
+"This happens when energy charge is high, not after insulin release.",
+"Insulin acts through dephosphorylation, not by binding PDH directly.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/tca-pdh-regulation"
+]
+},
+{
+"t": "PDH Complex: Reaction & Regulation",
+"lv": "Easy",
+"s": "The PDH reaction converts pyruvate to acetyl CoA, and ΔG°′ is about −33 kJ/mol. What is the most important consequence of this reaction being irreversible?",
+"c": [
+"Acetyl CoA can never become pyruvate again",
+"Pyruvate can then never be turned into lactate",
+"Pyruvate can then never be turned into alanine",
+"Acetyl CoA can then never enter the TCA cycle",
+"Oxaloacetate can then never be regenerated"
+],
+"a": 0,
+"e": "Step 1: Pyruvate + CoA + NAD⁺ → acetyl CoA + CO₂ + NADH. One carbon is lost as CO₂ and the large negative ΔG makes the step irreversible.\nStep 2: Because it is irreversible, acetyl CoA from any source (including fatty acids) cannot be converted back to pyruvate.\nStep 3: This is why PDH is the committed link between glycolysis and the TCA cycle, and why it is tightly regulated at this branch point.\n\nTakeaway: PDH is the irreversible link between glycolysis and the TCA cycle; acetyl CoA cannot go back to pyruvate.",
+"w": [
+"",
+"Lactate dehydrogenase is reversible and separate from PDH.",
+"Pyruvate is transaminated to alanine by a separate enzyme.",
+"Acetyl CoA is exactly what enters the TCA cycle.",
+"Oxaloacetate is regenerated in the last step of every turn."
+],
+"src": "lec",
+"fig": [
+"figs/crs/tca-pdh-reaction"
+]
+},
+{
+"t": "PDH Complex: Reaction & Regulation",
+"lv": "Hard",
+"s": "During a sprint, nerve impulses release Ca²⁺ in skeletal muscle and mitochondrial Ca²⁺ rises. At the same time ADP rises as ATP is used. How do these changes affect the PDH complex?",
+"c": [
+"Phosphatase is stimulated, kinase is inhibited",
+"NADH builds up and inhibits E3",
+"Acetyl CoA builds up and inhibits E2",
+"Both enzymes are stimulated equally",
+"Kinase is stimulated and phosphatase is inhibited"
+],
+"a": 0,
+"e": "Step 1: A rise in mitochondrial Ca²⁺ stimulates PDH phosphatase, which removes the inactivating phosphate.\nStep 2: ADP, pyruvate and NAD⁺ (signals of low energy charge) inhibit PDH kinase, so less phosphate is added.\nStep 3: With the phosphatase on and the kinase off, the complex stays dephosphorylated and active, supplying acetyl CoA to make more ATP.\n\nTakeaway: Ca²⁺ stimulates PDH phosphatase; ADP, pyruvate and NAD⁺ inhibit PDH kinase, so exercise activates PDH.",
+"w": [
+"",
+"NADH is falling, not rising, as ATP is used up.",
+"Acetyl CoA is consumed rapidly during exercise.",
+"The two signals push in the same direction, toward activation.",
+"This is the pattern of a high energy charge, which switches PDH off."
+],
+"src": "lec",
+"fig": [
+"figs/crs/tca-pdh-regulation"
+]
+},
+{
+"t": "PDH Complex: Reaction & Regulation",
+"lv": "Easy",
+"s": "When the NADH/NAD⁺ ratio in the mitochondrial matrix is very high, which component of the PDH complex is directly inhibited by the product NADH?",
+"c": [
+"Pyruvate dehydrogenase phosphatase",
+"Dihydrolipoyl dehydrogenase, E3",
+"Pyruvate carboxylase",
+"Dihydrolipoyl transacetylase, E2",
+"Pyruvate decarboxylase, E1"
+],
+"a": 1,
+"e": "Step 1: The PDH complex is made of E1 (pyruvate decarboxylase), E2 (dihydrolipoyl transacetylase) and E3 (dihydrolipoyl dehydrogenase).\nStep 2: High concentrations of its products inhibit the complex: acetyl CoA inhibits E2, and NADH inhibits E3, which normally reduces NAD⁺ to NADH.\nStep 3: High NADH also activates PDH kinase, so the complex is phosphorylated and switched off when energy charge is high.\n\nTakeaway: Acetyl CoA inhibits E2; NADH inhibits E3.",
+"w": [
+"The phosphatase is not the direct product-inhibition target.",
+"",
+"Pyruvate carboxylase is not part of the PDH complex.",
+"E2 is the component inhibited by acetyl CoA.",
+"E1 is regulated by phosphorylation, not direct NADH inhibition here."
+],
+"src": "lec",
+"fig": [
+"figs/crs/tca-pdh-complex"
+]
+},
+{
+"t": "PDH Deficiency, Arsenic & Thiamine",
+"lv": "Hard",
+"s": "A 2-year-old boy has developmental delay, intermittent ataxia and poor muscle tone. Blood lactate and pyruvate are high, and episodes worsen after high-carbohydrate meals. Enzyme assays in fibroblasts show very low pyruvate dehydrogenase activity. Which dietary change is most appropriate?",
+"c": [
+"Supplemental fructose in place of glucose",
+"A high-carbohydrate diet with frequent meals",
+"A diet high in lactose",
+"A high-protein diet rich in alanine",
+"A ketogenic, carbohydrate-restricted diet"
+],
+"a": 4,
+"e": "Step 1: PDH deficiency is the most common biochemical cause of congenital lactic acidosis. Pyruvate cannot become acetyl CoA, so it is diverted to lactate.\nStep 2: Carbohydrate makes it worse, because glycolysis produces more pyruvate that cannot be oxidized.\nStep 3: A ketogenic diet supplies acetyl CoA from fat and ketone bodies, bypassing PDH, so the TCA cycle and brain energy supply can continue. Thiamine and lipoic acid supplements and dichloroacetate are also used.\n\nTakeaway: PDH deficiency is treated with a ketogenic, carbohydrate-restricted diet plus thiamine and lipoic acid.",
+"w": [
+"Fructose also enters glycolysis and produces pyruvate.",
+"More carbohydrate means more pyruvate and more lactic acidosis.",
+"Lactose yields glucose and galactose, both of which make pyruvate.",
+"Alanine is converted to pyruvate, which still needs PDH.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/tca-pdh-regulation"
+]
+},
+{
+"t": "PDH Deficiency, Arsenic & Thiamine",
+"lv": "Hard",
+"s": "A malnourished 52-year-old man with chronic alcohol use is given an intravenous glucose infusion in the emergency department. Hours later his serum lactate rises sharply and he becomes confused. Deficiency of which cofactor best explains this?",
+"c": [
+"Thiamine pyrophosphate",
+"Biotin, vitamin B7",
+"Pyridoxal phosphate",
+"Lipoic acid alone",
+"Cobalamin, vitamin B12"
+],
+"a": 0,
+"e": "Step 1: Thiamine pyrophosphate (TPP) is the cofactor for E1 of the PDH complex. Nutritionally deprived alcoholics are often thiamine deficient.\nStep 2: The glucose load produces a surge of pyruvate. Without TPP, PDH cannot convert it to acetyl CoA, so pyruvate accumulates and is reduced to lactate.\nStep 3: The result is lactic acidosis, and the brain, which depends on glucose oxidation, is starved of energy. This is why thiamine is given before glucose in these patients.\n\nTakeaway: Thiamine (TPP) deficiency inhibits PDH → pyruvate accumulates → lactic acidosis.",
+"w": [
+"",
+"Biotin is the cofactor for pyruvate carboxylase, not PDH.",
+"Pyridoxal phosphate is used by transaminases.",
+"Lipoic acid is the target of arsenite, not of alcoholic malnutrition here.",
+"Cobalamin is needed by methylmalonyl CoA mutase."
+],
+"src": "lec",
+"fig": [
+"figs/crs/tca-pdh-reaction"
+]
+},
+{
+"t": "PDH Deficiency, Arsenic & Thiamine",
+"lv": "Easy",
+"s": "Dichloroacetate is used in some children with PDH deficiency. How does it increase PDH activity?",
+"c": [
+"It replaces thiamine as the E1 cofactor",
+"It activates PDH kinase, increasing phosphorylation",
+"It converts lactate back into glucose",
+"It binds lipoic acid to protect it",
+"It inhibits PDH kinase, reducing phosphorylation"
+],
+"a": 4,
+"e": "Step 1: PDH is inactivated when PDH kinase phosphorylates it.\nStep 2: Dichloroacetate inhibits PDH kinase, so less inhibitory phosphorylation occurs and more of the remaining enzyme stays active.\nStep 3: This lets more pyruvate be oxidized to acetyl CoA, lowering lactate. Cofactor supplements (thiamine, lipoic acid) and a ketogenic diet are the other treatments.\n\nTakeaway: Dichloroacetate reduces the inhibitory phosphorylation of PDH.",
+"w": [
+"Dichloroacetate is not a vitamin cofactor.",
+"More phosphorylation would switch PDH off further.",
+"It does not work by turning lactate into glucose.",
+"It does not bind or protect lipoic acid in the complex.",
+""
+],
+"src": "lec",
+"fig": [
+"figs/crs/tca-pdh-regulation"
+]
+},
+{
+"t": "PDH Deficiency, Arsenic & Thiamine",
+"lv": "Easy",
+"s": "An infant has lactic acidosis with high blood lactate and pyruvate, suggesting PDH deficiency. How is the definitive diagnosis made?",
+"c": [
+"A single blood lactate measurement",
+"Chest radiograph of the infant",
+"Enzyme assay on fibroblasts",
+"A serum thiamine level alone",
+"A urine ketone dipstick test"
+],
+"a": 2,
+"e": "Step 1: High blood lactate and pyruvate suggest PDH deficiency but are not specific, because many conditions raise lactate.\nStep 2: The definitive diagnosis is made by showing abnormal enzyme function.\nStep 3: Functional assays are done on leukocytes, cultured fibroblasts or properly preserved tissue samples.\n\nTakeaway: PDH deficiency is confirmed by enzyme assays on leukocytes, fibroblasts or tissue.",
+"w": [
+"Lactate is high in many disorders, so it cannot confirm the diagnosis.",
+"Imaging does not assess enzyme activity.",
+"",
+"A thiamine level does not measure the enzyme itself.",
+"Urine ketones say nothing about PDH enzyme activity."
+],
+"src": "lec",
+"fig": [
+"figs/crs/tca-pdh-regulation"
+]
+},
+{
+"t": "TCA Reactions, Site & Energetics",
+"lv": "Easy",
+"s": "Which TCA cycle enzyme is also a component of the electron transport chain?",
+"c": [
+"Isocitrate dehydrogenase",
+"Malate dehydrogenase",
+"Succinate thiokinase",
+"Succinate dehydrogenase",
+"Citrate synthase"
+],
+"a": 3,
+"e": "Step 1: Most TCA enzymes are in the mitochondrial matrix.\nStep 2: Succinate dehydrogenase oxidizes succinate to fumarate and reduces FAD to FADH₂. It is bound to the inner mitochondrial membrane and is Complex II of the ETC.\nStep 3: Its electrons pass directly to coenzyme Q, which is why FADH₂ yields fewer ATP (2) than NADH (3) on the slide.\n\nTakeaway: Succinate dehydrogenase = TCA enzyme and ETC Complex II; it makes FADH₂.",
+"w": [
+"Isocitrate dehydrogenase is a matrix enzyme that makes NADH.",
+"Malate dehydrogenase is a matrix enzyme that makes NADH.",
+"Succinate thiokinase makes GTP in the matrix.",
+"",
+"Citrate synthase makes citrate and produces no reduced coenzyme."
+],
+"src": "lec",
+"fig": [
+"figs/crs/tca-amphibolic"
+]
+},
+{
+"t": "TCA Reactions, Site & Energetics",
+"lv": "Easy",
+"s": "Only one step of the TCA cycle makes a high-energy phosphate directly, by substrate-level phosphorylation. Which enzyme catalyzes it?",
+"c": [
+"α-Ketoglutarate dehydrogenase",
+"Isocitrate dehydrogenase",
+"Fumarase",
+"Succinate thiokinase",
+"Succinate dehydrogenase"
+],
+"a": 3,
+"e": "Step 1: Most TCA energy is captured as NADH and FADH₂, which make ATP later by oxidative phosphorylation.\nStep 2: Succinate thiokinase (succinyl CoA synthetase) converts succinyl CoA to succinate and uses the energy of the thioester bond to make GTP from GDP + Pi.\nStep 3: This is substrate-level phosphorylation and gives 1 high-energy phosphate per turn.\n\nTakeaway: Succinate thiokinase makes GTP by substrate-level phosphorylation.",
+"w": [
+"α-KGDH makes NADH and CO₂, not a phosphate bond.",
+"Isocitrate dehydrogenase makes NADH and CO₂.",
+"Fumarase adds water and makes no high-energy phosphate.",
+"",
+"Succinate dehydrogenase makes FADH₂, not GTP."
+],
+"src": "lec",
+"fig": [
+"figs/crs/tca-cycle"
+]
+},
+{
+"t": "TCA Reactions, Site & Energetics",
+"lv": "Hard",
+"s": "Using the values on the slide (3 ATP per NADH, 2 per FADH₂), how many ATP are made when the 2 pyruvate from one glucose are fully oxidized by the PDH complex and the TCA cycle?",
+"c": [
+"36 ATP",
+"15 ATP",
+"24 ATP",
+"30 ATP",
+"38 ATP"
+],
+"a": 3,
+"e": "Step 1: Each pyruvate passes through PDH, which makes 1 NADH = 3 ATP.\nStep 2: Each acetyl CoA then goes around the TCA cycle once: 3 NADH (9) + 1 FADH₂ (2) + 1 GTP (1) = 12 ATP.\nStep 3: Per pyruvate = 3 + 12 = 15. One glucose gives 2 pyruvate, so 2 × 15 = 30 ATP. (Glycolysis adds its own ATP and NADH on top.)\n\nTakeaway: 12 ATP per acetyl CoA in the TCA cycle, 15 per pyruvate including PDH.",
+"w": [
+"36 adds 6 ATP from glycolysis, which the question excludes.",
+"15 is the yield from one pyruvate, not two.",
+"24 counts the TCA cycle for 2 acetyl CoA but leaves out the PDH NADH.",
+"",
+"38 is the classic total for a whole glucose, including glycolysis."
+],
+"src": "lec",
+"fig": [
+"figs/crs/tca-energy"
+]
+},
+{
+"t": "TCA Reactions, Site & Energetics",
+"lv": "Easy",
+"s": "Two carbons leave the TCA cycle as CO₂ in each turn. Which two enzymes release them?",
+"c": [
+"Isocitrate and α-KG dehydrogenase",
+"Aconitase and fumarase",
+"Succinate and malate dehydrogenase",
+"Citrate synthase and aconitase",
+"Fumarase and succinate thiokinase"
+],
+"a": 0,
+"e": "Step 1: Isocitrate dehydrogenase oxidatively decarboxylates isocitrate to α-ketoglutarate, releasing CO₂ and making NADH.\nStep 2: α-Ketoglutarate dehydrogenase oxidatively decarboxylates α-ketoglutarate to succinyl CoA, releasing the second CO₂ and making NADH.\nStep 3: The overall stoichiometry is acetyl CoA + 3 NAD⁺ + FAD + GDP + Pi + 2 H₂O → 2 CO₂ + 3 NADH + FADH₂ + GTP + CoA.\n\nTakeaway: The 2 CO₂ per turn come from isocitrate dehydrogenase and α-KGDH.",
+"w": [
+"",
+"These are hydration and isomerization steps.",
+"These are oxidations without decarboxylation.",
+"Neither citrate synthase nor aconitase releases CO₂.",
+"Fumarase and succinate thiokinase release no CO₂."
+],
+"src": "lec",
+"fig": [
+"figs/crs/tca-cycle"
+]
+},
+{
+"t": "TCA Regulation & Inhibitors",
+"lv": "Easy",
+"s": "During exercise, ADP and Ca²⁺ rise in muscle mitochondria. Which TCA enzyme, the rate-limiting step, do they stimulate?",
+"c": [
+"Malate dehydrogenase",
+"Succinate dehydrogenase",
+"α-Ketoglutarate dehydrogenase",
+"Isocitrate dehydrogenase",
+"Citrate synthase"
+],
+"a": 3,
+"e": "Step 1: The TCA cycle rate is adjusted to meet the cell's need for ATP.\nStep 2: Isocitrate dehydrogenase is the rate-limiting step. It is stimulated by ADP and Ca²⁺ and inhibited by ATP and NADH.\nStep 3: Citrate synthase is inhibited by citrate, NADH and succinyl CoA, and α-KGDH is inhibited by succinyl CoA, NADH and a high energy charge.\n\nTakeaway: Isocitrate dehydrogenase is rate limiting: ↑ ADP, Ca²⁺; ↓ ATP, NADH.",
+"w": [
+"Malate dehydrogenase is not a primary control point.",
+"Succinate dehydrogenase is not a primary control point.",
+"α-KGDH is regulated mainly by product inhibition, not ADP.",
+"",
+"Citrate synthase is inhibited by citrate, NADH and succinyl CoA."
+],
+"src": "lec",
+"fig": [
+"figs/crs/tca-regulation"
+]
+},
+{
+"t": "TCA Regulation & Inhibitors",
+"lv": "Hard",
+"s": "A child accidentally swallows a rodenticide containing fluoroacetate. Fluoroacetate is converted to fluoroacetyl CoA, which condenses with oxaloacetate. Which TCA intermediate builds up in the child's tissues?",
+"c": [
+"Isocitrate",
+"Fumarate",
+"Citrate",
+"Oxaloacetate",
+"Succinate"
+],
+"a": 2,
+"e": "Step 1: Fluoroacetyl CoA condenses with oxaloacetate (via citrate synthase) to form fluorocitrate.\nStep 2: Fluorocitrate is a potent inhibitor of aconitase, the enzyme that converts citrate to isocitrate.\nStep 3: The block is just after citrate, so citrate accumulates and the cycle stops, cutting ATP production.\n\nTakeaway: Fluoroacetate → fluorocitrate → inhibits aconitase → citrate accumulates.",
+"w": [
+"Isocitrate is the product of aconitase, so it falls.",
+"Fumarate lies downstream of the block, so it falls.",
+"",
+"Oxaloacetate is consumed forming fluorocitrate and citrate.",
+"Succinate builds up with malonate, which blocks succinate dehydrogenase."
+],
+"src": "lec",
+"fig": [
+"figs/crs/tca-inhibitors"
+]
+},
+{
+"t": "TCA Regulation & Inhibitors",
+"lv": "Hard",
+"s": "Malonate is added to isolated mitochondria oxidizing pyruvate, and succinate begins to accumulate. The researcher then adds a large excess of succinate. What happens to the inhibition, and why?",
+"c": [
+"It is unchanged, because malonate binds irreversibly",
+"It is reduced, because succinate inhibits aconitase",
+"It falls, because malonate competes with succinate",
+"It is unchanged, because the block is at aconitase",
+"It increases, because succinate activates malonate"
+],
+"a": 2,
+"e": "Step 1: Malonate has a very close structural similarity to succinate.\nStep 2: It inhibits succinate dehydrogenase competitively with respect to succinate, binding the active site without reacting.\nStep 3: Because the inhibition is competitive, a large excess of substrate (succinate) outcompetes malonate and restores activity. Krebs used malonate inhibition as evidence that the pathway is a cycle.\n\nTakeaway: Malonate is a competitive inhibitor of succinate dehydrogenase; more succinate overcomes it.",
+"w": [
+"Malonate is competitive, not irreversible.",
+"Succinate does not inhibit aconitase in this setting.",
+"",
+"Aconitase is the target of fluoroacetate, not malonate.",
+"Succinate does not activate malonate in any way."
+],
+"src": "lec",
+"fig": [
+"figs/crs/tca-inhibitors"
+]
+},
+{
+"t": "Anaplerosis & Amphibolic Role",
+"lv": "Easy",
+"s": "Which amino acid is metabolized to succinyl CoA and so feeds into the TCA cycle at that point?",
+"c": [
+"Glutamate",
+"Aspartate",
+"Valine",
+"Alanine",
+"Phenylalanine"
+],
+"a": 2,
+"e": "Step 1: Anaplerotic reactions replenish TCA intermediates that are drained off for biosynthesis.\nStep 2: Odd-chain fatty acids, isoleucine, methionine and valine provide succinyl CoA.\nStep 3: Glutamate provides α-ketoglutarate, aspartate provides oxaloacetate, and aspartate, phenylalanine and tyrosine provide fumarate.\n\nTakeaway: Succinyl CoA comes from odd-chain FAs, isoleucine, methionine and valine.",
+"w": [
+"Glutamate enters the cycle as α-ketoglutarate.",
+"Aspartate enters as oxaloacetate or fumarate.",
+"",
+"Alanine is converted to pyruvate, not succinyl CoA.",
+"Phenylalanine enters the cycle as fumarate."
+],
+"src": "lec",
+"fig": [
+"figs/crs/tca-anaplerotic"
+]
+},
+{
+"t": "Anaplerosis & Amphibolic Role",
+"lv": "Hard",
+"s": "During a 24-hour fast, the liver withdraws oxaloacetate from the TCA cycle to make glucose. Which reaction is the most important one for replenishing oxaloacetate so the cycle can continue?",
+"c": [
+"Succinyl CoA → succinate + GTP",
+"Pyruvate + CO₂ + ATP → oxaloacetate",
+"Acetyl CoA + oxaloacetate → citrate",
+"Glutamate → α-ketoglutarate",
+"Malate → oxaloacetate in the cytosol"
+],
+"a": 1,
+"e": "Step 1: Intermediates drained from the cycle for biosynthesis must be replenished, or the cycle slows. These replenishing reactions are anaplerotic.\nStep 2: The most important anaplerotic reaction is pyruvate carboxylase: pyruvate + CO₂ + ATP + H₂O → oxaloacetate + ADP + Pi.\nStep 3: This supplies oxaloacetate, which is needed both to keep the cycle turning (it accepts acetyl CoA) and for gluconeogenesis.\n\nTakeaway: Pyruvate carboxylase is the main anaplerotic reaction, making oxaloacetate.",
+"w": [
+"This is a normal cycle step that adds no new carbon.",
+"",
+"Citrate synthase consumes, not replenishes, oxaloacetate.",
+"This replenishes α-ketoglutarate, not oxaloacetate directly.",
+"This is part of the shuttle, not a net source of carbon."
+],
+"src": "lec",
+"fig": [
+"figs/crs/tca-anaplerotic"
+]
+},
+{
+"t": "NADH Shuttles",
+"lv": "Easy",
+"s": "Cytosolic NADH from glycolysis is oxidized in skeletal muscle by the glycerophosphate shuttle. How many ATP does each cytosolic NADH yield by this route, according to the slide?",
+"c": [
+"3 ATP",
+"2 ATP",
+"1 ATP",
+"4 ATP",
+"None"
+],
+"a": 1,
+"e": "Step 1: NADH cannot cross the inner mitochondrial membrane, so its electrons are carried in by a shuttle.\nStep 2: In the glycerophosphate shuttle, cytosolic glycerol-3-phosphate dehydrogenase reduces DHAP to glycerol-3-phosphate. The mitochondrial enzyme then reoxidizes it, passing the electrons to FAD → FADH₂.\nStep 3: Because the electrons enter as FADH₂, each cytosolic NADH yields 2 ATP. The malate-aspartate shuttle keeps them as NADH and yields 3.\n\nTakeaway: Glycerophosphate shuttle = 2 ATP; malate-aspartate shuttle = 3 ATP per cytosolic NADH.",
+"w": [
+"3 ATP is the yield of the malate-aspartate shuttle.",
+"",
+"1 ATP is too low for electrons entering as FADH₂.",
+"4 ATP is more than any single NADH yields.",
+"The electrons do produce ATP through the ETC."
+],
+"src": "lec",
+"fig": [
+"figs/crs/tca-gp-shuttle"
+]
+},
+{
+"t": "NADH Shuttles",
+"lv": "Hard",
+"s": "In heart muscle, cytosolic NADH is reoxidized and the reducing equivalents end up as mitochondrial NADH, yielding 3 ATP each. Why is a shuttle needed, and which molecule crosses the inner membrane carrying the electrons?",
+"c": [
+"The membrane blocks NADH, so aspartate carries them",
+"The membrane blocks NADH, so malate carries them",
+"NADH crosses freely but needs an escort to stay reduced",
+"The membrane blocks NADH, so FADH₂ carries them",
+"NADH crosses freely through the porin channel"
+],
+"a": 1,
+"e": "Step 1: The inner mitochondrial membrane is impermeable to NADH.\nStep 2: In the malate-aspartate shuttle, cytosolic NADH reduces oxaloacetate to malate. Malate crosses the inner membrane and is reoxidized to oxaloacetate in the matrix, regenerating NADH.\nStep 3: Oxaloacetate is transaminated to aspartate, which returns to the cytosol. Because the electrons stay as NADH, each yields 3 ATP.\n\nTakeaway: Malate carries the reducing equivalents in; aspartate goes back out. Malate-aspartate shuttle = 3 ATP.",
+"w": [
+"Aspartate returns carbon to the cytosol; it carries no electrons in.",
+"",
+"NADH cannot cross the inner mitochondrial membrane.",
+"FADH₂ is the route of the glycerophosphate shuttle, giving 2 ATP.",
+"Porins are in the outer membrane; the inner membrane blocks NADH."
+],
+"src": "lec",
+"fig": [
+"figs/crs/tca-mas-shuttle"
+]
+},
+{
+"t": "Practice Questions · Citric Acid Cycle (from the slides)",
+"s": "A 3-month-old infant is brought to the pediatrician for evaluation of poor feeding, lethargy, and muscle weakness. The infant was born at term, but has had difficulty gaining weight. The parents report that the baby often has episodes of vomiting and abnormal, fruity-smelling breath. On physical examination, the baby has hypotonia and slight hepatomegaly. Laboratory studies show an elevated blood lactate level, and a urine organic acid test reveals increased levels of lactic acid and pyruvate. Further metabolic testing confirms a deficiency in the pyruvate dehydrogenase (PDH) complex.<br><br>Which of the following biochemical abnormalities is most likely responsible for the clinical findings in this infant?",
+"html": true,
+"c": [
+"Increased pyruvate conversion to lactate",
+"Decreased pyruvate conversion to acetyl-CoA",
+"Decreased ketone body synthesis",
+"Increased glucose production via gluconeogenesis",
+"Decreased production of NADH from the citric acid cycle"
+],
+"a": 1,
+"e": "Ans: B. PDH deficiency blocks the conversion of pyruvate to acetyl-CoA, so pyruvate builds up and is diverted to lactate, and the citric acid cycle is starved of acetyl-CoA.",
+"w": [
+"Increased lactate is a consequence of the block, not the primary abnormality.",
+"",
+"Ketone synthesis is not the primary defect.",
+"Gluconeogenesis is not the cause.",
+"Reduced NADH is downstream of the primary block."
+],
+"ns": true,
+"shetty": 1,
+"fig": [
+"figs/crs/tca-pdh-regulation"
+]
+},
+{
+"t": "Practice Questions · Citric Acid Cycle (from the slides)",
+"s": "Arsenite (trivalent form of arsenic) forms a stable complex with the thiol group of lipoic acid and inactivates it.<br><br>Q1: Which of the following cofactors is most directly affected by arsenite poisoning in the pyruvate dehydrogenase complex?",
+"html": true,
+"c": [
+"Thiamine pyrophosphate (TPP)",
+"NAD+",
+"FAD",
+"Lipoic acid",
+"Coenzyme A"
+],
+"a": 3,
+"e": "Answer: D. Lipoic acid. Arsenite binds the thiol groups of lipoic acid (dihydrolipoamide of the transacetylase) and inactivates it.",
+"w": [
+"TPP is the E1 cofactor, not arsenite's target.",
+"NAD+ is not bound by arsenite.",
+"FAD is not bound by arsenite.",
+"",
+"CoA is not the target."
+],
+"ns": true,
+"shetty": 1,
+"fig": [
+"figs/crs/tca-pdh-complex"
+]
+},
+{
+"t": "Practice Questions · Citric Acid Cycle (from the slides)",
+"s": "Q2: A 45-year-old man with a deficiency in α-ketoglutarate dehydrogenase exhibits neurological symptoms. Which cofactors are required by this enzyme to function?",
+"c": [
+"NAD+, FAD, and Biotin",
+"Thiamine pyrophosphate (TPP), NAD+, and FAD",
+"Lipoic acid, Biotin, and FAD",
+"Pyridoxal phosphate, FAD, and NAD+",
+"Coenzyme A, Pyridoxal phosphate, and NAD+"
+],
+"a": 1,
+"e": "Answer: B. α-Ketoglutarate dehydrogenase is built like the PDH complex and uses the same cofactors: TPP, lipoic acid, CoA, FAD and NAD+. Biotin and pyridoxal phosphate are not used.",
+"w": [
+"Biotin is not a cofactor of α-KGDH.",
+"",
+"Biotin is not a cofactor of α-KGDH.",
+"Pyridoxal phosphate is not a cofactor of α-KGDH.",
+"Pyridoxal phosphate is not a cofactor of α-KGDH."
+],
+"ns": true,
+"shetty": 1,
+"fig": [
+"figs/crs/tca-cycle"
+]
+},
+{
+"t": "Practice Questions · Citric Acid Cycle (from the slides)",
+"s": "Q3: A 12-year-old boy presents with seizures and a history of exposure to contaminated water. His blood gas analysis shows metabolic acidosis. Which enzyme complex besides pyruvate dehydrogenase is likely affected by arsenite?",
+"c": [
+"Isocitrate dehydrogenase",
+"Alpha-ketoglutarate dehydrogenase",
+"Succinate dehydrogenase",
+"Citrate synthase",
+"Glucose-6-phosphate dehydrogenase"
+],
+"a": 1,
+"e": "Answer: B. α-Ketoglutarate dehydrogenase also uses lipoic acid, so arsenite inactivates it along with the PDH complex.",
+"w": [
+"Isocitrate dehydrogenase does not use lipoic acid.",
+"",
+"Succinate dehydrogenase uses FAD, not lipoic acid.",
+"Citrate synthase does not use lipoic acid.",
+"G6PD does not use lipoic acid."
+],
+"ns": true,
+"shetty": 1,
+"fig": [
+"figs/crs/tca-cycle"
 ]
 }
 ];

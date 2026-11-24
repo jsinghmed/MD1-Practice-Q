@@ -5167,6 +5167,190 @@ window.NBME_QUIZZES = [
 "fig": [
 "figs/crs/hb-beta-thal"
 ]
+},
+{
+"t": "Lecture 9 · Citric Acid Cycle",
+"s": "A 4-month-old girl has hypotonia, poor feeding and episodes of rapid breathing that worsen after feeds. Serum lactate and pyruvate are elevated, and the lactate-to-pyruvate ratio is normal. Fibroblast studies show reduced activity of an enzyme that requires thiamine pyrophosphate, lipoic acid, CoA, FAD and NAD⁺. Which enzyme is deficient?",
+"c": [
+"Hepatic glucose-6-phosphatase",
+"Pyruvate kinase",
+"Pyruvate dehydrogenase",
+"Lactate dehydrogenase",
+"Pyruvate carboxylase"
+],
+"a": 2,
+"e": "Step 1: Raised lactate and pyruvate with a normal ratio point to a block in pyruvate oxidation rather than a redox problem.\nStep 2: The five cofactors TPP, lipoic acid, CoA, FAD and NAD⁺ are those of the PDH complex.\nStep 3: Pyruvate cannot become acetyl CoA, so it accumulates and is converted to lactate, and episodes worsen with carbohydrate.\n\nTakeaway: PDH needs TPP, lipoic acid, CoA, FAD and NAD⁺; its deficiency causes congenital lactic acidosis.",
+"w": [
+"G6Pase deficiency causes hypoglycemia with hepatomegaly; it uses none of these cofactors.",
+"Pyruvate kinase deficiency causes hemolytic anemia.",
+"",
+"LDH deficiency would lower lactate.",
+"Pyruvate carboxylase uses biotin, not these five cofactors."
+],
+"fig": [
+"figs/crs/tca-pdh-complex"
+]
+},
+{
+"t": "Lecture 9 · Citric Acid Cycle",
+"s": "A 38-year-old man drinks well water contaminated with arsenic. He develops vomiting, garlic-like breath and a metabolic acidosis with raised lactate. Arsenite binds tightly to which group, inactivating two enzyme complexes in energy metabolism?",
+"c": [
+"The isoalloxazine ring of FAD",
+"The adenine ring of NAD⁺",
+"The pyrophosphate of TPP",
+"Thiol groups of lipoic acid",
+"The carboxyl group of biotin"
+],
+"a": 3,
+"e": "Step 1: Arsenite, the trivalent form of arsenic, forms a stable complex with the two thiol (–SH) groups of reduced lipoic acid.\nStep 2: Lipoic acid is the cofactor of the transacetylase (E2) of PDH and of α-ketoglutarate dehydrogenase.\nStep 3: Both complexes stop, so pyruvate accumulates as lactate and the TCA cycle slows.\n\nTakeaway: Arsenite inactivates lipoic acid → blocks PDH and α-KGDH.",
+"w": [
+"FAD is not bound by arsenite.",
+"NAD⁺ is not bound by arsenite.",
+"TPP is not the target of arsenite.",
+"",
+"Biotin is not part of PDH or α-KGDH."
+],
+"fig": [
+"figs/crs/tca-pdh-complex"
+]
+},
+{
+"t": "Lecture 9 · Citric Acid Cycle",
+"s": "In a well-fed liver cell, the ratios of ATP/ADP, NADH/NAD⁺ and acetyl CoA/CoA are all high. Which change in the PDH complex is expected?",
+"c": [
+"Phosphorylation by PDH kinase, inactivating it",
+"Allosteric activation by acetyl CoA",
+"Increased activity due to high NADH",
+"Dephosphorylation by PDH phosphatase, activating it",
+"Conversion to pyruvate carboxylase"
+],
+"a": 0,
+"e": "Step 1: High ATP, NADH and acetyl CoA signal a high energy charge and abundant biosynthetic intermediates.\nStep 2: These products stimulate PDH kinase, which phosphorylates and inactivates the complex. Acetyl CoA and NADH also directly inhibit E2 and E3.\nStep 3: PDH is switched off, conserving pyruvate.\n\nTakeaway: High energy charge → PDH kinase → PDH phosphorylated and inactive.",
+"w": [
+"",
+"Acetyl CoA inhibits, not activates, PDH.",
+"NADH inhibits E3.",
+"Dephosphorylation occurs with low energy charge, insulin or Ca²⁺.",
+"PDH is not converted into another enzyme."
+],
+"fig": [
+"figs/crs/tca-pdh-regulation"
+]
+},
+{
+"t": "Lecture 9 · Citric Acid Cycle",
+"s": "A researcher measures the products of one turn of the citric acid cycle starting from one acetyl CoA. Which set is correct?",
+"c": [
+"3 CO₂, 4 NADH, 1 FADH₂, 1 GTP",
+"2 CO₂, 3 NADH, 1 FADH₂, 2 ATP",
+"2 CO₂, 3 NADH, 1 FADH₂, 1 GTP",
+"1 CO₂, 3 NADH, 1 FADH₂, 1 GTP",
+"2 CO₂, 2 NADH, 2 FADH₂, 1 GTP"
+],
+"a": 2,
+"e": "Step 1: Two decarboxylations, by isocitrate dehydrogenase and α-KGDH, release 2 CO₂.\nStep 2: NADH comes from IDH, α-KGDH and malate dehydrogenase (3 NADH); succinate dehydrogenase makes 1 FADH₂.\nStep 3: Succinate thiokinase makes 1 GTP. At 3, 2 and 1 ATP each, that is 12 ATP per acetyl CoA on the slide.\n\nTakeaway: Per turn: 2 CO₂, 3 NADH, 1 FADH₂, 1 GTP = 12 ATP.",
+"w": [
+"Three CO₂ and four NADH include the PDH step.",
+"Only one high-energy phosphate, GTP, is made directly.",
+"",
+"There are two decarboxylations, not one.",
+"There are three NADH and one FADH₂."
+],
+"fig": [
+"figs/crs/tca-energy"
+]
+},
+{
+"t": "Lecture 9 · Citric Acid Cycle",
+"s": "A child is brought in after eating a pesticide containing fluoroacetate. Mitochondrial studies show accumulation of a TCA intermediate. Which enzyme is inhibited?",
+"c": [
+"α-Ketoglutarate dehydrogenase",
+"Aconitase",
+"Citrate synthase",
+"Malate dehydrogenase",
+"Succinate dehydrogenase"
+],
+"a": 1,
+"e": "Step 1: Fluoroacetate forms fluoroacetyl CoA.\nStep 2: Citrate synthase condenses it with oxaloacetate to make fluorocitrate.\nStep 3: Fluorocitrate potently inhibits aconitase, so citrate builds up and the cycle stops.\n\nTakeaway: Fluoroacetate → fluorocitrate → aconitase blocked → citrate accumulates.",
+"w": [
+"α-KGDH is blocked by arsenite.",
+"",
+"Citrate synthase forms fluorocitrate; it is not the blocked enzyme.",
+"MDH is not the target.",
+"Succinate dehydrogenase is blocked by malonate."
+],
+"fig": [
+"figs/crs/tca-inhibitors"
+]
+},
+{
+"t": "Lecture 9 · Citric Acid Cycle",
+"s": "Which enzyme of the citric acid cycle is the rate-limiting step, stimulated by ADP and Ca²⁺ and inhibited by ATP and NADH?",
+"c": [
+"Succinate dehydrogenase",
+"Isocitrate dehydrogenase",
+"α-Ketoglutarate dehydrogenase",
+"Fumarase",
+"Citrate synthase"
+],
+"a": 1,
+"e": "Step 1: The cycle rate is matched to the cell's need for ATP.\nStep 2: Isocitrate dehydrogenase is the rate-limiting step: ADP and Ca²⁺ stimulate it; ATP and NADH inhibit it.\nStep 3: Citrate synthase is inhibited by citrate, NADH and succinyl CoA; α-KGDH by succinyl CoA, NADH and high energy charge.\n\nTakeaway: IDH is the rate-limiting enzyme of the TCA cycle.",
+"w": [
+"SDH is not a primary control point.",
+"",
+"α-KGDH is inhibited by its products and energy charge.",
+"Fumarase is not a control point.",
+"Citrate synthase is inhibited by citrate, NADH and succinyl CoA."
+],
+"fig": [
+"figs/crs/tca-regulation"
+]
+},
+{
+"t": "Lecture 9 · Citric Acid Cycle",
+"s": "During prolonged fasting, hepatocytes withdraw oxaloacetate for gluconeogenesis. Which enzyme, requiring biotin, is the most important anaplerotic reaction replacing it?",
+"c": [
+"Pyruvate carboxylase",
+"Phosphoenolpyruvate carboxykinase",
+"Pyruvate dehydrogenase",
+"Malic enzyme",
+"Citrate lyase"
+],
+"a": 0,
+"e": "Step 1: TCA intermediates removed for biosynthesis must be replenished, or the cycle slows.\nStep 2: The most important anaplerotic reaction is pyruvate carboxylase: pyruvate + CO₂ + ATP + H₂O → oxaloacetate + ADP + Pi.\nStep 3: Other feeders: glutamate → α-KG, aspartate → OAA, isoleucine, methionine, valine and odd-chain FAs → succinyl CoA.\n\nTakeaway: Pyruvate carboxylase is the main anaplerotic reaction.",
+"w": [
+"",
+"PEPCK removes oxaloacetate for gluconeogenesis.",
+"PDH makes acetyl CoA, which does not replenish intermediates.",
+"Malic enzyme is not the main anaplerotic reaction on the slide.",
+"Citrate lyase works in the cytosol for fatty acid synthesis."
+],
+"fig": [
+"figs/crs/tca-anaplerotic"
+]
+},
+{
+"t": "Lecture 9 · Citric Acid Cycle",
+"s": "Cytosolic NADH produced during glycolysis in brain tissue enters the mitochondria through a shuttle that reduces FAD. Compared with the malate-aspartate shuttle, how many fewer ATP does each cytosolic NADH yield using slide values?",
+"c": [
+"Two fewer ATP",
+"Three fewer ATP",
+"One more ATP",
+"No difference",
+"One fewer ATP"
+],
+"a": 4,
+"e": "Step 1: NADH cannot cross the inner mitochondrial membrane.\nStep 2: The glycerophosphate shuttle passes the electrons to FAD → FADH₂, yielding 2 ATP per NADH.\nStep 3: The malate-aspartate shuttle regenerates mitochondrial NADH, yielding 3 ATP. The difference is 1 ATP per cytosolic NADH.\n\nTakeaway: Glycerophosphate shuttle = 2 ATP; malate-aspartate = 3 ATP.",
+"w": [
+"The difference is 1 ATP, not 2.",
+"Three fewer would mean no ATP at all.",
+"The glycerophosphate shuttle yields less, not more.",
+"The shuttles differ in yield.",
+""
+],
+"fig": [
+"figs/crs/tca-gp-shuttle"
+]
 }
 ]
 },
