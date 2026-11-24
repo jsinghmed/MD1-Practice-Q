@@ -2067,7 +2067,7 @@ function guideInfo(k){ for (const c in GUIDES) { const g = GUIDES[c].find(x=>x[0
 function renderGuideView(){
   const info = guideInfo(curGuide); if (!info) { view = "guides"; renderGuides(); return; }
   const [f, nm, desc, pg] = info.g;
-  const top = `<div class="gvtop"><button class="btn" data-act="guides">← NBME Dashboard (${esc(COURSE_BY_ID[info.course].name)})</button><button class="btn" data-ghlclear="${f}"${(S.ghl&&S.ghl[f]&&S.ghl[f].length)?"":" hidden"}>Clear highlights</button><button class="btn primary" data-gpdf="${f}">⬇ Download PDF</button></div>
+  const top = `<div class="gvtop"><button class="btn" data-act="guides">← NBME Dashboard (${esc(COURSE_BY_ID[info.course].name)})</button><button class="btn" data-ghlclear="${f}"${(S.ghl&&S.ghl[f]&&S.ghl[f].length)?"":" hidden"}>Clear highlights</button><button class="btn primary" data-gpdf="${f}" data-ghlpdf="1"${(S.ghl&&S.ghl[f]&&S.ghl[f].length)?"":" hidden"}>⬇ PDF with my highlights</button><button class="btn" data-gpdf="${f}">⬇ Download PDF</button></div>
     <div class="gvhead"><h2>${esc(nm)}</h2><p class="sub">${esc(desc)}</p><div class="gvleg"><span><span class="hy">Red</span> = extra high yield (classic NBME)</span><span>Black/white = core content</span><span class="mn">Italic = mnemonic</span><span class="ghlnote">Select any text to highlight it</span></div></div>`;
   if (!window.GUIDE_HTML) {
     showPage(`<div class="page gview">${top}<div class="emptybox"><p>Loading study guide…</p></div></div>`);
@@ -2080,7 +2080,7 @@ function renderGuideView(){
   const body = window.GUIDE_HTML[f] || "";
   const toc = [...body.matchAll(/<h2 id="(g\d+)">([\s\S]*?)<\/h2>/g)].map(m=>`<a href="#${m[1]}" data-gjump="${m[1]}">${m[2].replace(/^\d+\.\s*/,"")}</a>`).join("");
   showPage(`<div class="page gview">${top}<nav class="gvtoc" aria-label="Sections">${toc}</nav><article class="gvbody" data-gk="${f}">${body}</article>
-    <div class="gvfoot"><button class="btn" data-act="guides">← NBME Dashboard (${esc(COURSE_BY_ID[info.course].name)})</button><button class="btn" data-gpdf="${f}">⬇ Download PDF</button></div></div>`);
+    <div class="gvfoot"><button class="btn" data-act="guides">← NBME Dashboard (${esc(COURSE_BY_ID[info.course].name)})</button><button class="btn primary" data-gpdf="${f}" data-ghlpdf="1"${(S.ghl&&S.ghl[f]&&S.ghl[f].length)?"":" hidden"}>⬇ PDF with my highlights</button><button class="btn" data-gpdf="${f}">⬇ Download PDF</button></div></div>`);
   document.querySelectorAll('.gvbody[data-gk]').forEach(ghlApply);
 }
 
@@ -2088,7 +2088,7 @@ function renderGuideView(){
 const GPDF_LIBS = ["https://cdn.jsdelivr.net/npm/pdfmake@0.2.20/build/pdfmake.min.js", "https://cdn.jsdelivr.net/npm/html-to-pdfmake@2.5.30/browser.js"];
 const GPDF_FONT = "https://cdn.jsdelivr.net/npm/dejavu-fonts-ttf@2.37.3/ttf/";
 function gpdfScript(src){ return new Promise((ok,bad)=>{ if (document.querySelector('script[data-gp="'+src+'"]')) return ok(); const sc = document.createElement("script"); sc.src = src; sc.dataset.gp = src; sc.onload = ok; sc.onerror = bad; document.head.appendChild(sc); }); }
-async function guidePdf(f, btn){
+async function guidePdf(f, btn, withHl){
   const info = guideInfo(f); if (!info || btn.dataset.busy) return;
   const nm = info.g[1].replace(/ NBME guide$/,""), desc = info.g[2], old = btn.innerHTML;
   btn.dataset.busy = "1"; btn.innerHTML = "Preparing PDF…";
@@ -2097,6 +2097,11 @@ async function guidePdf(f, btn){
     for (const s of GPDF_LIBS) await gpdfScript(s);
     const yr = new Date().getFullYear(), RED = "#c00000", NAVY = "#0b2447";
     let ghtml = window.GUIDE_HTML[f] || "";
+    if (withHl && S.ghl && S.ghl[f] && S.ghl[f].length) {   // your highlights, drawn as colored text backgrounds
+      const HLC = {y:"#fff2a8", g:"#9fe0a0", b:"#a9d4ff", p:"#ffb8dc", o:"#ffc98f"}, tmp = document.createElement("div");
+      tmp.innerHTML = ghtml; tmp.dataset.gk = f; ghlApply(tmp);
+      tmp.querySelectorAll("mark.ghl").forEach(m=>{ const sp = document.createElement("span"); sp.setAttribute("style", "background-color:" + (HLC[(m.className.match(/hl-(\w)/)||[])[1]] || HLC.y)); while (m.firstChild) sp.appendChild(m.firstChild); m.replaceWith(sp); });
+      ghtml = tmp.innerHTML; }
     const srcs = [...new Set([...ghtml.matchAll(/<img[^>]*src="([^"]+)"/g)].map(m=>m[1]))];
     for (const src of srcs) { try { const bl = await (await fetch(src)).blob(); const du = await new Promise(ok=>{ const r = new FileReader(); r.onload = ()=>ok(r.result); r.readAsDataURL(bl); }); ghtml = ghtml.split('src="'+src+'"').join('src="'+du+'"'); } catch(e) { ghtml = ghtml.split('<img').join('<span').replace(/src="[^"]*"/g,""); } }
     const body = htmlToPdfmake(ghtml, {tableAutoSize:true, defaultStyles:{
@@ -2123,7 +2128,7 @@ async function guidePdf(f, btn){
         fix(body),
         {text:"© "+yr+" JJ QBank. You may freely copy, share, redistribute and upload this guide to AI tools for studying, including to make your own practice questions. Please keep this notice.", fontSize:7.5, color:"#666", margin:[0,14,0,0]}]};
     pdfMake.fonts = {DejaVu:{normal:GPDF_FONT+"DejaVuSans.ttf", bold:GPDF_FONT+"DejaVuSans-Bold.ttf", italics:GPDF_FONT+"DejaVuSans-Oblique.ttf", bolditalics:GPDF_FONT+"DejaVuSans-BoldOblique.ttf"}};
-    await new Promise(res=>pdfMake.createPdf(dd).download("JJ QBank - "+nm+" NBME study guide.pdf", res));
+    await new Promise(res=>pdfMake.createPdf(dd).download("JJ QBank - "+nm+" NBME study guide"+(withHl?" (my highlights)":"")+".pdf", res));
   } catch(e) { console.warn("JJ guide pdf", e); toast("Couldn't build the PDF — check your connection and try again"); }
   delete btn.dataset.busy; btn.innerHTML = old;
 }
@@ -4562,7 +4567,7 @@ function ghlApply(art){
   art.querySelectorAll("mark.ghl").forEach(m=>m.replaceWith(...m.childNodes)); art.normalize();
   const list = (S.ghl && S.ghl[gk]) || [];
   list.forEach(h=>{ const T = ghlText(art), i = ghlFind(T, h); if (i >= 0) ghlWrap(art, i, i + h.t.length, h); });
-  document.querySelectorAll(`[data-ghlclear="${gk}"]`).forEach(b=>b.hidden = !list.length);
+  if (art.isConnected) document.querySelectorAll(`[data-ghlclear="${gk}"], [data-ghlpdf][data-gpdf="${gk}"]`).forEach(b=>b.hidden = !list.length);
 }
 function ghlRefresh(gk){ document.querySelectorAll(".gvbody[data-gk]").forEach(a=>{ if (a.dataset.gk===gk) ghlApply(a); }); }
 function ghlSpan(art, h){ const T = ghlText(art), i = ghlFind(T, h); return i < 0 ? null : [i, i + h.t.length]; }
@@ -4688,7 +4693,7 @@ document.addEventListener("click", e=>{
   const gd = t.closest("[data-guide]");
   if (gd) { curGuide = gd.dataset.guide; view = "guide"; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); window.scrollTo({top:0}); return; }
   if (t.closest("[data-gprint]")) { window.print(); return; }
-  { const gp = t.closest("[data-gpdf]"); if (gp) { guidePdf(gp.dataset.gpdf, gp); return; } }
+  { const gp = t.closest("[data-gpdf]"); if (gp) { guidePdf(gp.dataset.gpdf, gp, gp.hasAttribute("data-ghlpdf")); return; } }
   const gj = t.closest("[data-gjump]");
   if (gj) { e.preventDefault(); const el = document.getElementById(gj.dataset.gjump); if (el) el.scrollIntoView({behavior:"smooth", block:"start"}); return; }
   if (t.closest("[data-uworld]")) { uwOpen(t.closest("[data-uworld]").dataset.uworld); return; }
