@@ -1048,6 +1048,9 @@ html.jjlock .cpick{visibility:hidden}
 .ctab small{display:none}
 .ctabs.rows{flex-wrap:wrap}
 .ctabs.rows .ctab{flex:1 1 calc(33.333% - 3px);min-width:0}
+.ctab.main{font-weight:800;font-size:14.5px;background:var(--card);color:var(--text);box-shadow:0 1px 2px rgba(0,0,0,.12),inset 0 0 0 1px var(--line2)}
+.ctabs.rows .ctab:not(.main){font-size:12.5px}
+.ctab.on.main,.ctabs.rows .ctab.on{background:var(--acc);color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2)}
 .ctab.on{background:var(--acc-bg);color:var(--text);border:none}
 .stools{border-bottom:none;padding-bottom:4px}
 .chaps{padding:2px 0 10px}
@@ -2438,7 +2441,7 @@ function renderChaps(){
   $("ytabs").innerHTML = YEARS.map(y=>`<button class="ytab ${y===yr?"on":""}" data-year="${y}">${y}</button>`).join("");
   const yc = COURSES.filter(c=>c.year===yr), ordered = yc.filter(c=>!c.minor).concat(yc.filter(c=>c.minor));   // FBS, MSK, CRS on top; Ethics, Genetics, PBMR underneath
   $("ctabs").classList.toggle("rows", yc.some(c=>c.minor));
-  $("ctabs").innerHTML = ordered.map(c=>`<button class="ctab ${c.id===S.course?"on":""}" data-course="${c.id}" title="${esc(c.full)}">${esc(c.name)}<small>${c.count ? c.count+" Qs" : c.items.length ? c.items.length+" Qs" : "empty"}</small></button>`).join("");
+  $("ctabs").innerHTML = ordered.map(c=>`<button class="ctab ${c.id===S.course?"on":""}${yc.some(x=>x.minor) && !c.minor?" main":""}" data-course="${c.id}" title="${esc(c.full)}">${esc(c.name)}<small>${c.count ? c.count+" Qs" : c.items.length ? c.items.length+" Qs" : "empty"}</small></button>`).join("");
   $("brandTitle").textContent = course().name + " Module";
   $("brandSub").textContent = (course().full !== course().name ? course().full + " · " : "") + (course().count ? course().count + " questions" : course().items.length ? course().items.length + " questions" : "no questions yet");
   document.title = "JJ QBank · " + course().name;
