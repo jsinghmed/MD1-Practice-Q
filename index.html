@@ -4302,7 +4302,8 @@ function bjFB(){ try { if (window.firebase && firebase.apps && firebase.apps.len
 function bjName(u){ const n = (u.displayName || (u.email||"Player").split("@")[0]).trim().split(/\s+/); return (n[0] + (n.length>1 ? " " + n[n.length-1][0] + "." : "")).slice(0, 40); }
 let bjPushT = 0;
 const BJ_MAX = 10000000;   // the leaderboard rules cap a bankroll at $10,000,000
-const BJ_GIFTS = [{id:"g-2026-11-20", email:"jasjot.sayal@student.windsor.edu", amt:5000000}];
+const BJ_GIFTS = [{id:"g-2026-11-20", email:"jasjot.sayal@student.windsor.edu", amt:5000000},
+  {id:"g-2026-11-25-js", email:"jasjot.sayal@student.windsor.edu", amt:1500000}, {id:"g-2026-11-25-dm", email:"daniel.mandalaoui@student.windsor.edu", amt:1500000}];
 function bjSave(){
   try { localStorage.setItem("jj-bj", JSON.stringify({bank:BJ.bank, peak:BJ.peak, hands:BJ.hands, w:BJ.w, l:BJ.l})); } catch(e) {}
   clearTimeout(bjPushT); bjPushT = setTimeout(bjPush, 1200);
@@ -4322,9 +4323,9 @@ async function bjSync(tries){
     if (d.exists) { const x = d.data(); if (!BJ.busy && BJ.phase!=="play") { BJ.bank = x.bank; BJ.peak = x.peak||x.bank; BJ.hands = x.hands||0; BJ.w = x.wins||0; BJ.l = x.losses||0; BJ.bet = 0; if (BJ.phase==="done") BJ.phase = "bet"; } }
     BJ.synced = true;
     // one-time bankroll gifts, applied once per account (remembered in synced progress)
-    const em = ((fb.u.email)||"").toLowerCase(); let gave = false; S.bjg ??= {};
-    BJ_GIFTS.forEach(g=>{ if (g.email===em && !S.bjg[g.id] && !BJ.busy && BJ.phase!=="play") { BJ.bank = Math.min(BJ_MAX, BJ.bank + BJ.bet + g.amt); BJ.bet = 0; BJ.peak = Math.max(BJ.peak||0, BJ.bank); S.bjg[g.id] = Date.now(); gave = true; } });
-    if (gave) { save(); bjSave(); bjPush(); toast("$" + BJ_GIFTS.filter(g=>g.email===em).reduce((a,g)=>a+g.amt,0).toLocaleString() + " added to your bankroll"); }
+    const em = ((fb.u.email)||"").toLowerCase(); let gave = false, amt = 0; S.bjg ??= {};
+    BJ_GIFTS.forEach(g=>{ if (g.email===em && !S.bjg[g.id] && !BJ.busy && BJ.phase!=="play") { BJ.bank = Math.min(BJ_MAX, BJ.bank + BJ.bet + g.amt); BJ.bet = 0; BJ.peak = Math.max(BJ.peak||0, BJ.bank); S.bjg[g.id] = Date.now(); gave = true; amt += g.amt; } });
+    if (gave) { save(); bjSave(); bjPush(); toast("$" + amt.toLocaleString() + " added to your bankroll"); }
     else if (!d.exists) bjPush();
     bjUI(); bjBoard(true);
   } catch(e) { BJ.boardErr = "Leaderboard unavailable (" + (e.code||"error") + ")"; bjLBRender(); }
