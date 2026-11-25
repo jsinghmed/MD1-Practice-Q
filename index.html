@@ -1051,6 +1051,10 @@ html.jjlock .cpick{visibility:hidden}
 .ctab.main{font-weight:800;font-size:14.5px;background:var(--card);color:var(--text);box-shadow:0 1px 2px rgba(0,0,0,.12),inset 0 0 0 1px var(--line2)}
 .ctabs.rows .ctab:not(.main){font-size:12.5px}
 .ctab.on.main,.ctabs.rows .ctab.on{background:var(--acc);color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+.ctab.main{position:relative;transition:transform .2s,box-shadow .2s,background .2s,color .2s}
+.ctab.main:hover,.ctab.main:focus-visible{transform:translateY(-1px);box-shadow:0 0 0 4px rgba(79,184,176,.18),0 2px 6px rgba(0,0,0,.14),inset 0 0 0 1px var(--acc);outline:none}
+.ctab.main.on:hover,.ctab.main.on:focus-visible{box-shadow:0 0 0 5px rgba(79,184,176,.22),0 2px 8px rgba(0,0,0,.2)}
+@media (prefers-reduced-motion:reduce){.ctab.main{transition:none}}
 .ctab.on{background:var(--acc-bg);color:var(--text);border:none}
 .stools{border-bottom:none;padding-bottom:4px}
 .chaps{padding:2px 0 10px}
