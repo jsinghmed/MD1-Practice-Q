@@ -60,6 +60,15 @@
     gateStatus("");
     $("jjOther").onclick = ()=>{ kicked = false; gateSignIn(); };
   }
+  // New people must be approved by an admin. Accounts that already existed stay in if they were active in the
+  // 7 days before approval was switched on (Nov 25, 2026); everyone else has to request again.
+  const APPROVAL_CUTOFF = Date.UTC(2026, 10, 18, 21, 0);
+  let unsubPend = null;
+  function gatePending(){
+    $("jjGateBody").innerHTML = `<h2>Request sent</h2><p style="margin:10px auto 16px">JJ QBank is invite only. Your request to join has been sent to the site owner. This page will open by itself as soon as you're approved, so you can leave it open or come back later.</p><p class="jjgnote" style="margin:0 auto 14px">Signed in as <b>${esc((user && user.email) || "")}</b></p><button class="jjglink" id="jjOther">Sign in with a different account</button>`;
+    gateStatus("Waiting for approval…");
+    $("jjOther").onclick = async ()=>{ if (unsubPend) { unsubPend(); unsubPend = null; } try { await auth.signOut(); } catch(e){} kicked = false; gateSignIn(); };
+  }
   function showGate(){ gate.hidden = false; document.documentElement.classList.add("jjlock"); }
   function hideGate(){ gate.hidden = true; document.documentElement.classList.remove("jjlock"); }
 
@@ -157,10 +166,30 @@
     catch(e) { gateStatus("Couldn't load your account. Check your connection and refresh.", true); return; }
     if (udoc.exists && udoc.data().blocked && !isAdmin(u)) { kicked = true; gateBlocked(); showGate(); await auth.signOut(); return; }
 
-    // profile (blocked can only ever be set by an admin)
+    // approval: new accounts, and old accounts not active in the week before approval started, wait for an admin
+    const d0 = udoc.exists ? udoc.data() : null;
+    let pending = false;
+    if (!isAdmin(u)) {
+      if (!d0 || d0.approved === false) pending = true;
+      else if (d0.approved === undefined) { const ls = d0.lastSeen && d0.lastSeen.toMillis ? d0.lastSeen.toMillis() : 0; if (ls < APPROVAL_CUTOFF) pending = true; }
+    }
+
+    // profile (blocked and approved can only ever be set by an admin)
     const FV = firebase.firestore.FieldValue, prof = {uid:u.uid, email:u.email||"", name:u.displayName||"", photo:u.photoURL||"", lastSeen:FV.serverTimestamp(), sessions:FV.increment(1)};
     if (!udoc.exists) { prof.firstSeen = FV.serverTimestamp(); prof.blocked = false; }
+    if (pending) { prof.approved = false; if (!d0 || !d0.requestedAt) prof.requestedAt = FV.serverTimestamp(); }
     try { await uref.set(prof, {merge:true}); } catch(e) { console.warn("JJ profile write failed", e); }
+
+    if (pending) {
+      kicked = true; window.JJ_HOLD = true; gatePending(); showGate();
+      if (unsubPend) unsubPend();
+      unsubPend = uref.onSnapshot(d=>{
+        const x = d.exists ? d.data() : {};
+        if (x.blocked) { if (unsubPend) { unsubPend(); unsubPend = null; } gateBlocked(); auth.signOut().catch(()=>{}); return; }
+        if (x.approved === true) { if (unsubPend) { unsubPend(); unsubPend = null; } gateStatus("Approved! Opening JJ QBank…"); try { sessionStorage.setItem("jj-skip-splash","1"); } catch(e){} setTimeout(()=>location.reload(), 600); }
+      }, ()=>{});
+      return;
+    }
 
     // ---- progress ----
     let cloud = null;
@@ -214,8 +243,14 @@
     const init = (user.displayName || user.email || "?").trim().charAt(0).toUpperCase();
     el.innerHTML = `<span class="av">${user.photoURL ? `<img src="${user.photoURL}" alt="" referrerpolicy="no-referrer">` : init}</span>
       <span class="who"><b>${esc(user.displayName || "Signed in")}</b><span>${esc(user.email || "")}</span><span class="jjsync" id="jjSyncTime">Sync on</span></span>
-      ${isAdmin(user) ? `<a href="admin.html" title="See who uses the site">Admin</a>` : ""}<button id="jjSignOut" title="Sign out">Sign out</button>`;
+      ${isAdmin(user) ? `<a href="admin.html" id="jjAdminLink" title="See who uses the site">Admin</a>` : ""}<button id="jjSignOut" title="Sign out">Sign out</button>`;
     $("jjSignOut").onclick = signOut;
+    if (isAdmin(user) && !window.JJ_PENDWATCH) {                       // admins see how many people are waiting for approval
+      window.JJ_PENDWATCH = db.collection("users").where("approved", "==", false).onSnapshot(sn=>{
+        const n = sn.docs.filter(x=>{ const v = x.data(); return v.requestedAt && !v.blocked; }).length, a = $("jjAdminLink");
+        if (a) { a.textContent = n ? `Admin · ${n} request${n===1?"":"s"}` : "Admin"; a.style.borderColor = n ? "var(--acc)" : ""; a.style.fontWeight = n ? "700" : ""; a.title = n ? `${n} ${n===1?"person is":"people are"} waiting for approval` : "See who uses the site"; }
+      }, ()=>{});
+    }
   }
   function esc(t){ return String(t).replace(/[&<>"]/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
 

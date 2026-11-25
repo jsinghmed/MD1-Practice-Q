@@ -42,6 +42,13 @@ tr.blk td{color:#9aa5b1}
 .bbtn{border:1px solid var(--line);background:#fff;border-radius:8px;padding:5px 10px;font:inherit;font-size:12.5px;cursor:pointer}
 .bbtn.kick{color:var(--red);border-color:#f0c4bf}
 .bbtn.let{color:var(--green);border-color:#bfe0cc}
+.tag.pend{background:#fff4d6;color:#9a6700}
+.pendbox{background:var(--panel);border:2px solid #e3b341;border-radius:12px;padding:14px 16px;margin:0 0 16px}
+.pendbox h3{margin:0 0 4px;font-size:15px}.pendbox p{margin:0 0 10px;font-size:12.5px;color:var(--muted)}
+.pendrow{display:flex;align-items:center;gap:12px;padding:8px 0;border-top:1px solid var(--line)}
+.pendrow .who{flex:1;min-width:0}
+.pendrow .when{font-size:12px;color:var(--muted);white-space:nowrap}
+.bbtn.ok{background:var(--green);color:#fff;border-color:var(--green);font-weight:600}
 tr.det td{background:#fafbfc;white-space:normal}
 .det table{min-width:0;width:auto;margin:4px 0}
 .det th,.det td{padding:5px 12px;border:none;background:none}
@@ -82,7 +89,7 @@ tr.det td{background:#fafbfc;white-space:normal}
       if (!ADMINS.includes((u.email||"").toLowerCase())) { msg(`<p><b>${esc(u.email)}</b> isn't an admin account.</p><button id="so">Use a different account</button>`); document.getElementById("so").onclick = ()=>auth.signOut(); return; }
       msg("Loading users…");
       db.collection("classStats").doc("v1").get().then(d=>{ CLS = d.exists ? d.data() : {}; if (users.length) render(); }).catch(()=>{ CLS = {}; });
-      db.collection("users").onSnapshot(snap=>{ users = snap.docs.map(d=>Object.assign({id:d.id}, d.data())); render(); },
+      db.collection("users").onSnapshot(snap=>{ users = snap.docs.map(d=>Object.assign({id:d.id}, d.data())); sweep(); render(); },
         e=>msg(`Couldn't read users: ${esc(e.message)}<br><span class="muted">Check that the Firestore rules from firestore-rules.txt are published and your email is in the admin list there.</span>`));
     });
     document.getElementById("out").onclick = ()=>auth.signOut();
@@ -173,7 +180,7 @@ tr.det td{background:#fafbfc;white-space:normal}
     let list = users.filter(u=>!q || (u.name+" "+u.email).toLowerCase().includes(q));
     const key = {lastSeen:u=>-(ts(u.lastSeen)||0), firstSeen:u=>-(ts(u.firstSeen)||0), answered:u=>-totalAns(u), name:u=>(u.name||u.email||"").toLowerCase()}[sort];
     list.sort((a,b)=>{ const x = key(a), y = key(b); return x<y?-1:x>y?1:0; });
-    main.innerHTML = tabBar() + `
+    main.innerHTML = tabBar() + pendingBox() + `
       <div class="cards">
         <div class="card"><b>${users.length}</b><span>people have signed in</span></div>
         <div class="card"><b>${day}</b><span>active in the last 24 h</span></div>
@@ -193,6 +200,8 @@ tr.det td{background:#fafbfc;white-space:normal}
     main.querySelectorAll("[data-tab]").forEach(b=>b.onclick = ()=>{ tab = b.dataset.tab; render(); });
     main.querySelectorAll("tr.u").forEach(tr=>tr.onclick = e=>{ if (e.target.closest("button")) return; open[tr.dataset.id] = !open[tr.dataset.id]; render(); });
     main.querySelectorAll("button[data-blk]").forEach(b=>b.onclick = ()=>toggle(b.dataset.blk));
+    main.querySelectorAll("button[data-appr]").forEach(b=>b.onclick = ()=>setApproval(b.dataset.appr, true));
+    main.querySelectorAll("button[data-deny]").forEach(b=>b.onclick = ()=>setApproval(b.dataset.deny, false));
   }
 
   function row(u){
@@ -203,7 +212,7 @@ tr.det td{background:#fafbfc;white-space:normal}
       <td>${ts(u.firstSeen)?ts(u.firstSeen).toLocaleDateString():"—"}</td><td>${ago(u.lastSeen)}</td><td>${u.sessions||0}</td>
       ${COURSES.map(([c])=>`<td>${cell(u,c)}</td>`).join("")}
       <td>${s.flagged||0}</td><td>${s.anki||0}</td>
-      <td>${admin?`<span class="tag ad">Admin</span>`:u.blocked?`<span class="tag off">Blocked</span> <button class="bbtn let" data-blk="${esc(u.id)}">Unblock</button>`:`<span class="tag on">Active</span> <button class="bbtn kick" data-blk="${esc(u.id)}">Block</button>`}</td></tr>`;
+      <td>${admin?`<span class="tag ad">Admin</span>`:(!u.blocked && u.approved===false)?`<span class="tag pend">${u.requestedAt?"Waiting":"Must re-request"}</span> <button class="bbtn let" data-appr="${esc(u.id)}">Approve</button>`:u.blocked?`<span class="tag off">Blocked</span> <button class="bbtn let" data-blk="${esc(u.id)}">Unblock</button>`:`<span class="tag on">Active</span> <button class="bbtn kick" data-blk="${esc(u.id)}">Block</button>`}</td></tr>`;
     if (open[u.id]) {
       const secs = (s.sections||[]).filter(x=>x.total);
       h += `<tr class="det"><td colspan="13"><div class="det">${secs.length ? `<table><tr><th>Course</th><th>Section</th><th>Answered</th><th>Correct</th></tr>${secs.map(x=>`<tr><td>${esc((x.course||"").toUpperCase())}</td><td>${esc(x.name)}</td><td><span class="bar"><i style="width:${Math.round(100*x.answered/x.total)}%"></i></span>${x.answered} / ${x.total}</td><td>${x.answered?Math.round(100*x.correct/x.answered)+"%":"—"}</td></tr>`).join("")}</table>` : `<span class="muted">No progress synced yet.</span>`}
@@ -213,6 +222,34 @@ tr.det td{background:#fafbfc;white-space:normal}
     return h;
   }
 
+  // Approval. Old accounts with no approval status yet get one: active in the 7 days before approval started → approved,
+  // otherwise they have to request again (they show up below once they sign in and ask).
+  const APPROVAL_CUTOFF = Date.UTC(2026, 10, 18, 21, 0);
+  let swept = false;
+  function sweep(){
+    if (swept) return; swept = true;
+    const FV = firebase.firestore.FieldValue, todo = users.filter(u=>u.approved === undefined && !ADMINS.includes((u.email||"").toLowerCase()));
+    if (!todo.length) return;
+    const batch = db.batch();
+    todo.forEach(u=>{ const ok = !!ts(u.lastSeen) && ts(u.lastSeen).getTime() >= APPROVAL_CUTOFF; batch.update(db.collection("users").doc(u.id), ok ? {approved:true, approvedAt:FV.serverTimestamp()} : {approved:false}); });
+    batch.commit().catch(e=>console.warn("Approval sweep needs the new Firestore rules:", e.message));
+  }
+  const isPending = u => u.approved === false && !!u.requestedAt && !u.blocked;
+  function setApproval(id, ok){
+    const u = users.find(x=>x.id===id); if (!u) return;
+    const FV = firebase.firestore.FieldValue;
+    if (!ok && !confirm(`Deny ${u.name||u.email}? They'll be blocked from signing in. You can unblock them later from the list below.`)) return;
+    const upd = ok ? {approved:true, approvedAt:FV.serverTimestamp(), blocked:false} : {blocked:true, blockedAt:FV.serverTimestamp()};
+    db.collection("users").doc(id).update(upd).catch(e=>alert("Couldn't change access: "+e.message+"\n\nIf this says permission denied, the new Firestore rules haven't been published yet."));
+  }
+  function pendingBox(){
+    const p = users.filter(isPending).sort((a,b)=>(ts(a.requestedAt)||0)-(ts(b.requestedAt)||0));
+    if (!p.length) return "";
+    return `<div class="pendbox"><h3>${p.length} ${p.length===1?"person is":"people are"} waiting for approval</h3><p>They signed in and asked to join. Approving opens the site for them right away.</p>
+      ${p.map(u=>`<div class="pendrow"><div class="who"><span class="av">${u.photo?`<img src="${esc(u.photo)}" alt="" referrerpolicy="no-referrer">`:esc((u.name||u.email||"?").charAt(0).toUpperCase())}</span><span><b>${esc(u.name||"(no name)")}</b><small>${esc(u.email)}</small></span></div>
+        <span class="when">Asked ${ago(u.requestedAt)}${ts(u.firstSeen) && ts(u.firstSeen).getTime() < APPROVAL_CUTOFF ? " · returning user" : ""}</span>
+        <button class="bbtn ok" data-appr="${esc(u.id)}">Approve</button><button class="bbtn kick" data-deny="${esc(u.id)}">Deny</button></div>`).join("")}</div>`;
+  }
   function toggle(id){
     const u = users.find(x=>x.id===id); if (!u) return;
     const to = !u.blocked;
