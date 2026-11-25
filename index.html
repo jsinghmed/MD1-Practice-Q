@@ -1046,6 +1046,7 @@ html.jjlock .cpick{visibility:hidden}
 .ctabs{background:var(--choice);border:1px solid var(--line);border-radius:10px;padding:3px;margin:0 12px 12px;gap:3px}
 .ctab{border:none;border-radius:7px;padding:7px 4px;font-size:13px;flex-direction:row;justify-content:center}
 .ctab small{display:none}
+.ctabs.many .ctab{flex:1 1 auto;min-width:0;padding:7px 1px;font-size:12px;letter-spacing:-.1px}
 .ctab.on{background:var(--acc-bg);color:var(--text);border:none}
 .stools{border-bottom:none;padding-bottom:4px}
 .chaps{padding:2px 0 10px}
@@ -1308,6 +1309,7 @@ button.dst:hover{background:var(--hover)}
 <script src="crs-embryology.js?v=35"></script>
 <script src="crs-histology.js?v=1"></script>
 <script src="crs-genetics.js?v=1"></script>
+<script src="pbmr.js?v=1"></script>
 <script src="mocks.js?v=3"></script>
 <script src="crs-anatomy.js?v=1"></script>
 <script src="crs-biochem.js?v=15"></script>
@@ -1330,6 +1332,7 @@ const COURSES = [
   {id:"crs", name:"CRS", full:"Cardiovascular & Respiratory Systems", year:"MD1"},
   {id:"eth", name:"Ethics", full:"Medical Ethics", count:102, year:"MD1"},
   {id:"gen", name:"Genetics", full:"Medical Genetics", year:"MD1"},
+  {id:"pbmr", name:"PBMR", full:"PBMR · Research Methods", year:"MD1", noNbme:true},
   // MD2 modules: empty until questions are added (give sections course:"rns" / "ghs" / "ers").
   {id:"rns", name:"RNS", full:"Renal and Nervous System I", year:"MD2"},
   {id:"ghs", name:"GHS", full:"GI and Hepatobiliary System I", year:"MD2"},
@@ -1350,7 +1353,7 @@ function lecExtras(lectures, tags){
   tags = tags || [];
   const all = lectures.flatMap(([n,ts])=>{
     const inL = q=>ts.includes(q.t);
-    return [{main:true, name:n, f:inL}].concat(ts.map(t=>({name:t, f:q=>q.t===t})),
+    return [{main:true, name:n, f:inL}].concat((ts.length===1 && n.endsWith(ts[0]) ? [] : ts).map(t=>({name:t, f:q=>q.t===t})),
       [{name:"Easy questions", key:n+" · Easy", f:q=>inL(q) && q.lv==="Easy"}, {name:"Hard questions", key:n+" · Hard", f:q=>inL(q) && q.lv==="Hard"}],
       tags.map(([label,k,fld])=>({name:label, key:n+" · "+k, f:q=>inL(q) && q[fld]})));
   });
@@ -1414,6 +1417,9 @@ const SECTIONS = [
   {course:"gen", name:"Genetics", all:"All Genetics", prefix:"cgn", topics:window.CRS_GEN_TOPICS, hideTopics:true, qs:window.CRS_GEN_QUESTIONS,
    // The school's practice quizzes (Quiz 8–10), grouped by lecture, then topic
    extra:lecExtras(window.CRS_GEN_LECTURES||[])},
+  {course:"pbmr", name:"PBMR", all:"All PBMR", prefix:"pbm", topics:window.PBMR_TOPICS, hideTopics:true, qs:window.PBMR_QUESTIONS,
+   // Practice questions grouped by lecture (no NBME dashboard for PBMR)
+   extra:lecExtras(window.PBMR_LECTURES||[])},
   {course:"crs", name:"CRS Biochemistry", all:"All CRS Biochemistry", prefix:"cbr", topics:window.CRS_BC_TOPICS, hideTopics:true, qs:window.CRS_BC_QUESTIONS,
    // Grouped by lecture (Dr. Shetty), then topic. Add each new lecture as one more [name, topics] row.
    extra:(()=>{ const T = window.CRS_BC_TOPICS||[];
@@ -2376,7 +2382,7 @@ function renderChaps(){
     + navRow('id="homeBtn"'+hid, NVI.home, "Dashboard", "", view==="home")
     + navRow('id="buildBtn"'+hid, NVI.plus, "Create test", "", view==="builder")
     + navRow('id="notesBtn"'+hid, NVI.notes, "My notes", notesN||"", view==="notes")
-    + (ETH ? "" : navRow('data-act="guides"', NVI.guide, "NBME Dashboard ("+course().name+")", "", view==="guides"||view==="guide"))
+    + (ETH || course().noNbme ? "" : navRow('data-act="guides"', NVI.guide, "NBME Dashboard ("+course().name+")", "", view==="guides"||view==="guide"))
     + (S.course==="crs" ? navRow('data-osce="1"', NVI.osce, "OSCE Room", "", view==="osce") : "")
     + `</div>`
     ;
@@ -2429,6 +2435,7 @@ function renderChaps(){
   $("chaps").innerHTML = h;
   const yr = course().year;
   $("ytabs").innerHTML = YEARS.map(y=>`<button class="ytab ${y===yr?"on":""}" data-year="${y}">${y}</button>`).join("");
+  $("ctabs").classList.toggle("many", COURSES.filter(c=>c.year===yr).length > 5);
   $("ctabs").innerHTML = COURSES.filter(c=>c.year===yr).map(c=>`<button class="ctab ${c.id===S.course?"on":""}" data-course="${c.id}" title="${esc(c.full)}">${esc(c.name)}<small>${c.count ? c.count+" Qs" : c.items.length ? c.items.length+" Qs" : "empty"}</small></button>`).join("");
   $("brandTitle").textContent = course().name + " Module";
   $("brandSub").textContent = (course().full !== course().name ? course().full + " · " : "") + (course().count ? course().count + " questions" : course().items.length ? course().items.length + " questions" : "no questions yet");
@@ -2950,7 +2957,7 @@ function vizFor(q){
   if (ov === false || q.viz === false) return null;
   if (ov && !q.viz) q = Object.assign({}, q, {viz: ov});
   if (q.viz) { const t = VIZ_TOOLS[q.viz.tool]; return t ? Object.assign({icon:t.icon, name:t.name, page:t.page}, q.viz) : null; }
-  if (q.pfx==="chs" || q.pfx==="cgn") return null;   // histology slides: no 3D tool helps
+  if (q.pfx==="chs" || q.pfx==="cgn" || q.pfx==="pbm") return null;   // histology slides: no 3D tool helps
   if ((q.course||S.course) !== "crs") return null;   // keyword rules are tuned for CRS; other courses use viz-links.js
   const text = [q.s, q.q, q.e, plainS(q.eh||"")].filter(Boolean).join(" ");
   if (q.pfx==="ce" && (window.CRS_EMB_TOPICS||[]).slice(0,4).includes(q.t)) { const qt = [q.s, q.q].filter(Boolean).join(" ");
@@ -4650,7 +4657,7 @@ function switchCourse(id){
   S.course = id;
   S.cur = S.curBy[id] || (firstChap() ? firstChap().key : null);
   S.openSec = secOf(S.cur) || (courseSecs()[0] ? courseSecs()[0].prefix : null);
-  view = (view==="guides" || view==="guide") ? "guides" : "home"; focusOn = false; paused = false; showAllTests = false; openMenu = null;
+  view = ((view==="guides" || view==="guide") && !COURSE_BY_ID[id].noNbme) ? "guides" : "home"; focusOn = false; paused = false; showAllTests = false; openMenu = null;
   clearTimeout(searchT); $("searchIn").value = ""; $("searchWrap").classList.remove("has"); searchTerm = ""; searchChips = []; searchRet = null;
   save(); $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0});
   toast(COURSE_BY_ID[id].name + (COURSE_BY_ID[id].items.length ? "" : " — no questions yet"));
@@ -5235,7 +5242,7 @@ window.JJ_STATS = function(st){
 // Welcome screen: shown every time the page loads.
 // ---- Updates: version.json says which version is live. When it's newer than this page, a card offers a refresh
 // (skips the logo intro). After a refresh to a new version, "What's new" lists every change since the last one seen.
-const JJ_VERSION = "2026-11-24b";
+const JJ_VERSION = "2026-11-25a";
 const UPD_ICON = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>';
 let updLater = "";
 async function updFetch(){ const r = await fetch("version.json?t=" + Date.now(), {cache:"no-store"}); if (!r.ok) throw new Error(r.status); return r.json(); }

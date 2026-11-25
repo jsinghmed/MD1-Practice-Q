@@ -1,6 +1,22 @@
 {
- "v": "2026-11-24b",
+ "v": "2026-11-25a",
  "notes": [
+  {
+   "v": "2026-11-25a",
+   "date": "Nov 25, 2026",
+   "groups": [
+    {
+     "h": "New questions",
+     "items": [
+      {
+       "tag": "new",
+       "title": "PBMR",
+       "text": "New PBMR tab in MD1 with practice questions for Lectures 1–6."
+      }
+     ]
+    }
+   ]
+  },
   {
    "v": "2026-11-24b",
    "date": "Nov 24, 2026",
