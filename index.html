@@ -1475,13 +1475,17 @@ function ensureXP(co){
 (function(){
   const C = window.C100; if (!C) return;
   const strip = h => String(h??"").replace(/<[^>]+>/g," ").replace(/&nbsp;/g," ");
+  // Worked out the first time a question needs it (matching every question at start-up slowed page loads).
+  const hit = (r,t)=> r[2].test(t) || (r[3] && r[3].test(t));
   Q.forEach(q=>{
     if (q.course!=="msk" && q.course!=="fbs" && q.course!=="crs") return;
-    const stem = strip(q.s), rest = [q.c?q.c[q.a]:"", q.ans||"", q.e||"", q.se||"", strip(q.eh), q.key||""].join(" \n ");
-    const hit = (r,t)=> r[2].test(t) || (r[3] && r[3].test(t));
-    const inStem = C.rules.filter(r=>hit(r,stem)), other = C.rules.filter(r=>!inStem.includes(r) && hit(r,rest));
-    const pages = inStem.concat(other).map(r=>r[0]).slice(0,4);
-    if (pages.length) q.c100 = pages;
+    let memo;
+    Object.defineProperty(q, "c100", {configurable:true, enumerable:false, set(v){ memo = v; }, get(){
+      if (memo !== undefined) return memo || undefined;
+      const stem = strip(q.s), rest = [q.c?q.c[q.a]:"", q.ans||"", q.e||"", q.se||"", strip(q.eh), q.key||""].join(" \n ");
+      const inStem = C.rules.filter(r=>hit(r,stem)), other = C.rules.filter(r=>!inStem.includes(r) && hit(r,rest));
+      const pages = inStem.concat(other).map(r=>r[0]).slice(0,4);
+      memo = pages.length ? pages : null; return memo || undefined; }});
   });
 })();
 function c100Concept(page){ const C = window.C100; let best = null; for (const c of C.conceptions) { if (c[2] <= page) best = c; } return best; }
