@@ -101,7 +101,7 @@ tr.det td{background:#fafbfc;white-space:normal}
     if (s < 86400) return Math.round(s/3600)+" h ago"; if (s < 86400*14) return Math.round(s/86400)+" d ago";
     return d.toLocaleDateString();
   }
-  const COURSES = [["msk","MSK"],["fbs","FBS"],["crs","CRS"],["eth","Ethics"],["gen","Genetics"]];
+  const COURSES = [["msk","MSK"],["fbs","FBS"],["crs","CRS"],["eth","Ethics"],["gen","Genetics"],["pbmr","PBMR"]];
   function cstat(u, c){ return ((u.stats||{}).courses||{})[c] || null; }
   function cell(u, c){
     const s = cstat(u, c); if (!s || !s.answered) return `<span class="muted">—</span>`;
