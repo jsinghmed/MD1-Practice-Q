@@ -369,6 +369,8 @@ iframe.jjfs{position:fixed!important;inset:0!important;width:100vw!important;hei
 .notes{margin-top:22px}
 .notes .nh{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;margin-bottom:10px;gap:10px;flex-wrap:wrap}
 .notes .nh b{letter-spacing:1.4px;font-size:12.5px}
+.notes .hl2n{display:inline-flex;align-items:center;gap:6px;cursor:pointer;color:var(--muted);font-size:12.5px}
+.notes .hl2n input{accent-color:var(--acc);margin:0}
 .notes textarea{width:100%;min-height:110px;background:var(--choice);border:1px solid var(--line2);border-radius:7px;color:var(--text);padding:12px 14px;font:inherit;font-size:15px;resize:vertical}
 .notes textarea:focus{outline:none;border-color:var(--blue)}
 .cpct{align-self:center;margin-left:auto;padding:0 8px;font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -1024,8 +1026,8 @@ html.jjlock .cpick{visibility:hidden}
 .gview .hy{color:var(--red);font-weight:600}
 .gview .mn{color:var(--blue);font-style:italic}
 .gvbody sub,.gvbody sup{font-size:.72em}
-.gvbody mark.ghl{background:var(--mark);color:#1a1300;border-radius:2px;padding:0 1px;cursor:pointer}
-.gvbody mark.ghl.hl-g{background:#9fe0a0}.gvbody mark.ghl.hl-b{background:#a9d4ff}.gvbody mark.ghl.hl-p{background:#ffb8dc}.gvbody mark.ghl.hl-o{background:#ffc98f}
+.exp mark.ghl,.gvbody mark.ghl{background:var(--mark);color:#1a1300;border-radius:2px;padding:0 1px;cursor:pointer}
+.gvbody mark.ghl.hl-g,.exp mark.ghl.hl-g{background:#9fe0a0}.gvbody mark.ghl.hl-b,.exp mark.ghl.hl-b{background:#a9d4ff}.gvbody mark.ghl.hl-p,.exp mark.ghl.hl-p{background:#ffb8dc}.gvbody mark.ghl.hl-o,.exp mark.ghl.hl-o{background:#ffc98f}
 .gvbody mark.ghl .hy{color:#b00000}
 #ghlBar{position:fixed;z-index:9000;display:none;align-items:center;gap:6px;padding:6px 8px;background:var(--panel);border:1px solid var(--line2);border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.22);transform:translateX(-50%)}
 #ghlBar.on{display:flex}
@@ -1287,7 +1289,7 @@ button.dst:hover{background:var(--hover)}
       <div class="stats" id="stats"></div>
       <section class="card" id="card"></section>
       <section class="card notes" id="noteBox">
-        <div class="nh"><b>MY NOTES</b><span>saved automatically · kept through resets</span></div>
+        <div class="nh"><b>MY NOTES</b><label class="hl2n" title="Text you highlight in this question or its explanation is copied here"><input type="checkbox" id="hl2n"> Add highlights to my notes</label><span>saved automatically · kept through resets</span></div>
         <textarea id="note" placeholder="Write a note for this question..."></textarea>
         <div class="nimgs" id="noteImgs"></div>
         <div class="nimgbar"><label class="btn">🖼 Add image<input type="file" id="noteImgIn" accept="image/*" multiple hidden></label><span>or paste / drag a picture into this box</span></div>
@@ -2717,6 +2719,8 @@ function renderCard(){
   }
   $("card").innerHTML = h;
   fixImgs($("card"));
+  { const ex = $("card").querySelector(".exp"); if (ex) { ex.dataset.gk = "x:" + q.id; ghlApply(ex); } }
+  $("hl2n").checked = hlNotesOn();
   $("note").value = S.notes[q.id] || "";
   $("noteBox").classList.toggle("has", hasNote(q.id));
   renderNoteImgs(q.id);
@@ -4556,8 +4560,9 @@ function highlightSelection(){
   r.insertNode(m);
   m.querySelectorAll("mark").forEach(x=>x.replaceWith(...x.childNodes));
   liftOutOfMarks(m, el);
-  if (allMarked) m.replaceWith(...m.childNodes);          // erase
-  else m.className = "hl-" + hlColor;                       // highlight in the chosen color
+  const hlTxt = m.textContent;
+  if (allMarked) { m.replaceWith(...m.childNodes); hlNoteEdit(curQ().id, [hlTxt], []); }   // erase
+  else { m.className = "hl-" + hlColor; hlNoteEdit(curQ().id, [], [hlTxt]); }               // highlight in the chosen color
   el.querySelectorAll("mark").forEach(x=>{ if (!x.textContent) x.remove(); });
   sel.removeAllRanges(); el.normalize(); saveStem(); return true;
 }
@@ -4586,7 +4591,7 @@ function ghlApply(art){
   list.forEach(h=>{ const T = ghlText(art), i = ghlFind(T, h); if (i >= 0) ghlWrap(art, i, i + h.t.length, h); });
   if (art.isConnected) document.querySelectorAll(`[data-ghlclear="${gk}"], [data-ghlpdf][data-gpdf="${gk}"]`).forEach(b=>b.hidden = !list.length);
 }
-function ghlRefresh(gk){ document.querySelectorAll(".gvbody[data-gk]").forEach(a=>{ if (a.dataset.gk===gk) ghlApply(a); }); }
+function ghlRefresh(gk){ document.querySelectorAll("[data-gk]").forEach(a=>{ if (a.dataset.gk===gk) ghlApply(a); }); }
 function ghlSpan(art, h){ const T = ghlText(art), i = ghlFind(T, h); return i < 0 ? null : [i, i + h.t.length]; }
 function ghlAdd(art, a, b, c){
   const gk = art.dataset.gk, list = (S.ghl[gk] ||= []), T = ghlText(art);
@@ -4600,10 +4605,26 @@ function ghlAdd(art, a, b, c){
       else { a = Math.min(a, sp[0]); b = Math.max(b, sp[1]); }
     } else keep.push(h); });
   if (!allIn) keep.push(ghlMake(T, a, b, c));
-  S.ghl[gk] = keep.filter(h=>h.t.trim()); if (!S.ghl[gk].length) delete S.ghl[gk];
+  const before = list, after = keep.filter(h=>h.t.trim());
+  S.ghl[gk] = after; if (!S.ghl[gk].length) delete S.ghl[gk];
+  ghlNotes(gk, before.filter(h=>!after.includes(h)).map(h=>h.t), after.filter(h=>!before.includes(h)).map(h=>h.t));
   save(); ghlRefresh(gk);
 }
 function ghlMake(T, a, b, c){ return {id: Date.now().toString(36) + Math.random().toString(36).slice(2,6), t:T.slice(a,b), p:T.slice(Math.max(0,a-32),a), s:T.slice(b,b+32), c}; }
+// Highlights in a question (stem or explanation) are copied into that question's My notes, one "• " line each,
+// unless the "Add highlights to my notes" box is unticked. Removing a highlight removes its line.
+function hlNotesOn(){ return S.hl2n !== false; }
+function hlNoteLine(t){ return "• " + String(t||"").replace(/\s+/g, " ").trim(); }
+function hlNoteEdit(qid, removed, added){
+  if (!qid || !hlNotesOn()) return;
+  let txt = S.notes[qid] || "";
+  (removed||[]).forEach(t=>{ const ln = hlNoteLine(t); if (ln.length < 3) return; const lines = txt.split("\n"), k = lines.indexOf(ln); if (k >= 0) { lines.splice(k, 1); txt = lines.join("\n"); } });
+  (added||[]).forEach(t=>{ const ln = hlNoteLine(t); if (ln.length < 3 || txt.split("\n").includes(ln)) return; txt = txt.replace(/\s+$/, ""); txt = (txt ? txt + "\n" : "") + ln; });
+  if (txt.trim()) S.notes[qid] = txt; else delete S.notes[qid];
+  save();
+  const q = view==="quiz" && curQ(); if (q && q.id===qid && $("note")) { $("note").value = S.notes[qid] || ""; $("noteBox").classList.toggle("has", hasNote(qid)); }
+}
+function ghlNotes(gk, removed, added){ if (String(gk).startsWith("x:")) hlNoteEdit(gk.slice(2), removed, added); }
 let ghlCtx = null;
 function ghlBar(){ let b = $("ghlBar"); if (b) return b;
   b = document.createElement("div"); b.id = "ghlBar";
@@ -4613,7 +4634,7 @@ function ghlBar(){ let b = $("ghlBar"); if (b) return b;
     if (t.dataset.ghc) { hlColor = t.dataset.ghc; try { localStorage.setItem("msk-hlcolor", hlColor); } catch(e2) {}
       if (ghlCtx.hid) { const h = (S.ghl[art.dataset.gk]||[]).find(x=>x.id===ghlCtx.hid); if (h) { h.c = hlColor; save(); ghlRefresh(art.dataset.gk); } }
       else ghlAdd(art, ghlCtx.a, ghlCtx.b, hlColor); }
-    else if (t.hasAttribute("data-ghx") && ghlCtx.hid) { const gk = art.dataset.gk; S.ghl[gk] = (S.ghl[gk]||[]).filter(x=>x.id!==ghlCtx.hid); if (!S.ghl[gk].length) delete S.ghl[gk]; save(); ghlRefresh(gk); }
+    else if (t.hasAttribute("data-ghx") && ghlCtx.hid) { const gk = art.dataset.gk, gone = (S.ghl[gk]||[]).find(x=>x.id===ghlCtx.hid); if (gone) ghlNotes(gk, [gone.t], []); S.ghl[gk] = (S.ghl[gk]||[]).filter(x=>x.id!==ghlCtx.hid); if (!S.ghl[gk].length) delete S.ghl[gk]; save(); ghlRefresh(gk); }
     window.getSelection().removeAllRanges(); ghlHide(); });
   document.body.appendChild(b); return b; }
 function ghlHide(){ const b = $("ghlBar"); if (b) b.classList.remove("on"); ghlCtx = null; }
@@ -4625,7 +4646,7 @@ function ghlShow(rect, ctx){ const b = ghlBar(); ghlCtx = ctx;
 function ghlCheckSel(){
   const sel = window.getSelection();
   if (!sel || sel.isCollapsed || !sel.rangeCount) { if (ghlCtx && !ghlCtx.hid) ghlHide(); return; }
-  const r = sel.getRangeAt(0), n = r.commonAncestorContainer, art = (n.nodeType===1 ? n : n.parentElement).closest(".gvbody[data-gk]");
+  const r = sel.getRangeAt(0), n = r.commonAncestorContainer, art = (n.nodeType===1 ? n : n.parentElement).closest("[data-gk]");
   if (!art || !sel.toString().trim()) { if (ghlCtx && !ghlCtx.hid) ghlHide(); return; }
   const a = ghlOffset(art, r.startContainer, r.startOffset), b = ghlOffset(art, r.endContainer, r.endOffset);
   if (b <= a) return; const rects = r.getClientRects(), rc = rects.length ? rects[rects.length-1] : r.getBoundingClientRect();
@@ -4634,10 +4655,10 @@ let ghlSelT = 0;
 document.addEventListener("selectionchange", ()=>{ clearTimeout(ghlSelT); ghlSelT = setTimeout(ghlCheckSel, 250); });
 document.addEventListener("click", e=>{
   const cb = e.target.closest && e.target.closest("[data-ghlclear]");
-  if (cb) { const gk = cb.dataset.ghlclear; if (confirm("Clear all your highlights in this study guide?")) { delete S.ghl[gk]; save(); ghlRefresh(gk); toast("Highlights cleared"); } return; }
-  const m = e.target.closest && e.target.closest(".gvbody mark.ghl");
+  if (cb) { const gk = cb.dataset.ghlclear; if (confirm("Clear all your highlights in this study guide?")) { ghlNotes(gk, (S.ghl[gk]||[]).map(h=>h.t), []); delete S.ghl[gk]; save(); ghlRefresh(gk); toast("Highlights cleared"); } return; }
+  const m = e.target.closest && e.target.closest("[data-gk] mark.ghl");
   if (m) { const sel = window.getSelection(); if (sel && !sel.isCollapsed) return;
-    const art = m.closest(".gvbody[data-gk]"), h = (S.ghl[art.dataset.gk]||[]).find(x=>x.id===m.dataset.hid);
+    const art = m.closest("[data-gk]"), h = (S.ghl[art.dataset.gk]||[]).find(x=>x.id===m.dataset.hid);
     ghlShow(m.getBoundingClientRect(), {art, hid: m.dataset.hid, c: h && h.c}); return; }
   if (!(e.target.closest && e.target.closest("#ghlBar"))) { const sel = window.getSelection(); if (!sel || sel.isCollapsed) ghlHide(); }
 });
@@ -4944,11 +4965,17 @@ document.addEventListener("selectionchange", ()=>{ clearTimeout(gSelT); gSelT = 
 window.addEventListener("scroll", ()=>$("gBubble").classList.remove("on"), true);
 window.addEventListener("resize", ()=>$("gBubble").classList.remove("on"));
 document.addEventListener("mouseup", e=>{
+  if (view==="quiz" && mode==="hl" && e.target.closest && e.target.closest(".exp[data-gk]")) {   // highlighter on: explanation text highlights straight away
+    const sel = window.getSelection(), art = e.target.closest(".exp[data-gk]");
+    if (sel && !sel.isCollapsed && sel.rangeCount && art.contains(sel.getRangeAt(0).commonAncestorContainer)) { const r = sel.getRangeAt(0);
+      const a = ghlOffset(art, r.startContainer, r.startOffset), b2 = ghlOffset(art, r.endContainer, r.endOffset);
+      if (b2 > a) { ghlAdd(art, a, b2, hlColor); sel.removeAllRanges(); ghlHide(); } }
+    return; }
   if (!(view==="quiz" && mode==="hl" && e.target.closest && e.target.closest("#stem"))) return;
   const sel = window.getSelection();
   if (sel && !sel.isCollapsed) { highlightSelection(); return; }
   const mk = e.target.closest("#stem mark");
-  if (mk) { mk.replaceWith(...mk.childNodes); $("stem").normalize(); saveStem(); }
+  if (mk) { const t0 = mk.textContent; mk.replaceWith(...mk.childNodes); $("stem").normalize(); saveStem(); hlNoteEdit(curQ().id, [t0], []); }
 });
 // ---------- Class stats ----------
 // An admin's browser adds up everyone's saved answers (read-only) into one anonymous summary, classStats/v1,
@@ -5060,6 +5087,7 @@ document.addEventListener("click", e=>{
     NIMG.del(id); save(); renderNoteImgs(q.id); $("noteBox").classList.toggle("has", hasNote(q.id)); renderChaps(); return; }
   const im = e.target.closest(".nimg img"); if (im && im.src) { $("lightbox").querySelector("img").src = im.src; $("lightbox").classList.add("on"); }
 });
+$("hl2n").addEventListener("change", e=>{ S.hl2n = e.target.checked; save(); toast(e.target.checked ? "Highlights will be added to your notes" : "Highlights won't be added to your notes"); });
 $("note").addEventListener("input", e=>{
   const id = curQ().id; if (e.target.value.trim()) S.notes[id]=e.target.value; else delete S.notes[id]; save();
 });
