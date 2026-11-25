@@ -1046,7 +1046,8 @@ html.jjlock .cpick{visibility:hidden}
 .ctabs{background:var(--choice);border:1px solid var(--line);border-radius:10px;padding:3px;margin:0 12px 12px;gap:3px}
 .ctab{border:none;border-radius:7px;padding:7px 4px;font-size:13px;flex-direction:row;justify-content:center}
 .ctab small{display:none}
-.ctabs.many .ctab{flex:1 1 auto;min-width:0;padding:7px 1px;font-size:12px;letter-spacing:-.1px}
+.ctabs.rows{flex-wrap:wrap}
+.ctabs.rows .ctab{flex:1 1 calc(33.333% - 3px);min-width:0}
 .ctab.on{background:var(--acc-bg);color:var(--text);border:none}
 .stools{border-bottom:none;padding-bottom:4px}
 .chaps{padding:2px 0 10px}
@@ -1330,9 +1331,9 @@ const COURSES = [
   {id:"fbs", name:"FBS", full:"Foundations of Basic Sciences", year:"MD1"},
   {id:"msk", name:"MSK", full:"Musculoskeletal", year:"MD1"},
   {id:"crs", name:"CRS", full:"Cardiovascular & Respiratory Systems", year:"MD1"},
-  {id:"eth", name:"Ethics", full:"Medical Ethics", count:102, year:"MD1"},
-  {id:"gen", name:"Genetics", full:"Medical Genetics", year:"MD1"},
-  {id:"pbmr", name:"PBMR", full:"PBMR · Research Methods", year:"MD1", noNbme:true},
+  {id:"eth", name:"Ethics", full:"Medical Ethics", count:102, year:"MD1", minor:true},
+  {id:"gen", name:"Genetics", full:"Medical Genetics", year:"MD1", minor:true},
+  {id:"pbmr", name:"PBMR", full:"PBMR · Research Methods", year:"MD1", noNbme:true, minor:true},
   // MD2 modules: empty until questions are added (give sections course:"rns" / "ghs" / "ers").
   {id:"rns", name:"RNS", full:"Renal and Nervous System I", year:"MD2"},
   {id:"ghs", name:"GHS", full:"GI and Hepatobiliary System I", year:"MD2"},
@@ -2435,8 +2436,9 @@ function renderChaps(){
   $("chaps").innerHTML = h;
   const yr = course().year;
   $("ytabs").innerHTML = YEARS.map(y=>`<button class="ytab ${y===yr?"on":""}" data-year="${y}">${y}</button>`).join("");
-  $("ctabs").classList.toggle("many", COURSES.filter(c=>c.year===yr).length > 5);
-  $("ctabs").innerHTML = COURSES.filter(c=>c.year===yr).map(c=>`<button class="ctab ${c.id===S.course?"on":""}" data-course="${c.id}" title="${esc(c.full)}">${esc(c.name)}<small>${c.count ? c.count+" Qs" : c.items.length ? c.items.length+" Qs" : "empty"}</small></button>`).join("");
+  const yc = COURSES.filter(c=>c.year===yr), ordered = yc.filter(c=>!c.minor).concat(yc.filter(c=>c.minor));   // FBS, MSK, CRS on top; Ethics, Genetics, PBMR underneath
+  $("ctabs").classList.toggle("rows", yc.some(c=>c.minor));
+  $("ctabs").innerHTML = ordered.map(c=>`<button class="ctab ${c.id===S.course?"on":""}" data-course="${c.id}" title="${esc(c.full)}">${esc(c.name)}<small>${c.count ? c.count+" Qs" : c.items.length ? c.items.length+" Qs" : "empty"}</small></button>`).join("");
   $("brandTitle").textContent = course().name + " Module";
   $("brandSub").textContent = (course().full !== course().name ? course().full + " · " : "") + (course().count ? course().count + " questions" : course().items.length ? course().items.length + " questions" : "no questions yet");
   document.title = "JJ QBank · " + course().name;
