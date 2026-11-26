@@ -27,6 +27,9 @@ button{font:inherit;font-size:12.5px;border:1px solid var(--line);background:var
 button:hover{border-color:var(--accent)}button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
 .row{display:flex;gap:6px;flex-wrap:wrap}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:4px}
+.tabs button{border-color:transparent;background:none;padding:7px 6px;font-weight:600;font-size:12.5px;line-height:1.2;color:var(--muted)}
+.tabs button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
 #steps{display:grid;grid-template-columns:1fr;gap:3px;margin:0;padding:0;list-style:none}
 #steps button{width:100%;text-align:left;display:grid;grid-template-columns:24px 1fr auto;gap:8px;align-items:baseline;background:none;border-color:transparent;padding:5px 8px}
 #steps button:hover{background:var(--chip)}
@@ -57,7 +60,8 @@ button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);bor
 </style></head><body>
 <div class="app">
 <aside class="side">
- <header><h1>Heart Development</h1><p>Trilaminar disc → fetal heart → aortic arches</p></header>
+ <header><h1>Heart Development</h1><p>Heart tube → aortic arches → fetal circulation</p></header>
+ <nav class="tabs" id="tabs" role="tablist"></nav>
  <section class="card" id="info" aria-live="polite"></section>
  <section class="card"><p class="label">Stages</p><ol id="steps"></ol></section>
  <section class="card"><p class="label">Colours in this stage</p><div class="legend" id="legend"></div></section>
@@ -75,7 +79,7 @@ button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);bor
   <button id="bPrev" aria-label="Previous stage">◀</button>
   <button id="bPlay" aria-label="Play the whole sequence" style="min-width:74px">▶ Play</button>
   <button id="bNext" aria-label="Next stage">▶︎▶︎</button>
-  <input type="range" id="tl" min="0" max="15.999" step="0.001" value="0" aria-label="Timeline">
+  <input type="range" id="tl" min="0" max="11.999" step="0.001" value="0" aria-label="Timeline">
   <span class="pos" id="pos"></span>
  </div>
 </main>
@@ -156,16 +160,42 @@ const STAGES=[
  note:["Clinical","The left recurrent laryngeal nerve loops under the aortic arch at the ligamentum arteriosum, so an aortic arch aneurysm or a big left atrium can stretch it and cause hoarseness."],
  q:["Why does the right recurrent laryngeal nerve hook around the right subclavian artery?",["The right 4th arch degenerates","The distal right 6th and the 5th arch degenerate","The ductus arteriosus forms on the right"],1,"With the distal right 6th and the 5th gone, the nerve slides up to the next arch on the right: the 4th, which is the right subclavian."]},
 {t:"Dorsal aorta & its branches",d:"Weeks 4–8",
- pts:["The two dorsal aortae <b>fuse</b> below the 7th intersegmental level into one <b>descending aorta</b>","<b>Ventral (vitelline) branches</b> supply the gut: <b>celiac</b> → foregut, <b>superior mesenteric</b> → midgut, <b>inferior mesenteric</b> → hindgut","<b>Lateral branches</b> supply organs from intermediate mesoderm: <b>suprarenal</b>, <b>renal</b> and <b>gonadal</b> arteries","<b>Dorsal intersegmental arteries</b> run between the somites","The <b>7th cervical intersegmental</b> artery → <b>subclavian</b>, the axis artery of the upper limb","The <b>5th lumbar intersegmental</b> artery → axis artery of the <b>lower limb</b>"],
+ pts:["The two dorsal aortae <b>fuse</b> below the 7th intersegmental level into one <b>descending aorta</b>","<b>Ventral (vitelline) branches</b> supply the gut: <b>celiac</b> → foregut, <b>superior mesenteric</b> → midgut, <b>inferior mesenteric</b> → hindgut","<b>Lateral branches</b> supply organs from intermediate mesoderm: <b>suprarenal</b>, <b>renal</b> and <b>gonadal</b> arteries","<b>Dorsal intersegmental arteries</b> run between the somites","The <b>7th cervical intersegmental</b> artery → <b>subclavian</b>, the axis artery of the upper limb","The <b>5th lumbar intersegmental</b> artery → axis artery of the <b>lower limb</b>","Each intersegmental artery has 3 branches. C7: <b>ventral</b> → stem of the <b>internal thoracic artery</b> (ventral branches of C7–T12 link up beside the sternum), <b>dorsal</b> → stem of the <b>vertebral artery</b>, <b>lateral</b> → <b>subclavian</b>","The dorsal branches of C1–C7 link up vertically into the <b>vertebral artery</b>, which runs through the <b>foramina transversaria</b> of the cervical vertebrae"],
  note:["Mnemonic","Celiac, SMA, IMA run top to bottom and feed fore-, mid- and hindgut in that order."],
- q:["Which artery supplies the midgut?",["Celiac trunk","Superior mesenteric artery","Inferior mesenteric artery"],1,"Celiac → foregut, SMA → midgut, IMA → hindgut."]}
+ q:["Which artery supplies the midgut?",["Celiac trunk","Superior mesenteric artery","Inferior mesenteric artery"],1,"Celiac → foregut, SMA → midgut, IMA → hindgut."]},
+{t:"Umbilical cord & placenta",d:"Fetal life",
+ pts:["The fetus can't use its lungs, so the <b>placenta</b> is the source of oxygen-rich blood","The <b>umbilical cord</b> carries <b>2 arteries and 1 vein</b> (2A, 1V)","They are wrapped in <b>Wharton's jelly</b>, from the <b>extraembryonic mesoderm</b>","Only one vein, because the <b>right umbilical vein degenerates</b>; the <b>left umbilical vein</b> carries oxygen-rich blood to the fetus","The <b>umbilical arteries</b> carry oxygen-poor blood back to the placenta"],
+ note:["Remember","In the cord the names flip: the vein carries the oxygen-rich blood and the arteries carry the oxygen-poor blood."],
+ q:["What does the umbilical cord contain?",["1 artery, 2 veins","2 arteries, 1 vein","2 arteries, 2 veins"],1,"2 arteries and 1 vein in Wharton's jelly. The right umbilical vein degenerates."]},
+{t:"Liver & the ductus venosus",d:"Fetal life",
+ pts:["The <b>left umbilical vein</b> enters the abdomen at the umbilicus and runs up to the <b>liver</b>","The liver is still developing, so most of the blood takes a shortcut: the <b>ductus venosus</b>","The ductus venosus carries it <b>past the liver</b> straight into the <b>IVC</b>","A smaller share goes into the liver sinusoids through the portal branches","In the IVC it mixes with oxygen-poor blood from the lower body, then enters the <b>right atrium</b>"],
+ note:["Shunt 1 of 3","Ductus venosus: skips the <b>liver</b>."],
+ q:["The ductus venosus lets umbilical blood bypass the…",["Lungs","Liver","Right ventricle"],1,"Umbilical vein → ductus venosus → IVC, skipping the developing liver."]},
+{t:"Right atrium → foramen ovale → left heart",d:"Fetal life",
+ pts:["IVC blood entering the <b>right atrium</b> is aimed by the <b>valve of the IVC</b> at the <b>foramen ovale</b>","It crosses into the <b>left atrium</b>, then the <b>left ventricle</b> and the <b>ascending aorta</b>","The best-oxygenated blood therefore reaches the <b>head, neck and upper limbs</b> first","Oxygen-poor blood from the head and arms returns through the <b>SVC</b> into the right atrium and goes down to the <b>right ventricle</b>","The pulmonary vasculature isn't ready, so very little blood comes back to the left atrium from the lungs"],
+ note:["Shunt 2 of 3","Foramen ovale: skips the <b>right ventricle</b> and the lungs (a door between the atria)."],
+ q:["Oxygen-rich IVC blood reaches the left atrium through the…",["Ductus arteriosus","Foramen ovale","Ductus venosus"],1,"RA → foramen ovale → LA → LV → aorta."]},
+{t:"Ductus arteriosus bypasses the lungs",d:"Fetal life",
+ pts:["The right ventricle pumps SVC blood into the <b>pulmonary trunk</b>","The fluid-filled lungs have high resistance, so most of it is shunted through the <b>ductus arteriosus</b> into the <b>aorta</b>","The ductus is the distal part of the <b>left 6th arch artery</b>","It joins the aorta <b>after</b> the arteries to the head and arms leave the arch","Some blood still reaches the lungs through the pulmonary arteries, enough for them to grow"],
+ note:["Shunt 3 of 3","Ductus arteriosus: skips the <b>lungs</b> (pulmonary trunk → aorta)."],
+ q:["The ductus arteriosus connects the pulmonary trunk to the…",["Aorta","Left atrium","Superior vena cava"],0,"It carries blood from the pulmonary trunk to the aorta, bypassing the lungs."]},
+{t:"Umbilical arteries: back to the placenta",d:"Fetal life",
+ pts:["The <b>descending aorta</b> carries mixed blood to the lower body","The <b>internal iliac arteries</b> give off the <b>2 umbilical arteries</b>","They run up the anterior abdominal wall to the umbilicus and out through the cord","Oxygen-poor blood returns to the <b>placenta</b> to pick up oxygen again, and the loop starts over"],
+ note:["The whole loop","Placenta → umbilical vein → ductus venosus → IVC → RA → foramen ovale → LA → LV → aorta → … → umbilical arteries → placenta."],
+ q:["Oxygen-poor blood returns to the placenta through the…",["Umbilical vein","Umbilical arteries","Ductus venosus"],1,"Two umbilical arteries, from the internal iliacs, carry it back."]},
+{t:"Changes at birth",d:"Birth",
+ pts:["The cord is clamped and the baby cries: the <b>lungs expand</b> and pulmonary resistance falls","Much more blood returns from the lungs, so <b>left atrial pressure rises</b> above the right","The septum primum flap is pressed against the septum secundum: <b>foramen ovale → fossa ovalis</b>","<b>Ductus arteriosus → ligamentum arteriosum</b>: its intimal (endothelial) cells multiply until it is filled","<b>Ductus venosus → ligamentum venosum</b>","<b>Left umbilical vein → ligamentum teres</b> (round ligament) of the liver","<b>Umbilical arteries → medial umbilical ligaments</b>"],
+ note:["Clinical","If the intimal proliferation spreads from the ductus into the aorta it narrows it: <b>coarctation of the aorta</b>, just past the arm arteries, so the arms have high pressure and the legs weak femoral pulses. It narrows rather than blocks, because the aorta is the largest vessel."],
+ q:["After birth, the left umbilical vein becomes the…",["Ligamentum venosum","Ligamentum teres of the liver","Medial umbilical ligament"],1,"Umbilical vein → ligamentum teres. Ductus venosus → ligamentum venosum. Umbilical arteries → medial umbilical ligaments."]}
+
 ];
 
 // ---------- colours ----------
 const C={ecto:0x5b8fd9,meso:0xd9665b,endo:0xe8c25a,noto:0x9d7be8,plate:0x3f6fc0,streak:0x2e4a7a,orom:0xf09ab0,coel:0x6fd3e0,st:0xb48a5c,cell:0xff7a8a,endoT:0xffb3bc,mantle:0xc8505a,
  sv:0x7c8ce0,atr:0x4fb8b0,avc:0x7fc9a8,ven:0xe36464,conus:0xe8a34a,trunc:0xe6c84f,sac:0xc97bd6,aoD:0xd96b78,vein:0x5b7fd6,
  wall:0xc65660,back:0x6e2a33,cush:0xf3d27a,sp1:0xf3a7b8,sp2:0xb85a7c,muscIVS:0xa83f49,ncc:0x9d7be8,aorta:0xe04848,pt:0x4a78d9,flow:0xffffff,
- a1:0xf09ac4,a2:0xb38be3,a3:0x47b874,a4:0xe04848,a5:0x8a8f96,a6:0x4a78d9,duct:0x9a7bd0,da:0xd0855a,isa:0xe9a47c,vagus:0xf2d74e,phar:0xe8c25a,gutF:0xe8c25a,gutM:0xd9a441,gutH:0xc48a2e,organ:0xb98c74,lung:0x8fc7e8};
+ a1:0xf09ac4,a2:0xb38be3,a3:0x47b874,a4:0xe04848,a5:0x8a8f96,a6:0x4a78d9,duct:0x9a7bd0,da:0xd0855a,isa:0xe9a47c,vagus:0xf2d74e,phar:0xe8c25a,gutF:0xe8c25a,gutM:0xd9a441,gutH:0xc48a2e,organ:0xb98c74,lung:0x8fc7e8,
+ oxy:0xe0484f,deoxy:0x4a6fd9,mix:0xa45cc4,mixR:0xd2557a,liver:0x9c5a3c,plac:0xb04a5a,jelly:0xd8cfe0,ra:0x5a86c9,la:0xd06a6a,rv:0x4f72b8,lv:0xc0505a,fo:0xf2d74e,lig:0x9aa3ab};
 const hex=c=>"#"+c.toString(16).padStart(6,"0");
 const LEG=[
  [["ecto","Ectoderm"],["meso","Mesoderm"],["endo","Endoderm"],["noto","Notochordal process"],["plate","Neural plate"],["orom","Oropharyngeal membrane"]],
@@ -183,7 +213,14 @@ const LEG=[
  [["sac","Aortic sac & horns"],["a1","1st arch"],["a2","2nd arch"],["a3","3rd arch"],["a4","4th arch"],["a5","5th arch"],["a6","6th arch"],["da","Dorsal aortae"],["phar","Pharynx"]],
  [["sac","Aortic sac → brachiocephalic & ascending aorta"],["a3","3rd → carotids"],["a4","4th → aortic arch / R subclavian"],["a6","6th arch"],["da","Dorsal aorta"],["isa","7th intersegmental"]],
  [["a6","6th → pulmonary arteries"],["duct","Ductus arteriosus"],["vagus","Vagus & recurrent laryngeal nerves"],["a4","4th arch"],["lung","Lung buds"]],
- [["da","Descending aorta"],["gutF","Foregut"],["gutM","Midgut"],["gutH","Hindgut"],["organ","Suprarenal, kidney, gonad"],["isa","Intersegmental arteries"]]
+ [["da","Descending aorta"],["gutF","Foregut"],["gutM","Midgut"],["gutH","Hindgut"],["organ","Suprarenal, kidney, gonad"],["isa","Intersegmental arteries"]],
+ [["oxy","Oxygen-rich blood"],["deoxy","Oxygen-poor blood"],["jelly","Wharton's jelly"],["plac","Placenta"]],
+ [["oxy","Umbilical vein & ductus venosus"],["liver","Liver"],["deoxy","IVC from the lower body"],["mix","Mixed blood"]],
+ [["mix","IVC → right atrium"],["fo","Foramen ovale"],["ra","Right atrium"],["la","Left atrium"],["lv","Left ventricle"],["mixR","Aorta → head & arms"],["deoxy","SVC"]],
+ [["deoxy","Pulmonary trunk"],["duct","Ductus arteriosus"],["mix","Descending aorta"],["lung","Lungs (fluid-filled)"]],
+ [["mix","Descending aorta & iliacs"],["deoxy","Umbilical arteries"],["oxy","Umbilical vein"],["plac","Placenta"]],
+ [["lig","Ligaments & fossa ovalis"],["lung","Expanded lungs"],["oxy","Oxygen-rich"],["deoxy","Oxygen-poor"]]
+
 ];
 
 // ---------- scene ----------
@@ -483,6 +520,107 @@ function updateD(t){
  vbr.forEach(([m,y])=>setD(m,[V(0,y,DZ),V(0,y-0.05,-0.2),V(0,y-0.08,0.48)],0.08,st16));
  dIsa.forEach(([m,y,s])=>setD(m,[V(s*0.1,y,DZ-0.12),V(s*0.32,y-0.03,DZ-0.55)],0.04,st16*(y<-0.3?1:0)));
 }
+
+// ====================================================================
+// PHASE E: fetal circulation (front view; the fetus's left is +x, ventral is +z)
+// ====================================================================
+G.E=new THREE.Group();scene.add(G.E);
+const E={};const eM=(c,op)=>{const m=tubeMesh(c,op==null?1:op);G.E.add(m);return m;};
+const eBlob=(c,op,p,s)=>{const m=new THREE.Mesh(new THREE.SphereGeometry(1,32,22),mat(c,op));m.position.set(...p);m.scale.set(...s);G.E.add(m);return m;};
+// organs
+E.liver=eBlob(C.liver,0.3,[-0.35,-0.95,0.15],[1.75,0.85,0.95]);
+E.lungR=eBlob(C.lung,0.32,[-1.75,1.55,-0.25],[0.62,1.0,0.55]);E.lungL=eBlob(C.lung,0.32,[1.75,1.55,-0.25],[0.58,0.95,0.55]);
+E.RA=eBlob(C.ra,0.5,[-0.72,1.62,0.3],[0.55,0.5,0.5]);E.LA=eBlob(C.la,0.5,[0.68,1.78,0.0],[0.5,0.45,0.45]);
+E.RV=eBlob(C.rv,0.5,[-0.38,0.62,0.68],[0.62,0.62,0.55]);E.LV=eBlob(C.lv,0.5,[0.58,0.58,0.35],[0.6,0.66,0.55]);
+E.plac=new THREE.Mesh(new THREE.CylinderGeometry(1.15,1.3,0.32,40),mat(C.plac,0.9));E.plac.position.set(-3.7,-3.4,1.4);E.plac.rotation.z=Math.PI/2.4;G.E.add(E.plac);
+// foramen ovale: a ring in the atrial septum, with the septum primum flap that seals it at birth
+E.fo=new THREE.Mesh(new THREE.TorusGeometry(0.2,0.045,10,32),mat(C.fo,1));E.fo.position.set(-0.02,1.72,0.18);E.fo.rotation.y=Math.PI/2;G.E.add(E.fo);
+E.flap=new THREE.Mesh(new THREE.CircleGeometry(0.24,32),mat(C.sp1,0.95));E.flap.position.set(0.06,1.72,0.18);E.flap.rotation.y=Math.PI/2;G.E.add(E.flap);
+// vessels: [name, colour, radius, points]
+const EP={
+ umbV:[[0,-2.55,1.25],[0.12,-2.0,1.15],[0.22,-1.45,0.95]],
+ dv:[[0.22,-1.45,0.95],[0.05,-1.05,0.6],[-0.3,-0.65,0.2],[-0.5,-0.4,-0.05]],
+ portal:[[0.05,-1.05,0.6],[0.6,-0.9,0.45],[1.0,-0.75,0.3]],
+ ivcLow:[[-0.45,-4.3,-0.45],[-0.5,-2.6,-0.35],[-0.52,-1.3,-0.2],[-0.5,-0.4,-0.05]],
+ ivcUp:[[-0.5,-0.4,-0.05],[-0.6,0.4,0.1],[-0.68,1.12,0.28]],
+ svc:[[-0.82,4.3,0.15],[-0.82,3.0,0.2],[-0.75,2.1,0.3]],
+ aoAsc:[[0.35,1.0,0.6],[0.22,1.8,0.75],[0.15,2.55,0.65]],
+ aoArch:[[0.15,2.55,0.65],[0.35,3.05,0.3],[0.75,3.05,-0.3],[0.85,2.55,-0.65]],
+ aoDesc:[[0.85,2.55,-0.65],[0.6,1.5,-0.8],[0.25,0.0,-0.85],[0.1,-2.0,-0.85],[0.05,-3.7,-0.8]],
+ br1:[[0.2,2.85,0.55],[0.05,3.6,0.45],[-0.1,4.4,0.35]],br2:[[0.42,3.05,0.22],[0.45,3.8,0.15],[0.5,4.4,0.1]],br3:[[0.72,3.0,-0.2],[1.0,3.5,-0.25],[1.6,3.9,-0.3]],
+ pt:[[-0.25,1.15,0.95],[-0.1,1.9,1.0],[0.15,2.35,0.6],[0.35,2.45,0.15]],
+ da:[[0.35,2.45,0.15],[0.62,2.5,-0.25],[0.82,2.3,-0.62]],
+ paR:[[0.2,2.4,0.35],[-0.6,2.25,0.0],[-1.45,1.9,-0.15]],paL:[[0.38,2.42,0.05],[1.0,2.25,-0.1],[1.5,1.9,-0.2]],
+ pvR:[[-1.4,1.4,-0.3],[-0.4,1.6,-0.3],[0.42,1.75,-0.2]],pvL:[[1.45,1.4,-0.3],[1.1,1.6,-0.25],[0.9,1.75,-0.15]],
+ ilR:[[0.05,-3.7,-0.8],[-0.55,-4.35,-0.6],[-0.65,-4.7,-0.2]],ilL:[[0.05,-3.7,-0.8],[0.6,-4.35,-0.6],[0.7,-4.7,-0.2]],
+ uaR:[[-0.65,-4.7,-0.2],[-0.55,-4.2,0.7],[-0.3,-3.2,1.2],[-0.08,-2.62,1.28]],uaL:[[0.7,-4.7,-0.2],[0.6,-4.2,0.7],[0.32,-3.2,1.2],[0.08,-2.62,1.28]]
+};
+const ECOL={umbV:C.oxy,dv:C.oxy,portal:C.oxy,ivcLow:C.deoxy,ivcUp:C.mix,svc:C.deoxy,aoAsc:C.mixR,aoArch:C.mixR,aoDesc:C.mix,br1:C.mixR,br2:C.mixR,br3:C.mixR,pt:C.deoxy,da:C.duct,paR:C.deoxy,paL:C.deoxy,pvR:C.oxy,pvL:C.oxy,ilR:C.mix,ilL:C.mix,uaR:C.deoxy,uaL:C.deoxy};
+const ER={umbV:0.13,dv:0.11,portal:0.07,ivcLow:0.15,ivcUp:0.17,svc:0.15,aoAsc:0.17,aoArch:0.17,aoDesc:0.15,br1:0.07,br2:0.07,br3:0.07,pt:0.15,da:0.12,paR:0.06,paL:0.06,pvR:0.05,pvL:0.05,ilR:0.09,ilL:0.09,uaR:0.08,uaL:0.08};
+for(const k in EP){E[k]=eM(ECOL[k]);setTube(E[k],EP[k].map(p=>V(...p)),ER[k],32);E[k].userData.c0=ECOL[k];}
+// umbilical cord: Wharton's jelly sheath with 2 arteries and 1 vein twisting inside it
+const UMB=V(0,-2.6,1.3),PLC=V(-3.35,-3.25,1.4);
+const cordAxis=new THREE.CatmullRomCurve3([UMB,V(-0.9,-3.4,1.9),V(-2.2,-3.6,1.8),PLC]);
+E.jelly=new THREE.Mesh(new THREE.TubeGeometry(cordAxis,48,0.34,20,false),mat(C.jelly,0.22));G.E.add(E.jelly);
+function cordStrand(ph,r){const pts=[];const up=V(0,0,1),tmp=V(0,0,0);for(let i=0;i<=40;i++){const s=i/40;const p=cordAxis.getPointAt(s),tg=cordAxis.getTangentAt(s);
+ const n1=tmp.crossVectors(tg,up).normalize().clone(),n2=V(0,0,0).crossVectors(tg,n1).normalize();const a=ph+s*Math.PI*3;
+ pts.push(p.clone().add(n1.multiplyScalar(Math.cos(a)*r)).add(n2.multiplyScalar(Math.sin(a)*r)));}return pts;}
+E.cordV=eM(C.oxy);setTube(E.cordV,cordStrand(0,0.13),0.085,80);
+E.cordA1=eM(C.deoxy);setTube(E.cordA1,cordStrand(2.1,0.17),0.06,80);E.cordA2=eM(C.deoxy);setTube(E.cordA2,cordStrand(4.2,0.17),0.06,80);
+// cross-section disc at the middle of the cord (the cut you see in histology)
+const cutP=cordAxis.getPointAt(0.5),cutT=cordAxis.getTangentAt(0.5);
+E.cut=new THREE.Group();E.cut.position.copy(cutP);E.cut.quaternion.setFromUnitVectors(V(0,0,1),cutT.clone().normalize());G.E.add(E.cut);
+{const d=new THREE.Mesh(new THREE.CircleGeometry(0.36,40),mat(C.jelly,0.7));E.cut.add(d);
+ const vs=[[0,0.12,0.11,C.oxy],[0.15,-0.1,0.075,C.deoxy],[-0.15,-0.1,0.075,C.deoxy]];
+ for(const [x,y,r,c] of vs){const m=new THREE.Mesh(new THREE.RingGeometry(r*0.55,r,28),mat(c,1));m.position.set(x,y,0.01);E.cut.add(m);}}
+// blood-flow particles: two streams, coloured by oxygen
+const fl=(arr)=>new THREE.CatmullRomCurve3(arr.flat().map(p=>V(...p)).filter((p,i,a)=>i===0||p.distanceTo(a[i-1])>0.02),false,"centripetal");
+const toPlac=[...cordStrand(0,0.13)].reverse().map(p=>[p.x,p.y,p.z]);
+const fromPlacA=cordStrand(2.1,0.17).map(p=>[p.x,p.y,p.z]);
+const PATH={
+ oxy:fl([toPlac,EP.umbV,EP.dv,EP.ivcUp,[[-0.55,1.62,0.3],[-0.02,1.72,0.18],[0.5,1.78,0.05],[0.65,1.3,0.25],[0.55,0.6,0.45],[0.35,1.0,0.6]],EP.aoAsc,[[0.18,2.7,0.62]],EP.br1.slice(1)]),
+ deoxy:fl([EP.svc,[[-0.72,1.62,0.3],[-0.5,1.0,0.6],[-0.35,0.62,0.75],[-0.25,1.15,0.95]],EP.pt,EP.da.slice(1),EP.aoDesc.slice(1),EP.ilL.slice(1),EP.uaL.slice(1),fromPlacA]),
+ born:fl([EP.svc,[[-0.72,1.62,0.3],[-0.35,0.62,0.75],[-0.25,1.15,0.95]],EP.pt.slice(1,3),EP.paL.slice(1),[[1.75,1.55,-0.25]],[...EP.pvL].slice(0,1),EP.pvL.slice(1),[[0.65,1.3,0.25],[0.55,0.6,0.45],[0.35,1.0,0.6]],EP.aoAsc,EP.aoArch.slice(1),EP.aoDesc.slice(1)])
+};
+const eFlow={};for(const k of ["oxy","deoxy","born"]){eFlow[k]=[];for(let i=0;i<34;i++){const m=new THREE.Mesh(new THREE.SphereGeometry(0.065,8,6),new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:0,depthTest:false}));m.renderOrder=6;scene.add(m);eFlow[k].push(m);}}
+const cA=new THREE.Color(),cB=new THREE.Color();
+function flowRun(k,on,clock,seg0,seg1,colFn){const arr=eFlow[k];for(let i=0;i<arr.length;i++){const m=arr[i];if(on<0.02){m.visible=false;continue;}m.visible=true;
+  const s=seg0+(seg1-seg0)*((((clock*0.07+i/arr.length)%1)+1)%1);m.position.copy(PATH[k].getPointAt(s));m.material.opacity=0.95*on*Math.min(1,Math.min(s-seg0,seg1-s)*30);m.material.color.copy(colFn(s));}}
+const OXY=new THREE.Color(0xff5a5a),MIX=new THREE.Color(0xc06ad6),DEO=new THREE.Color(0x6b8cff);
+const colOxy=s=>s<0.42?OXY:cA.copy(OXY).lerp(MIX,0.35);
+const colDeo=s=>s<0.62?DEO:(s<0.86?cB.copy(DEO).lerp(MIX,0.5):DEO);
+const colBorn=s=>s<0.42?DEO:OXY;
+let eDA=-1;
+function updateE(t,clock,beat){
+ const birth=R(t,21.05,21.35),foK=R(t,21.15,21.45),daK=R(t,21.3,21.65),venK=R(t,21.35,21.7),cordK=R(t,21.0,21.25);
+ // cord & placenta are cut away at birth
+ for(const k of ["jelly","cordV","cordA1","cordA2","plac"])E[k].userData.lk=1-cordK;
+ E.cut.visible=t<17&&!REDUCE?true:t<17;E.cut.children.forEach(o=>o.userData.lk=1-R(t,16.85,17.0));
+ // lungs expand
+ const ls=1+0.28*birth;E.lungR.scale.set(0.62*ls,1.0*ls,0.55*ls);E.lungL.scale.set(0.58*ls,0.95*ls,0.55*ls);E.lungR.userData.lk=E.lungL.userData.lk=1+0.4*birth;
+ for(const k of ["pvR","pvL","paR","paL"])E[k].userData.lk=0.45+0.55*birth;
+ // septum primum flap presses against the septum secundum: foramen ovale → fossa ovalis
+ E.flap.position.x=lerp(0.06,-0.005,foK);E.flap.material.color.setHex(foK>0.5?C.lig:C.sp1);E.fo.material.color.setHex(foK>0.5?C.lig:C.fo);
+ // shunts and umbilical vessels close into ligaments
+ const daR=lerp(0.12,0.045,daK);if(Math.abs(daR-eDA)>0.004){eDA=daR;setTube(E.da,EP.da.map(p=>V(...p)),daR,24);}
+ const grey=(m,k)=>m.material.color.copy(cA.setHex(m.userData.c0)).lerp(cB.setHex(C.lig),k);
+ grey(E.da,daK);grey(E.dv,venK);grey(E.umbV,venK);grey(E.portal,0);grey(E.uaR,venK);grey(E.uaL,venK);
+ // after birth the IVC, ductus-free circuit carries ordinary venous/arterial colours
+ grey(E.ivcUp,0);E.ivcUp.material.color.lerp(cB.setHex(C.deoxy),birth);
+ for(const k of ["aoAsc","aoArch","br1","br2","br3"]){E[k].material.color.setHex(E[k].userData.c0);E[k].material.color.lerp(cB.setHex(C.oxy),birth);}
+ E.aoDesc.material.color.setHex(C.mix);E.aoDesc.material.color.lerp(cB.setHex(C.oxy),birth);
+ // heartbeat
+ const hb=1+0.03*beat;for(const k of ["RA","LA","RV","LV"])E[k].scale.setScalar(1);E.RA.scale.set(0.55*hb,0.5*hb,0.5*hb);E.LA.scale.set(0.5*hb,0.45*hb,0.45*hb);E.RV.scale.set(0.62*hb,0.62*hb,0.55*hb);E.LV.scale.set(0.6*hb,0.66*hb,0.55*hb);
+ // flow: which stream shows in which stage
+ const f=st.flow?1:0;
+ const oxyOn=f*(R(t,16.05,16.3)*(1-birth)),deoOn=f*(R(t,17.9,18.1)*(1-birth)),bornOn=f*R(t,21.45,21.7);
+ const oxyEnd=t<17?0.35:t<18?0.6:1, deoEnd=t<19?0.21:t<20?0.6:1, deoStart=0;
+ flowRun("oxy",oxyOn,clock,0,oxyEnd,colOxy);
+ flowRun("deoxy",deoOn*(t<18?0:1),clock,deoStart,deoEnd,colDeo);
+ flowRun("born",bornOn,clock,0,1,colBorn);
+}
+function hideEFlow(){for(const k in eFlow)eFlow[k].forEach(m=>m.visible=false);}
+
 // ---------- blood-flow particles ----------
 const flowG=new THREE.Group();scene.add(flowG);const NP=36;const parts=[];
 for(let i=0;i<NP;i++){const m=new THREE.Mesh(new THREE.SphereGeometry(0.06,8,6),new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.9,depthTest:false}));m.renderOrder=5;flowG.add(m);parts.push(m);}
@@ -608,6 +746,33 @@ tag("Gonadal a.",C.organ,15.3,16,()=>V(1.1,-4.45,-1.0));
 tag("C7 intersegmental → subclavian (upper limb)",C.isa,15.1,16,()=>V(2.3,0.08,-0.68));
 tag("L5 intersegmental → axis a. of lower limb",C.isa,15.3,16,()=>V(-1.9,-5.85,-0.75));
 tag("Dorsal intersegmental arteries",C.isa,15.3,16,()=>V(0.3,-1.9,DZ-0.5));
+tag("Placenta",C.plac,16.0,21.2,()=>V(-3.75,-2.3,1.4));
+tag("Umbilical cord",C.jelly,16.0,17.0,()=>cordAxis.getPointAt(0.3));
+tag("Cut cord: 2 arteries, 1 vein",C.oxy,16.0,17.0,()=>cutP.clone().add(V(0,0.35,0)));
+tag("Wharton's jelly (extraembryonic mesoderm)",C.jelly,16.0,17.0,()=>cordAxis.getPointAt(0.72));
+tag("Left umbilical vein",C.oxy,16.1,21.2,()=>V(0.14,-2.0,1.15));
+tag("Liver",C.liver,16.5,21,()=>V(-1.7,-1.0,0.3));
+tag("Ductus venosus",C.oxy,17.0,21.2,()=>V(-0.15,-0.8,0.4));
+tag("IVC",C.deoxy,17.0,22,()=>V(-0.52,-2.4,-0.35));
+tag("Right atrium",C.ra,17.5,22,()=>V(-1.15,1.75,0.3));
+tag("Foramen ovale",C.fo,18.0,21.2,()=>V(-0.02,1.72,0.25));
+tag("Left atrium",C.la,18.0,22,()=>V(1.0,2.0,0.0));
+tag("Left ventricle",C.lv,18.0,22,()=>V(0.95,0.45,0.35));
+tag("Right ventricle",C.rv,18.0,22,()=>V(-0.6,0.35,0.9));
+tag("Aorta → head & arms",C.mixR,18.0,20,()=>V(0.45,3.6,0.15));
+tag("SVC",C.deoxy,18.0,22,()=>V(-0.82,3.2,0.2));
+tag("Pulmonary trunk",C.deoxy,19.0,20,()=>V(-0.1,1.9,1.0));
+tag("Ductus arteriosus",C.duct,19.0,21.2,()=>V(0.62,2.5,-0.25));
+tag("Lungs (fluid-filled)",C.lung,19.0,20,()=>V(-1.9,1.2,-0.2));
+tag("Descending aorta",C.mix,19.3,21,()=>V(0.12,-1.6,-0.85));
+tag("Internal iliac arteries",C.mix,20.0,21,()=>V(-0.6,-4.5,-0.4));
+tag("Umbilical arteries",C.deoxy,20.0,21.2,()=>V(-0.4,-3.4,1.15));
+tag("Lungs expand",C.lung,21.3,22,()=>V(-2.0,1.0,-0.2));
+tag("Foramen ovale → fossa ovalis",C.lig,21.45,22,()=>V(-0.02,1.72,0.25));
+tag("Ductus arteriosus → ligamentum arteriosum",C.lig,21.6,22,()=>V(0.62,2.5,-0.25));
+tag("Ductus venosus → ligamentum venosum",C.lig,21.65,22,()=>V(-0.15,-0.8,0.4));
+tag("L umbilical vein → ligamentum teres",C.lig,21.65,22,()=>V(0.14,-2.0,1.15));
+tag("Umbilical arteries → medial umbilical ligaments",C.lig,21.65,22,()=>V(-0.4,-3.4,1.15));
 function placeTags(t){const r=canvas.getBoundingClientRect(),W=r.width,H=r.height;const v=new THREE.Vector3();const vis=[];
  for(const g of TAGS){const on=st.labels&&t>=g.a&&t<g.b;if(!on){g.el.style.display="none";g.side=null;continue;}
   let p;try{p=g.pos();}catch(e){p=null;}if(!p){g.el.style.display="none";continue;}
@@ -626,16 +791,26 @@ function placeTags(t){const r=canvas.getBoundingClientRect(),W=r.width,H=r.heigh
 // ---------- camera presets per stage: [pos, target] ----------
 const CAM=[[[5.5,-7.5,6.5],[0,0,0]],[[3.8,-2.5,7.6],[0,1.6,0]],[[2.6,1.0,5.2],[0,3.1,0]],[[11.5,1.5,1.5],[0,0.6,-0.6]],[[6.5,3.2,0.6],[0,1.7,-1.2]],
  [[4.5,1.0,11.5],[0,0,-0.3]],[[7.5,3.5,9.5],[0,0,-0.2]],[[-9,3,-5.5],[0,0.6,-0.6]],[[3.5,1.5,8.5],[0,0,-0.3]],[[1.5,0.8,7.5],[0,0.9,-0.3]],[[1.8,-0.1,9.6],[0,-0.25,-0.3]],[[5.5,2.0,10.5],[0,0.6,0]],
- [[6.5,4.2,10.0],[0,1.6,-0.1]],[[5.5,3.8,10.5],[0,1.5,-0.1]],[[6.0,3.0,10.0],[0,1.0,0]],[[8.0,-0.5,14.5],[0,-2.4,-0.3]]];
+ [[6.5,4.2,10.0],[0,1.6,-0.1]],[[5.5,3.8,10.5],[0,1.5,-0.1]],[[6.0,3.0,10.0],[0,1.0,0]],[[8.0,-0.5,14.5],[0,-2.4,-0.3]],
+ [[-1.6,-1.4,9.8],[-1.7,-3.1,1.4]],[[3.8,0.2,11.5],[-0.3,-1.0,0.3]],[[3.0,2.5,7.0],[0,1.6,0.3]],[[4.5,3.0,8.0],[0.3,1.6,0]],[[3.5,0,14.5],[-0.9,-1.0,0.3]],[[4.0,1.5,13.5],[-0.3,-0.3,0.2]]];
 let tween=null;
 function goCam(i,instant){const c=CAM[i];const to=V(...c[0]),tg=V(...c[1]);if(instant||REDUCE){camera.position.copy(to);controls.target.copy(tg);tween=null;return;}
  tween={p0:camera.position.clone(),p1:to,t0:controls.target.clone(),t1:tg,k:0};}
 
 // ---------- state & UI ----------
 const st={t:0,play:false,stopAt:null,labels:true,flow:true,beat:true,stage:-1};
-$("steps").innerHTML=STAGES.map((s,i)=>`<li><button data-s="${i}"><span class="n">${String(i+1).padStart(2,"0")}</span><span>${s.t}</span><span class="d">${s.d.replace(/^Weeks? [0-9–]+ · /,"")}</span></button></li>`).join("");
+const NS=STAGES.length,TMAX=NS-0.001;
+const TABS=[{id:"tube",n:"Heart tube & septation",a:0,b:11},{id:"arches",n:"Aortic arches",a:12,b:15},{id:"fetal",n:"Fetal circulation",a:16,b:NS-1}];
+const tabOf=i=>TABS.findIndex(x=>i>=x.a&&i<=x.b);let curTab=-1;
+$("tabs").innerHTML=TABS.map((x,i)=>`<button role="tab" data-tab="${i}" aria-selected="false">${x.n}</button>`).join("");
+function setTab(j){if(j===curTab)return;curTab=j;const T=TABS[j];
+ for(const b of $("tabs").querySelectorAll("button"))b.setAttribute("aria-selected",String(+b.dataset.tab===j));
+ for(const li of $("steps").children){const i=+li.firstChild.dataset.s;li.hidden=i<T.a||i>T.b;}
+ $("tl").min=T.a;$("tl").max=T.b+0.999;}
+$("tabs").addEventListener("click",e=>{const b=e.target.closest("[data-tab]");if(!b)return;const T=TABS[+b.dataset.tab];st.play=false;updPlay();st.stage=-1;setT(T.a+0.9);});
+$("steps").innerHTML=STAGES.map((s,i)=>`<li><button data-s="${i}"><span class="n">${String(i+1-TABS[tabOf(i)].a).padStart(2,"0")}</span><span>${s.t}</span><span class="d">${s.d.replace(/^Weeks? [0-9–]+ · /,"")}</span></button></li>`).join("");
 function showStage(i){const s=STAGES[i];
- $("info").innerHTML=`<div class="kind"><span>Stage ${i+1} of ${STAGES.length}</span><span>${s.d}</span></div><h2>${s.t}</h2><ul>${s.pts.map(x=>`<li>${x}</li>`).join("")}</ul>${s.note?`<div class="note"><b>${s.note[0]}</b>${s.note[1]}</div>`:""}`;
+ $("info").innerHTML=`<div class="kind"><span>Stage ${i+1-TABS[tabOf(i)].a} of ${TABS[tabOf(i)].b-TABS[tabOf(i)].a+1}</span><span>${s.d}</span></div><h2>${s.t}</h2><ul>${s.pts.map(x=>`<li>${x}</li>`).join("")}</ul>${s.note?`<div class="note"><b>${s.note[0]}</b>${s.note[1]}</div>`:""}`;
  for(const b of $("steps").querySelectorAll("button"))b.toggleAttribute("aria-current",false),b.removeAttribute("aria-current");
  const cur=$("steps").querySelector(`[data-s="${i}"]`);if(cur)cur.setAttribute("aria-current","step");
  $("legend").innerHTML=LEG[i].map(([k,n])=>`<span><i class="dot" style="background:${hex(C[k])}"></i>${n}</span>`).join("");
@@ -643,14 +818,14 @@ function showStage(i){const s=STAGES[i];
 $("ckBody").addEventListener("click",e=>{const b=e.target.closest("[data-o]");if(!b)return;const q=STAGES[st.stage].q;const j=+b.dataset.o;
  for(const x of $("ckBody").querySelectorAll("[data-o]"))x.classList.remove("ok","bad");
  b.classList.add(j===q[2]?"ok":"bad");if(j!==q[2])$("ckBody").querySelector(`[data-o="${q[2]}"]`).classList.add("ok");$("ckFb").textContent=(j===q[2]?"Correct. ":"Not quite. ")+q[3];});
-function setT(t){st.t=clamp(t,0,15.999);$("tl").value=st.t;const i=Math.floor(st.t);if(i!==st.stage){st.stage=i;showStage(i);goCam(i);}
- $("pos").textContent=`Stage ${i+1} · ${Math.round((st.t-i)*100)}%`;}
+function setT(t){st.t=clamp(t,0,TMAX);const i=Math.floor(st.t);setTab(tabOf(i));$("tl").value=st.t;if(i!==st.stage){st.stage=i;showStage(i);goCam(i);}
+ $("pos").textContent=`Stage ${i+1-TABS[curTab].a} · ${Math.round((st.t-i)*100)}%`;}
 function playStage(i){st.play=true;st.stopAt=i+0.9;setT(i);updPlay();}
 function updPlay(){$("bPlay").textContent=st.play?"❚❚ Pause":"▶ Play";$("bPlay").setAttribute("aria-label",st.play?"Pause":"Play the whole sequence");}
 $("steps").addEventListener("click",e=>{const b=e.target.closest("[data-s]");if(b)playStage(+b.dataset.s);});
-$("bPrev").onclick=()=>playStage(Math.max(0,st.stage-(st.t-st.stage<0.15?1:0)));
-$("bNext").onclick=()=>playStage(Math.min(15,st.stage+1));
-$("bPlay").onclick=()=>{if(st.play){st.play=false;}else{if(st.t>=15.95)setT(0);st.play=true;st.stopAt=null;}updPlay();};
+$("bPrev").onclick=()=>playStage(Math.max(TABS[curTab].a,st.stage-(st.t-st.stage<0.15?1:0)));
+$("bNext").onclick=()=>playStage(Math.min(TABS[curTab].b,st.stage+1));
+$("bPlay").onclick=()=>{const T=TABS[curTab];if(st.play){st.play=false;}else{if(st.t>=T.b+0.95)setT(T.a);st.play=true;st.stopAt=T.b+0.999;}updPlay();};
 $("tl").addEventListener("input",e=>{st.play=false;updPlay();setT(+e.target.value);});
 function tog(id,k){const b=$(id);b.onclick=()=>{st[k]=!st[k];b.setAttribute("aria-pressed",st[k]);};}
 tog("tLabels","labels");tog("tFlow","flow");tog("tBeat","beat");
@@ -664,19 +839,19 @@ function bg(){scene.background=new THREE.Color(css("--scene")||"#0c1214");}
 window.addEventListener("message",e=>{if(e.data==="jj-theme")setTimeout(bg,30);});window.addEventListener("storage",()=>setTimeout(bg,30));
 let last=performance.now(),clock=0;const SPEED=1/7;   // one stage every ~7 s
 function frame(now){requestAnimationFrame(frame);const dt=Math.min(0.05,(now-last)/1000);last=now;clock+=dt;
- if(st.play){let t=st.t+dt*SPEED*(REDUCE?3:1);if(st.stopAt!=null&&t>=st.stopAt){t=st.stopAt;st.play=false;updPlay();}if(t>=15.999){t=15.999;st.play=false;updPlay();}setT(t);}
+ if(st.play){let t=st.t+dt*SPEED*(REDUCE?3:1);if(st.stopAt!=null&&t>=st.stopAt){t=st.stopAt;st.play=false;updPlay();}if(t>=TMAX){t=TMAX;st.play=false;updPlay();}setT(t);}
  const t=st.t;
  const beat=st.beat&&t>=4.4&&!REDUCE?Math.pow(Math.max(0,Math.sin(clock*Math.PI*2*1.1)),6):0;
- const kA=1-R(t,5.0,5.3),kB=R(t,5.0,5.3)*(1-R(t,8.0,8.3)),kC=R(t,8.0,8.3)*(1-R(t,12.0,12.25)),kD=R(t,12.0,12.25);
- if(kA>0.01)updateA(t);if(kB>0.01)updateB(t,beat);if(kC>0.01)updateC(t);if(kD>0.01)updateD(t);
- fade(G.A,kA);fade(G.B,kB);fade(G.C,kC);fade(G.D,kD);
+ const kA=1-R(t,5.0,5.3),kB=R(t,5.0,5.3)*(1-R(t,8.0,8.3)),kC=R(t,8.0,8.3)*(1-R(t,12.0,12.25)),kD=R(t,12.0,12.25)*(1-R(t,16.0,16.25)),kE=R(t,16.0,16.25);
+ if(kA>0.01)updateA(t);if(kB>0.01)updateB(t,beat);if(kC>0.01)updateC(t);if(kD>0.01)updateD(t);if(kE>0.01)updateE(t,clock,beat);else hideEFlow();
+ fade(G.A,kA);fade(G.B,kB);fade(G.C,kC);fade(G.D,kD);fade(G.E,kE);
  G.C.scale.setScalar(1+0.025*beat);
  updateFlow(t,clock);
  if(tween){tween.k=Math.min(1,tween.k+dt/1.2);const k=sm(tween.k);camera.position.lerpVectors(tween.p0,tween.p1,k);controls.target.lerpVectors(tween.t0,tween.t1,k);if(tween.k>=1)tween=null;}
  controls.update();renderer.render(scene,camera);placeTags(t);}
 controls.addEventListener("start",()=>{tween=null;});
 // deep link: #stage=7 (1-based)
-function route(){const h=new URLSearchParams(location.hash.slice(1));const s=parseInt(h.get("stage")||"1",10);const i=clamp(isNaN(s)?0:s-1,0,15);
+function route(){const h=new URLSearchParams(location.hash.slice(1));const s=parseInt(h.get("stage")||"1",10);const tb=TABS.findIndex(x=>x.id===h.get("tab"));const i=tb>=0&&!h.get("stage")?TABS[tb].a:clamp(isNaN(s)?0:s-1,0,NS-1);
  st.stage=-1;setT(i+0.9);goCam(i,true);}
 bg();resize();if(canvas.getBoundingClientRect().width<560){st.labels=false;$("tLabels").setAttribute("aria-pressed","false");}route();window.addEventListener("hashchange",()=>{route();});requestAnimationFrame(frame);
 </script><script src="stagefs.js?v=1" data-stage=".cvwrap" data-prev="#bPrev" data-play="#bPlay" data-next="#bNext"></script>
