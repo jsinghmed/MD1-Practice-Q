@@ -150,6 +150,7 @@ a.lchip{text-decoration:none;color:inherit}
 .sys-h{padding:12px 9px 4px;color:var(--blue);font-size:11px;letter-spacing:1px;font-weight:700;text-transform:uppercase}
 i.d{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:8px;vertical-align:1px;background:var(--muted)}
 .lchip i.d{margin-right:0}i.d.E{background:#2b8a3e}i.d.H{background:#e8590c}i.d.S{background:#0b7285}.lchip i.d.S,.chap i.d.S{background:var(--teal,#0b7285)}
+i.d.M{background:#9c36b5}
 .rv{display:flex;gap:5px;flex-wrap:wrap;padding:0 3px 8px}
 .rv button{font-size:12px;padding:4px 9px;border:1px solid var(--line2);border-radius:13px;background:transparent;color:var(--muted);display:inline-flex;gap:4px;align-items:center}
 .rv button:hover{background:var(--hover);color:var(--text)}
@@ -345,6 +346,7 @@ iframe.jjfs{position:fixed!important;inset:0!important;width:100vw!important;hei
 .badge.xp{color:var(--red);border-color:var(--red)}
 .badge.shetty{color:var(--teal);border-color:var(--teal)}
 .badge.sampath{color:#0b7285;border-color:#0b7285}
+.badge.maria{color:#9c36b5;border-color:#9c36b5}
 .badge.usmle{color:#5f3dc4;border-color:#5f3dc4}
 .labt{border-collapse:collapse;margin:10px 0 12px;font-size:14px;line-height:1.45;max-width:100%}
 .labt th,.labt td{border:1px solid var(--line);padding:5px 9px;text-align:left;vertical-align:top}
@@ -1324,7 +1326,7 @@ button.dst:hover{background:var(--hover)}
 <script src="mocks.js?v=3"></script>
 <script src="crs-anatomy.js?v=1"></script>
 <script src="crs-biochem.js?v=15"></script>
-<script src="crs-physiology.js?v=20"></script>
+<script src="crs-physiology.js?v=21"></script>
 <script src="nbme.js?v=25"></script>
 <script src="xp-crs.js?v=1"></script>
 <script src="viz-links.js?v=3"></script>
@@ -1444,8 +1446,8 @@ const SECTIONS = [
   {course:"crs", name:"CRS Physiology", all:"All CRS Physiology", prefix:"cpr", topics:window.CRS_PH_TOPICS, hideTopics:true, qs:window.CRS_PH_QUESTIONS,
    // Grouped by lecture (Dr. Sampath V.; Lecture 14 onward Dr. Taala-Bayubay), then topic. Add each new lecture as one more [name, topics] row.
    extra:(()=>{ const T = window.CRS_PH_TOPICS||[];
-     return lecExtras([["Lecture 1 · Cardiac Action Potential", T.slice(0,11)], ["Lecture 2 · Pacemaker Potential: SA & AV Nodes", T.slice(11,18)], ["Lecture 3 · Effects of Cardiac Nerves", T.slice(18,25)], ["Lecture 4 · The Cardiac Cycle", T.slice(25,32).concat(T.slice(39,47))], ["Lecture 5 · Cardiac Output & Pressure-Volume Loops", T.slice(32,39)], ["Lecture 6 · Hemodynamics: Flow, Pressure & Resistance", T.slice(47,53)], ["Lecture 7 · Cardiac & Vascular Function Curves", T.slice(53,59)], ["Lecture 8 · Regulation of Blood Pressure", T.slice(59,64)], ["Lecture 9 · ECG Essentials Part 1", T.slice(64,70)], ["Lecture 10 · ECG Part 2: Blocks & Arrhythmias", T.slice(70,75)], ["Lecture 11 · Microcirculation, Lymphatics & Edema", T.slice(76,81)], ["Lecture 12 · Special Circulation", T.slice(81,86)], ["Lecture 13 · Heart Sounds & Murmurs", T.slice(86,91)], ["CVS Final Practice Quiz", T.slice(75,76)], ["Lecture 14 · Hemostasis & Blood Coagulation", T.slice(91,97)]],
-       [["Sampath's Q's", "Sampath", "sampath"], ["USMLE Style Q's", "USMLE", "usmle"]]); })()}
+     return lecExtras([["Lecture 1 · Cardiac Action Potential", T.slice(0,11)], ["Lecture 2 · Pacemaker Potential: SA & AV Nodes", T.slice(11,18)], ["Lecture 3 · Effects of Cardiac Nerves", T.slice(18,25)], ["Lecture 4 · The Cardiac Cycle", T.slice(25,32).concat(T.slice(39,47))], ["Lecture 5 · Cardiac Output & Pressure-Volume Loops", T.slice(32,39)], ["Lecture 6 · Hemodynamics: Flow, Pressure & Resistance", T.slice(47,53)], ["Lecture 7 · Cardiac & Vascular Function Curves", T.slice(53,59)], ["Lecture 8 · Regulation of Blood Pressure", T.slice(59,64)], ["Lecture 9 · ECG Essentials Part 1", T.slice(64,70)], ["Lecture 10 · ECG Part 2: Blocks & Arrhythmias", T.slice(70,75)], ["Lecture 11 · Microcirculation, Lymphatics & Edema", T.slice(76,81)], ["Lecture 12 · Special Circulation", T.slice(81,86)], ["Lecture 13 · Heart Sounds & Murmurs", T.slice(86,91)], ["CVS Final Practice Quiz", T.slice(75,76)], ["Lecture 14 · Hemostasis & Blood Coagulation", T.slice(91,98)]],
+       [["Sampath's Q's", "Sampath", "sampath"], ["Maria's Q's", "Maria", "maria"], ["USMLE Style Q's", "USMLE", "usmle"]]); })()}
 ].concat((window.NBME_QUIZZES||[]).map(z=>({course:z.course, name:z.name, all:z.name, prefix:z.prefix, topics:[], qs:z.qs, nbme:true, subject:z.subject, note:z.note})))
  .filter(s=>s.qs && s.qs.length);
 
@@ -1761,7 +1763,7 @@ function chapBtn(c){
   return `<button class="chap ${S.cur===c.key&&view==="quiz"?"on":""} ${c.head?"all":""} ${c.sub?"sub":""}" data-key="${esc(c.key)}"><span>${esc(c.name)}</span><span class="n">${c.ids.length}</span></button>`;
 }
 // CRS sidebar: each lecture is one row that opens to show its topics; Easy/Hard etc. sit at the bottom.
-const DIFF_RE = /^(Easy questions|Hard questions|Sampath's Q's|Shetty Practice Q's)/;
+const DIFF_RE = /^(Easy questions|Hard questions|Sampath's Q's|Maria's Q's|Shetty Practice Q's)/;
 let LEC_OPEN = {}; try { LEC_OPEN = JSON.parse(localStorage.getItem("jj-lec-open")||"{}"); } catch(e) {}
 // AnKing Step deck notes matched to each lecture. Students paste the search into Anki's Browse window.
 // Key: section prefix + "|" + lecture name (exactly as in lecExtras).
@@ -2125,7 +2127,7 @@ function lecTree(sec){
     if (c.head) head.push(c);
     else if (!c.sub && (DIFF_RE.test(c.name) || c.name==="USMLE Style Q's")) bottom.push(c);
     else if (!c.sub) groups.push({lec:c, kids:[], chips:[]});
-    else if (groups.length) { if (/^(Sampath's Q's|Shetty Practice Q's) · /.test(c.name)) return; // professor sets fold into the lecture's one Sampath/Shetty tile
+    else if (groups.length) { if (/^(Sampath's Q's|Maria's Q's|Shetty Practice Q's) · /.test(c.name)) return; // professor sets fold into the lecture's one Sampath/Shetty tile
       (DIFF_RE.test(c.name) ? groups[groups.length-1].chips : groups[groups.length-1].kids).push(c); }
     else head.push(c);
   });
@@ -2142,7 +2144,7 @@ function lecTree(sec){
       h += g.kids.map(chapBtn).join("");
       const ak = sec.prefix+"|"+g.lec.name, akN = ANKING[ak] ? ANKING[ak].replace(/^nid:/,"").split(",").length : 0, uwN = UWORLD[ak] ? UWORLD[ak].split(",").length : 0;
       // Tile grid: Easy · Hard · Incorrect on top, then Sampath/Shetty · AnKing · UWorld
-      const tile = c=>`<button class="lchip ${S.cur===c.key&&view==="quiz"?"on":""}" data-key="${esc(c.key)}" title="${esc(c.name)}"><b>${c.ids.length}</b><span><i class="d ${c.name[0]}"></i>${esc(c.name.replace(/ questions$/,"").replace(/^Sampath's Q's$/,"Sampath").replace(/^Shetty Practice Q's$/,"Shetty"))}</span></button>`;
+      const tile = c=>`<button class="lchip ${S.cur===c.key&&view==="quiz"?"on":""}" data-key="${esc(c.key)}" title="${esc(c.name)}"><b>${c.ids.length}</b><span><i class="d ${c.name[0]}"></i>${esc(c.name.replace(/ questions$/,"").replace(/^Sampath's Q's$/,"Sampath").replace(/^Maria's Q's$/,"Maria").replace(/^Shetty Practice Q's$/,"Shetty"))}</span></button>`;
       const diff = g.chips.filter(c=>/^(Easy|Hard) questions/.test(c.name)), prof = g.chips.filter(c=>!diff.includes(c));
       const lk = "lrv|"+g.lec.key, incN = g.lec.ids.filter(id=>byId[id] && status(byId[id],S)==="bad").length;
       h += `<div class="lec-chips">` + diff.map(tile).join("")
@@ -2714,7 +2716,7 @@ function renderStats(){
   $("stats").innerHTML = `<b>${done.length}</b> / ${qs.length} answered · <span class="g">${ok} correct</span> · <span class="r">${bad} incorrect</span> · ${pct}%${note}`;
 }
 function srcBadge(q){
-  return (q.xp?' <span class="badge xp">Exam Point</span>':"")+(q.shetty?' <span class="badge shetty">Shetty Practice Q</span>':"")+(q.sampath?' <span class="badge sampath">Sampath\'s Q\'s</span>':"")+(q.usmle?' <span class="badge usmle">USMLE style</span>':"")+(q.slideq?' <span class="badge">Slide practice Q</span>':"")+(q.lq?' <span class="badge">LMS Quiz '+q.lq+'</span>':"")+(q.sdiff?' <span class="badge sd'+q.sdiff.replace(/[^A-Za-z]/g,"")+'">'+q.sdiff+'</span>':"")+(q.src==="lec" && !q.sampath && !q.shetty?' <span class="badge">Lecture slides</span>':"")+(q.src==="guide"?' <span class="badge">Study guide</span>':"")+(q.lv?' <span class="badge lv'+q.lv[0]+'">'+q.lv+'</span>':"")+(q.src==="new"?' <span class="badge">Blueprint practice</span>':"")+(q.src==="rev"?' <span class="badge">Review slides</span>':"")+
+  return (q.xp?' <span class="badge xp">Exam Point</span>':"")+(q.shetty?' <span class="badge shetty">Shetty Practice Q</span>':"")+(q.sampath?' <span class="badge sampath">Sampath\'s Q\'s</span>':"")+(q.maria?' <span class="badge maria">Maria\'s Q\'s</span>':"")+(q.usmle?' <span class="badge usmle">USMLE style</span>':"")+(q.slideq?' <span class="badge">Slide practice Q</span>':"")+(q.lq?' <span class="badge">LMS Quiz '+q.lq+'</span>':"")+(q.sdiff?' <span class="badge sd'+q.sdiff.replace(/[^A-Za-z]/g,"")+'">'+q.sdiff+'</span>':"")+(q.src==="lec" && !q.sampath && !q.maria && !q.shetty?' <span class="badge">Lecture slides</span>':"")+(q.src==="guide"?' <span class="badge">Study guide</span>':"")+(q.lv?' <span class="badge lv'+q.lv[0]+'">'+q.lv+'</span>':"")+(q.src==="new"?' <span class="badge">Blueprint practice</span>':"")+(q.src==="rev"?' <span class="badge">Review slides</span>':"")+
     (q.src==="rev3"?' <span class="badge">MSK Review 3</span>':"")+(q.src==="rev4"?' <span class="badge">MSK Review 4</span>':"");
 }
 function renderCard(){

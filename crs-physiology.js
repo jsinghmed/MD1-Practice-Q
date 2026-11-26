@@ -96,7 +96,8 @@ window.CRS_PH_TOPICS = [
 "Coagulation Cascade: Extrinsic, Intrinsic & Common",
 "Thrombin, Fibrin & Factor XIII",
 "Natural Anticoagulants & Fibrinolysis",
-"Bleeding Disorders, Lab Tests & Drugs"
+"Bleeding Disorders, Lab Tests & Drugs",
+  "Maria's Q's · SGD Activity: Hemostasis & Blood Coagulation"
 ];
 window.CRS_PH_QUESTIONS = [
 {
@@ -14556,6 +14557,396 @@ window.CRS_PH_QUESTIONS = [
  "src": "lec",
  "fig": [
   "figs/crs/hm-labs-drugs"
+ ]
+},
+{
+ "t": "Maria's Q's · SGD Activity: Hemostasis & Blood Coagulation",
+ "s": "A 24-year-old man has had recurrent painful swelling of the knees and elbows since childhood. His maternal uncle had a similar bleeding disorder. Platelet count is 250,000/µL. Prothrombin time is 12 sec, activated partial thromboplastin time is 68 sec, and bleeding time is 4 min. Which of the following is most likely deficient in this patient?",
+ "ns": true,
+ "maria": 1,
+ "c": [
+  "Factor VII",
+  "Factor VIII",
+  "Factor XIII",
+  "Factor X",
+  "von Willebrand factor"
+ ],
+ "a": 1,
+ "e": "Step 1: Recurrent joint swelling (hemarthrosis) is deep-tissue bleeding, the pattern of a clotting-factor defect rather than a platelet defect.\nStep 2: Normal platelet count and bleeding time mean primary hemostasis is intact. A normal PT (12 sec) clears the extrinsic and common pathways, and the long aPTT (68 sec) puts the defect in the intrinsic pathway (XII, XI, IX, VIII).\nStep 3: An affected maternal uncle points to X-linked recessive inheritance. Hemophilia A, factor VIII deficiency, is X-linked and makes up about 85% of cases, so it is the most likely answer.\n\nTakeaway: Hemarthrosis + long aPTT + normal PT and bleeding time + affected maternal male relative = hemophilia A, factor VIII deficiency.",
+ "w": [
+  "Factor VII deficiency prolongs the PT, which is normal here, and leaves the aPTT normal.",
+  "",
+  "Factor XIII deficiency leaves PT and aPTT normal. The clot forms but is unstable, so it does not explain a long aPTT.",
+  "Factor X is in the common pathway, so its deficiency would prolong both PT and aPTT.",
+  "vWD prolongs the bleeding time and causes mucosal bleeding. It is autosomal dominant, not passed through the maternal uncle."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/hm-disorders"
+ ]
+},
+{
+ "t": "Maria's Q's · SGD Activity: Hemostasis & Blood Coagulation",
+ "s": "A 19-year-old woman has recurrent epistaxis and heavy menstrual bleeding. Her father has had similar symptoms. Platelet count is 240,000/µL. Prothrombin time is normal, activated partial thromboplastin time is mildly prolonged, and bleeding time is prolonged. Which of the following best explains the prolonged activated partial thromboplastin time in this patient?",
+ "ns": true,
+ "maria": 1,
+ "c": [
+  "Decreased expression of GpIIb/IIIa on platelets",
+  "Decreased plasma half-life of factor VIII",
+  "Impaired covalent cross-linking of fibrin",
+  "Decreased hepatic synthesis of vitamin K–dependent factors",
+  "Increased plasmin activity"
+ ],
+ "a": 1,
+ "e": "Step 1: Mucosal bleeding (nosebleeds, heavy menses), a prolonged bleeding time with a normal platelet count, and an affected father (autosomal dominant) describe von Willebrand disease.\nStep 2: vWF has two jobs: it anchors platelets to collagen through GpIb, and it carries and stabilizes factor VIII in plasma.\nStep 3: With too little vWF, factor VIII is cleared faster. The lower factor VIII level mildly prolongs the aPTT, which tests the intrinsic pathway.\n\nTakeaway: In vWD the long bleeding time comes from poor platelet adhesion, and the long aPTT comes from unstable factor VIII.",
+ "w": [
+  "GpIIb/IIIa loss (Glanzmann) prolongs bleeding time but leaves the aPTT normal, because no clotting factor is lost.",
+  "",
+  "Factor XIII defects leave the aPTT normal. The test ends when fibrin forms, before cross-linking.",
+  "Vitamin K–dependent factors include VII, so the PT would be prolonged first.",
+  "Excess plasmin activity is not inherited this way and would not selectively prolong the aPTT."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/hm-disorders"
+ ]
+},
+{
+ "t": "Maria's Q's · SGD Activity: Hemostasis & Blood Coagulation",
+ "s": "A 6-year-old boy has recurrent nosebleeds and easy bruising. Platelet count is mildly decreased and the platelets appear unusually large on smear. Plasma von Willebrand factor concentration and function are normal. In vitro, his platelets fail to adhere to collagen-bound von Willebrand factor, but aggregate normally when ADP is added. A defect in which of the following is most likely responsible?",
+ "ns": true,
+ "maria": 1,
+ "c": [
+  "Cyclooxygenase-1",
+  "Factor VIII",
+  "GpIb",
+  "GpIIb/IIIa",
+  "Thromboxane A₂ receptor"
+ ],
+ "a": 2,
+ "e": "Step 1: Adhesion is step 1 of the platelet plug: the platelet's GpIb receptor binds vWF that is stuck to exposed collagen.\nStep 2: His vWF is normal, yet his platelets cannot adhere, so the problem is on the platelet side of that bond: GpIb.\nStep 3: Aggregation with ADP is normal, so GpIIb/IIIa and fibrinogen bridging work. Large platelets with a mildly low count fit Bernard-Soulier syndrome.\n\nTakeaway: Fails to adhere with normal vWF = GpIb defect. Fails to aggregate = GpIIb/IIIa defect.",
+ "w": [
+  "COX-1 loss (like aspirin) blocks TXA2 and weakens activation, but adhesion to vWF stays normal.",
+  "Factor VIII is a clotting factor. It does not affect platelet adhesion or platelet size.",
+  "",
+  "GpIIb/IIIa defects block aggregation, but here aggregation with ADP is normal.",
+  "A TXA2 receptor defect weakens activation and recruitment, not the first adhesion to vWF."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/hm-plug"
+ ]
+},
+{
+ "t": "Maria's Q's · SGD Activity: Hemostasis & Blood Coagulation",
+ "s": "A 15-year-old girl has recurrent mucosal bleeding and prolonged bleeding time. Platelet count and morphology are normal. Platelets adhere normally to subendothelial collagen but fail to aggregate in response to ADP, and clot retraction is poor. Which of the following steps in primary hemostasis is most likely impaired?",
+ "ns": true,
+ "maria": 1,
+ "c": [
+  "Binding of von Willebrand factor to exposed collagen",
+  "Bridging of adjacent platelets by fibrinogen",
+  "Cleavage of fibrinogen by thrombin",
+  "Conversion of plasminogen to plasmin",
+  "Release of tissue factor from the vessel wall"
+ ],
+ "a": 1,
+ "e": "Step 1: Adhesion is normal, so vWF, collagen and GpIb are working.\nStep 2: Aggregation fails even with ADP. Aggregation is step 3 of the platelet plug: activated GpIIb/IIIa receptors bind fibrinogen, which bridges one platelet to the next.\nStep 3: Platelets also pull on fibrin through GpIIb/IIIa during clot retraction, so retraction is poor too. This is Glanzmann thrombasthenia.\n\nTakeaway: Normal adhesion + no aggregation + poor clot retraction = GpIIb/IIIa–fibrinogen bridging defect.",
+ "w": [
+  "vWF binding to collagen is part of adhesion, which is normal in this patient.",
+  "",
+  "Thrombin cleaving fibrinogen is secondary hemostasis. It would not stop ADP-induced aggregation.",
+  "Plasminogen activation is fibrinolysis. It dissolves clots rather than building the plug.",
+  "Tissue factor starts the extrinsic clotting pathway, not platelet aggregation."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/hm-plug"
+ ]
+},
+{
+ "t": "Maria's Q's · SGD Activity: Hemostasis & Blood Coagulation",
+ "s": "A 30-year-old man sustains a deep laceration of a forearm artery. Within seconds the vessel constricts, and the constriction persists for up to an hour while a platelet plug forms. Which of the following pairs of mediators contributes to this sustained local vasoconstriction?",
+ "ns": true,
+ "maria": 1,
+ "c": [
+  "Endothelin and platelet thromboxane A₂",
+  "Nitric oxide and prostacyclin",
+  "Plasmin and tissue plasminogen activator",
+  "Thrombomodulin and protein C",
+  "Heparin and antithrombin III"
+ ],
+ "a": 0,
+ "e": "Step 1: Vascular spasm is phase 1 of hemostasis. It comes from local myogenic spasm, local autacoid factors and nervous pain reflexes.\nStep 2: The autacoids are endothelin from the traumatized endothelium and thromboxane A2 from platelets that adhere at the wound.\nStep 3: They raise smooth muscle Ca2+ and keep the vessel constricted for 20–60 minutes while the plug and clot form.\n\nTakeaway: The vasoconstrictor pair in spasm is endothelin (endothelium) + TXA2 (platelets).",
+ "w": [
+  "",
+  "NO and prostacyclin dilate vessels and inhibit platelets. They are part of the anticlotting endothelial shield.",
+  "t-PA and plasmin dissolve fibrin in phase 4. They do not constrict vessels.",
+  "Thrombomodulin and protein C turn off factors Va and VIIIa. They are anticoagulants.",
+  "Heparin boosts antithrombin III to neutralize thrombin and Xa. Neither constricts vessels."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/hm-spasm"
+ ]
+},
+{
+ "t": "Maria's Q's · SGD Activity: Hemostasis & Blood Coagulation",
+ "s": "A 40-year-old man undergoing preoperative evaluation has no history of bleeding. Laboratory studies show a prolonged prothrombin time with a normal activated partial thromboplastin time, platelet count and bleeding time. Deficiency of which of the following factors best explains these findings?",
+ "ns": true,
+ "maria": 1,
+ "c": [
+  "Factor VII",
+  "Factor VIII",
+  "Factor IX",
+  "Factor XI",
+  "Factor XII"
+ ],
+ "a": 0,
+ "e": "Step 1: The PT tests the extrinsic (factor VII) and common pathways. The aPTT tests the intrinsic (XII, XI, IX, VIII) and common pathways.\nStep 2: A long PT with a normal aPTT means the common pathway is fine, since a common-pathway defect would prolong both.\nStep 3: The only factor tested by the PT and not by the aPTT is factor VII.\n\nTakeaway: Isolated long PT = factor VII. Isolated long aPTT = XII, XI, IX or VIII.",
+ "w": [
+  "",
+  "Factor VIII is intrinsic. Its deficiency prolongs the aPTT and leaves the PT normal.",
+  "Factor IX is intrinsic. Its deficiency prolongs the aPTT, not the PT.",
+  "Factor XI is intrinsic. Its deficiency prolongs the aPTT, not the PT.",
+  "Factor XII is the first contact factor. Its deficiency prolongs the aPTT without bleeding, and leaves the PT normal."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/hm-labs-drugs"
+ ]
+},
+{
+ "t": "Maria's Q's · SGD Activity: Hemostasis & Blood Coagulation",
+ "s": "A 34-year-old woman, 10 days postpartum, develops sudden dyspnea, pleuritic chest pain and unilateral leg swelling. Plasma D-dimer concentration is markedly elevated. Which of the following enzymes directly generates the D-dimer fragments measured in this assay?",
+ "ns": true,
+ "maria": 1,
+ "c": [
+  "Antithrombin III",
+  "Factor Xa",
+  "Plasmin",
+  "Protein C",
+  "Thrombin"
+ ],
+ "a": 2,
+ "e": "Step 1: She has a DVT with a pulmonary embolism. The body starts breaking down the clot as soon as it forms.\nStep 2: t-PA converts plasminogen trapped in the clot to plasmin, and plasmin digests the fibrin.\nStep 3: D-dimers are pieces of fibrin that factor XIIIa had cross-linked, so they appear only when plasmin cuts a stabilized clot. That makes D-dimer a marker of DVT, PE and DIC.\n\nTakeaway: Plasmin cutting cross-linked fibrin makes D-dimers.",
+ "w": [
+  "Antithrombin III neutralizes thrombin and Xa. It does not cut fibrin.",
+  "Factor Xa makes thrombin as part of the prothrombinase complex. It does not degrade fibrin.",
+  "",
+  "Activated protein C degrades factors Va and VIIIa, not fibrin.",
+  "Thrombin builds fibrin from fibrinogen. It does not break fibrin down into D-dimers."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/hm-fibrinolysis"
+ ]
+},
+{
+ "t": "Maria's Q's · SGD Activity: Hemostasis & Blood Coagulation",
+ "s": "A 5-day-old boy has persistent oozing from the umbilical stump that began 3 days after the cord separated. Platelet count, prothrombin time, activated partial thromboplastin time and bleeding time are all normal. A clot formed from his plasma dissolves readily in 5 M urea. Which of the following is the most likely underlying defect?",
+ "ns": true,
+ "maria": 1,
+ "c": [
+  "Failure of thrombin to cleave fibrinogen",
+  "Failure of factor X activation by the tissue factor–factor VIIa complex",
+  "Failure of platelet granule exocytosis",
+  "Failure of covalent cross-linking of fibrin monomers",
+  "Excess plasmin degradation of factor V"
+ ],
+ "a": 3,
+ "e": "Step 1: All standard tests are normal. PT and aPTT stop at the first fibrin strands, so they cannot detect a problem that comes after fibrin forms.\nStep 2: Fibrin monomers first stick together by weak hydrogen bonds, an unstable clot. Factor XIIIa, a transglutaminase, then adds covalent cross-links.\nStep 3: A clot that dissolves in 5 M urea has no covalent cross-links. Delayed umbilical stump bleeding is the classic sign of factor XIII deficiency.\n\nTakeaway: Normal PT, aPTT and bleeding time + clot soluble in urea = factor XIII deficiency.",
+ "w": [
+  "If thrombin could not cleave fibrinogen, no clot would form and the PT and aPTT would be prolonged.",
+  "A failed TF–VIIa activation of factor X would prolong the PT.",
+  "A granule release defect would prolong the bleeding time, which is normal.",
+  "",
+  "Plasmin degrading factor V would lower factor V and prolong both PT and aPTT."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/hm-common"
+ ]
+},
+{
+ "t": "Maria's Q's · SGD Activity: Hemostasis & Blood Coagulation",
+ "s": "A 45-year-old woman is admitted with pneumonia and septic shock. She now has oozing from venipuncture sites and scattered petechiae. Platelet count is 38,000/µL. Prothrombin time and activated partial thromboplastin time are both prolonged, fibrinogen is decreased, and D-dimer is markedly elevated. Which of the following best explains these findings?",
+ "ns": true,
+ "maria": 1,
+ "c": [
+  "Isolated deficiency of factor VIII",
+  "Vitamin K deficiency from broad-spectrum antibiotics",
+  "Autoantibodies against platelet GpIIb/IIIa",
+  "Deficiency of von Willebrand factor",
+  "Widespread thrombin generation with consumption of platelets and clotting factors, and secondary fibrinolysis"
+ ],
+ "a": 4,
+ "e": "Step 1: Sepsis can trigger clotting throughout the circulation: disseminated intravascular coagulation.\nStep 2: Widespread thrombin generation uses up platelets, fibrinogen and clotting factors. That gives a low platelet count, a low fibrinogen, and a long PT and aPTT.\nStep 3: Plasmin then breaks down the many small clots, so D-dimer is very high. With nothing left to clot, she oozes from every puncture site.\n\nTakeaway: DIC = low platelets + long PT and aPTT + low fibrinogen + high D-dimer.",
+ "w": [
+  "Factor VIII deficiency prolongs only the aPTT. It does not lower platelets or fibrinogen, or raise D-dimer.",
+  "Vitamin K deficiency prolongs the PT and aPTT but leaves platelets, fibrinogen and D-dimer normal.",
+  "Anti-GpIIb/IIIa antibodies (ITP) lower the platelet count but leave PT, aPTT and fibrinogen normal.",
+  "vWF deficiency prolongs the bleeding time. It does not consume fibrinogen or raise D-dimer.",
+  ""
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/hm-disorders"
+ ]
+},
+{
+ "t": "Maria's Q's · SGD Activity: Hemostasis & Blood Coagulation",
+ "s": "A researcher adds a trace amount of thrombin to citrated plasma and then recalcifies it. Clot formation is far faster than in plasma without added thrombin. This acceleration is due to thrombin directly activating which of the following sets of factors?",
+ "ns": true,
+ "maria": 1,
+ "c": [
+  "V, VIII, XI and XIII",
+  "II, VII, IX and X",
+  "VII, IX, X and XII",
+  "VIII, IX, X and XII",
+  "III, IV, VII and XII"
+ ],
+ "a": 0,
+ "e": "Step 1: Thrombin is a positive feedback enzyme: small amounts amplify their own production.\nStep 2: It activates factor V (speeding up prothrombinase more than 1,000-fold), factor VIII (for the tenase complex) and factor XI (keeping the intrinsic pathway running without XIIa).\nStep 3: It also activates factor XIII, which cross-links fibrin. Together these produce the thrombin burst.\n\nTakeaway: Thrombin retro-activates V, VIII, XI and XIII.",
+ "w": [
+  "",
+  "II, VII, IX and X are the vitamin K–dependent factors, not thrombin's feedback targets.",
+  "XII starts contact activation, and VII starts the extrinsic pathway. Thrombin does not drive those steps.",
+  "IX, X and XII are activated by other factors (XIa, tenase or TF–VIIa, and contact), not directly by thrombin.",
+  "III is tissue factor and IV is calcium. Neither is a zymogen that thrombin activates."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/hm-thrombin"
+ ]
+},
+{
+ "t": "Maria's Q's · SGD Activity: Hemostasis & Blood Coagulation",
+ "s": "A 28-year-old woman taking a combined oral contraceptive develops a left leg deep venous thrombosis. Her mother had a pulmonary embolism at age 40. Prothrombin time and activated partial thromboplastin time are normal. Which of the following is the most likely underlying defect?",
+ "ns": true,
+ "maria": 1,
+ "c": [
+  "Decreased synthesis of antithrombin III",
+  "Increased activity of tissue factor pathway inhibitor",
+  "Deficiency of factor XIII",
+  "Resistance of factor Va to inactivation by activated protein C",
+  "Impaired conversion of plasminogen to plasmin"
+ ],
+ "a": 3,
+ "e": "Step 1: A young woman with a family history of early clots and a DVT on estrogen suggests an inherited hypercoagulable state.\nStep 2: Normally, the thrombin–thrombomodulin complex activates protein C, and activated protein C with protein S degrades factors Va and VIIIa.\nStep 3: In factor V Leiden, factor Va resists that inactivation, so it keeps working and thrombin keeps forming. It is the most common inherited cause, and the PT and aPTT stay normal.\n\nTakeaway: Factor Va that activated protein C cannot shut off (factor V Leiden) = recurrent venous clots with normal PT and aPTT.",
+ "w": [
+  "Low antithrombin III also causes clots, but it is much rarer and shows up as heparin resistance.",
+  "More TFPI would shut down the extrinsic pathway sooner and reduce clotting.",
+  "Factor XIII deficiency causes bleeding from unstable clots, not thrombosis.",
+  "",
+  "Impaired plasmin formation can favor clots, but it is far less common than factor V Leiden and fits this family history less well."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/hm-anticoag"
+ ]
+},
+{
+ "t": "Maria's Q's · SGD Activity: Hemostasis & Blood Coagulation",
+ "s": "A 35-year-old man with a family history of venous thrombosis has recurrent deep venous thrombosis. During treatment with standard-dose intravenous unfractionated heparin, his activated partial thromboplastin time remains within the normal range. Deficiency of which of the following is the most likely cause?",
+ "ns": true,
+ "maria": 1,
+ "c": [
+  "Protein C",
+  "Protein S",
+  "Thrombomodulin",
+  "Tissue factor pathway inhibitor",
+  "Antithrombin III"
+ ],
+ "a": 4,
+ "e": "Step 1: Heparin has no anticoagulant action of its own. It binds antithrombin III and raises its activity 100- to 1,000-fold, so thrombin, Xa and other factors are neutralized.\nStep 2: The aPTT is used to monitor IV heparin, and it should rise.\nStep 3: If the aPTT stays normal on standard heparin, the protein heparin works through is missing. Antithrombin III deficiency also explains his inherited tendency to clot.\n\nTakeaway: Recurrent clots + no aPTT rise on heparin = antithrombin III deficiency.",
+ "w": [
+  "Protein C deficiency causes clots, but heparin still works through AT-III, so the aPTT would rise.",
+  "Protein S is protein C's cofactor. Its loss causes clots but does not block heparin.",
+  "Thrombomodulin is needed to activate protein C. It plays no part in heparin's effect on the aPTT.",
+  "TFPI shuts off TF–VIIa. Heparin's effect does not depend on it.",
+  ""
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/hm-anticoag"
+ ]
+},
+{
+ "t": "Maria's Q's · SGD Activity: Hemostasis & Blood Coagulation",
+ "s": "Following a small blood vessel injury, platelets adhere to the exposed subendothelial surface. After adhesion, the platelets become activated and release substances that recruit and activate additional platelets. Which of the following substances released by activated platelets promotes further platelet activation and aggregation?",
+ "ns": true,
+ "maria": 1,
+ "c": [
+  "Nitric oxide",
+  "Prostacyclin",
+  "Adenosine diphosphate (ADP)",
+  "Tissue plasminogen activator",
+  "Antithrombin III"
+ ],
+ "a": 2,
+ "e": "Step 1: After adhesion, platelets change shape and release their granule contents, including ADP, TXA2, PAF and Ca2+.\nStep 2: ADP and TXA2 activate nearby circulating platelets and switch on their GpIIb/IIIa receptors.\nStep 3: Fibrinogen then bridges the platelets, and the growing plug becomes the white thrombus.\n\nTakeaway: Activated platelets release ADP and TXA2 to recruit and activate more platelets.",
+ "w": [
+  "Nitric oxide comes from endothelium. It dilates vessels and inhibits platelet aggregation.",
+  "Prostacyclin (PGI2) comes from endothelium and inhibits platelet aggregation.",
+  "",
+  "t-PA from endothelium starts fibrinolysis. It does not recruit platelets.",
+  "Antithrombin III is a plasma anticoagulant. It is not released by platelets and does not activate them."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/hm-plug"
+ ]
+},
+{
+ "t": "Maria's Q's · SGD Activity: Hemostasis & Blood Coagulation",
+ "s": "A 10-year-old boy is brought to the clinic because of recurrent episodes of painful swelling of his knees following minor injuries. His platelet count and bleeding time are normal. Laboratory results show a normal prothrombin time and a prolonged activated partial thromboplastin time. Further testing reveals a deficiency of a coagulation factor that participates in the intrinsic pathway. Which factor is most likely deficient?",
+ "ns": true,
+ "maria": 1,
+ "c": [
+  "Factor VII",
+  "Factor VIII",
+  "Factor III",
+  "Factor XIII",
+  "Factor V"
+ ],
+ "a": 1,
+ "e": "Step 1: Hemarthrosis after minor injury in a boy is the classic bleeding pattern of hemophilia.\nStep 2: Normal platelets and bleeding time mean primary hemostasis is fine. A long aPTT with a normal PT puts the problem in the intrinsic pathway.\nStep 3: Factor VIII is the only intrinsic factor among the choices. It forms the tenase complex with IXa, and its deficiency is hemophilia A.\n\nTakeaway: Boy + hemarthrosis + isolated long aPTT = factor VIII deficiency (hemophilia A).",
+ "w": [
+  "Factor VII is extrinsic. Its deficiency prolongs the PT, not the aPTT.",
+  "",
+  "Factor III is tissue factor, which starts the extrinsic pathway. It is released from tissue, not a plasma deficiency that prolongs the aPTT.",
+  "Factor XIII deficiency leaves PT and aPTT normal, because cross-linking happens after the tests end.",
+  "Factor V is in the common pathway, so its deficiency would prolong both PT and aPTT."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/hm-disorders"
+ ]
+},
+{
+ "t": "Maria's Q's · SGD Activity: Hemostasis & Blood Coagulation",
+ "s": "A 42-year-old woman develops a deep venous thrombosis following prolonged immobilization. After the clot has served its hemostatic purpose, the body initiates a process to break down the fibrin mesh and restore blood flow. Which of the following substances directly converts plasminogen into its active form?",
+ "ns": true,
+ "maria": 1,
+ "c": [
+  "Antithrombin III",
+  "Tissue plasminogen activator",
+  "Factor XIII",
+  "Thrombin",
+  "Protein C"
+ ],
+ "a": 1,
+ "e": "Step 1: Plasminogen (profibrinolysin) is trapped inside the clot as it forms.\nStep 2: Injured endothelium slowly releases tissue plasminogen activator (t-PA), which converts plasminogen to plasmin.\nStep 3: Plasmin digests fibrin, fibrinogen and factors V, VIII and XII, which reopens the vessel. Recombinant t-PA (alteplase) uses the same step to dissolve clots in stroke, MI and PE.\n\nTakeaway: t-PA turns plasminogen into plasmin, and plasmin lyses fibrin.",
+ "w": [
+  "Antithrombin III neutralizes thrombin and Xa. It does not activate plasminogen.",
+  "",
+  "Factor XIII stabilizes the clot by cross-linking fibrin, the opposite of breaking it down.",
+  "Thrombin builds the clot by making fibrin. It does not activate plasminogen.",
+  "Activated protein C degrades Va and VIIIa. It does not activate plasminogen directly."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/hm-fibrinolysis"
  ]
 }
 ];
