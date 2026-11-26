@@ -1978,8 +1978,8 @@ async function dkImport(k){
 function deckChip(ak){
   const d = ANKIDECK[ak]; if (!d) return "";
   const st = AKC.on && AKC.dk[ak];
-  if (st && st.total) return `<button class="lchip ank copied" data-ankdeck="${esc(ak)}" title="This quiz deck is in your Anki"><b>${d[1]}</b><span>✓ Anki deck</span></button>`;
-  return `<button class="lchip ank" data-ankdeck="${esc(ak)}" title="Add this quiz to Anki as its own deck"><b>${d[1]}</b><span>📦 Anki deck</span></button>`;
+  if (st && st.total) return `<button class="lchip ank copied" data-ankdeck="${esc(ak)}" title="This quiz deck is in your Anki"><b>${d[1]}</b><span>✓ Anki</span></button>`;
+  return `<button class="lchip ank" data-ankdeck="${esc(ak)}" title="Add this quiz to Anki as its own deck"><b>${d[1]}</b><span>🃏 Anki</span></button>`;
 }
 function dkBox(k){
   const d = ANKIDECK[k], dl = `<a class="btn" href="${esc(d[0])}" download>Download the deck file</a>`;
