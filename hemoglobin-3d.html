@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hemoglobin · 3D</title>
+<script>function jjTheme(){try{var th=localStorage.getItem("msk-theme");document.documentElement.setAttribute("data-theme",th==="dark"?"dark":"light");}catch(e){}}jjTheme();window.addEventListener("storage",function(e){if(e.key==="msk-theme"){jjTheme();if(window.hbTheme)window.hbTheme();}});window.addEventListener("message",function(e){if(e.data==="jj-theme"){jjTheme();if(window.hbTheme)window.hbTheme();}});</script>
+<style>
+:root{--bg:#0d1117;--panel:#161b22;--card:#1c2129;--line:#2a313c;--line2:#353d4a;--text:#e6edf3;--muted:#8b949e;--acc:#4fb8b0;--accbg:rgba(79,184,176,.14);--out:#ff8a3d;--in:#4aa8ff;--warn:#f85149;--ok:#3fb950}
+:root[data-theme="light"]{--bg:#f6f8fa;--panel:#fff;--card:#f6f8fa;--line:#d0d7de;--line2:#c3cad2;--text:#1f2328;--muted:#59636e;--acc:#1a8c84;--accbg:rgba(26,140,132,.1);--out:#e0661f;--in:#1f6feb;--warn:#cf222e;--ok:#1a7f37}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font:14px/1.45 Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{padding:14px 16px 20px;max-width:1500px;margin:0 auto}
+.top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.top h1{font-size:18px;margin:0}.top .sub{color:var(--muted);font-size:13px}
+.btn{background:var(--card);border:1px solid var(--line2);border-radius:9px;padding:7px 12px;font-weight:600;font-size:13px}
+.btn.on{background:var(--accbg);border-color:var(--acc)}
+.seg{display:inline-flex;background:var(--card);border:1px solid var(--line2);border-radius:9px;padding:2px;flex-wrap:wrap}
+.seg button{background:none;border:none;border-radius:7px;padding:5px 11px;font-size:12.5px;font-weight:600;color:var(--muted)}
+.seg button.on{background:var(--accbg);color:var(--text);box-shadow:inset 0 0 0 1px var(--acc)}
+.grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(300px,1fr);gap:14px;align-items:start}
+@media (max-width:980px){.grid{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px 14px;min-width:0}
+.card h3{margin:0 0 8px;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+#stage{position:relative;height:max(420px,min(calc(100vh - 175px),900px));border-radius:12px;overflow:hidden;background:radial-gradient(ellipse at 50% 40%,#1d1820,#0b0f15)}
+:root[data-theme="light"] #stage{background:radial-gradient(ellipse at 50% 40%,#fffaf8,#f1e6e4)}
+#stage canvas{display:block;width:100%;height:100%;touch-action:none}
+#cap{position:absolute;left:12px;top:10px;font-size:12.5px;font-weight:700;color:#fff;background:rgba(0,0,0,.5);padding:5px 10px;border-radius:8px;pointer-events:none}
+#note{position:absolute;left:12px;top:42px;max-width:min(560px,calc(100% - 24px));font-size:13px;line-height:1.45;color:#fff;background:rgba(0,0,0,.58);padding:8px 12px;border-radius:9px;pointer-events:none}
+#note b{color:#ffd27a}
+.hint{position:absolute;right:12px;top:10px;font-size:11.5px;color:var(--muted);pointer-events:none}
+.meters{position:absolute;left:10px;right:10px;bottom:10px;display:grid;grid-template-columns:1fr 1fr;gap:10px;pointer-events:none}
+.meter{background:rgba(255,255,255,.9);color:#1f2328;border-radius:12px;padding:8px 11px;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+:root[data-theme="dark"] .meter{background:rgba(22,27,34,.9);color:#e6edf3}
+.meter .h{font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;display:flex;justify-content:space-between}
+.bar{display:grid;grid-template-columns:62px 1fr 34px;gap:6px;align-items:center;font-size:12px;margin-top:5px}
+.bar .tr{height:12px;border-radius:6px;background:rgba(127,127,127,.18);overflow:hidden}
+.bar .f{height:100%;border-radius:6px}
+.res{margin-top:6px;font-weight:800;font-size:13.5px}
+.meters.hide{display:none}
+.ctrl{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.ctrl .sp{color:var(--muted);font-size:12.5px;margin-left:auto}
+.steps{display:flex;flex-direction:column;gap:6px}
+.step{display:flex;gap:10px;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 10px;width:100%}
+.step .n{flex:0 0 22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;background:var(--line);color:var(--muted)}
+.step div>b{display:block;font-size:13px}.step span{font-size:12.5px;color:var(--muted)}
+.step.on{border-color:var(--acc);background:var(--accbg)}.step.on .n{background:var(--acc);color:#fff}.step.on span{color:var(--text)}
+.key{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;font-size:12.5px;color:var(--muted)}
+.key i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.key i.ar{border-radius:2px;width:16px;height:6px;vertical-align:2px}
+.pres{display:flex;flex-wrap:wrap;gap:6px}
+.sl{display:grid;grid-template-columns:132px 1fr 46px;gap:8px;align-items:center;margin:6px 0;font-size:12.5px}
+.sl label{font-weight:600}.sl label span{display:block;font-weight:400;font-size:11px;color:var(--muted)}
+.sl output{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+input[type=range]{width:100%;accent-color:var(--acc)}
+.why{font-size:13px;margin-top:8px;color:var(--text)}
+.tp{margin-top:10px;font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}.tp b{color:var(--text)}
+
+#curve{width:100%;height:auto;display:block}
+.stt{display:flex;align-items:center;gap:10px;margin-top:8px;font-size:12.5px}
+.stt .trk{flex:1;height:12px;border-radius:6px;background:linear-gradient(90deg,#5b8def,#e0533d);position:relative}
+.stt .trk i{position:absolute;top:-4px;width:4px;height:20px;border-radius:2px;background:var(--text);transform:translateX(-2px);transition:left .25s}
+.stt b{font-size:12.5px}
+.big{display:flex;gap:14px;margin-top:6px;font-size:12.5px;color:var(--muted)}.big b{display:block;font-size:20px;color:var(--text);font-variant-numeric:tabular-nums}
+.sh{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+</style></head><body>
+<div class="wrap">
+  <div class="top">
+    <div><h1>Hemoglobin: oxygen binding, T and R states</h1><div class="sub">Watch the four globin chains load oxygen, turn from the tense T state into the relaxed R state, and push 2,3-BPG out of its pocket. The curve shows where you are.</div></div>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div id="stage"><div id="cap"></div><div id="note"></div><div class="hint">Drag to rotate · scroll to zoom</div></div>
+      <div class="ctrl">
+        <button class="btn" id="prev">← Back</button>
+        <button class="btn on" id="play">Pause</button>
+        <button class="btn" id="next">Next →</button>
+        <button class="btn" id="restart">Restart</button>
+        <span class="sp" id="pos"></span>
+      </div>
+    </div>
+    <div>
+      <div class="card"><h3>Oxygen dissociation curve</h3>
+        <svg id="curve" viewBox="0 0 360 250" role="img" aria-label="Oxygen dissociation curve"></svg>
+        <div class="sl"><label>Oxygen (PO₂)<span>drag to load or unload</span></label><input type="range" id="po2" min="0" max="120" step="1" value="40"><output id="po2o"></output></div>
+        <div class="big"><div><b id="satv">-</b>saturated</div><div><b id="o2v">-</b>O₂ bound</div><div><b id="p50v">-</b>P50 (mmHg)</div></div>
+        <div class="stt"><b style="color:#5b8def">T</b><div class="trk"><i id="tri"></i></div><b style="color:#e0533d">R</b></div>
+        <div class="sh"><button class="btn" id="flip">Watch T ⇄ R</button></div>
+        <div class="sh" id="shift"></div>
+        <div class="why" id="why"></div>
+      </div>
+      <div class="card" style="margin-top:14px"><h3>Steps</h3><div class="steps" id="steps"></div></div>
+      <div class="card" style="margin-top:14px"><h3>Key</h3>
+        <div class="key">
+          <div><i style="background:#e8838b"></i>α chains (α1, α2)</div><div><i style="background:#6f9cf0"></i>β chains (β1, β2)</div>
+          <div><i style="background:#8a2a1e"></i>Heme with iron (Fe²⁺)</div><div><i style="background:#ff3b30"></i>O₂</div>
+          <div><i style="background:#2f81f7"></i>+ charges lining the pocket</div><div><i style="background:#f2a93b"></i>2,3-BPG (− charges)</div>
+        </div>
+        <div class="tp"><b>T state</b> = tense, deoxy, low O₂ affinity, holds 2,3-BPG. <b>R state</b> = relaxed, oxy, high O₂ affinity. The α1β1 pair turns about 15° against the α2β2 pair when Hb switches.</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function(){
+const $=id=>document.getElementById(id),V=(x,y,z)=>new THREE.Vector3(x,y,z),lerp=(a,b,t)=>a+(b-a)*t,clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const isLight=()=>document.documentElement.getAttribute("data-theme")!=="dark";
+// ---------- MWC model (fits normal adult Hb: P50 ≈ 26.6 mmHg, Hill n ≈ 2.9) ----------
+const KR=1.5,C=0.01,L0=8.19e4;
+const SHIFTS=[
+ {id:"normal",n:"Normal",L:1,w:"Normal adult hemoglobin. About 75% saturated at tissue PO₂ (40 mmHg) and 97% in the lungs (100 mmHg)."},
+ {id:"right",n:"Right shift",L:6,w:"<b>↑ 2,3-BPG, ↑ H⁺ (↓ pH), ↑ CO₂, ↑ temperature</b>, as in exercising muscle or high altitude. These stabilize the T state, so Hb lets go of O₂ more easily: the curve moves right and P50 rises."},
+ {id:"left",n:"Left shift",L:.08,w:"<b>Fetal Hb (binds 2,3-BPG poorly), ↓ 2,3-BPG, alkalosis, cold, CO</b>. The R state is favored, Hb holds O₂ more tightly: the curve moves left and P50 falls."}];
+let Lm=1;
+const S=(p,Lf=Lm)=>{const L=L0*Lf,a=p/KR;return (a*Math.pow(1+a,3)+L*C*a*Math.pow(1+C*a,3))/(Math.pow(1+a,4)+L*Math.pow(1+C*a,4));};
+const fR=(p,Lf=Lm)=>{const L=L0*Lf,a=p/KR;const r=Math.pow(1+a,4),t=L*Math.pow(1+C*a,4);return r/(r+t);};
+const p50=(Lf=Lm)=>{let lo=.01,hi=500;for(let i=0;i<60;i++){const m=(lo+hi)/2;S(m,Lf)<.5?lo=m:hi=m;}return (lo+hi)/2;};
+// ---------- scene ----------
+const stage=$("stage");
+const renderer=new THREE.WebGLRenderer({antialias:true,alpha:true});renderer.setPixelRatio(Math.min(2,devicePixelRatio||1));stage.insertBefore(renderer.domElement,stage.firstChild);
+const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(38,1,.1,200);camera.position.set(0,0,17);
+const controls=new THREE.OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.minDistance=3;controls.maxDistance=40;
+let userMoved=0;controls.addEventListener("start",()=>{userMoved=performance.now();});
+scene.add(new THREE.HemisphereLight(0xffffff,0x443344,.85));const dl=new THREE.DirectionalLight(0xffffff,.75);dl.position.set(5,8,10);scene.add(dl);
+const mat=(c,o={})=>new THREE.MeshStandardMaterial(Object.assign({color:c,roughness:.55,metalness:.04},o));
+// text sprites (constant screen size)
+const sprites=[];
+function label(text,o={}){const c=document.createElement("canvas");const s=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),depthTest:false,transparent:true,sizeAttenuation:false}));
+  s.userData={c,text,fs:o.fs||40,col:o.col,k:(o.scale||1)*.00042,bg:o.bg!==false};s.renderOrder=30;sprites.push(s);draw(s);return s;}
+function draw(s){const u=s.userData,c=u.c,x=c.getContext("2d");x.font=`700 ${u.fs}px Inter,system-ui,sans-serif`;const w=Math.ceil(x.measureText(u.text).width)+30,h=u.fs+22;c.width=w;c.height=h;
+  x.font=`700 ${u.fs}px Inter,system-ui,sans-serif`;if(u.bg){x.fillStyle=isLight()?"rgba(255,255,255,.92)":"rgba(13,17,23,.85)";const r=14;x.beginPath();x.moveTo(r,0);x.arcTo(w,0,w,h,r);x.arcTo(w,h,0,h,r);x.arcTo(0,h,0,0,r);x.arcTo(0,0,w,0,r);x.fill();}
+  x.fillStyle=u.col||(isLight()?"#1f2328":"#e6edf3");x.textBaseline="middle";x.textAlign="left";x.fillText(u.text,15,h/2+1);s.material.map.dispose();s.material.map=new THREE.CanvasTexture(c);s.scale.set(w*u.k,h*u.k,1);}
+function setLbl(s,t){if(s.userData.text!==t){s.userData.text=t;draw(s);}}
+window.hbTheme=()=>{sprites.forEach(draw);drawCurve();};
+// charge badge sprite: round "+" or "−"
+function charge(sign,col){const c=document.createElement("canvas");c.width=c.height=64;const x=c.getContext("2d");x.fillStyle=col;x.beginPath();x.arc(32,32,30,0,7);x.fill();x.fillStyle="#fff";x.font="bold 50px Inter,sans-serif";x.textAlign="center";x.textBaseline="middle";x.fillText(sign,32,35);
+  const s=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),depthTest:false,transparent:true}));s.scale.set(.42,.42,1);s.renderOrder=25;return s;}
+// ---------- globin subunit: a lumpy globular chain with a heme pocket on its outer face ----------
+const tet=new THREE.Group();scene.add(tet);
+const D1=new THREE.Group(),D2=new THREE.Group();tet.add(D1);tet.add(D2);   // α1β1 dimer, α2β2 dimer
+function globin(col,seed){const g=new THREE.Group();let r=seed;const rnd=()=>{r=(r*9301+49297)%233280;return r/233280;};
+  const m=mat(col,{transparent:true,opacity:.9});
+  const core=new THREE.Mesh(new THREE.SphereGeometry(1.35,36,28),m);core.scale.set(1,1.08,.95);g.add(core);
+  for(let i=0;i<11;i++){const th=rnd()*Math.PI*2,ph=Math.acos(2*rnd()-1),rr=.95+rnd()*.25;const b=new THREE.Mesh(new THREE.SphereGeometry(.55+rnd()*.3,20,14),m);b.position.set(rr*Math.sin(ph)*Math.cos(th),rr*Math.cos(ph),rr*Math.sin(ph)*Math.sin(th));g.add(b);}
+  // a few helix "ribbons" on the surface
+  const hm=mat(0xffffff,{transparent:true,opacity:.18});for(let i=0;i<4;i++){const h=new THREE.Mesh(new THREE.TorusGeometry(1.3,.05,8,40,Math.PI*.9),hm);h.rotation.set(rnd()*3,rnd()*3,rnd()*3);g.add(h);}
+  return g;}
+function heme(){const g=new THREE.Group();
+  const ring=new THREE.Mesh(new THREE.CylinderGeometry(.52,.52,.08,6),mat(0x8a2a1e,{roughness:.4,transparent:true,opacity:.72}));ring.rotation.x=Math.PI/2;g.add(ring);
+  const fe=new THREE.Mesh(new THREE.SphereGeometry(.18,16,12),mat(0xff9a3c,{emissive:0x7a3300,emissiveIntensity:.5}));g.add(fe);
+  const his=new THREE.Mesh(new THREE.CylinderGeometry(.06,.06,.5,10),mat(0x3fb950));his.rotation.x=Math.PI/2;g.add(his);   // proximal histidine (F8)
+  const o2=new THREE.Group();[-.11,.11].forEach(d=>{const a=new THREE.Mesh(new THREE.SphereGeometry(.13,14,10),mat(0xff3b30,{emissive:0x8a0000,emissiveIntensity:.35}));a.position.x=d;o2.add(a);});o2.visible=false;g.add(o2);
+  g.userData={fe,his,o2,on:0};return g;}
+// positions: α on top, β below; dimer 1 on the left, dimer 2 on the right; β1 and β2 face each other across the central cavity
+const SUB=[
+ {name:"α1",col:0xe8838b,d:D1,p:V(-1.45,1.35,.35),hp:V(-1.05,.45,1.1),seed:3},
+ {name:"β1",col:0x6f9cf0,d:D1,p:V(-1.5,-1.3,-.25),hp:V(-1.0,-.5,1.05),seed:7},
+ {name:"α2",col:0xd46370,d:D2,p:V(1.45,1.35,-.35),hp:V(1.05,.45,1.1),seed:11},
+ {name:"β2",col:0x4f7fe0,d:D2,p:V(1.5,-1.3,.25),hp:V(1.0,-.5,1.05),seed:13}];
+SUB.forEach(s=>{s.hp.multiplyScalar(1.75/s.hp.length());s.g=globin(s.col,s.seed);s.g.position.copy(s.p);s.d.add(s.g);s.h=heme();s.h.position.copy(s.hp);s.h.lookAt(s.hp.clone().multiplyScalar(3));s.g.add(s.h);
+  s.lab=label(s.name,{col:s.name[0]==="α"?"#c0414e":"#2f5fc9",scale:.9});s.lab.position.set(s.p.x*1.65,s.p.y*1.45,0);s.d.add(s.lab);});
+// central cavity: + charges on the facing sides of the β chains (His2, Lys82, His143 of each β)
+const plus=[];[[SUB[1],1],[SUB[3],-1]].forEach(([s,side])=>{[[.65,.55,.8],[.85,-.05,.95],[.7,-.6,.75]].forEach(([x,y,z])=>{const c=charge("+","#2f81f7");c.position.set(side*x,y,z);s.g.add(c);plus.push(c);});});
+// 2,3-BPG: a small chain with phosphate groups and 5 negative charges
+const bpg=new THREE.Group();{const cm=mat(0xf2a93b,{emissive:0x6b4300,emissiveIntensity:.25}),pm=mat(0xffd27a);
+  [[-.35,0,0],[0,.12,0],[.35,0,0]].forEach(p=>{const a=new THREE.Mesh(new THREE.SphereGeometry(.17,14,10),cm);a.position.set(...p);bpg.add(a);});
+  [[-.62,.25,0],[.62,.25,0],[0,.5,0]].forEach(p=>{const a=new THREE.Mesh(new THREE.SphereGeometry(.21,14,10),pm);a.position.set(...p);bpg.add(a);});
+  [[-.78,.55,.15],[-.55,-.2,.2],[.78,.55,.15],[.55,-.2,.2],[0,.85,.15]].forEach(p=>{const c=charge("−","#d1242f");c.scale.set(.32,.32,1);c.position.set(...p);bpg.add(c);});}
+scene.add(bpg);
+const lab={
+ bpg:label("2,3-BPG (− charges)",{col:"#b86e00",scale:.8}),
+ pocket:label("Positive pocket between the β chains",{col:"#1f6feb",scale:.8}),
+ d1:label("α1β1 pair",{scale:.8}),d2:label("α2β2 pair",{scale:.8}),
+ heme:label("Heme: Fe²⁺ held by the proximal His",{scale:.78}),
+ state:label("",{scale:1.05,fs:44})};
+Object.values(lab).forEach(s=>scene.add(s));
+// free O2 molecules drifting in the plasma
+const free=[];for(let i=0;i<14;i++){const g=new THREE.Group();[-.11,.11].forEach(d=>{const a=new THREE.Mesh(new THREE.SphereGeometry(.12,12,8),mat(0xff3b30,{emissive:0x8a0000,emissiveIntensity:.3}));a.position.x=d;g.add(a);});
+  g.position.set((Math.random()-.5)*12,(Math.random()-.5)*8,(Math.random()-.5)*4-1);g.userData={v:V((Math.random()-.5)*.6,(Math.random()-.5)*.6,(Math.random()-.5)*.3)};scene.add(g);free.push(g);}
+// rotation guides: each dimer carries a bold bar along its long axis; dashed lines mark where the bars sit in the T state
+const ROT=.26;   // each dimer turns this far (radians); drawn about twice the real ~15° total so the change is easy to see
+const guides=new THREE.Group();scene.add(guides);
+function bar(col){const g=new THREE.Group();const m=new THREE.Mesh(new THREE.CylinderGeometry(.09,.09,6.6,12),new THREE.MeshBasicMaterial({color:col,depthTest:false,transparent:true,opacity:.95}));m.renderOrder=20;g.add(m);
+  [3.3,-3.3].forEach(y=>{const c=new THREE.Mesh(new THREE.ConeGeometry(.2,.4,14),m.material);c.position.y=y;if(y<0)c.rotation.z=Math.PI;c.renderOrder=20;g.add(c);});return g;}
+const bar1=bar(0x1f9e89),bar2=bar(0x8250df);bar1.position.set(-1.48,0,1.9);bar2.position.set(1.48,0,1.9);D1.add(bar1);D2.add(bar2);
+function dashed(x){const pts=[V(x,-3.4,1.9),V(x,3.4,1.9)],g=new THREE.BufferGeometry().setFromPoints(pts),l=new THREE.Line(g,new THREE.LineDashedMaterial({color:0x8b949e,dashSize:.25,gapSize:.18,depthTest:false,transparent:true}));l.computeLineDistances();l.renderOrder=19;return l;}
+const ref1=dashed(-1.48),ref2=dashed(1.48);guides.add(ref1);guides.add(ref2);
+const angLab=label("",{scale:.95,fs:42});scene.add(angLab);
+const tagT=label("dashed = T-state position",{scale:.7});scene.add(tagT);
+// ---------- state ----------
+let po2=40,po2Goal=40,shown={r:0,bound:0},guided=true;
+const BOUND_ORDER=[0,2,1,3];   // α chains tend to load first
+function update(dt){
+  po2+=(po2Goal-po2)*Math.min(1,dt*2.2);
+  const sat=S(po2),r=fR(po2),nB=Math.round(sat*4*1.0001);
+  shown.r+=(r-shown.r)*Math.min(1,dt*2.5);
+  const rr=shown.r;                          // 0 = T, 1 = R
+  // dimer rotation: α1β1 turns ~15° relative to α2β2 (±7.5° each about the shared axis), β chains slide closer
+  D1.rotation.z=lerp(0,ROT,rr);D2.rotation.z=lerp(0,-ROT,rr);D1.position.x=lerp(0,.22,rr);D2.position.x=lerp(0,-.22,rr);
+  // heme iron: domed out of plane in T, pulled into the plane in R (exaggerated for clarity)
+  SUB.forEach((s,k)=>{const on=BOUND_ORDER.indexOf(k)<nB;const u=s.h.userData;u.on+=((on?1:0)-u.on)*Math.min(1,dt*3);
+    u.fe.position.z=lerp(-.2,0,Math.max(rr*.6,u.on));u.his.position.z=u.fe.position.z-.32;u.o2.visible=u.on>.15;u.o2.position.z=lerp(1.4,.3,u.on);u.o2.rotation.y=Math.PI/2;});
+  // 2,3-BPG sits in the pocket in T; squeezed out as Hb turns R
+  const bIn=V(0,-1.55,.9),bOut=V(0,-4.2,3.2);bpg.position.lerpVectors(bIn,bOut,clamp((rr-.25)/.5,0,1));bpg.visible=Lm>.5||rr<.5;bpg.rotation.y+=dt*.5;
+  plus.forEach(c=>c.material.opacity=lerp(1,.55,rr));
+  const fade=STEPS[si].focus==="heme"?.22:.9;SUB.forEach(s=>s.g.children.forEach(m=>{if(m.material&&m.material.transparent&&m!==s.h&&m.geometry&&m.geometry.type==="SphereGeometry"){m.material.opacity+= (fade-m.material.opacity)*Math.min(1,dt*3);m.material.depthWrite=fade>.5;}}));
+  lab.bpg.position.copy(bpg.position).add(V(0,1.1,.2));
+  lab.pocket.position.set(0,-2.75,1.3);
+  lab.d1.position.set(-3.6,0,0);lab.d2.position.set(3.6,0,0);
+  lab.heme.position.copy(SUB[0].g.localToWorld(SUB[0].hp.clone().multiplyScalar(1.15))).add(V(0,-1.1,0));
+  const st=rr<.5?"T state (tense)":"R state (relaxed)";setLbl(lab.state,`${st} · ${nB}/4 O₂`);lab.state.userData.col=rr<.5?"#2f5fc9":"#c2341f";lab.state.position.set(0,4.85,1.9);if(lab.state._c!==rr<.5){lab.state._c=rr<.5;draw(lab.state);}
+  const gOn=STEPS[si].focus!=="heme";bar1.visible=bar2.visible=guides.visible=angLab.visible=tagT.visible=gOn;
+  setLbl(angLab,rr<.08?"T: pairs upright":`α1β1 turned ${Math.round(rr*15)}° vs α2β2`);angLab.position.set(0,4.15,1.9);tagT.position.set(0,3.6,1.9);
+  free.forEach(g=>{g.position.addScaledVector(g.userData.v,dt);["x","y"].forEach((a,i)=>{const lim=i?4.6:7.5;if(Math.abs(g.position[a])>lim)g.userData.v[a]*=-1;});g.rotation.y+=dt;g.visible=Math.random()<1&&free.indexOf(g)<Math.round(po2/120*14);});
+  // panel
+  $("po2").value=Math.round(po2Goal);$("po2o").textContent=Math.round(po2)+"";$("satv").textContent=Math.round(sat*100)+"%";$("o2v").textContent=nB+" / 4";$("tri").style.left=(rr*100)+"%";
+  drawMarker(po2,sat);
+}
+// ---------- dissociation curve (SVG) ----------
+const svg=$("curve"),X0=44,X1=346,Y0=212,Y1=14,px=p=>X0+(X1-X0)*p/120,py=s=>Y0-(Y0-Y1)*s;
+function path(f){let d="";for(let p=0;p<=120;p+=1){d+=(p?"L":"M")+px(p).toFixed(1)+" "+py(f(p)).toFixed(1);}return d;}
+function drawCurve(){const mu=isLight()?"#59636e":"#8b949e",ln=isLight()?"#d0d7de":"#30363d",tx=isLight()?"#1f2328":"#e6edf3";
+  let h=`<rect x="${X0}" y="${Y1}" width="${X1-X0}" height="${Y0-Y1}" fill="none" stroke="${ln}"/>`;
+  for(let p=0;p<=120;p+=20)h+=`<line x1="${px(p)}" y1="${Y0}" x2="${px(p)}" y2="${Y0+4}" stroke="${mu}"/><text x="${px(p)}" y="${Y0+17}" fill="${mu}" font-size="11" text-anchor="middle">${p}</text>`;
+  for(let s=0;s<=1;s+=.25)h+=`<line x1="${X0-4}" y1="${py(s)}" x2="${X0}" y2="${py(s)}" stroke="${mu}"/><text x="${X0-7}" y="${py(s)+4}" fill="${mu}" font-size="11" text-anchor="end">${s*100}</text><line x1="${X0}" y1="${py(s)}" x2="${X1}" y2="${py(s)}" stroke="${ln}" stroke-dasharray="2 4"/>`;
+  h+=`<text x="${(X0+X1)/2}" y="${Y0+33}" fill="${mu}" font-size="11.5" text-anchor="middle">PO₂ (mmHg)</text><text transform="translate(12 ${(Y0+Y1)/2}) rotate(-90)" fill="${mu}" font-size="11.5" text-anchor="middle">Hb O₂ saturation (%)</text>`;
+  // all-R and all-T curves
+  const sR=p=>{const a=p/KR;return a/(1+a);},sT=p=>{const a=C*p/KR;return a/(1+a);};
+  h+=`<path d="${path(sR)}" fill="none" stroke="#e0533d" stroke-width="1.6" stroke-dasharray="5 4" opacity=".8"/><text x="${px(9)}" y="${py(.93)}" fill="#e0533d" font-size="11" font-weight="700">R state only</text>`;
+  h+=`<path d="${path(sT)}" fill="none" stroke="#5b8def" stroke-width="1.6" stroke-dasharray="5 4" opacity=".8"/><text x="${px(78)}" y="${py(.1)}" fill="#5b8def" font-size="11" font-weight="700">T state only</text>`;
+  if(Lm!==1)h+=`<path d="${path(p=>S(p,1))}" fill="none" stroke="${mu}" stroke-width="1.5" opacity=".5"/>`;
+  h+=`<path d="${path(p=>S(p))}" fill="none" stroke="${tx}" stroke-width="2.6"/>`;
+  const P=p50();h+=`<line x1="${px(P)}" y1="${py(.5)}" x2="${px(P)}" y2="${Y0}" stroke="${mu}" stroke-dasharray="3 3"/><text x="${px(P)+4}" y="${Y0-6}" fill="${mu}" font-size="10.5">P50</text>`;
+  h+=`<line x1="${px(40)}" y1="${Y1}" x2="${px(40)}" y2="${Y0}" stroke="${mu}" stroke-width=".7" opacity=".6"/><text x="${px(40)+3}" y="${Y1+11}" fill="${mu}" font-size="10">tissues</text><line x1="${px(100)}" y1="${Y1}" x2="${px(100)}" y2="${Y0}" stroke="${mu}" stroke-width=".7" opacity=".6"/><text x="${px(100)-3}" y="${Y1+11}" fill="${mu}" font-size="10" text-anchor="end">lungs</text>`;
+  h+=`<g id="mk"><circle r="6.5" fill="#ffd166" stroke="${tx}" stroke-width="2"/></g>`;
+  svg.innerHTML=h;$("p50v").textContent=P.toFixed(1);}
+function drawMarker(p,s){const m=$("mk");if(m)m.setAttribute("transform",`translate(${px(p).toFixed(1)} ${py(s).toFixed(1)})`);}
+$("shift").innerHTML=SHIFTS.map(x=>`<button class="btn ${x.id==="normal"?"on":""}" data-sh="${x.id}">${x.n}</button>`).join("");
+function setShift(id){const x=SHIFTS.find(y=>y.id===id);Lm=x.L;[...$("shift").children].forEach(b=>b.classList.toggle("on",b.dataset.sh===id));$("why").innerHTML=x.w;drawCurve();}
+$("shift").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;setShift(b.dataset.sh);guided=false;setPlay(false);});
+let flipT=null;$("flip").onclick=()=>{guided=false;setPlay(false);if(flipT){clearInterval(flipT);flipT=null;$("flip").textContent="Watch T ⇄ R";$("flip").classList.remove("on");return;}
+  const go=()=>{po2Goal=po2Goal>50?10:100;};go();flipT=setInterval(go,3200);$("flip").textContent="Stop";$("flip").classList.add("on");};
+$("po2").addEventListener("input",e=>{po2Goal=+e.target.value;guided=false;setPlay(false);});
+// ---------- guided steps ----------
+const STEPS=[
+ {k:"Meet hemoglobin",cam:[0,1.2,18],tg:[0,1.2,0],po2:40,sh:"normal",lab:["d1","d2","state"],
+  t:"Hemoglobin is a <b>tetramer</b>: two <b>α chains</b> (pink) and two <b>β chains</b> (blue). They pair up as two dimers, <b>α1β1</b> and <b>α2β2</b>. Each chain holds one <b>heme</b>, so one Hb carries up to <b>4 O₂</b>."},
+ {k:"Heme and iron",focus:"heme",cam:[-2.3,1.3,4.6],tg:[-1.9,1.2,1.1],po2:12,sh:"normal",lab:["heme"],
+  t:"Each heme has an iron in the <b>ferrous (Fe²⁺)</b> state, held from below by the <b>proximal histidine</b> (green). Without O₂ the iron sits slightly <b>out of the ring</b>, domed toward the histidine."},
+ {k:"The 2,3-BPG pocket",cam:[0,-3,8],tg:[0,-1.4,.6],po2:12,sh:"normal",lab:["bpg","pocket"],
+  t:"Between the two β chains is a central cavity lined with <b>positive charges</b> (His2, Lys82, His143 of each β). <b>2,3-BPG</b> carries <b>negative charges</b>, so it fits here like a key, but <b>only in the T state</b>. It holds Hb in T and lowers O₂ affinity."},
+ {k:"T state at the tissues",cam:[0,1.2,17],tg:[0,1.2,0],po2:22,sh:"normal",lab:["state","bpg"],
+  t:"In the <b>T (tense) state</b>, salt bridges lock the chains and 2,3-BPG sits in its pocket. Affinity for O₂ is <b>low</b>, which is perfect for <b>dropping O₂ off</b> in the tissues."},
+ {k:"First O₂ binds and pulls the iron",focus:"heme",cam:[-2.3,1.3,4.6],tg:[-1.9,1.2,1.1],po2:30,sh:"normal",lab:["heme"],
+  t:"When O₂ binds, the iron moves <b>into the plane</b> of the heme and drags the proximal histidine and its helix with it. That shift strains the T-state contacts. Each O₂ makes the next one easier: <b>cooperativity</b>."},
+ {k:"The switch: chains rotate",cam:[0,1.2,18],tg:[0,1.2,0],po2:85,sh:"normal",lab:["d1","d2","state","bpg"],arc:1,
+  t:"After about two O₂ are on, Hb flips to the <b>R state</b>. Watch the colored bars leave the dashed T-state lines: the <b>α1β1 pair rotates about 15°</b> against the α2β2 pair (drawn larger here), the β chains slide closer, the central cavity <b>narrows</b>, and <b>2,3-BPG is squeezed out</b>."},
+ {k:"R state in the lungs",cam:[0,1.2,17],tg:[0,1.2,0],po2:100,sh:"normal",lab:["state"],
+  t:"In the <b>R (relaxed) state</b> affinity is <b>high</b>. At lung PO₂ of 100 mmHg Hb is about <b>97% saturated</b>, all four hemes loaded."},
+ {k:"Reading the curve",cam:[0,1.2,17],tg:[0,1.2,0],po2:40,sh:"normal",lab:["state"],curve:1,
+  t:"The curve is <b>sigmoid</b> because Hb starts on the low-affinity <b>T curve</b> and jumps to the high-affinity <b>R curve</b> as it loads. At the tissues (40 mmHg) it is about 75% saturated, so it has unloaded about a quarter of its O₂. Try the slider."},
+ {k:"Right and left shifts",cam:[0,1.2,17],tg:[0,1.2,0],po2:40,sh:"right",lab:["state","bpg"],
+  t:"<b>Right shift</b> (↑ 2,3-BPG, ↑ H⁺, ↑ CO₂, ↑ temperature) favors <b>T</b>: Hb unloads more O₂. <b>Left shift</b> (fetal Hb, ↓ 2,3-BPG, alkalosis, CO) favors <b>R</b>: Hb holds on. Switch between them in the panel."}];
+let si=0,playing=true,stepT=0;const STEP_SEC=12;let camGoal=null;
+function camTo(c,t,focus){if(focus==="heme"){const w=SUB[0].g.localToWorld(SUB[0].hp.clone()),out=w.clone().sub(SUB[0].g.localToWorld(V(0,0,0))).normalize();const side=out.clone().cross(V(0,1,0)).normalize();camGoal={p:w.clone().add(out.clone().multiplyScalar(1.6)).add(side.multiplyScalar(-3.4)).add(V(0,.8,0)),t:w.clone().add(out.clone().multiplyScalar(.4))};return;}const tg=V(...t),dir=V(...c).sub(tg),d=dir.length(),a=camera.aspect||1.4,f=Math.max(1,1.35/a);camGoal={p:tg.clone().add(dir.normalize().multiplyScalar(d*f)),t:tg};}
+function show(i){if(typeof flipT!=="undefined"&&flipT){clearInterval(flipT);flipT=null;$("flip").textContent="Watch T ⇄ R";$("flip").classList.remove("on");}si=(i+STEPS.length)%STEPS.length;const s=STEPS[si];stepT=0;guided=true;po2Goal=s.po2;setShift(s.sh);
+  Object.entries(lab).forEach(([k,o])=>o.visible=s.lab.includes(k));
+  $("cap").textContent=`Step ${si+1} of ${STEPS.length} · ${s.k}`;$("note").innerHTML=s.t;$("pos").textContent=`Step ${si+1} / ${STEPS.length}`;
+  $("steps").innerHTML=STEPS.map((x,k)=>`<button class="step ${k===si?"on":""}" data-i="${k}"><span class="n">${k+1}</span><div><b>${x.k}</b>${k===si?`<span>${x.t.replace(/<[^>]+>/g,"")}</span>`:""}</div></button>`).join("");
+  camTo(s.cam,s.tg,s.focus);userMoved=0;}
+function setPlay(v){playing=v;$("play").textContent=v?"Pause":"Play";$("play").classList.toggle("on",v);}
+$("steps").addEventListener("click",e=>{const b=e.target.closest(".step");if(b){show(+b.dataset.i);}});
+$("prev").onclick=()=>show(si-1);$("next").onclick=()=>show(si+1);$("restart").onclick=()=>{show(0);setPlay(true);};$("play").onclick=()=>setPlay(!playing);
+function resize(){const w=stage.clientWidth,h=stage.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();if(camGoal){const s=STEPS[si];camTo(s.cam,s.tg,s.focus);}}
+addEventListener("resize",resize);
+drawCurve();resize();show(0);po2=po2Goal;camera.position.copy(camGoal.p);controls.target.copy(camGoal.t);
+const m=location.hash.match(/s=(\d+)/);if(m)show(+m[1]-1);
+let last=performance.now();
+(function loop(now){const dt=Math.min(.05,(now-last)/1000);last=now;
+  if(!document.hidden){update(dt);
+    if(camGoal&&(!userMoved||now-userMoved>6000)){camera.position.lerp(camGoal.p,.05);controls.target.lerp(camGoal.t,.05);}
+    if(playing&&guided){stepT+=dt;if(stepT>STEP_SEC&&si<STEPS.length-1)show(si+1);}
+    tet.rotation.y=Math.sin(now/4000)*.12;controls.update();renderer.render(scene,camera);}
+  requestAnimationFrame(loop);})(last);
+})();
+</script>
+</body></html>

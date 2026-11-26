@@ -2357,6 +2357,7 @@ const NVI = {
   leg: NVS('<path d="M10 3v8.5L8.5 21H12l1-6 1 6h3.5L16 11.5V3"/>'),
   split: NVS('<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M12 4v16"/>'),
   drop: NVS('<path d="M12 3s-6 6.8-6 11a6 6 0 0 0 12 0c0-4.2-6-11-6-11z"/>'),
+  hb: NVS('<circle cx="8" cy="8" r="3.6"/><circle cx="16" cy="8" r="3.6"/><circle cx="8" cy="16" r="3.6"/><circle cx="16" cy="16" r="3.6"/>'),
   lipo: NVS('<circle cx="8" cy="9" r="4.5"/><circle cx="16.5" cy="15.5" r="3"/><circle cx="17" cy="6" r="1.6"/><path d="M11.5 12.5l2.6 1.4"/>')
 };
 function navRow(attr, ic, label, n, on, cls){
@@ -2484,7 +2485,7 @@ function renderChaps(){
     msk: [["Anatomy", "anat", [["limb3d", "arm", "Upper limb", "3D", "3D upper limb"], ["leg3d", "leg", "Lower limb", "3D", "3D lower limb"], ["plexus", "plexus", "Brachial plexus", "Map", "Brachial plexus"],["limbmov", "move", "Limb movements", "Ref", "Limb movements: muscles, nerves & roots"]]]],
     crs: [["Anatomy", "anat", [["heart3d", "heart", "Heart atlas", "3D", "3D heart atlas"], ["heartinj", "injury", "Heart injuries", "3D", "3D heart injuries"], ["ribcage", "ribs", "Thoracic cage", "3D", "3D thoracic cage"], ["viva", "lab", "Spotter & viva", "Lab", "Anatomy Lab: spotter & viva"]]],
           ["Physiology", "phys", [["cap", "ap", "Action potentials", "Sim", "Cardiac action potentials"], ["pvl", "pv", "Wiggers & PV loop", "Sim", "Cardiac cycle & PV loop"], ["fcurve", "fc", "Function curves", "Sim", "Cardiac & vascular function curves"], ["starling", "drop", "Starling forces", "3D", "3D Starling forces"]]],
-          ["Biochemistry", "bio", [["lipo", "lipo", "Lipoproteins", "3D", "3D lipoprotein pathways"]]],
+          ["Biochemistry", "bio", [["lipo", "lipo", "Lipoproteins", "3D", "3D lipoprotein pathways"], ["hb3d", "hb", "Hemoglobin", "3D", "3D hemoglobin: T and R states"]]],
           ["Embryology", "emb", [["heartemb", "embryo", "Heart development", "3D", "3D heart development model"]]]]
   };
   const toolRow = (act, ic, label, kind, full) => `<button class="nv tl ${view===act?"on":""}" data-act="${act}" title="${esc(full||label)}"><span class="ni">${NVI[ic]||""}</span><span class="nl">${esc(label)}</span>${kind!==""&&kind!==undefined?`<span class="tkind">${esc(String(kind))}</span>`:""}</button>`;
@@ -2966,7 +2967,7 @@ function downloadAnki(){
 // ---- "See it in 3D": link a question to the interactive tool that shows it ----
 // A question can carry q.viz = {tool, hash, label, why}; otherwise these keyword rules pick one.
 const VIZ_TOOLS = {heart3d:{page:"heart-3d.html", name:"3D heart", icon:"🫀"}, heartemb:{page:"heart-embryo-3d.html", name:"3D heart development model", icon:"🧬"}, cap:{page:"cardiac-ap.html", name:"cardiac action potentials", icon:"⚡"},
-  pvl:{page:"cardiac-cycle.html", name:"cardiac cycle & PV loop", icon:"📈"}, fcurve:{page:"function-curves.html", name:"function curves tool", icon:"📉"}, lipo:{page:"lipoproteins-3d.html", name:"3D lipoprotein pathways", icon:"🧈"}, starling:{page:"starling.html", name:"3D Starling forces", icon:"💧"}, limb3d:{page:"upper-limb-3d.html", name:"3D upper limb", icon:"💪"},
+  pvl:{page:"cardiac-cycle.html", name:"cardiac cycle & PV loop", icon:"📈"}, fcurve:{page:"function-curves.html", name:"function curves tool", icon:"📉"}, hb3d:{page:"hemoglobin-3d.html", name:"3D hemoglobin: T and R states", icon:"🩸"}, lipo:{page:"lipoproteins-3d.html", name:"3D lipoprotein pathways", icon:"🧈"}, starling:{page:"starling.html", name:"3D Starling forces", icon:"💧"}, limb3d:{page:"upper-limb-3d.html", name:"3D upper limb", icon:"💪"},
   leg3d:{page:"lower-limb-3d.html", name:"3D lower limb", icon:"🦵"}, plexus:{page:"brachial-plexus.html", name:"brachial plexus", icon:"🧠"}, ribcage:{page:"rib-cage-3d.html", name:"3D thoracic cage", icon:"🦴"}};
 // CRS Embryology heart questions open the heart-development model at the matching stage (checked before VIZ_RULES)
 const EMB_RULES = [
@@ -3059,6 +3060,15 @@ function vizFor(q){
   if ((q.pfx==="cpr" && (window.CRS_PH_TOPICS||[]).slice(53,59).includes(q.t)) || q.t==="Lecture 7 · Cardiac & Vascular Function Curves") {
     const hit = FC_RULES.find(r=>r[0].test(q.s||"")); const t = VIZ_TOOLS.fcurve;
     return {tool:"fcurve", hash:hit?"s="+hit[1]:"", label:hit?hit[2]:"Cardiac & vascular function curves", icon:t.icon, name:t.name, page:t.page}; }
+  {   // hemoglobin O2-binding questions open the 3D hemoglobin tool at the matching step
+    const qt = [q.s, q.c && q.c[q.a]].filter(Boolean).join(" "), bio = /^(cbr|ncb)/.test(q.pfx||q.id||""), phy = /^(cpr|ncp)/.test(q.pfx||q.id||"");
+    const hbQ = /hemoglobin|haemoglobin|\bHb\b|2,3-BPG|bisphosphoglycerate|dissociation curve|\bP50\b|T state|R state|tense state|relaxed state|cooperativ|Bohr|HbF|fetal Hb/i;
+    if ((bio && (q.t==="Lecture 8 · Hemoglobin & Myoglobin" || (window.CRS_BC_TOPICS||[]).slice(62,72).includes(q.t) || hbQ.test(qt)) && !/cytochrome c oxidase|complex IV|electron transport/i.test(qt))
+        || (phy && /dissociation curve|\bP50\b|2,3-BPG|bisphosphoglycerate|Bohr effect/i.test(qt))) {
+      const t = VIZ_TOOLS.hb3d, H = [[/2,3-BPG|bisphosphoglycerate|BPG/i, 3, "See where 2,3-BPG binds"], [/shift|Bohr|HbF|fetal|altitude|exercis|acidosis|alkalosis|temperature|carbon monoxide|\bCO\b/i, 9, "Right and left shifts of the curve"],
+        [/dissociation curve|P50|sigmoid|saturat/i, 8, "Read the O₂ dissociation curve"], [/T state|R state|tense|relaxed|cooperativ|conformation|quaternary|rotat/i, 6, "Watch the T to R switch"], [/heme|iron|Fe2\+|ferrous|histidine/i, 2, "Heme and iron close-up"]];
+      const hit = H.find(r=>r[0].test(qt));
+      return {tool:"hb3d", hash:hit?"s="+hit[1]:"", label:hit?hit[2]:"Hemoglobin: O₂ binding, T and R states", icon:t.icon, name:t.name, page:t.page}; } }
   if (/^(cbr|ncb)/.test(q.pfx||q.id||"")) {   // lipoprotein questions open the 3D lipoprotein pathways at the matching pathway
     const qt = [q.s, q.c && q.c[q.a]].filter(Boolean).join(" "), t = VIZ_TOOLS.lipo;
     const hit = LIPO_RULES.find(r=>r[0].test(qt)); if (hit) return {tool:"lipo", hash:hit[1], label:hit[2], icon:t.icon, name:t.name, page:t.page}; }
@@ -3143,7 +3153,7 @@ function showPage(html){
 // ---------- Split view: study guide / 3D model / Mehlman PDF beside whatever is on the left ----------
 const SPLIT_TOOLS = {
   crs: [["heart3d","3D heart atlas","heart-3d.html?v=5"],["heartinj","3D heart injuries","heart-3d.html?v=5#injuries"],["ribcage","3D thoracic cage","rib-cage-3d.html"],
-        ["lipo","3D lipoprotein pathways","lipoproteins-3d.html?v=5"],["starling","3D Starling forces","starling.html?v=1"],["heartemb","3D heart development","heart-embryo-3d.html"],
+        ["lipo","3D lipoprotein pathways","lipoproteins-3d.html?v=5"],["hb3d","3D hemoglobin: T and R states","hemoglobin-3d.html?v=1"],["starling","3D Starling forces","starling.html?v=1"],["heartemb","3D heart development","heart-embryo-3d.html"],
         ["cap","Cardiac action potentials","cardiac-ap.html"],["pvl","Cardiac cycle & PV loop","cardiac-cycle.html"],["fcurve","Cardiac & vascular function curves","function-curves.html?v=1"]],
   msk: [["limb3d","3D upper limb","upper-limb-3d.html"],["leg3d","3D lower limb","lower-limb-3d.html"],["plexus","Brachial plexus","brachial-plexus.html"]]};
 const SPLIT_PDFS = ["HY Cardio","HY Biochem","HY Pulmonary","HY Arrows"];
@@ -4491,6 +4501,7 @@ function renderAll(){
   else if (view==="cap") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Cardiac action potentials</h2><a class="btn" href="cardiac-ap.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="cardiac-ap.html?v=1" title="Interactive cardiac action potential explorer"></iframe></div>`);
   else if (view==="fcurve") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Cardiac &amp; vascular function curves</h2><a class="btn" href="function-curves.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="function-curves.html?v=1" title="Interactive cardiac and vascular function curves"></iframe></div>`);
   else if (view==="starling") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Starling forces</h2><a class="btn" href="starling.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="starling.html?v=1" title="3D Starling forces in a capillary"></iframe></div>`);
+  else if (view==="hb3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Hemoglobin: T and R states</h2><a class="btn" href="hemoglobin-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="hemoglobin-3d.html?v=1" title="3D hemoglobin oxygen binding"></iframe></div>`);
   else if (view==="lipo") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Lipoprotein pathways</h2><a class="btn" href="lipoproteins-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="lipoproteins-3d.html?v=5" title="3D lipoprotein pathways"></iframe></div>`);
   else if (view==="pvl") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← CRS home</button><h2>Cardiac cycle & PV loop</h2><a class="btn" href="cardiac-cycle.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="cardiac-cycle.html?v=3" title="Interactive cardiac cycle and pressure-volume loop simulator"></iframe></div>`);
   else if (view==="limb3d") showPage(`<div class="page plexpage"><div class="plextop"><button class="btn" data-plexback>← MSK home</button><h2>3D upper limb atlas</h2><a class="btn" href="upper-limb-3d.html" target="_blank" rel="noopener">Open in a new tab ↗</a></div><iframe class="plexframe" src="upper-limb-3d.html?v=1" title="Interactive 3D upper limb atlas"></iframe></div>`);
@@ -4816,7 +4827,7 @@ document.addEventListener("click", e=>{
   if (t.closest("[data-g3d]")) { const b = t.closest("[data-g3d]"), op = b.getAttribute("aria-expanded")!=="true"; try { localStorage.setItem("jj-3d-open", op?"1":"0"); } catch(e) {} b.setAttribute("aria-expanded", op); b.classList.toggle("on", !op && !!(b.nextElementSibling && b.nextElementSibling.querySelector(".on"))); if (b.nextElementSibling) b.nextElementSibling.hidden = !op; return; }
   if (t.closest("[data-toolstoggle]")) { const b = t.closest("[data-toolstoggle]"), op = b.getAttribute("aria-expanded")!=="true"; try { localStorage.setItem("jj-tools-open", op?"1":"0"); } catch(e) {} renderAll(); return; }
   const act = t.closest("[data-act]");
-  if (act) { view = ({build:"builder", plexus:"plexus", limbmov:"limbmov", limb3d:"limb3d", leg3d:"leg3d", cap:"cap", pvl:"pvl", fcurve:"fcurve", lipo:"lipo", starling:"starling", heart3d:"heart3d", heartemb:"heartemb", heartinj:"heartinj", ribcage:"ribcage", viva:"viva", ethics:"ethics", guides:"guides", anki:"anki", notes:"notes"})[act.dataset.act] || "notes"; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); return; }
+  if (act) { view = ({build:"builder", plexus:"plexus", limbmov:"limbmov", limb3d:"limb3d", leg3d:"leg3d", cap:"cap", pvl:"pvl", fcurve:"fcurve", lipo:"lipo", hb3d:"hb3d", starling:"starling", heart3d:"heart3d", heartemb:"heartemb", heartinj:"heartinj", ribcage:"ribcage", viva:"viva", ethics:"ethics", guides:"guides", anki:"anki", notes:"notes"})[act.dataset.act] || "notes"; $("side").classList.remove("open"); renderAll(); $("main").scrollTo({top:0}); return; }
   if (t.closest("[data-plexback]")) { view = "home"; renderAll(); $("main").scrollTo({top:0}); return; }
   // sidebar
   const rv = t.closest("[data-rv]");
