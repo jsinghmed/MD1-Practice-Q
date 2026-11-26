@@ -34,7 +34,8 @@ body.jv #cap{display:block}body:not(.jv) #note{display:none!important}body.jv #p
 #fsb:hover{background:rgba(0,0,0,.7)}#fsb svg{width:18px;height:18px}
 #fsbar{display:none;position:absolute;left:0;right:0;bottom:0;z-index:2;align-items:center;gap:8px;padding:28px 60px 12px 14px;background:linear-gradient(transparent,rgba(0,0,0,.7));color:#fff}
 #fsbar button{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);color:#fff;border-radius:8px;padding:6px 12px;font-size:13px;font-weight:600}
-#fsbar button:hover{background:rgba(255,255,255,.26)}#fsbar .t{font-size:13.5px;margin-left:6px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#fsbar button:hover{background:rgba(255,255,255,.26)}
+.vbtn{display:inline-flex;align-items:center;gap:6px}.vbtn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}#fsbar .t{font-size:13.5px;margin-left:6px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 body.sfs{overflow:hidden}body.sfs .wrap{padding:0;max-width:none}body.sfs .top,body.sfs .right,body.sfs .ctrl,body.sfs .hint{display:none}
 body.sfs .grid{display:block}body.sfs .grid>.card{padding:0;border:0;border-radius:0;background:#000}
 body.sfs #stage{position:fixed;inset:0;height:100vh;border-radius:0;z-index:50}body.sfs #fsbar{display:flex}
@@ -59,12 +60,13 @@ body.sfs #note{top:42px}
   </div>
   <div class="grid">
     <div class="card">
-      <div id="stage"><div id="cap"></div><div id="note"></div><div class="hint">Drag to rotate · scroll or pinch to zoom</div><div id="fsbar"><button id="fprev">← Back</button><button id="fplay">Pause</button><button id="fnext">Next →</button><span class="t" id="ftitle"></span></div><button id="fsb" title="Full screen" aria-label="Full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path id="fsp" d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div>
+      <div id="stage"><div id="cap"></div><div id="note"></div><div class="hint">Drag to rotate · scroll or pinch to zoom</div><div id="fsbar"><button id="fprev">← Back</button><button id="fplay">Pause</button><button id="fnext">Next →</button><button id="fvoice" class="vbtn"></button><span class="t" id="ftitle"></span></div><button id="fsb" title="Full screen" aria-label="Full screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path id="fsp" d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div>
       <div class="ctrl">
         <button class="btn" id="prev">← Back</button>
         <button class="btn on" id="play">Pause</button>
         <button class="btn" id="next">Next →</button>
         <button class="btn" id="restart">Restart</button>
+        <button class="btn vbtn" id="voice" title="Read each step out loud"></button>
         <div class="seg" id="spd"><button data-s="0.6">Slow</button><button data-s="1" class="on">Normal</button><button data-s="1.7">Fast</button></div>
         <span class="sp" id="pos"></span>
       </div>
@@ -234,6 +236,7 @@ function tickRun(r,dt){const st=cur(r);
   applyState(r.p,s);r.p.lab.position.copy(r.p.position).add(V(0,s.size*1.3+.55,0));r.p.lab.visible=r.p.visible;
   stepEvents(r,u);
   if(r.donor){r.donor.t+=dt*speed;r.donor.m.material.opacity=Math.max(0,.9-r.donor.t*.35);if(r.donor.t>2.6){scene.remove(r.donor.m);r.donor=null;}}
+  if(u>=1&&mode!=="all"&&r===runs[0]&&voiceHold()){r.t=1;return;}
   if(u>=1){r.s=Object.assign({},r.s0,st.to);
     if(r.i<P[r.key].steps.length-1){startStep(r,r.i+1);if(mode!=="all"&&r===runs[0])render();}
     else if(mode==="all"){jump(r,0);} else {playing=false;setPlay();r.t=1;}}
@@ -544,11 +547,59 @@ function jTick(dt){const c=J.c;if(!c)return;if(playing)J.t+=dt*speed/J.dur;const
   setText(c.main.lab,(c.prev&&u<.55&&c.prev!==c.st.name)?c.prev:c.st.name);
   tickFly(dt);kit.amb.forEach(a=>{a.m.position.x+=dt*a.v*speed*(playing?1:.15);if(a.m.position.x>21)a.m.position.x-=42;if(a.rx){a.m.rotation.x+=dt*a.rx;a.m.rotation.y+=dt*a.ry;}});
   if(performance.now()-jMoved>4000){const tx_=Math.max(-3.2,Math.min(3.2,c.pos.x*.35)),dx=(tx_-jctl.target.x)*.03;jctl.target.x+=dx;jcam.position.x+=dx;}
-  if(J.t>=1){if(J.i<P[mode].steps.length-1){jStart(J.i+1);render();}else{playing=false;setPlay();J.t=1;}}}
+  if(J.t>=1&&!voiceHold()){if(J.i<P[mode].steps.length-1){jStart(J.i+1);render();}else{playing=false;setPlay();J.t=1;}}}
+
+// ---------- Voice narration (the browser's built-in US English voice) ----------
+const SAY={
+ chylo:[
+  "Alright, let's follow a chylomicron! Inside the intestinal cell, the fats we just ate, triglycerides and cholesterol, get packed together with apo B 48. Say hello to the biggest, fluffiest lipoprotein of them all.",
+  "Now here's the fun part. Chylomicrons are way too big for blood capillaries, so they squeeze into the lacteals instead and ride the lymph up to the thoracic duct. That means they skip the liver on the first trip!",
+  "Welcome to the blood! Here the chylomicron bumps into H D L, its helpful friend. H D L hands over apo C 2, the switch that turns on lipoprotein lipase, and apo E, its ticket into the liver later. Now it's a mature chylomicron.",
+  "First stop, the muscle capillaries! Lipoprotein lipase, switched on by apo C 2, chops up the triglycerides. The free fatty acids hop into the muscle and get burned for energy.",
+  "Next stop, fat tissue. Lipoprotein lipase pulls out even more triglyceride, and the fat cells rebuild it and tuck it away for later. And remember, insulin turns up lipoprotein lipase here.",
+  "Look how much smaller it's gotten! It gives apo C 2 back to H D L, but keeps apo E and apo B 48. Now we call it a chylomicron remnant, and it's packed with cholesterol.",
+  "Last stop, the liver! Apo E grabs the receptor on the liver cell, and the whole remnant gets pulled inside by receptor mediated endocytosis. Journey complete!"],
+ vldl:[
+  "Now it's the liver's turn to ship something out! It packs the triglycerides and cholesterol it made itself with apo B 100. Meet V L D L.",
+  "Just like the chylomicron, V L D L meets H D L in the blood and picks up apo C 2 and apo E. Thanks, H D L!",
+  "Off to the muscle and fat capillaries! Lipoprotein lipase strips off triglycerides, and as V L D L shrinks, it becomes I D L.",
+  "Some I D L heads right back into the liver using apo E. The rest gets trimmed by hepatic lipase, hands back apo C 2 and apo E, and becomes L D L, with only apo B 100 left.",
+  "Here's L D L, the main cholesterol delivery truck! It drops cholesterol off at the tissues, and back at the liver. This is the famous bad cholesterol.",
+  "Delivery time! Apo B 100 locks onto the L D L receptor, and in it goes by receptor mediated endocytosis. Fun fact: if those receptors are missing, you get familial hypercholesterolemia."],
+ hdl:[
+  "Last pathway, and it's the good guy! The liver and the intestine release flat, disc shaped H D L, carrying apo A 1. H D L also keeps the spare apo C 2 and apo E for everyone else.",
+  "Out in the tissues, A B C A 1 pumps free cholesterol out of the cell and onto the H D L disc. Cleanup crew, reporting for duty!",
+  "Now L-cat, switched on by apo A 1, turns that cholesterol into cholesterol esters. They fill up the core, and the flat disc puffs up into a nice round sphere. That's mature H D L!",
+  "Time for a trade! C E T P moves cholesterol esters from H D L over to V L D L, and sends triglycerides back to H D L in return.",
+  "And finally, H D L brings the cholesterol home to the liver through S R B 1. That's reverse cholesterol transport, and that's why H D L is the good cholesterol. Great job following along!"]};
+let voiceOn=false,speaking=false,spokeKey="",vUtt=null,vSafe=0;
+try{voiceOn=localStorage.getItem("jj-lipo-voice")==="1";}catch(e){}
+const HASVOICE="speechSynthesis" in window;
+function pickVoice(){const vs=HASVOICE?speechSynthesis.getVoices():[];const us=vs.filter(v=>/en[-_]US/i.test(v.lang));
+  const pref=[/Google US English/i,/Aria.*Natural|Jenny.*Natural|Ava.*Natural|Emma.*Natural/i,/Samantha/i,/\bAva\b/i,/Allison|Susan|Zira/i];
+  for(const r of pref){const v=us.find(x=>r.test(x.name));if(v)return v;}return us[0]||vs.find(v=>/^en/i.test(v.lang))||null;}
+function speakStep(){
+  if(!HASVOICE)return;vUtt=null;speechSynthesis.cancel();speaking=false;
+  if(!voiceOn||mode==="all"||!SAY[mode])return;const i=curI(),txt=SAY[mode][i];if(!txt)return;spokeKey=mode+":"+i;
+  // one sentence at a time: Chrome cuts off long utterances
+  const parts=txt.match(/[^.!?]+[.!?]+/g)||[txt],v=pickVoice(),token={};vUtt=token;speaking=true;
+  parts.forEach((t,k)=>{const u=new SpeechSynthesisUtterance(t.trim());if(v)u.voice=v;u.lang="en-US";
+    u.rate=Math.max(.8,Math.min(1.25,1.02*Math.sqrt(speed)));u.pitch=1.18;u.volume=1;
+    if(k===parts.length-1)u.onend=()=>{if(vUtt===token)speaking=false;};
+    u.onerror=e=>{if(vUtt===token&&e.error!=="interrupted"&&e.error!=="canceled")speaking=false;};
+    try{speechSynthesis.speak(u);}catch(e){speaking=false;}});
+  vSafe=performance.now()+txt.length*95+5000;   // never hold the animation forever if the voice goes silent
+  if(!playing)speechSynthesis.pause();}
+function voiceHold(){if(!(voiceOn&&speaking))return false;if(playing&&performance.now()>vSafe){speaking=false;return false;}if(!playing)vSafe+=16;return true;}
+function voiceUI(){const ic=voiceOn?'<svg viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>':'<svg viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="m23 9-6 6M17 9l6 6"/></svg>';
+  const t=voiceOn?"Voice on":"Voice off";["voice","fvoice"].forEach(id=>{const b=$(id);if(!b)return;b.innerHTML=ic+t;b.classList.toggle("on",voiceOn);b.disabled=!HASVOICE;b.title=HASVOICE?(voiceOn?"Turn off the spoken explanation":"Read each step out loud"):"Your browser can't read text out loud";});}
+if(HASVOICE&&speechSynthesis.onvoiceschanged!==undefined)speechSynthesis.onvoiceschanged=()=>{};
+window.addEventListener("pagehide",()=>{if(HASVOICE)speechSynthesis.cancel();});
+document.addEventListener("visibilitychange",()=>{if(document.hidden&&HASVOICE&&speaking){playing=false;setPlay();}});
 
 // ---------- UI ----------
 const $=id=>document.getElementById(id);
-function setPlay(){$("play").textContent=playing?"Pause":"Play";$("play").classList.toggle("on",playing);$("fplay").textContent=playing?"Pause":"Play";}
+function setPlay(){if(HASVOICE&&speaking){playing?speechSynthesis.resume():speechSynthesis.pause();}$("play").textContent=playing?"Pause":"Play";$("play").classList.toggle("on",playing);$("fplay").textContent=playing?"Pause":"Play";}
 // Full screen: only the 3D view, with a small control bar (like a video player)
 const FS_IN="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5",FS_OUT="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5";
 function setSfs(on){document.body.classList.toggle("sfs",on);$("fsp").setAttribute("d",on?FS_OUT:FS_IN);$("fsb").title=on?"Exit full screen":"Full screen";setTimeout(resize,60);}
@@ -570,9 +621,10 @@ function render(){
   const i=curI(),steps=P[mode].steps;$("stitle").textContent=P[mode].title;
   $("steps").innerHTML=steps.map((s,k)=>`<button class="step ${k===i?"on":""}" data-i="${k}"><span class="n">${k+1}</span><div><b>${s.k}</b>${k===i?`<span>${s.t}</span>`:""}</div></button>`).join("");
   if(view!=="j")(steps[i].tags||[]).forEach(id=>tags[id].visible=true);
+  if(mode+":"+i!==spokeKey||!voiceOn)speakStep();
   $("pos").textContent=`Step ${i+1} of ${steps.length}`;$("ftitle").textContent=`${P[mode].title} · Step ${i+1} of ${steps.length}: ${steps[i].k}`;
 }
-function goStep(i){if(view==="j"){jStart(i);}else{jump(runs[0],i);dotsReset();}playing=true;setPlay();render();}
+function goStep(i){spokeKey="";if(view==="j"){jStart(i);}else{jump(runs[0],i);dotsReset();}playing=true;setPlay();render();}
 function setPath(m){if(view==="j"&&m==="all")m="chylo";mode=m;if(view==="j"){clearAll();runs.push(newRun(m==="all"?"chylo":m));jStart(0);playing=true;setPlay();render();}else setMode(m);}
 function setView(v){view=v;controls.enabled=v!=="j";jctl.enabled=v==="j";
   if(v==="j"){if(mode==="all")mode="chylo";setPath(mode);}else{clearKit();fl.length=0;J.c=null;setMode(mode);}
@@ -586,6 +638,8 @@ $("play").onclick=()=>{if(mode!=="all"&&atEnd()){goStep(0);return;}playing=!play
 $("next").onclick=()=>{if(mode==="all")return;const i=curI();if(i<P[mode].steps.length-1)goStep(i+1);};
 $("prev").onclick=()=>{if(mode==="all")return;const t=view==="j"?J.t:runs[0].t;goStep(Math.max(0,curI()-(t<.15?1:0)));};
 $("fprev").onclick=()=>$("prev").onclick();$("fplay").onclick=()=>$("play").onclick();$("fnext").onclick=()=>$("next").onclick();
+function toggleVoice(){voiceOn=!voiceOn;try{localStorage.setItem("jj-lipo-voice",voiceOn?"1":"0");}catch(e){}voiceUI();spokeKey="";if(voiceOn){playing=true;setPlay();}speakStep();}
+$("voice").onclick=toggleVoice;$("fvoice").onclick=toggleVoice;voiceUI();
 $("restart").onclick=()=>{mode==="all"?setMode("all"):goStep(0);};
 $("spd").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;speed=+b.dataset.s;document.querySelectorAll("#spd button").forEach(x=>x.classList.toggle("on",x===b));});
 function resize(){const w=stage.clientWidth,h=stage.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();jcam.aspect=w/h;jcam.updateProjectionMatrix();}
