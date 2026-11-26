@@ -679,4 +679,5 @@ controls.addEventListener("start",()=>{tween=null;});
 function route(){const h=new URLSearchParams(location.hash.slice(1));const s=parseInt(h.get("stage")||"1",10);const i=clamp(isNaN(s)?0:s-1,0,15);
  st.stage=-1;setT(i+0.9);goCam(i,true);}
 bg();resize();if(canvas.getBoundingClientRect().width<560){st.labels=false;$("tLabels").setAttribute("aria-pressed","false");}route();window.addEventListener("hashchange",()=>{route();});requestAnimationFrame(frame);
-</script></body></html>
+</script><script src="stagefs.js?v=1" data-stage=".cvwrap" data-prev="#bPrev" data-play="#bPlay" data-next="#bNext"></script>
+</body></html>
