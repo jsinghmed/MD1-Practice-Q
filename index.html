@@ -1324,11 +1324,11 @@ button.dst:hover{background:var(--hover)}
 <script src="mocks.js?v=3"></script>
 <script src="crs-anatomy.js?v=1"></script>
 <script src="crs-biochem.js?v=15"></script>
-<script src="crs-physiology.js?v=19"></script>
-<script src="nbme.js?v=24"></script>
+<script src="crs-physiology.js?v=20"></script>
+<script src="nbme.js?v=25"></script>
 <script src="xp-crs.js?v=1"></script>
 <script src="viz-links.js?v=3"></script>
-<script src="followups/manifest.js?v=9"></script>
+<script src="followups/manifest.js?v=10"></script>
 <script src="followups.js?v=1"></script>
 <script>
 (function(){
@@ -1442,9 +1442,9 @@ const SECTIONS = [
      return lecExtras([["Lecture 1 · Fatty Acid Oxidation", T.slice(0,10)], ["Lecture 2 · Fatty Acid & TAG Synthesis", T.slice(10,21)], ["Lecture 3 · Ketone Body Metabolism", T.slice(21,29)], ["Lecture 4 · Complex Lipid Metabolism", T.slice(29,44)], ["Lecture 5 · Eicosanoid Metabolism", T.slice(44,50)], ["Lecture 6 · Lipoprotein Metabolism", T.slice(50,58)], ["Lecture 7 · Cholesterol Biosynthesis", T.slice(58,62)], ["Lecture 8 · Hemoglobin & Myoglobin", T.slice(62,72)], ["Lecture 9 · Citric Acid Cycle", T.slice(76,83).concat(T.slice(72,75))], ["Lecture 10 · Electron Transport Chain", T.slice(83,89).concat(T.slice(75,76))]],
        [["Shetty Practice Q's", "Shetty", "shetty"], ["USMLE Style Q's", "USMLE", "usmle"]]); })()},
   {course:"crs", name:"CRS Physiology", all:"All CRS Physiology", prefix:"cpr", topics:window.CRS_PH_TOPICS, hideTopics:true, qs:window.CRS_PH_QUESTIONS,
-   // Grouped by lecture (Dr. Sampath V.), then topic. Add each new lecture as one more [name, topics] row.
+   // Grouped by lecture (Dr. Sampath V.; Lecture 14 onward Dr. Taala-Bayubay), then topic. Add each new lecture as one more [name, topics] row.
    extra:(()=>{ const T = window.CRS_PH_TOPICS||[];
-     return lecExtras([["Lecture 1 · Cardiac Action Potential", T.slice(0,11)], ["Lecture 2 · Pacemaker Potential: SA & AV Nodes", T.slice(11,18)], ["Lecture 3 · Effects of Cardiac Nerves", T.slice(18,25)], ["Lecture 4 · The Cardiac Cycle", T.slice(25,32).concat(T.slice(39,47))], ["Lecture 5 · Cardiac Output & Pressure-Volume Loops", T.slice(32,39)], ["Lecture 6 · Hemodynamics: Flow, Pressure & Resistance", T.slice(47,53)], ["Lecture 7 · Cardiac & Vascular Function Curves", T.slice(53,59)], ["Lecture 8 · Regulation of Blood Pressure", T.slice(59,64)], ["Lecture 9 · ECG Essentials Part 1", T.slice(64,70)], ["Lecture 10 · ECG Part 2: Blocks & Arrhythmias", T.slice(70,75)], ["Lecture 11 · Microcirculation, Lymphatics & Edema", T.slice(76,81)], ["Lecture 12 · Special Circulation", T.slice(81,86)], ["Lecture 13 · Heart Sounds & Murmurs", T.slice(86,91)], ["CVS Final Practice Quiz", T.slice(75,76)]],
+     return lecExtras([["Lecture 1 · Cardiac Action Potential", T.slice(0,11)], ["Lecture 2 · Pacemaker Potential: SA & AV Nodes", T.slice(11,18)], ["Lecture 3 · Effects of Cardiac Nerves", T.slice(18,25)], ["Lecture 4 · The Cardiac Cycle", T.slice(25,32).concat(T.slice(39,47))], ["Lecture 5 · Cardiac Output & Pressure-Volume Loops", T.slice(32,39)], ["Lecture 6 · Hemodynamics: Flow, Pressure & Resistance", T.slice(47,53)], ["Lecture 7 · Cardiac & Vascular Function Curves", T.slice(53,59)], ["Lecture 8 · Regulation of Blood Pressure", T.slice(59,64)], ["Lecture 9 · ECG Essentials Part 1", T.slice(64,70)], ["Lecture 10 · ECG Part 2: Blocks & Arrhythmias", T.slice(70,75)], ["Lecture 11 · Microcirculation, Lymphatics & Edema", T.slice(76,81)], ["Lecture 12 · Special Circulation", T.slice(81,86)], ["Lecture 13 · Heart Sounds & Murmurs", T.slice(86,91)], ["CVS Final Practice Quiz", T.slice(75,76)], ["Lecture 14 · Hemostasis & Blood Coagulation", T.slice(91,97)]],
        [["Sampath's Q's", "Sampath", "sampath"], ["USMLE Style Q's", "USMLE", "usmle"]]); })()}
 ].concat((window.NBME_QUIZZES||[]).map(z=>({course:z.course, name:z.name, all:z.name, prefix:z.prefix, topics:[], qs:z.qs, nbme:true, subject:z.subject, note:z.note})))
  .filter(s=>s.qs && s.qs.length);
@@ -1789,6 +1789,7 @@ const ANKING = {
   "cpr|Lecture 11 · Microcirculation, Lymphatics & Edema": "nid:1471466713144,1471466721361,1471466729732,1471466733838,1471466751292,1471466759963,1471466769282,1471466778315,1471466782113,1471466790491,1471466801870,1471466831564,1471466870844,1471466878440,1471466881536,1471466884199,1471466893190,1471466900946,1471466908876,1471466916768,1521170206006,1471914938644,1471914942128,1471914954685,1471914969111,1471915101703,1522350837813,1550690800466,1532735591750,1471914999950,1471915047213,1576690231792,1577916403894,1471914925586,1482115575316,1509920166742,1475363769043,1486522767302,1553446019301",
   "cpr|Lecture 12 · Special Circulation": "nid:1463526145718,1463526153463,1463526209818,1463945003632,1471466918687,1471468263016,1471468280928,1471468280929,1471541620768,1471541638699,1471541651238,1471541654309,1471541666800,1471541670022,1471541683958,1471541699437,1471541716832,1471541719710,1471541722579,1471541725222,1471541734275,1471541737371,1471541747910,1471541808992,1472147398832,1472319909035,1472319911691,1472319917363,1472319923606,1472319929389,1472319935401,1472319948100,1472319954680,1472319957308,1474763351178,1474763357561,1474763361773,1474763369869,1484101535518,1484101540703,1484101545128,1484101551865,1484101557622,1484101563627,1521429313989,1586209943369,1471990276789,1471990295755,1471990316141,1471990336202,1472321235661,1473628217375,1521248804381,1521681348591,1532615863459,1471558899790",
   "cpr|Lecture 13 · Heart Sounds & Murmurs": "nid:1471289939766,1471294035134,1471294040253,1471294044110,1471294064499,1471294075331,1471294080868,1471294084533,1471294113945,1471294272870,1471294336923,1471294355563,1471294363464,1471294366999,1471552372903,1471552388799,1471552394185,1472147180171,1472147244957,1471554803766,1471558760048,1471558768276,1471558771660,1471558916902,1472058775498,1472058782489,1472058786068,1472058817318,1472058826585,1472058834697,1520817260632,1471558774734,1471558780451,1471558786536,1471558789622,1471558794566,1472058957758,1472058981260,1471558855981,1471558860873,1471558930347,1472058871043,1472058878308,1472058882618,1472058888270,1472058891600,1472058895186,1567787169638,1578627436807,1578627140675,1471558869916,1471558880219,1471558889414,1471558932772,1472058984977,1472058992255,1472058995902,1472059003077,1471899395392,1472078835137,1497045893565,1555272249866,1556148321838,1556206626632,1558031290425,1558031293280",
+  "cpr|Lecture 14 · Hemostasis & Blood Coagulation": "nid:1473982141617,1473985980516,1473985997545,1473986001040,1473986004354,1473986009866,1473986020742,1473986024573,1473986028528,1473986031590,1473986034094,1473986036899,1473986043060,1473986052600,1473986059652,1473986065214,1473986093686,1473986117229,1473986132369,1473986163852,1473986177028,1473986179822,1473986200310,1473986222009,1473986224965,1473986233534,1473986398130,1473995163159,1473995444571,1473995463276,1473995480416,1473995486704,1473995504794,1473995508259,1473995525861,1473995528007,1473995552377,1473995562419,1473995568285,1473995572360,1473995574937,1473995578050,1473995583272,1473995592393,1473995595810,1473995618552,1473995622762,1473995625622,1473995665744,1473995671286,1473995674176,1473995676873,1473995679341,1473995681855,1473995684086,1473995687424,1473995695173,1473995716769,1473995718828,1473995720927,1473995736635,1473995740705,1473995759027,1474056842486,1474059949481,1474060014668,1474060020070,1474060025715,1474060034604,1474060036899,1474060042847,1474060045108,1474340549347,1474340552038,1474340554238,1474340559882,1474340567887,1474340571288,1474340580166,1474340632913,1474340640502,1474340691384,1474340730687,1474340754145,1474426307667,1476584054368,1479267324516,1479267329028,1488765231664,1488765239779,1488765243586,1488765251203,1488765308661,1488765310513,1488765314397,1488767923559,1488767931946,1488767971727,1488768047036,1488768050748,1488768067383,1488768070741,1488768080149,1488847679422,1488847688890,1488847759567,1488847779733,1488847818071,1488855049373,1553851782503,1554111965679,1555544230072,1581790856163,1705515121724",
   "ca|Lecture 1 · Introduction to Thorax & Intercostal Spaces": "nid:1474511972236,1496608604412,1496608680946,1496608819674,1496608419803,1522427952831,1522428732333,1474511953060,1474511955568,1522986512395,1524251536027,1484016863153,1473303030795,1473303017758,1521261423613,1521261423614,1484016858132,1484016867460,1506291111598,1495489589270,1506291152635,1506291250234"
 };
 // UWorld Step 1 question IDs that AnKing tags on this lecture's cards. Key matches ANKING.
@@ -1816,6 +1817,7 @@ const UWORLD = {
   "cpr|Lecture 11 · Microcirculation, Lymphatics & Edema": "186,198,825,1577,1578,1881,6534,11833,14980,15193,17905,18160,20172,114735",
   "cpr|Lecture 12 · Special Circulation": "183,315,694,695,951,1493,1494,1516,1587,1751,1833,6519,11956,15197,18618,19523,19525,19526,19534,19535,19541,19636,19674,20476,21124,21356",
   "cpr|Lecture 13 · Heart Sounds & Murmurs": "33,181,232,235,236,237,238,242,243,246,315,686,939,944,1517,1557,1661,1983,2105,2106,2107,2108,6596,7238,7618,8294,14964,14966,14976,14978,14992,15196,15199,15221,16532,16596,22698,22787",
+  "cpr|Lecture 14 · Hemostasis & Blood Coagulation": "346,710,714,751,823,941,1062,1077,1078,1079,1080,1082,1087,1200,1291,1296,1298,1784,1903,1923,1953,1954,2097,2132,2133,6477,6481,6515,6726,6766,11731,14741,14959,15390,16441,16442,16705,18686,18688,18727,20361,106673",
   "ca|Lecture 1 · Introduction to Thorax & Intercostal Spaces": "647,648,1552,1829,11778,15158,19274"
 };
 // Mehlman HY Cardio page pointers, matched on the question stem and correct answer
@@ -1864,6 +1866,12 @@ const MEHL = [
   ["arrows", /nifedipine|afterload|arteriol/i, 275, "Q136 · Nifedipine: ↓SVR, ↑HR, ↑EF (answer p. 276)"],
   ["arrows", /baroreceptor|carotid sinus|standing|orthostatic/i, 269, "Q133 · Standing up: venous return & baroreceptors (answer p. 270)"],
   ["arrows", /runner|marathon|exercise|vagal tone/i, 251, "Q124 · Baroreceptor, vagal & SA sympathetic firing (answer p. 252)"],
+  ["arrows", /immune thrombocytop|\bITP\b|thrombocytopenia/i, 291, "Q144 · ITP: bleeding time, PT & aPTT arrows (answer p. 292)"],
+  ["arrows", /hemophilia|hemarthros|factor VIII deficien|factor IX deficien/i, 293, "Q145 · Hemophilia A or B: BT, PT & aPTT arrows (answer p. 294)"],
+  ["arrows", /von Willebrand|\bvWD\b/i, 295, "Q146 · von Willebrand disease arrows (answer p. 296)"],
+  ["arrows", /disseminated intravascular|\bDIC\b|D-dimer/i, 299, "Q148 · DIC: platelets, fibrinogen & D-dimer arrows (answer p. 300)"],
+  ["arrows", /vitamin K|warfarin|umbilical stump/i, 301, "Q149 · Vitamin K deficiency: BT, PT & aPTT arrows (answer p. 302)"],
+  ["arrows", /uremi/i, 303, "Q150 · Uremic platelet dysfunction arrows (answer p. 304)"],
   ["arrows", /ketoacidosis|\bDKA\b/i, 205, "Q101–103 · DKA arrows: pH, ketones, Na⁺, K⁺ (pp. 205–210)"],
   ["arrows", /lipolysis|GLUT-?4|insulin/i, 327, "Q162 · Insulin deficiency: GLUT-4, lipolysis, proteolysis (answer p. 328)"],
   ["biochem", /malonyl|acetyl-?CoA carboxylase|\bACC\b|ketogenesis|glucagon/i, 61, "Catabolic state: ACC, malonyl-CoA & ketogenesis"],
@@ -2095,7 +2103,7 @@ function ankingOpen(k){
   document.body.appendChild(d); d.querySelector("[data-ankcopy]").focus();
 }
 // CRS lectures are grouped into Cardiovascular and Respiratory. Every CRS lecture not listed here is cardiovascular.
-const RESP_LECS = new Set(["cbr|Lecture 8 · Hemoglobin & Myoglobin", "cbr|Lecture 9 · Citric Acid Cycle", "cbr|Lecture 10 · Electron Transport Chain", "ca|Lecture 7 · Pleura, Trachea & Lungs", "ca|Lecture 8 · Diaphragm",
+const RESP_LECS = new Set(["cpr|Lecture 14 · Hemostasis & Blood Coagulation", "cbr|Lecture 8 · Hemoglobin & Myoglobin", "cbr|Lecture 9 · Citric Acid Cycle", "cbr|Lecture 10 · Electron Transport Chain", "ca|Lecture 7 · Pleura, Trachea & Lungs", "ca|Lecture 8 · Diaphragm",
   "ce|Lecture 7 · Formation of the Diaphragm"]);
 const BOTH_LECS = new Set(["ce|Lecture 6 · Veins, Nasal Cavity & Respiratory System", "ce|Lecture 8 · Congenital Anomalies (all lectures)"]);
 const SYS_NAME = {cvs:"Cardiovascular system", resp:"Respiratory system", both:"Cardiovascular + Respiratory"};
@@ -2157,7 +2165,7 @@ const GUIDES = {
         ["msk-biochem","MSK Biochemistry","Glycolysis, glycogen & storage diseases, GAGs, collagen & elastin",4],
         ["msk-anatomy","MSK Anatomy","Upper & lower limb: plexus, nerve injuries, compartments, joints, vessels",6],
         ["msk-embryology","MSK Embryology","Bone formation, growth plate, vertebrae, skull & sutures, limbs, skin",3]],
-  crs: [["crs-biochem","CRS Biochemistry NBME guide","High-yield, commonly tested NBME content · Lecture 1–10 · grows with each lecture",0],["crs-physiology","CRS Physiology NBME guide","High-yield, commonly tested NBME content · Lecture 1–13 · grows with each lecture",0],["crs-histology","CRS Histology NBME guide","Every slide from Lectures 1–4: smooth & cardiac muscle, arteries, capillaries & veins, blood",0],["crs-anatomy","CRS Anatomy NBME guide","Thorax, Lectures 1–11: chest wall, mediastinum, heart, pericardium, lungs, airways, diaphragm, esophagus, radiology, clinicals",0]]
+  crs: [["crs-biochem","CRS Biochemistry NBME guide","High-yield, commonly tested NBME content · Lecture 1–10 · grows with each lecture",0],["crs-physiology","CRS Physiology NBME guide","High-yield, commonly tested NBME content · Lecture 1–14 · grows with each lecture",0],["crs-histology","CRS Histology NBME guide","Every slide from Lectures 1–4: smooth & cardiac muscle, arteries, capillaries & veins, blood",0],["crs-anatomy","CRS Anatomy NBME guide","Thorax, Lectures 1–11: chest wall, mediastinum, heart, pericardium, lungs, airways, diaphragm, esophagus, radiology, clinicals",0]]
 };
 function guideCards(list){
   return `<div class="gdgrid">` + list.map(([f,nm,desc,pg])=>`<div class="gdcard"><div class="gdi">${NVI.guide}</div><div class="gdt"><b>${esc(nm)}</b><small>${esc(desc)}</small><span class="gdm">${pg?"PDF":"Read on site or download as PDF · updated each lecture"}</span></div>
@@ -2172,7 +2180,7 @@ function renderGuideView(){
     <div class="gvhead"><h2>${esc(nm)}</h2><p class="sub">${esc(desc)}</p><div class="gvleg"><span><span class="hy">Red</span> = extra high yield (classic NBME)</span><span>Black/white = core content</span><span class="mn">Italic = mnemonic</span><span class="ghlnote">Select any text to highlight it</span></div></div>`;
   if (!window.GUIDE_HTML) {
     showPage(`<div class="page gview">${top}<div class="emptybox"><p>Loading study guide…</p></div></div>`);
-    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=21";
+    if (!guideLoading) { guideLoading = true; const sc = document.createElement("script"); sc.src = "guides.js?v=22";
       sc.onload = ()=>{ guideLoading = false; if (view==="guide") renderGuideView(); };
       sc.onerror = ()=>{ guideLoading = false; toast("Couldn't load the study guide — check your connection"); };
       document.head.appendChild(sc); }
@@ -2194,7 +2202,7 @@ async function guidePdf(f, btn, withHl){
   const nm = info.g[1].replace(/ NBME guide$/,""), desc = info.g[2], old = btn.innerHTML;
   btn.dataset.busy = "1"; btn.innerHTML = "Preparing PDF…";
   try {
-    if (!window.GUIDE_HTML) await gpdfScript("guides.js?v=21");
+    if (!window.GUIDE_HTML) await gpdfScript("guides.js?v=22");
     for (const s of GPDF_LIBS) await gpdfScript(s);
     const yr = new Date().getFullYear(), RED = "#c00000", NAVY = "#0b2447";
     let ghtml = window.GUIDE_HTML[f] || "";
@@ -3232,7 +3240,7 @@ function splitShow(src){
   if (k==="u") { const [url, t] = v.split("|"); frame(url, t||"Study tool"); return; }
   if (k==="g") {
     if (!window.GUIDE_HTML) { b.innerHTML = `<div class="spempty">Loading study guide…</div>`;
-      const sc = document.createElement("script"); sc.src = "guides.js?v=21"; sc.onload = ()=>{ if (splitSrc==="g:"+v) splitShow(splitSrc); }; document.head.appendChild(sc); return; }
+      const sc = document.createElement("script"); sc.src = "guides.js?v=22"; sc.onload = ()=>{ if (splitSrc==="g:"+v) splitShow(splitSrc); }; document.head.appendChild(sc); return; }
     b.innerHTML = `<article class="gvbody" data-gk="${esc(v)}">${window.GUIDE_HTML[v] || "<p>Study guide not found.</p>"}</article>`; fixImgs && fixImgs(b); ghlApply(b.querySelector(".gvbody")); b.scrollTop = 0; }
 }
 document.addEventListener("click", e=>{ const b = e.target.closest && e.target.closest("[data-split]"); if (!b) return; e.preventDefault(); $("side").classList.remove("open"); splitToggle(); });

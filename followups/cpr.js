@@ -16216,4 +16216,1274 @@ Object.assign(window.JJ_FU, {
 }
 ]
 }
+,
+"cpr589": {
+ "k": "Strongest spasm mechanism in small vessels",
+ "q": [
+  {
+   "id": "cpr589-f1",
+   "lv": "Easy",
+   "s": "Which substance released by traumatized endothelium adds to the vascular spasm?",
+   "c": [
+    "Endothelin",
+    "Prostacyclin",
+    "Nitric oxide",
+    "Tissue plasminogen activator",
+    "Thrombomodulin"
+   ],
+   "a": 0,
+   "e": "Local autacoid factors are part of the spasm triad. Traumatized tissue and endothelium release endothelin, while adhering platelets release thromboxane A2.\n\nTakeaway: endothelin comes from endothelium and TXA2 from platelets.",
+   "w": [
+    "",
+    "Prostacyclin from endothelium dilates vessels and inhibits platelets, the opposite effect.",
+    "Nitric oxide relaxes vascular smooth muscle, so it works against spasm.",
+    "t-PA starts fibrinolysis and has no vasoconstrictor action at all.",
+    "Thrombomodulin binds thrombin to activate protein C, an anticoagulant step."
+   ]
+  },
+  {
+   "id": "cpr589-f2",
+   "lv": "Hard",
+   "s": "A surgeon sees a cut arteriole narrow within a second, before any platelet has stuck to the wall and far too fast for a spinal reflex to arrive. Which mechanism produced this first narrowing?",
+   "c": [
+    "Thromboxane A2 from the adhering platelets",
+    "Myogenic contraction of the damaged muscle",
+    "Sympathetic constriction from spinal pain reflexes",
+    "Endothelin released by the injured endothelium",
+    "Calcium entry triggered by ADP from dense granules"
+   ],
+   "a": 1,
+   "e": "Step 1: Direct mechanical damage to vascular smooth muscle causes an immediate local myogenic contraction.\nStep 2: It needs no platelets and no nerves, and the lecture calls it most powerful in smaller vessels.\n\nTakeaway: the very first spasm in a small vessel is myogenic.",
+   "w": [
+    "TXA2 needs platelets to adhere and activate first, which has not happened yet.",
+    "",
+    "A spinal reflex arc takes longer, and the stem rules out that timing.",
+    "Endothelin must be released and then act on receptors, slower than direct muscle injury.",
+    "ADP acts on other platelets, not on vascular smooth muscle."
+   ]
+  }
+ ]
+},
+"cpr590": {
+ "k": "Proportionality principle of vascular spasm",
+ "q": [
+  {
+   "id": "cpr590-f1",
+   "lv": "Easy",
+   "s": "How long does vascular spasm after an injury usually last?",
+   "c": [
+    "Only about 5 to 10 seconds",
+    "Roughly 20 to 60 minutes",
+    "About 1 to 2 weeks",
+    "About 8 to 12 days",
+    "About 2 to 3 days"
+   ],
+   "a": 1,
+   "e": "Spasm lasts 20 to 60 minutes, which is long enough for platelet plugging and coagulation to take over.\n\nTakeaway: vascular spasm buys 20 to 60 minutes.",
+   "w": [
+    "That is far too short to let a platelet plug and fibrin clot form.",
+    "",
+    "One to two weeks is the time for fibrous organization of a finished clot.",
+    "Eight to twelve days is the lifespan of a circulating platelet.",
+    "Warfarin takes one to three days to work, and spasm is far shorter than that."
+   ]
+  },
+  {
+   "id": "cpr590-f2",
+   "lv": "Hard",
+   "s": "A crush injury to the thigh produces a long, intense spasm of the damaged vessels. Which consequence of that spasm most helps hemostasis at the wound?",
+   "c": [
+    "Higher shear rate pulls more platelets to the wall",
+    "Faster flow washes tissue factor into the blood",
+    "Lower flow and shear let platelets adhere",
+    "Wider vessel lumen holds a larger platelet plug",
+    "Higher venous pressure forces the wound closed"
+   ],
+   "a": 2,
+   "e": "Step 1: Sustained vasoconstriction reduces local blood flow and the shear rate at the injury site.\nStep 2: With less flow dragging them away, platelets can adhere and local clotting factors stay concentrated.\n\nTakeaway: spasm lowers flow and shear, which favors platelet adhesion and local clotting.",
+   "w": [
+    "Spasm lowers shear rather than raising it, and high shear would sweep platelets away.",
+    "Faster flow would dilute tissue factor and carry activated factors away from the wound.",
+    "",
+    "Spasm narrows the lumen, so a smaller plug can seal the vessel.",
+    "Spasm is arterial smooth muscle contraction and does not raise venous pressure."
+   ]
+  }
+ ]
+},
+"cpr591": {
+ "k": "Aspirin and the vascular spasm",
+ "q": [
+  {
+   "id": "cpr591-f1",
+   "lv": "Easy",
+   "s": "Aspirin blocks which enzyme inside the platelet?",
+   "c": [
+    "Vitamin K epoxide reductase",
+    "Thrombin-activatable transglutaminase",
+    "Cyclooxygenase-1",
+    "Phospholipase of the platelet membrane",
+    "Antithrombin III in the plasma"
+   ],
+   "a": 2,
+   "e": "Aspirin irreversibly inhibits COX-1, which platelets need to make thromboxane A2.\n\nTakeaway: aspirin blocks platelet COX-1 and therefore TXA2.",
+   "w": [
+    "VKORC1 is the warfarin target in liver cells, not the aspirin target in platelets.",
+    "Factor XIIIa is a transglutaminase, and aspirin has no effect on it.",
+    "",
+    "Aspirin acts downstream of phospholipase, at the cyclooxygenase step.",
+    "Antithrombin III is a plasma inhibitor boosted by heparin, not blocked by aspirin."
+   ]
+  },
+  {
+   "id": "cpr591-f2",
+   "lv": "Hard",
+   "s": "A man took his last aspirin four days ago and now needs urgent surgery. Why is his platelet function still impaired?",
+   "c": [
+    "Aspirin is still circulating in his plasma",
+    "Aspirin binds reversibly to the enzyme",
+    "The liver keeps producing the drug's metabolite",
+    "Platelets cannot make new enzyme",
+    "His vitamin K stores have not yet recovered"
+   ],
+   "a": 3,
+   "e": "Step 1: Aspirin inhibits COX-1 irreversibly, and platelets are anucleate so they cannot synthesize new enzyme.\nStep 2: Function returns only as new platelets enter the blood, over the 8 to 12 day platelet lifespan.\n\nTakeaway: aspirin's antiplatelet effect lasts the platelet lifespan of 8 to 12 days.",
+   "w": [
+    "Aspirin itself is cleared within hours; the lasting effect is on the platelets.",
+    "Aspirin inhibits COX-1 irreversibly, which is why the effect outlasts the drug.",
+    "Active metabolites are not what blocks the platelets days later.",
+    "",
+    "Vitamin K is the warfarin story, and it does not affect platelet function."
+   ]
+  }
+ ]
+},
+"cpr592": {
+ "k": "Platelet adhesion receptor",
+ "q": [
+  {
+   "id": "cpr592-f1",
+   "lv": "Easy",
+   "s": "Which structure on the vessel wall does von Willebrand factor bind so that platelets can attach?",
+   "c": [
+    "Fibrin strands of the forming clot",
+    "The glycocalyx of intact endothelium",
+    "Elastin of the internal elastic lamina",
+    "Subendothelial collagen",
+    "Smooth muscle actin of the media"
+   ],
+   "a": 3,
+   "e": "Vascular injury exposes subendothelial collagen, and von Willebrand factor binds it so platelet GpIb can anchor.\n\nTakeaway: vWF bridges collagen and platelet GpIb.",
+   "w": [
+    "Fibrin comes later, from thrombin acting on fibrinogen, and is not the adhesion surface.",
+    "The glycocalyx repels platelets and clotting factors rather than binding them.",
+    "Elastin gives the vessel recoil and is not the ligand for von Willebrand factor.",
+    "",
+    "Actin is inside the muscle cells and is never exposed to flowing blood."
+   ]
+  },
+  {
+   "id": "cpr592-f2",
+   "lv": "Hard",
+   "s": "A patient's platelets have normal GpIb receptors, but her plasma and endothelial stores contain almost no von Willebrand factor. Which step of primary hemostasis fails first?",
+   "c": [
+    "Shape change with pseudopod formation",
+    "Release of ADP from dense granules",
+    "Aggregation through GpIIb/IIIa and fibrinogen",
+    "Cross-linking of fibrin by factor XIIIa",
+    "Adhesion of platelets to the wall"
+   ],
+   "a": 4,
+   "e": "Step 1: Adhesion is step 1 of the platelet plug and needs vWF between collagen and platelet GpIb.\nStep 2: Without vWF the platelets cannot anchor, so every later step of the plug is lost too.\n\nTakeaway: no vWF means no GpIb adhesion, so the platelet plug never starts.",
+   "w": [
+    "Shape change follows collagen contact and is not the first step to fail here.",
+    "Granule release happens after activation, which depends on adhesion occurring first.",
+    "Aggregation is step 3 and depends on platelets first sticking to the wall.",
+    "Fibrin cross-linking belongs to secondary hemostasis, not the platelet plug.",
+    ""
+   ]
+  }
+ ]
+},
+"cpr593": {
+ "k": "Platelet lifespan and removal",
+ "q": [
+  {
+   "id": "cpr593-f1",
+   "lv": "Easy",
+   "s": "Where are platelets formed?",
+   "c": [
+    "Splenic tissue macrophages",
+    "Vascular endothelial cells",
+    "Hepatocytes in the liver",
+    "Lymph nodes and lymphatic tissue",
+    "Bone marrow megakaryocytes"
+   ],
+   "a": 4,
+   "e": "Platelets bud from bone marrow megakaryocytes as anucleate discs 1 to 4 micrometers across.\n\nTakeaway: megakaryocytes in marrow make platelets; splenic macrophages remove them.",
+   "w": [
+    "Splenic macrophages remove old platelets rather than producing new ones.",
+    "Endothelium makes vWF, NO and prostacyclin, but never platelets.",
+    "The liver makes clotting factors such as prothrombin, not platelets.",
+    "Lymphoid tissue makes lymphocytes, not platelets.",
+    ""
+   ]
+  },
+  {
+   "id": "cpr593-f2",
+   "lv": "Hard",
+   "s": "A patient's spleen is enlarged and sequesters platelets far faster than normal. Which value is most likely to fall first as a direct result?",
+   "c": [
+    "Circulating platelet count",
+    "Plasma fibrinogen concentration",
+    "Plasma prothrombin concentration",
+    "Von Willebrand factor in plasma",
+    "Antithrombin III activity in plasma"
+   ],
+   "a": 0,
+   "e": "Step 1: Platelets are normally eliminated by tissue macrophages in the spleen after 8 to 12 days.\nStep 2: Faster splenic removal shortens that survival, so the circulating count falls below 150,000/microliter.\n\nTakeaway: the spleen removes platelets, so splenomegaly lowers the platelet count.",
+   "w": [
+    "",
+    "Fibrinogen is made by the liver and is not consumed by splenic platelet removal.",
+    "Prothrombin is a liver-made factor and is unrelated to platelet clearance.",
+    "vWF comes from endothelium and plasma stores, not from platelet numbers.",
+    "Antithrombin III is a plasma inhibitor that splenic sequestration does not change."
+   ]
+  }
+ ]
+},
+"cpr594": {
+ "k": "Platelet secretions that recruit more platelets",
+ "q": [
+  {
+   "id": "cpr594-f1",
+   "lv": "Easy",
+   "s": "Which enzyme do platelets use to synthesize thromboxane A2?",
+   "c": [
+    "Cyclooxygenase-1",
+    "Transglutaminase from factor XIII",
+    "Vitamin K epoxide reductase",
+    "Plasmin released from plasminogen",
+    "Thrombin bound to thrombomodulin"
+   ],
+   "a": 0,
+   "e": "Platelets synthesize thromboxane A2 through COX-1, which is why aspirin blocks it.\n\nTakeaway: TXA2 is made via COX-1.",
+   "w": [
+    "",
+    "Factor XIIIa cross-links fibrin and has nothing to do with thromboxane.",
+    "VKORC1 recycles vitamin K in the liver for clotting factor synthesis.",
+    "Plasmin digests fibrin during fibrinolysis, not a synthetic enzyme.",
+    "That complex activates protein C and does not make thromboxane."
+   ]
+  },
+  {
+   "id": "cpr594-f2",
+   "lv": "Hard",
+   "s": "A platelet has just adhered to collagen through GpIb and is releasing its granules. Which released contents act directly on neighboring circulating platelets to recruit them?",
+   "c": [
+    "Calcium and platelet factor 3 phospholipid",
+    "ADP and thromboxane A2",
+    "Platelet-derived growth factor and factor XIII",
+    "Nitric oxide and prostacyclin from the granules",
+    "Von Willebrand factor and fibronectin"
+   ],
+   "a": 1,
+   "e": "Step 1: Activation causes secretion of ADP, thromboxane A2, platelet-activating factor and calcium.\nStep 2: ADP and TXA2 activate nearby circulating platelets, whose GpIIb/IIIa receptors then bind fibrinogen.\n\nTakeaway: ADP and TXA2 are the recruiting signals of the platelet plug.",
+   "w": [
+    "Calcium and PF3 support the clotting cascade on the platelet surface rather than recruiting platelets.",
+    "",
+    "PDGF drives later fibroblast repair and factor XIII stabilizes fibrin.",
+    "NO and prostacyclin come from endothelium and inhibit aggregation.",
+    "These are adhesive proteins of the wall, not recruiting signals from granules."
+   ]
+  }
+ ]
+},
+"cpr595": {
+ "k": "Failure of platelet aggregation",
+ "q": [
+  {
+   "id": "cpr595-f1",
+   "lv": "Easy",
+   "s": "Which molecule bridges two platelets during aggregation?",
+   "c": [
+    "Von Willebrand factor",
+    "Fibrinogen",
+    "Collagen from the subendothelium",
+    "Thrombomodulin from the endothelium",
+    "Plasminogen trapped inside the clot"
+   ],
+   "a": 1,
+   "e": "Activated GpIIb/IIIa receptors on two platelets each bind one fibrinogen molecule, linking the platelets.\n\nTakeaway: fibrinogen bridges GpIIb/IIIa receptors to aggregate platelets.",
+   "w": [
+    "vWF bridges collagen to platelet GpIb for adhesion to the wall, not platelet to platelet.",
+    "",
+    "Collagen is the exposed surface beneath endothelium, not a bridge between platelets.",
+    "Thrombomodulin binds thrombin on endothelial cells and never bridges platelets.",
+    "Plasminogen waits to become plasmin and dissolve fibrin."
+   ]
+  },
+  {
+   "id": "cpr595-f2",
+   "lv": "Hard",
+   "s": "A drug blocks the receptor that binds fibrinogen between platelets. Which clinical effect is expected?",
+   "c": [
+    "Failure of platelets to stick to exposed collagen",
+    "Failure of fibrinogen to be cleaved into fibrin",
+    "Failure of platelets to clump together",
+    "Failure of thrombin to be generated at all",
+    "Failure of factor XIII to cross-link the clot"
+   ],
+   "a": 2,
+   "e": "Step 1: GpIIb/IIIa is the receptor that binds fibrinogen between platelets during aggregation.\nStep 2: Blocking it leaves adhesion and activation intact, but platelets can no longer clump into a white thrombus.\n\nTakeaway: blocking GpIIb/IIIa stops aggregation while adhesion continues.",
+   "w": [
+    "Adhesion to collagen uses GpIb and von Willebrand factor, which the drug leaves intact.",
+    "Thrombin cleaves fibrinogen in plasma, a step unaffected by a platelet receptor blocker.",
+    "",
+    "Thrombin generation depends on the cascade, not on platelet-to-platelet bridging.",
+    "Factor XIIIa acts on fibrin strands, not on platelet receptors."
+   ]
+  }
+ ]
+},
+"cpr596": {
+ "k": "Clot retraction depends on platelet contractile proteins",
+ "q": [
+  {
+   "id": "cpr596-f1",
+   "lv": "Easy",
+   "s": "What is expressed from a clot as it retracts?",
+   "c": [
+    "Whole plasma with all its clotting factors",
+    "Lymph drained from the surrounding tissue",
+    "Serum",
+    "Fibrin degradation products and D-dimers",
+    "Interstitial fluid pulled in by oncotic pressure"
+   ],
+   "a": 2,
+   "e": "Within 20 to 60 minutes the clot contracts and expresses serum, which is plasma without fibrinogen and clotting factors.\n\nTakeaway: serum is plasma minus fibrinogen and clotting factors.",
+   "w": [
+    "Plasma still contains fibrinogen and clotting factors; the expressed fluid does not.",
+    "Lymph comes from interstitial fluid entering lymphatics, not from a clot.",
+    "",
+    "These come from plasmin digesting fibrin, which is fibrinolysis rather than retraction.",
+    "Retraction squeezes fluid out of the clot rather than drawing tissue fluid in."
+   ]
+  },
+  {
+   "id": "cpr596-f2",
+   "lv": "Hard",
+   "s": "Two weeks after a vessel injury, the clot has been replaced by fibrous tissue. Which platelet product drove that repair?",
+   "c": [
+    "Thromboxane A2 from the platelet membrane",
+    "Adenosine diphosphate from dense granules",
+    "Fibrin-stabilizing factor stored in platelets",
+    "Platelet-derived growth factor",
+    "Platelet factor 3 on the membrane surface"
+   ],
+   "a": 3,
+   "e": "Step 1: Platelet-derived growth factor stimulates smooth muscle cells and fibroblasts at the injury.\nStep 2: They lay down fibrous tissue, with complete organization of the clot in one to two weeks.\n\nTakeaway: PDGF drives the fibroblast repair that organizes a clot in 1 to 2 weeks.",
+   "w": [
+    "TXA2 causes vasoconstriction and platelet recruitment in the first minutes.",
+    "ADP recruits platelets during plug formation and has no role in fibrous repair.",
+    "Factor XIII cross-links fibrin but does not stimulate fibroblasts.",
+    "",
+    "PF3 is the phospholipid surface for the clotting cascade."
+   ]
+  }
+ ]
+},
+"cpr597": {
+ "k": "What starts the extrinsic pathway",
+ "q": [
+  {
+   "id": "cpr597-f1",
+   "lv": "Easy",
+   "s": "Tissue factor is also known as which clotting factor?",
+   "c": [
+    "Factor IV",
+    "Factor VII",
+    "Factor XII",
+    "Factor III",
+    "Factor XIII"
+   ],
+   "a": 3,
+   "e": "Tissue factor, also called tissue thromboplastin, is factor III.\n\nTakeaway: tissue factor = factor III; 3 + 7 = 10.",
+   "w": [
+    "Factor IV is ionic calcium, required for nearly every step of the cascade.",
+    "Factor VII is the circulating zymogen that binds tissue factor.",
+    "Factor XII is the contact factor that starts the intrinsic pathway.",
+    "",
+    "Factor XIII is fibrin-stabilizing factor, which cross-links the clot."
+   ]
+  },
+  {
+   "id": "cpr597-f2",
+   "lv": "Hard",
+   "s": "A deep laceration exposes blood to crushed muscle and fat. Which component released from that damaged tissue starts clotting fastest?",
+   "c": [
+    "Collagen fibers from the torn vessel wall",
+    "Calcium ions released from damaged cells",
+    "Von Willebrand factor from the endothelium",
+    "Plasminogen stored in the interstitial fluid",
+    "Tissue factor with its phospholipids"
+   ],
+   "a": 4,
+   "e": "Step 1: Traumatized vascular wall and extravascular tissue release tissue factor, made of membrane phospholipids and a proteolytic lipoprotein complex.\nStep 2: Tissue factor binds factor VII with calcium to form TF-VIIa, which cleaves factor X directly and can clot blood in about 15 seconds.\n\nTakeaway: tissue factor from damaged tissue is the fastest trigger of clotting.",
+   "w": [
+    "Collagen activates factor XII and platelets, which is the slower intrinsic route.",
+    "Calcium is a cofactor throughout the cascade but does not by itself start it.",
+    "vWF belongs to platelet adhesion and does not trigger the cascade.",
+    "Plasminogen leads to clot breakdown rather than clot formation.",
+    ""
+   ]
+  }
+ ]
+},
+"cpr598": {
+ "k": "Steps that do not need calcium",
+ "q": [
+  {
+   "id": "cpr598-f1",
+   "lv": "Easy",
+   "s": "Which two proteins must be present for factor XII to be activated on contact?",
+   "c": [
+    "Protein C and protein S",
+    "Factor V and factor VIII",
+    "Antithrombin III and heparin",
+    "Thrombomodulin and tissue factor",
+    "HMWK and prekallikrein"
+   ],
+   "a": 4,
+   "e": "Contact activation of factor XII requires high molecular weight kininogen and prekallikrein.\n\nTakeaway: XII activation needs HMWK and prekallikrein, and no calcium.",
+   "w": [
+    "Protein C and protein S are anticoagulants that degrade factors Va and VIIIa.",
+    "Factors V and VIII are cofactors in the prothrombinase and tenase complexes.",
+    "These neutralize thrombin and factor Xa rather than starting contact activation.",
+    "Thrombomodulin is an anticoagulant receptor and tissue factor starts the extrinsic route.",
+    ""
+   ]
+  },
+  {
+   "id": "cpr598-f2",
+   "lv": "Hard",
+   "s": "Plasma is drawn into a tube with a calcium chelator and exposed to a glass surface. Which cascade step can still proceed in that tube?",
+   "c": [
+    "Factor XII activation to factor XIIa",
+    "Factor IX activation by factor XIa",
+    "Factor X activation by the tenase complex",
+    "Prothrombin cleavage by prothrombinase",
+    "Factor VII activation by tissue factor"
+   ],
+   "a": 0,
+   "e": "Step 1: Ionic calcium is required for every cascade step except the first two intrinsic steps.\nStep 2: Contact with glass can still convert XII to XIIa, and XIIa can still cleave XI, but the cascade stops at factor IX.\n\nTakeaway: only XII to XIIa and XIIa cleaving XI run without calcium.",
+   "w": [
+    "",
+    "The lecture states XIa cleaves factor IX in the presence of ionic calcium.",
+    "Tenase is IXa, VIIIa, PF3 and calcium, so it cannot assemble without calcium.",
+    "Prothrombinase needs Xa, Va, PF3 and calcium to work.",
+    "Factor VII binds tissue factor in the presence of calcium."
+   ]
+  }
+ ]
+},
+"cpr599": {
+ "k": "Why tissue factor speeds clotting",
+ "q": [
+  {
+   "id": "cpr599-f1",
+   "lv": "Easy",
+   "s": "About how long does the extrinsic pathway take to clot blood?",
+   "c": [
+    "About 15 seconds",
+    "About 1 to 6 minutes",
+    "Roughly 20 to 60 minutes",
+    "About 8 to 12 days",
+    "About 1 to 2 weeks"
+   ],
+   "a": 0,
+   "e": "Tissue factor exposure can clot blood in as little as 15 seconds, far faster than the intrinsic route.\n\nTakeaway: extrinsic clotting is explosive at about 15 seconds.",
+   "w": [
+    "",
+    "One to six minutes is the time the slower intrinsic contact pathway takes.",
+    "Twenty to sixty minutes is the window for clot retraction to express serum.",
+    "Eight to twelve days is the platelet lifespan, not a clotting time.",
+    "One to two weeks is the time for fibrous organization of a clot."
+   ]
+  },
+  {
+   "id": "cpr599-f2",
+   "lv": "Hard",
+   "s": "Why does the extrinsic pathway reach factor X so much faster than the intrinsic pathway does?",
+   "c": [
+    "It works without any calcium at the first step",
+    "It needs one complex instead of a chain",
+    "It uses thrombin before any factor X is made",
+    "It bypasses the need for platelet phospholipid",
+    "It activates factor X without any enzyme cleavage"
+   ],
+   "a": 1,
+   "e": "Step 1: The intrinsic pathway runs a chain of activations, XII to XI to IX, then builds the tenase complex before factor X is cleaved.\nStep 2: The extrinsic pathway forms one TF-VIIa complex that cleaves factor X directly, so it reaches the common pathway in a single step.\n\nTakeaway: fewer steps make the extrinsic route explosive compared with the intrinsic chain.",
+   "w": [
+    "Factor VII binds tissue factor in the presence of calcium, so calcium is still needed.",
+    "",
+    "Thrombin comes after factor Xa forms, not before it in either pathway.",
+    "Prothrombinase still assembles on platelet phospholipid after Xa forms.",
+    "Factor X is still cleaved enzymatically into the serine protease Xa."
+   ]
+  }
+ ]
+},
+"cpr600": {
+ "k": "Factor deficiency that prolongs only the aPTT",
+ "q": [
+  {
+   "id": "cpr600-f1",
+   "lv": "Easy",
+   "s": "Which pathway does the activated partial thromboplastin time evaluate?",
+   "c": [
+    "Extrinsic and common pathways",
+    "Intrinsic and common pathways",
+    "Platelet function and vascular integrity",
+    "Fibrin breakdown by plasmin",
+    "Vitamin K stores in the liver"
+   ],
+   "a": 1,
+   "e": "The aPTT evaluates the intrinsic factors XII, XI, IX and VIII plus the common pathway, and is used to monitor IV heparin.\n\nTakeaway: aPTT = intrinsic plus common; PT = extrinsic plus common.",
+   "w": [
+    "The prothrombin time, not the aPTT, evaluates the extrinsic and common pathways.",
+    "",
+    "Bleeding time measures platelet function and vascular integrity.",
+    "The D-dimer assay measures cross-linked fibrin broken down by plasmin.",
+    "No routine clotting test measures hepatic vitamin K stores directly."
+   ]
+  },
+  {
+   "id": "cpr600-f2",
+   "lv": "Hard",
+   "s": "A patient has a prolonged PT and a prolonged aPTT, with a normal platelet count and bleeding time. Where in the cascade does the defect most likely lie?",
+   "c": [
+    "In the intrinsic pathway only",
+    "In the extrinsic pathway only",
+    "In the common pathway",
+    "In platelet adhesion to the vessel wall",
+    "In the fibrinolytic plasmin system"
+   ],
+   "a": 2,
+   "e": "Step 1: The PT tests extrinsic plus common, and the aPTT tests intrinsic plus common.\nStep 2: Only a common pathway factor, X, V, prothrombin or fibrinogen, sits in both tests, so both are prolonged.\n\nTakeaway: both PT and aPTT prolonged points to the common pathway.",
+   "w": [
+    "An intrinsic-only defect leaves the PT normal, but this patient's PT is prolonged.",
+    "An extrinsic-only defect such as factor VII leaves the aPTT normal.",
+    "",
+    "Adhesion problems prolong the bleeding time, which is normal here.",
+    "Excess fibrinolysis does not by itself prolong both PT and aPTT in this pattern."
+   ]
+  }
+ ]
+},
+"cpr601": {
+ "k": "Why oxalated or citrated blood stays liquid",
+ "q": [
+  {
+   "id": "cpr601-f1",
+   "lv": "Easy",
+   "s": "Which factor number is ionic calcium in the clotting cascade?",
+   "c": [
+    "Factor III",
+    "Factor I",
+    "Factor IV",
+    "Factor II",
+    "Factor V"
+   ],
+   "a": 2,
+   "e": "Ionic calcium is factor IV and is required for all cascade steps except the first two intrinsic ones.\n\nTakeaway: calcium is factor IV.",
+   "w": [
+    "Factor III is tissue factor, also called tissue thromboplastin.",
+    "Factor I is fibrinogen, the substrate thrombin converts into fibrin.",
+    "",
+    "Factor II is prothrombin, the zymogen of thrombin.",
+    "Factor V is the cofactor that joins factor Xa in prothrombinase."
+   ]
+  },
+  {
+   "id": "cpr601-f2",
+   "lv": "Hard",
+   "s": "A blood bank stores donor blood in citrate so it stays liquid, then transfuses it. Why does the transfused blood regain its ability to clot in the recipient?",
+   "c": [
+    "The liver quickly makes new clotting factors",
+    "Platelets in the bag release stored calcium",
+    "Warming the blood reactivates the enzymes",
+    "Plasma calcium replaces what citrate bound",
+    "Tissue factor from the recipient destroys citrate"
+   ],
+   "a": 3,
+   "e": "Step 1: Citrate works in the bag by binding ionic calcium, which nearly every cascade step requires.\nStep 2: Once transfused, the recipient's own plasma calcium restores free Ca2+, so the cascade can run again.\n\nTakeaway: anticoagulants like citrate and oxalate work only while they hold the calcium.",
+   "w": [
+    "The factors were never destroyed by citrate, so new synthesis is not the explanation.",
+    "Platelet granule calcium is far too small a pool to reverse the chelation in a bag.",
+    "Warming helps enzyme kinetics but does not restore the chelated calcium.",
+    "",
+    "Tissue factor starts the extrinsic pathway and does not break down citrate."
+   ]
+  }
+ ]
+},
+"cpr602": {
+ "k": "The prothrombinase complex",
+ "q": [
+  {
+   "id": "cpr602-f1",
+   "lv": "Easy",
+   "s": "Which mnemonic matches the common pathway?",
+   "c": [
+    "Three plus seven makes ten and stops",
+    "Twelve to eleven to nine to ten",
+    "Eight plus nine equals ten",
+    "Ten over five is two times one",
+    "One plus two equals thirteen"
+   ],
+   "a": 3,
+   "e": "Prothrombinase, factor Xa with factor Va, cleaves prothrombin (II) to thrombin, which cleaves fibrinogen (I) to fibrin.\n\nTakeaway: common pathway mnemonic is 10 / 5 = 2 x 1.",
+   "w": [
+    "That mnemonic belongs to the extrinsic pathway, tissue factor plus factor VII.",
+    "That sequence describes the intrinsic contact cascade.",
+    "Factors VIIIa and IXa form tenase, but the lecture does not use this mnemonic.",
+    "",
+    "Fibrinogen and prothrombin are not combined in any lecture mnemonic."
+   ]
+  },
+  {
+   "id": "cpr602-f2",
+   "lv": "Hard",
+   "s": "In the prothrombinase complex, what is the role of factor Va?",
+   "c": [
+    "It is the serine protease that cleaves prothrombin",
+    "It is the phospholipid surface for assembly",
+    "It is the substrate converted into thrombin",
+    "It is the calcium-binding ion needed for assembly",
+    "It is the protein cofactor that speeds Xa"
+   ],
+   "a": 4,
+   "e": "Step 1: Efficient activation needs a three-part surface complex: protease, protein cofactor and phospholipid membrane with calcium.\nStep 2: In prothrombinase the protease is Xa and the protein cofactor is Va, which accelerates prothrombinase activity more than a thousandfold.\n\nTakeaway: Va is the cofactor that makes Xa an efficient prothrombin activator.",
+   "w": [
+    "Factor Xa is the serine protease; factor Va has no enzymatic activity of its own.",
+    "Platelet factor 3 phospholipid provides the membrane surface, not factor Va.",
+    "Prothrombin, factor II, is the substrate converted into thrombin.",
+    "Ionic calcium, factor IV, fills that role in the complex.",
+    ""
+   ]
+  }
+ ]
+},
+"cpr603": {
+ "k": "Role of factor XIIIa",
+ "q": [
+  {
+   "id": "cpr603-f1",
+   "lv": "Easy",
+   "s": "Which factor does thrombin act on to produce fibrin monomers?",
+   "c": [
+    "Prothrombin",
+    "Factor X",
+    "Factor XII",
+    "Plasminogen",
+    "Fibrinogen"
+   ],
+   "a": 4,
+   "e": "Thrombin removes four low molecular weight fibrinopeptides from fibrinogen, leaving fibrin monomers that polymerize.\n\nTakeaway: thrombin converts fibrinogen (I) into fibrin monomers.",
+   "w": [
+    "Prothrombin is thrombin's own precursor, cleaved by prothrombinase.",
+    "Factor X is activated by tenase or by the tissue factor complex.",
+    "Factor XII is the contact factor that begins the intrinsic pathway.",
+    "Plasminogen is converted to plasmin by t-PA to dissolve fibrin.",
+    ""
+   ]
+  },
+  {
+   "id": "cpr603-f2",
+   "lv": "Hard",
+   "s": "Prothrombin has a molecular weight of about 68,700 and thrombin about 33,700. What does that difference tell you about how thrombin is made?",
+   "c": [
+    "Prothrombin is cleaved into a smaller enzyme",
+    "Two prothrombin molecules join into one thrombin",
+    "Prothrombin gains a carbohydrate side chain",
+    "Prothrombin binds calcium to become active",
+    "Prothrombin folds tightly without losing mass"
+   ],
+   "a": 0,
+   "e": "Step 1: Coagulation factors circulate as inactive zymogens that are activated by proteolytic cleavage.\nStep 2: Prothrombinase cleaves prothrombin, removing a large portion and leaving the smaller active serine protease thrombin.\n\nTakeaway: zymogen activation is proteolytic cleavage, so the active enzyme is smaller.",
+   "w": [
+    "",
+    "Thrombin is smaller than prothrombin, so joining molecules cannot explain it.",
+    "Adding a side chain would raise the molecular weight rather than halve it.",
+    "Calcium binding assists the complex but does not change the protein's size.",
+    "Folding changes shape, not molecular weight, so the numbers would match."
+   ]
+  }
+ ]
+},
+"cpr604": {
+ "k": "Factor XIII deficiency",
+ "q": [
+  {
+   "id": "cpr604-f1",
+   "lv": "Easy",
+   "s": "What holds fibrin monomers together before factor XIIIa acts?",
+   "c": [
+    "Weak hydrogen bonds",
+    "Covalent peptide bonds",
+    "Calcium bridges between strands",
+    "Disulfide bridges between cysteines",
+    "Van der Waals forces between platelets"
+   ],
+   "a": 0,
+   "e": "Fibrin monomers align end to end and are held at first by weak hydrogen bonds, giving an unstable clot.\n\nTakeaway: hydrogen bonds first, covalent cross-links from XIIIa second.",
+   "w": [
+    "",
+    "Covalent bonds are exactly what factor XIIIa adds afterwards to stabilize the mesh.",
+    "Calcium is needed for XIIIa activity but is not what first holds monomers together.",
+    "Disulfide bridges are not the lecture's description of early fibrin polymerization.",
+    "Platelet forces pull the clot tighter during retraction rather than holding fibrin strands."
+   ]
+  },
+  {
+   "id": "cpr604-f2",
+   "lv": "Hard",
+   "s": "Which enzyme class does activated factor XIII belong to, based on the reaction it carries out on fibrin?",
+   "c": [
+    "A serine protease cleaving peptide bonds",
+    "A transglutaminase forming covalent bonds",
+    "A phospholipase acting on membrane lipids",
+    "A transferase moving phosphate groups",
+    "A reductase recycling vitamin K"
+   ],
+   "a": 1,
+   "e": "Step 1: Thrombin activates factor XIII to XIIIa.\nStep 2: XIIIa acts as a transglutaminase, forming covalent bonds between fibrin monomers and establishing a 3D meshwork resistant to mechanical disruption.\n\nTakeaway: factor XIIIa is a transglutaminase, not a protease.",
+   "w": [
+    "Serine proteases such as thrombin and Xa cut proteins; factor XIIIa joins them.",
+    "",
+    "No phospholipase step appears in the cross-linking of fibrin.",
+    "Factor XIIIa transfers no phosphate; it forms bonds between protein side chains.",
+    "That is VKORC1 in the liver, the warfarin target."
+   ]
+  }
+ ]
+},
+"cpr605": {
+ "k": "Rate-limiting step and the liver",
+ "q": [
+  {
+   "id": "cpr605-f1",
+   "lv": "Easy",
+   "s": "Which clot property is lost when factor XIII is deficient?",
+   "c": [
+    "Ability to form fibrin monomers at all",
+    "Resistance to mechanical disruption",
+    "Ability to trap red cells in the mesh",
+    "Ability to recruit platelets to the site",
+    "Ability to generate thrombin from prothrombin"
+   ],
+   "a": 1,
+   "e": "Factor XIIIa builds a covalently cross-linked 3D meshwork that resists mechanical disruption; without it the clot falls apart.\n\nTakeaway: factor XIII gives the clot its mechanical strength.",
+   "w": [
+    "Thrombin still makes fibrin monomers; they simply are not cross-linked.",
+    "",
+    "Red cells are still trapped, but the mesh holding them is weak.",
+    "Platelet recruitment depends on ADP and thromboxane, which are unaffected.",
+    "Thrombin generation is upstream and remains normal."
+   ]
+  },
+  {
+   "id": "cpr605-f2",
+   "lv": "Hard",
+   "s": "Why would a routine PT and aPTT both be normal in a patient who lacks factor XIII?",
+   "c": [
+    "Both tests bypass the common pathway entirely",
+    "Both tests are run without any calcium",
+    "Both tests stop at fibrin clot formation",
+    "Factor XIII is measured only by bleeding time",
+    "Factor XIII is replaced by factor XII in vitro"
+   ],
+   "a": 2,
+   "e": "Step 1: The PT and aPTT measure the time until a fibrin clot first forms.\nStep 2: Factor XIII acts after that endpoint, cross-linking fibrin, so its absence leaves both clotting times normal.\n\nTakeaway: PT and aPTT end at fibrin formation, so they miss factor XIII deficiency.",
+   "w": [
+    "Both tests include the common pathway, which is how they detect factor X or prothrombin problems.",
+    "Calcium is added back in both assays so the cascade can run.",
+    "",
+    "Bleeding time measures platelet function and vascular integrity, not factor XIII.",
+    "Factor XII starts the intrinsic pathway and cannot cross-link fibrin."
+   ]
+  }
+ ]
+},
+"cpr606": {
+ "k": "Thrombomodulin–protein C system",
+ "q": [
+  {
+   "id": "cpr606-f1",
+   "lv": "Easy",
+   "s": "Which vitamin does the liver require to synthesize prothrombin?",
+   "c": [
+    "Vitamin C",
+    "Vitamin D",
+    "Vitamin K",
+    "Vitamin B12",
+    "Vitamin A"
+   ],
+   "a": 2,
+   "e": "Prothrombin is synthesized continually by the liver and requires vitamin K.\n\nTakeaway: vitamin K is needed for prothrombin and for factors VII, IX and X.",
+   "w": [
+    "Vitamin C deficiency causes scurvy with fragile vessels, not low prothrombin.",
+    "Vitamin D regulates calcium absorption and bone, not factor synthesis.",
+    "",
+    "Vitamin B12 deficiency causes megaloblastic anemia and neurologic disease.",
+    "Vitamin A supports vision and epithelium and has no role in clotting factors."
+   ]
+  },
+  {
+   "id": "cpr606-f2",
+   "lv": "Hard",
+   "s": "A newborn who received no vitamin K at birth develops bleeding. Besides prothrombin, which group of factors is most affected?",
+   "c": [
+    "Factors V and VIII with von Willebrand factor",
+    "Factors XI and XII with prekallikrein",
+    "Fibrinogen and factor XIII together",
+    "Factors VII, IX and X with protein C",
+    "Antithrombin III and thrombomodulin"
+   ],
+   "a": 3,
+   "e": "Step 1: Vitamin K is needed for gamma-carboxylation of factors II, VII, IX and X and of protein C.\nStep 2: Without it, those factors are made but cannot function, which is why both PT and aPTT become prolonged.\n\nTakeaway: the vitamin K dependent factors are II, VII, IX, X and protein C.",
+   "w": [
+    "Factors V and VIII are cofactors that do not require vitamin K.",
+    "The contact factors are not vitamin K dependent.",
+    "Fibrinogen and factor XIII do not require vitamin K for synthesis.",
+    "",
+    "These anticoagulants are not vitamin K dependent clotting factors."
+   ]
+  }
+ ]
+},
+"cpr607": {
+ "k": "Tissue factor pathway inhibitor",
+ "q": [
+  {
+   "id": "cpr607-f1",
+   "lv": "Easy",
+   "s": "Where is thrombomodulin located?",
+   "c": [
+    "On the platelet surface",
+    "Inside the liver hepatocytes",
+    "Within the subendothelial collagen",
+    "On endothelial cells",
+    "Inside platelet alpha granules"
+   ],
+   "a": 3,
+   "e": "Thrombomodulin sits on endothelial cells and binds circulating thrombin, turning it into a protein C activator.\n\nTakeaway: thrombomodulin is endothelial and converts thrombin into an anticoagulant.",
+   "w": [
+    "Platelets carry GpIb, GpIIb/IIIa and PAR receptors rather than thrombomodulin.",
+    "Hepatocytes synthesize clotting factors but do not display thrombomodulin to blood.",
+    "Collagen beneath the endothelium binds von Willebrand factor instead.",
+    "",
+    "Alpha granules store PDGF and factor XIII, not thrombomodulin."
+   ]
+  },
+  {
+   "id": "cpr607-f2",
+   "lv": "Hard",
+   "s": "How does binding thrombomodulin change what thrombin does?",
+   "c": [
+    "It makes thrombin cleave fibrinogen faster",
+    "It makes thrombin activate factors V and VIII",
+    "It makes thrombin cross-link fibrin directly",
+    "It makes thrombin digest fibrin into D-dimers",
+    "It switches thrombin to activating protein C"
+   ],
+   "a": 4,
+   "e": "Step 1: Free thrombin is procoagulant, cleaving fibrinogen and retro-activating factors V, VIII and XI.\nStep 2: Bound to thrombomodulin, thrombin instead activates protein C, which with protein S degrades Va and VIIIa.\n\nTakeaway: thrombomodulin turns thrombin from procoagulant into anticoagulant.",
+   "w": [
+    "Thrombomodulin shifts thrombin away from fibrinogen rather than speeding that reaction.",
+    "Free thrombin does that; thrombomodulin binding produces the opposite effect.",
+    "Factor XIIIa cross-links fibrin, and thrombin never does so itself.",
+    "Plasmin digests fibrin, producing degradation products and D-dimers.",
+    ""
+   ]
+  }
+ ]
+},
+"cpr608": {
+ "k": "Protein C deficiency",
+ "q": [
+  {
+   "id": "cpr608-f1",
+   "lv": "Easy",
+   "s": "Which cells synthesize tissue factor pathway inhibitor?",
+   "c": [
+    "Bone marrow megakaryocytes",
+    "Hepatocytes of the liver",
+    "Circulating neutrophils",
+    "Fibroblasts in the vessel adventitia",
+    "Endothelial cells"
+   ],
+   "a": 4,
+   "e": "TFPI is synthesized by the endothelium, which keeps extrinsic pathway activity local.\n\nTakeaway: TFPI is an endothelial inhibitor of Xa and TF-VIIa.",
+   "w": [
+    "Megakaryocytes produce platelets, not this inhibitor.",
+    "The liver makes prothrombin and other factors rather than TFPI.",
+    "Neutrophils fight infection and have no role in making TFPI.",
+    "Fibroblasts repair the wall after injury rather than secreting TFPI.",
+    ""
+   ]
+  },
+  {
+   "id": "cpr608-f2",
+   "lv": "Hard",
+   "s": "Why is it efficient for TFPI to bind factor Xa before it inhibits the TF-VIIa complex?",
+   "c": [
+    "Clotting is allowed only until Xa appears",
+    "Factor Xa is the only factor TFPI can reach",
+    "TF-VIIa cannot be inhibited by any protein",
+    "Factor Xa destroys TFPI unless bound first",
+    "TF-VIIa only forms after Xa is produced"
+   ],
+   "a": 0,
+   "e": "Step 1: TFPI binds and inactivates factor Xa, the product of the extrinsic pathway.\nStep 2: The TFPI-Xa complex then inhibits TF-VIIa, so the trigger is shut off once a little Xa has formed and clotting stays limited to the injury.\n\nTakeaway: TFPI uses the pathway's own product as the signal to switch it off.",
+   "w": [
+    "",
+    "TFPI reaches the TF-VIIa complex as well, which is the second half of its action.",
+    "TFPI does inhibit TF-VIIa once it is bound to factor Xa.",
+    "Factor Xa does not degrade TFPI; the two form an inhibitory complex.",
+    "TF-VIIa forms first and is what produces factor Xa."
+   ]
+  }
+ ]
+},
+"cpr609": {
+ "k": "Fibrinolysis and the D-dimer",
+ "q": [
+  {
+   "id": "cpr609-f1",
+   "lv": "Easy",
+   "s": "Which protein works together with activated protein C to degrade factors Va and VIIIa?",
+   "c": [
+    "Protein S",
+    "Antithrombin III",
+    "Thrombomodulin",
+    "Tissue factor pathway inhibitor",
+    "Plasminogen activator inhibitor"
+   ],
+   "a": 0,
+   "e": "Activated protein C works with protein S to degrade factors Va and VIIIa.\n\nTakeaway: APC plus protein S inactivate the cofactors Va and VIIIa.",
+   "w": [
+    "",
+    "Antithrombin III neutralizes thrombin and factor Xa, a separate mechanism.",
+    "Thrombomodulin binds thrombin on endothelium to activate protein C in the first place.",
+    "TFPI inhibits factor Xa and the TF-VIIa complex instead.",
+    "That protein restrains fibrinolysis rather than the clotting cofactors."
+   ]
+  },
+  {
+   "id": "cpr609-f2",
+   "lv": "Hard",
+   "s": "A thrombophilic patient has a factor V variant that activated protein C cannot cleave. What is the expected consequence?",
+   "c": [
+    "Tenase complexes can no longer assemble",
+    "Prothrombinase stays active far too long",
+    "Thrombin can no longer cleave fibrinogen",
+    "Antithrombin III is permanently inhibited",
+    "Tissue factor can no longer be released"
+   ],
+   "a": 1,
+   "e": "Step 1: Activated protein C normally degrades factor Va, removing the cofactor from prothrombinase.\nStep 2: A factor Va that resists cleavage keeps prothrombinase assembled, so thrombin generation continues and thrombosis follows.\n\nTakeaway: resistance to APC leaves factor Va active and causes thrombosis.",
+   "w": [
+    "Tenase uses factors IXa and VIIIa, which this variant does not affect.",
+    "",
+    "Thrombin still cleaves fibrinogen normally, which is why clots form readily.",
+    "Antithrombin III activity is independent of the factor V variant.",
+    "Tissue factor release from damaged tissue is unchanged."
+   ]
+  }
+ ]
+},
+"cpr610": {
+ "k": "Hemophilia A",
+ "q": [
+  {
+   "id": "cpr610-f1",
+   "lv": "Easy",
+   "s": "Which enzyme digests fibrin fibers during fibrinolysis?",
+   "c": [
+    "Thrombin",
+    "Plasmin",
+    "Factor XIIIa",
+    "Prothrombinase",
+    "Thrombomodulin"
+   ],
+   "a": 1,
+   "e": "Plasmin digests fibrin fibers, fibrinogen and factors V, VIII and XII, releasing fibrin degradation products and D-dimers.\n\nTakeaway: plasmin is the fibrinolytic enzyme.",
+   "w": [
+    "Thrombin builds fibrin from fibrinogen rather than digesting it.",
+    "",
+    "Factor XIIIa cross-links fibrin to make the clot stronger.",
+    "Prothrombinase cleaves prothrombin to thrombin, a clot-forming step.",
+    "Thrombomodulin is an endothelial receptor for thrombin, not an enzyme on fibrin."
+   ]
+  },
+  {
+   "id": "cpr610-f2",
+   "lv": "Hard",
+   "s": "How does plasminogen come to be inside a clot that later dissolves?",
+   "c": [
+    "It diffuses in from the surrounding tissue later",
+    "It is secreted by platelets during retraction",
+    "It is trapped there while the clot forms",
+    "It is produced by fibroblasts invading the clot",
+    "It is carried in by red cells inside the clot"
+   ],
+   "a": 2,
+   "e": "Step 1: Inactive plasminogen, also called profibrinolysin, is trapped inside the clot as it forms.\nStep 2: Injured endothelium slowly releases t-PA, which converts the entrapped plasminogen into plasmin and digests the clot from within.\n\nTakeaway: plasminogen is entrapped during clotting and activated later by t-PA.",
+   "w": [
+    "The lecture describes plasminogen as entrapped during clot formation, not arriving later.",
+    "Platelets release PDGF and granule contents rather than plasminogen.",
+    "",
+    "Fibroblasts build fibrous tissue during organization, not plasminogen.",
+    "Red cells are entrapped passively and do not carry plasminogen."
+   ]
+  }
+ ]
+},
+"cpr611": {
+ "k": "Warfarin mechanism and monitoring",
+ "q": [
+  {
+   "id": "cpr611-f1",
+   "lv": "Easy",
+   "s": "How is hemophilia A inherited?",
+   "c": [
+    "Autosomal dominant",
+    "Autosomal recessive",
+    "X-linked recessive",
+    "Mitochondrial inheritance",
+    "X-linked dominant"
+   ],
+   "a": 2,
+   "e": "Hemophilia A is X-linked recessive and accounts for 85% of hemophilia cases.\n\nTakeaway: hemophilia A and B are both X-linked recessive; A is 85%, B is 15%.",
+   "w": [
+    "Autosomal dominant inheritance fits von Willebrand disease, not hemophilia A.",
+    "Hemophilia A is X-linked, which is why it affects mostly males.",
+    "",
+    "No clotting factor deficiency in the lecture is mitochondrial.",
+    "Hemophilia A is recessive, so female carriers are usually unaffected."
+   ]
+  },
+  {
+   "id": "cpr611-f2",
+   "lv": "Hard",
+   "s": "Which bleeding pattern distinguishes the hemophilias from a platelet disorder?",
+   "c": [
+    "Petechiae and purpura on the skin",
+    "Nosebleeds and heavy menstrual bleeding",
+    "Pinpoint oozing from capillary beds",
+    "Deep tissue and joint bleeding",
+    "Prolonged bleeding from small skin cuts"
+   ],
+   "a": 3,
+   "e": "Step 1: Hemophilias are defects of secondary hemostasis, so the platelet plug forms but the fibrin clot is weak.\nStep 2: That produces deep tissue and joint bleeding, especially hemarthrosis, with a prolonged aPTT and normal PT and bleeding time.\n\nTakeaway: deep and joint bleeding means a factor problem, while petechiae and mucosal bleeding mean a platelet problem.",
+   "w": [
+    "Petechiae and purpura point to thrombocytopenia and primary hemostasis.",
+    "Mucosal bleeding of this kind suggests von Willebrand disease or low platelets.",
+    "Capillary oozing fits platelet and vessel wall problems.",
+    "",
+    "Small cut bleeding reflects platelet plug formation, which is intact in hemophilia."
+   ]
+  }
+ ]
+},
+"cpr612": {
+ "k": "Recognizing hemophilia A",
+ "q": [
+  {
+   "id": "cpr612-f1",
+   "lv": "Easy",
+   "s": "Which test is used to monitor warfarin therapy?",
+   "c": [
+    "The aPTT in seconds",
+    "The bleeding time in minutes",
+    "The D-dimer concentration",
+    "The PT reported as an INR",
+    "The platelet count per microliter"
+   ],
+   "a": 3,
+   "e": "Warfarin is monitored with the PT reported as an INR, with a target of 2.0 to 3.0.\n\nTakeaway: PT/INR for warfarin, aPTT for heparin.",
+   "w": [
+    "The aPTT monitors intravenous heparin, not warfarin.",
+    "Bleeding time assesses platelet function and vascular integrity.",
+    "D-dimer marks fibrin breakdown and is used for DVT, PE and DIC.",
+    "",
+    "Platelet count detects thrombocytopenia rather than warfarin effect."
+   ]
+  },
+  {
+   "id": "cpr612-f2",
+   "lv": "Hard",
+   "s": "Why does warfarin take one to three days to reach its full effect?",
+   "c": [
+    "It must first be converted by the liver",
+    "It is absorbed very slowly from the gut",
+    "It must displace heparin from antithrombin III",
+    "It must be carried into platelets to work",
+    "Already-made factors must be cleared first"
+   ],
+   "a": 4,
+   "e": "Step 1: Warfarin inhibits VKORC1, blocking gamma-carboxylation of newly made factors II, VII, IX, X and protein C.\nStep 2: Factors already circulating still work until they are cleared, so the anticoagulant effect appears over one to three days.\n\nTakeaway: warfarin blocks new factor synthesis, so onset waits for old factors to clear.",
+   "w": [
+    "Delayed onset is explained by existing factors, not by activation of the drug.",
+    "Warfarin is given orally and absorbed well, so absorption is not the limit.",
+    "Warfarin does not act on antithrombin III at all.",
+    "Warfarin acts on hepatic factor synthesis, not inside platelets.",
+    ""
+   ]
+  }
+ ]
+},
+"cpr613": {
+ "k": "von Willebrand disease",
+ "q": [
+  {
+   "id": "cpr613-f1",
+   "lv": "Easy",
+   "s": "Hemophilia B is a deficiency of which factor?",
+   "c": [
+    "Factor VIII",
+    "Factor XI",
+    "Factor VII",
+    "Factor XIII",
+    "Factor IX"
+   ],
+   "a": 4,
+   "e": "Hemophilia B, or Christmas disease, is factor IX deficiency and accounts for 15% of cases.\n\nTakeaway: A is factor VIII (85%), B is factor IX (15%).",
+   "w": [
+    "Factor VIII deficiency is hemophilia A, the more common classic form.",
+    "Factor XI deficiency prolongs the aPTT but is not called hemophilia B.",
+    "Factor VII deficiency prolongs the PT and belongs to the extrinsic pathway.",
+    "Factor XIII deficiency leaves PT and aPTT normal with an unstable clot.",
+    ""
+   ]
+  },
+  {
+   "id": "cpr613-f2",
+   "lv": "Hard",
+   "s": "Clinically, how do hemophilia A and hemophilia B compare?",
+   "c": [
+    "Identical presentation, different factor",
+    "Hemophilia B causes mucosal rather than joint bleeding",
+    "Hemophilia B prolongs the PT instead of the aPTT",
+    "Hemophilia B is inherited in autosomal fashion",
+    "Hemophilia B shows a prolonged bleeding time"
+   ],
+   "a": 0,
+   "e": "Step 1: Factors VIII and IX work together in the intrinsic tenase complex, so losing either blocks the same step.\nStep 2: The lecture states the clinical presentation of hemophilia B is identical to hemophilia A, with prolonged aPTT and normal PT and bleeding time, so only factor assay separates them.\n\nTakeaway: A and B look identical clinically; only the missing factor differs.",
+   "w": [
+    "",
+    "Both cause deep tissue and joint bleeding; mucosal bleeding suggests a platelet problem.",
+    "Factor IX is intrinsic, so hemophilia B also prolongs only the aPTT.",
+    "Both hemophilia A and hemophilia B are X-linked recessive.",
+    "Bleeding time is normal in both because platelet function is intact."
+   ]
+  }
+ ]
+},
+"cpr614": {
+ "k": "Disseminated intravascular coagulation",
+ "q": [
+  {
+   "id": "cpr614-f1",
+   "lv": "Easy",
+   "s": "Which laboratory value is characteristically prolonged in von Willebrand disease but normal in hemophilia A?",
+   "c": [
+    "Bleeding time",
+    "Prothrombin time",
+    "Platelet count",
+    "D-dimer concentration",
+    "Thrombin time in seconds"
+   ],
+   "a": 0,
+   "e": "In von Willebrand disease, poor platelet adhesion prolongs the bleeding time, while hemophilia A leaves it normal.\n\nTakeaway: vWD prolongs bleeding time and aPTT; hemophilia A prolongs only the aPTT.",
+   "w": [
+    "",
+    "The PT is normal in both conditions because factor VII and the common pathway are intact.",
+    "The platelet count is normal in both; the defect in vWD is adhesion, not number.",
+    "D-dimer reflects fibrin breakdown and is not raised in either condition.",
+    "Thrombin time is not the distinguishing test taught for these two disorders."
+   ]
+  },
+  {
+   "id": "cpr614-f2",
+   "lv": "Hard",
+   "s": "Why can von Willebrand disease prolong the aPTT even though the cascade factors are made normally?",
+   "c": [
+    "vWF is itself an intrinsic pathway factor",
+    "vWF carries and stabilizes factor VIII",
+    "vWF is required to activate factor XII",
+    "vWF supplies the calcium the cascade needs",
+    "vWF forms the phospholipid surface for tenase"
+   ],
+   "a": 1,
+   "e": "Step 1: Von Willebrand factor binds factor VIII in plasma and protects it from being cleared.\nStep 2: With less vWF, factor VIII levels fall, and since factor VIII is intrinsic the aPTT becomes prolonged alongside the bleeding time.\n\nTakeaway: vWF stabilizes factor VIII, so vWD prolongs both bleeding time and aPTT.",
+   "w": [
+    "vWF is an adhesive protein of primary hemostasis, not a cascade enzyme.",
+    "",
+    "Factor XII is activated by contact with collagen, HMWK and prekallikrein.",
+    "Ionic calcium comes from plasma, not from von Willebrand factor.",
+    "Platelet factor 3 phospholipid provides that surface."
+   ]
+  }
+ ]
+},
+"cpr615": {
+ "k": "Reversing heparin",
+ "q": [
+  {
+   "id": "cpr615-f1",
+   "lv": "Easy",
+   "s": "Which pair of findings is characteristic of disseminated intravascular coagulation?",
+   "c": [
+    "High D-dimer with high fibrinogen",
+    "High D-dimer with low fibrinogen",
+    "Low D-dimer with low fibrinogen",
+    "Low D-dimer with high fibrinogen",
+    "Normal D-dimer with normal fibrinogen"
+   ],
+   "a": 1,
+   "e": "In DIC, widespread clotting consumes fibrinogen while plasmin digestion of those clots raises the D-dimer.\n\nTakeaway: DIC = low fibrinogen, high D-dimer, prolonged PT and aPTT.",
+   "w": [
+    "Fibrinogen is consumed in DIC, so it falls rather than rises.",
+    "",
+    "Widespread fibrin breakdown raises the D-dimer markedly in DIC.",
+    "That pattern suggests no active clot breakdown, the opposite of DIC.",
+    "Normal values would argue against DIC entirely."
+   ]
+  },
+  {
+   "id": "cpr615-f2",
+   "lv": "Hard",
+   "s": "A patient in DIC is bleeding from every puncture site even though the underlying process is excessive clotting. What explains the bleeding?",
+   "c": [
+    "The liver has stopped making any clotting factors",
+    "Heparin has been released from mast cells in sepsis",
+    "Clotting factors and platelets are used up",
+    "Antithrombin III levels have risen sharply",
+    "Vitamin K is destroyed by the bacterial toxins"
+   ],
+   "a": 2,
+   "e": "Step 1: In DIC, diffuse microvascular clotting consumes clotting factors, fibrinogen and platelets.\nStep 2: With the building blocks used up, PT and aPTT are prolonged and the patient oozes diffusely despite the clotting process.\n\nTakeaway: DIC is a consumption coagulopathy, so widespread clotting ends in bleeding.",
+   "w": [
+    "Hepatic synthesis continues; the factors are consumed faster than they are replaced.",
+    "Endogenous heparin release is not the mechanism of bleeding in DIC.",
+    "",
+    "DIC consumes inhibitors as well; a rise in antithrombin III is not the cause.",
+    "Vitamin K is not destroyed by toxins, and DIC is a consumption process."
+   ]
+  }
+ ]
+}
 });

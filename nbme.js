@@ -7896,6 +7896,283 @@ window.NBME_QUIZZES = [
 "fig": [
 "figs/crs/hs-ms"
 ]
+},
+{
+ "t": "Lecture 14 · Hemostasis & Blood Coagulation",
+ "s": "A 4-year-old boy is brought in after a fall at preschool. His right knee is swollen, warm and painful, and he has had similar episodes after minor bumps. His mother's brother had the same problem. Studies show a prolonged aPTT, a normal prothrombin time, a normal platelet count and a normal bleeding time. Which of the following is the most likely cause?",
+ "c": [
+  "Factor VIII deficiency",
+  "Factor VII deficiency",
+  "Von Willebrand factor deficiency",
+  "Immune platelet destruction",
+  "Vitamin K deficiency"
+ ],
+ "a": 0,
+ "e": "Hemarthrosis in a boy with an affected maternal uncle suggests X-linked recessive hemophilia. A prolonged aPTT with normal PT and bleeding time localizes the defect to an intrinsic factor, and factor VIII deficiency (hemophilia A) accounts for about 85% of cases.\n\nTakeaway: hemarthrosis with an isolated long aPTT is hemophilia A until proven otherwise.",
+ "w": [
+  "",
+  "Factor VII is extrinsic, so the prothrombin time would be prolonged.",
+  "Von Willebrand disease prolongs the bleeding time, which is normal here.",
+  "Immune destruction lowers the platelet count and causes mucosal bleeding.",
+  "Vitamin K deficiency prolongs the prothrombin time as well as the aPTT."
+ ],
+ "fig": [
+  "figs/crs/hm-disorders"
+ ]
+},
+{
+ "t": "Lecture 14 · Hemostasis & Blood Coagulation",
+ "s": "A 62-year-old woman is started on an intravenous anticoagulant after a pulmonary embolism. Her aPTT is used to adjust the dose, and the effect begins within minutes of starting the infusion. Which mechanism best explains this drug's action?",
+ "c": [
+  "It blocks vitamin K epoxide reductase",
+  "It increases antithrombin III activity",
+  "It irreversibly inhibits platelet cyclooxygenase",
+  "It converts plasminogen into active plasmin",
+  "It directly inhibits factor Xa after oral dosing"
+ ],
+ "a": 1,
+ "e": "Heparin binds antithrombin III and increases its inactivation of thrombin and factor Xa 100 to 1,000 fold, with immediate onset. It is given parenterally, monitored with the aPTT and reversed with protamine sulfate.\n\nTakeaway: heparin acts through antithrombin III, works at once, and is followed with the aPTT.",
+ "w": [
+  "That is warfarin, which is monitored by the INR and takes one to three days.",
+  "",
+  "That is aspirin, an antiplatelet drug that is not monitored with the aPTT.",
+  "That is t-PA, a thrombolytic given to dissolve an existing clot.",
+  "Direct oral factor Xa inhibitors need no routine monitoring and are not intravenous."
+ ],
+ "fig": [
+  "figs/crs/hm-labs-drugs"
+ ]
+},
+{
+ "t": "Lecture 14 · Hemostasis & Blood Coagulation",
+ "s": "A 70-year-old man with sepsis develops oozing from his intravenous sites and gums. Laboratory studies show a prolonged prothrombin time, a prolonged aPTT, a platelet count of 48,000 per microliter, a markedly elevated D-dimer and a low fibrinogen level. Which process best explains these findings?",
+ "c": [
+  "Isolated deficiency of plasma factor VIII",
+  "Impaired gamma-carboxylation in the liver",
+  "Consumption of clotting factors",
+  "Antibody-mediated platelet destruction",
+  "Defective platelet adhesion to collagen"
+ ],
+ "a": 2,
+ "e": "Sepsis triggers diffuse microvascular clotting that consumes factors, fibrinogen and platelets, prolonging both the PT and aPTT and lowering fibrinogen. Plasmin digestion of those cross-linked clots raises the D-dimer.\n\nTakeaway: DIC shows long PT and aPTT, low platelets, low fibrinogen and a high D-dimer.",
+ "w": [
+  "Factor VIII deficiency prolongs only the aPTT and does not lower fibrinogen.",
+  "Vitamin K deficiency leaves fibrinogen normal and does not raise the D-dimer.",
+  "",
+  "Immune thrombocytopenia leaves the PT and aPTT normal.",
+  "An adhesion defect prolongs the bleeding time but not the PT."
+ ],
+ "fig": [
+  "figs/crs/hm-disorders",
+  "figs/crs/hm-labs-drugs"
+ ]
+},
+{
+ "t": "Lecture 14 · Hemostasis & Blood Coagulation",
+ "s": "A 25-year-old woman reports frequent nosebleeds, bleeding gums after brushing and heavy menstrual periods. Her father has similar symptoms. Her platelet count and prothrombin time are normal, but her bleeding time and aPTT are both prolonged. Which of the following is the most likely diagnosis?",
+ "c": [
+  "Hemophilia A",
+  "Immune thrombocytopenic purpura",
+  "Vitamin K deficiency",
+  "Von Willebrand disease",
+  "Factor XIII deficiency"
+ ],
+ "a": 3,
+ "e": "Mucosal bleeding with a prolonged bleeding time points to defective platelet adhesion, and father-to-daughter transmission fits autosomal dominant inheritance. Von Willebrand factor is needed for GpIb adhesion and also stabilizes factor VIII, so the aPTT is prolonged as well.\n\nTakeaway: vWD prolongs both bleeding time and aPTT because vWF carries factor VIII.",
+ "w": [
+  "Hemophilia A is X-linked, causes deep bleeding and leaves the bleeding time normal.",
+  "Immune thrombocytopenia lowers the platelet count, which is normal here.",
+  "Vitamin K deficiency prolongs the prothrombin time, which is normal here.",
+  "",
+  "Factor XIII deficiency leaves the aPTT and bleeding time normal."
+ ],
+ "fig": [
+  "figs/crs/hm-disorders"
+ ]
+},
+{
+ "t": "Lecture 14 · Hemostasis & Blood Coagulation",
+ "s": "During an operation, a surgeon packs a bleeding wound with a thromboplastin-rich tissue preparation and the blood clots within about 15 seconds. Which sequence of events explains this rapid clotting?",
+ "c": [
+  "Collagen activates XII, then XI and then IX",
+  "Thrombin activates XIII to cross-link fibrin",
+  "Plasmin digests fibrin into degradation products",
+  "Protein C and protein S degrade Va and VIIIa",
+  "Tissue factor binds VII and activates X"
+ ],
+ "a": 4,
+ "e": "Tissue factor binds circulating factor VII with calcium to form the TF-VIIa complex, which cleaves factor X directly. Factor Xa joins Va, platelet phospholipid and calcium to form prothrombinase, so the extrinsic pathway can clot blood in as little as 15 seconds.\n\nTakeaway: tissue factor plus factor VII activates factor X: 3 + 7 = 10.",
+ "w": [
+  "That is the intrinsic contact cascade, which takes one to six minutes.",
+  "Cross-linking stabilizes a clot that has already formed.",
+  "Plasmin dissolves clots rather than forming them.",
+  "That system slows clotting rather than accelerating it.",
+  ""
+ ],
+ "fig": [
+  "figs/crs/hm-extrinsic"
+ ]
+},
+{
+ "t": "Lecture 14 · Hemostasis & Blood Coagulation",
+ "s": "A 10-day-old infant who was born at home and received no injections at birth presents with bleeding from the umbilical stump and bruising. Laboratory studies show a prolonged prothrombin time and a prolonged aPTT with a normal platelet count and normal fibrinogen. Which group of factors is most likely deficient?",
+ "c": [
+  "Factors II, VII, IX and X",
+  "Factors V and VIII only",
+  "Factors XI and XII only",
+  "Fibrinogen and factor XIII",
+  "Von Willebrand factor and factor VIII"
+ ],
+ "a": 0,
+ "e": "Newborns have low vitamin K stores, and without a vitamin K injection the liver cannot gamma-carboxylate factors II, VII, IX and X or protein C. Losing factors in both the extrinsic and common pathways prolongs the PT and aPTT while platelets and fibrinogen stay normal.\n\nTakeaway: vitamin K dependent factors are II, VII, IX, X and protein C.",
+ "w": [
+  "",
+  "Factors V and VIII are cofactors that do not depend on vitamin K.",
+  "The contact factors are not vitamin K dependent and would spare the PT.",
+  "Fibrinogen is normal here and factor XIII deficiency spares both clotting times.",
+  "That combination prolongs the bleeding time and spares the prothrombin time."
+ ],
+ "fig": [
+  "figs/crs/hm-labs-drugs"
+ ]
+},
+{
+ "t": "Lecture 14 · Hemostasis & Blood Coagulation",
+ "s": "A 33-year-old woman has had two unprovoked deep vein thromboses, and her mother had a clot during pregnancy. Testing shows normal thrombin generation and normal thrombomodulin, but very low levels of the protein that the thrombin-thrombomodulin complex normally activates. Which factors remain active longer than normal in this patient?",
+ "c": [
+  "Factors IXa and XIa",
+  "Factors Va and VIIIa",
+  "Thrombin and factor Xa",
+  "Tissue factor and factor VIIa",
+  "Factors XIIa and XIIIa"
+ ],
+ "a": 1,
+ "e": "The thrombin-thrombomodulin complex activates protein C, so the low protein is protein C. Activated protein C with protein S normally degrades factors Va and VIIIa, so deficiency leaves prothrombinase and tenase active and causes recurrent venous thrombosis.\n\nTakeaway: protein C deficiency leaves Va and VIIIa active, producing thrombophilia.",
+ "w": [
+  "Those factors are neutralized by antithrombin III, a separate inhibitor system.",
+  "",
+  "Thrombin and factor Xa are the main targets of antithrombin III.",
+  "The TF-VIIa complex is controlled by tissue factor pathway inhibitor.",
+  "Factor XIIa is cleared by antithrombin III and XIIIa cross-links fibrin."
+ ],
+ "fig": [
+  "figs/crs/hm-anticoag"
+ ]
+},
+{
+ "t": "Lecture 14 · Hemostasis & Blood Coagulation",
+ "s": "A 12-year-old boy has bled for days from his umbilical stump as a newborn and now bleeds again hours after minor injuries, though bleeding stops normally at first. His prothrombin time, aPTT, platelet count and bleeding time are all normal. Which protein is most likely deficient?",
+ "c": [
+  "Von Willebrand factor",
+  "Antihemophilic factor",
+  "Fibrin-stabilizing factor",
+  "Tissue thromboplastin",
+  "Prothrombin from the liver"
+ ],
+ "a": 2,
+ "e": "Normal PT, aPTT, platelet count and bleeding time mean the platelet plug and the cascade through fibrin formation all work. Delayed bleeding with a clot that forms and then breaks down points to factor XIII, the fibrin-stabilizing factor, whose transglutaminase activity covalently cross-links fibrin.\n\nTakeaway: delayed bleeding with normal routine tests suggests factor XIII deficiency.",
+ "w": [
+  "Von Willebrand disease prolongs the bleeding time and usually the aPTT.",
+  "Factor VIII deficiency prolongs the aPTT, which is normal here.",
+  "",
+  "Tissue factor is released from injured tissue and is not a plasma deficiency state.",
+  "Prothrombin deficiency prolongs both the prothrombin time and the aPTT."
+ ],
+ "fig": [
+  "figs/crs/hm-common"
+ ]
+},
+{
+ "t": "Lecture 14 · Hemostasis & Blood Coagulation",
+ "s": "A 58-year-old man is given alteplase two hours after the onset of an acute ischemic stroke. Which of the following best describes how this drug dissolves the occluding thrombus?",
+ "c": [
+  "It increases antithrombin III activity",
+  "It blocks vitamin K dependent carboxylation",
+  "It blocks platelet GpIIb and IIIa receptors",
+  "It converts plasminogen into plasmin",
+  "It irreversibly inhibits platelet cyclooxygenase"
+ ],
+ "a": 3,
+ "e": "Alteplase is recombinant tissue plasminogen activator. It converts plasminogen that was trapped in the clot during formation into plasmin, which digests fibrin fibers and releases fibrin degradation products and D-dimers.\n\nPlasmin also digests fibrinogen and factors V, VIII and XII, releasing fibrin degradation products.\n\nTakeaway: t-PA makes plasmin, and plasmin digests fibrin.",
+ "w": [
+  "That is heparin, which prevents clot extension but does not dissolve a formed clot.",
+  "That is warfarin, which prevents new clots over days.",
+  "Blocking aggregation prevents a platelet plug but does not lyse fibrin.",
+  "",
+  "Aspirin blocks thromboxane synthesis and does not dissolve fibrin."
+ ],
+ "fig": [
+  "figs/crs/hm-fibrinolysis"
+ ]
+},
+{
+ "t": "Lecture 14 · Hemostasis & Blood Coagulation",
+ "s": "A researcher incubates normal plasma in a plastic tube with a calcium chelator and adds purified collagen. Factor XII is converted to factor XIIa and factor XI to factor XIa, but no further activation occurs. Which step is blocked?",
+ "c": [
+  "Conversion of factor XII to factor XIIa",
+  "Conversion of factor XI to factor XIa",
+  "Release of tissue factor from damaged cells",
+  "Binding of von Willebrand factor to collagen",
+  "Cleavage of factor IX by factor XIa"
+ ],
+ "a": 4,
+ "e": "Ionic calcium, factor IV, is required for every cascade step except the first two intrinsic steps, XII to XIIa and XIIa cleaving XI. Factor XIa cleaves factor IX only in the presence of ionic calcium, so the chelator stops the cascade there.\n\nTakeaway: only XII to XIIa and XIIa to XIa proceed without calcium.",
+ "w": [
+  "That step proceeds in the experiment and needs no calcium.",
+  "That step also proceeds and is the second calcium-independent step.",
+  "No tissue was added, and tissue factor release is not a cascade step here.",
+  "That is a platelet adhesion step and not part of the cascade in plasma.",
+  ""
+ ],
+ "fig": [
+  "figs/crs/hm-intrinsic-steps"
+ ]
+},
+{
+ "t": "Lecture 14 · Hemostasis & Blood Coagulation",
+ "s": "A 28-year-old woman with immune thrombocytopenia has a platelet count of 12,000 per microliter and petechiae over both shins. A sample of her blood forms a clot, but over the next hour the clot neither shrinks nor expresses serum. Which normal process has failed?",
+ "c": [
+  "Clot retraction by platelet contraction",
+  "Conversion of fibrinogen into fibrin monomers",
+  "Cross-linking of fibrin by factor XIIIa",
+  "Digestion of fibrin fibers by plasmin",
+  "Activation of protein C by thrombomodulin"
+ ],
+ "a": 0,
+ "e": "Within 20 to 60 minutes a normal clot contracts and expresses serum. Platelet spicules attached to fibrin contract through thrombosthenin, actin and myosin, pulling the vessel edges together. Severe thrombocytopenia causes failed clot retraction along with petechiae and a prolonged bleeding time.\n\nTakeaway: clot retraction needs platelets, so it fails in severe thrombocytopenia.",
+ "w": [
+  "",
+  "Fibrin still formed, since a clot was produced in the tube.",
+  "Cross-linking strengthens the mesh but does not pull it tighter.",
+  "Plasmin dissolves a clot rather than contracting it.",
+  "That anticoagulant pathway limits clotting and has no role in retraction."
+ ],
+ "fig": [
+  "figs/crs/hm-fibrinolysis"
+ ]
+},
+{
+ "t": "Lecture 14 · Hemostasis & Blood Coagulation",
+ "s": "A patient takes low-dose aspirin daily. Which laboratory test is most likely to be abnormal as a result of this medication?",
+ "c": [
+  "Prothrombin time",
+  "Bleeding time",
+  "Activated partial thromboplastin time",
+  "Platelet count",
+  "Fibrinogen concentration"
+ ],
+ "a": 1,
+ "e": "Aspirin irreversibly inhibits platelet COX-1, blocking thromboxane A2 synthesis for the 8 to 12 day platelet lifespan. That impairs platelet recruitment and aggregation, which is measured by the bleeding time, while the clotting cascade tests stay normal.\n\nTakeaway: aspirin prolongs the bleeding time and leaves PT and aPTT normal.",
+ "w": [
+  "The PT measures the extrinsic and common pathways, which aspirin does not affect.",
+  "",
+  "The aPTT measures the intrinsic and common pathways, unaffected by aspirin.",
+  "Aspirin impairs platelet function without reducing the number of platelets.",
+  "Aspirin does not change the plasma fibrinogen level."
+ ],
+ "fig": [
+  "figs/crs/hm-labs-drugs"
+ ]
 }
 ]
 }
