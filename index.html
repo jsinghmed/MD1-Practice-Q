@@ -1972,7 +1972,10 @@ async function dkState(k){
 async function dkImport(k){
   const d = ANKIDECK[k], fn = "_jjqbank_" + d[0].split("/").pop();
   await akc("storeMediaFile", { filename: fn, url: new URL(d[0], location.href).href });
-  try { await akc("importPackage", { path: fn }); } finally { try { await akc("deleteMediaFile", { filename: fn }); } catch(e){} }
+  // newer Anki doesn't run from the media folder, so give importPackage the full path
+  let dir = ""; try { dir = await akc("getMediaDirPath"); } catch(e){}
+  const full = dir ? dir.replace(/[\\/]+$/, "") + (dir.includes("\\") ? "\\" : "/") + fn : fn;
+  try { await akc("importPackage", { path: full }); } finally { try { await akc("deleteMediaFile", { filename: fn }); } catch(e){} }
   return dkState(k);
 }
 function deckChip(ak){
@@ -2018,7 +2021,7 @@ function deckOpen(k){
       akcConnect(true).then(ok=>{ slot(); if (ok) { refresh(); AKC.scanned = false; akcScan(); } }); return; }
     if (e.target.closest("[data-dkadd]")) { const b = e.target.closest("[data-dkadd]"); b.textContent = "Adding…"; b.disabled = true;
       dkImport(k).then(st=>{ toast(st.total ? `${st.total} cards added to your Anki. Sync Anki to get them on your phone.` : "Anki imported the file, but the cards didn't show up. Try again."); slot(); try { renderChaps(); } catch(e){} },
-        ()=>{ toast("Couldn't add the deck. Check that Anki is still open."); slot(); }); return; }
+        e=>{ toast("Couldn't add the deck. " + ((e && e.message && !/fetch/i.test(e.message)) ? "Anki said: " + e.message : "Check that Anki is still open.")); slot(); }); return; }
     if (e.target===d || e.target.closest("[data-ankclose]")) return close();
   });
   document.addEventListener("keydown", key, true);
