@@ -123,6 +123,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .mehlv{position:fixed;inset:0;z-index:85;background:rgba(10,12,16,.82);display:flex;flex-direction:column}.mehlv iframe{flex:1;border:0;background:#fff;width:100%}
 .mehlv .c100bar>.mehlcred{margin-left:auto}.mehlcred{font-size:12px;color:var(--muted)}.mehlcred a{color:inherit}.mehlref .pg{font-weight:700;color:#e8590c;white-space:nowrap}
 .lchip.ank b{color:var(--accent,#4fb8b0)}
+a.lchip{text-decoration:none;color:inherit}
 .lchip.copied{border-color:#2b8a3e;background:rgba(43,138,62,.08)}.lchip.copied span{color:#2b8a3e}
 .ank-done{margin:10px 0 0;font-size:13px;color:#2b8a3e}.linkbtn{background:none;border:0;padding:0;color:var(--muted,#9aa4b2);text-decoration:underline;cursor:pointer;font:inherit}
 .ank-ov{position:fixed;inset:0;z-index:9000;background:rgba(6,10,16,.6);display:grid;place-items:center;padding:16px}
@@ -1953,6 +1954,16 @@ async function akcScan(){
   for (const k of Object.keys(ANKING)) { try { await akcState(k); } catch(e){ break; } }
   try { renderChaps(); } catch(e){}
 }
+// Downloadable Anki decks (one per school quiz), keyed like ANKING. [file, card count]
+const ANKIDECK = {
+  "cgn|Lecture 1 · Regulation of Gene Expression": ["decks/genetics-quiz-8-regulation-of-gene-expression.apkg", 109],
+  "cgn|Lecture 2 · Signal Transduction": ["decks/genetics-quiz-9-signal-transduction.apkg", 88],
+  "cgn|Lecture 3 · Gene Mutation & Trinucleotide Repeats": ["decks/genetics-quiz-10-gene-mutation-trinucleotide-repeat.apkg", 107]
+};
+function deckChip(ak){
+  const d = ANKIDECK[ak]; if (!d) return "";
+  return `<a class="lchip ank" href="${esc(d[0])}" download title="Download this quiz as an Anki deck (open the file to import it)"><b>${d[1]}</b><span>📦 Anki deck</span></a>`;
+}
 function akChip(ak, akN){
   const st = AKC.on && AKC.st[ak], cp = copiedOn("anking", ak);
   if (st && st.total && !st.sus.length) return `<button class="lchip ank copied" data-anking="${esc(ak)}" title="All of this lecture's AnKing cards are in your Anki"><b>${akN}</b><span>✓ AnKing</span></button>`;
@@ -2060,7 +2071,7 @@ function lecTree(sec){
         + `<button class="lchip inc ${incN?"":"zero"} ${S.cur===lk&&view==="quiz"?"on":""}" data-lrv="${esc(g.lec.key)}" title="Questions you got wrong in this lecture"><b>${incN}</b><span>✗ Incorrect</span></button>`
         + prof.map(tile).join("")
         + (akN ? akChip(ak, akN) : "")
-        + (uwN ? `<button class="lchip uw ${copiedOn("uworld",ak)?"copied":""}" data-uworld="${esc(ak)}" title="${copiedOn("uworld",ak)?"You copied this lecture's UWorld IDs":"UWorld Step 1 question IDs for this lecture"}"><b>${uwN}</b><span>${copiedOn("uworld",ak)?"✓":"🌍"} UWorld</span></button>` : "") + `</div>`;
+        + (uwN ? `<button class="lchip uw ${copiedOn("uworld",ak)?"copied":""}" data-uworld="${esc(ak)}" title="${copiedOn("uworld",ak)?"You copied this lecture's UWorld IDs":"UWorld Step 1 question IDs for this lecture"}"><b>${uwN}</b><span>${copiedOn("uworld",ak)?"✓":"🌍"} UWorld</span></button>` : "") + deckChip(ak) + `</div>`;
     }
   });
   if (bottom.length) h += `<div class="diff-h">By difficulty</div>` + bottom.map(c=>`<button class="chap ${S.cur===c.key&&view==="quiz"?"on":""}" data-key="${esc(c.key)}"><span><i class="d ${c.name[0]}"></i>${esc(c.name)}</span><span class="n">${c.ids.length}</span></button>`).join("");
