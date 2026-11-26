@@ -1952,17 +1952,77 @@ async function akcScan(){
   if (AKC.scanned || !S.akc) return; AKC.scanned = true;
   if (!(await akcConnect(false))) return;
   for (const k of Object.keys(ANKING)) { try { await akcState(k); } catch(e){ break; } }
+  for (const k of Object.keys(ANKIDECK)) { try { await dkState(k); } catch(e){ break; } }
   try { renderChaps(); } catch(e){}
 }
-// Downloadable Anki decks (one per school quiz), keyed like ANKING. [file, card count]
+// Our own Anki decks (one per school quiz), keyed like ANKING. [file, card count, tag on every note]
+// With AnkiConnect the site imports the deck straight into Anki; otherwise the file can be downloaded.
 const ANKIDECK = {
-  "cgn|Lecture 1 · Regulation of Gene Expression": ["decks/genetics-quiz-8-regulation-of-gene-expression.apkg", 109],
-  "cgn|Lecture 2 · Signal Transduction": ["decks/genetics-quiz-9-signal-transduction.apkg", 88],
-  "cgn|Lecture 3 · Gene Mutation & Trinucleotide Repeats": ["decks/genetics-quiz-10-gene-mutation-trinucleotide-repeat.apkg", 107]
+  "cgn|Lecture 1 · Regulation of Gene Expression": ["decks/genetics-quiz-8-regulation-of-gene-expression.apkg", 109, "Quiz8_Regulation_of_Gene_Expression"],
+  "cgn|Lecture 2 · Signal Transduction": ["decks/genetics-quiz-9-signal-transduction.apkg", 88, "Quiz9_Signal_Transduction"],
+  "cgn|Lecture 3 · Gene Mutation & Trinucleotide Repeats": ["decks/genetics-quiz-10-gene-mutation-trinucleotide-repeat.apkg", 107, "Quiz10_Gene_Mutation_Trinucleotide_Repeat"]
 };
+AKC.dk = {};
+async function dkState(k){
+  const d = ANKIDECK[k], cards = await akc("findCards", { query: "tag:" + d[2] });
+  if (!cards.length) return (AKC.dk[k] = { total:0, learned:0 });
+  const info = await akc("cardsInfo", { cards });
+  return (AKC.dk[k] = { total: cards.length, learned: info.filter(c=>c.type!==0).length });
+}
+async function dkImport(k){
+  const d = ANKIDECK[k], fn = "_jjqbank_" + d[0].split("/").pop();
+  await akc("storeMediaFile", { filename: fn, url: new URL(d[0], location.href).href });
+  try { await akc("importPackage", { path: fn }); } finally { try { await akc("deleteMediaFile", { filename: fn }); } catch(e){} }
+  return dkState(k);
+}
 function deckChip(ak){
   const d = ANKIDECK[ak]; if (!d) return "";
-  return `<a class="lchip ank" href="${esc(d[0])}" download title="Download this quiz as an Anki deck (open the file to import it)"><b>${d[1]}</b><span>📦 Anki deck</span></a>`;
+  const st = AKC.on && AKC.dk[ak];
+  if (st && st.total) return `<button class="lchip ank copied" data-ankdeck="${esc(ak)}" title="This quiz deck is in your Anki"><b>${d[1]}</b><span>✓ Anki deck</span></button>`;
+  return `<button class="lchip ank" data-ankdeck="${esc(ak)}" title="Add this quiz to Anki as its own deck"><b>${d[1]}</b><span>📦 Anki deck</span></button>`;
+}
+function dkBox(k){
+  const d = ANKIDECK[k], dl = `<a class="btn" href="${esc(d[0])}" download>Download the deck file</a>`;
+  if (!AKC.on) return `<div class="akc"><div class="akc-h">Add it to Anki in one click</div>
+    <p class="ank-sub">Connect your Anki once and the site can import this deck for you and show how many cards you've learned.</p>
+    <div class="ank-row"><button class="btn primary" data-akcconn>Connect Anki</button>${dl}</div>
+    <details class="akc-how"><summary>How to set it up</summary><ol>
+      <li>Use Anki on a computer (Mac or Windows). Phones can't connect, but the deck reaches them through your normal AnkiWeb sync.</li>
+      <li>In Anki, go to <b>Tools → Add-ons → Get Add-ons</b>, paste code <b>2055492159</b> (AnkiConnect) and restart Anki.</li>
+      <li>Keep Anki open, then click <b>Connect Anki</b> here. Anki asks whether to allow jjqbank.com: click <b>Yes</b>.</li>
+      <li>No AnkiConnect? Download the deck file and double-click it to import it.</li></ol></details></div>`;
+  const st = AKC.dk[k];
+  if (!st) return `<div class="akc"><div class="akc-h">Checking your Anki…</div></div>`;
+  if (!st.total) return `<div class="akc"><div class="akc-h">${d[1]} cards · not in your Anki yet</div>
+    <p class="ank-sub">They'll be added as their own deck, so they won't mix with the AnKing deck.</p>
+    <div class="ank-row"><button class="btn primary" data-dkadd>Add ${d[1]} cards to Anki</button>${dl}</div></div>`;
+  return `<div class="akc"><div class="akc-h akc-ok">All ${st.total} cards are in your Anki</div>
+    <div class="akc-bar"><span style="width:${Math.round(100*st.learned/st.total)}%"></span></div>
+    <p class="ank-sub">${st.learned} learned · ${st.total - st.learned} still new</p></div>`;
+}
+function deckOpen(k){
+  const dd = ANKIDECK[k]; if (!dd) return;
+  const lec = k.split("|")[1], d = document.createElement("div"); d.className = "ank-ov";
+  d.innerHTML = `<div class="ank-box" role="dialog" aria-modal="true" aria-labelledby="dkT">
+    <h3 id="dkT">Anki deck · ${esc(lec)}</h3>
+    <p class="ank-sub">${dd[1]} cards made from this lecture's school quiz.</p>
+    <div id="dkSlot">${dkBox(k)}</div>
+    <div class="ank-row"><button class="btn" data-ankclose>Close</button></div></div>`;
+  const close = ()=>{ d.remove(); document.removeEventListener("keydown", key, true); };
+  const key = e=>{ if (e.key==="Escape") { e.stopPropagation(); close(); } };
+  const slot = ()=>{ const el = d.querySelector("#dkSlot"); if (el) el.innerHTML = dkBox(k); };
+  const refresh = ()=>{ if (AKC.on) dkState(k).then(()=>{ slot(); try { renderChaps(); } catch(e){} }, ()=>{ AKC.on = false; slot(); }); };
+  if (AKC.on) refresh(); else if (S.akc) akcConnect(false).then(ok=>{ if (ok) { slot(); refresh(); } });
+  d.addEventListener("click", e=>{
+    if (e.target.closest("[data-akcconn]")) { const b = e.target.closest("[data-akcconn]"); b.textContent = "Waiting for Anki…"; b.disabled = true;
+      akcConnect(true).then(ok=>{ slot(); if (ok) { refresh(); AKC.scanned = false; akcScan(); } }); return; }
+    if (e.target.closest("[data-dkadd]")) { const b = e.target.closest("[data-dkadd]"); b.textContent = "Adding…"; b.disabled = true;
+      dkImport(k).then(st=>{ toast(st.total ? `${st.total} cards added to your Anki. Sync Anki to get them on your phone.` : "Anki imported the file, but the cards didn't show up. Try again."); slot(); try { renderChaps(); } catch(e){} },
+        ()=>{ toast("Couldn't add the deck. Check that Anki is still open."); slot(); }); return; }
+    if (e.target===d || e.target.closest("[data-ankclose]")) return close();
+  });
+  document.addEventListener("keydown", key, true);
+  document.body.appendChild(d);
 }
 function akChip(ak, akN){
   const st = AKC.on && AKC.st[ak], cp = copiedOn("anking", ak);
@@ -4751,6 +4811,7 @@ document.addEventListener("click", e=>{
   if (gj) { e.preventDefault(); const el = document.getElementById(gj.dataset.gjump); if (el) el.scrollIntoView({behavior:"smooth", block:"start"}); return; }
   if (t.closest("[data-uworld]")) { uwOpen(t.closest("[data-uworld]").dataset.uworld); return; }
   if (t.closest("[data-anking]")) { ankingOpen(t.closest("[data-anking]").dataset.anking); return; }
+  if (t.closest("[data-ankdeck]")) { deckOpen(t.closest("[data-ankdeck]").dataset.ankdeck); return; }
   if (t.closest("[data-tg]")) { const b = t.closest("[data-tg]"), op = b.getAttribute("aria-expanded")!=="true"; try { localStorage.setItem("jj-tg-"+b.dataset.tg, op?"1":"0"); } catch(e) {} b.setAttribute("aria-expanded", op); if (b.nextElementSibling) b.nextElementSibling.hidden = !op; return; }
   if (t.closest("[data-g3d]")) { const b = t.closest("[data-g3d]"), op = b.getAttribute("aria-expanded")!=="true"; try { localStorage.setItem("jj-3d-open", op?"1":"0"); } catch(e) {} b.setAttribute("aria-expanded", op); b.classList.toggle("on", !op && !!(b.nextElementSibling && b.nextElementSibling.querySelector(".on"))); if (b.nextElementSibling) b.nextElementSibling.hidden = !op; return; }
   if (t.closest("[data-toolstoggle]")) { const b = t.closest("[data-toolstoggle]"), op = b.getAttribute("aria-expanded")!=="true"; try { localStorage.setItem("jj-tools-open", op?"1":"0"); } catch(e) {} renderAll(); return; }
