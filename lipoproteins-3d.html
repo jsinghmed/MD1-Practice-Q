@@ -549,7 +549,7 @@ function jTick(dt){const c=J.c;if(!c)return;if(playing)J.t+=dt*speed/J.dur;const
   if(performance.now()-jMoved>4000){const tx_=Math.max(-3.2,Math.min(3.2,c.pos.x*.35)),dx=(tx_-jctl.target.x)*.03;jctl.target.x+=dx;jcam.position.x+=dx;}
   if(J.t>=1&&!voiceHold()){if(J.i<P[mode].steps.length-1){jStart(J.i+1);render();}else{playing=false;setPlay();J.t=1;}}}
 
-// ---------- Voice narration (the browser's built-in US English voice) ----------
+// ---------- Voice narration ----------
 const SAY={
  chylo:[
   "Alright, let's follow a chylomicron! Inside the intestinal cell, the fats we just ate, triglycerides and cholesterol, get packed together with apo B 48. Say hello to the biggest, fluffiest lipoprotein of them all.",
@@ -572,34 +572,28 @@ const SAY={
   "Now L-cat, switched on by apo A 1, turns that cholesterol into cholesterol esters. They fill up the core, and the flat disc puffs up into a nice round sphere. That's mature H D L!",
   "Time for a trade! C E T P moves cholesterol esters from H D L over to V L D L, and sends triglycerides back to H D L in return.",
   "And finally, H D L brings the cholesterol home to the liver through S R B 1. That's reverse cholesterol transport, and that's why H D L is the good cholesterol. Great job following along!"]};
-let voiceOn=false,speaking=false,spokeKey="",vUtt=null,vSafe=0;
+let voiceOn=false,speaking=false,spokeKey="",vSafe=0;
 try{voiceOn=localStorage.getItem("jj-lipo-voice")==="1";}catch(e){}
-const HASVOICE="speechSynthesis" in window;
-function pickVoice(){const vs=HASVOICE?speechSynthesis.getVoices():[];const us=vs.filter(v=>/en[-_]US/i.test(v.lang));
-  const pref=[/Google US English/i,/Aria.*Natural|Jenny.*Natural|Ava.*Natural|Emma.*Natural/i,/Samantha/i,/\bAva\b/i,/Allison|Susan|Zira/i];
-  for(const r of pref){const v=us.find(x=>r.test(x.name));if(v)return v;}return us[0]||vs.find(v=>/^en/i.test(v.lang))||null;}
+const HASVOICE=typeof Audio!=="undefined";
+// Recorded narration (US English male voice), one clip per step: audio/lipo/<path>-<step>.mp3
+const vAud=HASVOICE?new Audio():null;
+if(vAud){vAud.preload="auto";vAud.onended=()=>{speaking=false;};vAud.onerror=()=>{speaking=false;};}
+function vStop(){if(vAud){vAud.pause();speaking=false;}}
 function speakStep(){
-  if(!HASVOICE)return;vUtt=null;speechSynthesis.cancel();speaking=false;
-  if(!voiceOn||mode==="all"||!SAY[mode])return;const i=curI(),txt=SAY[mode][i];if(!txt)return;spokeKey=mode+":"+i;
-  // one sentence at a time: Chrome cuts off long utterances
-  const parts=txt.match(/[^.!?]+[.!?]+/g)||[txt],v=pickVoice(),token={};vUtt=token;speaking=true;
-  parts.forEach((t,k)=>{const u=new SpeechSynthesisUtterance(t.trim());if(v)u.voice=v;u.lang="en-US";
-    u.rate=Math.max(.8,Math.min(1.25,1.02*Math.sqrt(speed)));u.pitch=1.18;u.volume=1;
-    if(k===parts.length-1)u.onend=()=>{if(vUtt===token)speaking=false;};
-    u.onerror=e=>{if(vUtt===token&&e.error!=="interrupted"&&e.error!=="canceled")speaking=false;};
-    try{speechSynthesis.speak(u);}catch(e){speaking=false;}});
-  vSafe=performance.now()+txt.length*95+5000;   // never hold the animation forever if the voice goes silent
-  if(!playing)speechSynthesis.pause();}
+  if(!vAud)return;vStop();
+  if(!voiceOn||mode==="all"||!SAY[mode])return;const i=curI();if(!SAY[mode][i])return;spokeKey=mode+":"+i;
+  vAud.src=`audio/lipo/${mode}-${i+1}.mp3?v=1`;vAud.playbackRate=Math.max(.8,Math.min(1.35,Math.sqrt(speed)));
+  speaking=true;vSafe=performance.now()+SAY[mode][i].length*95+5000;   // never hold the animation forever if the audio fails
+  if(playing){const pr=vAud.play();if(pr&&pr.catch)pr.catch(()=>{speaking=false;});}}
 function voiceHold(){if(!(voiceOn&&speaking))return false;if(playing&&performance.now()>vSafe){speaking=false;return false;}if(!playing)vSafe+=16;return true;}
 function voiceUI(){const ic=voiceOn?'<svg viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg>':'<svg viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="m23 9-6 6M17 9l6 6"/></svg>';
-  const t=voiceOn?"Voice on":"Voice off";["voice","fvoice"].forEach(id=>{const b=$(id);if(!b)return;b.innerHTML=ic+t;b.classList.toggle("on",voiceOn);b.disabled=!HASVOICE;b.title=HASVOICE?(voiceOn?"Turn off the spoken explanation":"Read each step out loud"):"Your browser can't read text out loud";});}
-if(HASVOICE&&speechSynthesis.onvoiceschanged!==undefined)speechSynthesis.onvoiceschanged=()=>{};
-window.addEventListener("pagehide",()=>{if(HASVOICE)speechSynthesis.cancel();});
-document.addEventListener("visibilitychange",()=>{if(document.hidden&&HASVOICE&&speaking){playing=false;setPlay();}});
+  const t=voiceOn?"Voice on":"Voice off";["voice","fvoice"].forEach(id=>{const b=$(id);if(!b)return;b.innerHTML=ic+t;b.classList.toggle("on",voiceOn);b.disabled=!HASVOICE;b.title=HASVOICE?(voiceOn?"Turn off the spoken explanation":"Read each step out loud"):"Audio isn't available in this browser";});}
+window.addEventListener("pagehide",vStop);
+document.addEventListener("visibilitychange",()=>{if(document.hidden&&speaking){playing=false;setPlay();}});
 
 // ---------- UI ----------
 const $=id=>document.getElementById(id);
-function setPlay(){if(HASVOICE&&speaking){playing?speechSynthesis.resume():speechSynthesis.pause();}$("play").textContent=playing?"Pause":"Play";$("play").classList.toggle("on",playing);$("fplay").textContent=playing?"Pause":"Play";}
+function setPlay(){if(vAud&&speaking){if(playing){const pr=vAud.play();if(pr&&pr.catch)pr.catch(()=>{});}else vAud.pause();}$("play").textContent=playing?"Pause":"Play";$("play").classList.toggle("on",playing);$("fplay").textContent=playing?"Pause":"Play";}
 // Full screen: only the 3D view, with a small control bar (like a video player)
 const FS_IN="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5",FS_OUT="M9 4v5H4M15 4v5h5M9 20v-5H4M15 20v-5h5";
 function setSfs(on){document.body.classList.toggle("sfs",on);$("fsp").setAttribute("d",on?FS_OUT:FS_IN);$("fsb").title=on?"Exit full screen":"Full screen";setTimeout(resize,60);}
@@ -641,7 +635,7 @@ $("fprev").onclick=()=>$("prev").onclick();$("fplay").onclick=()=>$("play").oncl
 function toggleVoice(){voiceOn=!voiceOn;try{localStorage.setItem("jj-lipo-voice",voiceOn?"1":"0");}catch(e){}voiceUI();spokeKey="";if(voiceOn){playing=true;setPlay();}speakStep();}
 $("voice").onclick=toggleVoice;$("fvoice").onclick=toggleVoice;voiceUI();
 $("restart").onclick=()=>{mode==="all"?setMode("all"):goStep(0);};
-$("spd").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;speed=+b.dataset.s;document.querySelectorAll("#spd button").forEach(x=>x.classList.toggle("on",x===b));});
+$("spd").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;speed=+b.dataset.s;if(vAud)vAud.playbackRate=Math.max(.8,Math.min(1.35,Math.sqrt(speed)));document.querySelectorAll("#spd button").forEach(x=>x.classList.toggle("on",x===b));});
 function resize(){const w=stage.clientWidth,h=stage.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();jcam.aspect=w/h;jcam.updateProjectionMatrix();}
 window.addEventListener("resize",resize);
 // deep link: #p=chylo|vldl|hdl|all  &v=map
