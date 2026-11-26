@@ -2453,7 +2453,7 @@ function renderChaps(){
   courseSecs().forEach(sec=>{
     const open = S.openSec===sec.prefix, st = secStats(sec);
     h += `<div class="sec ${open?"open":""}"><button class="sec-h" data-sec="${sec.prefix}" aria-expanded="${open}"><span class="chev">▶</span><span class="nm">${esc(sec.name)}</span><span class="n">${st.done}/${st.n}</span></button>`;
-    if (open) h += `<div class="secbar"><i style="width:${Math.round(st.done*100/st.n)}%"></i></div><div class="sec-b">` + rvChips(sec.prefix) + (sec.prefix==="ca" ? `<button class="chap lablink ${view==="viva"?"on":""}" data-act="viva"><span>🔬 Anatomy Lab: spotter &amp; viva questions</span></button>` : "") + (sec.course==="crs" ? lecTree(sec) : STATIC.filter(c=>c.pfx===sec.prefix).map(chapBtn).join("")) + `</div>`;
+    if (open) h += `<div class="secbar"><i style="width:${Math.round(st.done*100/st.n)}%"></i></div><div class="sec-b">` + rvChips(sec.prefix) + (sec.prefix==="ca" ? `<button class="chap lablink ${view==="viva"?"on":""}" data-act="viva"><span>🔬 Anatomy Lab: spotter &amp; viva questions</span></button>` : "") + (sec.course==="crs" || sec.course==="gen" ? lecTree(sec) : STATIC.filter(c=>c.pfx===sec.prefix).map(chapBtn).join("")) + `</div>`;
     h += `</div>`;
   });
   h += thxSide();
