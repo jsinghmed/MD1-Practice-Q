@@ -1404,17 +1404,22 @@ const SECTIONS = [
      {name:"Folding & fate of the heart tube", f:q=>q.num>=23 && q.num<=48 && q.t==="Sinus Venosus & Heart Tube Fate"},
      {name:"Atrial septation & ASDs", f:q=>q.num>=23 && q.num<=48 && q.t==="Atrial Septation & ASDs"},
      {main:true, name:"Lecture 3 · Ventricles, Truncus Arteriosus & Tetralogy", f:q=>q.t==="Ventricles, Outflow & Tetralogy"},
-     // Lecture 4 covered only the arterial arches (Q83–86, fetal circulation and the veins moved to Lecture 5)
-     {main:true, name:"Lecture 4 · Arterial (Aortic) Arches & Arteries", f:q=>q.t==="Arterial Arches & Arteries" && q.num>=87},
+     // Lecture 4 covered the arterial arches and the first 8 descending aorta questions (Q102–109)
+     {main:true, name:"Lecture 4 · Arterial (Aortic) Arches & Arteries", f:q=>q.t==="Arterial Arches & Arteries" && q.num>=87 && q.num<=109},
      {name:"Arterial (aortic) arches", f:q=>q.t==="Arterial Arches & Arteries" && q.num>=87 && q.num<=101},
-     {name:"Descending aorta & intersegmental arteries", f:q=>q.t==="Arterial Arches & Arteries" && q.num>=102},
-     // Lecture 5 also takes every question left out of Lectures 1 and 4 (Q9, 18, 19, 83–86, fetal circulation, veins)
-     {main:true, name:"Lecture 5 · Circulation, Veins & Nasal Cavity", f:q=>[9,18,19].includes(q.num) || (q.num>=83 && q.num<=86) || ["Fetal Circulation & Birth","Veins"].includes(q.t) || NAS(q)},
+     {name:"Descending aorta & intersegmental arteries", f:q=>q.t==="Arterial Arches & Arteries" && q.num>=102 && q.num<=109},
+     // Lecture 5 (Nov 25): heart & great vessels left from Lectures 1 and 4, fetal circulation, the last intersegmental
+     // artery questions (Q110–113) and the first 5 vein questions (Q114–118)
+     {main:true, name:"Lecture 5 · Fetal Circulation, Great Vessels & Veins", f:q=>[9,18,19].includes(q.num) || (q.num>=83 && q.num<=86) || q.t==="Fetal Circulation & Birth" || (q.num>=110 && q.num<=118)},
      {name:"Heart & great vessels (from Lectures 1 & 4)", f:q=>[9,18,19].includes(q.num) || (q.num>=83 && q.num<=86)},
      {name:"Fetal circulation & changes at birth", f:q=>q.t==="Fetal Circulation & Birth"},
-     {name:"Development of the veins", f:q=>q.t==="Veins"},
+     {name:"Intersegmental arteries (from Lecture 4)", f:q=>q.num>=110 && q.num<=113},
+     {name:"Development of the veins", f:q=>q.t==="Veins" && q.num<=118},
+     // Lecture 6 takes the rest of the veins (Q119–135), the nasal cavity and the respiratory system
+     {main:true, name:"Lecture 6 · Veins, Nasal Cavity & Respiratory System", f:q=>(q.t==="Veins" && q.num>=119) || q.t==="Respiratory Development" || NAS(q)},
+     {name:"Development of the veins (continued)", f:q=>q.t==="Veins" && q.num>=119},
      {name:"Nasal cavity & paranasal sinuses", f:NAS},
-     {main:true, name:"Lecture 6 · Development of the Respiratory System", f:q=>q.t==="Respiratory Development" && !NAS(q)},
+     {name:"Development of the respiratory system", f:q=>q.t==="Respiratory Development" && !NAS(q)},
      {main:true, name:"Lecture 7 · Formation of the Diaphragm", f:q=>q.t==="Body Cavities & Diaphragm"},
      {main:true, name:"Lecture 8 · Congenital Anomalies (all lectures)", f:q=>ANOM.test(q.s+" "+(q.c?q.c[q.a]:""))}]; })()},
   {course:"crs", name:"CRS Anatomy", all:"All CRS Anatomy", prefix:"ca", topics:window.CRS_ANAT_TOPICS, hideTopics:true, qs:window.CRS_ANAT_QUESTIONS,
@@ -2091,8 +2096,8 @@ function ankingOpen(k){
 }
 // CRS lectures are grouped into Cardiovascular and Respiratory. Every CRS lecture not listed here is cardiovascular.
 const RESP_LECS = new Set(["cbr|Lecture 8 · Hemoglobin & Myoglobin", "cbr|Lecture 9 · Citric Acid Cycle", "cbr|Lecture 10 · Electron Transport Chain", "ca|Lecture 7 · Pleura, Trachea & Lungs", "ca|Lecture 8 · Diaphragm",
-  "ce|Lecture 6 · Development of the Respiratory System", "ce|Lecture 7 · Formation of the Diaphragm"]);
-const BOTH_LECS = new Set(["ce|Lecture 8 · Congenital Anomalies (all lectures)"]);
+  "ce|Lecture 7 · Formation of the Diaphragm"]);
+const BOTH_LECS = new Set(["ce|Lecture 6 · Veins, Nasal Cavity & Respiratory System", "ce|Lecture 8 · Congenital Anomalies (all lectures)"]);
 const SYS_NAME = {cvs:"Cardiovascular system", resp:"Respiratory system", both:"Cardiovascular + Respiratory"};
 function lecSys(pfx, name){ const k = pfx+"|"+name; return RESP_LECS.has(k) ? "resp" : BOTH_LECS.has(k) ? "both" : "cvs"; }
 let SYS_OF = null;   // question id -> "cvs" | "resp" for CRS questions, from the lecture lists
@@ -2100,6 +2105,8 @@ function qSys(q){
   if (!SYS_OF) { SYS_OF = {}; const resp = new Set(), cvs = new Set();
     STATIC.filter(c=>!c.sub && !c.head && (/^Lecture \d/.test(c.name) || RESP_LECS.has(c.pfx+"|"+c.name)) && (SEC_BY_PFX[c.pfx]||{}).course==="crs").forEach(c=>{
       const sy = lecSys(c.pfx, c.name); if (sy==="both") return; c.ids.forEach(id=>(sy==="resp" ? resp : cvs).add(id)); });
+    // mixed lectures: their respiratory topics still count as respiratory
+    STATIC.filter(c=>c.sub && c.pfx==="ce" && /^(Nasal cavity|Development of the respiratory)/.test(c.name)).forEach(c=>c.ids.forEach(id=>resp.add(id)));
     resp.forEach(id=>{ if (!cvs.has(id)) SYS_OF[id] = "resp"; }); }
   return SYS_OF[q.id] || "cvs";
 }
