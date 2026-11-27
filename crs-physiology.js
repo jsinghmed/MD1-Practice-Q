@@ -263,7 +263,7 @@ window.CRS_PH_QUESTIONS = [
 {
 "t": "Phase 0 & Na⁺ Channel Gates",
 "lv": "Easy",
-"s": "A ventricular myocyte is depolarized by its neighbour to about −65 mV. What happens next?",
+"s": "A ventricular myocyte is depolarized by its neighbor to about −65 mV. What happens next?",
 "c": [
 "L-type Ca²⁺ channels open and drive the upstroke",
 "Inward-rectifier K⁺ channels open to start the plateau",
@@ -15033,7 +15033,7 @@ window.CRS_PH_QUESTIONS = [
 {
  "t": "ABO Genetics & Isohemagglutinins",
  "lv": "Hard",
- "s": "A 40-year-old man with type AB, Rh-positive blood is bleeding heavily after a motor vehicle collision. The blood bank has no AB units on the shelf. Which red cell unit can be given to him with the least risk of an immediate ABO hemolytic reaction from the recipient's antibodies?",
+ "s": "A 40-year-old man with type AB, Rh-positive blood is bleeding heavily after a motor vehicle collision. The blood bank has no AB units on the shelf. Which red cells are compatible with the antibodies in his plasma?",
  "c": [
   "Type O red cells only",
   "Any ABO group of red cells",
@@ -15459,7 +15459,7 @@ window.CRS_PH_QUESTIONS = [
 {
  "t": "Transplant Immunology",
  "lv": "Hard",
- "s": "A 52-year-old man takes an immunosuppressant after a kidney transplant. The drug binds an intracellular immunophilin, and the complex inhibits a phosphatase, so a transcription factor stays in the cytoplasm and IL-2 is not made. His bone marrow function remains normal. Which drug is he taking?",
+ "s": "A 52-year-old man takes an immunosuppressant after a kidney transplant. The drug binds the FK506-binding protein, and the complex inhibits a phosphatase, so a transcription factor stays in the cytoplasm and IL-2 is not made. His bone marrow function remains normal, but he develops new-onset hyperglycemia. Which drug is he taking?",
  "c": [
   "Tacrolimus",
   "Azathioprine",
@@ -15468,7 +15468,7 @@ window.CRS_PH_QUESTIONS = [
   "Mycophenolate"
  ],
  "a": 0,
- "e": "Follow the mechanism in the stem. When a T-helper cell is activated, calcium rises and activates calcineurin, a phosphatase. Calcineurin dephosphorylates the transcription factor NFAT, which then moves into the nucleus and switches on the IL-2 gene. IL-2 drives T-cell proliferation, which is the engine of cell-mediated graft rejection.\n\nTacrolimus binds the immunophilin FKBP, and cyclosporine binds cyclophilin. Either drug-immunophilin complex blocks calcineurin, so NFAT stays in the cytoplasm and IL-2 is not produced. The slide stresses why these calcineurin inhibitors are favored: they specifically inhibit T-helper activation without depressing the bone marrow, which matches this patient's normal marrow function.\n\nWhy the other choices are wrong:\n• Azathioprine: Azathioprine is an antimetabolite that blocks nucleotide synthesis. It is toxic to the whole lymphoid system and can suppress the marrow, and it does not act on calcineurin.\n• Prednisone: Glucocorticoids such as prednisone also reduce IL-2, but by inhibiting cytokine gene transcription broadly through their nuclear receptor, not by an immunophilin and calcineurin.\n• Basiliximab: Basiliximab is a monoclonal antibody against the IL-2 receptor, CD25. It blocks the receptor on the cell surface rather than IL-2 production inside the cell.\n• Mycophenolate: Mycophenolate inhibits IMP dehydrogenase and purine synthesis in lymphocytes. It is an antimetabolite, not a calcineurin inhibitor.\n\nTakeaway: Cyclosporine and tacrolimus bind immunophilins and block calcineurin, so NFAT cannot switch on IL-2, and they suppress T cells without depressing the marrow.",
+ "e": "Follow the mechanism in the stem. When a T-helper cell is activated, calcium rises and activates calcineurin, a phosphatase. Calcineurin dephosphorylates the transcription factor NFAT, which then moves into the nucleus and switches on the IL-2 gene. IL-2 drives T-cell proliferation, which is the engine of cell-mediated graft rejection.\n\nTacrolimus binds the immunophilin FKBP, which is the FK506-binding protein named in the stem, and the drug-immunophilin complex blocks calcineurin, so NFAT stays in the cytoplasm and IL-2 is not produced. Cyclosporine does the same thing but binds cyclophilin instead, so the binding partner is what separates them. The slide stresses why these calcineurin inhibitors are favored: they specifically inhibit T-helper activation without depressing the bone marrow, which matches this patient's normal marrow function. The new-onset hyperglycemia also fits tacrolimus, which causes more post-transplant diabetes than cyclosporine.\n\nWhy the other choices are wrong:\n• Azathioprine: Azathioprine is an antimetabolite that blocks nucleotide synthesis. It is toxic to the whole lymphoid system and can suppress the marrow, and it does not act on calcineurin.\n• Prednisone: Glucocorticoids such as prednisone also reduce IL-2, but by inhibiting cytokine gene transcription broadly through their nuclear receptor, not by an immunophilin and calcineurin.\n• Basiliximab: Basiliximab is a monoclonal antibody against the IL-2 receptor, CD25. It blocks the receptor on the cell surface rather than IL-2 production inside the cell.\n• Mycophenolate: Mycophenolate inhibits IMP dehydrogenase and purine synthesis in lymphocytes. It is an antimetabolite, not a calcineurin inhibitor.\n\nTakeaway: Cyclosporine and tacrolimus bind immunophilins and block calcineurin, so NFAT cannot switch on IL-2, and they suppress T cells without depressing the marrow.",
  "w": [
   "",
   "Azathioprine is an antimetabolite that blocks nucleotide synthesis. It is toxic to the whole lymphoid system and can suppress the marrow, and it does not act on calcineurin.",
