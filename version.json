@@ -1,6 +1,27 @@
 {
- "v": "2026-11-25a",
+ "v": "2026-11-27a",
  "notes": [
+  {
+   "v": "2026-11-27a",
+   "date": "Nov 27, 2026",
+   "groups": [
+    {
+     "h": "New questions",
+     "items": [
+      {
+       "tag": "new",
+       "title": "CRS Physiology · Lecture 15 · Blood Groups & Transfusion",
+       "text": "New slide questions added."
+      },
+      {
+       "tag": "new",
+       "title": "CRS Anatomy · USMLE Practice Questions",
+       "text": "USMLE-style thorax and cardiovascular questions from the review deck."
+      }
+     ]
+    }
+   ]
+  },
   {
    "v": "2026-11-25a",
    "date": "Nov 25, 2026",

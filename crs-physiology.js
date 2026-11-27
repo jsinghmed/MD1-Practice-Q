@@ -97,7 +97,13 @@ window.CRS_PH_TOPICS = [
 "Thrombin, Fibrin & Factor XIII",
 "Natural Anticoagulants & Fibrinolysis",
 "Bleeding Disorders, Lab Tests & Drugs",
-  "Maria's Q's · SGD Activity: Hemostasis & Blood Coagulation"
+  "Maria's Q's · SGD Activity: Hemostasis & Blood Coagulation",
+  "ABO Genetics & Isohemagglutinins",
+  "Rh System & Hemolytic Disease of the Newborn",
+  "Minor Blood Groups: Kell, Duffy, Kidd & MNS",
+  "Pretransfusion Testing & Hemolytic Reactions",
+  "TRALI, TACO, Processing & Components",
+  "Transplant Immunology"
 ];
 window.CRS_PH_QUESTIONS = [
 {
@@ -14947,6 +14953,532 @@ window.CRS_PH_QUESTIONS = [
  "src": "lec",
  "fig": [
   "figs/crs/hm-fibrinolysis"
+ ]
+},
+{
+ "t": "ABO Genetics & Isohemagglutinins",
+ "lv": "Easy",
+ "s": "A blood bank tests a donor whose red cells carry neither the A nor the B antigen, but who also lacks the H antigen. Her plasma lyses even type O red cells in the crossmatch. Which genotype explains this result?",
+ "c": [
+  "Homozygous hh at the H locus",
+  "Homozygous OO at the ABO locus",
+  "Homozygous sese at the secretor locus",
+  "Heterozygous AO at the ABO locus",
+  "Homozygous dd at the Rh locus"
+ ],
+ "a": 0,
+ "e": "The A and B antigens are not built from scratch. They are sugars added onto a precursor called the H antigen. The I^A allele's glycosyltransferase adds N-acetylgalactosamine to H, the I^B enzyme adds D-galactose to H, and the I^O enzyme is nonfunctional, so a type O cell simply keeps plain H antigen on its surface.\n\nIn the Bombay phenotype (hh), the person cannot make H antigen at all. With no H there is nothing for the A or B enzymes to work on, so the cells type like O. The key difference is in the plasma: because these people never see H antigen on their own cells, they make a potent anti-H. Ordinary type O cells are covered in H antigen, so anti-H lyses them. That is exactly what this crossmatch shows: cells that look like O, and plasma that destroys O cells.\n\nWhy the other choices are wrong:\n• Homozygous OO at the ABO locus: A true OO person still has plenty of H antigen on the red cells. Their plasma has anti-A and anti-B but no anti-H, so it would not lyse type O cells.\n• Homozygous sese at the secretor locus: The secretor locus only controls whether soluble A, B or H antigens appear in saliva and body fluids. It does not remove H antigen from the red cell membrane.\n• Heterozygous AO at the ABO locus: An AO person expresses the A antigen on the red cells, which this donor's cells lack. Their plasma carries anti-B only and would not attack type O cells.\n• Homozygous dd at the Rh locus: dd means Rh-negative, which concerns the D protein, not the ABO sugars. Rh-negative people do not make anti-H and their plasma does not lyse O cells.\n\nTakeaway: Bombay (hh) cells lack H, A and B antigens and the plasma makes anti-H, so only Bombay blood is safe for them.",
+ "w": [
+  "",
+  "A true OO person still has plenty of H antigen on the red cells. Their plasma has anti-A and anti-B but no anti-H, so it would not lyse type O cells.",
+  "The secretor locus only controls whether soluble A, B or H antigens appear in saliva and body fluids. It does not remove H antigen from the red cell membrane.",
+  "An AO person expresses the A antigen on the red cells, which this donor's cells lack. Their plasma carries anti-B only and would not attack type O cells.",
+  "dd means Rh-negative, which concerns the D protein, not the ABO sugars. Rh-negative people do not make anti-H and their plasma does not lyse O cells."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/bg-abo-cells"
+ ]
+},
+{
+ "t": "ABO Genetics & Isohemagglutinins",
+ "lv": "Easy",
+ "s": "A father has type A blood and a mother has type B blood. Their first child has type O blood. Which genotypes must the parents have?",
+ "c": [
+  "Father AA and mother BB",
+  "Father AO and mother BO",
+  "Father AA and mother BO",
+  "Father AO and mother BB",
+  "Father AB and mother BO"
+ ],
+ "a": 1,
+ "e": "Blood type is the phenotype, but the ABO alleles behave in a fixed way: I^A and I^B are co-dominant with each other, and I^O is recessive to both. A type A person can therefore be AA or AO, and a type B person can be BB or BO.\n\nA type O child must be OO, meaning the child received one O allele from each parent. So the type A father must carry a hidden O (AO), and the type B mother must also carry a hidden O (BO). Each pregnancy between them has a 1 in 4 chance each of AB, A (AO), B (BO) and O (OO). Seeing a type O child is the clue that both parents are heterozygous.\n\nWhy the other choices are wrong:\n• Father AA and mother BB: An AA father and BB mother can only pass on A and B, so every child would be AB. An O child is impossible from this cross.\n• Father AA and mother BO: An AA father has no O allele to give. The child could be AB or AO, but never OO.\n• Father AO and mother BB: A BB mother has no O allele to give. The child could be AB or BO, but never OO.\n• Father AB and mother BO: The father is described as type A, so he cannot be AB, which would type as AB. An AB parent also has no O allele to pass on.\n\nTakeaway: A type O child needs an O allele from each parent, so type A and type B parents of an O child must be AO and BO.",
+ "w": [
+  "An AA father and BB mother can only pass on A and B, so every child would be AB. An O child is impossible from this cross.",
+  "",
+  "An AA father has no O allele to give. The child could be AB or AO, but never OO.",
+  "A BB mother has no O allele to give. The child could be AB or BO, but never OO.",
+  "The father is described as type A, so he cannot be AB, which would type as AB. An AB parent also has no O allele to pass on."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/bg-abo-table"
+ ]
+},
+{
+ "t": "ABO Genetics & Isohemagglutinins",
+ "lv": "Hard",
+ "s": "A 7-month-old infant with blood type O is evaluated before cardiac surgery. Reverse typing, which detects the plasma's own anti-A and anti-B, shows only very weak reactions. The infant's parents are both type A, and the infant is healthy apart from the heart defect. Which of the following best explains the weak reverse typing result?",
+ "c": [
+  "Maternal anti-A IgM crossed the placenta and is now gone",
+  "The infant has the Bombay phenotype and makes anti-H instead",
+  "Type O infants do not make anti-A until after puberty",
+  "The infant's anti-A is being absorbed by A antigen on its RBCs",
+  "Self-made anti-A and anti-B are still low at this age"
+ ],
+ "a": 4,
+ "e": "Reverse typing works only if the person has made anti-A and anti-B. These antibodies are called naturally occurring because no transfusion is needed: shortly after birth, gut bacteria (E. coli and other Gram-negative organisms) and dietary carbohydrates expose the infant to A-like and B-like sugars. B lymphocytes make antibodies against whichever of these antigens are absent from the infant's own red cells.\n\nThe timeline on the slide is the key. At birth the self-made titer is about zero; whatever is present is maternal IgG that wanes over the first months. Active infant IgM synthesis starts at 2 to 8 months and the titer does not peak until 8 to 10 years of age (about 1:400 anti-A and 1:150 anti-B). A 7-month-old type O infant is right at the start of that curve, so the anti-A and anti-B are still low. That is why the reverse type is weak and why infants under about 4 months are typed by forward typing only.\n\nWhy the other choices are wrong:\n• Maternal anti-A IgM crossed the placenta and is now gone: Anti-A and anti-B are mostly IgM, and IgM is too large to cross the placenta. Any maternal antibody that did cross would be IgG, and the infant's mother is type A, so she has no anti-A.\n• The infant has the Bombay phenotype and makes anti-H instead: Bombay infants lack H antigen and their cells type like O, but nothing here suggests it, and anti-H would cause strong, not weak, reactions with test cells.\n• Type O infants do not make anti-A until after puberty: The titer rises during infancy and peaks at 8 to 10 years, long before puberty. Waiting for puberty confuses the late peak with the start of production.\n• The infant's anti-A is being absorbed by A antigen on its RBCs: A type O infant has no A antigen on its red cells, which is why it makes anti-A in the first place. There is nothing on its own cells to absorb the antibody.\n\nTakeaway: Anti-A and anti-B are made after birth, starting at 2 to 8 months and peaking at 8 to 10 years, so a young infant's reverse type is weak.",
+ "w": [
+  "Anti-A and anti-B are mostly IgM, and IgM is too large to cross the placenta. Any maternal antibody that did cross would be IgG, and the infant's mother is type A, so she has no anti-A.",
+  "Bombay infants lack H antigen and their cells type like O, but nothing here suggests it, and anti-H would cause strong, not weak, reactions with test cells.",
+  "The titer rises during infancy and peaks at 8 to 10 years, long before puberty. Waiting for puberty confuses the late peak with the start of production.",
+  "A type O infant has no A antigen on its red cells, which is why it makes anti-A in the first place. There is nothing on its own cells to absorb the antibody.",
+  ""
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/bg-titer"
+ ]
+},
+{
+ "t": "ABO Genetics & Isohemagglutinins",
+ "lv": "Hard",
+ "s": "A 40-year-old man with type AB, Rh-positive blood is bleeding heavily after a motor vehicle collision. The blood bank has no AB units on the shelf. Which red cell unit can be given to him with the least risk of an immediate ABO hemolytic reaction from the recipient's antibodies?",
+ "c": [
+  "Type O red cells only",
+  "Any ABO group of red cells",
+  "Type A or type B red cells only",
+  "Type AB red cells only",
+  "Type O whole blood only"
+ ],
+ "a": 1,
+ "e": "In an ABO reaction, the danger comes from the recipient's plasma antibodies attacking the donor's red cell antigens. So the question to ask is: what antibodies does this recipient have?\n\nA type AB person carries both A and B antigens on the red cells. Because both antigens are self, B lymphocytes are never allowed to make anti-A or anti-B, and the slide lists AB plasma agglutinins as none. That is why AB is called the universal recipient. With no anti-A or anti-B in his plasma, red cells of group A, B, O or AB will not be agglutinated or lysed by his antibodies. Group-specific AB is still preferred when available, and the units must also match for Rh(D) when possible, but red cells of any ABO group are compatible from the recipient's side.\n\nWhy the other choices are wrong:\n• Type O red cells only: Type O red cells are safe for him, but they are not the only choice. Limiting him to O cells applies the universal-donor rule to a recipient who has no anti-A or anti-B to begin with.\n• Type A or type B red cells only: A and B cells are both compatible, but so are O cells. This choice wrongly excludes type O red cells, which carry no A or B antigen and are safe for every ABO group.\n• Type AB red cells only: AB is ideal but not required. Insisting on AB only would delay a bleeding patient when other groups are equally safe for his plasma.\n• Type O whole blood only: Whole blood includes donor plasma. O plasma contains anti-A and anti-B, which would attack his own A and B red cells, so O whole blood is the riskiest choice here.\n\nTakeaway: AB recipients have no anti-A or anti-B, so they can receive red cells of any ABO group, but O whole blood brings anti-A and anti-B plasma.",
+ "w": [
+  "Type O red cells are safe for him, but they are not the only choice. Limiting him to O cells applies the universal-donor rule to a recipient who has no anti-A or anti-B to begin with.",
+  "",
+  "A and B cells are both compatible, but so are O cells. This choice wrongly excludes type O red cells, which carry no A or B antigen and are safe for every ABO group.",
+  "AB is ideal but not required. Insisting on AB only would delay a bleeding patient when other groups are equally safe for his plasma.",
+  "Whole blood includes donor plasma. O plasma contains anti-A and anti-B, which would attack his own A and B red cells, so O whole blood is the riskiest choice here."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/bg-abo-table"
+ ]
+},
+{
+ "t": "Rh System & Hemolytic Disease of the Newborn",
+ "lv": "Easy",
+ "s": "An Rh-negative man receives 1 unit of Rh-positive red cells by mistake. He has never been transfused and has no anti-D. Which outcome is most likely over the following weeks?",
+ "c": [
+  "Anti-D IgM appears within hours",
+  "Immediate intravascular hemolysis",
+  "No antibody, since Rh antigens are weak",
+  "Anti-D IgG appears over 2 to 4 weeks",
+  "Anti-D appears only if he is later pregnant"
+ ],
+ "a": 3,
+ "e": "Unlike ABO, Rh antibodies are not naturally occurring. An Rh-negative person has no anti-D until exposed to D-positive red cells. D is by far the most immunogenic Rh antigen: as little as 0.5 mL of Rh-positive cells induces anti-D IgG in 30 to 70% of Rh-negative recipients.\n\nA first exposure triggers a primary immune response, and the slide's table gives its time course: after a transfusion the titer rises slowly over 2 to 4 weeks. Because there is no antibody at the time of transfusion, the first unit is tolerated, and at most there is a delayed mild hemolysis as antibody appears while the donor cells are still circulating. The danger is the next exposure: memory B cells then mount a rapid, high-titer anamnestic response within days, with severe hemolysis.\n\nWhy the other choices are wrong:\n• Anti-D IgM appears within hours: Rapid production within hours needs pre-existing memory, which a never-transfused person lacks. Anti-D is also mainly IgG, not IgM.\n• Immediate intravascular hemolysis: Immediate hemolysis needs antibody already present in the plasma. With no anti-D yet, the first Rh-positive unit is tolerated.\n• No antibody, since Rh antigens are weak: D is the most potent immunogen among the Rh antigens. A small dose sensitizes a large fraction of Rh-negative people.\n• Anti-D appears only if he is later pregnant: Pregnancy is one way to be sensitized, transfusion is another. He has already been exposed and will begin making anti-D now.\n\nTakeaway: A first Rh(D) exposure is tolerated, but it induces anti-D IgG over 2 to 4 weeks, and the next exposure causes severe rapid hemolysis.",
+ "w": [
+  "Rapid production within hours needs pre-existing memory, which a never-transfused person lacks. Anti-D is also mainly IgG, not IgM.",
+  "Immediate hemolysis needs antibody already present in the plasma. With no anti-D yet, the first Rh-positive unit is tolerated.",
+  "D is the most potent immunogen among the Rh antigens. A small dose sensitizes a large fraction of Rh-negative people.",
+  "",
+  "Pregnancy is one way to be sensitized, transfusion is another. He has already been exposed and will begin making anti-D now."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/bg-rh-table"
+ ]
+},
+{
+ "t": "Rh System & Hemolytic Disease of the Newborn",
+ "lv": "Hard",
+ "s": "A 29-year-old Rh-negative woman delivers her second child. Her first child was Rh-positive and she received no prenatal care during that pregnancy. The newborn is jaundiced at 6 hours of age, pale, and has hepatosplenomegaly, and the blood smear shows many nucleated red cells. Which of the following best explains why the hepatosplenomegaly and nucleated red cells are present?",
+ "c": [
+  "Extramedullary erythropoiesis driven by hemolysis",
+  "Bilirubin deposition in the liver and spleen",
+  "Maternal anti-D IgM blocking fetal marrow",
+  "Congestive heart failure from fetal anemia",
+  "Splenic sequestration of antibody-coated platelets"
+ ],
+ "a": 0,
+ "e": "Start with the story. An Rh-negative mother carried an Rh-positive first child without prophylaxis. Fetomaternal hemorrhage at that delivery exposed her to D antigen, and over 2 to 4 months she made anti-D IgG with memory B cells. In this second Rh-positive pregnancy, her anti-D IgG freely crosses the placenta (IgM cannot) and coats the fetal red cells.\n\nThose coated cells are removed by fetal macrophages, so the fetus becomes anemic and jaundiced. The fetal marrow cannot keep up, so red cell production shifts to the liver and spleen, the organs that made blood earlier in fetal life. That extramedullary erythropoiesis enlarges both organs, and because it is rushed, immature nucleated erythroblasts spill into the circulation. This is why the disease is called erythroblastosis fetalis. The jaundice reflects the unconjugated bilirubin from destroyed cells, which is the substance that can later cause kernicterus.\n\nWhy the other choices are wrong:\n• Bilirubin deposition in the liver and spleen: Bilirubin causes jaundice and, in the basal ganglia, kernicterus. It does not enlarge the liver and spleen or put nucleated red cells in the blood.\n• Maternal anti-D IgM blocking fetal marrow: IgM is too large to cross the placenta, which is why ABO and first-exposure IgM antibodies rarely harm the fetus. The antibody here is IgG, and it destroys red cells rather than blocking marrow.\n• Congestive heart failure from fetal anemia: Severe anemia can cause hydrops and heart failure, and congestion can enlarge the liver. But heart failure does not explain the nucleated red cells, which come from hurried extramedullary production.\n• Splenic sequestration of antibody-coated platelets: HDFN targets red cells, not platelets. The nucleated red cells point to accelerated red cell production, not platelet sequestration.\n\nTakeaway: In HDFN, maternal anti-D IgG destroys fetal red cells, and the liver and spleen take over red cell production, causing hepatosplenomegaly and circulating erythroblasts.",
+ "w": [
+  "",
+  "Bilirubin causes jaundice and, in the basal ganglia, kernicterus. It does not enlarge the liver and spleen or put nucleated red cells in the blood.",
+  "IgM is too large to cross the placenta, which is why ABO and first-exposure IgM antibodies rarely harm the fetus. The antibody here is IgG, and it destroys red cells rather than blocking marrow.",
+  "Severe anemia can cause hydrops and heart failure, and congestion can enlarge the liver. But heart failure does not explain the nucleated red cells, which come from hurried extramedullary production.",
+  "HDFN targets red cells, not platelets. The nucleated red cells point to accelerated red cell production, not platelet sequestration."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/bg-hdn"
+ ]
+},
+{
+ "t": "Rh System & Hemolytic Disease of the Newborn",
+ "lv": "Easy",
+ "s": "A 25-year-old Rh-negative woman is at 28 weeks of gestation in her first pregnancy. The father is Rh-positive. Her antibody screen is negative. What is the purpose of giving her anti-D immunoglobulin now?",
+ "c": [
+  "To neutralize anti-D antibody she has already made",
+  "To stop anti-D IgG crossing the placenta",
+  "To remove fetal cells before she is sensitized",
+  "To treat fetal anemia already present",
+  "To convert her own red cells to Rh-positive"
+ ],
+ "a": 2,
+ "e": "Anti-D immunoglobulin (RhoGAM) is prophylaxis, not treatment. Small amounts of fetal blood can enter the maternal circulation during pregnancy and especially at delivery. If those D-positive cells stay around, her B lymphocytes are primed and she forms memory cells that will make anti-D IgG in the next pregnancy.\n\nThe injected anti-D IgG binds the fetal D-positive cells in her blood and clears them quickly, before her own immune system can respond. That suppresses B-lymphocyte priming and memory cell formation, so she never becomes alloimmunized. The schedule on the slide is a routine dose at 28 to 30 weeks, another within 72 hours of delivery if the newborn is Rh-positive, and extra doses after amniocentesis, chorionic villus sampling, abortion or trauma. Her negative antibody screen tells you she is not yet sensitized, which is exactly when prophylaxis works.\n\nWhy the other choices are wrong:\n• To neutralize anti-D antibody she has already made: Once she has made her own anti-D, prophylaxis is too late, because memory cells already exist. RhoGAM prevents sensitization but cannot undo it.\n• To stop anti-D IgG crossing the placenta: RhoGAM is itself IgG and does not block placental transfer. It works on the mother's side by clearing fetal cells before her immune system responds.\n• To treat fetal anemia already present: Her screen is negative and this is a first pregnancy, so there is no hemolysis to treat. Fetal anemia is managed with transfusion, not RhoGAM.\n• To convert her own red cells to Rh-positive: Rh status is genetic and cannot be changed. Anti-D binds D-positive cells and has no effect on her own D-negative cells.\n\nTakeaway: RhoGAM clears fetal D-positive cells from an unsensitized Rh-negative mother so she never forms anti-D memory cells.",
+ "w": [
+  "Once she has made her own anti-D, prophylaxis is too late, because memory cells already exist. RhoGAM prevents sensitization but cannot undo it.",
+  "RhoGAM is itself IgG and does not block placental transfer. It works on the mother's side by clearing fetal cells before her immune system responds.",
+  "",
+  "Her screen is negative and this is a first pregnancy, so there is no hemolysis to treat. Fetal anemia is managed with transfusion, not RhoGAM.",
+  "Rh status is genetic and cannot be changed. Anti-D binds D-positive cells and has no effect on her own D-negative cells."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/bg-rhogam"
+ ]
+},
+{
+ "t": "Rh System & Hemolytic Disease of the Newborn",
+ "lv": "Hard",
+ "s": "A newborn with severe hemolytic disease of the newborn has a rapidly rising unconjugated bilirubin despite phototherapy. Exchange transfusion is planned. Which choice of blood for the exchange best protects the infant?",
+ "c": [
+  "Rh-positive red cells in type AB plasma",
+  "Rh-negative red cells in type O plasma",
+  "Rh-positive red cells in type O plasma",
+  "Rh-negative whole blood from the mother",
+  "Rh-negative red cells in type AB plasma"
+ ],
+ "a": 4,
+ "e": "The goal of exchange transfusion is to remove the infant's antibody-coated Rh-positive red cells and the bilirubin, and replace them with cells that the maternal anti-D still circulating in the infant cannot destroy.\n\nRed cells: the maternal anti-D IgG will persist in the infant for weeks, so any Rh-positive red cells given would be destroyed just like the infant's own. Rh-negative cells lack D antigen and survive about 6 weeks, long enough for the maternal antibody to fade. Plasma: AB plasma contains no anti-A or anti-B, so it cannot attack the infant's own A or B antigens whatever the infant's blood group. The slide's protocol is exactly this: two-volume exchange with Rh-negative red cells reconstituted in AB plasma over at least 1.5 hours. Each pass lowers serum bilirubin by about 25%, keeping it under 20 mg/dL to prevent kernicterus.\n\nWhy the other choices are wrong:\n• Rh-positive red cells in type AB plasma: Rh-positive cells carry D antigen, so the maternal anti-D in the infant's blood would coat and destroy them, continuing the hemolysis.\n• Rh-negative red cells in type O plasma: Rh-negative cells are right, but O plasma contains anti-A and anti-B. If the infant is type A, B or AB, that plasma would attack the infant's own red cells.\n• Rh-positive red cells in type O plasma: This repeats both mistakes: D-positive cells that maternal anti-D will destroy, and O plasma with anti-A and anti-B.\n• Rh-negative whole blood from the mother: The mother's plasma is the source of the anti-D causing the disease. Giving her whole blood would add more of the harmful antibody.\n\nTakeaway: Exchange transfusion for Rh HDFN uses Rh-negative red cells in AB plasma, so neither maternal anti-D nor donor anti-A or anti-B can cause hemolysis.",
+ "w": [
+  "Rh-positive cells carry D antigen, so the maternal anti-D in the infant's blood would coat and destroy them, continuing the hemolysis.",
+  "Rh-negative cells are right, but O plasma contains anti-A and anti-B. If the infant is type A, B or AB, that plasma would attack the infant's own red cells.",
+  "This repeats both mistakes: D-positive cells that maternal anti-D will destroy, and O plasma with anti-A and anti-B.",
+  "The mother's plasma is the source of the anti-D causing the disease. Giving her whole blood would add more of the harmful antibody.",
+  ""
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/bg-rhogam"
+ ]
+},
+{
+ "t": "Minor Blood Groups: Kell, Duffy, Kidd & MNS",
+ "lv": "Easy",
+ "s": "A researcher studies a population in West Africa in which many people's red cells lack a glycoprotein receptor encoded on chromosome 1. These people are resistant to one species of malaria. Which blood group antigen is absent?",
+ "c": [
+  "Kell antigens K, k and Kpa",
+  "Duffy antigens Fya and Fyb",
+  "Kidd antigens Jka and Jkb",
+  "MNS antigens M and N",
+  "Rh antigen D"
+ ],
+ "a": 1,
+ "e": "The Duffy antigens (Fya, Fyb) are glycoproteins encoded on chromosome 1. They have a second job besides being a blood group: Plasmodium vivax uses the Duffy antigen as its receptor to enter red cells. Without the Duffy glycoprotein the parasite cannot invade, so Duffy-negative people are resistant to vivax malaria. This is why the Duffy-negative phenotype is very common in West African populations, where it was selected for.\n\nClinically, anti-Duffy antibodies can also cause hemolytic transfusion reactions and HDFN, so the Duffy system matters in the blood bank as well as in infection.\n\nWhy the other choices are wrong:\n• Kell antigens K, k and Kpa: Kell is the system linked to severe HDFN, up to about 10% of severe cases, and to transfusion reactions. It is not a malaria receptor.\n• Kidd antigens Jka and Jkb: Kidd antigens are urea transporters on red cells and vasa recta. They are known for delayed hemolytic reactions, not malaria resistance.\n• MNS antigens M and N: M and N are carried on glycophorin A. Anti-M is usually a cold IgM, and MNS is not the P. vivax receptor.\n• Rh antigen D: D is an Rh protein, important for HDFN, but its absence makes a person Rh-negative and has no link to vivax malaria.\n\nTakeaway: The Duffy glycoprotein is the Plasmodium vivax receptor, so Duffy-negative red cells resist vivax malaria.",
+ "w": [
+  "Kell is the system linked to severe HDFN, up to about 10% of severe cases, and to transfusion reactions. It is not a malaria receptor.",
+  "",
+  "Kidd antigens are urea transporters on red cells and vasa recta. They are known for delayed hemolytic reactions, not malaria resistance.",
+  "M and N are carried on glycophorin A. Anti-M is usually a cold IgM, and MNS is not the P. vivax receptor.",
+  "D is an Rh protein, important for HDFN, but its absence makes a person Rh-negative and has no link to vivax malaria."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/bg-minor"
+ ]
+},
+{
+ "t": "Minor Blood Groups: Kell, Duffy, Kidd & MNS",
+ "lv": "Hard",
+ "s": "A 34-year-old woman with sickle cell disease receives 2 units of crossmatch-compatible red cells. Her antibody screen before transfusion was negative. Nine days later she has fever, jaundice, dark urine and a hemoglobin lower than before the transfusion, and the direct Coombs test is now positive. She was transfused at another hospital 3 years ago. Which antibody most likely caused this reaction?",
+ "c": [
+  "Anti-A, an ABO antibody",
+  "Anti-M, an MNS antibody",
+  "Anti-HLA from the donor plasma",
+  "Anti-Jka, a Kidd antibody",
+  "Anti-IgA in IgA deficiency"
+ ],
+ "a": 3,
+ "e": "Read the timeline. The reaction starts 9 days after transfusion, the hemoglobin falls below the pretransfusion level, she becomes jaundiced and the direct Coombs test turns positive. That is a delayed hemolytic transfusion reaction (DHTR), which appears 2 to 14 days after transfusion and is caused by an anamnestic (memory) response.\n\nThe prior transfusion 3 years ago sensitized her to a minor antigen. Kidd antibodies are infamous because they drop to undetectable levels quickly, so her screen was negative and the crossmatch looked compatible. Re-exposure woke up the memory B cells, which made a large burst of IgG within days. The IgG coats the donor cells, which are removed by splenic macrophages, which is extravascular hemolysis, and the coating is what the positive Coombs test detects. In sickle cell disease, a DHTR can trigger a crisis, which is why the slide flags this group.\n\nWhy the other choices are wrong:\n• Anti-A, an ABO antibody: ABO mismatch causes an acute reaction within minutes to hours, usually in the first 15 minutes, with intravascular IgM lysis. It would not appear 9 days later after a compatible crossmatch.\n• Anti-M, an MNS antibody: Anti-M is usually a cold-reacting IgM that is rarely clinically important. It does not show the vanishing-then-surging pattern that defines Kidd antibodies.\n• Anti-HLA from the donor plasma: Donor anti-HLA antibodies cause TRALI, which is acute lung injury within hours, not hemolysis with a positive Coombs test days later.\n• Anti-IgA in IgA deficiency: Anti-IgA causes anaphylaxis during the transfusion in IgA-deficient patients. It does not destroy red cells days later.\n\nTakeaway: Kidd antibodies fall below detection, then surge on re-exposure, causing delayed extravascular hemolysis 2 to 14 days after a compatible transfusion.",
+ "w": [
+  "ABO mismatch causes an acute reaction within minutes to hours, usually in the first 15 minutes, with intravascular IgM lysis. It would not appear 9 days later after a compatible crossmatch.",
+  "Anti-M is usually a cold-reacting IgM that is rarely clinically important. It does not show the vanishing-then-surging pattern that defines Kidd antibodies.",
+  "Donor anti-HLA antibodies cause TRALI, which is acute lung injury within hours, not hemolysis with a positive Coombs test days later.",
+  "",
+  "Anti-IgA causes anaphylaxis during the transfusion in IgA-deficient patients. It does not destroy red cells days later."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/bg-ahtr-dhtr"
+ ]
+},
+{
+ "t": "Minor Blood Groups: Kell, Duffy, Kidd & MNS",
+ "lv": "Easy",
+ "s": "Kidd blood group antigens are expressed on red cells and on the epithelium of the descending vasa recta in the kidney. What is the physiologic function of the Kidd glycoprotein?",
+ "c": [
+  "Urea transport across membranes",
+  "Receptor for Plasmodium vivax",
+  "Carrier of the M and N antigens",
+  "Complement regulatory protein",
+  "Glucose transport into red cells"
+ ],
+ "a": 0,
+ "e": "The Kidd antigens (Jka, Jkb, Jk3) sit on a urea transporter. On red cells it lets urea move in and out quickly, so the cells do not shrink and swell as they pass through the hypertonic renal medulla. In the descending vasa recta it helps urea recycling, which supports the medullary concentration gradient the kidney uses to concentrate urine.\n\nIn the blood bank, the Kidd system is remembered for a different reason: its antibodies fade rapidly to undetectable levels and then return in force on re-exposure, causing delayed hemolytic transfusion reactions.\n\nWhy the other choices are wrong:\n• Receptor for Plasmodium vivax: The P. vivax receptor is the Duffy glycoprotein on chromosome 1, a different minor blood group system.\n• Carrier of the M and N antigens: M and N antigens are carried on glycophorin A, and S, s and U on glycophorin B. That is the MNS system, not Kidd.\n• Complement regulatory protein: Complement regulators such as DAF and CD59 protect red cells from complement, but they are not the Kidd antigens.\n• Glucose transport into red cells: Red cell glucose uptake uses GLUT1. The Kidd protein moves urea, not glucose.\n\nTakeaway: Kidd antigens sit on a urea transporter in red cells and vasa recta, and anti-Kidd antibodies cause delayed hemolytic reactions.",
+ "w": [
+  "",
+  "The P. vivax receptor is the Duffy glycoprotein on chromosome 1, a different minor blood group system.",
+  "M and N antigens are carried on glycophorin A, and S, s and U on glycophorin B. That is the MNS system, not Kidd.",
+  "Complement regulators such as DAF and CD59 protect red cells from complement, but they are not the Kidd antigens.",
+  "Red cell glucose uptake uses GLUT1. The Kidd protein moves urea, not glucose."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/bg-minor"
+ ]
+},
+{
+ "t": "Pretransfusion Testing & Hemolytic Reactions",
+ "lv": "Easy",
+ "s": "A nurse is about to hang a unit of packed red cells and the only open IV line is running lactated Ringer's solution. What should be done?",
+ "c": [
+  "Run it through the lactated Ringer's line",
+  "Mix the unit with 5% dextrose to speed flow",
+  "Flush and run the unit with normal saline only",
+  "Add calcium gluconate to prevent citrate toxicity",
+  "Run it through the line after a dextrose flush"
+ ],
+ "a": 2,
+ "e": "Stored blood is anticoagulated with citrate, which works by binding calcium, since calcium is needed for most steps of coagulation. Lactated Ringer's contains calcium. If it mixes with the unit, the calcium overcomes the citrate and the blood can clot in the bag or tubing.\n\nDextrose is also unsafe: dextrose solutions are hypotonic once the glucose enters cells, so red cells swell and hemolyze. The slide's rule is therefore simple: normal saline is the only fluid that may share the line with red cells. Saline is isotonic and contains no calcium. The other administration rules are to start slowly for the first 15 minutes, when an acute reaction is most likely, finish each unit within 4 hours, and use a 170 to 260 µm filter.\n\nWhy the other choices are wrong:\n• Run it through the lactated Ringer's line: Lactated Ringer's contains calcium, which reverses the citrate anticoagulant and can cause clotting in the line.\n• Mix the unit with 5% dextrose to speed flow: Dextrose causes red cell swelling and hemolysis. It must never be mixed with red cells.\n• Add calcium gluconate to prevent citrate toxicity: Adding calcium to the unit would make it clot. Citrate effects in massive transfusion are treated by giving calcium separately into the patient, not into the bag.\n• Run it through the line after a dextrose flush: Flushing with dextrose leaves dextrose in the line, where it contacts the red cells and causes hemolysis.\n\nTakeaway: Only normal saline may run with red cells: dextrose hemolyzes them and calcium-containing fluids make them clot.",
+ "w": [
+  "Lactated Ringer's contains calcium, which reverses the citrate anticoagulant and can cause clotting in the line.",
+  "Dextrose causes red cell swelling and hemolysis. It must never be mixed with red cells.",
+  "",
+  "Adding calcium to the unit would make it clot. Citrate effects in massive transfusion are treated by giving calcium separately into the patient, not into the bag.",
+  "Flushing with dextrose leaves dextrose in the line, where it contacts the red cells and causes hemolysis."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/bg-pretx"
+ ]
+},
+{
+ "t": "Pretransfusion Testing & Hemolytic Reactions",
+ "lv": "Hard",
+ "s": "A 50-year-old man is transfused for gastrointestinal bleeding. Ten minutes into the unit he develops fever, chills, flank pain and hypotension, and his urine turns red-brown. The transfusion is stopped. Which of the following was most likely the cause of this reaction?",
+ "c": [
+  "Anamnestic anti-Kidd antibody in the recipient",
+  "Donor anti-HLA antibodies in the unit plasma",
+  "Rapid infusion exceeding cardiac capacity",
+  "Donor T lymphocytes engrafting in the recipient",
+  "A wrong-patient specimen identification error"
+ ],
+ "a": 4,
+ "e": "The timing and the findings point to an acute hemolytic transfusion reaction (AHTR). It begins within 24 hours, usually in the first 15 minutes, with fever, chills, flank or back pain, shock and hemoglobinuria (red-brown urine).\n\nThe mechanism explains the speed. The recipient's preformed anti-A or anti-B is mostly IgM. One IgM pentamer binds many antigens on the donor cell at once and activates complement C1q, which leads to the membrane attack complex punching holes in the red cells. The cells burst inside the vessels, which is intravascular hemolysis, releasing free hemoglobin into the plasma and urine. Because ABO antibodies are already present, this happens in minutes. The slide names the usual root cause: a clerical or identification error, a wrong-patient specimen or a wrong-unit transfusion, which is exactly what happened to the patient in the lecture's case.\n\nWhy the other choices are wrong:\n• Anamnestic anti-Kidd antibody in the recipient: Kidd antibodies cause delayed reactions 2 to 14 days later with extravascular hemolysis, not shock and hemoglobinuria within 10 minutes.\n• Donor anti-HLA antibodies in the unit plasma: Donor anti-HLA antibodies cause TRALI, which presents as acute respiratory distress and noncardiogenic pulmonary edema, not flank pain and hemoglobinuria.\n• Rapid infusion exceeding cardiac capacity: Volume overload (TACO) causes hypertension, JVD and pulmonary edema with a high BNP, not fever, flank pain and red urine.\n• Donor T lymphocytes engrafting in the recipient: Transfusion-associated GVHD appears days to weeks later with rash, diarrhea and marrow failure. It is prevented by irradiation and does not cause immediate hemolysis.\n\nTakeaway: An acute hemolytic reaction within minutes, with fever, flank pain, shock and hemoglobinuria, is ABO incompatibility from a clerical error, via IgM and complement.",
+ "w": [
+  "Kidd antibodies cause delayed reactions 2 to 14 days later with extravascular hemolysis, not shock and hemoglobinuria within 10 minutes.",
+  "Donor anti-HLA antibodies cause TRALI, which presents as acute respiratory distress and noncardiogenic pulmonary edema, not flank pain and hemoglobinuria.",
+  "Volume overload (TACO) causes hypertension, JVD and pulmonary edema with a high BNP, not fever, flank pain and red urine.",
+  "Transfusion-associated GVHD appears days to weeks later with rash, diarrhea and marrow failure. It is prevented by irradiation and does not cause immediate hemolysis.",
+  ""
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/bg-igm-mac",
+  "figs/crs/bg-ahtr-dhtr"
+ ]
+},
+{
+ "t": "Pretransfusion Testing & Hemolytic Reactions",
+ "lv": "Hard",
+ "s": "After an ABO-incompatible transfusion, a 45-year-old woman is hypotensive with hemoglobinuria and her urine output is falling. In addition to stopping the transfusion and infusing normal saline, which intervention most specifically prevents hemoglobin from precipitating in the renal tubules?",
+ "c": [
+  "Intravenous calcium gluconate to correct citrate",
+  "IV sodium bicarbonate to keep urine pH above 7",
+  "Fluid restriction to reduce tubular hemoglobin flow",
+  "Intravenous furosemide to lower blood pressure",
+  "Acidifying the urine with ammonium chloride"
+ ],
+ "a": 1,
+ "e": "The slide describes three causes of renal shutdown after a hemolytic reaction. First, immune complexes release histamine, serotonin and bradykinin, which constrict the renal arterioles. Second, massive hemolysis causes shock, which lowers renal perfusion pressure. Third, free hemoglobin overwhelms haptoglobin, is filtered at the glomerulus, and as water is reabsorbed along the tubule the hemoglobin becomes concentrated. In acidic tubular fluid it precipitates into casts that block nephrons.\n\nThe question asks about the third mechanism. Hemoglobin precipitates in acidic urine, so raising the urine pH keeps it dissolved. IV sodium bicarbonate keeps urine pH above 7. The other two parts of the protocol support it: vigorous saline restores volume and renal blood flow, and mannitol (20%) or furosemide keeps tubular flow high so the hemoglobin is washed through before it settles.\n\nWhy the other choices are wrong:\n• Intravenous calcium gluconate to correct citrate: Calcium treats citrate-induced hypocalcemia in massive transfusion. It does nothing to keep hemoglobin dissolved in the tubules.\n• Fluid restriction to reduce tubular hemoglobin flow: Restricting fluid concentrates the tubular fluid and slows flow, which makes hemoglobin casts more likely, the opposite of what is needed.\n• Intravenous furosemide to lower blood pressure: Furosemide is used to keep tubular flow high, not to lower blood pressure, and this patient is already hypotensive. It does not change urine pH.\n• Acidifying the urine with ammonium chloride: Acidic urine is what makes hemoglobin precipitate. Acidifying it would make cast formation worse.\n\nTakeaway: After intravascular hemolysis, keep the kidneys flowing with saline and mannitol or furosemide, and keep urine pH above 7 with bicarbonate so hemoglobin casts do not form.",
+ "w": [
+  "Calcium treats citrate-induced hypocalcemia in massive transfusion. It does nothing to keep hemoglobin dissolved in the tubules.",
+  "",
+  "Restricting fluid concentrates the tubular fluid and slows flow, which makes hemoglobin casts more likely, the opposite of what is needed.",
+  "Furosemide is used to keep tubular flow high, not to lower blood pressure, and this patient is already hypotensive. It does not change urine pH.",
+  "Acidic urine is what makes hemoglobin precipitate. Acidifying it would make cast formation worse."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/bg-renal"
+ ]
+},
+{
+ "t": "Pretransfusion Testing & Hemolytic Reactions",
+ "lv": "Easy",
+ "s": "A 60-year-old man needs a red cell transfusion before elective surgery. His antibody screen is positive for an unexpected alloantibody. Which crossmatch method is required before his blood is issued?",
+ "c": [
+  "Electronic crossmatch by computer",
+  "Serologic immediate-spin crossmatch",
+  "No crossmatch, issue O-negative",
+  "Full indirect Coombs crossmatch",
+  "Forward ABO typing alone"
+ ],
+ "a": 3,
+ "e": "Pretransfusion testing has three steps: ABO/Rh typing, an antibody screen and a crossmatch. The screen is an indirect Coombs test of the recipient's plasma against a panel of type O reagent red cells, looking for unexpected alloantibodies such as anti-Kell or anti-Kidd.\n\nThe screen result decides which crossmatch is allowed. A quick electronic crossmatch, about 5 minutes, is valid only when the screen is negative and there is no history of alloantibodies. An immediate-spin crossmatch, 10 to 45 minutes, mainly confirms ABO compatibility. When the screen is positive, the donor cells must be tested against the recipient's plasma with the full serologic indirect Coombs crossmatch, which takes more than 2 hours and needs antigen-negative units. That is the only method sensitive enough to detect the IgG alloantibodies that cause delayed reactions.\n\nWhy the other choices are wrong:\n• Electronic crossmatch by computer: The electronic crossmatch is valid only when the antibody screen is negative and there is no history of alloantibodies, neither of which is true here.\n• Serologic immediate-spin crossmatch: Immediate spin mainly detects ABO incompatibility. It can miss the IgG alloantibodies this patient has.\n• No crossmatch, issue O-negative: Uncrossmatched O-negative blood is for life-threatening emergencies under implied consent. This is elective surgery, so there is time for proper testing.\n• Forward ABO typing alone: ABO typing alone does not check for the alloantibody his screen found. He needs a compatibility test with the actual donor cells.\n\nTakeaway: A positive antibody screen rules out the electronic crossmatch and requires a full indirect Coombs crossmatch with antigen-negative units.",
+ "w": [
+  "The electronic crossmatch is valid only when the antibody screen is negative and there is no history of alloantibodies, neither of which is true here.",
+  "Immediate spin mainly detects ABO incompatibility. It can miss the IgG alloantibodies this patient has.",
+  "Uncrossmatched O-negative blood is for life-threatening emergencies under implied consent. This is elective surgery, so there is time for proper testing.",
+  "",
+  "ABO typing alone does not check for the alloantibody his screen found. He needs a compatibility test with the actual donor cells."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/bg-pretx"
+ ]
+},
+{
+ "t": "TRALI, TACO, Processing & Components",
+ "lv": "Hard",
+ "s": "A 68-year-old woman receives a unit of fresh frozen plasma. Within 2 hours she develops severe dyspnea, fever and hypotension. Chest x-ray shows new bilateral infiltrates. Jugular venous pressure is normal, there is no S3, and BNP is normal. Which mechanism best explains her condition?",
+ "c": [
+  "Donor antibodies activating lung neutrophils",
+  "Infused volume exceeds her cardiac capacity",
+  "Her IgM lyses donor red cells in the circulation",
+  "Bradykinin from the filter dilates her vessels",
+  "Donor T cells attack her lung tissue"
+ ],
+ "a": 0,
+ "e": "She has acute pulmonary edema within hours of a plasma-rich product, with fever and hypotension but no signs of fluid overload: normal JVP, no S3 and a normal BNP. That pattern is transfusion-related acute lung injury (TRALI).\n\nThe mechanism is in the donor plasma. Anti-HLA or anti-neutrophil antibodies, often from multiparous female donors, bind the recipient's neutrophils, which are sequestered in the lung capillaries. The activated neutrophils damage the capillary endothelium, so the capillaries leak a protein-rich exudate into the alveoli. That is noncardiogenic, or leaky capillary, pulmonary edema, which is why the BNP and JVP stay normal and the fluid status is not the problem. TRALI is the leading cause of transfusion-related death. Treatment is supportive, with oxygen and ventilation, and diuretics are not used because she is not fluid overloaded.\n\nWhy the other choices are wrong:\n• Infused volume exceeds her cardiac capacity: Volume overload is TACO, which is cardiogenic edema with hypertension, an S3, raised JVP and high BNP, all of which are absent here.\n• Her IgM lyses donor red cells in the circulation: IgM lysis of red cells is an acute hemolytic reaction. FFP contains no donor red cells, and the picture would include hemoglobinuria and flank pain, not bilateral infiltrates with fever.\n• Bradykinin from the filter dilates her vessels: Bradykinin hypotensive reactions come from leukoreduction filters activating the contact pathway, especially in patients on ACE inhibitors. They cause hypotension and flushing, not lung infiltrates.\n• Donor T cells attack her lung tissue: Donor T-cell attack is transfusion-associated GVHD, which appears days to weeks later with rash, diarrhea and marrow failure.\n\nTakeaway: TRALI is noncardiogenic pulmonary edema from donor anti-HLA or anti-neutrophil antibodies, with normal BNP and JVP, and diuretics are not given.",
+ "w": [
+  "",
+  "Volume overload is TACO, which is cardiogenic edema with hypertension, an S3, raised JVP and high BNP, all of which are absent here.",
+  "IgM lysis of red cells is an acute hemolytic reaction. FFP contains no donor red cells, and the picture would include hemoglobinuria and flank pain, not bilateral infiltrates with fever.",
+  "Bradykinin hypotensive reactions come from leukoreduction filters activating the contact pathway, especially in patients on ACE inhibitors. They cause hypotension and flushing, not lung infiltrates.",
+  "Donor T-cell attack is transfusion-associated GVHD, which appears days to weeks later with rash, diarrhea and marrow failure."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/bg-trali-taco"
+ ]
+},
+{
+ "t": "TRALI, TACO, Processing & Components",
+ "lv": "Easy",
+ "s": "A 12-year-old boy receiving chemotherapy for leukemia needs platelets donated by his older brother. Which processing step must be done to the unit to prevent a usually fatal complication?",
+ "c": [
+  "Prestorage leukoreduction",
+  "Saline washing of the unit",
+  "Gamma irradiation at 25 Gy",
+  "Volume reduction of the unit",
+  "Warming the unit to 37 °C"
+ ],
+ "a": 2,
+ "e": "Every cellular blood product contains some donor T lymphocytes. Normally the recipient's immune system destroys them. In transfusion-associated graft-versus-host disease (TA-GVHD), the donor T cells survive, engraft and attack the recipient's tissues, including skin, gut, liver and bone marrow. It is almost always fatal.\n\nTwo things put this boy at risk. Chemotherapy has made him immunocompromised, so he cannot clear donor T cells. The donor is a first-degree relative, who shares HLA haplotypes, so the boy's immune system may not recognize the donor's T cells as foreign. Gamma irradiation at 25 Gy damages the donor lymphocytes' DNA so they cannot divide, and the slide notes it prevents over 90% of fatal TA-GVHD.\n\nWhy the other choices are wrong:\n• Prestorage leukoreduction: Leukoreduction lowers white cells to below 5 × 10^6 per unit, which prevents febrile reactions, HLA alloimmunization and CMV transmission. The remaining T cells can still cause GVHD, so it does not replace irradiation.\n• Saline washing of the unit: Washing removes plasma proteins and is used for IgA deficiency and severe allergic reactions. It does not inactivate donor T cells.\n• Volume reduction of the unit: Volume reduction removes excess plasma to prevent circulatory overload in small or oliguric patients. It does not address T cells.\n• Warming the unit to 37 °C: Warming prevents hypothermia during massive transfusion and has no effect on donor lymphocytes.\n\nTakeaway: Irradiate cellular products at 25 Gy for immunocompromised patients and related donors to inactivate donor T cells and prevent TA-GVHD.",
+ "w": [
+  "Leukoreduction lowers white cells to below 5 × 10^6 per unit, which prevents febrile reactions, HLA alloimmunization and CMV transmission. The remaining T cells can still cause GVHD, so it does not replace irradiation.",
+  "Washing removes plasma proteins and is used for IgA deficiency and severe allergic reactions. It does not inactivate donor T cells.",
+  "",
+  "Volume reduction removes excess plasma to prevent circulatory overload in small or oliguric patients. It does not address T cells.",
+  "Warming prevents hypothermia during massive transfusion and has no effect on donor lymphocytes."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/bg-processing"
+ ]
+},
+{
+ "t": "TRALI, TACO, Processing & Components",
+ "lv": "Hard",
+ "s": "A 30-year-old man with multiple trauma receives 14 units of packed red cells along with plasma and platelets in a massive transfusion protocol. He develops perioral tingling, muscle cramps and a prolonged QT interval on ECG. Which component of the stored products is most directly responsible?",
+ "c": [
+  "Potassium leaking from stored red cells",
+  "Cold temperature of the stored units",
+  "Dilution of clotting factors by red cells",
+  "Donor antibodies against recipient HLA",
+  "Citrate chelating ionized calcium"
+ ],
+ "a": 4,
+ "e": "Perioral tingling, muscle cramps and a prolonged QT are signs of hypocalcemia. Ionized calcium stabilizes nerve and muscle membranes. When it falls, the threshold for firing drops, causing tingling and cramps, and the plateau phase of the cardiac action potential lengthens, prolonging the QT.\n\nThe cause is the anticoagulant. Stored blood products contain citrate, which prevents clotting by chelating calcium. The liver normally clears citrate quickly, but during massive transfusion citrate arrives faster than it can be metabolized, so it binds the patient's own ionized calcium. The slide lists the three metabolic risks of massive transfusion as hypocalcemia from citrate chelation, hyperkalemia from potassium leaking out of stored red cells, and hypothermia. Only hypocalcemia explains this triad, and it is treated with IV calcium given separately, never into the blood bag.\n\nWhy the other choices are wrong:\n• Potassium leaking from stored red cells: Potassium leak does cause hyperkalemia in massive transfusion, but hyperkalemia gives peaked T waves and weakness, not tingling, cramps and a long QT.\n• Cold temperature of the stored units: Cold units cause hypothermia and arrhythmias and worsen coagulopathy, but they do not produce the tetany signs of low calcium.\n• Dilution of clotting factors by red cells: Dilutional coagulopathy causes bleeding, which the 1:1:1 ratio is designed to prevent. It does not cause tingling or QT prolongation.\n• Donor antibodies against recipient HLA: Donor anti-HLA antibodies cause TRALI, an acute lung injury. They do not lower calcium.\n\nTakeaway: In massive transfusion, citrate chelates calcium and causes hypocalcemia: tingling, cramps and a long QT. Potassium leak causes hyperkalemia instead.",
+ "w": [
+  "Potassium leak does cause hyperkalemia in massive transfusion, but hyperkalemia gives peaked T waves and weakness, not tingling, cramps and a long QT.",
+  "Cold units cause hypothermia and arrhythmias and worsen coagulopathy, but they do not produce the tetany signs of low calcium.",
+  "Dilutional coagulopathy causes bleeding, which the 1:1:1 ratio is designed to prevent. It does not cause tingling or QT prolongation.",
+  "Donor anti-HLA antibodies cause TRALI, an acute lung injury. They do not lower calcium.",
+  ""
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/bg-components"
+ ]
+},
+{
+ "t": "TRALI, TACO, Processing & Components",
+ "lv": "Easy",
+ "s": "A patient in disseminated intravascular coagulation is bleeding and has a fibrinogen level of 80 mg/dL. Which blood component replaces fibrinogen most efficiently in a small volume?",
+ "c": [
+  "Fresh frozen plasma",
+  "Cryoprecipitate",
+  "Platelet concentrate",
+  "Packed red blood cells",
+  "Albumin 5% solution"
+ ],
+ "a": 1,
+ "e": "Cryoprecipitate is made by thawing fresh frozen plasma slowly in the cold and collecting the protein that precipitates. That precipitate is rich in fibrinogen (at least 250 mg per unit), factor VIII and von Willebrand factor, all in a small volume. The slide lists its indication as hypofibrinogenemia (fibrinogen under 100 mg/dL), such as in DIC, and one pooled dose raises fibrinogen by about 50 to 100 mg/dL.\n\nThis patient's fibrinogen of 80 mg/dL is below that threshold, and DIC consumes fibrinogen as clots form throughout the body. FFP does contain fibrinogen, but at a much lower concentration, so raising fibrinogen with FFP alone would need large volumes and risk circulatory overload.\n\nWhy the other choices are wrong:\n• Fresh frozen plasma: FFP contains all the clotting factors and is used for DIC and warfarin reversal, but its fibrinogen is dilute, so it needs a much larger volume to correct a fibrinogen of 80 mg/dL.\n• Platelet concentrate: Platelets treat thrombocytopenia, raising the count by 20,000 to 40,000/µL per dose. They contain little fibrinogen.\n• Packed red blood cells: Packed red cells raise hemoglobin by about 1 g/dL per unit. They contain almost no plasma proteins.\n• Albumin 5% solution: Albumin expands plasma volume but contains no clotting factors or fibrinogen.\n\nTakeaway: Cryoprecipitate delivers concentrated fibrinogen, factor VIII and vWF, and is used when fibrinogen falls below 100 mg/dL.",
+ "w": [
+  "FFP contains all the clotting factors and is used for DIC and warfarin reversal, but its fibrinogen is dilute, so it needs a much larger volume to correct a fibrinogen of 80 mg/dL.",
+  "",
+  "Platelets treat thrombocytopenia, raising the count by 20,000 to 40,000/µL per dose. They contain little fibrinogen.",
+  "Packed red cells raise hemoglobin by about 1 g/dL per unit. They contain almost no plasma proteins.",
+  "Albumin expands plasma volume but contains no clotting factors or fibrinogen."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/bg-components"
+ ]
+},
+{
+ "t": "Transplant Immunology",
+ "lv": "Easy",
+ "s": "A kidney is transplanted from a 30-year-old woman into her identical twin sister. Which statement about this graft is correct?",
+ "c": [
+  "It is an allograft requiring HLA matching",
+  "It is an autograft within one individual",
+  "It is a xenograft prone to hyperacute loss",
+  "It is an isograft with no immune rejection",
+  "It needs lifelong calcineurin inhibitors"
+ ],
+ "a": 3,
+ "e": "Grafts are classified by the genetic relationship between donor and recipient, and that relationship predicts rejection. Monozygotic (identical) twins develop from one fertilized egg, so they share the same genome and therefore the same HLA antigens on every cell.\n\nA transplant between them is an isograft. Because the recipient's T cells see no foreign HLA, there is nothing to reject, so no HLA matching or immunosuppression is needed. By contrast, an allograft, between genetically different members of the same species, must be matched as closely as possible for the 6 major HLA antigens and needs immunosuppression. An autograft moves tissue within one person, such as a skin graft. A xenograft crosses species and is rejected rapidly, which is hyperacute rejection.\n\nWhy the other choices are wrong:\n• It is an allograft requiring HLA matching: An allograft is between genetically different people of the same species. Identical twins are genetically identical, so this is not an allograft.\n• It is an autograft within one individual: An autograft moves tissue within the same person. Here the donor and recipient are two people, even though they are identical twins.\n• It is a xenograft prone to hyperacute loss: A xenograft crosses species, such as a pig organ into a human. Both twins are human.\n• It needs lifelong calcineurin inhibitors: Calcineurin inhibitors are needed to prevent rejection of allografts. An isograft between identical twins is not rejected, so they are not required.\n\nTakeaway: An isograft between monozygotic twins shares identical HLA antigens, so it is not rejected and needs no immunosuppression.",
+ "w": [
+  "An allograft is between genetically different people of the same species. Identical twins are genetically identical, so this is not an allograft.",
+  "An autograft moves tissue within the same person. Here the donor and recipient are two people, even though they are identical twins.",
+  "A xenograft crosses species, such as a pig organ into a human. Both twins are human.",
+  "",
+  "Calcineurin inhibitors are needed to prevent rejection of allografts. An isograft between identical twins is not rejected, so they are not required."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/bg-transplant"
+ ]
+},
+{
+ "t": "Transplant Immunology",
+ "lv": "Hard",
+ "s": "A 52-year-old man takes an immunosuppressant after a kidney transplant. The drug binds an intracellular immunophilin, and the complex inhibits a phosphatase, so a transcription factor stays in the cytoplasm and IL-2 is not made. His bone marrow function remains normal. Which drug is he taking?",
+ "c": [
+  "Tacrolimus",
+  "Azathioprine",
+  "Prednisone",
+  "Basiliximab",
+  "Mycophenolate"
+ ],
+ "a": 0,
+ "e": "Follow the mechanism in the stem. When a T-helper cell is activated, calcium rises and activates calcineurin, a phosphatase. Calcineurin dephosphorylates the transcription factor NFAT, which then moves into the nucleus and switches on the IL-2 gene. IL-2 drives T-cell proliferation, which is the engine of cell-mediated graft rejection.\n\nTacrolimus binds the immunophilin FKBP, and cyclosporine binds cyclophilin. Either drug-immunophilin complex blocks calcineurin, so NFAT stays in the cytoplasm and IL-2 is not produced. The slide stresses why these calcineurin inhibitors are favored: they specifically inhibit T-helper activation without depressing the bone marrow, which matches this patient's normal marrow function.\n\nWhy the other choices are wrong:\n• Azathioprine: Azathioprine is an antimetabolite that blocks nucleotide synthesis. It is toxic to the whole lymphoid system and can suppress the marrow, and it does not act on calcineurin.\n• Prednisone: Glucocorticoids such as prednisone also reduce IL-2, but by inhibiting cytokine gene transcription broadly through their nuclear receptor, not by an immunophilin and calcineurin.\n• Basiliximab: Basiliximab is a monoclonal antibody against the IL-2 receptor, CD25. It blocks the receptor on the cell surface rather than IL-2 production inside the cell.\n• Mycophenolate: Mycophenolate inhibits IMP dehydrogenase and purine synthesis in lymphocytes. It is an antimetabolite, not a calcineurin inhibitor.\n\nTakeaway: Cyclosporine and tacrolimus bind immunophilins and block calcineurin, so NFAT cannot switch on IL-2, and they suppress T cells without depressing the marrow.",
+ "w": [
+  "",
+  "Azathioprine is an antimetabolite that blocks nucleotide synthesis. It is toxic to the whole lymphoid system and can suppress the marrow, and it does not act on calcineurin.",
+  "Glucocorticoids such as prednisone also reduce IL-2, but by inhibiting cytokine gene transcription broadly through their nuclear receptor, not by an immunophilin and calcineurin.",
+  "Basiliximab is a monoclonal antibody against the IL-2 receptor, CD25. It blocks the receptor on the cell surface rather than IL-2 production inside the cell.",
+  "Mycophenolate inhibits IMP dehydrogenase and purine synthesis in lymphocytes. It is an antimetabolite, not a calcineurin inhibitor."
+ ],
+ "src": "lec",
+ "fig": [
+  "figs/crs/bg-transplant"
  ]
 }
 ];

@@ -8173,6 +8173,282 @@ window.NBME_QUIZZES = [
  "fig": [
   "figs/crs/hm-labs-drugs"
  ]
+},
+{
+ "t": "Lecture 15 · Blood Groups & Transfusion",
+ "s": "A 26-year-old woman with type B blood is transfused with type A red cells after a postpartum hemorrhage. Fifteen minutes later she has fever, chills and back pain, and her urine is red-brown. Which of the following is the immediate mechanism of red cell destruction?",
+ "c": [
+  "IgM binding with complement attack",
+  "IgG opsonization with splenic macrophage phagocytosis",
+  "Direct lysis by donor cytotoxic T lymphocytes",
+  "Osmotic swelling of donor cells in hypotonic plasma",
+  "Mechanical shearing of cells by fibrin strands"
+ ],
+ "a": 0,
+ "e": "Her plasma already contains anti-A, because a type B person makes antibody against the antigen her own cells lack. These naturally occurring agglutinins are predominantly pentameric IgM.\n\nThat structure is what makes the reaction so fast. A single IgM molecule has 10 antigen-binding arms, so it binds many A antigens on one donor cell at once and holds its binding sites close together. C1q requires exactly that geometry to be activated, and the classical complement pathway then proceeds to the membrane attack complex, which punches pores in the red cell membrane. The cells burst inside the blood vessels, releasing free hemoglobin that appears in the plasma and then in the urine as hemoglobinuria. Because the antibody is already present, this happens within minutes rather than days.\n\nWhy the other choices are wrong:\n• IgG opsonization with splenic macrophage phagocytosis: IgG-mediated opsonization and splenic removal is extravascular hemolysis, the slower mechanism behind delayed reactions days later, not hemoglobinuria in 15 minutes.\n• Direct lysis by donor cytotoxic T lymphocytes: Donor T lymphocytes cause transfusion-associated graft-versus-host disease days to weeks later, and they attack host tissue rather than lysing red cells.\n• Osmotic swelling of donor cells in hypotonic plasma: Donor units are suspended in isotonic additive solution, and osmotic lysis would occur only if a hypotonic fluid such as dextrose were infused with the blood.\n• Mechanical shearing of cells by fibrin strands: Fibrin strand shearing produces the schistocytes of microangiopathic hemolysis, as in DIC or TTP, which is not an antibody-mediated transfusion reaction.\n\nTakeaway: ABO incompatibility is IgM-mediated complement activation producing intravascular lysis within minutes.",
+ "w": [
+  "",
+  "IgG-mediated opsonization and splenic removal is extravascular hemolysis, the slower mechanism behind delayed reactions days later, not hemoglobinuria in 15 minutes.",
+  "Donor T lymphocytes cause transfusion-associated graft-versus-host disease days to weeks later, and they attack host tissue rather than lysing red cells.",
+  "Donor units are suspended in isotonic additive solution, and osmotic lysis would occur only if a hypotonic fluid such as dextrose were infused with the blood.",
+  "Fibrin strand shearing produces the schistocytes of microangiopathic hemolysis, as in DIC or TTP, which is not an antibody-mediated transfusion reaction."
+ ],
+ "fig": [
+  "figs/crs/bg-igm-mac"
+ ]
+},
+{
+ "t": "Lecture 15 · Blood Groups & Transfusion",
+ "s": "A 30-year-old primigravida who is Rh-negative has a negative antibody screen at 28 weeks. Which of the following is the most appropriate next step?",
+ "c": [
+  "Repeat the antibody screen at 36 weeks only",
+  "Plan intrauterine transfusion of the fetus",
+  "Administer anti-D immunoglobulin now",
+  "Begin maternal plasmapheresis",
+  "Administer anti-D only if the fetus is anemic"
+ ],
+ "a": 2,
+ "e": "A negative antibody screen in an Rh-negative woman means she has not yet been sensitized, which is exactly the situation in which prophylaxis works. Small fetomaternal hemorrhages can occur during the third trimester as well as at delivery, so routine anti-D immunoglobulin is given at 28 to 30 weeks.\n\nThe injected anti-D binds any fetal D-positive red cells in her circulation and clears them before her B lymphocytes can be primed, which prevents memory cell formation. A second dose follows within 72 hours of delivery if the newborn is confirmed Rh-positive, and additional doses are given after amniocentesis, chorionic villus sampling, abortion or abdominal trauma.\n\nWhy the other choices are wrong:\n• Repeat the antibody screen at 36 weeks only: Waiting means a third-trimester fetomaternal hemorrhage could sensitize her before any prophylaxis is given, which is the event the 28-week dose exists to prevent.\n• Plan intrauterine transfusion of the fetus: Intrauterine transfusion treats established fetal anemia from alloimmunization, and this unsensitized woman has no antibody and no affected fetus.\n• Begin maternal plasmapheresis: Plasmapheresis removes circulating antibody in severe established alloimmunization, and she has none to remove.\n• Administer anti-D only if the fetus is anemic: Prophylaxis must be given before sensitization. By the time a fetus is anemic the mother is already alloimmunized and RhoGAM cannot help.\n\nTakeaway: Give anti-D immunoglobulin at 28 to 30 weeks to an unsensitized Rh-negative woman, and again within 72 hours of delivering an Rh-positive infant.",
+ "w": [
+  "Waiting means a third-trimester fetomaternal hemorrhage could sensitize her before any prophylaxis is given, which is the event the 28-week dose exists to prevent.",
+  "Intrauterine transfusion treats established fetal anemia from alloimmunization, and this unsensitized woman has no antibody and no affected fetus.",
+  "",
+  "Plasmapheresis removes circulating antibody in severe established alloimmunization, and she has none to remove.",
+  "Prophylaxis must be given before sensitization. By the time a fetus is anemic the mother is already alloimmunized and RhoGAM cannot help."
+ ],
+ "fig": [
+  "figs/crs/bg-rhogam"
+ ]
+},
+{
+ "t": "Lecture 15 · Blood Groups & Transfusion",
+ "s": "A 45-year-old man develops dyspnea 2 hours after a plasma transfusion. He is febrile and hypotensive, the chest x-ray shows bilateral infiltrates, and the BNP is normal. Which of the following is the most appropriate management?",
+ "c": [
+  "Intravenous furosemide and fluid restriction",
+  "Immediate exchange transfusion",
+  "Intravenous epinephrine and antihistamines",
+  "Intravenous sodium bicarbonate and mannitol",
+  "Supportive oxygen without diuretics"
+ ],
+ "a": 4,
+ "e": "Fever, hypotension, bilateral infiltrates and a normal BNP within hours of a plasma-rich product identify transfusion-related acute lung injury. Donor anti-HLA or anti-neutrophil antibodies activate the recipient's neutrophils that are sequestered in the pulmonary capillaries, and those activated neutrophils damage the capillary endothelium. The result is a protein-rich exudate filling the alveoli, which is noncardiogenic pulmonary edema.\n\nBecause the patient is not volume overloaded, the treatment is supportive: oxygen and mechanical ventilation as required, while the lung injury resolves over the next few days. Diuretics are specifically avoided, since the patient is often hypotensive and intravascular volume is not the problem. TRALI is the leading cause of transfusion-related mortality, so recognizing it and withholding diuretics matters.\n\nWhy the other choices are wrong:\n• Intravenous furosemide and fluid restriction: Diuresis is the treatment for TACO, which presents with hypertension, raised jugular venous pressure, an S3 and a high BNP rather than fever and a normal BNP.\n• Immediate exchange transfusion: Exchange transfusion is used for severe neonatal hyperbilirubinemia and for sickle cell crises, not for acute lung injury.\n• Intravenous epinephrine and antihistamines: Epinephrine and antihistamines treat an anaphylactic transfusion reaction, which presents with urticaria, bronchospasm and angioedema rather than bilateral infiltrates.\n• Intravenous sodium bicarbonate and mannitol: Bicarbonate and mannitol protect the kidneys after a hemolytic reaction, and there is no evidence of hemolysis here.\n\nTakeaway: TRALI is treated supportively with oxygen and ventilation, and diuretics are withheld because the edema is not cardiogenic.",
+ "w": [
+  "Diuresis is the treatment for TACO, which presents with hypertension, raised jugular venous pressure, an S3 and a high BNP rather than fever and a normal BNP.",
+  "Exchange transfusion is used for severe neonatal hyperbilirubinemia and for sickle cell crises, not for acute lung injury.",
+  "Epinephrine and antihistamines treat an anaphylactic transfusion reaction, which presents with urticaria, bronchospasm and angioedema rather than bilateral infiltrates.",
+  "Bicarbonate and mannitol protect the kidneys after a hemolytic reaction, and there is no evidence of hemolysis here.",
+  ""
+ ],
+ "fig": [
+  "figs/crs/bg-trali-taco"
+ ]
+},
+{
+ "t": "Lecture 15 · Blood Groups & Transfusion",
+ "s": "A 28-year-old man requires red cells and his antibody screen is positive. Which of the following best describes what the antibody screen detected?",
+ "c": [
+  "Anti-A or anti-B in his own plasma",
+  "An antibody to a non-ABO red cell antigen",
+  "Antibodies on the surface of his own red cells",
+  "HLA antibodies in the donor plasma",
+  "A deficiency of complement regulatory proteins"
+ ],
+ "a": 1,
+ "e": "The antibody screen is an indirect Coombs test in which the patient's plasma is incubated with reagent red cells and antihuman globulin is added to reveal bound IgG. The reagent cells are deliberately group O, so they carry no A or B antigen and the patient's own anti-A or anti-B cannot react with them.\n\nAnything that does react must therefore be an unexpected alloantibody directed at a non-ABO antigen, such as anti-Kell, anti-Kidd, anti-Duffy or anti-D. Finding one changes management: the antibody must be identified, antigen-negative units selected, and a full serologic indirect Coombs crossmatch performed rather than an electronic crossmatch.\n\nWhy the other choices are wrong:\n• Anti-A or anti-B in his own plasma: Anti-A and anti-B are expected in every person according to their blood group, and group O reagent cells are used precisely so these do not interfere.\n• Antibodies on the surface of his own red cells: Antibody already bound to the patient's own red cells is what the direct Coombs test detects, which is a different test used for autoimmune hemolysis and transfusion reactions.\n• HLA antibodies in the donor plasma: The screen tests the recipient's plasma, not the donor's. Donor anti-HLA antibodies matter in TRALI and are not sought by this test.\n• A deficiency of complement regulatory proteins: Complement regulatory protein deficiency causes paroxysmal nocturnal hemoglobinuria and is diagnosed by flow cytometry, not by an antibody screen.\n\nTakeaway: The antibody screen is an indirect Coombs test for unexpected non-ABO alloantibodies in the recipient's plasma.",
+ "w": [
+  "Anti-A and anti-B are expected in every person according to their blood group, and group O reagent cells are used precisely so these do not interfere.",
+  "",
+  "Antibody already bound to the patient's own red cells is what the direct Coombs test detects, which is a different test used for autoimmune hemolysis and transfusion reactions.",
+  "The screen tests the recipient's plasma, not the donor's. Donor anti-HLA antibodies matter in TRALI and are not sought by this test.",
+  "Complement regulatory protein deficiency causes paroxysmal nocturnal hemoglobinuria and is diagnosed by flow cytometry, not by an antibody screen."
+ ],
+ "fig": [
+  "figs/crs/bg-pretx"
+ ]
+},
+{
+ "t": "Lecture 15 · Blood Groups & Transfusion",
+ "s": "A newborn of an Rh-negative mother has jaundice at 8 hours of life, hepatosplenomegaly and nucleated red cells on the smear. Which of the following is the most likely direct cause of the hepatosplenomegaly?",
+ "c": [
+  "Bilirubin deposition in hepatocytes",
+  "Portal venous congestion from heart failure",
+  "Bacterial sepsis with reticuloendothelial activation",
+  "Extramedullary hematopoiesis in the liver and spleen",
+  "Storage of unconjugated bilirubin in macrophages"
+ ],
+ "a": 3,
+ "e": "Maternal anti-D IgG crosses the placenta and coats fetal D-positive red cells, which are then removed by fetal macrophages. The resulting anemia drives a compensatory increase in red cell production, but the fetal marrow cannot meet the demand alone.\n\nProduction therefore shifts back to the liver and spleen, the organs that performed hematopoiesis earlier in fetal life. That extramedullary hematopoiesis enlarges both organs, and because production is hurried, immature nucleated erythroblasts are released into the circulation. The old name for the condition, erythroblastosis fetalis, comes from exactly this finding. Jaundice within the first 24 hours of life is never physiologic and should always prompt a search for hemolysis.\n\nWhy the other choices are wrong:\n• Bilirubin deposition in hepatocytes: Bilirubin causes the jaundice and, if it reaches the basal ganglia, kernicterus, but it does not enlarge the liver and spleen or release nucleated red cells.\n• Portal venous congestion from heart failure: Severe anemia can progress to high-output heart failure and hydrops, but congestion would not explain the nucleated red cells on the smear.\n• Bacterial sepsis with reticuloendothelial activation: Sepsis is an important cause of neonatal jaundice, but it does not produce the nucleated red cells that point to accelerated erythropoiesis.\n• Storage of unconjugated bilirubin in macrophages: Macrophages process heme into bilirubin and release it rather than storing it, so this does not explain organ enlargement.\n\nTakeaway: Hepatosplenomegaly with nucleated red cells in HDFN reflects extramedullary hematopoiesis compensating for hemolysis.",
+ "w": [
+  "Bilirubin causes the jaundice and, if it reaches the basal ganglia, kernicterus, but it does not enlarge the liver and spleen or release nucleated red cells.",
+  "Severe anemia can progress to high-output heart failure and hydrops, but congestion would not explain the nucleated red cells on the smear.",
+  "Sepsis is an important cause of neonatal jaundice, but it does not produce the nucleated red cells that point to accelerated erythropoiesis.",
+  "",
+  "Macrophages process heme into bilirubin and release it rather than storing it, so this does not explain organ enlargement."
+ ],
+ "fig": [
+  "figs/crs/bg-hdn"
+ ]
+},
+{
+ "t": "Lecture 15 · Blood Groups & Transfusion",
+ "s": "Which of the following patients is at greatest risk of transfusion-associated graft-versus-host disease if the unit is not irradiated?",
+ "c": [
+  "A child on chemotherapy receiving blood from a sibling",
+  "An adult with iron deficiency anemia receiving a random unit",
+  "A pregnant woman receiving a unit before delivery",
+  "A patient with sickle cell disease on chronic transfusion",
+  "A man with hemophilia A receiving factor concentrate"
+ ],
+ "a": 0,
+ "e": "Transfusion-associated graft-versus-host disease occurs when viable donor T lymphocytes in a cellular product survive in the recipient, engraft and attack the recipient's skin, gut, liver and bone marrow. It is almost always fatal.\n\nTwo risk factors combine in this child. Chemotherapy has suppressed his immune system, so he cannot eliminate the donor T cells, and the donor is a first-degree relative who shares an HLA haplotype, so his immune system may not recognize those cells as foreign at all. Gamma irradiation at 25 Gy damages donor lymphocyte DNA so they cannot divide, and it prevents more than 90% of fatal cases. Leukoreduction alone is not sufficient, because enough T cells remain to engraft.\n\nWhy the other choices are wrong:\n• An adult with iron deficiency anemia receiving a random unit: An immunocompetent adult receiving blood from an unrelated donor destroys the donor T cells normally, so the risk is negligible.\n• A pregnant woman receiving a unit before delivery: Pregnancy is not an indication for irradiation, since the mother's immune system remains competent.\n• A patient with sickle cell disease on chronic transfusion: Chronic transfusion in sickle cell disease raises the risk of alloimmunization and iron overload, but these patients are not immunosuppressed.\n• A man with hemophilia A receiving factor concentrate: Factor concentrates are plasma-derived and acellular, so they contain no viable donor lymphocytes to engraft.\n\nTakeaway: Irradiate cellular products for immunocompromised recipients and for donations from relatives to prevent TA-GVHD.",
+ "w": [
+  "",
+  "An immunocompetent adult receiving blood from an unrelated donor destroys the donor T cells normally, so the risk is negligible.",
+  "Pregnancy is not an indication for irradiation, since the mother's immune system remains competent.",
+  "Chronic transfusion in sickle cell disease raises the risk of alloimmunization and iron overload, but these patients are not immunosuppressed.",
+  "Factor concentrates are plasma-derived and acellular, so they contain no viable donor lymphocytes to engraft."
+ ],
+ "fig": [
+  "figs/crs/bg-processing"
+ ]
+},
+{
+ "t": "Lecture 15 · Blood Groups & Transfusion",
+ "s": "A 55-year-old man receives 12 units of red cells after a ruptured aortic aneurysm. His ionized calcium falls and the QT interval lengthens. Which of the following explains this finding?",
+ "c": [
+  "Potassium leaking from stored red cells displaces calcium",
+  "Dilution of albumin lowers total calcium",
+  "Citrate in the stored units chelates ionized calcium",
+  "Hypothermia shifts calcium into the cells",
+  "Lactate accumulation binds calcium in the plasma"
+ ],
+ "a": 2,
+ "e": "Blood products are anticoagulated with citrate, which prevents clotting by binding calcium, since calcium is factor IV and is needed for almost every step of the coagulation cascade. The liver normally metabolizes citrate within minutes, so a single unit causes no trouble.\n\nIn massive transfusion the citrate load arrives faster than the liver can clear it, especially if hepatic perfusion is poor from shock. The excess citrate chelates the patient's own ionized calcium. Falling ionized calcium destabilizes excitable membranes, producing perioral tingling and muscle cramps, and it prolongs the plateau phase of the cardiac action potential, which lengthens the QT interval. Treatment is intravenous calcium given separately from the blood, never added to the unit, where it would cause clotting.\n\nWhy the other choices are wrong:\n• Potassium leaking from stored red cells displaces calcium: Potassium does leak from stored cells and can cause hyperkalemia, but it does not bind or displace calcium, and hyperkalemia produces peaked T waves rather than a long QT.\n• Dilution of albumin lowers total calcium: Albumin dilution lowers total calcium while leaving the ionized fraction and the QT interval unchanged, so it does not explain these findings.\n• Hypothermia shifts calcium into the cells: Hypothermia is a genuine risk of massive transfusion and causes arrhythmias and coagulopathy, but it does not chelate calcium.\n• Lactate accumulation binds calcium in the plasma: Lactate accumulates in shock and causes acidosis, which if anything raises ionized calcium by displacing it from albumin.\n\nTakeaway: Citrate in massively transfused blood chelates ionized calcium, causing tetany and a prolonged QT.",
+ "w": [
+  "Potassium does leak from stored cells and can cause hyperkalemia, but it does not bind or displace calcium, and hyperkalemia produces peaked T waves rather than a long QT.",
+  "Albumin dilution lowers total calcium while leaving the ionized fraction and the QT interval unchanged, so it does not explain these findings.",
+  "",
+  "Hypothermia is a genuine risk of massive transfusion and causes arrhythmias and coagulopathy, but it does not chelate calcium.",
+  "Lactate accumulates in shock and causes acidosis, which if anything raises ionized calcium by displacing it from albumin."
+ ],
+ "fig": [
+  "figs/crs/bg-components"
+ ]
+},
+{
+ "t": "Lecture 15 · Blood Groups & Transfusion",
+ "s": "A patient with a hemoglobin of 6.8 g/dL and no active bleeding is admitted to the intensive care unit. According to the restrictive transfusion strategy, what is the appropriate target range after transfusion?",
+ "c": [
+  "10 to 12 g/dL",
+  "9 to 10 g/dL",
+  "12 to 14 g/dL",
+  "Above 11 g/dL in all patients",
+  "7 to 9 g/dL"
+ ],
+ "a": 4,
+ "e": "The TRICC trial compared a restrictive strategy, transfusing at a hemoglobin below 7.0 g/dL and targeting 7 to 9 g/dL, with a liberal strategy targeting around 10 g/dL. The restrictive approach reduced 30-day mortality and cardiac events.\n\nThe explanation is that transfusion is not risk-free: each unit carries the possibility of hemolytic and febrile reactions, TRALI, TACO, alloimmunization and infection, and stored red cells have reduced 2,3-BPG and deformability immediately after transfusion. For a hemodynamically stable patient, tolerating a moderate anemia is safer than correcting it to a normal number. Since one unit raises the hemoglobin by about 1 g/dL, this patient usually needs one unit to reach the target.\n\nWhy the other choices are wrong:\n• 10 to 12 g/dL: Ten to twelve is the liberal strategy, which performed worse than the restrictive approach in the TRICC trial.\n• 9 to 10 g/dL: Nine to ten overshoots the evidence-based target and leads to unnecessary units.\n• 12 to 14 g/dL: Twelve to fourteen is a normal hemoglobin and would require many unnecessary transfusions, each adding risk.\n• Above 11 g/dL in all patients: A universal threshold above 11 ignores the trial evidence entirely and maximizes exposure to transfusion risk.\n\nTakeaway: The restrictive standard is to transfuse below 7 g/dL and target 7 to 9 g/dL.",
+ "w": [
+  "Ten to twelve is the liberal strategy, which performed worse than the restrictive approach in the TRICC trial.",
+  "Nine to ten overshoots the evidence-based target and leads to unnecessary units.",
+  "Twelve to fourteen is a normal hemoglobin and would require many unnecessary transfusions, each adding risk.",
+  "A universal threshold above 11 ignores the trial evidence entirely and maximizes exposure to transfusion risk.",
+  ""
+ ],
+ "fig": [
+  "figs/crs/bg-components"
+ ]
+},
+{
+ "t": "Lecture 15 · Blood Groups & Transfusion",
+ "s": "A kidney transplanted from a deceased donor becomes mottled and fails within minutes of reperfusion. Which of the following is the most likely cause?",
+ "c": [
+  "T lymphocyte-mediated attack on donor HLA",
+  "Preformed antibodies against the graft",
+  "Calcineurin inhibitor nephrotoxicity",
+  "Recurrence of the original glomerular disease",
+  "Donor lymphocytes attacking recipient tissue"
+ ],
+ "a": 1,
+ "e": "Failure within minutes of reperfusion is hyperacute rejection, and the timing itself identifies the mechanism. Nothing can be newly synthesized that fast, so the effector must already have been present in the recipient's circulation.\n\nPreformed antibodies, typically anti-ABO or anti-HLA from prior transfusions, pregnancies or transplants, bind the donor vascular endothelium as soon as blood enters the graft. They activate complement, which triggers widespread thrombosis in the graft vessels, so the organ becomes mottled and infarcts on the operating table. This is a type II hypersensitivity reaction, and it is prevented by ABO matching and a pretransplant crossmatch that tests recipient serum against donor lymphocytes.\n\nWhy the other choices are wrong:\n• T lymphocyte-mediated attack on donor HLA: T cell-mediated rejection is acute rejection, which takes weeks to months because naive T cells must be activated and clonally expanded first.\n• Calcineurin inhibitor nephrotoxicity: Calcineurin inhibitor nephrotoxicity develops with ongoing drug exposure over days to weeks and does not cause immediate intraoperative graft loss.\n• Recurrence of the original glomerular disease: Recurrent glomerular disease affects the graft over months to years and cannot explain failure within minutes.\n• Donor lymphocytes attacking recipient tissue: Donor lymphocytes attacking the recipient is graft-versus-host disease, which damages skin, gut and liver rather than destroying the graft itself.\n\nTakeaway: Hyperacute rejection occurs within minutes from preformed recipient antibodies causing complement activation and graft vessel thrombosis.",
+ "w": [
+  "T cell-mediated rejection is acute rejection, which takes weeks to months because naive T cells must be activated and clonally expanded first.",
+  "",
+  "Calcineurin inhibitor nephrotoxicity develops with ongoing drug exposure over days to weeks and does not cause immediate intraoperative graft loss.",
+  "Recurrent glomerular disease affects the graft over months to years and cannot explain failure within minutes.",
+  "Donor lymphocytes attacking the recipient is graft-versus-host disease, which damages skin, gut and liver rather than destroying the graft itself."
+ ],
+ "fig": [
+  "figs/crs/bg-transplant"
+ ]
+},
+{
+ "t": "Lecture 15 · Blood Groups & Transfusion",
+ "s": "A transplant recipient is started on a drug that binds cyclophilin and blocks calcineurin. Which of the following adverse effects is most characteristic of this drug?",
+ "c": [
+  "Bone marrow suppression with megaloblastic change",
+  "Hemorrhagic cystitis",
+  "Pulmonary fibrosis",
+  "Nephrotoxicity and gum overgrowth",
+  "Peripheral neuropathy with foot drop"
+ ],
+ "a": 3,
+ "e": "Binding cyclophilin identifies the drug as cyclosporine. Tacrolimus is the other calcineurin inhibitor, but it binds FKBP instead. Both drugs prevent calcineurin from dephosphorylating NFAT, so NFAT cannot enter the nucleus and IL-2 is not transcribed, which blocks T-helper cell proliferation without depressing the bone marrow.\n\nCyclosporine's characteristic toxicities are nephrotoxicity, which is dose-dependent and the main limit on its use, together with gingival hyperplasia and hirsutism. Hypertension and hyperuricemia with gout also occur. Tacrolimus shares the nephrotoxicity and neurotoxicity but causes more hyperglycemia and new-onset diabetes, and it does not cause gingival overgrowth.\n\nWhy the other choices are wrong:\n• Bone marrow suppression with megaloblastic change: Marrow suppression is the hallmark of antimetabolites such as azathioprine and mycophenolate, whereas calcineurin inhibitors spare the marrow.\n• Hemorrhagic cystitis: Hemorrhagic cystitis is caused by the acrolein metabolite of cyclophosphamide and is prevented with mesna.\n• Pulmonary fibrosis: Pulmonary fibrosis is associated with bleomycin, busulfan and amiodarone rather than with calcineurin inhibitors.\n• Peripheral neuropathy with foot drop: Peripheral neuropathy with foot drop suggests vincristine, which is a vinca alkaloid used in chemotherapy.\n\nTakeaway: Cyclosporine binds cyclophilin to block calcineurin and IL-2 transcription, and causes nephrotoxicity with gingival hyperplasia and hirsutism.",
+ "w": [
+  "Marrow suppression is the hallmark of antimetabolites such as azathioprine and mycophenolate, whereas calcineurin inhibitors spare the marrow.",
+  "Hemorrhagic cystitis is caused by the acrolein metabolite of cyclophosphamide and is prevented with mesna.",
+  "Pulmonary fibrosis is associated with bleomycin, busulfan and amiodarone rather than with calcineurin inhibitors.",
+  "",
+  "Peripheral neuropathy with foot drop suggests vincristine, which is a vinca alkaloid used in chemotherapy."
+ ],
+ "fig": [
+  "figs/crs/bg-transplant"
+ ]
+},
+{
+ "t": "Lecture 15 · Blood Groups & Transfusion",
+ "s": "An infant born to a mother with type O blood develops mild jaundice within 24 hours of birth. The infant is type A. The direct Coombs test is weakly positive. Which of the following best explains this presentation?",
+ "c": [
+  "Maternal anti-A IgG crossing the placenta",
+  "Maternal anti-A IgM crossing the placenta",
+  "Physiologic jaundice of the newborn",
+  "Glucose-6-phosphate dehydrogenase deficiency",
+  "Biliary atresia presenting in the first day"
+ ],
+ "a": 0,
+ "e": "ABO hemolytic disease of the newborn differs from Rh disease in an important way. Type O individuals produce not only IgM anti-A and anti-B but also a significant IgG component, and IgG is the only immunoglobulin class transported across the placenta.\n\nThat maternal IgG anti-A coats the type A infant's red cells, giving a weakly positive direct Coombs test and mild hemolysis. Because fetal A and B antigens are not fully developed and are also expressed on many other tissues that absorb the antibody, the hemolysis is mild. Two features distinguish it from Rh disease: it can affect a first pregnancy, since the antibodies are naturally occurring rather than requiring sensitization, and it is usually mild enough to treat with phototherapy alone. Jaundice within the first 24 hours is never physiologic.\n\nWhy the other choices are wrong:\n• Maternal anti-A IgM crossing the placenta: IgM is a large pentamer that cannot cross the placenta, which is why ABO disease depends on the IgG fraction that type O mothers produce.\n• Physiologic jaundice of the newborn: Physiologic jaundice appears after 24 hours of life and has a negative direct Coombs test, since no antibody is coating the cells.\n• Glucose-6-phosphate dehydrogenase deficiency: G6PD deficiency can cause neonatal jaundice, but the direct Coombs test is negative because the hemolysis is oxidative rather than immune.\n• Biliary atresia presenting in the first day: Biliary atresia causes conjugated hyperbilirubinemia presenting after the first few weeks, with pale stools and dark urine.\n\nTakeaway: ABO hemolytic disease occurs when a type O mother's IgG anti-A or anti-B crosses the placenta, and it can affect a first pregnancy.",
+ "w": [
+  "",
+  "IgM is a large pentamer that cannot cross the placenta, which is why ABO disease depends on the IgG fraction that type O mothers produce.",
+  "Physiologic jaundice appears after 24 hours of life and has a negative direct Coombs test, since no antibody is coating the cells.",
+  "G6PD deficiency can cause neonatal jaundice, but the direct Coombs test is negative because the hemolysis is oxidative rather than immune.",
+  "Biliary atresia causes conjugated hyperbilirubinemia presenting after the first few weeks, with pale stools and dark urine."
+ ],
+ "fig": [
+  "figs/crs/bg-abo-table"
+ ]
+},
+{
+ "t": "Lecture 15 · Blood Groups & Transfusion",
+ "s": "A patient with known selective IgA deficiency and anti-IgA antibodies requires red cells. Which modification of the unit is most appropriate?",
+ "c": [
+  "Irradiated red cells",
+  "Leukoreduced red cells",
+  "Washed red cells",
+  "Volume-reduced red cells",
+  "Fresh units less than 7 days old"
+ ],
+ "a": 2,
+ "e": "Patients with selective IgA deficiency can form anti-IgA antibodies. When a product containing donor IgA is infused, those antibodies trigger an anaphylactic reaction within minutes, with urticaria, bronchospasm, angioedema and hypotension.\n\nThe trigger is a soluble plasma protein, so the solution is to remove the plasma. Saline washing rinses residual plasma, including IgA, from the cellular component, and the slide lists this indication explicitly alongside severe anaphylactic reactions. An alternative is to obtain components from IgA-deficient donors through a rare donor registry.\n\nWhy the other choices are wrong:\n• Irradiated red cells: Irradiation inactivates donor T lymphocytes to prevent graft-versus-host disease and has no effect on plasma IgA.\n• Leukoreduced red cells: Leukoreduction removes white cells to prevent febrile reactions, HLA alloimmunization and CMV transmission, but soluble IgA remains in the unit.\n• Volume-reduced red cells: Volume reduction limits the infused volume to prevent circulatory overload and does not reliably remove enough IgA.\n• Fresh units less than 7 days old: Unit age affects potassium load and 2,3-BPG content rather than IgA content, so fresher units would not prevent anaphylaxis.\n\nTakeaway: Wash cellular products to remove plasma IgA in IgA-deficient patients with anti-IgA antibodies.",
+ "w": [
+  "Irradiation inactivates donor T lymphocytes to prevent graft-versus-host disease and has no effect on plasma IgA.",
+  "Leukoreduction removes white cells to prevent febrile reactions, HLA alloimmunization and CMV transmission, but soluble IgA remains in the unit.",
+  "",
+  "Volume reduction limits the infused volume to prevent circulatory overload and does not reliably remove enough IgA.",
+  "Unit age affects potassium load and 2,3-BPG content rather than IgA content, so fresher units would not prevent anaphylaxis."
+ ],
+ "fig": [
+  "figs/crs/bg-processing"
+ ]
 }
 ]
 }
