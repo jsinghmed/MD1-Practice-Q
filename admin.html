@@ -232,7 +232,7 @@ tr.det td{background:#fafbfc;white-space:normal}
     const FV = firebase.firestore.FieldValue, notAdmin = u => !ADMINS.includes((u.email||"").toLowerCase());
     const todo = users.filter(u=>u.approved === undefined && notAdmin(u));
     // anyone approved but away for more than 7 days goes back to "Must re-request" (same rule the site applies at sign-in)
-    const ms = t => ts(t) ? ts(t).getTime() : 0, lapsed = users.filter(u=>u.approved === true && notAdmin(u) && !u.blocked && Math.max(ms(u.lastSeen), ms(u.approvedAt)) < Date.now() - 7*24*60*60*1000);
+    const ms = t => ts(t) ? ts(t).getTime() : 0, lapsed = users.filter(u=>u.approved === true && notAdmin(u) && !u.blocked && Math.max(ms(u.lastSeen), u.requestedAt ? ms(u.approvedAt) : 0) < Date.now() - 7*24*60*60*1000);
     if (!todo.length && !lapsed.length) return;
     const batch = db.batch();
     todo.forEach(u=>{ const ok = !!ts(u.lastSeen) && ts(u.lastSeen).getTime() >= APPROVAL_CUTOFF; batch.update(db.collection("users").doc(u.id), ok ? {approved:true, approvedAt:FV.serverTimestamp()} : {approved:false}); });
