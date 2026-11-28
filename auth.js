@@ -172,7 +172,7 @@
     let pending = false, lapsed = false;
     if (!isAdmin(u)) {
       const ms = t => t && t.toMillis ? t.toMillis() : 0;
-      if (!d0 || d0.approved === false) pending = true;
+      if (!d0 || d0.approved === false) { pending = true; if (d0 && d0.approvedAt && !d0.requestedAt) lapsed = true; }
       else if (d0.approved === undefined) { if (ms(d0.lastSeen) < APPROVAL_CUTOFF) pending = true; }
       // rolling rule: anyone away for more than 7 days has to request again (an approval counts as activity,
       // so someone approved today isn't sent straight back to the queue by an old lastSeen)
