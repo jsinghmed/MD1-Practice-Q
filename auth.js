@@ -63,9 +63,10 @@
   // New people must be approved by an admin. Accounts that already existed stay in if they were active in the
   // 7 days before approval was switched on (Nov 25, 2026); everyone else has to request again.
   const APPROVAL_CUTOFF = Date.UTC(2026, 10, 18, 21, 0);
+  const INACTIVE_MS = 7 * 24 * 60 * 60 * 1000;
   let unsubPend = null;
-  function gatePending(){
-    $("jjGateBody").innerHTML = `<h2>Request sent</h2><p style="margin:10px auto 16px">JJ QBank is invite only. Your request to join has been sent to the site owner. This page will open by itself as soon as you're approved, so you can leave it open or come back later.</p><p class="jjgnote" style="margin:0 auto 14px">Signed in as <b>${esc((user && user.email) || "")}</b></p><button class="jjglink" id="jjOther">Sign in with a different account</button>`;
+  function gatePending(lapsed){
+    $("jjGateBody").innerHTML = `<h2>Request sent</h2><p style="margin:10px auto 16px">JJ QBank is invite only. ${lapsed ? "You haven't been on in over a week, so your access needs to be approved again. " : ""}Your request to join has been sent to the site owner. This page will open by itself as soon as you're approved, so you can leave it open or come back later.</p><p class="jjgnote" style="margin:0 auto 14px">Signed in as <b>${esc((user && user.email) || "")}</b></p><button class="jjglink" id="jjOther">Sign in with a different account</button>`;
     gateStatus("Waiting for approval…");
     $("jjOther").onclick = async ()=>{ if (unsubPend) { unsubPend(); unsubPend = null; } try { await auth.signOut(); } catch(e){} kicked = false; gateSignIn(); };
   }
@@ -168,20 +169,24 @@
 
     // approval: new accounts, and old accounts not active in the week before approval started, wait for an admin
     const d0 = udoc.exists ? udoc.data() : null;
-    let pending = false;
+    let pending = false, lapsed = false;
     if (!isAdmin(u)) {
+      const ms = t => t && t.toMillis ? t.toMillis() : 0;
       if (!d0 || d0.approved === false) pending = true;
-      else if (d0.approved === undefined) { const ls = d0.lastSeen && d0.lastSeen.toMillis ? d0.lastSeen.toMillis() : 0; if (ls < APPROVAL_CUTOFF) pending = true; }
+      else if (d0.approved === undefined) { if (ms(d0.lastSeen) < APPROVAL_CUTOFF) pending = true; }
+      // rolling rule: anyone away for more than 7 days has to request again (an approval counts as activity,
+      // so someone approved today isn't sent straight back to the queue by an old lastSeen)
+      else if (Math.max(ms(d0.lastSeen), ms(d0.approvedAt)) < Date.now() - INACTIVE_MS) { pending = true; lapsed = true; }
     }
 
     // profile (blocked and approved can only ever be set by an admin)
     const FV = firebase.firestore.FieldValue, prof = {uid:u.uid, email:u.email||"", name:u.displayName||"", photo:u.photoURL||"", lastSeen:FV.serverTimestamp(), sessions:FV.increment(1)};
     if (!udoc.exists) { prof.firstSeen = FV.serverTimestamp(); prof.blocked = false; }
-    if (pending) { prof.approved = false; if (!d0 || !d0.requestedAt) prof.requestedAt = FV.serverTimestamp(); }
+    if (pending) { prof.approved = false; if (!d0 || !d0.requestedAt || lapsed) prof.requestedAt = FV.serverTimestamp(); }
     try { await uref.set(prof, {merge:true}); } catch(e) { console.warn("JJ profile write failed", e); }
 
     if (pending) {
-      kicked = true; window.JJ_HOLD = true; gatePending(); showGate();
+      kicked = true; window.JJ_HOLD = true; gatePending(lapsed); showGate();
       if (unsubPend) unsubPend();
       unsubPend = uref.onSnapshot(d=>{
         const x = d.exists ? d.data() : {};
